@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 410,
+  "canonical_name": "Otto de Alencar",
+  "alternate_names": [
+    "Otto de Alencar Silva",
+    "Otto de Alencar e Silva"
+  ],
+  "life": {
+    "born": {
+      "year": 1874,
+      "certainty": "academy_and_scholarly_source"
+    },
+    "died": {
+      "year": 1912,
+      "certainty": "academy_and_scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0410-w001",
+      "title": "Alguns erros de Mathematica na Syntese Subjectiva de A. Comte",
+      "work_type": "mathematical_critical_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1898,
+        "certainty": "journal_bibliographic_reference"
+      },
+      "first_publication_year": 1898,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "matemática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Auguste Comte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica do positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "geometria",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ifba.edu.br/dca/corpo_docente/mat/ejs/HISTORIA_DA_MATEMATICA_NO_BRASIL_ATE_1950.pdf",
+        "https://www.scielo.br/j/hcsm/a/9Xc5WH7vrkPpGcXjBvcYX7b/?lang=pt"
+      ],
+      "notes": "Publicado na Revista da Escola Politécnica do Rio de Janeiro, vol. 2, n. 9/10, setembro-outubro de 1898, pp. 113-130. O artigo criticou erros matemáticos de Comte e marcou simbolicamente a ruptura de Alencar com o positivismo ortodoxo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ruptura crítica com a matemática comtiana e introdução de pesquisa matemática moderna na Escola Politécnica do Rio de Janeiro",
+      "kind": "modern_mathematics_and_anti_dogmatic_positivism_contribution",
+      "authorship_status": "documented_in_history_of_science_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_engineering_source",
+      "title": "Academia Nacional de Engenharia — Otto de Alencar e Silva",
+      "url": "https://anebrasil.org.br/otto-de-alencar-e-silva/"
+    },
+    {
+      "kind": "scholarly_history_of_science_source",
+      "title": "História, Ciências, Saúde — Politécnicos ou matemáticos?",
+      "url": "https://www.scielo.br/j/hcsm/a/9Xc5WH7vrkPpGcXjBvcYX7b/?lang=pt"
+    },
+    {
+      "kind": "scholarly_history_of_mathematics_source",
+      "title": "Sociedade Brasileira de História da Ciência — Otto de Alencar Silva",
+      "url": "https://rbhciencia.emnuvens.com.br/rsbhc/article/view/419"
+    }
+  ],
+  "research_notes": [
+    "A historiografia documenta trabalho de 1898 sobre a superfície mínima de Riemann, mas o título bibliográfico exato não foi estabilizado nesta rodada; ele permanece na contribuição/notas e não é transformado em registro inventado.",
+    "A ficha prioriza o artigo de título, periódico e paginação verificáveis."
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "author_id": 334,
+  "canonical_name": "Vicente López",
+  "alternate_names": [
+    "Vicente Fidel López"
+  ],
+  "life": {
+    "born": {
+      "year": 1815,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1903,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1871_french_print_and_1883_1893_history_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0334-w001",
+      "title": "Les races aryennes du Pérou: leur langue, leur religion, leur histoire",
+      "work_type": "comparative_historical_philological_treatise_19th_century",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1871,
+        "certainty": "first_Paris_print"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "author_Vicente_Fidel_Lopez_historical_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "quechua",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lingüística comparada",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía peruana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hipótesis aria",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistahistoria.uc.cl/index.php/rhis/article/view/38123",
+        "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/opac.php?a=bsqAutor&n=L%C3%B3pez%2C+Vicente+Fidel",
+        "https://biblioteca.anh.org.ar/cgi-bin/koha/opac-detail.pl?biblionumber=44651"
+      ],
+      "notes": "París, Librairie A. Franck, 1871, 421 páginas; el catálogo de ANH tiene metadato de Montevideo como lugar, frente al catálogo de Buenos Aires y el estudio de 2021 que confirman París. Anteriores anticipos de revista no son una edición completa.",
+      "edition": {
+        "year": 1871,
+        "region": "París",
+        "publisher": "Librairie A. Franck"
+      },
+      "alternate_catalog_place": "Montevideo (biblioteca ANH, requires checking)"
+    },
+    {
+      "work_id": "0334-w002",
+      "title": "Historia de la República Argentina: su origen, su revolución y su desarrollo político hasta 1852",
+      "work_type": "multivolume_nineteenth_century_argentine_political_history",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_print_multivolume_year_range",
+        "period": {
+          "start": 1883,
+          "end": 1893
+        }
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "original_author_catalogued_multivolume_history",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia argentina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "revolución",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "organización nacional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/opac.php?a=bsqAutor&n=L%C3%B3pez%2C+Vicente+Fidel"
+      ],
+      "notes": "Buenos Aires, editorial Casavalle, primer volumen 1883; obra multivolumen cuyo periodo de edición se extiende hasta 1893 según bibliografías. No multiplicar los diez tomos como diez obras originales ni confundir edición 1911 con princeps.",
+      "edition": {
+        "year": 1883,
+        "publisher": "Casavalle",
+        "region": "Buenos Aires"
+      },
+      "volume_count_reported": 10,
+      "volumes_print_period": {
+        "start": 1883,
+        "end": 1893
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historiografía liberal argentina y especulaciones comparativas sobre lengua, religión e historia andina",
+      "kind": "argentine_historical_and_comparative_philosophy",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "peer_reviewed_article",
+      "title": "Nicolás Arenas Deleón, Un pasaporte a la república de las letras: Vicente Fidel López y Les races aryennes du Pérou (2021)",
+      "url": "https://revistahistoria.uc.cl/index.php/rhis/article/view/38123"
+    },
+    {
+      "kind": "municipal_library_bibliography",
+      "title": "Bibliotecas de Buenos Aires, Vicente Fidel López, ediciones 1871 y 1883",
+      "url": "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/opac.php?a=bsqAutor&n=L%C3%B3pez%2C+Vicente+Fidel"
+    },
+    {
+      "kind": "national_academy_catalog",
+      "title": "Academia Nacional de Historia, Les races aryennes du Pérou, 1871",
+      "url": "https://biblioteca.anh.org.ar/cgi-bin/koha/opac-detail.pl?biblionumber=44651"
+    }
+  ],
+  "research_notes": [
+    "La persona canónica «Vicente López» corresponde a Vicente Fidel López (1815–1903), NO a Vicente López y Planes.",
+    "Las hipótesis de parentesco entre lenguas quechuas e indoarias son propuestas históricas discutibles, no hechos lingüísticos actuales.",
+    "La atribución bibliográfica no equivale a validar afirmaciones raciales del siglo XIX."
+  ]
+}

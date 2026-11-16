@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "author_id": 411,
+  "canonical_name": "Amoroso Costa",
+  "alternate_names": [
+    "Manuel Amoroso Costa"
+  ],
+  "life": {
+    "born": {
+      "year": 1885,
+      "certainty": "academy_authority"
+    },
+    "died": {
+      "year": 1928,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0411-w001",
+      "title": "Introdução à teoria da relatividade",
+      "work_type": "mathematical_physics_and_philosophy_of_science_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1922,
+        "certainty": "academy_bibliographic_source"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "relatividade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "física matemática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia da ciência",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.abc.org.br/membros/manuel-amoroso-costa/"
+      ],
+      "notes": "Livro publicado em 1922 e apontado pela Academia Brasileira de Ciências como durante muitos anos o único livro brasileiro sobre a teoria da relatividade."
+    },
+    {
+      "work_id": "0411-w002",
+      "title": "Pela Ciência Pura",
+      "work_type": "science_policy_and_philosophy_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1923,
+        "certainty": "academy_source"
+      },
+      "first_publication_year": 1923,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciência pura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política científica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formação científica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.abc.org.br/membros/manuel-amoroso-costa/"
+      ],
+      "notes": "Artigo de 1923 em que Amoroso Costa defendeu política de longo prazo para formação de cientistas e desenvolvimento da ciência no Brasil."
+    },
+    {
+      "work_id": "0411-w003",
+      "title": "As idéias fundamentais da matemática",
+      "work_type": "philosophy_and_foundations_of_mathematics_book_published_posthumously",
+      "original_language": "português",
+      "original_date": {
+        "year": 1929,
+        "certainty": "first_edition_documented"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "original_author_posthumous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fundamentos da matemática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia da matemática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "geometria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.abc.org.br/membros/manuel-amoroso-costa/",
+        "https://repositorio.pucsp.br/bitstream/handle/11485/2/Dissertacao%20Edna%20Rosele%20da%20Conceicao%20Neves.pdf"
+      ],
+      "notes": "Publicado postumamente em 1929 pela Pimenta de Mello & C.; a capa da primeira edição é reproduzida em estudo acadêmico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Modernização da matemática brasileira, divulgação da relatividade e defesa institucional da ciência pura",
+      "kind": "mathematics_philosophy_of_science_and_science_policy_contribution",
+      "authorship_status": "documented_in_academy_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Brasileira de Ciências — Manuel Amoroso Costa",
+      "url": "https://www.abc.org.br/membros/manuel-amoroso-costa/"
+    },
+    {
+      "kind": "academic_source",
+      "title": "PUC-SP — estudo sobre As idéias fundamentais da matemática",
+      "url": "https://repositorio.pucsp.br/bitstream/handle/11485/2/Dissertacao%20Edna%20Rosele%20da%20Conceicao%20Neves.pdf"
+    }
+  ],
+  "research_notes": [
+    "As idéias fundamentais da matemática apareceu em 1929, após a morte de Amoroso Costa no acidente de 3 de dezembro de 1928.",
+    "O seed privilegia obras diretamente vinculadas a matemática, filosofia da ciência e política científica."
+  ]
+}

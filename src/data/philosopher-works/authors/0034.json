@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "author_id": 34,
+  "canonical_name": "José de la Luz y Caballero",
+  "alternate_names": [
+    "José Cipriano de la Luz y Caballero"
+  ],
+  "life": {
+    "born": {
+      "year": 1800,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1862,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophical_pedagogical_collections_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0034-w001",
+      "title": "Informe sobre la traslación, reforma y ampliación de la Escuela Náutica de Regla",
+      "work_type": "educational_reform_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1833,
+        "certainty": "exact",
+        "date": "1833-12-11"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación científica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Escuela Náutica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "reforma educativa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0034-w002",
+      "title": "Artículos varios de filosofía",
+      "work_type": "philosophical_article_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1840,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1840,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "empirismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0034-w003",
+      "title": "Impugnación a las doctrinas filosóficas de Víctor Cousin",
+      "work_type": "philosophical_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1840,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1840,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Victor Cousin",
+          "role": "author_criticized"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "eclecticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Victor Cousin",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "empirismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0034-w004",
+      "title": "Elencos y discursos académicos",
+      "work_type": "academic_discourse_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1830,
+        "end": 1861,
+        "certainty": "corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0034-w005",
+      "title": "Aforismos",
+      "work_type": "aphorism_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1830,
+        "end": 1862,
+        "certainty": "mostly_mature_period"
+      },
+      "first_publication_year": 1890,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Alfredo Zayas Alfonso",
+          "role": "early_posthumous_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formación moral",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0034-w006",
+      "title": "Escritos educativos",
+      "work_type": "educational_essay_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1830,
+        "end": 1862,
+        "certainty": "corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_posthumously_collected",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "moral",
+          "provenance": "inferred"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "collected_works",
+      "title": "José de la Luz y Caballero: Obras. Aforismos. Volumen I",
+      "url": "https://ufdcimages.uflib.ufl.edu/AA/00/00/86/84/00001/LC1.pdf",
+      "publisher": "Biblioteca de Clásicos Cubanos / University of Florida Digital Collections"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "Acercamiento histórico al pensamiento social cubano",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S2594-29562022000100017&script=sci_arttext",
+      "publisher": "SciELO México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar los cinco volúmenes modernos de Obras hasta nivel de texto individual.",
+    "Los títulos de colecciones póstumas no deben confundirse con libros unitarios publicados por Luz en vida."
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "author_id": 122,
+  "canonical_name": "Francisco Romero",
+  "alternate_names": [
+    "Francisco Romero Delgado"
+  ],
+  "life": {
+    "born": {
+      "year": 1891,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1962,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_logic_personalism_history_of_philosophy_culture_and_systematic_anthropology_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0122-w001",
+      "title": "Lógica",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Eugenio Pucciarelli",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w002",
+      "title": "Lógica y nociones de teoría del conocimiento",
+      "work_type": "logic_epistemology_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Eugenio Pucciarelli",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teoría del conocimiento",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w003",
+      "title": "Alejandro Korn",
+      "work_type": "philosopher_study_collective_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Ángel Vassallo",
+          "role": "coauthor"
+        },
+        {
+          "name": "Luis Aznar",
+          "role": "coauthor"
+        }
+      ],
+      "related_people": [
+        {
+          "name": "Alejandro Korn",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alejandro Korn",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía argentina",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w004",
+      "title": "Filosofía contemporánea",
+      "alternate_titles": [
+        "Filosofía contemporánea: estudios y notas"
+      ],
+      "work_type": "contemporary_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w005",
+      "title": "Sobre la historia de la filosofía",
+      "work_type": "philosophy_of_history_of_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metafilosofía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w006",
+      "title": "Filosofía de la persona y otros ensayos de filosofía",
+      "work_type": "personalism_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "persona",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espíritu",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w007",
+      "title": "Papeles para una filosofía",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w008",
+      "title": "Filosofía de ayer y de hoy",
+      "work_type": "history_of_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w009",
+      "title": "Filósofos y problemas",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filósofos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "problemas filosóficos",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w010",
+      "title": "Ideas y figuras",
+      "work_type": "intellectual_portrait_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "figuras",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w011",
+      "title": "El hombre y la cultura",
+      "work_type": "philosophical_anthropology_culture_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0122-w012",
+      "title": "Teoría del hombre",
+      "work_type": "systematic_philosophical_anthropology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789500395700"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "antropología filosófica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "intencionalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espíritu",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Promoción continental de la profesionalización filosófica y de redes latinoamericanas de filosofía",
+      "kind": "academic_editorial_institutional_contribution",
+      "period": {
+        "start": 1930,
+        "end": 1962,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "redes intelectuales",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "bibliographic_study",
+      "title": "Bibliografía de Francisco Romero",
+      "url": "https://ahira.com.ar/wp-content/uploads/2019/01/Ciudad-3.pdf",
+      "publisher": "AHIRA"
+    },
+    {
+      "kind": "publisher_record",
+      "title": "Teoría del hombre",
+      "url": "https://editoriallosada.com/libro/teoria-del-hombre/",
+      "publisher": "Editorial Losada"
+    },
+    {
+      "kind": "historical_bibliography",
+      "title": "Vida y obra de Francisco Romero",
+      "url": "https://www.filosofia.org/hem/dep/rcf/n09p005.htm",
+      "publisher": "Revista Cubana de Filosofía"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Francisco Romero (1891-1962)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar escritos de 1953-1960 y artículos sobre historia de la filosofía.",
+    "La conferencia Filosofía de la persona de 1935 se distingue de su publicación como libro de 1944."
+  ]
+}

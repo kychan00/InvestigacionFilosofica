@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "author_id": 53,
+  "canonical_name": "Gabino Barreda",
+  "alternate_names": [
+    "Gabino Eleuterio Juan Nepomuceno Barreda Flores"
+  ],
+  "life": {
+    "born": {
+      "year": 1818,
+      "certainty": "project_canonical_and_modern_mexican_source",
+      "source_conflict_candidates": [
+        1811,
+        1820
+      ]
+    },
+    "died": {
+      "year": 1881,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_positivist_educational_texts_verified_conflicting_birth_year_preserved",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0053-w001",
+      "title": "La homeopatía o juicio crítico sobre este nuevo sistema",
+      "work_type": "medical_critical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1861,
+        "certainty": "publication_or_composition"
+      },
+      "first_publication_year": 1861,
+      "authorship_status": "verified_secondary_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "homeopatía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "medicina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "método científico",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0053-w002",
+      "title": "De la educación moral",
+      "work_type": "educational_moral_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1863,
+        "certainty": "exact",
+        "date": "1863-05-03"
+      },
+      "first_publication_year": 1863,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "moral científica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "fisiología",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0053-w003",
+      "title": "Oración cívica pronunciada en Guanajuato el 16 de septiembre de 1867",
+      "work_type": "civic_philosophical_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1867,
+        "certainty": "exact",
+        "date": "1867-09-16"
+      },
+      "first_publication_year": 1867,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de México",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "emancipación mental",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "orden y progreso",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0053-w004",
+      "title": "Discurso en honor del barón de Humboldt",
+      "work_type": "scientific_commemorative_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1869,
+        "certainty": "exact",
+        "date": "1869-09-14"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Alexander von Humboldt",
+          "role": "honored_subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Humboldt",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0053-w005",
+      "title": "Opúsculos, discusiones y discursos",
+      "work_type": "author_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1877,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1877,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Asociación Metodófila Gabino Barreda",
+          "role": "collector_and_publisher"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Colección publicada por sus discípulos; incluye textos anteriores y no debe contarse como producción completamente nueva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reforma de la educación preparatoria y fundación de la Escuela Nacional Preparatoria",
+      "kind": "educational_institutional_contribution",
+      "period": {
+        "start": 1867,
+        "end": 1878,
+        "certainty": "institutional_period"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Escuela Nacional Preparatoria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación positiva",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "mexican_philosophy_reference",
+      "title": "Gabino Barreda",
+      "url": "https://divcsh.izt.uam.mx/cefilibe/wp-content/uploads/2013/12/Barreda_Gabino-GabrielVargasLozano.pdf",
+      "publisher": "Enciclopedia de la Filosofía Mexicana / UAM"
+    },
+    {
+      "kind": "national_library_repository",
+      "title": "Opúsculos discusiones y discursos",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/opusculos-discusiones-y-discursos-4199",
+      "publisher": "Biblioteca Nacional de México / UNAM"
+    },
+    {
+      "kind": "government_cultural_note",
+      "title": "Opúsculos, discusiones y discursos",
+      "url": "https://www.gob.mx/cultura/prensa/publica-conaculta-el-pensamiento-de-gabino-barreda-en-el-libro-opusculos-discusiones-y-discursos",
+      "publisher": "Secretaría de Cultura de México"
+    }
+  ],
+  "research_notes": [
+    "El inventario maestro usa 1818; algunas fuentes históricas secundarias dan 1820 y una nota oficial de 2015 incluso 1811. Se conserva el conflicto en vez de normalizarlo silenciosamente.",
+    "Pendiente desglosar Opúsculos y la correspondencia educativa a nivel de documento."
+  ]
+}

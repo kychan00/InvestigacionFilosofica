@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "author_id": 299,
+  "canonical_name": "Antonio Ruiz de Montoya",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_original_historical_imprints_1639_1640_catalog_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0299-w001",
+      "title": "Conquista espiritual hecha por los religiosos de la Compañía de Jesús en las provincias del Paraguay, Paraná, Uruguay y Tape",
+      "work_type": "printed_jesuit_colonial_mission_history",
+      "original_language": "español",
+      "original_date": {
+        "year": 1639,
+        "certainty": "original_madrid_print"
+      },
+      "first_publication_year": 1639,
+      "authorship_status": "original_author_first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "misiones guaraníes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justicia colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reducciones",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129614.html",
+        "https://infomontoya.isparm.edu.ar/noticia/2219/antonio-ruiz-de-montoya-y-su-legado"
+      ],
+      "notes": "Primera edición Madrid, Imprenta del Reino, 1639; crónica sobre misiones y defensa de pueblos guaraníes en contexto colonial.",
+      "edition": {
+        "year": 1639,
+        "region": "Madrid",
+        "publisher": "Imprenta del Reino"
+      }
+    },
+    {
+      "work_id": "0299-w002",
+      "title": "Tesoro de la lengua guaraní",
+      "work_type": "guarani_spanish_lexicon_first_print",
+      "original_language": "guaraní y español",
+      "original_date": {
+        "year": 1639,
+        "certainty": "first_madrid_print"
+      },
+      "first_publication_year": 1639,
+      "authorship_status": "original_author_first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guaraní",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lexicografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lengua indígena",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129614.html",
+        "https://infomontoya.isparm.edu.ar/noticia/2219/antonio-ruiz-de-montoya-y-su-legado"
+      ],
+      "notes": "Imprenta de Juan Sánchez, Madrid 1639; distinguir de Vocabulario en el volumen de Arte (1640) y de las reimpresiones 1722, 1876.",
+      "edition": {
+        "year": 1639,
+        "publisher": "Juan Sánchez",
+        "region": "Madrid"
+      }
+    },
+    {
+      "work_id": "0299-w003",
+      "title": "Arte y vocabulario de la lengua guaraní",
+      "work_type": "language_grammar_and_dictionary_combined_1640_print",
+      "original_language": "guaraní y español",
+      "original_date": {
+        "year": 1640,
+        "certainty": "first_madrid_print"
+      },
+      "first_publication_year": 1640,
+      "authorship_status": "original_author_first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gramática guaraní",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vocabulario",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lingüística colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://brasilhis.usal.es/es/node/12979",
+        "https://infomontoya.isparm.edu.ar/noticia/2219/antonio-ruiz-de-montoya-y-su-legado"
+      ],
+      "notes": "Redactado al menos en parte 1639, impreso Madrid por Juan Sánchez 1640; Arte y Vocabulario aparecen en volumen conjunto, registrado como UNA unidad de la edición. No confundir impresos posteriores de 1724.",
+      "edition": {
+        "year": 1640,
+        "publisher": "Juan Sánchez",
+        "region": "Madrid"
+      }
+    },
+    {
+      "work_id": "0299-w004",
+      "title": "Catecismo de la lengua guaraní",
+      "work_type": "guarani_catechism_original_print",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1640,
+        "certainty": "first_madrid_print"
+      },
+      "first_publication_year": 1640,
+      "authorship_status": "original_author_first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "catequesis guaraní",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética misionera",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lengua indígena",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://infomontoya.isparm.edu.ar/noticia/2219/antonio-ruiz-de-montoya-y-su-legado",
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129614.html"
+      ],
+      "notes": "Madrid, Diego Díaz de la Carrera, 1640. No confundir esta edición con el Arte/Vocabulario del mismo año.",
+      "edition": {
+        "year": 1640,
+        "publisher": "Diego Díaz de la Carrera",
+        "region": "Madrid"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Descripción de lengua y mundo guaraní, organización de las reducciones y gestiones frente a esclavización y ataques bandeirantes",
+      "kind": "missionary_linguistic_and_political_intellectual_history",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca Nacional de Chile, Memoria Chilena, Ruiz de Montoya 1639",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129614.html"
+    },
+    {
+      "kind": "historical_academic_database",
+      "title": "BRASILHIS, Arte y bocabulario 1640",
+      "url": "https://brasilhis.usal.es/es/node/12979"
+    },
+    {
+      "kind": "scholarly_mission_institute",
+      "title": "Instituto Superior Antonio Ruiz de Montoya, bibliografía en vida",
+      "url": "https://infomontoya.isparm.edu.ar/noticia/2219/antonio-ruiz-de-montoya-y-su-legado"
+    }
+  ],
+  "research_notes": [
+    "Los instrumentos lingüísticos relacionados son títulos distintos de las ediciones de 1639/1640; evitar duplicar vocabulario de 1640 dentro de mismo volumen.",
+    "Los textos de 1991 y 1996 publicados póstumamente no entran en este seed hasta cotejar manuscrito y autoría."
+  ]
+}

@@ -1,0 +1,584 @@
+{
+  "schema_version": 1,
+  "author_id": 119,
+  "canonical_name": "Carlos Astrada",
+  "alternate_names": [
+    "Carlos Astrada"
+  ],
+  "life": {
+    "born": {
+      "year": 1894,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1970,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_existential_phenomenological_axiological_national_marxist_and_liberation_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0119-w001",
+      "title": "El juego existencial",
+      "work_type": "existential_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "juego",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w002",
+      "title": "Idealismo fenomenológico y metafísica existencial",
+      "work_type": "phenomenology_metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "idealismo fenomenológico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metafísica existencial",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w003",
+      "title": "La ética formal y los valores",
+      "work_type": "ethics_axiology_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Max Scheler",
+          "role": "major_interlocutor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética formal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valores",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w004",
+      "title": "El juego metafísico",
+      "work_type": "metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "juego metafísico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w005",
+      "title": "Temporalidad",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "temporalidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w006",
+      "title": "Nietzsche, profeta de una edad trágica",
+      "work_type": "philosopher_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Friedrich Nietzsche",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "edad trágica",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w007",
+      "title": "El mito gaucho",
+      "work_type": "national_philosophy_cultural_ontology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "first_version"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mito gaucho",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autonomía cultural",
+          "provenance": "scholarly"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1964,
+          "kind": "expanded_final_version"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w008",
+      "title": "La revolución existencialista. Hacia un humanismo de la libertad",
+      "work_type": "existential_humanism_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolución existencialista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanismo de la libertad",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w009",
+      "title": "Hegel y la dialéctica",
+      "work_type": "dialectics_history_of_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "G. W. F. Hegel",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w010",
+      "title": "El marxismo y las escatologías",
+      "work_type": "marxist_philosophy_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "escatología",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w011",
+      "title": "Humanismo y dialéctica de la libertad",
+      "work_type": "marxist_humanism_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w012",
+      "title": "Dialéctica y positivismo lógico",
+      "work_type": "marxist_epistemology_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo lógico",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w013",
+      "title": "Tierra y figura",
+      "work_type": "latin_american_cultural_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tierra",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "figura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Latinoamérica",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w014",
+      "title": "Trabajo y alienación",
+      "work_type": "marxist_labor_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "trabajo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alienación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Marx",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w015",
+      "title": "Fenomenología y praxis",
+      "work_type": "phenomenology_marxism_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "praxis",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w016",
+      "title": "Dialéctica e historia",
+      "work_type": "marxist_philosophy_of_history_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0119-w017",
+      "title": "Martin Heidegger. De la analítica ontológica a la dimensión dialéctica",
+      "work_type": "philosopher_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Martin Heidegger",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "analítica ontológica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "dialéctica",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación de Cuadernos de Filosofía y articulación de una filosofía existencial-marxista de liberación",
+      "kind": "academic_editorial_intellectual_contribution",
+      "period": {
+        "start": 1947,
+        "end": 1970,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Cuadernos de Filosofía",
+          "provenance": "project_primary_source"
+        },
+        {
+          "term": "liberación",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_research_bibliography",
+      "title": "Carlos Astrada — producción",
+      "url": "https://bicyt.conicet.gov.ar/fichas/produccion/en/10880397",
+      "publisher": "CONICET"
+    },
+    {
+      "kind": "university_article",
+      "title": "La primera aproximación de Carlos Astrada al pensamiento de Marx",
+      "url": "https://publicaciones.sociales.uba.ar/index.php/ebdld/es/article/view/8251",
+      "publisher": "Universidad de Buenos Aires"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Carlos Astrada (1894-1970)"
+    }
+  ],
+  "research_notes": [
+    "El mito gaucho conserva primera versión 1948 y edición final ampliada de 1964.",
+    "Pendiente artículos juveniles, traducciones y Ensayos filosóficos de 1963 como recopilación."
+  ]
+}

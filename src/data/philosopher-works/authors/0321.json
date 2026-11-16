@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "author_id": 321,
+  "canonical_name": "Francisco de Paula Castañeda",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_distinct_1820_1823_satirical_serials_seeded_more_periodicals_pending",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0321-w001",
+      "title": "El Despertador Teofilantrópico Místico-Político",
+      "work_type": "religious_political_satirical_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "serial_first_and_last_issues_documented",
+        "period": {
+          "start": 1820,
+          "end": 1822
+        }
+      },
+      "first_publication_year": 1820,
+      "authorship_status": "founder_author_editor_with_literary_personae",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "prensa política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sátira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral católica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.cl/scielo.php?pid=S0716-58112020000100099&script=sci_arttext",
+        "https://www.cambridge.org/core/journals/latin-american-research-review/article/ficcion-satira-y-moral-en-la-prensa-rioplatense-de-comienzos-del-siglo-xix-de-antonio-valdes-a-francisco-de-paula-castaneda/4880A1631E513A26847F6578C3271E92",
+        "https://sedici.unlp.edu.ar/handle/10915/180502"
+      ],
+      "notes": "Circuló entre abril de 1820 y octubre de 1822, 75 números según la historiografía de la prensa; los artículos y personajes ficticios son recursos editoriales del mismo autor, no autores personales independientes.",
+      "issue_count_reported": 75
+    },
+    {
+      "work_id": "0321-w002",
+      "title": "Suplemento al Despertador Teofilantrópico Místico-Político",
+      "work_type": "political_religious_serial_supplement",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "serial_publication_attested",
+        "period": {
+          "start": 1820,
+          "end": 1822
+        }
+      },
+      "first_publication_year": 1820,
+      "authorship_status": "editor_and_principal_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "polémica religiosa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "prensa política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.cl/scielo.php?pid=S0716-58112020000100099&script=sci_arttext",
+        "https://sedici.unlp.edu.ar/handle/10915/180502"
+      ],
+      "notes": "Serie suplementaria con 21 números documentados. El suplemento posee identidad de cabecera propia, pero mantiene relación editorial explícita con El Despertador; no equivale a 21 libros.",
+      "issue_count_reported": 21
+    },
+    {
+      "work_id": "0321-w003",
+      "title": "El Desengañador Gauchi-Político",
+      "work_type": "political_satirical_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "bibliographic_serial_span_contested_end_year",
+        "period": {
+          "start": 1820,
+          "end": 1822
+        }
+      },
+      "first_publication_year": 1820,
+      "authorship_status": "founder_author_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sátira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política rioplatense",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cambridge.org/core/journals/latin-american-research-review/article/ficcion-satira-y-moral-en-la-prensa-rioplatense-de-comienzos-del-siglo-xix-de-antonio-valdes-a-francisco-de-paula-castaneda/4880A1631E513A26847F6578C3271E92",
+        "https://sedici.unlp.edu.ar/handle/10915/180502"
+      ],
+      "notes": "Periódico político de título extenso «Desengañador Gauchi-político, Federi-montonero...». Los repertorios difieren en los límites exactos 1820–1821/1822; fuentes académicas señalan 27 números. Se conserva duda de último número.",
+      "issue_count_reported": 27,
+      "reported_end_years": [
+        1821,
+        1822
+      ]
+    },
+    {
+      "work_id": "0321-w004",
+      "title": "Doña María Retazos, de varios autores trasladados literalmente...",
+      "work_type": "political_literary_satirical_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_and_last_issues_in_scholarly_history",
+        "period": {
+          "start": 1821,
+          "end": 1823
+        }
+      },
+      "first_publication_year": 1821,
+      "authorship_status": "editorial_persona_by_Francisco_de_Paula_Castaneda",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "personaje editorial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "feminidad ficticia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "polémica filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.cl/scielo.php?pid=S0716-58112020000100099&script=sci_arttext",
+        "https://www.cambridge.org/core/journals/latin-american-research-review/article/ficcion-satira-y-moral-en-la-prensa-rioplatense-de-comienzos-del-siglo-xix-de-antonio-valdes-a-francisco-de-paula-castaneda/4880A1631E513A26847F6578C3271E92"
+      ],
+      "notes": "16 números entre marzo de 1821 y agosto de 1823; «Doña María Retazos» funciona como voz ficcional que nombra el periódico, NO una mujer autora histórica distinta del fraile.",
+      "editorial_persona": "Doña María Retazos",
+      "issue_count_reported": 16
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Producción de prensa católica polémica y satírica y experimentación con voces editoriales ficticias en la esfera pública rioplatense",
+      "kind": "nineteenth_century_argentine_political_religious_thought",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "peer_reviewed_criticism",
+      "title": "Leer en el destierro. Escenas de lectura en los periódicos de fray Castañeda (2020)",
+      "url": "https://www.scielo.cl/scielo.php?pid=S0716-58112020000100099&script=sci_arttext"
+    },
+    {
+      "kind": "peer_reviewed_media_history",
+      "title": "Ficción, sátira y moral en la prensa rioplatense, Latin American Research Review (2025)",
+      "url": "https://www.cambridge.org/core/journals/latin-american-research-review/article/ficcion-satira-y-moral-en-la-prensa-rioplatense-de-comienzos-del-siglo-xix-de-antonio-valdes-a-francisco-de-paula-castaneda/4880A1631E513A26847F6578C3271E92"
+    },
+    {
+      "kind": "university_research_repository",
+      "title": "Claudia Román, La prensa en red, UNLP (2014)",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/180502"
+    }
+  ],
+  "research_notes": [
+    "No tomar los personajes femeninos de la prensa como seudónimos de autores distintos; contextualizar la ficción y la sátira.",
+    "Otras cabeceras —Paralipómenon, Eu não me meto, La Matrona Comentadora— constan en bibliografía, pero esta ficha es seed no exhaustivo.",
+    "Diferencias menores en número final y fechas de El Desengañador quedan explícitas."
+  ]
+}

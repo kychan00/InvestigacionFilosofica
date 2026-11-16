@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "author_id": 148,
+  "canonical_name": "Félix Schwartzmann",
+  "alternate_names": [
+    "Félix Schwartzmann Turkenich"
+  ],
+  "life": {
+    "born": {
+      "year": 1913,
+      "certainty": "national_library"
+    },
+    "died": {
+      "year": 2014,
+      "certainty": "national_library"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_selected_works_with_editorial_disambiguation_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0148-w001",
+      "title": "El sentimiento de lo humano en América. Tomo I",
+      "work_type": "philosophical_anthropology_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sentimiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "first_publication_year_candidates": [
+        1950,
+        1951
+      ],
+      "source_conflict": true,
+      "notes": "Catálogo de la Biblioteca Nacional chilena fecha conjunto 1950–1953; cronología autoral y libro-base indican tomo inicial 1951. Cotejar portada."
+    },
+    {
+      "work_id": "0148-w002",
+      "title": "El sentimiento de lo humano en América. Tomo II: Antropología de la convivencia",
+      "work_type": "philosophical_anthropology_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antropología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "convivencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1992,
+          "notes": "Segunda edición revisada, publicada junto a El libro de las revoluciones"
+        }
+      ]
+    },
+    {
+      "work_id": "0148-w003",
+      "title": "Husserl y la ciencia moderna",
+      "work_type": "journal_article_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciencia moderna",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "related_people": [
+        {
+          "name": "Edmund Husserl",
+          "role": "subject"
+        }
+      ],
+      "notes": "Catálogo Biblioteca Nacional Chile registra folleto de 1959, pp. 3–30."
+    },
+    {
+      "work_id": "0148-w004",
+      "title": "Sentido de la duda trágica en Shakespeare",
+      "work_type": "philosophical_aesthetic_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "duda trágica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Shakespeare",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "related_people": [
+        {
+          "name": "William Shakespeare",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0148-w005",
+      "title": "Máscara y experiencia del otro",
+      "work_type": "philosophical_anthropology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "máscara",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "experiencia del otro",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ]
+    },
+    {
+      "work_id": "0148-w006",
+      "title": "Teoría de la expresión",
+      "work_type": "philosophical_anthropology_aesthetics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "expresión",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "notes": "Biblioteca Nacional Chile registra edición de la Universidad de Chile 1967, ix +483 páginas y láminas."
+    },
+    {
+      "work_id": "0148-w007",
+      "title": "La función social del estado en el último cuarto del siglo XX",
+      "work_type": "political_philosophy_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "función social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estado",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ]
+    },
+    {
+      "work_id": "0148-w008",
+      "title": "El libro de las revoluciones",
+      "work_type": "philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revoluciones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1992,
+          "note": "Introducción a la segunda edición corregida de El sentimiento de lo humano en América; no asumir obra autónoma originaria de 1992"
+        }
+      ],
+      "notes": "Puede ser texto preliminar específico incorporado en la edición de 1992; queda como texto autónomo provisional, pendiente comparación."
+    },
+    {
+      "work_id": "0148-w009",
+      "title": "Historia del universo y conciencia",
+      "work_type": "philosophy_of_cosmology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "notes": "El sitio Memoria Chilena registra documento de este nombre, pero no proporciona primera edición verificada en el resumen consultado."
+    },
+    {
+      "work_id": "0148-w010",
+      "title": "Autoconocimiento en Occidente",
+      "work_type": "philosophical_anthropology_work",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autoconocimiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Occidente",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+      ],
+      "notes": "Mencionada en el perfil del libro-base; datos de edición original pendientes de examen."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0148-c001",
+      "title": "Co-fundación de la Sociedad Chilena de Filosofía en 1948 y dirección de su revista",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0148-c002",
+      "title": "Reflexión sobre identidad americana, convivencia, antropología filosófica y expresión estética",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_library_biobibliography",
+      "title": "Biblioteca Nacional de Chile: Félix Schwartzmann (1913–2014)",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-622.html"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca Nacional de Chile: fichas bibliográficas Schwartzmann",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-140894.html"
+    },
+    {
+      "kind": "national_library_history",
+      "title": "Biblioteca Nacional de Chile: El sentimiento de lo humano en América",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-93899.html"
+    },
+    {
+      "kind": "national_library_bibliography",
+      "title": "Biblioteca Nacional de Chile: Teoría de la expresión",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-93901.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay y Chile, páginas impresas 901–907"
+    }
+  ],
+  "research_notes": [
+    "Se preserva conflicto 1950/1951 del tomo I sin redatar el segundo tomo de 1953.",
+    "Schwartzmann falleció en 2014; el libro-base de 2009 no indica fallecimiento por ser anterior.",
+    "Edición de 1992 es reedición revisada y contiene un texto adicional; no sustituye primer volumen de 1950–1951."
+  ]
+}

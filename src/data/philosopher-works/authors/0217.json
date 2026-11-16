@@ -1,0 +1,741 @@
+{
+  "schema_version": 1,
+  "author_id": 217,
+  "canonical_name": "Fausto Reinaga",
+  "alternate_names": [
+    "José Félix Reinaga Chavarría",
+    "Rupaj Katari"
+  ],
+  "life": {
+    "born": {
+      "year": 1906,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1994,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_tradition_or_bibliographic_evidence_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0217-w001",
+      "title": "Mitayos y yanaconas",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Mitayos y yanaconas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w002",
+      "title": "Víctor Paz Estenssoro",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Víctor Paz Estenssoro",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w003",
+      "title": "Nacionalismo boliviano: teoría y programa",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nacionalismo boliviano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w004",
+      "title": "Tierra y libertad: la revolución nacional y el indio",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Tierra y libertad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w005",
+      "title": "Belzu, precursor de la revolución nacional",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Belzu, precursor de la revolución nacional",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w006",
+      "title": "Franz Tamayo y la revolución boliviana",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Franz Tamayo y la revolución boliviana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w007",
+      "title": "Revolución cultural y crítica",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "attributed_or_original_year_unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Revolución cultural y crítica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "first_publication_year_candidates": [
+        1956,
+        1957
+      ],
+      "source_conflict": true,
+      "notes": "Dos cronologías bibliográficas discrepan; conservar ambos años y revisar portada de primera tirada."
+    },
+    {
+      "work_id": "0217-w008",
+      "title": "El sentimiento mesiánico del pueblo ruso",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "El sentimiento mesiánico del pueblo ruso",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w009",
+      "title": "El indio y el cholaje boliviano: proceso a Fernando Diez de Medina",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "El indio y el cholaje boliviano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w010",
+      "title": "La intelligentsia del cholaje boliviano",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "La intelligentsia del cholaje boliviano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w011",
+      "title": "El indio y los escritores de América",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "attributed_or_original_year_unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "El indio y los escritores de América",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "first_publication_year_candidates": [
+        1968,
+        1969
+      ],
+      "source_conflict": true,
+      "notes": "Dos cronologías bibliográficas discrepan; conservar ambos años y revisar portada de primera tirada."
+    },
+    {
+      "work_id": "0217-w012",
+      "title": "La revolución india",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "La revolución india",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "first_publication_year_candidates": [
+        1969,
+        1970
+      ],
+      "source_conflict": true,
+      "notes": "Dos cronologías bibliográficas discrepan; conservar ambos años y revisar portada de primera tirada."
+    },
+    {
+      "work_id": "0217-w013",
+      "title": "Manifiesto del Partido Indio de Bolivia",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Manifiesto del Partido Indio de Bolivia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w014",
+      "title": "Tesis india",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "attributed_or_original_year_unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Tesis india",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "first_publication_year_candidates": [
+        1970,
+        1971
+      ],
+      "source_conflict": true,
+      "notes": "Dos cronologías bibliográficas discrepan; conservar ambos años y revisar portada de primera tirada."
+    },
+    {
+      "work_id": "0217-w015",
+      "title": "América india y Occidente",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América india y Occidente",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w016",
+      "title": "La razón y el indio",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "La razón y el indio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w017",
+      "title": "El pensamiento amaútico",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "El pensamiento amaútico",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w018",
+      "title": "Indianidad",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Indianidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w019",
+      "title": "¿Qué hacer?",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "¿Qué hacer?",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w020",
+      "title": "La revolución amaútica",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "La revolución amaútica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w021",
+      "title": "La era de Einstein",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "La era de Einstein",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w022",
+      "title": "Sócrates y yo",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sócrates y yo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    },
+    {
+      "work_id": "0217-w023",
+      "title": "El pensamiento indio",
+      "work_type": "indianist_political_philosophy_book_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "El pensamiento indio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf",
+        "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+      ],
+      "source_conflict": false,
+      "notes": "Identificado en repertorios de publicaciones; reediciones modernas no alteran primera aparición."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de la filosofía indianista y amaútica boliviana e impulso político al Partido Indio de Bolivia",
+      "kind": "historical_intellectual_or_ritual_contribution",
+      "contribution_id": "0217-c001",
+      "authorship_status": "traditionally_attributed_or_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_scholarly_monograph",
+      "title": "Gustavo R. Cruz, Los senderos de Fausto Reinaga. Filosofía de un pensamiento indio, bibliografía",
+      "url": "https://biblioteca-repositorio.clacso.edu.ar/libreria_cm_archivos/pdf_1224.pdf"
+    },
+    {
+      "kind": "academic_article",
+      "title": "Fausto Reinaga on education: an outline",
+      "url": "https://www.forodeeducacion.com/ojs/index.php/fde/article/view/74"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "Libro-base, sección Amautas",
+      "locator": "p. 702"
+    }
+  ],
+  "research_notes": [
+    "*La revolución india* tiene bibliografías 1969/1970; se conserva 1970 según estudio monográfico con conflicto expreso.",
+    "*Tesis india* 1970/1971 mantiene fecha abierta; no redatar por 4ª reedición 2010.",
+    "*Obras completas* publicadas después de 1994 se registrarán como edición póstuma de escritos originales, no nuevos libros de Reinaga."
+  ]
+}

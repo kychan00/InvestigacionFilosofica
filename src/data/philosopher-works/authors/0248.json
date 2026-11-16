@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "author_id": 248,
+  "canonical_name": "Alonso Guerrero",
+  "alternate_names": [
+    "Alonso Guerrero S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1576,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1639,
+      "certainty": "university_research"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_jesuit_scholastic_manuscripts_not_commercial_publications",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0248-w001",
+      "title": "Curso de filosofía natural aristotélica: Physica, De anima, De coelo et mundo, De generatione et corruptione y Meteorologica",
+      "work_type": "jesuit_aristotelian_natural_philosophy_manuscript_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1622,
+        "certainty": "scholarly_manuscript_course_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_scholarly_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristóteles",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Physica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "De anima",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext",
+        "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/973/1550"
+      ],
+      "sections": [
+        "Physica",
+        "De anima",
+        "De coelo et mundo",
+        "De generatione et corruptione",
+        "De meteoris"
+      ],
+      "notes": "El libro-base menciona un curso de filosofía natural comentado en 1622. Beuchot verifica De generatione et corruptione y De anima, y dice 'al parecer' para Physica. Se conserva el grado desigual de evidencia entre secciones.",
+      "authorship_caution": "not_all_parts_equally_verified"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0248-c001",
+      "title": "Docencia jesuita de filosofía natural aristotélica en el Colegio Máximo de San Pedro y San Pablo, Nueva España",
+      "kind": "colonial_scholastic_philosophical_teaching",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Mauricio Beuchot, Textos filosóficos en la Nueva España",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "La enseñanza de la filosofía colonial en México, comentario a Guerrero",
+      "url": "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/973/1550"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», p. 82; y «La ontología y la metafísica», p. 555"
+    }
+  ],
+  "research_notes": [
+    "El año 1622 identifica el curso manuscrito y no publicación impresa."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "author_id": 196,
+  "canonical_name": "Medardo Vitier",
+  "life": {
+    "born": {
+      "year": 1886,
+      "certainty": "book_biographical_index_2009"
+    },
+    "died": {
+      "year": null,
+      "certainty": "conflicting_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "196-w001",
+      "title": "Las ideas en Cuba: proceso del pensamiento político, filosófico y crítico en Cuba, principalmente durante el siglo XIX",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://editorial.ucatolica.edu.co/index.php/RevClat/article/download/2747/2526/16226"
+      ],
+      "notes": "Editorial Trópico, La Habana, dos tomos 1938; edición conjunta de 2002 no equivale a primera publicación."
+    },
+    {
+      "work_id": "196-w002",
+      "title": "La filosofía en Cuba",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://editorial.ucatolica.edu.co/index.php/RevClat/article/download/2747/2526/16226"
+      ],
+      "notes": "Fondo de Cultura Económica, México, 1948."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico y referencia biográfica del libro de 2009.",
+    "Conflicto biográfico: índice del libro de 2009 da muerte en 1970; otras fuentes bibliográficas indican 1960. Se deja nulo hasta cotejo documental.",
+    "Bibliografía parcial; fechas de composición no inferidas."
+  ]
+}

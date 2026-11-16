@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "author_id": 254,
+  "canonical_name": "Nicolás de Olea",
+  "alternate_names": [
+    "Nicolao de Olea",
+    "Nicolás Olea S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1635,
+      "certainty": "historical_library_catalog"
+    },
+    "died": {
+      "year": 1705,
+      "certainty": "historical_library_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_originals_or_manuscript_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0254-w001",
+      "title": "Manual de filosofía",
+      "work_type": "scholastic_philosophy_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1687,
+        "certainty": "bibliography_publication_year"
+      },
+      "first_publication_year": 1687,
+      "authorship_status": "documented_historical_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1116469/Details",
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Título y año recogidos por libro-base; ubicación material y posible relación con posteriores cursos de artes pendientes de cotejar."
+    },
+    {
+      "work_id": "0254-w002",
+      "title": "Summa tripartita scholasticae philosophiae, sive Cursus philosophicus triennalis. Tomus I: In logicam",
+      "work_type": "latin_scholastic_course_printed_volume",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1693,
+        "certainty": "physical_first_edition_vol1"
+      },
+      "first_publication_year": 1693,
+      "authorship_status": "documented_historical_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Summa tripartita",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "logicam",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1116469/Details"
+      ],
+      "series_title": "Summa tripartita scholasticae philosophiae",
+      "volume": 1,
+      "edition": {
+        "year": 1693,
+        "publisher": "Iosephus de Contreras",
+        "region": "Lima"
+      },
+      "notes": "Catálogo del ejemplar Universidad Autónoma Benito Juárez Oaxaca confirma tomo I 1693, 692 pp."
+    },
+    {
+      "work_id": "0254-w003",
+      "title": "Summa tripartita scholasticae philosophiae, sive Cursus philosophicus triennalis. Tomus II: In physicam",
+      "work_type": "latin_scholastic_course_printed_volume",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1694,
+        "certainty": "physical_first_edition_vol2"
+      },
+      "first_publication_year": 1694,
+      "authorship_status": "documented_historical_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Summa tripartita",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "physicam",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1116469/Details"
+      ],
+      "series_title": "Summa tripartita scholasticae philosophiae",
+      "volume": 2,
+      "edition": {
+        "year": 1694,
+        "publisher": "Iosephus de Contreras",
+        "region": "Lima"
+      },
+      "notes": "Catálogo físico confirma tomo II 1694, 727 pp. La portada general refiere tres partes lógicas, físicas y metafísicas, pero la existencia de tomo III específico no se presume sin ejemplar."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de filosofía escolástica en Cuzco y Lima y rectorado del Colegio de San Pablo en 1692",
+      "kind": "colonial_historical_theological_philosophical_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "library_first_edition_physical_catalog",
+      "title": "Biblioteca Francisco de Burgoa / ADABI, Summa tripartita scholasticae philosophiae, tomos 1693–1694",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/1116469/Details"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 82–84"
+    }
+  ],
+  "research_notes": [
+    "La edición en dos tomos verificables (1693/1694) se conserva frente a resumen de 1693 en el libro-base.",
+    "«Curso de artes» (1693) puede nombrar este curso impreso y no se registra de forma duplicada sin cotejo de portada.",
+    "El título «Manual de filosofía» 1687 queda pendiente de ejemplar primario y posible identificación de versión."
+  ]
+}

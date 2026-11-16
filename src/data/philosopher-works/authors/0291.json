@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "author_id": 291,
+  "canonical_name": "Tomás Antônio Gonzaga",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "natural_law_treatise_composition_window_and_unpublished_letter",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0291-w001",
+      "title": "Tratado de Direito Natural",
+      "work_type": "colonial_luso_brazilian_natural_law_university_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "scholarly_composition_window_not_precisely_dated",
+        "period": {
+          "start": 1768,
+          "end": 1772
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "author_original_treatise_modern_print_witnesses",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justicia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poder político",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.uff.br/cantareira/article/view/50704",
+        "https://periodicos.fclar.unesp.br/perspectivas/pt_BR/article/download/5711/6605/0",
+        "https://iucat.iu.edu/iub/2407840"
+      ],
+      "notes": "Redactado probablemente 1768–1772 con motivo de aspiración a cátedra en Coimbra; catálogo Indiana University acredita edición crítica de obras completas iniciada 1942, mientras UFSC documenta edición autónoma 1957. No afirmar 1942 como primera edición sin cotejo completo.",
+      "later_documented_editions": [
+        {
+          "year": 1942,
+          "status": "first_catalogued_comprehensive_edition_witness_not_verified_first_print"
+        },
+        {
+          "year": 1957,
+          "status": "standalone_edition"
+        }
+      ]
+    },
+    {
+      "work_id": "0291-w002",
+      "title": "Carta sobre a usura",
+      "work_type": "natural_law_economic_ethics_letter_unpublished_or_unlocated",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "historical_bibliography_undated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_bibliographic_attribution_unpublished",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "usura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética económica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/index.php/documentos?id=218726",
+        "https://periodicos.uff.br/cantareira/article/view/50704"
+      ],
+      "notes": "UFSC cataloga la Carta sobre a usura y la califica inédita, sin lugar ni año; no crear edición ni fecha. Un estudio académico confirma que es texto jurídico de Gonzaga.",
+      "manuscript_status": "unpublished_unlocated_in_checked_sources"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reflexión sobre derecho natural, soberanía, justicia política y legitimación de las estructuras jurídico-imperiales del periodo pombalino",
+      "kind": "historical_philosophical_intellectual_contribution",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_research",
+      "title": "Hiago Rangel Fernandes, Tomás Antônio Gonzaga e o Tratado de Direito Natural",
+      "url": "https://periodicos.uff.br/cantareira/article/view/50704"
+    },
+    {
+      "kind": "academic_study",
+      "title": "Teoria moral para o absolutismo: um estudo do Tratado de Direito Natural",
+      "url": "https://periodicos.fclar.unesp.br/perspectivas/pt_BR/article/download/5711/6605/0"
+    },
+    {
+      "kind": "university_book_catalog",
+      "title": "Indiana University, Obras completas de Tomás Antônio Gonzaga, ed. Rodrigues Lapa 1942-",
+      "url": "https://iucat.iu.edu/iub/2407840"
+    },
+    {
+      "kind": "university_literary_catalog",
+      "title": "UFSC, Carta sobre a usura (inédito)",
+      "url": "https://literaturabrasileira.ufsc.br/index.php/documentos?id=218726"
+    }
+  ],
+  "research_notes": [
+    "No confundir fecha de composición aproximada 1768–1772 con primera impresión.",
+    "Carta sobre a usura: registro de atribución histórica, no ejemplar impreso localizado."
+  ]
+}

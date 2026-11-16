@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "author_id": 104,
+  "canonical_name": "Emilio Uranga",
+  "alternate_names": [
+    "Emilio Uranga González"
+  ],
+  "life": {
+    "born": {
+      "year": 1921,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1988,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_mexican_ontology_phenomenology_metaphilosophy_translation_and_journalistic_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0104-w001",
+      "title": "Ensayo de una ontología del mexicano",
+      "work_type": "phenomenological_ontology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "publication_context"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified_from_project_and_later_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ontología del mexicano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "accidentalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "insuficiencia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0104-w002",
+      "title": "Análisis del ser del mexicano",
+      "work_type": "philosophical_anthropology_ontology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser del mexicano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "accidente",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autognosis",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0104-w003",
+      "title": "Martin Heidegger y la filosofía de la cultura",
+      "work_type": "phenomenology_culture_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Martin Heidegger",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la cultura",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0104-w004",
+      "title": "¿De quién es la filosofía? Sobre la lógica de la filosofía como confesión personal",
+      "work_type": "metaphilosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "publication_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_year_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "confesión personal",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0104-w005",
+      "title": "Fenomenología de la percepción — traducción",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "translation_publication_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Maurice Merleau-Ponty",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "percepción",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0104-w006",
+      "title": "Artículos filosóficos, políticos y periodísticos",
+      "work_type": "journalistic_intellectual_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1947,
+        "end": 1988,
+        "certainty": "career_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_requires_item_level_decomposition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de lo mexicano",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política mexicana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participación central en el grupo Hiperión y formulación de una ontología de lo mexicano",
+      "kind": "philosophical_movement_contribution",
+      "period": {
+        "start": 1948,
+        "end": 1952,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Hiperión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de lo mexicano",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_review",
+      "title": "Análisis del ser del mexicano — reseña de primera edición",
+      "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/download/1464/1424/1436",
+      "publisher": "UNAM / Diánoia"
+    },
+    {
+      "kind": "university_review",
+      "title": "Análisis del ser del mexicano y otros escritos sobre la filosofía de lo mexicano",
+      "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/100",
+      "publisher": "UNAM / Diánoia",
+      "doi": "10.21898/dia.v59i72.100"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Emilio Uranga (1921-1988)"
+    }
+  ],
+  "research_notes": [
+    "Semilla prudente: buena parte de su obra quedó dispersa en prensa y compilaciones póstumas.",
+    "Pendiente fijar la edición exacta de la traducción de Merleau-Ponty y ¿De quién es la filosofía?"
+  ]
+}

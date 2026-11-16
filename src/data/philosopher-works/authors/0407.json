@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "author_id": 407,
+  "canonical_name": "Ivan Lins",
+  "alternate_names": [
+    "Ivan Monteiro de Barros Lins"
+  ],
+  "life": {
+    "born": {
+      "year": 1904,
+      "certainty": "government_biographical_source"
+    },
+    "died": {
+      "year": 1975,
+      "certainty": "government_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0407-w001",
+      "title": "Católicos e positivistas",
+      "work_type": "religion_and_positivism_essay_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1937,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religião",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/abl/cgi/cgilua.exe/sys/start.htm%3Fsid%3D89/bibliografia"
+      ],
+      "notes": "Obra de 1937 listada na bibliografia oficial da Academia Brasileira de Letras."
+    },
+    {
+      "work_id": "0407-w002",
+      "title": "Descartes: época, vida e obra",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": 1940,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Descartes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história da filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "racionalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/abl/cgi/cgilua.exe/sys/start.htm%3Fsid%3D89/bibliografia"
+      ],
+      "notes": "Monografia de história da filosofia publicada em 1940 segundo a ABL."
+    },
+    {
+      "work_id": "0407-w003",
+      "title": "História do positivismo no Brasil",
+      "work_type": "history_of_ideas_and_positivism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1964,
+        "certainty": "first_edition_government_and_review_source"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "editorial"
+        },
+        {
+          "term": "história das ideias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://funag.gov.br/biblioteca/download/513-Livros_para_Conhecer_o_Brasil_2_Edicao.pdf",
+        "https://revistas.usp.br/revhistoria/pt_BR/article/view/123264"
+      ],
+      "notes": "Primeira edição em 1964, Editora Nacional; a edição de 1967 é segunda edição, segundo FUNAG. A crítica bibliográfica da Revista de História é contemporânea à primeira edição."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historiografia do positivismo brasileiro e divulgação da história da filosofia em chave positivista",
+      "kind": "history_of_positivism_and_philosophy_contribution",
+      "authorship_status": "documented_in_academy_government_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Brasileira de Letras — bibliografia de Ivan Lins",
+      "url": "https://www.academia.org.br/abl/cgi/cgilua.exe/sys/start.htm%3Fsid%3D89/bibliografia"
+    },
+    {
+      "kind": "government_bibliographic_source",
+      "title": "FUNAG — Livros para Conhecer o Brasil: História do Positivismo no Brasil",
+      "url": "https://funag.gov.br/biblioteca/download/513-Livros_para_Conhecer_o_Brasil_2_Edicao.pdf"
+    },
+    {
+      "kind": "scholarly_review_source",
+      "title": "Revista de História USP — História do Positivismo no Brasil",
+      "url": "https://revistas.usp.br/revhistoria/pt_BR/article/view/123264"
+    }
+  ],
+  "research_notes": [
+    "História do positivismo no Brasil é registrada pela primeira edição de 1964, não pela segunda edição de 1967.",
+    "O seed é seletivo diante de bibliografia ampla listada pela ABL."
+  ]
+}

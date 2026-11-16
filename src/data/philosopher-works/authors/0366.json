@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "author_id": 366,
+  "canonical_name": "Ignacio Prudencio Bustillo",
+  "alternate_names": [
+    "Ignacio Prudencio",
+    "Prudencio Bustillo, Ignacio"
+  ],
+  "life": {
+    "born": {
+      "year": 1895,
+      "certainty": "scholarly_source"
+    },
+    "died": {
+      "year": 1928,
+      "certainty": "scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0366-w001",
+      "title": "Ensayo de una filosofía jurídica",
+      "work_type": "legal_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1923,
+        "certainty": "bibliographic_secondary_source"
+      },
+      "first_publication_year": 1923,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://eju.tv/2011/04/un-escritor-ignacio-prudencio-bustillo/"
+      ],
+      "notes": "Título y fecha consignados por repertorios bolivianos sobre la obra de Prudencio Bustillo. Ejemplar original pendiente de cotejo de portada."
+    },
+    {
+      "work_id": "0366-w002",
+      "title": "La vida y la obra de Aniceto Arce",
+      "work_type": "historical_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "bibliographic_secondary_source"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aniceto Arce",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia boliviana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica histórica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://eju.tv/2011/04/un-escritor-ignacio-prudencio-bustillo/",
+        "https://www.marxists.org/espanol/lora/hist-mov-obrero/tomo-1-%281848-1900%29.pdf"
+      ],
+      "notes": "Primera publicación reportada en Tupiza, 1928. La edición de La Paz de 1951 es posterior y no se cuenta como obra nueva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensayismo boliviano de orientación positivista, crítica histórica y reflexión jurídico-social",
+      "kind": "bolivian_positivist_essay_contribution",
+      "authorship_status": "documented_in_bolivian_historiography",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Ecdótica / Fernando Molina — El aporte de Ignacio Prudencio Bustillo",
+      "url": "https://ecdotica.com/el-aporte-de-ignacio-prudencio-bustillo/"
+    },
+    {
+      "kind": "historical_source",
+      "title": "Guillermo Lora — Historia del movimiento obrero boliviano, referencia a Prudencio Bustillo",
+      "url": "https://www.masas.nu/historia%20del%20movimiento%20obrero%20boliviano/libro%20hmob%20tomo%202/2do%20tomo%20hmob.pdf"
+    }
+  ],
+  "research_notes": [
+    "Páginas dispersas (1946) es una compilación póstuma de textos, por lo que no se usa como sustituto de las primeras publicaciones de cada pieza.",
+    "Las primeras ediciones de 1923 y 1928 deben cotejarse en biblioteca física en una auditoría posterior."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 352,
+  "canonical_name": "Laureano Paredes",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1822,
+      "certainty": "bibliography"
+    },
+    "died": {
+      "year": 1864,
+      "certainty": "bibliography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0352-w001",
+      "title": "Estracto de la filosofía del Derecho",
+      "work_type": "legal_philosophy_course_opusculum",
+      "original_language": "español",
+      "original_date": {
+        "year": 1864,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1864,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf",
+        "https://www.academia.edu/145025442/400_a%C3%B1os_formando_revolucionarios_Transformaci%C3%B3n_social_pol%C3%ADtica_y_econ%C3%B3mica_en_la_Universidad_Mayor_Real_y_Pontificia_de_San_Francisco_Xavier_de_Chuquisaca_siglo_XIX_"
+      ],
+      "notes": "Folleto de Sucre, Imprenta de Hernández, 1864, 42 páginas. Manual de alumnos universitarios que sigue orientaciones de Ahrens; título escrito Estracto en bibliografía histórica.",
+      "edition": {
+        "year": 1864,
+        "publisher": "Imprenta de Hernández",
+        "region": "Sucre"
+      },
+      "pages": 42
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza de filosofía del derecho y adaptación del krausismo jurídico en la Universidad de Chuquisaca",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Guillermo Francovich, Laureano Paredes",
+      "url": "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Investigación bibliográfica sobre Universidad San Francisco Xavier de Chuquisaca",
+      "url": "https://www.academia.edu/145025442/400_a%C3%B1os_formando_revolucionarios_Transformaci%C3%B3n_social_pol%C3%ADtica_y_econ%C3%B3mica_en_la_Universidad_Mayor_Real_y_Pontificia_de_San_Francisco_Xavier_de_Chuquisaca_siglo_XIX_"
+    }
+  ],
+  "research_notes": [
+    "Conservar grafía de época Estracto y forma moderna Extracto.",
+    "No inventar impresiones posteriores."
+  ]
+}

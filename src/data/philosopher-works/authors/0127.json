@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "author_id": 127,
+  "canonical_name": "Ismael Quiles",
+  "alternate_names": [
+    "Ismael Quiles Sánchez",
+    "Ismael Quiles, S.J."
+  ],
+  "life": {
+    "born": {
+      "year": 1906,
+      "certainty": "verified",
+      "date": "1906-07-04"
+    },
+    "died": {
+      "year": 1993,
+      "certainty": "verified",
+      "date": "1993-02-08"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_personalism_insistentialism_existentialism_oriental_philosophy_yoga_wojtyla_and_education_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0127-w001",
+      "title": "San Isidoro de Sevilla: biografía, escritos, doctrinas",
+      "work_type": "patristic_medieval_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Isidoro de Sevilla",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "San Isidoro de Sevilla",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "doctrinas",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w002",
+      "title": "Más allá del existencialismo: filosofía in-sistencial",
+      "work_type": "insistentialist_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía in-sistencial",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "interioridad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w003",
+      "title": "La persona humana: fundamentos psicológicos y metafísicos, aplicaciones sociales",
+      "work_type": "philosophical_anthropology_personalism_treatise",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "first_edition_before_1952"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_first_edition_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "persona humana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicología",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "primary_subtitle"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1952,
+          "kind": "second_enlarged_edition_verified"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w004",
+      "title": "Sartre y su existencialismo",
+      "work_type": "existentialism_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Jean-Paul Sartre",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sartre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w005",
+      "title": "Filosofía budista",
+      "work_type": "buddhist_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía budista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Oriente y Occidente",
+          "provenance": "authorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w006",
+      "title": "Qué es el yoga: filosofía, mística y técnica yogas",
+      "work_type": "yoga_philosophy_introductory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "yoga",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "mística",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w007",
+      "title": "Qué es el catolicismo",
+      "work_type": "philosophy_of_religion_apologetic_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "catolicismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w008",
+      "title": "Filosofía de la persona según Karol Wojtyla: estudio comparado con la antropología in-sistencial",
+      "work_type": "personalism_comparative_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Karol Wojtyła",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "950140417X"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "persona",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Karol Wojtyła",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropología in-sistencial",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w009",
+      "title": "El alma de Corea: educación, cultura, filosofía",
+      "work_type": "intercultural_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9501404307"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Corea",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0127-w010",
+      "title": "Filosofía de la educación personalista",
+      "work_type": "philosophy_of_education_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9501400069"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "personalismo",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación de la Escuela de Estudios Orientales y del Instituto de Investigaciones Comparadas Oriente-Occidente",
+      "kind": "academic_intercultural_institutional_contribution",
+      "period": {
+        "start": 1963,
+        "end": 1993,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Oriente-Occidente",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "diálogo intercultural",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_biography",
+      "title": "Ismael Quiles, S.J., una semblanza",
+      "url": "https://www.usal.edu.ar/70aniversario/capitulo/8/ismael-quiles-sj-una-semblanza/",
+      "publisher": "Universidad del Salvador"
+    },
+    {
+      "kind": "university_repository",
+      "title": "Más allá del existencialismo: filosofía in-sistencial",
+      "url": "https://revistas.bibdigital.uccor.edu.ar/index.php/CF/es/article/view/4638",
+      "publisher": "Universidad Católica de Córdoba"
+    },
+    {
+      "kind": "university_repository",
+      "title": "Qué es el yoga",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/16087",
+      "publisher": "Pontificia Universidad Católica Argentina"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "Filosofía de la educación personalista",
+      "url": "https://pergamo.unlam.edu.ar/pergamo/documento.php?id=PERGAMO.1.21151&recno=21151&ui=1",
+      "publisher": "Universidad Nacional de La Matanza"
+    },
+    {
+      "kind": "foundation_profile",
+      "title": "Ismael Quiles",
+      "url": "https://www.fundacionkonex.org/b1200-ismael-quiles",
+      "publisher": "Fundación Konex"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Ismael Quiles (1906-1993)"
+    }
+  ],
+  "research_notes": [
+    "La primera edición de La persona humana queda pendiente; está verificada su segunda edición ampliada de 1952.",
+    "Pendiente ampliar curso de metafísica, Plotino, escritos espirituales y comparaciones Oriente-Occidente."
+  ]
+}

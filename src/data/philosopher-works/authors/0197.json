@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "author_id": 197,
+  "canonical_name": "Juan Isidro Jiménes-Grullón",
+  "life": {
+    "born": {
+      "year": 1903,
+      "certainty": "book_biographical_index_2009"
+    },
+    "died": {
+      "year": 1983,
+      "certainty": "book_biographical_index_2009"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0197-w001",
+      "title": "Una gestapo en América: vida, tortura, agonía y muerte de presos políticos bajo la tiranía de Trujillo",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/3a5487ae-7011-4ac9-a04e-5afa4e2c554a"
+      ],
+      "notes": "Editorial Lex, La Habana; Raúl Roa figura como prologuista, no coautor."
+    },
+    {
+      "work_id": "0197-w002",
+      "title": "Al margen de Ortega y Gasset",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/b62421ab-1fd0-4d91-b46a-eab2e6079ac2"
+      ],
+      "notes": "Catálogo registra tres volúmenes en 1957; requiere comprobar individualmente sus fechas."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; fechas biográficas cotejadas con índice del libro base de 2009.",
+    "Bibliografía selectiva: fechas de composición no inferidas; roles editoriales diferenciados en notas."
+  ]
+}

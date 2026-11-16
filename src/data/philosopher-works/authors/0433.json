@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "author_id": 433,
+  "canonical_name": "Juan Ramón Sepich-Lange",
+  "alternate_names": [
+    "Juan Ramón Sepich Lange",
+    "Juan R. Sepich",
+    "Juan Sepich"
+  ],
+  "life": {
+    "born": {
+      "year": 1906,
+      "certainty": "uncuyo_scholarly_source"
+    },
+    "died": {
+      "year": 1979,
+      "certainty": "uncuyo_scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0433-w001",
+      "title": "Sobre inteligencia y cultura",
+      "work_type": "philosophical_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "conicet_and_biobibliographic_sources"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "inteligencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "neotomismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ri.conicet.gov.ar/bitstream/handle/11336/167714/CONICET_Digital_Nro.0cccc743-c88d-4f3d-af2e-62581827c907_B.pdf?isAllowed=y&sequence=2"
+      ],
+      "notes": "Publicado por los Cursos de Cultura Católica en Buenos Aires en 1938."
+    },
+    {
+      "work_id": "0433-w002",
+      "title": "Lógica formal: analítica de la forma lógica",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "university_library_catalog"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "forma lógica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "analítica",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.unsam.edu.ar/Record/12952"
+      ],
+      "notes": "Buenos Aires, Cursos de Cultura Católica, 1940, según catálogo de la UNSAM."
+    },
+    {
+      "work_id": "0433-w003",
+      "title": "Introducción a la filosofía",
+      "work_type": "philosophy_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "uncuyo_scholarly_bibliography"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "neotomismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/objetos_digitales/4435/sanchezcuyo15.pdf",
+        "https://ri.conicet.gov.ar/bitstream/handle/11336/167714/CONICET_Digital_Nro.0cccc743-c88d-4f3d-af2e-62581827c907_B.pdf?isAllowed=y&sequence=2"
+      ],
+      "notes": "Buenos Aires, Cursos de Cultura Católica, 1942, 669 páginas según bibliografía citada por UNCuyo."
+    },
+    {
+      "work_id": "0433-w004",
+      "title": "Lecturas de metafísica",
+      "work_type": "metaphysics_readings_and_course_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "conicet_biobibliographic_source"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lecturas filosóficas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "neotomismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ri.conicet.gov.ar/bitstream/handle/11336/167714/CONICET_Digital_Nro.0cccc743-c88d-4f3d-af2e-62581827c907_B.pdf?isAllowed=y&sequence=2"
+      ],
+      "notes": "Publicado por los Cursos de Cultura Católica en 1946."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Renovación del neotomismo argentino y articulación entre metafísica, cultura, lógica y filosofía católica en diálogo con corrientes contemporáneas",
+      "kind": "argentine_neothomist_and_catholic_philosophy_contribution",
+      "authorship_status": "documented_in_uncuyo_and_conicet_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_scholarly_source",
+      "title": "UNCuyo — El pensamiento filosófico del Dr. Juan R. Sepich",
+      "url": "https://bdigital.uncu.edu.ar/objetos_digitales/4466/118-cuyo-1973-tomo-09.pdf"
+    },
+    {
+      "kind": "conicet_scholarly_source",
+      "title": "CONICET — Juan Ramón Sepich: el hispanismo católico",
+      "url": "https://ri.conicet.gov.ar/bitstream/handle/11336/167714/CONICET_Digital_Nro.0cccc743-c88d-4f3d-af2e-62581827c907_B.pdf?isAllowed=y&sequence=2"
+    },
+    {
+      "kind": "university_library_source",
+      "title": "UNSAM — Lógica formal, 1940",
+      "url": "https://buscador.unsam.edu.ar/Record/12952"
+    }
+  ],
+  "research_notes": [
+    "No se registra como obra propia la traducción de Theodor Haecker, El espíritu del hombre y la verdad; Sepich actuó allí como traductor, no como autor original.",
+    "La forma del inventario con guion se conserva; fuentes académicas suelen usar Juan Ramón Sepich Lange."
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "author_id": 386,
+  "canonical_name": "Salvador Brau",
+  "alternate_names": [
+    "Salvador Brau Asencio"
+  ],
+  "life": {
+    "born": {
+      "year": 1842,
+      "certainty": "reference_source"
+    },
+    "died": {
+      "year": 1912,
+      "certainty": "reference_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0386-w001",
+      "title": "Las clases jornaleras de Puerto Rico: su estado actual, causas que lo sostienen y medios de propender al adelanto moral y material de dichas clases",
+      "work_type": "social_and_economic_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1882,
+        "certainty": "scholarly_source"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "jornaleros",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trabajo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://prac.rutgers.edu/situacion-de-la-clase-jornalera-en-puerto-rico-siglo-19/"
+      ],
+      "notes": "Ensayo premiado en el Certamen del Ateneo Puertorriqueño y publicado en septiembre de 1882."
+    },
+    {
+      "work_id": "0386-w002",
+      "title": "Puerto Rico y su historia",
+      "work_type": "historical_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1892,
+        "certainty": "reference_bibliographic_source"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/salvador-brau/"
+      ],
+      "notes": "EnciclopediaPR identifica esta obra de 1892 como su primer libro de historiador."
+    },
+    {
+      "work_id": "0386-w003",
+      "title": "Historia de Puerto Rico",
+      "work_type": "national_history_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "reference_bibliographic_source"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "colonización",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/salvador-brau/",
+        "https://revistadeindias.revistas.csic.es/index.php/revistadeindias/article/view/780"
+      ],
+      "notes": "Obra histórica de 1904, producto de investigaciones documentales en archivos españoles. Se mantiene separada de Puerto Rico y su historia (1892)."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Consolidación de una historiografía puertorriqueña de orientación modernizadora y análisis social de las clases trabajadoras",
+      "kind": "puerto_rican_historiographical_and_social_contribution",
+      "authorship_status": "documented_in_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "reference_source",
+      "title": "EnciclopediaPR — Salvador Brau Asencio",
+      "url": "https://enciclopediapr.org/content/salvador-brau/"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Rutgers PRAC — Situación de la clase jornalera en Puerto Rico",
+      "url": "https://prac.rutgers.edu/situacion-de-la-clase-jornalera-en-puerto-rico-siglo-19/"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Revista de Indias — La memoria nacional puertorriqueña en Salvador Brau",
+      "url": "https://revistadeindias.revistas.csic.es/index.php/revistadeindias/article/view/780"
+    }
+  ],
+  "research_notes": [
+    "Las clases jornaleras se registra con su fecha de publicación de 1882, no por reediciones posteriores.",
+    "La bibliografía histórica de Brau es mayor; este seed conserva tres títulos documentados."
+  ]
+}

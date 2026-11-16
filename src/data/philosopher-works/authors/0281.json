@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "author_id": 281,
+  "canonical_name": "Manoel da Nóbrega",
+  "alternate_names": [
+    "Manuel da Nóbrega",
+    "Padre Manuel da Nóbrega"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_colonial_documentary_texts_partial_letters_not_exhaustively_enumerated",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0281-w001",
+      "title": "Diálogo sobre a conversão do gentio",
+      "work_type": "colonial_missionary_philosophical_dialogue_portuguese_manuscript",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "critical_edition_composition_date",
+        "period": {
+          "start": 1556,
+          "end": 1557
+        }
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "manuscript_and_critical_edition_attested",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conversión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catequesis",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://projetos.uel.br/bibliotecacomum/bc-texto/obras/me4709.pdf",
+        "https://revistas.usp.br/rieb/es/article/download/71891/75068/96261"
+      ],
+      "notes": "Conservado como apógrafo portugués en Biblioteca de Évora, cód. CXVI/r-33, fols. 208r–215r. Primera impresión comprobada en Revista do Instituto Histórico e Geográfico Brasileiro 43 (1880), pp. 133–152; reediciones 1931, 1954 y 1955.",
+      "manuscript_location": "Biblioteca Pública de Évora, cód. CXVI/r-33, ff. 208r–215r",
+      "edition": {
+        "year": 1880,
+        "venue": "Revista do Instituto Histórico e Geográfico Brasileiro",
+        "volume": "43, primera parte"
+      }
+    },
+    {
+      "work_id": "0281-w002",
+      "title": "Informação das terras do Brasil",
+      "work_type": "colonial_jesuit_ethnographic_epistolary_report",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1549,
+        "certainty": "historical_letter_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_attributed_report_original_portuguese_lost_witnesses_and_translations",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "costumbres indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "misión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.usp.br/rieb/es/article/download/71891/75068/96261",
+        "https://projetos.uel.br/bibliotecacomum/bc-texto/obras/me4709.pdf"
+      ],
+      "notes": "Informe de agosto de 1549 asociado a la correspondencia jesuita. Original portugués no localizado, existen testigos y traducciones tempranas; no fijar una primera edición portuguesa a partir de la fecha del escrito.",
+      "original_witness_status": "original_portuguese_not_preserved_later_translations_and_copies"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Correspondencia y diálogo sobre conversión y organización social de las poblaciones indígenas del Brasil colonial",
+      "kind": "colonial_intellectual_and_philosophical_contribution",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "peer_reviewed_textual_study",
+      "title": "João Adolfo Hansen, «O nu e a luz: cartas jesuíticas do Brasil. Nóbrega—1549–1558», RIEB 38 (1995)",
+      "url": "https://revistas.usp.br/rieb/es/article/download/71891/75068/96261"
+    },
+    {
+      "kind": "critical_edition",
+      "title": "Manuel da Nóbrega, edición anotada con historia textual del Diálogo y correspondencia",
+      "url": "https://projetos.uel.br/bibliotecacomum/bc-texto/obras/me4709.pdf"
+    }
+  ],
+  "research_notes": [
+    "Las cartas no se contabilizan nuevamente como el libro editorial colectivo «Cartas do Brasil».",
+    "Distinguir manuscrito de la primera impresión del diálogo (1880); la composición es c. 1556–1557.",
+    "No leer la defensa condicional de la libertad indígena como si fuese un planteamiento anticolonial contemporáneo."
+  ]
+}

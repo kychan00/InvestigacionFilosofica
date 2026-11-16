@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 330,
+  "canonical_name": "Manuel José Irarrázaval",
+  "alternate_names": [
+    "Manuel José Irarrázaval y Larraín"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1890_printed_senate_discourses_and_1902_municipal_treatise",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0330-w001",
+      "title": "La comuna autónoma: discursos pronunciados, sobre tan importante asunto, en las sesiones del Senado de 1889",
+      "work_type": "municipal_self_government_parliamentary_speech_collection_printed",
+      "original_language": "español",
+      "original_date": {
+        "year": 1889,
+        "certainty": "senate_discourse_delivery_year"
+      },
+      "first_publication_year": 1890,
+      "authorship_status": "original_parliamentary_speaker_print_catalog_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "comuna autónoma",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "municipalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "descentralización",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autonomía local",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129894.html",
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129856.html"
+      ],
+      "notes": "Edición Valparaíso, Imprenta Americana, 1890, 281 páginas según Biblioteca Nacional de Chile; 1889 es año de intervenciones en Senado, no impresión. Hay una edición 1916 citada por tesis recientes, que NO es primera edición.",
+      "edition": {
+        "year": 1890,
+        "publisher": "Imprenta Americana",
+        "region": "Valparaíso"
+      },
+      "pages": 281,
+      "later_editions": [
+        {
+          "year": 1916,
+          "source": "historiografía posterior"
+        }
+      ]
+    },
+    {
+      "work_id": "0330-w002",
+      "title": "El municipio autónomo: observaciones sobre la ley de municipalidades de 1891",
+      "work_type": "public_law_political_printed_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1902,
+        "certainty": "first_print_national_library_catalog"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "author_under_full_name_irarrazaval_y_larrain",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ley municipal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autonomía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho público",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "municipalidades",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129856.html",
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129894.html"
+      ],
+      "notes": "Edición Santiago, Imprenta Cervantes, 1902, 69 páginas, catalogada a «Manuel José Irarrázaval y Larraín». Es continuación crítica de discusión municipal, no reimpresión de los discursos de 1890.",
+      "edition": {
+        "year": 1902,
+        "publisher": "Imprenta Cervantes",
+        "region": "Santiago"
+      },
+      "pages": 69
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa del régimen municipal autónomo y descentralización administrativa en Chile de fines del siglo XIX",
+      "kind": "chilean_conservative_constitutional_municipalism",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Memoria Chilena, Manuel José Irarrázaval, La comuna autónoma, 1890",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129894.html"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Memoria Chilena, Manuel José Irarrázaval y Larraín, El municipio autónomo 1902",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-129856.html"
+    }
+  ],
+  "research_notes": [
+    "La Biblioteca Nacional usa nombre «Irarrázaval» en la primera ficha y «Irarrázaval y Larraín» en la segunda; se presume misma figura histórica por coincidencia bibliográfica, pendiente cotejo de autoridad nominal.",
+    "Separar discurso en Senado 1889 de edición impresa 1890; no atribuir 1902 a ley promulgada por él."
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "author_id": 51,
+  "canonical_name": "José Batlle y Ordóñez",
+  "alternate_names": [
+    "José Pablo Torcuato Batlle y Ordóñez"
+  ],
+  "life": {
+    "born": {
+      "year": 1856,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1929,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "presidential_messages_press_and_reform_documents_seeded_no_book_inflation",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0051-w001",
+      "title": "Mensaje del presidente de la República José Batlle y Ordóñez a la H. Asamblea General al inaugurarse el 1er período de la XXII Legislatura",
+      "work_type": "presidential_message",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "exact",
+        "date": "1905-02-15"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified_official_document",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "reformas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Asamblea General",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0051-w002",
+      "title": "Mensaje del presidente José Batlle y Ordóñez a la H. Asamblea General al inaugurarse el 1er período de la XXV Legislatura",
+      "work_type": "presidential_message",
+      "original_language": "español",
+      "original_date": {
+        "year": 1914,
+        "certainty": "exact",
+        "date": "1914-02-15"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "verified_official_document",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "legislación social",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Asamblea General",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0051-w003",
+      "title": "Artículo sobre el Ejecutivo colegiado en El Día",
+      "work_type": "newspaper_political_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "exact",
+        "date": "1916-06-17"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "verified_article_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ejecutivo colegiado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "reforma constitucional",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0051-w004",
+      "title": "Editoriales, artículos y notas en El Día",
+      "work_type": "journalistic_political_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1886,
+        "end": 1929,
+        "certainty": "editorial_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "author_editor_corpus_requires_item_level_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "batllismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "movimiento obrero",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "No todos los editoriales de El Día pueden atribuirse automáticamente a Batlle. El corpus requiere desglose y atribución pieza por pieza."
+    },
+    {
+      "work_id": "0051-w005",
+      "title": "Mensajes presidenciales y documentos de gobierno, 1903-1907 y 1911-1915",
+      "work_type": "official_document_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1903,
+        "end": 1915,
+        "certainty": "two_presidential_terms"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_official_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "democracia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia económica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "laicismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "institutional_repository",
+      "title": "Mensaje presidencial de 1905",
+      "url": "https://anaforas.fic.edu.uy/jspui/handle/123456789/77858",
+      "publisher": "Anáforas, Universidad de la República"
+    },
+    {
+      "kind": "institutional_repository",
+      "title": "Mensaje presidencial de 1914",
+      "url": "https://anaforas.fic.edu.uy/jspui/handle/123456789/77857",
+      "publisher": "Anáforas, Universidad de la República"
+    },
+    {
+      "kind": "institutional_collection",
+      "title": "Libros y fascículos - José Batlle y Ordóñez",
+      "url": "https://anaforas.fic.edu.uy/jspui/handle/123456789/105558",
+      "publisher": "Anáforas, Universidad de la República"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar El Día artículo por artículo y distinguir piezas firmadas, editoriales institucionales y textos de colaboradores.",
+    "No presentar el batllismo como un corpus de libros personales: gran parte de su pensamiento circuló en prensa, mensajes y práctica de gobierno."
+  ]
+}

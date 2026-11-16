@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "author_id": 313,
+  "canonical_name": "Pedro Luis Pacheco",
+  "alternate_names": [
+    "Fray Pedro Luis Pacheco",
+    "Fray Pedro Pacheco"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_1817_patriotic_sermon_with_1907_collected_witness",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0313-w001",
+      "title": "Sermón de acción de gracias al Todopoderoso en el aniversario del 26 de mayo, predicado en Catamarca",
+      "work_type": "independence_era_religious_political_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1817,
+        "certainty": "sermon_delivered_may_26"
+      },
+      "first_publication_year": null,
+      "authorship_status": "sermon_by_fray_pacheco_reproduced_in_later_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "patriotismo cristiano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=INDEPENDENCIA_E_HISPANIDAD_EN_ARGENTINA",
+        "https://www.academia.edu/171568319/Fray_Pedro_Pacheco_1762_1826_un_franciscano_en_los_m%C3%A1rgenes_de_un_mundo_en_transformaci%C3%B3n"
+      ],
+      "notes": "Predicado en Catamarca en 1817 y reproducido en la colección El clero argentino de 1810 a 1830: oraciones patrióticas, editada por Adolfo Carranza (1907), pp. 223–243. No afirmar que el sermón se imprimió en 1817 por el hecho de haberse pronunciado entonces.",
+      "delivery_date": "1817-05-26",
+      "later_witness": {
+        "year": 1907,
+        "collection": "Adolfo Carranza, El clero argentino de 1810 a 1830",
+        "pages": "223–243"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia franciscana de teología en Córdoba y formulación de un patriotismo cristiano favorable a la independencia rioplatense",
+      "kind": "independence_era_political_intellectual_contribution",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "historical_encyclopedia",
+      "title": "Diccionario de Historia Cultural de la Iglesia en América Latina, «Independencia e hispanidad en Argentina»",
+      "url": "https://www.dhial.org/diccionario/index.php?title=INDEPENDENCIA_E_HISPANIDAD_EN_ARGENTINA"
+    },
+    {
+      "kind": "recent_historical_research",
+      "title": "Fray Pedro Pacheco (1762–1826): un franciscano en los márgenes de un mundo en transformación",
+      "url": "https://www.academia.edu/171568319/Fray_Pedro_Pacheco_1762_1826_un_franciscano_en_los_m%C3%A1rgenes_de_un_mundo_en_transformaci%C3%B3n"
+    }
+  ],
+  "research_notes": [
+    "La historiografía menciona un «Manifiesto» anterior y discursos de 1815, pero no se incorpora pieza separada hasta comprobar identificación documental precisa.",
+    "El año 1817 corresponde a predicación, mientras 1907 es testimonio impreso encontrado; primera edición de sermón queda indeterminada."
+  ]
+}

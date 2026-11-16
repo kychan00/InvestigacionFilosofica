@@ -1,0 +1,447 @@
+{
+  "schema_version": 1,
+  "author_id": 133,
+  "canonical_name": "Enrique Eduardo Marí",
+  "alternate_names": [
+    "Enrique E. Marí"
+  ],
+  "life": {
+    "born": {
+      "year": 1927,
+      "date": "1927-07-24",
+      "certainty": "fundacion_konex"
+    },
+    "died": {
+      "year": 2001,
+      "date": "2001-07-03",
+      "certainty": "university"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_and_editorial_distinctions_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0133-w001",
+      "title": "Neopositivismo e ideología",
+      "work_type": "philosophy_of_science_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neopositivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ]
+    },
+    {
+      "work_id": "0133-w002",
+      "title": "La problemática del castigo: el discurso de Jeremy Bentham y Michel Foucault",
+      "work_type": "legal_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_original_publication"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "castigo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Jeremy Bentham",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Michel Foucault",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "first_publication_year_candidates": [
+        1982,
+        1983
+      ],
+      "source_conflict": true,
+      "notes": "Registro de ejemplar Hachette 1983; base ISBN de Edicial remite a 1982. No equiparar ambas sin examen de portada.",
+      "related_people": [
+        {
+          "name": "Jeremy Bentham",
+          "role": "subject"
+        },
+        {
+          "name": "Michel Foucault",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0133-w003",
+      "title": "El discurso jurídico",
+      "work_type": "legal_philosophy_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "discurso jurídico",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ]
+    },
+    {
+      "work_id": "0133-w004",
+      "title": "Derecho y psicoanálisis",
+      "work_type": "legal_philosophy_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicoanálisis",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "notes": "Fundación Konex da 1987; otros registros de ejemplares tardíos señalan 2001 como edición, no necesariamente primera."
+    },
+    {
+      "work_id": "0133-w005",
+      "title": "Elementos de epistemología comparada",
+      "work_type": "epistemology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_original_publication"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemología comparada",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "first_publication_year_candidates": [
+        1989,
+        1990
+      ],
+      "source_conflict": true,
+      "notes": "Catálogo editorial Punto Sur 1989 y perfil Konex 1990; primera edición pendiente de cotejo."
+    },
+    {
+      "work_id": "0133-w006",
+      "title": "Materiales para una teoría crítica del derecho",
+      "work_type": "collective_volume_contribution",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_original_publication"
+      },
+      "first_publication_year": null,
+      "authorship_status": "contributor_to_collective_volume_not_exclusive_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría crítica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "first_publication_year_candidates": [
+        1990,
+        1991
+      ],
+      "source_conflict": true,
+      "related_people": [
+        {
+          "name": "Alicia E. C. Ruiz",
+          "role": "contributor"
+        },
+        {
+          "name": "Carlos María Cárcova",
+          "role": "contributor"
+        },
+        {
+          "name": "Ricardo Entelman",
+          "role": "contributor"
+        }
+      ],
+      "notes": "Volumen colectivo con varios autores, no atribuir autoría total a Marí; edición registrada de 1991."
+    },
+    {
+      "work_id": "0133-w007",
+      "title": "Papeles de filosofía I",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ]
+    },
+    {
+      "work_id": "0133-w008",
+      "title": "Papeles de filosofía II",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ]
+    },
+    {
+      "work_id": "0133-w009",
+      "title": "El banquete de Platón: el eros, el vino, los discursos",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_original_publication"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Platón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "eros",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "discursos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "first_publication_year_candidates": [
+        2000,
+        2001
+      ],
+      "source_conflict": true,
+      "related_people": [
+        {
+          "name": "Platón",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0133-w010",
+      "title": "La teoría de las ficciones",
+      "work_type": "posthumous_legal_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ficciones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "posthumous": true,
+      "composition_year": null,
+      "notes": "Publicación Eudeba en 2002, tras fallecimiento de Marí en 2001."
+    },
+    {
+      "work_id": "0133-w011",
+      "title": "La interpretación de la ley",
+      "work_type": "posthumous_legal_philosophy_edition",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "interpretación de la ley",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+      ],
+      "posthumous": true,
+      "composition_year": null,
+      "notes": "Catálogo registra edición de 2014; no asumir fecha de creación ni que sea texto enteramente inédito."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0133-c001",
+      "title": "Introducción y discusión del pensamiento de Michel Foucault y Louis Althusser en el debate argentino de filosofía del derecho",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_memorial",
+      "title": "Universidad de Buenos Aires: Enrique Marí",
+      "url": "https://www.derecho.uba.ar/derechoaldia/notas/enrique-mar/%2B951"
+    },
+    {
+      "kind": "academic_foundation_profile",
+      "title": "Fundación Konex: Enrique E. Marí",
+      "url": "https://www.fundacionkonex.org/b1614-enrique-e-mari"
+    },
+    {
+      "kind": "legal_library_catalog",
+      "title": "Biblioteca Tribunal Superior de Justicia: obras de Marí",
+      "url": "https://tsjcaba.opac.ar/pergamo/bibliografico/opac.php?a=bsqAutor&n=Mar%C3%AD%2C+Enrique+Eduardo"
+    },
+    {
+      "kind": "library_book_catalog",
+      "title": "Google Books: La problemática del castigo",
+      "url": "https://books.google.com/books/about/La_problem%C3%A1tica_del_castigo.html?id=G9ZYAAAAMAAJ"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: filósofos de Argentina, páginas impresas 879–893"
+    }
+  ],
+  "research_notes": [
+    "Conflictividad biográfica: Konex fecha nacimiento 24/07/1927; Biblioteca Virtual Miguel de Cervantes normaliza 1928–2001. Mantener 1927 como fuente explícita y auditar posteriormente.",
+    "Papeles de filosofía I y II tratados como volúmenes distintos de recopilación.",
+    "Los años 1982/1983, 1989/1990, 1990/1991 y 2000/2001 no se resuelven silenciosamente."
+  ]
+}

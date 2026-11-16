@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "author_id": 258,
+  "canonical_name": "José Riva",
+  "alternate_names": [
+    "José Riva S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_corpus_with_publication_or_source_uncertainty",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0258-w001",
+      "title": "Curso de física con noticias de los avances modernos (título descriptivo)",
+      "work_type": "jesuit_natural_philosophy_course_attested",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "lecture_period",
+        "period": {
+          "start": 1762,
+          "end": 1764
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_teaching_course_attribution_not_physically_collated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "física",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+      ],
+      "title_status": "modern_descriptive_label",
+      "manuscript_status": "not_located",
+      "notes": "La fuente afirma enseñanza 1762–1764 y curso de física abierto a novedades científicas. No presupone que sobreviva manuscrito de todos los años ni que se imprimiese."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de filosofía natural y recepción de adelantos científicos en Perú, 1762–1764",
+      "kind": "colonial_intellectual_or_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000), José Riva 1762–1764",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "historical_colonial_educational_article",
+      "title": "Mauricio Beuchot, La enseñanza de la filosofía",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 84–85"
+    }
+  ],
+  "research_notes": [
+    "No identificar un libro con portada sin testimonio de ejemplar; este registro es un curso atribuido históricamente."
+  ]
+}

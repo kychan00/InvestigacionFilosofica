@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 189,
+  "canonical_name": "Ignacio Ellacuría",
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1989,
+      "certainty": "biographical_reference_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0189-w001",
+      "title": "Filosofía de la realidad histórica",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.sv/entities/publication/ebb00f23-7e44-40e1-9303-b0d8df669988"
+      ],
+      "notes": "Edición póstuma de 1990; no confundir con año de composición."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; año biográfico cotejado con índice del libro base cuando está disponible.",
+    "Bibliografía parcial; no se asignan fechas de primera edición sin evidencia específica."
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "schema_version": 1,
+  "author_id": 153,
+  "canonical_name": "Rafael Barrett",
+  "alternate_names": [
+    "Rafael Barrett Álvarez de Toledo"
+  ],
+  "life": {
+    "born": {
+      "year": 1876,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1910,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_source_checked_with_explicit_provisional_attributions",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0153-w001",
+      "title": "La huelga",
+      "work_type": "social_political_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "huelga",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "notes": "Folleto original publicado en Asunción en 1908."
+    },
+    {
+      "work_id": "0153-w002",
+      "title": "Lo que son los yerbales paraguayos",
+      "work_type": "social_critique_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "yerbales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Paraguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "notes": "Folleto Bertani 1910 con prólogo de José Guillermo Bertotto; reimpresiones de 1926 y 1929 no nuevas obras."
+    },
+    {
+      "work_id": "0153-w003",
+      "title": "El terror argentino",
+      "work_type": "social_political_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "terror argentino",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "notes": "Folleto Asunción 1910; posteriores reimpresiones independientes."
+    },
+    {
+      "work_id": "0153-w004",
+      "title": "Moralidades actuales",
+      "work_type": "philosophical_social_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moralidades",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1919,
+          "publisher": "Editorial América",
+          "notes": "Madrid"
+        },
+        {
+          "year": 1922,
+          "notes": "Reedición Buenos Aires"
+        }
+      ]
+    },
+    {
+      "work_id": "0153-w005",
+      "title": "El dolor paraguayo",
+      "work_type": "posthumous_social_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dolor",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Paraguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true,
+      "notes": "Recopilación Bertani de 1911 publicada tras muerte de Barrett 1910. El contenido original apareció antes en prensa. Algunos catálogos dan ediciones Fueyo sin fecha."
+    },
+    {
+      "work_id": "0153-w006",
+      "title": "Cuentos breves",
+      "work_type": "posthumous_short_story_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuentos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true,
+      "edition_history": [
+        {
+          "year": 1919,
+          "publisher": "Editorial América",
+          "notes": "Reimpresión Madrid"
+        }
+      ]
+    },
+    {
+      "work_id": "0153-w007",
+      "title": "Al margen: críticas literarias y científicas",
+      "work_type": "posthumous_critical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "críticas literarias",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "científicas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true
+    },
+    {
+      "work_id": "0153-w008",
+      "title": "Ideas y críticas",
+      "work_type": "posthumous_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "críticas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true,
+      "first_publication_year_candidates": [
+        1912
+      ],
+      "notes": "Bertani s.f., bibliografía propone aproximadamente 1912, evitar fecha exacta no confirmada."
+    },
+    {
+      "work_id": "0153-w009",
+      "title": "Diálogos, conversaciones y otros escritos",
+      "work_type": "posthumous_dialogue_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "diálogos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conversaciones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true,
+      "edition_history": [
+        {
+          "year": 1918,
+          "publisher": "Claudio García",
+          "notes": "Nueva edición Montevideo"
+        }
+      ]
+    },
+    {
+      "work_id": "0153-w010",
+      "title": "Mirando vivir",
+      "work_type": "posthumous_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true,
+      "notes": "No confundir con edición Tusquets 1976 que contiene selección/prologación posteriores."
+    },
+    {
+      "work_id": "0153-w011",
+      "title": "Artículos diversos",
+      "work_type": "posthumous_essay_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "artículos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true
+    },
+    {
+      "work_id": "0153-w012",
+      "title": "Cartas íntimas",
+      "work_type": "posthumous_correspondence_edition",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cartas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+      ],
+      "posthumous": true,
+      "notes": "Correspondencia escrita durante vida de Barrett (m. 1910) recopilada editorialmente en 1967. No inferir 1967 como fecha de composición."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0153-c001",
+      "title": "Fundación de la revista Germinal en 1908 y periodismo social en Paraguay",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0153-c002",
+      "title": "Denuncia de explotación en yerbales y defensa de trabajadores en prensa paraguaya y rioplatense",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialist_bibliography",
+      "title": "Repertorio Ensayistas: bibliografía Rafael Barrett",
+      "url": "https://www.ensayistas.org/filosofos/paraguay/barrett/biblio-de.htm"
+    },
+    {
+      "kind": "author_archive",
+      "title": "Archivo Rafael Barrett: primeras ediciones y reediciones",
+      "url": "https://www.rafaelbarrett.org/Obras.html"
+    },
+    {
+      "kind": "regional_author_archive",
+      "title": "Portal Guaraní: bibliografía con historia editorial",
+      "url": "https://www.portalguarani.com/332_rafael_barrett__/18498_rafael_barrett__obras_completas_iv__textos_ineditos_y_olvidados_noticias_y_juicios_y_apendice_documental_.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Chile y Paraguay, páginas impresas 908–915"
+    }
+  ],
+  "research_notes": [
+    "Muerte 1910 exige marcar como póstumos todos los volúmenes de 1911 en adelante salvo recopilaciones de material publicado previamente.",
+    "Las Obras completas editadas en 1932, 1943, 1954 y 1988–1990 son recopilaciones, no obras nuevas originalmente redactadas en dichas fechas."
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "schema_version": 1,
+  "author_id": 160,
+  "canonical_name": "Alberto Wagner de Reyna",
+  "alternate_names": [
+    "Alberto Wagner de Reyna Grau"
+  ],
+  "life": {
+    "born": {
+      "year": 1915,
+      "date": "1915-06-07",
+      "certainty": "author_biographical_study"
+    },
+    "died": {
+      "year": 2006,
+      "date": "2006-09-09",
+      "certainty": "author_biographical_study"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_titles_first_editions_and_roles_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0160-w001",
+      "title": "La ontología fundamental de Heidegger: su motivo y significación",
+      "work_type": "heideggerian_ontology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ontología fundamental",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "earlier_publications": [
+        {
+          "year": 1937,
+          "kind": "journal_article_installments",
+          "notes": "Adelanto de investigación en el Boletín de la PUCP"
+        }
+      ],
+      "first_publication_year_candidates": [
+        1938,
+        1939,
+        1945
+      ],
+      "source_conflict": true,
+      "edition_history": [
+        {
+          "year": 1939,
+          "publisher": "Losada",
+          "place": "Buenos Aires",
+          "notes": "Edición documentada por catálogo de biblioteca"
+        },
+        {
+          "year": 1945,
+          "notes": "Edición posterior citada por UAM"
+        }
+      ],
+      "related_people": [
+        {
+          "name": "Martin Heidegger",
+          "role": "subject"
+        },
+        {
+          "name": "Francisco Romero",
+          "role": "prologist"
+        }
+      ],
+      "notes": "Estudio bibliográfico documenta impresión Lumen Lima 1938; otros catálogos registran Losada 1939 o reimpresión 1945. No fijar prólogo como coautoría."
+    },
+    {
+      "work_id": "0160-w002",
+      "title": "El cuaderno de las siete invocaciones",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "invocaciones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w003",
+      "title": "Las tres Marías",
+      "work_type": "theological_drama",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tres Marías",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1950,
+          "place": "Santiago de Chile",
+          "notes": "Edición Mesa Redonda; primera edición Lisboa 1946"
+        }
+      ]
+    },
+    {
+      "work_id": "0160-w004",
+      "title": "Leyendas de Santa Rosa",
+      "work_type": "religious_literary_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Santa Rosa",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w005",
+      "title": "La filosofía en Iberoamérica",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Iberoamérica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w006",
+      "title": "El concepto de verdad en Aristóteles",
+      "work_type": "aristotelian_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "verdad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Aristóteles",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "publication_context": "Revista de Estudios Clásicos, núm. 4 (1951), pp. 15–188",
+      "edition_history": [
+        {
+          "year": 1960,
+          "note": "Segunda parte posterior, pendiente de ficha separada por documentación de volumen"
+        }
+      ],
+      "related_people": [
+        {
+          "name": "Aristóteles",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0160-w007",
+      "title": "La certeza en Descartes",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "certeza",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Descartes",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "publication_context": "Revista de filosofía, vol. 1 núm. 4 (1950), pp. 461–468",
+      "related_people": [
+        {
+          "name": "René Descartes",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0160-w008",
+      "title": "Destino y vocación de Iberoamérica",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1954,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "destino",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vocación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Iberoamérica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w009",
+      "title": "La fuga",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fuga",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w010",
+      "title": "La sonata de una nota perdida",
+      "work_type": "literary_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sonata",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nota",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w011",
+      "title": "Hacia más allá de los linderos",
+      "work_type": "philosophical_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "linderos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w012",
+      "title": "Historia diplomática del Perú, 1900–1945",
+      "work_type": "diplomatic_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia diplomática",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Perú",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "notes": "1900–1945 designa periodo histórico estudiado, no fecha de primera publicación."
+    },
+    {
+      "work_id": "0160-w013",
+      "title": "Analogía y evocación",
+      "work_type": "metaphysical_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "analogía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evocación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w014",
+      "title": "Pobreza y cultura: crisis y concierto",
+      "work_type": "latin_american_cultural_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pobreza",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "crisis",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "first_publication_year_candidates": [
+        1982,
+        1985
+      ],
+      "source_conflict": true,
+      "notes": "Estudio académico proporciona 1982; algunas referencias bibliográficas señalan 1985. Cotejar ejemplar."
+    },
+    {
+      "work_id": "0160-w015",
+      "title": "La poca fe",
+      "work_type": "religious_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fe",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "first_publication_year_candidates": [
+        1993,
+        2003
+      ],
+      "source_conflict": true,
+      "notes": "Biobibliografías secundarias divergen 1993 y 2003; edición original pendiente."
+    },
+    {
+      "work_id": "0160-w016",
+      "title": "Bajo el jazmín: memorias",
+      "work_type": "autobiographical_memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memorias",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w017",
+      "title": "Ensayos en torno a Heidegger",
+      "work_type": "history_of_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "related_people": [
+        {
+          "name": "Martin Heidegger",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0160-w018",
+      "title": "El privilegio de ser latinoamericano",
+      "work_type": "latin_american_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "latinoamericano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "privilegio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ]
+    },
+    {
+      "work_id": "0160-w019",
+      "title": "Manifiesto para Iberoamérica: Amarra tu arado a una estrella",
+      "work_type": "posthumous_political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Iberoamérica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "manifiesto",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+      ],
+      "posthumous": true,
+      "composition_year_before": 2006,
+      "notes": "Texto inédito revisado por el autor hasta su fallecimiento en septiembre 2006, publicado con autorización de herederos en Mercurio Peruano después de la muerte; año y número exactos pendientes."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0160-c001",
+      "title": "Participación intelectual en la introducción de la filosofía heideggeriana en la comunidad filosófica iberoamericana",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0160-c002",
+      "title": "Carrera diplomática del Perú, funciones en UNESCO y Consejo Pontificio de la Cultura, e interlocución filosófica iberoamericana",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_memorial_biography",
+      "title": "Biblioteca Virtual Miguel de Cervantes: Alberto Wagner de Reyna (1915–2006)",
+      "url": "https://www.cervantesvirtual.com/obra-visor/alberto-wagner-de-reyna-1915-2006-pensador-y-humanista-peruano/html/96738f78-aa40-4715-92d2-f59f25894e50_6.html"
+    },
+    {
+      "kind": "academic_bibliographic_index",
+      "title": "Dialnet: bibliografía de Alberto Wagner de Reyna",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=78317"
+    },
+    {
+      "kind": "library_original_edition_catalog",
+      "title": "Biblioteca de Seminario Uruguay, catálogo Ontología fundamental, edición 1939",
+      "url": "https://biblioteca.seminario.edu.uy/index.php?dcote=&id=34&lcote=0&location=1&lvl=section_see&main=&nbr_lignes=19640&nc=0&page=917&plettreaut=&ssub=0"
+    },
+    {
+      "kind": "university_biobibliography",
+      "title": "Universidad Autónoma Metropolitana CEFILIBE: Alberto Wagner de Reyna",
+      "url": "https://divcsh.izt.uam.mx/cefilibe/wp-content/uploads/2013/12/A_Wagner.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: perfiles de Bolivia y Perú, pp. 916–930"
+    }
+  ],
+  "research_notes": [
+    "La ontología fundamental tiene adelantos en 1937 y primeras ediciones 1938/1939; preservar conflicto editorial en lugar de escoger 1945 como fecha de origen.",
+    "La investigación biográfica de Luz González Umeres documenta fallecimiento 9 septiembre 2006 en París y publicación póstuma de su manifiesto.",
+    "Obras literarias y diplomáticas incluidas como parte de producción intelectual, no exclusivamente filosofía."
+  ]
+}

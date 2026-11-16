@@ -1,0 +1,691 @@
+{
+  "schema_version": 1,
+  "author_id": 145,
+  "canonical_name": "Juan Luis Segundo",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1925,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1996,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_not_exhaustive_pending_bibliographic_audit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0145-w001",
+      "title": "Berdiaeff: Une réflexion chrétienne sur la personne",
+      "work_type": "theological_philosophy_monograph",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Berdiaeff",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "personne",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "related_people": [
+        {
+          "name": "Nikolái Berdiáyev",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0145-w002",
+      "title": "Teología abierta para el laico adulto. I: Esa comunidad llamada Iglesia",
+      "work_type": "theological_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Iglesia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "comunidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "notes": "Realizado en colaboración institucional con Centro Pedro Fabro; no identificar a todos los participantes como coautores individuales."
+    },
+    {
+      "work_id": "0145-w003",
+      "title": "Teología abierta para el laico adulto. II: Gracia y condición humana",
+      "work_type": "theological_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "condición humana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "notes": "Fuente bibliográfica de la serie refiere a edición 1969; otro estudio confunde volumen II con 1968."
+    },
+    {
+      "work_id": "0145-w004",
+      "title": "Teología abierta para el laico adulto. III: Nuestra idea de Dios",
+      "work_type": "theological_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dios",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w005",
+      "title": "De la sociedad a la teología",
+      "work_type": "liberation_theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w006",
+      "title": "Teología abierta para el laico adulto. IV: Los sacramentos hoy",
+      "work_type": "theological_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sacramentos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w007",
+      "title": "Qué es un cristiano: etapas precristianas de la fe; concepción cristiana del hombre",
+      "work_type": "theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cristiano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fe",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "composition_notes": "Parte del Nuevo Testamento tiene origen en conferencias impartidas en 1962; primera edición como libro 1971."
+    },
+    {
+      "work_id": "0145-w008",
+      "title": "Acción pastoral latinoamericana: sus motivos ocultos",
+      "work_type": "pastoral_theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "acción pastoral latinoamericana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "motivos ocultos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w009",
+      "title": "Masas y minorías en la dialéctica divina de la liberación",
+      "work_type": "liberation_theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "masas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "minorías",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "composition_notes": "Conferencias pronunciadas en 1972; edición La Aurora 1973."
+    },
+    {
+      "work_id": "0145-w010",
+      "title": "Liberación de la teología",
+      "work_type": "liberation_theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1976,
+          "language": "inglés",
+          "notes": "The Liberation of Theology, traducción, no publicación original"
+        }
+      ]
+    },
+    {
+      "work_id": "0145-w011",
+      "title": "Teología abierta para el laico adulto. V: Evolución y culpa",
+      "work_type": "theological_series_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "evolución",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "culpa",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "first_publication_year_candidates": [
+        1972,
+        1983,
+        1984
+      ],
+      "source_conflict": true,
+      "notes": "Bibliografía selectiva sitúa tomo V 1983–84; referencias a Evolución y culpa 1972 y traducción inglesa 1974. Debe cotejarse portada primera edición, no afirmar 1983 como original."
+    },
+    {
+      "work_id": "0145-w012",
+      "title": "El hombre de hoy ante Jesús de Nazaret. I: Fe e ideología",
+      "work_type": "theological_multivolume_treatise_part",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Jesús de Nazaret",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fe",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "notes": "Tomo I en edición Cristiandad 1982; serie II dividida en dos partes."
+    },
+    {
+      "work_id": "0145-w013",
+      "title": "El hombre de hoy ante Jesús de Nazaret. II/1: Historia y actualidad. Sinópticos y Pablo",
+      "work_type": "theological_multivolume_treatise_part",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sinópticos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Pablo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w014",
+      "title": "El hombre de hoy ante Jesús de Nazaret. II/2: Historia y actualidad. Las cristologías en la espiritualidad",
+      "work_type": "theological_multivolume_treatise_part",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cristologías",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espiritualidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w015",
+      "title": "Teología de la liberación: respuesta al cardenal Ratzinger",
+      "work_type": "liberation_theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cardenal Ratzinger",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "related_people": [
+        {
+          "name": "Joseph Ratzinger",
+          "role": "interlocutor"
+        }
+      ]
+    },
+    {
+      "work_id": "0145-w016",
+      "title": "El dogma que libera: fe, revelación y magisterio dogmático",
+      "work_type": "theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dogma",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revelación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "magisterio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "first_publication_year_candidates": [
+        1988,
+        1989
+      ],
+      "source_conflict": true,
+      "notes": "Dialnet registra 1988, bibliografía especializada Sal Terrae 1989. Revisar edición física."
+    },
+    {
+      "work_id": "0145-w017",
+      "title": "¿Qué mundo? ¿Qué hombre? ¿Qué Dios?",
+      "work_type": "theological_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mundo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Dios",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w018",
+      "title": "El caso Mateo: los comienzos de una ética judeo-cristiana",
+      "work_type": "theological_biblical_exegesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Mateo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética judeo-cristiana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ]
+    },
+    {
+      "work_id": "0145-w019",
+      "title": "El infierno: un diálogo con Karl Rahner",
+      "work_type": "posthumous_theological_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "infierno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Karl Rahner",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+      ],
+      "posthumous": true,
+      "related_people": [
+        {
+          "name": "Karl Rahner",
+          "role": "dialogue_subject"
+        }
+      ],
+      "notes": "Coedición Trilce / Lohlé-Lumen 1998 posterior a fallecimiento de Segundo en 1996. No confundir diálogo intelectual con coautoría de Rahner."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0145-c001",
+      "title": "Participación en el Centro Pedro Fabro de Montevideo y en la teología de la liberación latinoamericana",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialist_primary_bibliography",
+      "title": "Bibliografía selectiva de Juan Luis Segundo",
+      "url": "https://www.es.catholic.net/op/vercapitulo/7363/bibliografia-selectiva-de-y-sobre-juan-luis-segundo.html"
+    },
+    {
+      "kind": "academic_bibliography",
+      "title": "Dialnet: Juan Luis Segundo",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=1898953"
+    },
+    {
+      "kind": "scholarly_references",
+      "title": "Análisis con referencias de ediciones iniciales de Juan Luis Segundo",
+      "url": "https://filosofiaiberoamericana.org/2026/10/24/estructuras-del-mal-relevo-historico-segundo-juan-pablo-ii-tomas/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay, páginas impresas 894–901"
+    }
+  ],
+  "research_notes": [
+    "Los cinco volúmenes de Teología abierta para el laico adulto no se colapsan y las reorganizaciones de Cristiandad 1983–84 se tratan como ediciones posteriores.",
+    "Conflicto bibliográfico del tomo V Evolución y culpa debe investigarse comparando portada 1972 con datos 1983–84.",
+    "Ediciones póstumas de 1998 separadas de composición original."
+  ]
+}

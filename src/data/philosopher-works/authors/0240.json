@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "author_id": 240,
+  "canonical_name": "Andrés Bordas",
+  "alternate_names": [
+    "Fray Andrés Bordas"
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_reported_franciscan_commentary_corpus_without_verified_title_date_or_manuscript",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0240-w001",
+      "title": "Comentarios a Juan Duns Escoto (título descriptivo; original por verificar)",
+      "work_type": "historically_attributed_scholastic_commentary_corpus",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "date_and_manuscript_unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_historical_attribution_without_verified_autograph",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Juan Duns Escoto",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "comentarios escolásticos",
+          "provenance": "scholarly"
+        }
+      ],
+      "title_status": "modern_descriptive_label",
+      "manuscript_status": "not_located_or_unverified",
+      "evidence_urls": [
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "notes": "Las fuentes historiográficas atribuyen comentarios a Escoto a Andrés Bordas, pero no se ha acreditado título literal, fecha de composición ni edición impresa. No se inventan libros ni tratados adicionales."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción y comentario de la filosofía escotista en la tradición franciscana de la Nueva España",
+      "kind": "colonial_scholastic_intellectual_contribution",
+      "authorship_status": "reported_in_scholarly_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Andrés Bordas, comentarista de Escoto"
+    }
+  ],
+  "research_notes": [
+    "No asignar fecha de publicación por analogía con otros franciscanos.",
+    "Se requiere referencia archivística de manuscrito o portada para salir del estado de atribución provisional."
+  ]
+}

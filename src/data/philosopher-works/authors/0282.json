@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "author_id": 282,
+  "canonical_name": "Francisco Faria",
+  "alternate_names": [
+    "Francisco de Faria",
+    "Francisco de Faria S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1747_disputation_ambiguous_primary_authorship_two_historical_letters",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0282-w001",
+      "title": "Conclusiones metaphysicas de Ente reali",
+      "work_type": "latin_colonial_philosophical_disputation_broadside",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1747,
+        "certainty": "dated_Rio_print"
+      },
+      "first_publication_year": 1747,
+      "authorship_status": "presiding_professor_probable_writer_not_sole_candidate_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ente real",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escolástica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Duns Escoto",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.faje.edu.br/periodicos/index.php/Sintese/article/view/3328",
+        "https://www.academia.edu/143023254/L%C3%BAcio_%C3%81lvaro_Marques_PHILOSOPHIA_BRASILIENSIS_Hist%C3%B3ria_conhecimento_e_metaf%C3%ADsica_no_per%C3%ADodo_colonial"
+      ],
+      "notes": "Impreso de la segunda tipografía de António Isidoro da Fonseca, Río de Janeiro, 1747. Francisco Fraga fue el estudiante que defendió y ofreció las conclusiones; Francisco de Faria presidió la disputa. El estudio de Marques sugiere redacción intelectual atribuible al profesor, sin borrar el papel de Fraga.",
+      "responsibility_roles": [
+        {
+          "name": "Francisco de Faria",
+          "role": "praeses; probable argument author"
+        },
+        {
+          "name": "Francisco Fraga",
+          "role": "defender; offertor; dedicant"
+        }
+      ],
+      "edition": {
+        "year": 1747,
+        "publisher": "António Isidoro da Fonseca",
+        "region": "Rio de Janeiro"
+      }
+    },
+    {
+      "work_id": "0282-w002",
+      "title": "Carta do presidente da Academia dos Selectos sobre a eleição do secretário (título descriptivo)",
+      "work_type": "historical_academic_letter",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1751,
+        "certainty": "letter_date_december_29"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_bibliographic_attestation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/143023254/L%C3%BAcio_%C3%81lvaro_Marques_PHILOSOPHIA_BRASILIENSIS_Hist%C3%B3ria_conhecimento_e_metaf%C3%ADsica_no_per%C3%ADodo_colonial"
+      ],
+      "notes": "Carta fechada 29 de diciembre de 1751, recogida en «Júbilos da América», p. 7 según el estudio especializado. El título es descriptivo y no se presume primera impresión específica.",
+      "title_status": "modern_descriptive_label",
+      "later_witness": "Júbilos da América (1754), p. 7"
+    },
+    {
+      "work_id": "0282-w003",
+      "title": "Carta do presidente sobre o extracto de assuntos e aprovação da carta circular da Academia (título descriptivo)",
+      "work_type": "historical_academic_letter",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1752,
+        "certainty": "letter_date_january_3"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_bibliographic_attestation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/143023254/L%C3%BAcio_%C3%81lvaro_Marques_PHILOSOPHIA_BRASILIENSIS_Hist%C3%B3ria_conhecimento_e_metaf%C3%ADsica_no_per%C3%ADodo_colonial"
+      ],
+      "notes": "Carta fechada 3 de enero de 1752; citada como preservada en «Júbilos da América», p. 8. No convertir la compilación en un libro de autoría exclusiva de Faria.",
+      "title_status": "modern_descriptive_label",
+      "later_witness": "Júbilos da América (1754), p. 8"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Presidencia de la disputa de metafísica impresa en Río de Janeiro en 1747 y actividad en la Academia dos Selectos",
+      "kind": "scholastic_metaphysics_colonial_brazil",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "peer_reviewed_philosophical_research",
+      "title": "Lúcio Álvaro Marques, «Metaphysica de ente reali», Síntese 45(141), 2018, DOI 10.20911/21769389v45n141p33/2018",
+      "url": "https://www.faje.edu.br/periodicos/index.php/Sintese/article/view/3328"
+    },
+    {
+      "kind": "scholarly_monograph",
+      "title": "Lúcio Álvaro Marques, Philosophia Brasiliensis: historia de Francisco de Faria y testimonios de cartas (Leite 1949)",
+      "url": "https://www.academia.edu/143023254/L%C3%BAcio_%C3%81lvaro_Marques_PHILOSOPHIA_BRASILIENSIS_Hist%C3%B3ria_conhecimento_e_metaf%C3%ADsica_no_per%C3%ADodo_colonial"
+    }
+  ],
+  "research_notes": [
+    "Las «Conclusiones» tienen responsabilidad múltiple (profesor/defensor); no atribuirlas a Fraga o Faria de manera excluyente sin indicarlo.",
+    "Cartas 1751–1752 están documentadas por bibliografía secundaria y requieren cotejo de ejemplar de «Júbilos da América».",
+    "La publicación no se debe presentar sin matices como un libro de 1747: es una hoja de disputa académica."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 16,
+  "canonical_name": "Lucas Fernández de Piedrahita",
+  "alternate_names": [
+    "Lucas Fernández Piedrahita",
+    "Lucas Fernández de Piedrahíta"
+  ],
+  "life": {
+    "born": {
+      "year": 1624,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1688,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_surviving_work_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0016-w001",
+      "title": "Historia general de las conquistas del Nuevo Reino de Granada",
+      "work_type": "history_chronicle",
+      "original_language": "español",
+      "original_date": {
+        "year": 1688,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1688,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Joseph Mulder",
+          "role": "engraver"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Colombia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conquista",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Nuevo Reino de Granada",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historiografía colonial",
+          "provenance": "inferred"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1688,
+          "place": "Amberes",
+          "publisher": "Juan Baptista Verdussen",
+          "kind": "first_edition"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "rare_book_catalog",
+      "title": "Historia general de las conquistas del nuevo Reyno de Granada",
+      "url": "https://bibliotecadigitaldebogota.gov.co/resources/3293556/",
+      "publisher": "Biblioteca Digital de Bogotá / Biblioteca Nacional de Colombia"
+    },
+    {
+      "kind": "digital_catalog",
+      "title": "Historia general de las conquistas del nueuo reyno de Granada",
+      "url": "https://www.cervantesvirtual.com/obra/historia-general-de-las-conquistas-del-nueuo-reyno-de-granada-0/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Las fuentes biográficas mencionan poesía y teatro juveniles; pendiente localizar títulos y testimonios conservados antes de contarlos como obras verificadas."
+  ]
+}

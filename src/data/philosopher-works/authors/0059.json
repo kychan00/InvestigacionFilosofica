@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "author_id": 59,
+  "canonical_name": "Juan Lagarrigue",
+  "alternate_names": [
+    "Juan Enrique Lagarrigue"
+  ],
+  "life": {
+    "born": {
+      "year": 1852,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1927,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_religion_of_humanity_letters_moral_and_positivist_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0059-w001",
+      "title": "Los desafíos ante la moral positiva y la senda del porvenir",
+      "work_type": "moral_philosophy_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1886,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral positiva",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "porvenir",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w002",
+      "title": "Carta al señor don Juan Valera sobre la religión de la humanidad",
+      "work_type": "open_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1888,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1888,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Juan Valera",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w003",
+      "title": "Carta a la señora Doña Emilia Pardo Bazán",
+      "work_type": "open_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1889,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Emilia Pardo Bazán",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w004",
+      "title": "Segunda carta al señor don Juan Valera sobre la religión de la humanidad",
+      "work_type": "open_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1890,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1890,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Juan Valera",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w005",
+      "title": "Carta sobre la religión de la humanidad dirigida a la señora Doña Mercedes Cabello de Carbonera",
+      "work_type": "open_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1892,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Mercedes Cabello de Carbonera",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w006",
+      "title": "Carta al señor Arzobispo D. Mariano Casanova",
+      "work_type": "open_letter_religious_polemic",
+      "original_language": "español",
+      "original_date": {
+        "year": 1893,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1893,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Mariano Casanova",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "orden y progreso",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w007",
+      "title": "A la memoria de Guillermo Puelma Tupper",
+      "work_type": "commemorative_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Guillermo Puelma Tupper",
+          "role": "honored_subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memoria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w008",
+      "title": "Lo sobrenatural ante el positivismo",
+      "work_type": "philosophical_religious_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sobrenatural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0059-w009",
+      "title": "La religión de la humanidad",
+      "work_type": "posthumous_religious_positivist_collection",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "texts_composed_before_1927"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Fundación Juan Enrique Lagarrigue",
+          "role": "posthumous_publisher"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "moral positiva",
+          "provenance": "catalog"
+        },
+        {
+          "term": "misión de la mujer",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Incluye textos como Moral positiva y La misión de la mujer; pendiente fijar sus fechas originales de composición/publicación."
+    },
+    {
+      "work_id": "0059-w010",
+      "title": "Trozos de la correspondencia entre Jorge y Juan Enrique Lagarrigue",
+      "work_type": "correspondence_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1876,
+        "end": 1881,
+        "certainty": "exact_corpus_range"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "verified_coauthored_correspondence",
+      "coauthors": [
+        {
+          "name": "Jorge Lagarrigue",
+          "role": "correspondent_coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "correspondencia",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_author_catalog",
+      "title": "Lagarrigue, Juan Enrique",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-127620.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_digital_record",
+      "title": "Carta al señor Arzobispo D. Mariano Casanova",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9646.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_digital_record",
+      "title": "La religión de la humanidad",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9645.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico usa Juan Lagarrigue; la forma bibliográfica completa y habitual es Juan Enrique Lagarrigue.",
+    "Pendiente fechar individualmente Moral positiva y La misión de la mujer."
+  ]
+}

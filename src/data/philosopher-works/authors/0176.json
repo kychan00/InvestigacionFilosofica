@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "author_id": 176,
+  "canonical_name": "Juan David García Bacca",
+  "alternate_names": [
+    "David García Baca",
+    "David García"
+  ],
+  "life": {
+    "born": {
+      "year": 1901,
+      "certainty": "scholarly_biography"
+    },
+    "died": {
+      "year": 1992,
+      "certainty": "scholarly_biography"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "three_early_publications_not_complete_oeuvre",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0176-w001",
+      "title": "Introducción a la lógica moderna",
+      "work_type": "philosophical_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "signed_preface_april_1936"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "scholarly_bibliography",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/bol/bib/nb008.htm"
+      ],
+      "notes": "Editorial Labor, Barcelona, 251 pp. Publicado bajo la firma David García Baca antes de adoptar Juan David García Bacca; no dividir la identidad autoral."
+    },
+    {
+      "work_id": "0176-w002",
+      "title": "Siete modelos de filosofar",
+      "work_type": "philosophical_book_based_on_lectures",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "lectures_delivered_1946"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "contemporary_review",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/hem/dep/rcf/n08p045.htm"
+      ],
+      "notes": "UCV, Caracas, 1950. Según reseña contemporánea procede de conferencias dictadas en 1946: distinguir exposición oral y edición impresa."
+    },
+    {
+      "work_id": "0176-w003",
+      "title": "Memorabilia (lo recordable), Memorata (lo recordado), Memoranda (lo recordando) a mis noventa años",
+      "work_type": "posthumous_memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "written_near_end_of_life"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "scholarly_biography",
+      "coauthors": [],
+      "posthumous": true,
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/bol/bib/nb008.htm"
+      ],
+      "notes": "Memorias redactadas al final de la vida y publicadas por la familia en 2000, ocho años después de la muerte; comprobar ficha editorial original antes de añadir editorial o ISBN."
+    }
+  ],
+  "editorial_notes": [
+    "Jorge M. Ayala documenta cambio de firma en 1938; preservar variantes y evitar duplicados.",
+    "Traducciones de Platón, Aristóteles y otros deben codificarse como rol de traductor, no como autor original."
+  ]
+}

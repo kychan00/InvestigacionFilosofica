@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "author_id": 9,
+  "canonical_name": "Francisco Suárez",
+  "alternate_names": [
+    "Franciscus Suárez",
+    "Francisco Suarez"
+  ],
+  "life": {
+    "born": {
+      "year": 1548,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1617,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "principal_works_verified_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0009-w001",
+      "title": "De Verbo incarnato",
+      "work_type": "theology_philosophical_theology",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1590,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1590,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "encarnación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Tomás de Aquino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cristología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w002",
+      "title": "De mysteriis vitae Christi",
+      "work_type": "theology",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1592,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1592,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida de Cristo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mariología",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w003",
+      "title": "Disputationes metaphysicae",
+      "work_type": "metaphysics",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1597,
+        "certainty": "first_edition_standard"
+      },
+      "first_publication_year": 1597,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ente",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "esencia y existencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sustancia y accidentes",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w004",
+      "title": "Varia opuscula theologica",
+      "work_type": "theology_collection",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1599,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1599,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gracia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad humana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "De auxiliis",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w005",
+      "title": "De Deo uno et trino",
+      "work_type": "theology",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1606,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1606,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dios",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Trinidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w006",
+      "title": "Tractatus de legibus ac Deo legislatore",
+      "work_type": "philosophy_of_law_political_philosophy",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1612,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1612,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ley natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ius gentium",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autoridad política",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w007",
+      "title": "Defensio fidei catholicae et apostolicae",
+      "work_type": "political_theology",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1613,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1613,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poder político",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tiranía",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0009-w008",
+      "title": "De anima",
+      "work_type": "philosophical_psychology",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1621,
+        "certainty": "posthumous_publication"
+      },
+      "first_publication_year": 1621,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "alma",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicología filosófica",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "institutional_bibliography",
+      "title": "Principales obras de Francisco Suárez",
+      "url": "https://biblioteca.ucm.es/fsl/principales-obras-de-francisco-suarez",
+      "publisher": "Universidad Complutense de Madrid"
+    },
+    {
+      "kind": "institutional_catalog",
+      "title": "Catálogo de la exposición — Obras de Francisco Suárez",
+      "url": "https://biblioteca.ucm.es/fsl/catalogo-de-la-exposicion",
+      "publisher": "Universidad Complutense de Madrid"
+    }
+  ],
+  "research_notes": [
+    "Seed de obras principales. La obra completa ocupa decenas de volúmenes; falta corpus exhaustivo y cronología de póstumas."
+  ]
+}

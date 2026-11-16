@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 373,
+  "canonical_name": "Antonio Maceo",
+  "alternate_names": [
+    "Antonio Maceo Grajales"
+  ],
+  "life": {
+    "born": {
+      "year": 1845,
+      "certainty": "archival_authority"
+    },
+    "died": {
+      "year": 1896,
+      "certainty": "archival_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0373-w001",
+      "title": "Protesta de Baraguá",
+      "work_type": "oral_political_intervention_and_historical_event",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "historical_event_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "principal_spokesman_in_documented_oral_intervention",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Pacto del Zanjón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "resistencia anticolonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ufdcimages.uflib.ufl.edu/AA/00/06/82/07/00076/Revista%20BNJM_1974_Mayo-Agosto.pdf",
+        "https://museodeladisidenciaencuba.wordpress.com/protesta-de-baragua/"
+      ],
+      "notes": "Intervención del 15 de marzo de 1878 frente a Arsenio Martínez Campos. Se registra como acto político oral documentado, no como un libro ni como una transcripción taquigráfica de autoría textual comprobada."
+    },
+    {
+      "work_id": "0373-w002",
+      "title": "Carta al general Máximo Gómez, 4 de mayo de 1895",
+      "work_type": "archival_correspondence",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "dated_archival_manuscript"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_letter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Máximo Gómez",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "José Martí",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "La Mejorana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "guerra de independencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://digitalcollections.library.miami.edu/digital/collection/chc0347/id/786/"
+      ],
+      "notes": "Carta manuscrita de cuatro páginas conservada en la Cuban Heritage Collection de la University of Miami, escrita la víspera de la reunión de La Mejorana. La fecha archivística se mantiene separada de cualquier edición posterior."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa de independencia y abolición sin aceptar la paz del Zanjón, y liderazgo político-militar afrodescendiente en la revolución cubana",
+      "kind": "anticolonial_and_abolitionist_leadership_contribution",
+      "authorship_status": "documented_in_archival_and_historical_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "archival_authority_source",
+      "title": "PARES — Maceo Grajales, Antonio (1845-1896)",
+      "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/47217"
+    },
+    {
+      "kind": "archival_primary_source",
+      "title": "University of Miami — Antonio Maceo letter to Máximo Gómez, 4 May 1895",
+      "url": "https://digitalcollections.library.miami.edu/digital/collection/chc0347/id/786/"
+    },
+    {
+      "kind": "historical_library_source",
+      "title": "Revista de la Biblioteca Nacional José Martí — La ruta de Antonio Maceo",
+      "url": "https://ufdcimages.uflib.ufl.edu/AA/00/06/82/07/00076/Revista%20BNJM_1974_Mayo-Agosto.pdf"
+    }
+  ],
+  "research_notes": [
+    "La Protesta de Baraguá no se convierte artificialmente en texto impreso de 1878; se conserva su naturaleza de intervención oral documentada.",
+    "Las compilaciones Epistolario de héroes (1922) y Disciplina y dignidad (1936) son ediciones posteriores de cartas y circulares y no se cuentan como obras redactadas en esas fechas."
+  ]
+}

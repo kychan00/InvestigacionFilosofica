@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "author_id": 288,
+  "canonical_name": "Gaspar da Madre de Deus",
+  "alternate_names": [
+    "Frei Gaspar da Madre de Deus",
+    "Gaspar Teixeira de Azevedo"
+  ],
+  "life": {
+    "born": {
+      "year": 1715,
+      "certainty": "historical_biography"
+    },
+    "died": {
+      "year": 1800,
+      "certainty": "historical_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "surviving_1748_philosophical_course_and_1797_printed_history",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0288-w001",
+      "title": "Philosophia platonica seu cursus philosophicus, rationalem, naturalem et transnaturalem philosophiam, sive logicam, physicam et metaphysicam complectens",
+      "work_type": "latin_colonial_benedictine_philosophical_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1748,
+        "certainty": "manuscript_title_dated_1748"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_manuscript_confirmed_through_specialist_recent_studies",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "platonismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "aristotelismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.ufn.edu.br/index.php/thaumazein/article/view/4653",
+        "https://periodicos.ufn.edu.br/index.php/thaumazein/article/view/5700"
+      ],
+      "notes": "Manuscrito datado 1748, custodiado en Biblioteca do Mosteiro de São Bento (São Paulo), dos secciones materiales principales Lógica y Física, tratadas en estudios de Roberto Hofmeister Pich de 2023 y 2026. Curso unitario; no duplicar como dos obras independientes.",
+      "manuscript_location": "Biblioteca do Mosteiro de São Bento, São Paulo, Brasil",
+      "manuscript_status": "surviving_original_historical_witness_studied",
+      "component_parts": [
+        "Logica / Philosophia rationalis",
+        "Physica / Philosophia naturalis"
+      ]
+    },
+    {
+      "work_id": "0288-w002",
+      "title": "Memórias para a história da capitania de São Vicente, hoje chamada de São Paulo, do Estado do Brasil",
+      "work_type": "historical_colonial_scholarly_printed_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1786,
+        "certainty": "original_manuscript_composition_date_secondary_study"
+      },
+      "first_publication_year": 1797,
+      "authorship_status": "first_lisbon_edition_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Capitanía de São Vicente",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "colonización",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bd.camara.leg.br/bd/items/076d7f8a-908a-46a2-8d89-816c93f5bb58",
+        "https://literaturabrasileira.ufsc.br/documentos?id=135441"
+      ],
+      "notes": "Primera edición Lisboa, tipografía de la Academia Real das Ciências, 1797; manuscrito precursor c. 1786 con título anterior. No confundir segunda edición 1847 ni transcripción 1920 con original.",
+      "edition": {
+        "year": 1797,
+        "publisher": "Tipografia da Academia Real das Ciências",
+        "region": "Lisboa"
+      },
+      "original_manuscript_shelfmark_reported": "Arquivo da Academia das Ciências de Lisboa, Ms. Azul 1751"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza de filosofía escolástica colonial y conservación de un Cursus platonico-aristotélico, además de historiografía colonial",
+      "kind": "brazilian_scholastic_philosophy",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "scholarly_manuscript_study",
+      "title": "Roberto Hofmeister Pich, «Sobre o Cursus Philosophicus» (1), 2023, DOI 10.37782/thaumazein.v15i30.4653",
+      "url": "https://periodicos.ufn.edu.br/index.php/thaumazein/article/view/4653"
+    },
+    {
+      "kind": "scholarly_manuscript_study",
+      "title": "Roberto Hofmeister Pich, «Sobre o Cursus Philosophicus» (2), publicado abril 2026, DOI 10.37782/thaumazein.v18i36.5700",
+      "url": "https://periodicos.ufn.edu.br/index.php/thaumazein/article/view/5700"
+    },
+    {
+      "kind": "government_rare_book_catalog",
+      "title": "Câmara dos Deputados Brasil, Memórias 1797, primera edición",
+      "url": "https://bd.camara.leg.br/bd/items/076d7f8a-908a-46a2-8d89-816c93f5bb58"
+    }
+  ],
+  "research_notes": [
+    "Los estudios de 2023 y 2026 tratan partes del mismo Cursus y NO son escritos originales de Gaspar.",
+    "No repetir la edición de 1847 y 1920 como obras independientes.",
+    "La caracterización 'platónica' del título no implica que todo el curso rechace a Aristóteles."
+  ]
+}

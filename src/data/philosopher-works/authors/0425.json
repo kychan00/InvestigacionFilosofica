@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "author_id": 425,
+  "canonical_name": "Víctor Andrés Belaúnde",
+  "alternate_names": [
+    "Víctor Andrés Belaunde Diez Canseco",
+    "Víctor Andrés Belaúnde Diez Canseco"
+  ],
+  "life": {
+    "born": {
+      "year": 1883,
+      "certainty": "project_primary_and_biographical_source"
+    },
+    "died": {
+      "year": 1966,
+      "certainty": "biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0425-w001",
+      "title": "La vida universitaria",
+      "work_type": "education_and_university_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1917,
+        "certainty": "government_bibliographic_source"
+      },
+      "first_publication_year": 1917,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Perú",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cdn.www.gob.pe/uploads/document/file/1057093/pensadoresdelarepublica20200728-16199-sj4b6k.pdf"
+      ],
+      "notes": "Libro de 1917 listado por publicación oficial peruana entre sus obras principales."
+    },
+    {
+      "work_id": "0425-w002",
+      "title": "La realidad nacional",
+      "work_type": "national_interpretation_and_political_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1931,
+        "certainty": "government_bibliographic_source"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "realidad peruana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cdn.www.gob.pe/uploads/document/file/1057093/pensadoresdelarepublica20200728-16199-sj4b6k.pdf",
+        "https://historiaperuana.pe/biografia/victor-andres-belaunde"
+      ],
+      "notes": "Publicado en París en 1931 y concebido como respuesta crítica a interpretaciones contemporáneas de la realidad peruana."
+    },
+    {
+      "work_id": "0425-w003",
+      "title": "Peruanidad: elementos esenciales",
+      "work_type": "national_identity_and_cultural_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "government_bibliographic_source"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "peruanidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "síntesis viviente",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hispanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "indigenismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cdn.www.gob.pe/uploads/document/file/1057093/pensadoresdelarepublica20200728-16199-sj4b6k.pdf"
+      ],
+      "notes": "Publicado en 1942. En el prólogo de la primera edición Belaúnde define la peruanidad como síntesis viviente, evitando una oposición absoluta entre hispanismo e indigenismo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Espiritualismo peruano de la generación de 1905 y formulación de la peruanidad como síntesis histórica, cultural y religiosa",
+      "kind": "peruvian_spiritualist_and_national_identity_contribution",
+      "authorship_status": "documented_in_project_and_government_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "government_intellectual_history_source",
+      "title": "CEPLAN — Pensadores de la República: Víctor Andrés Belaúnde",
+      "url": "https://cdn.www.gob.pe/uploads/document/file/1057093/pensadoresdelarepublica20200728-16199-sj4b6k.pdf"
+    },
+    {
+      "kind": "biographical_source",
+      "title": "Historia Peruana — Víctor Andrés Belaúnde",
+      "url": "https://historiaperuana.pe/biografia/victor-andres-belaunde"
+    }
+  ],
+  "research_notes": [
+    "El libro base lo ubica junto a Francisco García Calderón en la generación peruana de 1905 y en la superación espiritualista del positivismo.",
+    "Se seleccionan tres títulos representativos; la producción diplomática, constitucional y memorialística es mucho más extensa."
+  ]
+}

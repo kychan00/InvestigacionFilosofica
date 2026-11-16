@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "author_id": 275,
+  "canonical_name": "Antonio Sánchez Valverde",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_original_1785_imprint_verified_translation_collaboration_not_duplicated_as_original",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0275-w001",
+      "title": "Idea del valor de la Isla Española, y utilidades, que de ella puede sacar su monarquía",
+      "work_type": "enlightenment_colonial_political_economic_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1785,
+        "certainty": "first_print_documented"
+      },
+      "first_publication_year": 1785,
+      "authorship_status": "author_identified_by_historical_print_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economía colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política imperial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "La Española",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1110452",
+        "https://wellcomecollection.org/works/ytjq76wy"
+      ],
+      "notes": "Edición de Madrid, imprenta de Don Pedro Marín, 1785; obra sobre potencial económico, comercio, política imperial y la isla. No caracterizarla como tratado abolicionista por mera inferencia.",
+      "edition": {
+        "year": 1785,
+        "publisher": "Pedro Marín",
+        "region": "Madrid"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Discusión ilustrada de recursos, comercio y crítica a aspectos de la enseñanza aristotélica en Santo Domingo",
+      "kind": "enlightenment_colonial_intellectual_contribution",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "physical_print_library_catalog",
+      "title": "ADABI, ejemplar de Idea del valor de la Isla Española, Madrid 1785",
+      "url": "https://www.adabi.org.mx/vufind/Record/1110452"
+    },
+    {
+      "kind": "historic_library_catalog",
+      "title": "Wellcome Collection, Idea del valor de la isla Española (1785)",
+      "url": "https://wellcomecollection.org/works/ytjq76wy"
+    }
+  ],
+  "research_notes": [
+    "Una obra adicional, «La América vindicada de la calumnia de haber sido madre del mal venéreo» (1785), es traducción con adiciones de un ensayo de Clavijero; debe distinguirse de obra enteramente original y evitar atribución exclusiva de las ideas de Clavijero.",
+    "Las fuentes difieren en el año de nacimiento; no fijar sin comprobación histórica."
+  ]
+}

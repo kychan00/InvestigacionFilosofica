@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "author_id": 246,
+  "canonical_name": "Antonio Arias",
+  "alternate_names": [
+    "Antonio Arias S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1565,
+      "certainty": "scholarly_source"
+    },
+    "died": {
+      "year": 1603,
+      "date": "1603-07-10",
+      "certainty": "university_article"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_scholastic_manuscripts_with_evidence_and_authorship_caveats",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0246-w001",
+      "title": "Anotaciones escolares a la Physica y De generatione et corruptione (sobre comentarios de Francisco de Toledo)",
+      "work_type": "school_notes_on_other_philosophers_commentaries",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_course_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "attributed_class_annotations_not_original_author_of_toledo_commentary",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/973/1550",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "title_status": "editorial_descriptive_combination",
+      "related_people": [
+        {
+          "name": "Francisco de Toledo",
+          "role": "primary_commentator"
+        },
+        {
+          "name": "Aristóteles",
+          "role": "author_of_original_text"
+        }
+      ],
+      "notes": "Anotaciones de clase de Arias a comentarios de Francisco de Toledo, no obra original de Toledo escrita por Arias; no se confunden con comentarios autónomos."
+    },
+    {
+      "work_id": "0246-w002",
+      "title": "Comentarios propios a De coelo y Meteorologica de Aristóteles",
+      "work_type": "own_scholastic_aristotelian_commentary_manuscript_corpus",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_course_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_attribution_of_own_commentaries",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "De coelo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Meteorologica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/973/1550",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "title_status": "combined_descriptive_label",
+      "related_people": [
+        {
+          "name": "Aristóteles",
+          "role": "author_of_original_text"
+        }
+      ],
+      "notes": "La fuente distingue estos comentarios propios de las anotaciones al jesuita Francisco de Toledo."
+    },
+    {
+      "work_id": "0246-w003",
+      "title": "De lingua originali",
+      "work_type": "scholastic_philosophy_of_language_treatise_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_course_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_scholarly_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lingua originali",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/973/1550",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "notes": "Tratado de filosofía del lenguaje atribuido por la historiografía. No se documenta impresión comercial temprana."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de Aristóteles y filosofía escolástica en el Colegio de San Pedro y San Pablo, Nueva España",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Mauricio Beuchot, Algunos filósofos novohispanos y sus textos. Siglo XVI, Nova Tellus",
+      "url": "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/973/1550"
+    },
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Textos filosóficos en la Nueva España, Nova Tellus/UNAM",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "Los manuscritos y anotaciones son anteriores a su fallecimiento en 1603; ningún año de primera impresión fue identificado."
+  ]
+}

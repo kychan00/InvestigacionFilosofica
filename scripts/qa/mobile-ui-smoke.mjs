@@ -303,6 +303,42 @@ try {
         "Search controls must stack on phones"
       );
       assert.ok(values.nav.length >= 2 && values.nav.every(link => link.height >= 44), "Mobile navigation targets must remain tappable");
+
+      if (width === 390) {
+        await page.locator(".site-menu-toggle").click();
+
+        const topLevelLabels = await page.locator(
+          ".site-menu-links > .site-menu-link .site-menu-link-copy > strong, " +
+          ".site-menu-links > .site-menu-branch > .site-menu-branch-toggle .site-menu-link-copy > strong"
+        ).allTextContents();
+
+        assert.deepEqual(
+          topLevelLabels,
+          ["Investigación", "Tesis", "Filósofos latinoamericanos", "Artículos", "Acerca de"],
+          "Primary navigation must expose the simplified production information architecture"
+        );
+        assert.ok(!topLevelLabels.includes("Resultados"), "Resultados must not remain top-level");
+        assert.ok(!topLevelLabels.includes("Fuentes"), "Fuentes must not remain top-level");
+        assert.ok(!topLevelLabels.includes("Atlas"), "Atlas must not remain top-level");
+
+        const thesisToggle = page.locator(
+          ".site-menu-links > .site-menu-branch > .site-menu-branch-toggle"
+        ).filter({ hasText: "Tesis" });
+        await thesisToggle.click();
+
+        const thesisBranch = thesisToggle.locator("..");
+        const thesisChildren = await thesisBranch.locator(
+          ":scope > .site-menu-children > .site-menu-link .site-menu-link-copy > strong"
+        ).allTextContents();
+
+        assert.deepEqual(
+          thesisChildren,
+          ["Archivo de tesis", "Atlas de tesis"],
+          "Tesis must contain the archive and Atlas de tesis as sub-navigation"
+        );
+
+        await page.locator(".site-menu-close").click();
+      }
     } else {
       assert.ok(
         Math.abs(values.select.top - values.submit.top) < 2,

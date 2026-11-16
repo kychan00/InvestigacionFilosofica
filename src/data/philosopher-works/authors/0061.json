@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "author_id": 61,
+  "canonical_name": "Miguel Lemos",
+  "alternate_names": [
+    "Miguel de Lemos"
+  ],
+  "life": {
+    "born": {
+      "year": 1854,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1917,
+      "certainty": "project_canonical",
+      "source_conflict_candidates": [
+        1916
+      ]
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_positivist_abolitionist_and_apostolate_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0061-w001",
+      "title": "Pequenos ensaios positivistas",
+      "work_type": "positivist_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1877,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1877,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lei dos três estados",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0061-w002",
+      "title": "O positivismo e a escravidão moderna",
+      "work_type": "abolitionist_positivist_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1884,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified_editor_author",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Auguste Comte",
+          "role": "source_text_author"
+        },
+        {
+          "name": "Raimundo Teixeira Mendes",
+          "role": "contributor_via_reprinted_abolitionist_text"
+        },
+        {
+          "name": "Aníbal Falcão",
+          "role": "contributor_via_reprinted_abolitionist_text"
+        },
+        {
+          "name": "J. E. Teixeira de Souza",
+          "role": "contributor_via_reprinted_abolitionist_text"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "escravidão",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "abolicionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "proletariado",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Colección organizada e introducida por Lemos con textos de Comte y documentos positivistas sobre la esclavitud."
+    },
+    {
+      "work_id": "0061-w003",
+      "title": "A incorporação do proletariado escravo e o recente projeto do governo",
+      "work_type": "abolitionist_political_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1883,
+        "certainty": "composition"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "proletariado escravo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "abolicionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trabalho",
+          "provenance": "inferred"
+        },
+        {
+          "term": "governo",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Escrito en agosto de 1883 e incorporado en O positivismo e a escravidão moderna de 1884."
+    },
+    {
+      "work_id": "0061-w004",
+      "title": "Nossa iniciação no positivismo",
+      "work_type": "autobiographical_doctrinal_pamphlet",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1889,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Raimundo Teixeira Mendes",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Apostolado Positivista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Auguste Comte",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0061-w005",
+      "title": "Artigos epizodicos publicados durante o anno de 1891",
+      "work_type": "journalistic_positivist_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1891,
+        "certainty": "article_range"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "artigos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0061-w006",
+      "title": "Circulares anuais do Apostolado Positivista do Brasil",
+      "work_type": "institutional_circular_corpus",
+      "original_language": "portugués_y_francés",
+      "original_date": {
+        "start": 1881,
+        "end": 1903,
+        "certainty": "leadership_period_corpus"
+      },
+      "first_publication_year": 1881,
+      "authorship_status": "institutional_author_director_corpus",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Igreja e Apostolado Positivista do Brasil",
+          "role": "institutional_body"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Apostolado Positivista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religião da Humanidade",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ordem e progresso",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Las circulares tienen numeración y fechas propias; deben desglosarse individualmente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundação e direção da Igreja Positivista do Brasil",
+      "kind": "religious_institutional_contribution",
+      "period": {
+        "start": 1881,
+        "end": 1903,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [
+        {
+          "name": "Raimundo Teixeira Mendes",
+          "role": "vice_director_and_collaborator"
+        }
+      ],
+      "keywords": [
+        {
+          "term": "Igreja Positivista do Brasil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religião da Humanidade",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_library_catalog",
+      "title": "Positivismo — registros de Miguel Lemos",
+      "url": "https://cpbn.bn.gov.br/planor/browse?type=subject&value=Positivismo",
+      "publisher": "Fundação Biblioteca Nacional"
+    },
+    {
+      "kind": "digital_literature_database",
+      "title": "O positivismo e a escravidão moderna",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=217846",
+      "publisher": "Universidade Federal de Santa Catarina"
+    },
+    {
+      "kind": "national_library_record",
+      "title": "Pequenos ensaios positivistas",
+      "url": "https://cpbn.bn.gov.br/planor/recent-submissions",
+      "publisher": "Fundação Biblioteca Nacional"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar las circulares anuales y centenares de folletos de propaganda.",
+    "El libro-base usa 1917 como muerte; algunos impresos históricos dan 1916. Se conserva el conflicto."
+  ]
+}

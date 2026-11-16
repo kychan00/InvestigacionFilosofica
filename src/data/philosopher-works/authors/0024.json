@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "author_id": 24,
+  "canonical_name": "Francisco Javier Espejo",
+  "alternate_names": [
+    "Francisco Javier Eugenio de Santa Cruz y Espejo",
+    "Eugenio Espejo",
+    "Eugenio Francisco Javier de Santa Cruz y Espejo"
+  ],
+  "life": {
+    "born": {
+      "year": 1747,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1795,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_critical_medical_and_journalistic_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0024-w001",
+      "title": "El nuevo Luciano de Quito",
+      "alternate_titles": [
+        "El nuevo Luciano de Quito o despertador de los ingenios quiteños"
+      ],
+      "work_type": "satirical_philosophical_dialogue",
+      "original_language": "español",
+      "original_date": {
+        "year": 1779,
+        "certainty": "manuscript_circulation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_pseudonymous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oratoria",
+          "provenance": "editorial"
+        },
+        {
+          "term": "escolástica",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Ilustración",
+          "provenance": "editorial"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0024-w002",
+      "title": "Reflexiones acerca de un método para preservar a los pueblos de las viruelas",
+      "work_type": "medical_public_health_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1785,
+        "certainty": "manuscript_delivered",
+        "date": "1785-11-15"
+      },
+      "first_publication_year": 1786,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francisco Gil",
+          "role": "medical_author_responded_to"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "viruela",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "epidemias",
+          "provenance": "editorial"
+        },
+        {
+          "term": "higiene urbana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "salud pública",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Una parte fue incorporada como apéndice a la segunda edición madrileña de la obra de Francisco Gil en 1786."
+    },
+    {
+      "work_id": "0024-w003",
+      "title": "Defensa de los curas de Riobamba",
+      "work_type": "legal_social_defense",
+      "original_language": "español",
+      "original_date": {
+        "year": 1787,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "997897024X",
+          "9978970266"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "clero",
+          "provenance": "catalog"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "editorial"
+        },
+        {
+          "term": "colonia",
+          "provenance": "editorial"
+        },
+        {
+          "term": "defensa jurídica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0024-w004",
+      "title": "Cartas riobambenses",
+      "work_type": "satirical_letters",
+      "original_language": "español",
+      "original_date": {
+        "year": 1787,
+        "certainty": "approximate"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Riobamba",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crítica social",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sátira",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0024-w005",
+      "title": "Primicias de la Cultura de Quito",
+      "work_type": "periodical_editorial_corpus",
+      "original_language": "español",
+      "original_date": {
+        "year": 1792,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1792,
+      "authorship_status": "verified_editor_and_primary_writer",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "artes",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "economía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "educación pública",
+          "provenance": "catalog"
+        },
+        {
+          "term": "literatura",
+          "provenance": "catalog"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Primer periódico de Quito; siete números conocidos, redactados casi enteramente por Espejo."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_catalog",
+      "title": "El Nuevo Luciano de Quito 1779",
+      "url": "https://biblioteca.bne.gob.ec/cgi-bin/koha/opac-detail.pl?biblionumber=13453",
+      "publisher": "Biblioteca Nacional Eugenio Espejo"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "El pensamiento médico de Eugenio Espejo",
+      "url": "https://www.academiahistoria.ec/index.php/boletinesANHE/article/view/255",
+      "publisher": "Academia Nacional de Historia del Ecuador"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Defensa de los curas de Riobamba",
+      "url": "https://biblioteca.bne.gob.ec/cgi-bin/koha/opac-detail.pl?biblionumber=60998",
+      "publisher": "Biblioteca Nacional Eugenio Espejo"
+    },
+    {
+      "kind": "institutional_repository",
+      "title": "Primicias de la Cultura de Quito",
+      "url": "https://repositorio.flacsoandes.edu.ec/items/e1ba1611-2942-4d70-baae-b36160f2c0cb",
+      "publisher": "FLACSO Andes"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico usa Francisco Javier Espejo; la ficha conserva como forma desarrollada Francisco Javier Eugenio de Santa Cruz y Espejo.",
+    "Pendiente agregar Marco Porcio Catón, La ciencia blancardina y otros escritos sólo después de fijar edición/fecha con autoridad bibliográfica."
+  ]
+}

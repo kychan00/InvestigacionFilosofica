@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "author_id": 399,
+  "canonical_name": "Antônio Joaquim das Mercês",
+  "alternate_names": [
+    "Antonio Joaquim das Mercês",
+    "Cônego Antônio Joaquim das Mercês"
+  ],
+  "life": {
+    "born": {
+      "year": 1786,
+      "certainty": "project_source_with_1788_variant_in_secondary_source"
+    },
+    "died": {
+      "year": 1854,
+      "certainty": "project_and_scholarly_sources"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0399-w001",
+      "title": "Carta ao padre-mestre Amaral sobre os primeiros professores de Filosofia da Bahia, Alagoas e Paraíba",
+      "work_type": "historical_epistolary_testimony_on_philosophy_teaching",
+      "original_language": "português",
+      "original_date": {
+        "year": 1851,
+        "certainty": "dated_letter"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "original_letter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história do ensino de filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bahia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Alagoas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Paraíba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "compêndios filosóficos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.ufba.br/ri/bitstream/ri/31952/1/TESE%20Barreto%2C%20M%C3%A1rcia%20Gabriela%20de%20Aguiar.pdf"
+      ],
+      "notes": "Carta de 12 de agosto de 1851 ao padre-mestre Amaral. A fonte acadêmica informa publicação na Revista do Instituto Geográfico e Histórico da Bahia em 1932. É testemunho retrospectivo sobre professores, bibliotecas e compêndios usados no ensino filosófico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Implantação e expansão de aulas de filosofia na Bahia, Alagoas e Paraíba, com ensino de lógica, metafísica, ética, física e geometria",
+      "kind": "northeastern_brazil_philosophy_teaching_contribution",
+      "authorship_status": "documented_in_academic_and_project_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección sobre pensamiento filosófico brasileño del siglo XIX",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_source",
+      "title": "UFBA — história do ensino de filosofia e carta de Antônio Joaquim das Mercês",
+      "url": "https://repositorio.ufba.br/ri/bitstream/ri/31952/1/TESE%20Barreto%2C%20M%C3%A1rcia%20Gabriela%20de%20Aguiar.pdf"
+    },
+    {
+      "kind": "history_of_education_source",
+      "title": "UPE — atuação docente de Antônio Joaquim das Mercês",
+      "url": "https://www.edupe.upe.br/images/livros/ebook-multiplosobjetoseescritas1-240322.pdf"
+    }
+  ],
+  "research_notes": [
+    "Há divergência secundária 1786/1788 para o nascimento; o projeto-base usa 1786.",
+    "A historiografia menciona traduções de obras de Altieri e Storchenau, mas sem primeira publicação suficientemente cotejada nesta rodada; por isso não são transformadas em registros bibliográficos completos."
+  ]
+}

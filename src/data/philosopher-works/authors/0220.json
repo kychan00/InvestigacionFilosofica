@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "author_id": 220,
+  "canonical_name": "Narciso R. Colmán",
+  "alternate_names": [
+    "Narciso Ramón Colmán",
+    "Rosicrán"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "source_conflict",
+      "year_candidates": [
+        1876,
+        1878
+      ]
+    },
+    "died": {
+      "year": 1954,
+      "certainty": "bibliographic_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_tradition_or_bibliographic_evidence_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0220-w001",
+      "title": "Ocara Poty (Flores silvestres), tomo I",
+      "work_type": "guarani_poetry_volume",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1917,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1917,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ocara Poty",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ],
+      "notes": "Primera edición Imprenta Trujillo, 1917; reeditado con tomo II en 1921."
+    },
+    {
+      "work_id": "0220-w002",
+      "title": "Ocara Poty (Flores silvestres), tomo II",
+      "work_type": "guarani_poetry_volume",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1921,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ocara Poty",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ],
+      "notes": "Conjunto en dos tomos edición Ariel, Asunción 1921."
+    },
+    {
+      "work_id": "0220-w003",
+      "title": "Mil refranes guaraníes (Ñe'enga)",
+      "work_type": "guarani_proverb_collection",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1929,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "refranes guaraníes",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ],
+      "notes": "Imprenta El Arte, 1929."
+    },
+    {
+      "work_id": "0220-w004",
+      "title": "Ñande Ypy Kuéra (Nuestros antepasados)",
+      "work_type": "guarani_cosmogonic_poem",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1929,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antepasados",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ],
+      "first_publication_year_candidates": [
+        1922,
+        1929
+      ],
+      "source_conflict": true,
+      "edition_history": [
+        {
+          "year": 1932,
+          "description": "Separata del XX Congreso Internacional de Americanistas"
+        },
+        {
+          "year": 1937,
+          "description": "Versión castellana Nuestros antepasados"
+        }
+      ],
+      "notes": "Bibliografía del autor describe publicación de 1929, pero prólogo de reedición afirma que se dio a conocer en 1922. Se conserva conflicto."
+    },
+    {
+      "work_id": "0220-w005",
+      "title": "Kavaju Sakuape",
+      "work_type": "guarani_story_collection",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1930,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kavaju Sakuape",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ]
+    },
+    {
+      "work_id": "0220-w006",
+      "title": "Ñeengá Rovy",
+      "work_type": "guarani_literary_work",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1934,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ñeengá Rovy",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ]
+    },
+    {
+      "work_id": "0220-w007",
+      "title": "Ñandeyara ñeé poravopyré",
+      "work_type": "guarani_literary_work",
+      "original_language": "guaraní",
+      "original_date": {
+        "year": 1935,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ñandeyara",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html",
+        "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Contribución a la literatura en guaraní y al resurgimiento de las tradiciones orales indígenas del Paraguay",
+      "kind": "historical_intellectual_or_ritual_contribution",
+      "contribution_id": "0220-c001",
+      "authorship_status": "traditionally_attributed_or_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_library_literary_reference",
+      "title": "Biblioteca Virtual Miguel de Cervantes, Breve diccionario de literatura paraguaya: Narciso R. Colmán",
+      "url": "https://www.letrasgalegas.org/portales/rosalia_de_castro_ga/obra-visor/breve-diccionario-de-la-literatura-paraguaya--0/html/ff695d7e-82b1-11df-acc7-002185ce6064_4.html"
+    },
+    {
+      "kind": "historical_author_bibliography",
+      "title": "Lista de obras incluida en edición de Ñande Ypy Kuéra",
+      "url": "https://www.portalguarani.com/376_narciso_ramon_colman_rosicran___/10966_nuestros_antepasados_nande_ypy_kuera__obra_de_narciso_r_colman_.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "Libro-base, Bartomeu Melià, La filosofía guaraní",
+      "locator": "pp. 46–48"
+    }
+  ],
+  "research_notes": [
+    "Conflicto sobre nacimiento: Biblioteca Cervantes 1876 y prólogo histórico 2009 1878, sin sustitución silenciosa.",
+    "La versión en castellano de 1937 de Ñande Ypy Kuéra no reemplaza ni duplica el poema original en guaraní.",
+    "La bibliografía de 1937 identifica obras 'en prensa', que no deben marcarse publicadas hasta hallar ejemplares."
+  ]
+}

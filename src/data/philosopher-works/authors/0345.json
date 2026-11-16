@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "author_id": 345,
+  "canonical_name": "Julián Barraquero",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1856,
+      "certainty": "regional_scholarly_source"
+    },
+    "died": {
+      "year": 1935,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1879_article_thesis_second_print_1889_and_1882_newspaper",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0345-w001",
+      "title": "La filosofía",
+      "work_type": "philosophical_introductory_lecture_original_newspaper_serial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "oral_lecture_march_4"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "original_author_lecture_reprinted_1966",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "materialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bdigital.uncuyo.edu.ar/ficha/4210"
+      ],
+      "notes": "Conferencia dictada en Cátedra de Filosofía, Colegio Nacional de Mendoza, 4 de marzo 1879; publicada por entregas en periódico El Constitucional (6, 11, 13, 15 marzo 1879). Edición crítica por Arturo Andrés Roig en CUYO 2 (1966), pp. 161–176, reproducción, no primera impresión.",
+      "delivery_date": "1879-03-04",
+      "first_serial_dates": [
+        "1879-03-06",
+        "1879-03-11",
+        "1879-03-13",
+        "1879-03-15"
+      ],
+      "later_critical_reprint": {
+        "year": 1966,
+        "journal": "CUYO",
+        "pages": "161–176",
+        "editor": "Arturo Andrés Roig"
+      }
+    },
+    {
+      "work_id": "0345-w002",
+      "title": "Espíritu y práctica de la Constitución argentina",
+      "work_type": "krausist_argentine_constitutional_thesis_and_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "doctoral_thesis_date_academic_secondary_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "author_thesis_verified_print_second_edition_1889",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitución argentina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos y libertades",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://koha.senado-ba.gov.ar/cgi-bin/koha/opac-detail.pl?biblionumber=16036",
+        "https://cdsa.aacademica.org/000-010/351"
+      ],
+      "notes": "Tesis de jurisprudencia atribuida a 1879 por estudio de Universidad de Cuyo y estudios regionales. Biblioteca del Senado bonaerense cataloga SEGUNDA edición Buenos Aires, Colegio Pío IX de Artes y Oficios, 1889, 390 pp. No se fija primera impresión sin hallar ejemplar de la primera.",
+      "documented_second_edition": {
+        "year": 1889,
+        "publisher": "Colegio Pío IX de Artes y Oficios",
+        "region": "Buenos Aires",
+        "pages": 390
+      },
+      "keywords_from_title_status": "philosophy_and_constitutional_law"
+    },
+    {
+      "work_id": "0345-w003",
+      "title": "El Ferrocarril (Mendoza)",
+      "work_type": "political_news_newspaper_founded_and_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": 1882,
+        "certainty": "newspaper_founded_1882"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "founder_and_editor_not_author_of_all_articles",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "prensa política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "representación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cdsa.aacademica.org/000-010/351"
+      ],
+      "notes": "Barraquero fundó y editó el periódico El Ferrocarril de Mendoza desde 1882. La investigación histórica destaca su papel en la política conservadora local; el periodo final del diario y la autoría de números individuales no se han cotejado.",
+      "first_issue_year": 1882,
+      "editorial_responsibility": "founder and editor"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Interpretación krausista de la Constitución argentina y docencia de filosofía en Mendoza, con intensa actividad en la prensa",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "national_university_original_press_document",
+      "title": "Universidad Nacional de Cuyo, Julián Barraquero, La filosofía (1879), edición crítica 1966",
+      "url": "https://bdigital.uncuyo.edu.ar/ficha/4210"
+    },
+    {
+      "kind": "regional_scholarly_history",
+      "title": "Configuraciones ideológicas de Mendoza, Julián Barraquero y El Ferrocarril",
+      "url": "https://cdsa.aacademica.org/000-010/351"
+    },
+    {
+      "kind": "legislative_library_physical_catalog",
+      "title": "Biblioteca Legislativa Eva Perón, Espíritu y práctica de la Constitución, 2ª ed. 1889",
+      "url": "https://koha.senado-ba.gov.ar/cgi-bin/koha/opac-detail.pl?biblionumber=16036"
+    }
+  ],
+  "research_notes": [
+    "El año de la tesis 1879 proviene de historiografía; la única edición física cotejada en catálogo es SEGUNDA de 1889.",
+    "La conferencia de marzo 1879 y la tesis constitucional son textos distintos.",
+    "La ley de Imprenta 1888 es norma legislativa en que participó, no ensayo de autor individual automáticamente."
+  ]
+}

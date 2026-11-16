@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "author_id": 32,
+  "canonical_name": "Simón Rodríguez",
+  "alternate_names": [
+    "Samuel Robinson",
+    "Simón Narciso Jesús Rodríguez"
+  ],
+  "life": {
+    "born": {
+      "year": 1769,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1854,
+      "certainty": "external_sources_conflict_with_project_book_1853"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_pedagogical_and_political_corpus_verified_publication_history_complex",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0032-w001",
+      "title": "Reflexiones sobre los defectos que vician la escuela de primeras letras de Caracas y medio de lograr su reforma por un nuevo establecimiento",
+      "work_type": "educational_reform_memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1794,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escuela primaria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "reforma educativa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0032-w002",
+      "title": "Sociedades americanas en 1828",
+      "work_type": "political_philosophy_education_project",
+      "original_language": "español",
+      "original_date": {
+        "start": 1828,
+        "end": 1849,
+        "certainty": "serial_project_range"
+      },
+      "first_publication_year": 1828,
+      "authorship_status": "verified_serial_incomplete_project",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedades americanas",
+          "provenance": "editorial"
+        },
+        {
+          "term": "educación popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "economía social",
+          "provenance": "inferred"
+        },
+        {
+          "term": "invención americana",
+          "provenance": "inferred"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1828,
+          "place": "Arequipa",
+          "kind": "pródromo"
+        },
+        {
+          "year": 1834,
+          "place": "Concepción",
+          "kind": "Luces_y_virtudes_sociales_version"
+        },
+        {
+          "year": 1840,
+          "place": "Valparaíso",
+          "kind": "revised_version"
+        },
+        {
+          "year": 1842,
+          "place": "Lima",
+          "kind": "new_installment"
+        }
+      ],
+      "notes": "Luces y virtudes sociales se modela como parte/versionado del proyecto Sociedades americanas, no como obra totalmente independiente."
+    },
+    {
+      "work_id": "0032-w003",
+      "title": "El Libertador del Mediodía de América y sus compañeros de armas defendidos por un amigo de la causa social",
+      "work_type": "political_defense",
+      "original_language": "español",
+      "original_date": {
+        "year": 1830,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1830,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Simón Bolívar",
+          "role": "principal_subject_defended"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Simón Bolívar",
+          "provenance": "catalog"
+        },
+        {
+          "term": "causa social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "república",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0032-w004",
+      "title": "Extracto sucinto de mi obra sobre la educación republicana",
+      "work_type": "educational_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1849,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1849,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación republicana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciudadanía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicado en El Neo-Granadino, números 39, 40 y 42, abril-mayo de 1849."
+    },
+    {
+      "work_id": "0032-w005",
+      "title": "Consejos de amigo dados al Colegio de Latacunga",
+      "work_type": "educational_advice_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1851,
+        "certainty": "strong_contextual_evidence"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "verified_manuscript",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Rafael Quevedo",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escuela",
+          "provenance": "inferred"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formación ciudadana",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "critical_edition",
+      "title": "Sociedades americanas en 1828",
+      "url": "https://biblioteca-repositorio.clacso.edu.ar/bitstream/CLACSO/15384/1/Sociedades_americanas_en_1828.pdf",
+      "publisher": "CLACSO/UAM-related critical study"
+    },
+    {
+      "kind": "digital_book",
+      "title": "El Libertador del Mediodía de América",
+      "url": "https://www.bibliotecadigitaldebogota.gov.co/resources/2756592/",
+      "publisher": "Biblioteca Digital de Bogotá / Biblioteca Nacional de Colombia"
+    },
+    {
+      "kind": "complete_works",
+      "title": "Obras completas de Simón Rodríguez",
+      "url": "https://biblioteca.clacso.edu.ar/clacso/se/20190926042843/Simon_Rodriguez_Obras_Completas.pdf",
+      "publisher": "CLACSO"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar las cinco fases editoriales de Sociedades americanas y otros textos breves.",
+    "La fecha de muerte se mantiene como conflicto explícito con el libro-base del proyecto, que imprime 1853; fuentes externas consultadas registran 1854."
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "author_id": 92,
+  "canonical_name": "Marilena de Souza Chauí",
+  "alternate_names": [
+    "Marilena Chauí",
+    "Marilena Chaui"
+  ],
+  "life": {
+    "born": {
+      "year": 1941,
+      "certainty": "verified"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_ideology_culture_democracy_spinoza_education_and_modern_philosophy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0092-w001",
+      "title": "Introdução à leitura de Espinosa",
+      "work_type": "doctoral_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1970,
+        "certainty": "thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Baruch Espinosa",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Espinosa",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "imanência",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w002",
+      "title": "O que é ideologia?",
+      "work_type": "political_philosophy_introductory_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dominação",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "classe",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w003",
+      "title": "Cultura e democracia: o discurso competente e outras falas",
+      "work_type": "political_cultural_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "discurso competente",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w004",
+      "title": "Da realidade sem mistérios ao mistério do mundo: Espinosa, Voltaire e Merleau-Ponty",
+      "work_type": "history_of_philosophy_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Baruch Espinosa",
+          "role": "subject"
+        },
+        {
+          "name": "Voltaire",
+          "role": "subject"
+        },
+        {
+          "name": "Maurice Merleau-Ponty",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Espinosa",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Merleau-Ponty",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w005",
+      "title": "Repressão sexual: essa nossa (des)conhecida",
+      "work_type": "social_philosophy_psychoanalysis_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1982,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "repressão sexual",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sexualidade",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicanálise",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w006",
+      "title": "Conformismo e resistência: aspectos da cultura popular no Brasil",
+      "work_type": "political_cultural_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1986,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conformismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "resistência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura popular",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w007",
+      "title": "Convite à filosofia",
+      "work_type": "philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1994,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ensino de filosofia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w008",
+      "title": "Espinosa: uma filosofia da liberdade",
+      "work_type": "philosopher_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1995,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Baruch Espinosa",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Espinosa",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w009",
+      "title": "A nervura do real: imanência e liberdade em Espinosa",
+      "work_type": "major_spinoza_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1999,
+        "certainty": "volume_1_publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Baruch Espinosa",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "imanência",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Espinosa",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "O segundo volume de A nervura do real foi publicado em 2016; esta ficha registra a primeira grande publicação de 1999."
+    },
+    {
+      "work_id": "0092-w010",
+      "title": "Brasil: mito fundador e sociedade autoritária",
+      "work_type": "political_cultural_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2000,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mito fundador",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedade autoritária",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w011",
+      "title": "Escritos sobre a universidade",
+      "work_type": "higher_education_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2001,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educação pública",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0092-w012",
+      "title": "Política em Espinosa",
+      "work_type": "political_philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2003,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Baruch Espinosa",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Espinosa",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "potência",
+          "provenance": "inferred"
+        },
+        {
+          "term": "direito",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Atuação acadêmica e formulação de políticas culturais democráticas em São Paulo",
+      "kind": "academic_public_policy_contribution",
+      "period": {
+        "start": 1967,
+        "end": 2026,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "democracia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cidadania cultural",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_science_academy",
+      "title": "Marilena de Souza Chaui",
+      "url": "https://www.abc.org.br/membros/marilena-de-souza-chaui/",
+      "publisher": "Academia Brasileira de Ciências"
+    },
+    {
+      "kind": "university_profile",
+      "title": "Marilena de Souza Chaui",
+      "url": "https://www.iea.usp.br/pessoas/pasta-pessoam/marilena-de-souza-chaui",
+      "publisher": "Universidade de São Paulo"
+    },
+    {
+      "kind": "bibliographic_profile",
+      "title": "Marilena de Souza Chaui — bibliografia selecionada",
+      "url": "https://fabricadesites.fcsh.unl.pt/ghispanicas/2020/05/14/marilena-de-souza-chaui/",
+      "publisher": "Universidade Nova de Lisboa"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Marilena de Souza Chauí (1941-)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incluir A nervura do real II (2016), obras sobre Merleau-Ponty, cidadania cultural y escritos posteriores.",
+    "Conservada como tesis separada Introdução à leitura de Espinosa (1970)."
+  ]
+}

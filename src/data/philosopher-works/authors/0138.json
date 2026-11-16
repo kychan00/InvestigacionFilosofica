@@ -1,0 +1,684 @@
+{
+  "schema_version": 1,
+  "author_id": 138,
+  "canonical_name": "Hugo Biagini",
+  "alternate_names": [
+    "Hugo E. Biagini",
+    "Hugo Edgardo Biagini"
+  ],
+  "life": {
+    "born": {
+      "year": 1938,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_and_selected_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0138-w001",
+      "title": "Cómo fue la generación del 80",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "generación del 80",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w002",
+      "title": "Educación y progreso",
+      "work_type": "history_of_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "progreso",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w003",
+      "title": "La Revista de Filosofía, Cultura, Ciencias y Educación",
+      "work_type": "coauthored_bibliographic_index",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Elena Ardissone",
+          "role": "coauthor"
+        },
+        {
+          "name": "Raúl Sassi",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revista de filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "notes": "Índice bibliográfico de revista, no autoría de sus números."
+    },
+    {
+      "work_id": "0138-w004",
+      "title": "Panorama filosófico argentino",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía argentina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w005",
+      "title": "El movimiento positivista argentino",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "compiler_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo argentino",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "notes": "Compilación con numerosos contribuyentes; no atribuir todos los ensayos a Biagini."
+    },
+    {
+      "work_id": "0138-w006",
+      "title": "Filosofía americana e identidad nacional: el conflictivo caso argentino",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía americana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "identidad nacional",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w007",
+      "title": "Orígenes de la democracia argentina: el trasfondo krausista",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "compiler_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "democracia argentina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w008",
+      "title": "Historia ideológica y poder social",
+      "work_type": "history_of_ideas_multivolume_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia ideológica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "poder social",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "notes": "Obra de tres volúmenes; títulos individuales y fechas internas por verificar antes de desagregar."
+    },
+    {
+      "work_id": "0138-w009",
+      "title": "Intelectuales y políticos españoles a comienzos de la inmigración masiva",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intelectuales españoles",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "inmigración",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w010",
+      "title": "La generación del ochenta: cultura y política",
+      "work_type": "history_of_ideas_revised_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "generación del ochenta",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "notes": "Versión aumentada de Cómo fue la generación del 80 (1980); evitar interpretación como obra enteramente independiente en deduplicación semántica."
+    },
+    {
+      "work_id": "0138-w011",
+      "title": "Fines de siglo, fin de milenio",
+      "work_type": "latin_american_cultural_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fin de siglo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "milenio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w012",
+      "title": "Lucha de ideas en Nuestramérica",
+      "work_type": "latin_american_philosophy_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Nuestramérica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w013",
+      "title": "Entre la identidad y la globalización",
+      "work_type": "latin_american_philosophy_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "identidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w014",
+      "title": "La reforma universitaria: antecedentes y consecuentes",
+      "work_type": "history_of_education_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reforma universitaria",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w015",
+      "title": "Utopías juveniles: de la bohemia al Che",
+      "work_type": "history_of_ideas_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "utopías juveniles",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Che",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w016",
+      "title": "El pensamiento alternativo en la Argentina del siglo XX. Tomo I: Identidad, utopía, integración (1900–1930)",
+      "work_type": "jointly_directed_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "joint_director_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento alternativo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "identidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "utopía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "related_contributors": [
+        {
+          "name": "Arturo Andrés Roig",
+          "role": "co-director"
+        }
+      ],
+      "notes": "Dirección académica junto a Arturo Andrés Roig; autores de capítulos son numerosos."
+    },
+    {
+      "work_id": "0138-w017",
+      "title": "El pensamiento alternativo en la Argentina del siglo XX. Tomo II: Obrerismo, vanguardia, justicia social (1930–1960)",
+      "work_type": "jointly_directed_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "joint_director_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento alternativo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "justicia social",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "related_contributors": [
+        {
+          "name": "Arturo Andrés Roig",
+          "role": "co-director"
+        }
+      ]
+    },
+    {
+      "work_id": "0138-w018",
+      "title": "Diccionario del pensamiento alternativo",
+      "work_type": "jointly_directed_reference_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "joint_director_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento alternativo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ],
+      "related_contributors": [
+        {
+          "name": "Arturo Andrés Roig",
+          "role": "co-director"
+        }
+      ],
+      "notes": "Adenda dirigida en 2015 es proyecto editorial posterior, no asumir simple reedición ni nueva obra individual."
+    },
+    {
+      "work_id": "0138-w019",
+      "title": "La contracultura juvenil",
+      "work_type": "cultural_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "contracultura juvenil",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    },
+    {
+      "work_id": "0138-w020",
+      "title": "El neuroliberalismo y la ética del más fuerte",
+      "work_type": "coauthored_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Diego Fernández Peychaux",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neuroliberalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0138-c001",
+      "title": "Investigación y memoria crítica del pensamiento alternativo latinoamericano y los movimientos estudiantiles",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0138-c002",
+      "title": "Organización de obras colectivas y repertorios sobre historia de las ideas en Argentina",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialist_bibliography",
+      "title": "Bibliografía de Hugo E. Biagini (Ensayistas.org)",
+      "url": "https://www.ensayistas.org/filosofos/argentina/biagini/biblio-de.htm"
+    },
+    {
+      "kind": "university_editorial_bibliography",
+      "title": "Bibliografía de pensamiento alternativo en UNSAM",
+      "url": "https://unsamedita.unsam.edu.ar/lexicocritico/"
+    },
+    {
+      "kind": "university_journal_bibliographic_review",
+      "title": "CUYO UNCuyo: obras dirigidas por Biagini y Roig",
+      "url": "https://bdigital.uncuyo.edu.ar/objetos_digitales/3721/vignalecuyo-25-26.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: perfiles de Argentina, pp. 885–893"
+    }
+  ],
+  "research_notes": [
+    "Se conserva la diferencia entre dirección de volúmenes colectivos y autoría individual.",
+    "Historia ideológica y poder social (1992) constituye una serie de tres tomos; no se han inventado nombres ni fechas de tomos particulares."
+  ]
+}

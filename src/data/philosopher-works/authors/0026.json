@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "author_id": 26,
+  "canonical_name": "Toussaint L’Ouverture",
+  "alternate_names": [
+    "Toussaint Louverture",
+    "Toussaint Bréda"
+  ],
+  "life": {
+    "born": {
+      "year": 1743,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1803,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_political_documents_and_prison_memoir_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0026-w001",
+      "title": "Constitution de la colonie française de Saint-Domingue",
+      "work_type": "constitutional_document",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1801,
+        "certainty": "adopted_and_promulgated"
+      },
+      "first_publication_year": 1801,
+      "authorship_status": "institutional_drafted_by_central_assembly_approved_and_transmitted_by_toussaint",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Assemblée centrale de Saint-Domingue",
+          "role": "constitutional_drafter"
+        },
+        {
+          "name": "Toussaint Louverture",
+          "role": "approver_signer_and_transmitter"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [],
+        "oclc": [
+          "42421460"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "constitución",
+          "provenance": "catalog"
+        },
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "igualdad jurídica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autonomía colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "No debe atribuirse como texto redactado individualmente por Toussaint: fue adoptado por los diputados reunidos en asamblea central; Toussaint lo aprobó y remitió al gobierno francés."
+    },
+    {
+      "work_id": "0026-w002",
+      "title": "Proclamation du 25 novembre 1801",
+      "alternate_titles": [
+        "Dictatorial Proclamation"
+      ],
+      "work_type": "political_proclamation",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1801,
+        "certainty": "exact",
+        "date": "1801-11-25"
+      },
+      "first_publication_year": 1801,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "orden público",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trabajo agrícola",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0026-w003",
+      "title": "Lettre à Bonaparte sur la Constitution",
+      "work_type": "political_letter",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1801,
+        "certainty": "exact"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Napoléon Bonaparte",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitution de 1801",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Saint-Domingue",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autonomía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0026-w004",
+      "title": "Mémoire de Toussaint Louverture",
+      "alternate_titles": [
+        "Mémoires du général Toussaint-Louverture"
+      ],
+      "work_type": "prison_memorial_political_self_defense",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1802,
+        "certainty": "written_at_fort_de_joux"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memoria política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "defensa de su gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Revolución haitiana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "prisión",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "El original es un mémoire en singular, redactado en prisión como defensa de su conducta; la edición de Saint-Rémy de 1853 popularizó el título en plural."
+    },
+    {
+      "work_id": "0026-w005",
+      "title": "Correspondance et proclamations politiques, 1791-1802",
+      "work_type": "correspondence_and_proclamations_corpus",
+      "original_language": "francés",
+      "original_date": {
+        "start": 1791,
+        "end": 1802,
+        "certainty": "corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Revolución haitiana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "emancipación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "correspondencia política",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Incluye cartas a Biassou, Bonaparte, Decrès, Dessalines y otros interlocutores, además de proclamas; debe desglosarse documento por documento en una fase posterior."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "rare_book_catalog",
+      "title": "Constitution de la colonie française de Saint-Domingue",
+      "url": "https://old-digitalcollections.nypl.org/items/99988061-a1fb-5c37-e040-e00a18066d37",
+      "publisher": "New York Public Library"
+    },
+    {
+      "kind": "government_archive",
+      "title": "Le Temps des mémoires. Toussaint Louverture",
+      "url": "https://www.servicehistorique.sga.defense.gouv.fr/dossiers-thematiques/le-temps-des-memoires-toussaint-louverture",
+      "publisher": "Service historique de la Défense"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "Toussaint L'Ouverture: letters from a French dungeon",
+      "url": "https://www.si.edu/object/toussaint-louverture-letters-french-dungeon-includes-his-personal-memoir-and-other-select-letters:siris_sil_1173531",
+      "publisher": "Smithsonian Libraries and Archives"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar la correspondencia y proclamas individualmente con fecha, destinatario y repositorio.",
+    "La Constitución de 1801 requiere mantener la distinción entre redacción institucional y aprobación política de Toussaint."
+  ]
+}

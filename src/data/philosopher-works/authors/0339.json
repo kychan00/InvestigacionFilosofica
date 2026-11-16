@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "author_id": 339,
+  "canonical_name": "Ignacio Ramírez",
+  "alternate_names": [
+    "Ignacio Ramírez Calzada",
+    "El Nigromante"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1845_1847_joint_newspaper_plus_two_early_verified_texts",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0339-w001",
+      "title": "Don Simplicio: periódico burlesco, crítico y filosófico, por unos simples",
+      "work_type": "liberal_satirical_political_newspaper_coedited",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "newspaper_original_publication",
+        "period": {
+          "start": 1845,
+          "end": 1847
+        }
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "coauthor_editor_with_Prieto_and_Segura_not_all_issues_exclusively",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sátira política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "prensa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anticlericalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S2594-178X2020000200099&script=sci_arttext",
+        "https://bagn.archivos.gob.mx/index.php/legajos/article/view/438",
+        "https://www.elem.mx/autor/datos/3182"
+      ],
+      "notes": "Periódico de varias épocas 1845–1847; escrito colectivamente por Ignacio Ramírez, Guillermo Prieto y Vicente Segura Argüelles (con administración de Manuel Payno). Ramírez firmó con seudónimo El Nigromante; no se atribuyen todos los artículos al mismo redactor.",
+      "coeditors": [
+        "Guillermo Prieto",
+        "Vicente Segura Argüelles"
+      ],
+      "administrator": "Manuel Payno",
+      "pseudonym": "El Nigromante"
+    },
+    {
+      "work_id": "0339-w002",
+      "title": "A los indios",
+      "work_type": "political_educational_article_printed_in_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": 1848,
+        "certainty": "peer_reviewed_journal_study_publication_year"
+      },
+      "first_publication_year": 1848,
+      "authorship_status": "original_article_documented_in_peer_reviewed_research",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pueblos indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S2594-178X2020000200099&script=sci_arttext",
+        "https://www.elem.mx/autor/datos/3182"
+      ],
+      "notes": "Publicado en Temis y Deucalión en 1848 según estudio histórico indexado en SciELO; una parte de la historiografía cita 1850, por lo que se conserva discrepancia de ediciones y fechas de recepción si se confirma otro ejemplar.",
+      "periodical": "Temis y Deucalión",
+      "other_reported_year": 1850
+    },
+    {
+      "work_id": "0339-w003",
+      "title": "La representación nacional",
+      "work_type": "political_satirical_poem_in_first_newspaper_issue",
+      "original_language": "español",
+      "original_date": {
+        "year": 1845,
+        "certainty": "first_number_Don_Simplicio_1845"
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "original_article_signed_El_Nigromante",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "representación política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "legislación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sátira",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-26202019000200029&script=sci_arttext"
+      ],
+      "notes": "Poema político publicado en primer número de Don Simplicio, 1845, firmado mediante seudónimo del autor; texto individual del periódico. Se cuenta como texto y periódico como unidad editorial, dejando relación padre-hijo para futura deduplicación de diferentes niveles de granularidad.",
+      "container_title": "Don Simplicio",
+      "text_within_registered_periodical": true
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa de educación laica, derechos indígenas y racionalismo liberal desde la prensa y tribunas del México reformista",
+      "kind": "mexican_liberal_and_indigenous_rights_philosophy",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_literary_reference",
+      "title": "Enciclopedia de la Literatura en México, Ignacio Ramírez",
+      "url": "https://www.elem.mx/autor/datos/3182"
+    },
+    {
+      "kind": "peer_reviewed_scholarly_history",
+      "title": "Libros y bibliotecas en la vida sociopolítica de Ignacio Ramírez (2020)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S2594-178X2020000200099&script=sci_arttext"
+    },
+    {
+      "kind": "national_archive_scholarly_journal",
+      "title": "AGN, Don Simplicio 1845–1847, autorías compartidas",
+      "url": "https://bagn.archivos.gob.mx/index.php/legajos/article/view/438"
+    },
+    {
+      "kind": "peer_reviewed_historical_poetry_study",
+      "title": "Poesía y política en el México republicano (2019)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-26202019000200029&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "Discurso inaugural de academia de 1837 que comienza «No hay Dios» es conocido por historia intelectual, pero sin manuscrito o fecha de primera impresión fiable no se inventa libro.",
+    "La colección póstuma Obras (1889) son recopilaciones editoriales, no primera publicación de todos los textos.",
+    "El artículo individual La representación nacional pertenece al periódico; futuro esquema puede modelar relaciones contiene/en en vez de contar dos veces la misma unidad textual."
+  ]
+}

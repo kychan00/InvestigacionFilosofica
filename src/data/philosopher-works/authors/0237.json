@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author_id": 237,
+  "canonical_name": "Juan Martínez de Ripalda",
+  "alternate_names": [
+    "Juan Martínez de Ripalda, S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1641,
+      "certainty": "historical_biographical_sources",
+      "place": "Olite, Navarra"
+    },
+    "died": {
+      "year": null,
+      "certainty": "conflicting_biographical_sources",
+      "year_candidates": [
+        1701,
+        1707
+      ],
+      "source_conflict": true
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_early_modern_printed_treatise_and_attested_memorial_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0237-w001",
+      "title": "De usu et abusu doctrinae Divi Thomae",
+      "title_variants": [
+        "De usu et abusu doctrinae Divi Thomae, pro Xaveriana Academia Collegii Santaefedensis in Novo Regno Granatensi"
+      ],
+      "work_type": "latin_scholastic_philosophy_and_theology_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_period_documented",
+        "period": {
+          "start": 1698,
+          "end": 1701
+        }
+      },
+      "first_publication_year": 1704,
+      "authorship_status": "historically_attributed_and_printed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "doctrina de Tomás de Aquino",
+          "provenance": "primary_title"
+        }
+      ],
+      "first_printing_completed_year": 1702,
+      "first_public_circulation_year": 1704,
+      "edition": {
+        "place": "Liège (Leodii)",
+        "printer": "Guilielmus Henricus Streel",
+        "public_circulation_year": 1704
+      },
+      "evidence_urls": [
+        "https://repositorio.pucp.edu.pe/bitstreams/866a0667-e436-4b8e-8384-c00d50332101/download",
+        "https://summa.upsa.es/high.raw?id=0000001128&name=00000001.original.pdf"
+      ],
+      "notes": "La impresión habría culminado en 1702 y la circulación pública comenzó en 1704. No son dos obras distintas: el año de primera circulación de la obra impresa se registra como 1704. Consta de dos partes filosófica y teológica, aproximadamente 838 pp."
+    },
+    {
+      "work_id": "0237-w002",
+      "title": "Memorial sobre los estudios y privilegios de la institución javeriana (denominación descriptiva)",
+      "work_type": "institutional_theological_legal_memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1701,
+        "certainty": "document_composition_attributed"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historically_attributed_memorial_title_unverified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estudios jesuitas",
+          "provenance": "scholarly"
+        }
+      ],
+      "title_status": "modern_descriptive_label_not_transcribed_original_heading",
+      "evidence_urls": [
+        "https://summa.upsa.es/high.raw?id=0000001128&name=00000001.original.pdf"
+      ],
+      "notes": "Memorial de ca. 1701 sobre la defensa de estudios y privilegios javerianos; no se ha cotejado portada ni acreditado impresión autónoma. No equiparar con el tratado de 1704."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía y teología en la Nueva Granada y defensa de los estudios universitarios jesuitas",
+      "kind": "institutional_and_philosophical_contribution",
+      "authorship_status": "historically_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_peer_reviewed_research",
+      "title": "Investigación PUCP sobre controversia jesuita y enseñanza escolástica en Nueva Granada (1667–1767)",
+      "url": "https://repositorio.pucp.edu.pe/bitstreams/866a0667-e436-4b8e-8384-c00d50332101/download"
+    },
+    {
+      "kind": "scholarly_historical_research",
+      "title": "Germán Marquínez Argote: obra y cronología editorial de Juan Martínez de Ripalda",
+      "url": "https://summa.upsa.es/high.raw?id=0000001128&name=00000001.original.pdf"
+    },
+    {
+      "kind": "municipal_historical_biography",
+      "title": "Ayuntamiento de Olite: personajes ilustres, Martínez de Ripalda",
+      "url": "https://www.olite.es/turismo/historia/personajes-ilustres/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Juan Martínez de Ripalda, Nueva Granada, tratado 1704"
+    }
+  ],
+  "research_notes": [
+    "No confundir con el jesuita homónimo Juan Martínez de Ripalda (1594–1648), teólogo peninsular de una generación anterior.",
+    "Una biografía sitúa llegada a Nueva Granada en 1662 y otra contiene 1622, cronológicamente imposible para un autor nacido en 1641; se preserva la discrepancia sin aceptar 1622.",
+    "Fuentes de fecha de muerte 1701 y 1707 discrepan, y la aparición del tratado en 1704 no resuelve por sí misma la fecha de fallecimiento.",
+    "El memorial de 1701 necesita cotejo primario de título y autoría, por ello queda como atribución provisional."
+  ]
+}

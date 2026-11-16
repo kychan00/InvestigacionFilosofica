@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "author_id": 256,
+  "canonical_name": "Francisco Ruiz Lozano",
+  "alternate_names": [
+    "Francisco Ruiz de Lozano"
+  ],
+  "life": {
+    "born": {
+      "year": 1607,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1677,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_corpus_with_publication_or_source_uncertainty",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0256-w001",
+      "title": "Repertorio anual de observaciones astronómicas",
+      "work_type": "serial_annual_almanac_observations",
+      "original_language": "español",
+      "original_date": {
+        "year": 1651,
+        "certainty": "first_publication_in_serial_corpus"
+      },
+      "first_publication_year": 1651,
+      "authorship_status": "historically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "observaciones astronómicas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://tesiunamdocumentos.dgb.unam.mx/pd2007/0611006/0611006.pdf",
+        "https://enriquedussel.com/txt/Textos_200_Obras/Filosofos_Peru/Filosofia_colonial-M.Luisa_Tuesta.pdf"
+      ],
+      "publication_years": {
+        "mexico": [
+          1651,
+          1652
+        ],
+        "lima": {
+          "start": 1654,
+          "end": 1660
+        }
+      },
+      "notes": "El libro-base informa entregas en México (1651, 1652) y Lima (1654–1660). Queda como serie editorial, no diez obras anuales inventadas sin portadas de cada entrega."
+    },
+    {
+      "work_id": "0256-w002",
+      "title": "Tratado de cometas: observaciones y juicio del que se vio en esta ciudad de los Reyes y generalmente en todo el mundo a fines de 1664 y principios de 1665",
+      "work_type": "printed_early_modern_astronomy_and_natural_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1665,
+        "certainty": "historical_edition_and_inquisition_approval"
+      },
+      "first_publication_year": 1665,
+      "authorship_status": "historically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cometas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "observaciones",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "juicio",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://tesiunamdocumentos.dgb.unam.mx/pd2007/0611006/0611006.pdf",
+        "https://enriquedussel.com/txt/Textos_200_Obras/Filosofos_Peru/Filosofia_colonial-M.Luisa_Tuesta.pdf"
+      ],
+      "observation_period": [
+        1664,
+        1665
+      ],
+      "inquisition_approval": "1665-04",
+      "notes": "El título refiere el cometa observado desde fines de 1664. Estudio UNAM documenta aprobaciones en abril de 1665, no confundir año del fenómeno con impresión del tratado."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Cátedra de prima de matemáticas en la Universidad Nacional Mayor de San Marcos y difusión de la astronomía en el Perú virreinal",
+      "kind": "colonial_intellectual_or_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_historical_study",
+      "title": "UNAM, Astrónomos-Astrólogos en la Nueva España del siglo XVII, estudio de Tratado de cometas de Ruiz Lozano",
+      "url": "https://tesiunamdocumentos.dgb.unam.mx/pd2007/0611006/0611006.pdf"
+    },
+    {
+      "kind": "university_peruvian_history_bibliography",
+      "title": "María Luisa Rivara de Tuesta, La filosofía colonial en el Perú",
+      "url": "https://enriquedussel.com/txt/Textos_200_Obras/Filosofos_Peru/Filosofia_colonial-M.Luisa_Tuesta.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 84–85"
+    }
+  ],
+  "research_notes": [
+    "Catalogar observaciones bajo el paradigma científico de época sin equipararlas a teorías astronómicas modernas."
+  ]
+}

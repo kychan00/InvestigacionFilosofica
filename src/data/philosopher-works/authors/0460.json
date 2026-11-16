@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "author_id": 460,
+  "canonical_name": "Carmen Balzer",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1927,
+      "certainty": "obituary_inference_from_reported_age"
+    },
+    "died": {
+      "year": 2009,
+      "certainty": "obituary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0460-w001",
+      "title": "Arte, fantasía y mundo",
+      "work_type": "aesthetics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "contemporary_review"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fantasía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "creación artística",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/handle/123456789/15057"
+      ],
+      "notes": "Buenos Aires, Plus Ultra, 1975, 271 p. La reseña de Sapientia señala que recibió la faja de honor de la SADE al mejor libro de ensayo de 1975."
+    },
+    {
+      "work_id": "0460-w002",
+      "title": "El pensamiento de Tomás de Aquino y los problemas de nuestro tiempo",
+      "work_type": "thomism_and_contemporary_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "journal_issue_record"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Tomás de Aquino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tomismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/handle/123456789/3999"
+      ],
+      "notes": "Sapientia, vol. XXX, núm. 117, 1975."
+    },
+    {
+      "work_id": "0460-w003",
+      "title": "Breve historia de las ideas religiosas",
+      "work_type": "history_and_philosophy_of_religion_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "contemporary_review"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de las religiones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología de la religión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "simbolismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religatio",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/handle/123456789/13153"
+      ],
+      "notes": "Buenos Aires, Claridad, 1988, 368 p.; examina hinduismo, budismo, judaísmo, cristianismo e islam, además de la Cábala."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Cruce de estética, filosofía del arte, fenomenología de la religión y estudio comparado de las religiones",
+      "kind": "argentine_aesthetics_and_comparative_religion_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "contemporary_review_source",
+      "title": "Sapientia — reseña de Arte, fantasía y mundo",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/15057"
+    },
+    {
+      "kind": "contemporary_review_source",
+      "title": "Sapientia — reseña de Breve historia de las ideas religiosas",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/13153"
+    },
+    {
+      "kind": "obituary_source",
+      "title": "Falleció la académica Carmen Balzer",
+      "url": "https://www.filosofia.mx/fallecio-la-academica-carmen-balzer/"
+    }
+  ],
+  "research_notes": [
+    "La fecha de nacimiento 1927 se infiere del obituario de julio de 2009, que indica que habría cumplido 82 años ese día; se marca explícitamente como inferencia.",
+    "Su tesis doctoral sobre Pascal es mencionada biográficamente, pero se deja fuera hasta localizar un registro con título y fecha bibliográfica estables."
+  ]
+}

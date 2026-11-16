@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "author_id": 414,
+  "canonical_name": "Artur Orlando",
+  "alternate_names": [
+    "Artur Orlando da Silva"
+  ],
+  "life": {
+    "born": {
+      "year": 1858,
+      "certainty": "academy_authority"
+    },
+    "died": {
+      "year": 1916,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0414-w001",
+      "title": "Filocrítica",
+      "work_type": "philosophical_and_literary_criticism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1886,
+        "certainty": "academy_biographical_source"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/academicos/artur-orlando/biografia"
+      ],
+      "notes": "Primeiro livro filosófico-crítico destacado pela ABL, publicado em 1886."
+    },
+    {
+      "work_id": "0414-w002",
+      "title": "Propedêutica político-jurídica",
+      "work_type": "political_and_legal_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1904,
+        "certainty": "academy_annals_bibliography"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/abl/media/Anais_2009_volume_197.pdf"
+      ],
+      "notes": "Listada entre as obras principais de Artur Orlando pela Academia Brasileira de Letras."
+    },
+    {
+      "work_id": "0414-w003",
+      "title": "Ensaios de crítica",
+      "work_type": "critical_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1904,
+        "certainty": "academy_source"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/academicos/artur-orlando/biografia",
+        "https://www.academia.org.br/abl/media/Anais_2009_volume_197.pdf"
+      ],
+      "notes": "Livro de 1904 que a ABL relaciona diretamente ao ambiente intelectual da Escola do Recife e à influência de Tobias Barreto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desenvolvimento do evolucionismo filosófico da Escola do Recife e defesa de pan-americanismo, sociologia e reforma intelectual",
+      "kind": "recife_school_evolutionist_and_panamerican_contribution",
+      "authorship_status": "documented_in_academy_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Brasileira de Letras — Artur Orlando",
+      "url": "https://www.academia.org.br/academicos/artur-orlando/biografia"
+    },
+    {
+      "kind": "academy_annals_source",
+      "title": "ABL — Anais, bibliografia de Artur Orlando",
+      "url": "https://www.academia.org.br/abl/media/Anais_2009_volume_197.pdf"
+    }
+  ],
+  "research_notes": [
+    "O Brasil, a Terra e o Homem aparece como 1913 em uma história da Escola do Recife e 1914 em anais da ABL; fica fora deste seed até auditoria específica da primeira edição.",
+    "Artur Orlando é forma canônica; Artur Orlando da Silva fica como forma completa."
+  ]
+}

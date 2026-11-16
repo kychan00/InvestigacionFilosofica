@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "author_id": 350,
+  "canonical_name": "José Santiesteban",
+  "alternate_names": [
+    "José Silva Santisteban",
+    "José Silva Santiesteban",
+    "José Santisteban"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_original_peruvian_natural_and_constitutional_law_books_1854_1856",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0350-w001",
+      "title": "Derecho natural o filosofía del derecho: compendio escrito conforme a las doctrinas de la escuela alemana profesada por Ahrens",
+      "work_type": "krausist_natural_law_first_lima_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1854,
+        "certainty": "first_lima_book_historical_law_research"
+      },
+      "first_publication_year": 1854,
+      "authorship_status": "original_author_Jose_Silva_Santisteban",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ahrens",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/7662864.pdf",
+        "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm",
+        "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+      ],
+      "notes": "Autor histórico: José Silva Santisteban, peruano; el libro base usa grafía abreviada «José Santiesteban». Primera edición Lima 1854, según investigación histórica; ediciones bolivianas posteriores Santa Cruz 1867 y La Paz 1870, NO nuevas obras originales.",
+      "edition": {
+        "year": 1854,
+        "region": "Lima"
+      },
+      "later_bolivian_editions": [
+        {
+          "year": 1867,
+          "region": "Santa Cruz de la Sierra"
+        },
+        {
+          "year": 1870,
+          "region": "La Paz"
+        }
+      ]
+    },
+    {
+      "work_id": "0350-w002",
+      "title": "Curso de Derecho Constitucional",
+      "work_type": "peruvian_constitutional_law_original_printed_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1856,
+        "certainty": "first_lima_print_documented_in_scholarly_bibliography"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "original_author_Jose_Silva_Santisteban",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos políticos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo jurídico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/7662864.pdf",
+        "https://tesis.pucp.edu.pe/items/9d92f034-1626-4dd8-a8a3-5b5e20c38bb5"
+      ],
+      "notes": "Primera edición Lima 1856 según estudio de historia jurídica; se documentan ediciones posteriores (Lima 1859, París 1874) sin multiplicar los textos originales.",
+      "edition": {
+        "year": 1856,
+        "region": "Lima"
+      },
+      "later_editions": [
+        {
+          "year": 1859,
+          "region": "Lima"
+        },
+        {
+          "year": 1874,
+          "region": "París"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Adaptación del krausismo y de la obra de Heinrich Ahrens al derecho natural y constitucional peruano, con circulación de sus manuales en Bolivia",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "historical_law_research",
+      "title": "Historia jurídica peruana: José Silva Santisteban y Derecho natural 1854, Curso constitucional 1856",
+      "url": "https://dialnet.unirioja.es/descarga/articulo/7662864.pdf"
+    },
+    {
+      "kind": "academic_intellectual_history",
+      "title": "José Luis Gómez-Martínez, El krausismo español e iberoamericano, José Silva Santisteban 1854",
+      "url": "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm"
+    },
+    {
+      "kind": "university_research",
+      "title": "PUCP, José Silva Santisteban y la ética liberal cívica, tesis 2021",
+      "url": "https://tesis.pucp.edu.pe/items/9d92f034-1626-4dd8-a8a3-5b5e20c38bb5"
+    },
+    {
+      "kind": "bolivian_history_of_philosophy",
+      "title": "Guillermo Francovich, La filosofía en Bolivia, ediciones bolivianas 1867 y 1870",
+      "url": "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+    }
+  ],
+  "research_notes": [
+    "IMPORTANTE IDENTIDAD: el registro original «José Santiesteban» es una variante abreviada o error onomástico de José Silva Santisteban; conservar ID 0350 y alias bibliográficos para no crear autor duplicado.",
+    "Distinguir al autor peruano de los editores/impresores que hicieron circular su texto en Bolivia.",
+    "1854 es primera publicación de Derecho natural, frente a las primeras ediciones de Santa Cruz 1867 y La Paz 1870 que son reediciones."
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "author_id": 7,
+  "canonical_name": "José Acosta",
+  "alternate_names": [
+    "José de Acosta",
+    "Joseph de Acosta"
+  ],
+  "life": {
+    "born": {
+      "year": 1540,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1600,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0007-w001",
+      "title": "De natura Novi Orbis libri duo",
+      "work_type": "natural_history_philosophy",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1588,
+        "certainty": "colophon"
+      },
+      "first_publication_year": 1589,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América",
+          "provenance": "catalog"
+        },
+        {
+          "term": "descubrimiento y exploración",
+          "provenance": "catalog"
+        },
+        {
+          "term": "naturaleza",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicado conjuntamente con De procuranda Indorum salute; el catálogo registra portada 1589 y colofón 1588."
+    },
+    {
+      "work_id": "0007-w002",
+      "title": "De procuranda Indorum salute",
+      "work_type": "missionary_theology_political_ethics",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1588,
+        "certainty": "colophon"
+      },
+      "first_publication_year": 1589,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "84-00-06471-2"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pacificación",
+          "provenance": "catalog"
+        },
+        {
+          "term": "colonización",
+          "provenance": "catalog"
+        },
+        {
+          "term": "educación",
+          "provenance": "catalog"
+        },
+        {
+          "term": "evangelización",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0007-w003",
+      "title": "Historia natural y moral de las Indias",
+      "work_type": "natural_history_ethnography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1590,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1590,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Indios de México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Indios de Perú",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ciencias naturales",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ritos y costumbres",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "digital_catalog",
+      "title": "De natura Novi Orbis... / De procuranda Indorum salute",
+      "url": "https://cervantesvirtual.com/portales/alfonso_de_cartagena/obra/de-natura-novi-orbis-libri-duo-et-de-promulgatione-evangelii-apud-barbaros-sive-de-procuranda-indorum-salute-libri-sex/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "heritage_catalog",
+      "title": "De Procuranda Indorum salute",
+      "url": "https://bvpb.mcu.es/es/consulta/registro.do?id=576380",
+      "publisher": "Biblioteca Virtual del Patrimonio Bibliográfico"
+    },
+    {
+      "kind": "digital_catalog",
+      "title": "Historia natural y moral de las Indias",
+      "url": "https://cervantesvirtual.com/portales/biblioteca_virtual_del_banco_de_la_republica/obra/historia-natural-y-moral-de-las-indias-1131461/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente inventariar sermones y escritos menores/manuscritos."
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "author_id": 355,
+  "canonical_name": "Agustín de la Rosa",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1824,
+      "certainty": "scholarly"
+    },
+    "died": {
+      "year": 1907,
+      "certainty": "scholarly"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0355-w001",
+      "title": "Refutación de la obra titulada Curso de derecho natural o de filosofía del derecho, formado con arreglo al estado de esta ciencia en Alemania, por H. Ahrens",
+      "work_type": "catholic_anti_krausist_first_print_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1855,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1855,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "polémica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.estudiosjaliscienses.com/wp-content/uploads/2023/01/Estudios-Jaliscienses-n%C3%BAm.-131.pdf",
+        "https://www.academia.edu/30682594/Las_pol%C3%A9micas_en_torno_al_krausismo_en_M%C3%A9xico_Introducci%C3%B3n_y_compilaci%C3%B3n_"
+      ],
+      "notes": "Guadalajara, Tipografía de Rodríguez, 1855, 38 páginas. Refutación de la obra de Ahrens, no nueva edición ni traducción del manual alemán.",
+      "edition": {
+        "year": 1855,
+        "publisher": "Tipografía de Rodríguez",
+        "region": "Guadalajara"
+      },
+      "pages": 38,
+      "criticized_author": "Heinrich Ahrens"
+    },
+    {
+      "work_id": "0355-w002",
+      "title": "Observaciones a la obra de Henri Ahrens intitulada Curso de derecho natural o de filosofía del derecho",
+      "work_type": "original_philosophical_criticism_in_journal",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "serial_articles_november_1874_january_1875",
+        "period": {
+          "start": 1874,
+          "end": 1875
+        }
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/30682594/Las_pol%C3%A9micas_en_torno_al_krausismo_en_M%C3%A9xico_Introducci%C3%B3n_y_compilaci%C3%B3n_"
+      ],
+      "notes": "Publicado en La religión y la sociedad, tomo II, noviembre 1874–enero 1875. La serie anunciaba continuación no localizada. No atribuir todo el periódico al autor ni contarlo como reedición literal del folleto de 1855.",
+      "periodical": "La religión y la sociedad",
+      "serial_dates": "1874-11 a 1875-01"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Crítica católica de la recepción de Ahrens en la enseñanza de derecho natural de Guadalajara",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Estudios Jaliscienses 131, refutación de Agustín de la Rosa",
+      "url": "https://www.estudiosjaliscienses.com/wp-content/uploads/2023/01/Estudios-Jaliscienses-n%C3%BAm.-131.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Las polémicas en torno al krausismo en México, edición y análisis",
+      "url": "https://www.academia.edu/30682594/Las_pol%C3%A9micas_en_torno_al_krausismo_en_M%C3%A9xico_Introducci%C3%B3n_y_compilaci%C3%B3n_"
+    }
+  ],
+  "research_notes": [
+    "Dos textos de crítica distintos: impreso 1855 y artículos 1874–1875.",
+    "Ahrens no es coautor de la refutación."
+  ]
+}

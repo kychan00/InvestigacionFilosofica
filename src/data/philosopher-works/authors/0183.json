@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 183,
+  "canonical_name": "Gloria Comesaña-Santalices",
+  "life": {
+    "born": {
+      "year": 1946,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": null,
+      "certainty": "biographical_reference_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0183-w001",
+      "title": "Álvaro Márquez Fernández: filósofo del diálogo intercultural y antihegemónico",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 2023,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://produccioncientificaluz.org/index.php/filosofia/issue/view/3897"
+      ],
+      "notes": "La revista identifica explícitamente a Comesaña como autora del artículo, no del pensamiento de Márquez."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; biografía contrastada con índice del libro base.",
+    "Bibliografía parcial; evitar atribuir a autor artículos sobre él."
+  ]
+}

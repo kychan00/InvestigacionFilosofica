@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "author_id": 49,
+  "canonical_name": "Juan Montalvo",
+  "alternate_names": [
+    "Juan Montalvo Fiallos",
+    "Juan María Montalvo Fiallos"
+  ],
+  "life": {
+    "born": {
+      "year": 1832,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1889,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_political_essay_periodical_and_posthumous_literary_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0049-w001",
+      "title": "El Cosmopolita",
+      "work_type": "political_essay_periodical_series",
+      "original_language": "español",
+      "original_date": {
+        "start": 1866,
+        "end": 1869,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "verified_author_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad de imprenta",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política ecuatoriana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Serie de nueve entregas/números; distintas fuentes extienden el rango bibliográfico hasta 1870."
+    },
+    {
+      "work_id": "0049-w002",
+      "title": "La dictadura perpetua",
+      "work_type": "political_polemic",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Gabriel García Moreno",
+          "role": "political_target"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dictadura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "García Moreno",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0049-w003",
+      "title": "El Regenerador",
+      "work_type": "political_periodical_series",
+      "original_language": "español",
+      "original_date": {
+        "start": 1876,
+        "end": 1878,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "verified_author_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "regeneración política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Ecuador",
+          "provenance": "inferred"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0049-w004",
+      "title": "Las Catilinarias",
+      "work_type": "political_essay_pamphlet_series",
+      "original_language": "español",
+      "original_date": {
+        "start": 1880,
+        "end": 1882,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Ignacio de Veintemilla",
+          "role": "political_target"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tiranía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Veintemilla",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sátira política",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Serie de doce folletos."
+    },
+    {
+      "work_id": "0049-w005",
+      "title": "Siete tratados",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1882,
+        "end": 1883,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nobleza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "belleza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "emancipación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0049-w006",
+      "title": "Mercurial eclesiástica",
+      "work_type": "anticlerical_political_polemic",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "clero",
+          "provenance": "inferred"
+        },
+        {
+          "term": "anticlericalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "polémica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0049-w007",
+      "title": "El Espectador",
+      "work_type": "essay_periodical_series",
+      "original_language": "español",
+      "original_date": {
+        "start": 1886,
+        "end": 1888,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "verified_author_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ensayo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicado en tres tomos."
+    },
+    {
+      "work_id": "0049-w008",
+      "title": "Capítulos que se le olvidaron a Cervantes",
+      "alternate_titles": [
+        "Ensayo de imitación de un libro inimitable"
+      ],
+      "work_type": "literary_imitation_novelistic_essay",
+      "original_language": "español",
+      "original_date": {
+        "start": 1871,
+        "end": 1875,
+        "certainty": "composition_range"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Miguel de Cervantes",
+          "role": "literary_model"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Don Quijote",
+          "provenance": "inferred"
+        },
+        {
+          "term": "imitación literaria",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0049-w009",
+      "title": "Geometría moral",
+      "work_type": "moral_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "composition"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "amor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_cultural_authority",
+      "title": "Montalvo, Juan, 1832-1889",
+      "url": "https://biblioteca.casadelacultura.gob.ec/cgi-bin/koha/opac-authoritiesdetail.pl?authid=5242",
+      "publisher": "Casa de la Cultura Ecuatoriana"
+    },
+    {
+      "kind": "scholarly_author_study",
+      "title": "Juan Montalvo",
+      "url": "https://www.cervantesvirtual.com/obra-visor/juan-montalvo--0/html/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "institutional_repository",
+      "title": "Periodismo liberal y obra de Montalvo",
+      "url": "https://repositorio.uasb.edu.ec/server/api/core/bitstreams/28dcae78-eb76-4c19-a544-601be9cccac5/content",
+      "publisher": "Universidad Andina Simón Bolívar"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar cada número de El Cosmopolita, El Regenerador y El Espectador, además del epistolario y obras póstumas menores.",
+    "Existen discrepancias bibliográficas menores en rangos de años; la ficha conserva rangos apoyados por más de una fuente y notas cuando procede."
+  ]
+}

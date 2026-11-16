@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "author_id": 14,
+  "canonical_name": "Felipe Guamán Poma de Ayala",
+  "alternate_names": [
+    "Felipe Guaman Poma de Ayala",
+    "Guaman Poma"
+  ],
+  "life": {
+    "born": {
+      "year": 1535,
+      "certainty": "approximate"
+    },
+    "died": {
+      "year": 1615,
+      "certainty": "approximate"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "unique_major_autograph_manuscript_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0014-w001",
+      "title": "El primer nueva corónica y buen gobierno",
+      "work_type": "illustrated_chronicle_political_reform_treatise",
+      "original_language": "español con quechua y otras lenguas andinas",
+      "original_date": {
+        "start": 1613,
+        "end": 1615,
+        "certainty": "approximate_completion_range"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "verified_autograph",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [],
+        "manuscript_shelfmark": [
+          "GKS 2232 4º"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Inca Empire",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conquista",
+          "provenance": "catalog"
+        },
+        {
+          "term": "colonial exploitation",
+          "provenance": "catalog"
+        },
+        {
+          "term": "reforma del gobierno colonial",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Andean peoples",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Manuscrito autógrafo de unas 1,200 páginas con 398 dibujos de página completa; redescubierto en 1908 y publicado en facsímil retocado en 1936."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "primary_autograph_manuscript",
+      "title": "GKS 2232 4º: Guaman Poma",
+      "url": "https://permalink.kb.dk/permalink/2006/manus/253/eng/Indice%2B1-34/",
+      "publisher": "Royal Danish Library"
+    }
+  ],
+  "research_notes": [
+    "Pendiente separar capítulos/secciones temáticas como unidades analíticas sin convertirlas en obras bibliográficas independientes."
+  ]
+}

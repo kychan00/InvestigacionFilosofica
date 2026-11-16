@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 322,
+  "canonical_name": "Juan Ignacio de Gorriti",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_original_printed_political_documents_1827_and_1836",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0322-w001",
+      "title": "Informe que da el señor Gorriti al Congreso General Constituyente, sobre el resultado de su comisión cerca de las autoridades de Córdoba",
+      "work_type": "constitutional_political_report_original_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1827,
+        "certainty": "historical_publication_year"
+      },
+      "first_publication_year": 1827,
+      "authorship_status": "original_author_named_in_historical_bibliography",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "congreso constituyente",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://iye.anh.org.ar/index.php/iye/article/view/281"
+      ],
+      "notes": "Buenos Aires, Imprenta Argentina, 1827; informe de comisión política, distinguible de discursos posteriores y de libro de 1836.",
+      "edition": {
+        "year": 1827,
+        "publisher": "Imprenta Argentina",
+        "region": "Buenos Aires"
+      }
+    },
+    {
+      "work_id": "0322-w002",
+      "title": "Reflecciones sobre las causas morales de las convulsiones interiores en los nuevos estados americanos y examen de los medios eficaces para reprimirlas",
+      "work_type": "political_moral_philosophy_original_printed_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1836,
+        "certainty": "first_valparaiso_print"
+      },
+      "first_publication_year": 1836,
+      "authorship_status": "original_author_first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "causas morales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anarquía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "orden republicano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.sanchoelsabio.eus/Record/221966",
+        "https://koha.senado-ba.gov.ar/cgi-bin/koha/opac-detail.pl?biblionumber=16690",
+        "https://iye.anh.org.ar/index.php/iye/article/view/281"
+      ],
+      "notes": "Primera edición Valparaíso, imprenta vinculada a El Mercurio, 1836, XVI+269 pp.; la edición de Buenos Aires La Cultura Argentina 1916 es reimpresión con introducción de Enrique Martínez Paz, no fecha original.",
+      "edition": {
+        "year": 1836,
+        "publisher": "imprenta del Mercurio (catálogo registra editor Mercurio)",
+        "region": "Valparaíso"
+      },
+      "later_editions": [
+        {
+          "year": 1916,
+          "publisher": "La Cultura Argentina",
+          "region": "Buenos Aires",
+          "intro": "Enrique Martínez Paz"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reflexión republicana sobre educación moral y crisis de organización de los nuevos Estados de Hispanoamérica",
+      "kind": "nineteenth_century_republican_political_philosophy",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "original_edition_library_catalog",
+      "title": "Fundación Sancho el Sabio, Reflecciones, Valparaíso 1836",
+      "url": "https://catalogo.sanchoelsabio.eus/Record/221966"
+    },
+    {
+      "kind": "peer_reviewed_political_history",
+      "title": "Trayectoria política del canónigo Juan Ignacio Gorriti",
+      "url": "https://iye.anh.org.ar/index.php/iye/article/view/281"
+    },
+    {
+      "kind": "legislative_library_catalog",
+      "title": "Senado bonaerense, edición de Reflexiones 1916",
+      "url": "https://koha.senado-ba.gov.ar/cgi-bin/koha/opac-detail.pl?biblionumber=16690"
+    }
+  ],
+  "research_notes": [
+    "La ortografía «Reflecciones» procede del registro de 1836; modernizaciones «Reflexiones» en ediciones posteriores.",
+    "Autobiografía política editada en Papeles de Gorriti (1936) queda por cotejar a partir de manuscrito, no se registra como escrito de 1936."
+  ]
+}

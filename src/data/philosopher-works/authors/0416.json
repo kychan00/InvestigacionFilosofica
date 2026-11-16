@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "author_id": 416,
+  "canonical_name": "Faelante da Câmara",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1862,
+      "certainty": "history_of_philosophy_source"
+    },
+    "died": {
+      "year": 1909,
+      "certainty": "history_of_philosophy_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0416-w001",
+      "title": "Memória Histórica",
+      "work_type": "institutional_historical_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": 1903,
+        "certainty": "history_of_philosophy_source"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Faculdade de Direito do Recife",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memória institucional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história das ideias",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.institutodehumanidades.com.br/arquivos/escola_do_recife.pdf"
+      ],
+      "notes": "Trabalho divulgado na Revista Acadêmica da Faculdade de Direito do Recife em 1903, segundo história especializada da Escola do Recife."
+    },
+    {
+      "work_id": "0416-w002",
+      "title": "A Faculdade do Recife como Centro de Cultura e Coesão Nacional",
+      "work_type": "institutional_and_intellectual_history_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": 1906,
+        "certainty": "history_of_philosophy_source"
+      },
+      "first_publication_year": 1906,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Faculdade do Recife",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "coesão nacional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.institutodehumanidades.com.br/arquivos/escola_do_recife.pdf"
+      ],
+      "notes": "Estudo publicado na Revista Acadêmica da Faculdade em 1906."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Magistério na Faculdade de Direito do Recife e continuidade do legado intelectual de Tobias Barreto na história das ideias",
+      "kind": "recife_school_teaching_and_intellectual_history_contribution",
+      "authorship_status": "documented_in_history_of_philosophy_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "history_of_philosophy_source",
+      "title": "Antonio Paim — A Escola do Recife",
+      "url": "https://www.institutodehumanidades.com.br/arquivos/escola_do_recife.pdf"
+    },
+    {
+      "kind": "reference_source",
+      "title": "Fundaj — Faculdade de Direito do Recife",
+      "url": "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/faculdade-de-direito-do-recife/"
+    }
+  ],
+  "research_notes": [
+    "A fonte-base/historiografia registra estudo inacabado sobre vida e obra de Tobias Barreto, mas sem título bibliográfico estabilizado; ele não é convertido em obra completa.",
+    "As datas de vida variam em algumas referências; a história especializada consultada usa 1862-1909."
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "author_id": 314,
+  "canonical_name": "Pantaleón García",
+  "alternate_names": [
+    "Fray Pantaleón García",
+    "Pantaleón García O. F. M."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1810_six_volume_sermon_corpus_and_1814_proclama",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0314-w001",
+      "title": "Sermones panegíricos de varios misterios, festividades y santos",
+      "work_type": "six_volume_religious_moral_sermons_printed_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "physical_print_catalog_six_volumes"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "author_original_sermons_editorial_selection_by_fray_Teodoro_de_Ocampo",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "oratoria sagrada",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1110164",
+        "https://www.dhial.org/diccionario/index.php?title=GARC%C3%8DA_Pantale%C3%B3n"
+      ],
+      "notes": "Imprenta de Collado, Madrid, 1810, seis tomos según ADABI, Fondo Reservado del Seminario Conciliar de Querétaro; los seis tomos constituyen un corpus editorial, no seis obras originales independientes. Prologado y preparado por fray Teodoro de Ocampo.",
+      "volume_count": 6,
+      "edition": {
+        "year": 1810,
+        "publisher": "Collado",
+        "region": "Madrid"
+      },
+      "editor": "Fray Teodoro de Ocampo"
+    },
+    {
+      "work_id": "0314-w002",
+      "title": "Proclama sagrada pronunciada en la catedral de Córdoba el 25 de mayo de 1814",
+      "work_type": "patriotic_religious_political_sermon_manuscript_copy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1814,
+        "certainty": "date_delivered_may_25"
+      },
+      "first_publication_year": null,
+      "authorship_status": "sermon_by_fray_pantaleon_historical_transmission_and_archival_copy",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "providencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=GARC%C3%8DA_Pantale%C3%B3n",
+        "https://www.academia.edu/171568319/Fray_Pedro_Pacheco_1762_1826_un_franciscano_en_los_m%C3%A1rgenes_de_un_mundo_en_transformaci%C3%B3n"
+      ],
+      "notes": "Proclama pronunciada el 25 mayo 1814, conservada en transmisión documental posterior; no asignar primera impresión al año del acto. Tratar como intervención distinta de la recopilación de 1810.",
+      "delivery_date": "1814-05-25",
+      "title_status": "historical_transmitted_title"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza filosófico-teológica en la Universidad de Córdoba y prédica pública sobre patriotismo y legitimidad de la independencia",
+      "kind": "franciscan_political_moral_theology",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "physical_print_catalog",
+      "title": "ADABI Querétaro, Pantaleón García, Sermones panegíricos, seis tomos Madrid 1810",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/1110164"
+    },
+    {
+      "kind": "historical_encyclopedia",
+      "title": "Diccionario de Historia Cultural de la Iglesia, Pantaleón García",
+      "url": "https://www.dhial.org/diccionario/index.php?title=GARC%C3%8DA_Pantale%C3%B3n"
+    }
+  ],
+  "research_notes": [
+    "La edición de 1810 es anterior a la proclama de 1814: no mezclar piezas.",
+    "No duplicar sermones individuales incluidos en los seis tomos sin cotejo textual de portada e índices.",
+    "La atribución del prólogo a Ocampo corresponde a función editorial, no a autoría de todos los sermones."
+  ]
+}

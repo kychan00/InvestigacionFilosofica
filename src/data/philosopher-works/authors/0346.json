@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "author_id": 346,
+  "canonical_name": "Carlos Vergara",
+  "alternate_names": [
+    "Carlos Norberto Vergara",
+    "Carlos N. Vergara"
+  ],
+  "life": {
+    "born": {
+      "year": 1859,
+      "certainty": "educar_biography"
+    },
+    "died": {
+      "year": 1929,
+      "certainty": "educar_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_documented_collections_1899_1911_1913_1916",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0346-w001",
+      "title": "Educación republicana",
+      "work_type": "republican_educational_philosophy_author_collected_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "original_compilation_publication"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "author_original_1899_collection_of_earlier_articles",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación republicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escuela pública",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.unipe.edu.ar/colecciones/ideas-en-la-educacion-argentina/clasicos/pedagog%C3%ADa-y-revoluci%C3%B3n-detail",
+        "https://www.educ.ar/recursos/155462/carlos-vergara"
+      ],
+      "notes": "UNIPE Editorial Universitaria registra esta compilación de Carlos Norberto Vergara en 1899. Recoge experiencias y publicaciones previas de la Escuela Normal; no registrar sus artículos constitutivos por duplicado."
+    },
+    {
+      "work_id": "0346-w002",
+      "title": "Revolución pacífica",
+      "work_type": "educational_and_social_reform_original_collected_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "original_author_collection_print"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "author_original_1911_compilation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reforma social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escuela",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad infantil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.unipe.edu.ar/colecciones/ideas-en-la-educacion-argentina/clasicos/pedagog%C3%ADa-y-revoluci%C3%B3n-detail",
+        "https://www.educ.ar/recursos/155462/carlos-vergara"
+      ],
+      "notes": "Publicada en 1911 como compilación de textos antes difundidos, entre otros, en revista La Revolución. Diferenciar primera publicación de artículos individuales y fecha del libro."
+    },
+    {
+      "work_id": "0346-w003",
+      "title": "Nuevo mundo moral",
+      "work_type": "philosophical_pedagogical_original_printed_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "original_author_collection_print"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "author_original_1913_compilation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "transformación social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.unipe.edu.ar/colecciones/ideas-en-la-educacion-argentina/clasicos/pedagog%C3%ADa-y-revoluci%C3%B3n-detail"
+      ],
+      "notes": "UNIPE (editorial universitaria) acredita título de la tercera recopilación de Carlos Vergara, 1913, como libro propio con base en artículos previos. No confundir con antología UNIPE de 2011."
+    },
+    {
+      "work_id": "0346-w004",
+      "title": "Filosofía de la educación",
+      "work_type": "pedagogical_philosophy_original_printed_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "original_publication_date_editorial_history"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author_printed_pedagogy_text",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anti-autoritarismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autonomía estudiantil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.unipe.edu.ar/colecciones/ideas-en-la-educacion-argentina/clasicos/pedagog%C3%ADa-y-revoluci%C3%B3n-detail"
+      ],
+      "notes": "UNIPE indica que en 1916 publicó Filosofía de la educación; la antología Pedagogía y revolución (2011) toma fragmentos, no es primera edición del texto de 1916."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de pedagogía antiautoritaria y reformismo social de inspiración krausista en la escuela argentina",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "public_university_publisher",
+      "title": "UNIPE Editorial Universitaria, Carlos N. Vergara, Pedagogía y revolución: historia bibliográfica de cuatro libros (1899, 1911, 1913, 1916)",
+      "url": "https://editorial.unipe.edu.ar/colecciones/ideas-en-la-educacion-argentina/clasicos/pedagog%C3%ADa-y-revoluci%C3%B3n-detail"
+    },
+    {
+      "kind": "government_education_portal",
+      "title": "Educ.ar / INFoD, Carlos Vergara: escuela y pedagogía crítica",
+      "url": "https://www.educ.ar/recursos/155462/carlos-vergara"
+    }
+  ],
+  "research_notes": [
+    "Las compilaciones publicadas por el autor pueden reutilizar artículos previamente aparecidos en revistas; contabilizar libros como contenedores y no duplicar el mismo texto individual.",
+    "La antología UNIPE 2011 no representa obra nueva redactada por Vergara en 2011.",
+    "En el inventario canónico aparece Carlos Vergara, correspondiente a Carlos Norberto Vergara."
+  ]
+}

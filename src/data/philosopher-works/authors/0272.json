@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 272,
+  "canonical_name": "Diego de Avendaño",
+  "alternate_names": [
+    "Didacus de Avendaño",
+    "Diego de Avendano S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "six_physical_volumes_grouped_as_one_work_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0272-w001",
+      "title": "Thesaurus Indicus, seu generalis instructor pro regimine conscientiae in iis quae ad Indias spectant",
+      "work_type": "latin_scholastic_moral_theology_jurisprudence_six_volume_work",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1668,
+        "certainty": "first_volumes_printed"
+      },
+      "first_publication_year": 1668,
+      "authorship_status": "author_identified_by_early_printed_editions",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "esclavitud",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.salamanca.school/data/W0001/html/W0001_details.html",
+        "https://www.letrasmexicanas.mx/portales/academia_mexicana_de_la_lengua/obra/rp-didaci-de-avendano-societatis-iesu-segoviensis-in-peruvio-iam-pridem-publici-primarij-s-theologiae-professoris-in-sacro-inquisitionis-sanctae-tribunali-adlecti-censoris-1054100/"
+      ],
+      "notes": "Una obra compuesta por seis tomos publicados en distintos años: I–II (Amberes 1668), III–V (1675, Auctarium Indicum), VI (1686). No se multiplica por seis el número de obras. La digitalización moderna tampoco se confunde con la primera edición.",
+      "edition": {
+        "year": 1668,
+        "publisher": "Jacobus Meursius",
+        "region": "Amberes"
+      },
+      "volume_count": 6,
+      "volume_publication_years": {
+        "1": 1668,
+        "2": 1668,
+        "3": 1675,
+        "4": 1675,
+        "5": 1675,
+        "6": 1686
+      },
+      "later_publishers": {
+        "6": "Hieronymus Verdussen"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Análisis escolástico de conciencia, derecho, esclavización y gobierno de las Indias en el Perú virreinal",
+      "kind": "colonial_moral_and_political_philosophy",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "critical_digital_edition",
+      "title": "School of Salamanca, «Thesaurus Indicus» (W0001)",
+      "url": "https://www.salamanca.school/data/W0001/html/W0001_details.html"
+    },
+    {
+      "kind": "historic_print_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes, ejemplares Universidad de Salamanca, 6 tomos 1668–1686",
+      "url": "https://www.letrasmexicanas.mx/portales/academia_mexicana_de_la_lengua/obra/rp-didaci-de-avendano-societatis-iesu-segoviensis-in-peruvio-iam-pridem-publici-primarij-s-theologiae-professoris-in-sacro-inquisitionis-sanctae-tribunali-adlecti-censoris-1054100/"
+    }
+  ],
+  "research_notes": [
+    "El tomos III–VI aparecen con el título complementario Auctarium Indicum; preservados dentro del conjunto Thesaurus Indicus.",
+    "No atribuir una defensa universal de abolición a una casuística colonial con múltiples argumentos y ambivalencias."
+  ]
+}

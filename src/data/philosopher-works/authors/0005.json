@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "author_id": 5,
+  "canonical_name": "Alonso de la Vera Cruz",
+  "alternate_names": [
+    "Alphonsus a Vera Cruce",
+    "Alonso de Veracruz"
+  ],
+  "life": {
+    "born": {
+      "year": 1507,
+      "certainty": "approximate"
+    },
+    "died": {
+      "year": 1584,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_philosophical_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0005-w001",
+      "title": "Recognitio summularum",
+      "work_type": "logic_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1554,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1554,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica menor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "silogismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0005-w002",
+      "title": "Dialectica resolutio cum textu Aristotelis",
+      "work_type": "logic_dialectics",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1554,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1554,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Aristóteles",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0005-w003",
+      "title": "Physica speculatio",
+      "work_type": "natural_philosophy",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1557,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1557,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "cosmología",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0005-w004",
+      "title": "De dominio infidelium et iusto bello",
+      "work_type": "political_juridical_philosophy",
+      "original_language": "latín",
+      "original_date": {
+        "century": 16,
+        "certainty": "exact_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dominio de los infieles",
+          "provenance": "catalog"
+        },
+        {
+          "term": "guerra justa",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Alonso de la Vera Cruz — obras",
+      "url": "https://www.cervantesvirtual.com/obras/autor/alonso-de-la-vera-cruz-osa-ca-1507-1584-24242",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "scholarly",
+      "title": "Perfil del pensamiento filosófico de fray Alonso de la Vera Cruz",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582011000200008&script=sci_arttext",
+      "publisher": "SciELO México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar escritos jurídico-teológicos y registrar reediciones históricas."
+  ]
+}

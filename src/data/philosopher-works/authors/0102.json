@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "author_id": 102,
+  "canonical_name": "Antonio Gómez Robledo",
+  "alternate_names": [
+    "Antonio Gómez Robledo"
+  ],
+  "life": {
+    "born": {
+      "year": 1908,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1994,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_international_law_christian_humanism_classics_justice_and_history_of_philosophy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0102-w001",
+      "title": "Los convenios de Bucareli ante el Derecho Internacional",
+      "work_type": "international_law_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bucareli",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho internacional",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w002",
+      "title": "Política de Vitoria",
+      "work_type": "political_legal_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francisco de Vitoria",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Vitoria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho de gentes",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w003",
+      "title": "Epopeya del Monroísmo",
+      "work_type": "international_relations_history_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Monroísmo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w004",
+      "title": "La filosofía en el Brasil",
+      "work_type": "doctoral_thesis_history_of_philosophy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "doctoral_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía brasileña",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w005",
+      "title": "Ensayo sobre las virtudes intelectuales",
+      "work_type": "ethics_epistemology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "virtudes intelectuales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w006",
+      "title": "Idea y experiencia de América",
+      "work_type": "philosophy_of_america_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "experiencia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w007",
+      "title": "Meditación sobre la justicia",
+      "work_type": "ethics_legal_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "justicia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "inferred"
+        },
+        {
+          "term": "humanismo cristiano",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w008",
+      "title": "México y el arbitraje internacional",
+      "alternate_titles": [
+        "México y el arbitraje internacional: el fondo piadoso de las Californias, la isla de la Pasión, El Chamizal"
+      ],
+      "work_type": "international_law_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arbitraje internacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w009",
+      "title": "Sócrates y el socratismo",
+      "work_type": "classical_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Sócrates",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sócrates",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "socratismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w010",
+      "title": "Platón: los seis grandes temas de su filosofía",
+      "work_type": "classical_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Platón",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Platón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "virtud",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Estado",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w011",
+      "title": "El magisterio filosófico y jurídico de Alonso de la Vera Cruz",
+      "work_type": "history_of_philosophy_law_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Alonso de la Vera Cruz",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alonso de la Vera Cruz",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía novohispana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w012",
+      "title": "El pensamiento filosófico de Edith Stein",
+      "work_type": "philosopher_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Edith Stein",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Edith Stein",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w013",
+      "title": "Fundadores del derecho internacional: Vitoria, Gentili, Suárez, Grocio",
+      "work_type": "history_of_international_law_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francisco de Vitoria",
+          "role": "subject"
+        },
+        {
+          "name": "Alberico Gentili",
+          "role": "subject"
+        },
+        {
+          "name": "Francisco Suárez",
+          "role": "subject"
+        },
+        {
+          "name": "Hugo Grocio",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho internacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Vitoria",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Suárez",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0102-w014",
+      "title": "Estudios pascalianos",
+      "work_type": "philosopher_religion_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Blaise Pascal",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Pascal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cristianismo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Traducción de textos clásicos y diplomacia jurídica internacional",
+      "kind": "translation_diplomatic_intellectual_contribution",
+      "period": {
+        "start": 1941,
+        "end": 1994,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "clásicos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho internacional",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_academic_profile",
+      "title": "Antonio Gómez Robledo",
+      "url": "https://colnal.mx/integrantes/antonio-gomez-robledo/",
+      "publisher": "El Colegio Nacional"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Antonio Gómez Robledo (1908-1994)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar Dante Alighieri (1975), traducciones y escritos diplomáticos.",
+    "La filosofía en el Brasil se conserva como tesis hasta verificar una edición monográfica independiente."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "author_id": 268,
+  "canonical_name": "José Angulo",
+  "alternate_names": [
+    "José Angulo S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_historically_attributed_logic_course_without_physical_witness",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0268-w001",
+      "title": "Curso de lógica (título descriptivo)",
+      "work_type": "colonial_jesuit_logic_course_historically_attested",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1730,
+        "certainty": "approximate_teaching_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_secondary_source_attribution_manuscript_not_physically_located",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "suarecianismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Antonio Rubio",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+      ],
+      "notes": "Beuchot describe un curso de lógica suareciano, relacionado con las enseñanzas de Antonio Rubio, en Córdoba hacia 1730; no se han verificado título latino de portada, manuscrito, signatura ni impresión.",
+      "title_status": "modern_descriptive_label",
+      "manuscript_location": "not_verified"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de lógica en Córdoba del Río de la Plata hacia 1730, siguiendo a Suárez y Antonio Rubio",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Mauricio Beuchot, «La filosofía académica», en El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300-2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 84-85"
+    },
+    {
+      "kind": "historical_educational_article",
+      "title": "Mauricio Beuchot, «La enseñanza de la filosofía»",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/",
+      "locator": "curso de lógica, hacia 1730"
+    }
+  ],
+  "research_notes": [
+    "El PDF presenta «José Angulo»; la lectura OCR puede variar. Se respeta la forma del inventario canónico.",
+    "No confundir su curso lógico de ca. 1730 con el de Nicolás Plantich (1752) ni con las obras impresas de Antonio Rubio."
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "author_id": 439,
+  "canonical_name": "Mario Presas",
+  "alternate_names": [
+    "Mario Alfonso Presas",
+    "Mario A. Presas"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0439-w001",
+      "title": "Filosofía de la existencia",
+      "work_type": "existentialist_philosophy_book_collecting_earlier_articles",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "university_bibliographic_source"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author_collection_of_earlier_articles",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la existencia",
+          "provenance": "editorial"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Kierkegaard",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.rdf.fahce.unlp.edu.ar/article/view/rdfe087",
+        "https://www.memoria.fahce.unlp.edu.ar/perfiles/1101PresasM.html"
+      ],
+      "notes": "Resistencia, Universidad Nacional del Nordeste, 1962, 119 páginas. Reúne textos publicados previamente entre 1959 y 1962; no se duplican automáticamente esos artículos como nuevas obras."
+    },
+    {
+      "work_id": "0439-w002",
+      "title": "G. Marcel",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "unlp_profile_bibliography"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Gabriel Marcel",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoria.fahce.unlp.edu.ar/perfiles/1101PresasM.html"
+      ],
+      "notes": "Buenos Aires, Centro Editor de América Latina, 1967, 116 páginas."
+    },
+    {
+      "work_id": "0439-w003",
+      "title": "Situación de la filosofía de Karl Jaspers, con especial consideración de su base kantiana",
+      "work_type": "doctoral_thesis_published_as_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "unlp_thesis_record"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Karl Jaspers",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Kant",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoria.fahce.unlp.edu.ar/perfiles/1101PresasM.html"
+      ],
+      "notes": "Tesis doctoral de la UNLP fechada en 1974; publicada como libro por Depalma en 1978. Se distingue redacción/defensa académica de la edición comercial."
+    },
+    {
+      "work_id": "0439-w004",
+      "title": "La verdad de la ficción",
+      "work_type": "aesthetics_hermeneutics_and_fiction_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "unlp_dossier_bibliography"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ficción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "verdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://conicet-ar.academia.edu/Departments/IdIHCS/Documents?page=25",
+        "https://portal.amelica.org/ameli/journal/83/834747008/html/"
+      ],
+      "notes": "Buenos Aires, Almagesto, 1997, 159 páginas según dossier y bibliografía sobre Presas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación de fenomenología, existencialismo, hermenéutica y estética en torno a experiencia, existencia, lenguaje y ficción",
+      "kind": "argentine_phenomenology_hermeneutics_and_aesthetics_contribution",
+      "authorship_status": "documented_in_unlp_and_conicet_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_profile_source",
+      "title": "UNLP Memoria Académica — Mario Alfonso Presas",
+      "url": "https://www.memoria.fahce.unlp.edu.ar/perfiles/1101PresasM.html"
+    },
+    {
+      "kind": "university_journal_source",
+      "title": "UNLP Revista de Filosofía — revisión de Filosofía de la existencia",
+      "url": "https://www.rdf.fahce.unlp.edu.ar/article/view/rdfe087"
+    },
+    {
+      "kind": "scholarly_biobibliographic_source",
+      "title": "Nota biobibliográfica sobre Mario A. Presas",
+      "url": "https://portal.amelica.org/ameli/journal/83/834747008/html/"
+    }
+  ],
+  "research_notes": [
+    "Filosofía de la existencia compila artículos anteriores; se registra como una unidad editorial sin duplicarlos por defecto.",
+    "Situación de la filosofía de Karl Jaspers distingue tesis de 1974 y publicación en libro de 1978."
+  ]
+}

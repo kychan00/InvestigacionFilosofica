@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "author_id": 338,
+  "canonical_name": "Francisco de Paula Vigil",
+  "alternate_names": [
+    "Francisco de Paula González Vigil",
+    "Francisco de Paula G. Vigil"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "single_ten_volume_two_part_work_1848_1856",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0338-w001",
+      "title": "Defensa de la autoridad de los gobiernos y de los obispos contra las pretensiones de la Curia romana",
+      "work_type": "gallican_reformist_church_state_ten_volume_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "two_parts_first_print_ranges_1848_1849_and_1856",
+        "period": {
+          "start": 1848,
+          "end": 1856
+        }
+      },
+      "first_publication_year": 1848,
+      "authorship_status": "original_author_multivolume_printed_treatise",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado e Iglesia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "jurisdicción episcopal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poder civil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "curia romana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books?hl=es&id=ja8CAAAAcAAJ",
+        "https://books.google.com/books?id=Ai8CAAAAcAAJ",
+        "https://www.cervantesvirtual.com/obra-visor/la-biblioteca-nacional-del-peru-aportes-para-su-historia/html/ff3f0240-82b1-11df-acc7-002185ce6064_10.html"
+      ],
+      "notes": "Dos secciones de un mismo gran proyecto: Defensa de los gobiernos, seis tomos 1848–1849 (ejemplares impresos por J. Huidobro Molina); Defensa de los obispos, cuatro tomos 1856. Diez tomos NO equivalen a diez obras individuales. Algunos catálogos Google Books atribuyen erróneamente 1840/1819 a registros digitalizados, que requieren cotejo y no superan el ejemplar de 1848.",
+      "component_works": [
+        {
+          "title": "Defensa de la autoridad de los gobiernos",
+          "volumes": 6,
+          "publication_years": [
+            1848,
+            1849
+          ]
+        },
+        {
+          "title": "Defensa de la autoridad de los obispos",
+          "volumes": 4,
+          "publication_years": [
+            1856
+          ]
+        }
+      ],
+      "total_volumes": 10,
+      "edition": {
+        "year": 1848,
+        "publisher": "J. Huidobro Molina",
+        "region": "Lima"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa liberal peruana del poder civil y de la autonomía episcopal frente a las prerrogativas pontificias",
+      "kind": "peruvian_liberal_religious_and_political_philosophy",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "digitized_original_first_volumes",
+      "title": "Bayerische Staatsbibliothek / Google Books, Vigil, Defensa ... 1848",
+      "url": "https://books.google.com/books?hl=es&id=ja8CAAAAcAAJ"
+    },
+    {
+      "kind": "digitized_original_volume",
+      "title": "Bayerische Staatsbibliothek / Google Books, tomo 1849",
+      "url": "https://books.google.com/books?id=Ai8CAAAAcAAJ"
+    },
+    {
+      "kind": "national_library_history",
+      "title": "Historia de la Biblioteca Nacional del Perú, González Vigil y sus obras",
+      "url": "https://www.cervantesvirtual.com/obra-visor/la-biblioteca-nacional-del-peru-aportes-para-su-historia/html/ff3f0240-82b1-11df-acc7-002185ce6064_10.html"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico abrevia nombre como Francisco de Paula Vigil; nombre bibliográfico completo «Francisco de Paula González Vigil».",
+    "La segunda sección (obispos) se incorporó 1856; no es una reedición de los seis tomos de gobiernos.",
+    "No contar cada volumen o edición aislada como obra nueva; queda una entrada con subpartes explícitas."
+  ]
+}

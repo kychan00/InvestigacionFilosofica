@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "author_id": 85,
+  "canonical_name": "Miguel Reale",
+  "alternate_names": [
+    "Miguel Reale"
+  ],
+  "life": {
+    "born": {
+      "year": 1910,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2006,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "large_legal_philosophy_culturalism_and_political_corpus_major_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0085-w001",
+      "title": "O Estado moderno",
+      "work_type": "political_state_theory",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1933,
+        "certainty": "first_bibliographic_date"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado moderno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teoria política",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "A ABL registra 1933; repertório da Revista da Faculdade de Direito registra edições 1934-1935. Preserva-se a primeira data bibliográfica da ABL com nota de variação."
+    },
+    {
+      "work_id": "0085-w002",
+      "title": "Formação da política burguesa",
+      "work_type": "political_theory_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1935,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política burguesa",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w003",
+      "title": "O capitalismo internacional",
+      "work_type": "political_economy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1935,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "capitalismo internacional",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w004",
+      "title": "Fundamentos do Direito",
+      "work_type": "philosophy_of_law_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1940,
+        "certainty": "chair_thesis_and_publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fundamentos do direito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fato",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "norma",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w005",
+      "title": "Teoria do Direito e do Estado",
+      "work_type": "legal_political_theory_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1940,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Estado",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w006",
+      "title": "A doutrina de Kant no Brasil",
+      "work_type": "history_of_philosophy_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1949,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Immanuel Kant",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kant",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w007",
+      "title": "Filosofia do Direito",
+      "work_type": "philosophy_of_law_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1953,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia do direito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "axiologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pessoa",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w008",
+      "title": "Horizontes do Direito e da História",
+      "work_type": "legal_history_philosophy_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w009",
+      "title": "Pluralismo e liberdade",
+      "work_type": "political_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1963,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pluralismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w010",
+      "title": "Teoria Tridimensional do Direito",
+      "work_type": "philosophy_of_law_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1968,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fato",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "norma",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tridimensionalidade do direito",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w011",
+      "title": "O Direito como experiência",
+      "work_type": "legal_epistemology_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1968,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito como experiência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "epistemologia jurídica",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w012",
+      "title": "Experiência e cultura",
+      "work_type": "culturalist_philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1977,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "experiência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "culturalismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w013",
+      "title": "O homem e seus horizontes",
+      "work_type": "philosophical_anthropology_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "homem",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "horizontes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropologia filosófica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w014",
+      "title": "Verdade e conjetura",
+      "work_type": "epistemology_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1983,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "verdade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conjetura",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0085-w015",
+      "title": "Fontes e modelos do Direito",
+      "work_type": "legal_hermeneutics_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fontes do direito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modelos jurídicos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hermenêutica",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundação do Instituto Brasileiro de Filosofia e da Revista Brasileira de Filosofia",
+      "kind": "academic_editorial_institutional_contribution",
+      "period": {
+        "start": 1949,
+        "end": 1951,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Instituto Brasileiro de Filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Revista Brasileira de Filosofia",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_academy_bibliography",
+      "title": "Miguel Reale — Bibliografia",
+      "url": "https://www.academia.org.br/academicos/miguel-reale/bibliografia",
+      "publisher": "Academia Brasileira de Letras"
+    },
+    {
+      "kind": "university_bibliography",
+      "title": "Bibliografia fundamental de Miguel Reale",
+      "url": "https://revistas.usp.br/rfdusp/pt_BR/article/download/66494/69104/0",
+      "publisher": "Universidade de São Paulo"
+    },
+    {
+      "kind": "national_academy_biography",
+      "title": "Miguel Reale — Biografia",
+      "url": "https://www.academia.org.br/academicos/miguel-reale/biografia",
+      "publisher": "Academia Brasileira de Letras"
+    }
+  ],
+  "research_notes": [
+    "La bibliografía completa supera 60 títulos; esta semilla prioriza obras filosóficas y filosófico-jurídicas mayores.",
+    "Pendiente ampliar integralismo, derecho positivo, memorias, poesía y producción constitucional."
+  ]
+}

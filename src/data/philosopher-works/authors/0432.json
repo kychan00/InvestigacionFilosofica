@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "author_id": 432,
+  "canonical_name": "Emilio Estiú",
+  "alternate_names": [
+    "Emilio A. Estiú"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0432-w001",
+      "title": "El Pensamiento de una Philosophia Prima en Nicolai Hartmann",
+      "work_type": "philosophical_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "journal_issue_record"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nicolai Hartmann",
+          "provenance": "editorial"
+        },
+        {
+          "term": "philosophia prima",
+          "provenance": "editorial"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ru.atheneadigital.filos.unam.mx/jspui/bitstream/FFYL_UNAM/A53/1/Rev_FyL_tv%2Cnum9%2C1943_enero_marzo_artGaos_p59-71.pdf"
+      ],
+      "notes": "Aparece en el sumario de Filosofía y Letras, tomo V, n.º 9, enero-marzo de 1943, p. 31 y ss."
+    },
+    {
+      "work_id": "0432-w002",
+      "title": "En torno a un concepto de la filosofía",
+      "work_type": "philosophical_article_later_reissued_as_university_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "unlp_catalog_note_on_original_article"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "concepto de filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "catalog"
+        },
+        {
+          "term": "cultura",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía de la religión",
+          "provenance": "catalog"
+        },
+        {
+          "term": "estética",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://memoria.fahce.unlp.edu.ar/library?a=d&c=libros&d=Jpm239"
+      ],
+      "notes": "Publicado originalmente en 1944 en la Revista de Educación de la Provincia de Buenos Aires; la UNLP lo reeditó como folleto en 1965. Se registra por la primera publicación del texto, no por la reimpresión."
+    },
+    {
+      "work_id": "0432-w003",
+      "title": "De la vida a la existencia en la filosofía contemporánea",
+      "work_type": "contemporary_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "unlp_library_holds_1962_edition"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ontología",
+          "provenance": "catalog"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoria.fahce.unlp.edu.ar/library?a=d&c=libros&d=Jpm86"
+      ],
+      "notes": "La ficha de Memoria Académica describe la edición UNLP de 1964 y señala expresamente que la biblioteca posee una edición de 1962; se adopta 1962 como primera edición verificada en esa fuente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción argentina de Hartmann, Heidegger, Jaspers y la filosofía de la existencia desde una perspectiva sistemática y universitaria",
+      "kind": "argentine_contemporary_philosophy_and_existentialism_contribution",
+      "authorship_status": "documented_in_unlp_and_unam_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_library_source",
+      "title": "UNLP Memoria Académica — En torno a un concepto de la filosofía",
+      "url": "https://memoria.fahce.unlp.edu.ar/library?a=d&c=libros&d=Jpm239"
+    },
+    {
+      "kind": "university_library_source",
+      "title": "UNLP Memoria Académica — De la vida a la existencia en la filosofía contemporánea",
+      "url": "https://www.memoria.fahce.unlp.edu.ar/library?a=d&c=libros&d=Jpm86"
+    },
+    {
+      "kind": "university_journal_source",
+      "title": "UNAM Filosofía y Letras — sumario 1943 con artículo de Estiú",
+      "url": "https://ru.atheneadigital.filos.unam.mx/jspui/bitstream/FFYL_UNAM/A53/1/Rev_FyL_tv%2Cnum9%2C1943_enero_marzo_artGaos_p59-71.pdf"
+    }
+  ],
+  "research_notes": [
+    "La edición de 1964 de De la vida a la existencia no se cuenta como obra nueva frente a la edición de 1962 indicada por el catálogo.",
+    "En torno a un concepto de la filosofía distingue publicación original de 1944 y reedición universitaria de 1965."
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "author_id": 329,
+  "canonical_name": "Abdón Cifuentes",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "collected_speeches_1897_series_1910_pamphlet_1936_posthumous_memoirs",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0329-w001",
+      "title": "Colección de discursos de don Abdón Cifuentes",
+      "work_type": "chilean_public_political_speeches_collected_volumes",
+      "original_language": "español",
+      "original_date": {
+        "year": 1897,
+        "certainty": "first_collected_volume_reported_by_scholarship"
+      },
+      "first_publication_year": 1897,
+      "authorship_status": "original_speeches_collected_by_editors_authorship_of_texts_not_editorial_notes",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad de enseñanza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo político",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado liberal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos políticos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-774523.html",
+        "https://www.bcn.cl/historiapolitica/resenas_parlamentarias/wiki/Abd%C3%B3n_Cifuentes_Espinosa"
+      ],
+      "notes": "Bibliografía y Memoria Chilena registran primer tomo; colección inicial asociada a 1897–1898 y posteriores ediciones/colecciones de 1916. No multiplicar cada tomo en nuevas obras. Fecha de primera colección provisional hasta cotejo de tomo.",
+      "documented_editions": [
+        {
+          "start": 1897,
+          "end": 1898
+        },
+        {
+          "year": 1916,
+          "publisher": "La Gratitud Nacional"
+        }
+      ]
+    },
+    {
+      "work_id": "0329-w002",
+      "title": "Discurso en favor de las universidades libres, pronunciado en el Senado en agosto de 1910",
+      "work_type": "parliamentary_public_education_speech_printed_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "original_parliamentary_interventions_print"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "original_public_speeches_printed_as_separate_pamphlet",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autonomía universitaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad de enseñanza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado y educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bcn.cl/historiapolitica/resenas_parlamentarias/wiki/Abd%C3%B3n_Cifuentes_Espinosa"
+      ],
+      "notes": "Biblioteca del Congreso Nacional de Chile registra publicación de Imprenta y Encuadernación Chile 1910, sesiones del Senado de 16, 13, 24, 25 y 30 de agosto de 1910. Puede aparecer en compilaciones posteriores: no duplicar.",
+      "edition": {
+        "year": 1910,
+        "publisher": "Imprenta y Encuadernación Chile",
+        "region": "Santiago"
+      }
+    },
+    {
+      "work_id": "0329-w003",
+      "title": "Memorias",
+      "work_type": "autobiography_posthumous_two_volume_print",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "author_personal_memories_written_before_death_1928"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "autobiographical_author_posthumous_editorial_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memoria política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación chilena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad de enseñanza",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bcn.cl/historiapolitica/resenas_parlamentarias/wiki/Abd%C3%B3n_Cifuentes_Espinosa",
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-774523.html"
+      ],
+      "notes": "Santiago, Editorial Nascimento, 1936, dos tomos, publicadas póstumamente. Diferenciar memorias originales del autor y prólogos/editoriales de sus descendientes; las dos partes no constituyen dos obras individuales.",
+      "edition": {
+        "year": 1936,
+        "publisher": "Nascimento",
+        "region": "Santiago"
+      },
+      "volume_count": 2
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa conservadora católica de libertad de enseñanza y asociación y participación en la fundación de la Universidad Católica de Chile",
+      "kind": "chilean_catholic_political_and_educational_philosophy",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "chilean_legislative_biography",
+      "title": "Biblioteca del Congreso Nacional de Chile, Abdón Cifuentes, bibliografía del autor",
+      "url": "https://www.bcn.cl/historiapolitica/resenas_parlamentarias/wiki/Abd%C3%B3n_Cifuentes_Espinosa"
+    },
+    {
+      "kind": "national_library_collection",
+      "title": "Memoria Chilena, Abdón Cifuentes, obras y originales digitalizados",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-774523.html"
+    },
+    {
+      "kind": "national_library_educational_history",
+      "title": "Memoria Chilena, Abdón Cifuentes y la educación",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-94700.html"
+    }
+  ],
+  "research_notes": [
+    "Las Memorias (1936) son edición póstuma: no se presume escritura de 1936.",
+    "La primera Colección de discursos tiene historia editorial de más de una emisión; revisar portadas 1897–1898/1916.",
+    "Su defensa de libertades educativas estaba articulada a una posición confesional, no debe describirse como liberalismo secular general."
+  ]
+}

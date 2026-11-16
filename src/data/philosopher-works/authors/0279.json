@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "author_id": 279,
+  "canonical_name": "Gonçalo Leite",
+  "alternate_names": [
+    "Gonçalo Leite S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1586_anti_slavery_archival_letter_with_shelfmark",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0279-w001",
+      "title": "Carta al padre general Claudio Acquaviva contra la esclavización y los homicidios de indígenas en Brasil (título archivístico descriptivo)",
+      "work_type": "jesuit_anti_slavery_archival_letter",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1586,
+        "certainty": "archival_letter_dated_june_20"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_letter_attributed_in_archival_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esclavitud indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia moral",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://brasilhis.usal.es/en/node/11259",
+        "https://www.tandfonline.com/doi/full/10.1080/10609164.2024.2429254"
+      ],
+      "notes": "Carta escrita desde Lisboa el 20 de junio de 1586, señalada por la base BRASILHIS con signatura ARSI, Lusitania 69, f. 243. Es documento de archivo, NO libro comercial ni primera edición impresa.",
+      "title_status": "archival_descriptive_label",
+      "archive": "Archivum Romanum Societatis Iesu",
+      "archive_shelfmark": "Lusitania 69, f. 243"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Primera enseñanza institucional de filosofía en Brasil y defensa de la libertad indígena contra esclavización",
+      "kind": "early_brazil_anti_slavery_and_philosophy",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "academic_historical_database",
+      "title": "BRASILHIS (Universidad de Salamanca), Gonçalo Leite y referencia carta de 1586",
+      "url": "https://brasilhis.usal.es/en/node/11259"
+    },
+    {
+      "kind": "peer_reviewed_historical_study",
+      "title": "Mistranslating dissent in sixteenth-century Bahia (2024)",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/10609164.2024.2429254"
+    }
+  ],
+  "research_notes": [
+    "Se mantiene el título como identificación archivística moderna, no se presume que el documento tuviera título propio.",
+    "El profesor nació en Portugal y enseñó en Bahía; pertenencia al inventario es por participación histórica, no por inferencia de nacionalidad actual."
+  ]
+}

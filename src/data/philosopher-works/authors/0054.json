@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "author_id": 54,
+  "canonical_name": "Tobias Barreto",
+  "alternate_names": [
+    "Tobias Barreto de Meneses",
+    "Tobias Barreto de Menezes",
+    "Tobías Barreto"
+  ],
+  "life": {
+    "born": {
+      "year": 1839,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1889,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophical_critical_literary_and_germanist_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0054-w001",
+      "title": "Glosa",
+      "work_type": "poetry_literary_work",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1864,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1864,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w002",
+      "title": "Amar",
+      "work_type": "literary_work",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1866,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w003",
+      "title": "O Gênio da Humanidade",
+      "work_type": "philosophical_literary_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1866,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanidade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w004",
+      "title": "A escravidão",
+      "work_type": "political_social_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1868,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1868,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "escravidão",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedade",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w005",
+      "title": "Ensaios e estudos de filosofia e crítica",
+      "work_type": "philosophy_criticism_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1875,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "crítica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w006",
+      "title": "Brasilien, wie es ist",
+      "work_type": "political_social_essay",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1876,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "germanismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w007",
+      "title": "Ein offener Brief an die deutsche Presse",
+      "work_type": "open_letter",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1878,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "imprensa alemã",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "germanismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w008",
+      "title": "Estudos alemães",
+      "alternate_titles": [
+        "Estudos allemães"
+      ],
+      "work_type": "germanist_philosophy_criticism_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1879,
+        "end": 1883,
+        "certainty": "publication_history"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia alemã",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "germanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "La Academia Brasileira de Letras registra una edición/título en 1879; la Biblioteca Nacional conserva Estudos allemães, Recife, 1883."
+    },
+    {
+      "work_id": "0054-w009",
+      "title": "Dias e noites",
+      "work_type": "literary_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1881,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1881,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w010",
+      "title": "Menores e loucos",
+      "work_type": "legal_criminological_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1884,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito penal",
+          "provenance": "inferred"
+        },
+        {
+          "term": "menores",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "loucura",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0054-w011",
+      "title": "Discursos",
+      "work_type": "speech_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1887,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1887,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "discursos",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_academy_bibliography",
+      "title": "Tobias Barreto — Bibliografia",
+      "url": "https://www.academia.org.br/academicos/tobias-barreto/bibliografia",
+      "publisher": "Academia Brasileira de Letras"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Tobias Barreto — registros bibliográficos",
+      "url": "https://acervo.bn.gov.br/Sophia_Web/Resultado/Listar?guid=1776110409901",
+      "publisher": "Fundação Biblioteca Nacional do Brasil"
+    }
+  ],
+  "research_notes": [
+    "Pendiente verificar primera edición independiente de algunos títulos juveniles y completar la obra jurídica.",
+    "La edición de Estudos alemães tiene cronología compleja 1879/1883; se conserva en nota."
+  ]
+}

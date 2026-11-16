@@ -1,0 +1,480 @@
+{
+  "schema_version": 1,
+  "author_id": 149,
+  "canonical_name": "Jorge Millas",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1917,
+      "certainty": "university_publisher"
+    },
+    "died": {
+      "year": 1982,
+      "certainty": "university_publisher"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_selected_works_with_editorial_disambiguation_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0149-w001",
+      "title": "Idea de la individualidad",
+      "work_type": "philosophical_anthropology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "individualidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ]
+    },
+    {
+      "work_id": "0149-w002",
+      "title": "Goethe y el espíritu de Fausto",
+      "work_type": "history_of_philosophy_literary_study",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Goethe",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Fausto",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "first_publication_year_candidates": [
+        1948,
+        1949
+      ],
+      "source_conflict": true,
+      "notes": "Biblioteca Nacional Digital Chile cita edición de Puerto Rico 1948; catálogo Ediciones Universidad Austral de Chile cita 1949.",
+      "related_people": [
+        {
+          "name": "Johann Wolfgang von Goethe",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0149-w003",
+      "title": "Ensayos sobre la historia espiritual de Occidente",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia espiritual",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Occidente",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ]
+    },
+    {
+      "work_id": "0149-w004",
+      "title": "El desafío espiritual de la sociedad de masas",
+      "work_type": "social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad de masas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "desafío espiritual",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 1974,
+          "edition": "segunda edición ampliada"
+        },
+        {
+          "year": 1977,
+          "language": "inglés",
+          "note": "The Intellectual and Moral Challenge of Mass Society, traducción con capítulo adicional"
+        }
+      ],
+      "notes": "Universidad Austral 2025 cita 1962; un catálogo antiguo de Biblioteca Nacional registra '1.ª edición 1968', conflicto bibliográfico. Ejemplar de Ediciones Universidad de Chile 1962 documentado en estudios.",
+      "first_publication_year_candidates": [
+        1962,
+        1968
+      ],
+      "source_conflict": true
+    },
+    {
+      "work_id": "0149-w005",
+      "title": "Estado, derecho y sociedad de masas",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad de masas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ]
+    },
+    {
+      "work_id": "0149-w006",
+      "title": "Introducción a la filosofía: texto guía",
+      "work_type": "philosophy_education_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ]
+    },
+    {
+      "work_id": "0149-w007",
+      "title": "Idea de la filosofía: el conocimiento (dos volúmenes)",
+      "work_type": "epistemology_systematic_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "notes": "Libro-base y Biblioteca Nacional Digital registran dos volúmenes desde 1970. Otras bibliografías dan 1972 para impresión o conjunto; tomos específicos requieren portada.",
+      "first_publication_year_candidates": [
+        1970,
+        1972
+      ],
+      "source_conflict": true
+    },
+    {
+      "work_id": "0149-w008",
+      "title": "De la tarea intelectual",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tarea intelectual",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ]
+    },
+    {
+      "work_id": "0149-w009",
+      "title": "La violencia y sus máscaras: dos ensayos de filosofía",
+      "work_type": "coauthored_philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Edison Otero",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "violencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "máscaras",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "notes": "Ensayo original 'Las máscaras filosóficas de la violencia' publicado en revista 1976; libro coescrito de 1978 no fecha origen del ensayo."
+    },
+    {
+      "work_id": "0149-w010",
+      "title": "Fundamentos de los derechos humanos",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derechos humanos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "notes": "Se menciona en el libro-base; año de primera publicación independiente pendiente."
+    },
+    {
+      "work_id": "0149-w011",
+      "title": "Idea y defensa de la universidad",
+      "work_type": "philosophy_of_education_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "defensa",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 2012,
+          "publisher": "Ediciones UDP",
+          "notes": "Nueva edición, no primera publicación"
+        }
+      ],
+      "composition_year_range": [
+        1961,
+        1981
+      ],
+      "notes": "Ediciones UDP confirma que reúne ensayos y conferencias entre 1961–1981 y que la primera edición salió durante la dictadura."
+    },
+    {
+      "work_id": "0149-w012",
+      "title": "Escenas inéditas de Alicia en el país de las maravillas: divertimientos lógico-lingüísticos",
+      "work_type": "posthumous_philosophical_literary_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alicia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+      ],
+      "posthumous": true,
+      "notes": "Edición posterior a muerte de Millas en 1982. Primera edición de texto disponible en 1985; composición pendiente de comprobación."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0149-c001",
+      "title": "Crítica intelectual a la intervención autoritaria de las universidades chilenas y defensa de su autonomía",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0149-c002",
+      "title": "Docencia y actividad filosófica en Chile y Puerto Rico; impulso a la Sociedad Chilena de Filosofía",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_publisher_bibliography",
+      "title": "Catálogo Ediciones Universidad Austral de Chile, Biblioteca Jorge Millas",
+      "url": "https://catalogo.edicionesuach.cl/wp-content/uploads/2025/01/CatalogoEdicionesUAChWEB_2025_1.pdf"
+    },
+    {
+      "kind": "national_library_primary_bibliography",
+      "title": "Biblioteca Nacional Digital de Chile, biobibliografía de Jorge Millas",
+      "url": "https://www.bibliotecanacionaldigital.gob.cl/colecciones/BND/00/RC/RC0083008.pdf"
+    },
+    {
+      "kind": "university_publisher",
+      "title": "Ediciones Universidad Diego Portales: Idea y defensa de la universidad",
+      "url": "https://ediciones.udp.cl/libro/idea-y-defensa-de-la-universidad/"
+    },
+    {
+      "kind": "scholarly_study",
+      "title": "Ensayo académico con referencia a primera edición de El desafío espiritual de la sociedad de masas",
+      "url": "https://www.eticayvalores.cl/images/jorge-millas-y-la-sociedad-de-masas.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay y Chile, páginas impresas 901–907"
+    }
+  ],
+  "research_notes": [
+    "Se conserva 1948/1949 para Goethe y el espíritu de Fausto y 1962/1968 para El desafío espiritual... como conflictos, sin convertir 1968 en original automáticamente.",
+    "La compilación Idea y defensa de la universidad de 1981 contiene artículos que circularon antes; registrar la historia de cada texto sólo tras revisión."
+  ]
+}

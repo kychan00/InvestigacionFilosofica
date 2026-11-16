@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "author_id": 287,
+  "canonical_name": "Matias Aires",
+  "alternate_names": [
+    "Mathias Aires Ramos da Silva de Eça",
+    "Matias Aires Ramos da Silva de Eça"
+  ],
+  "life": {
+    "born": {
+      "year": 1705,
+      "certainty": "university_catalog"
+    },
+    "died": {
+      "year": 1763,
+      "certainty": "university_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "printed_first_edition_posthumous_text_and_unlocated_manuscript",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0287-w001",
+      "title": "Reflexões sobre a vaidade dos homens, ou discursos morais sobre os efeitos da vaidade",
+      "work_type": "early_modern_moral_philosophy_printed_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1752,
+        "certainty": "USP_first_edition_library_catalog"
+      },
+      "first_publication_year": 1752,
+      "authorship_status": "first_original_printed_book_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vaidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://digital.bbm.usp.br/handle/bbm/4062",
+        "https://literaturabrasileira.ufsc.br/documentos?id=128254"
+      ],
+      "notes": "Primera edición Lisboa, oficina de Francisco Luís Ameno, 1752, 400 páginas. 2.ª edición 1761; la 3.ª (1778) incorpora Carta sobre a fortuna. No duplicar ediciones.",
+      "edition": {
+        "year": 1752,
+        "publisher": "Francisco Luís Ameno",
+        "region": "Lisboa"
+      },
+      "later_editions": [
+        {
+          "year": 1761,
+          "edition": "2.ª"
+        },
+        {
+          "year": 1778,
+          "edition": "3.ª revista e ampliada"
+        }
+      ]
+    },
+    {
+      "work_id": "0287-w002",
+      "title": "Carta sobre a fortuna",
+      "work_type": "moral_philosophy_letter_printed_as_appendix",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_composition_printed_in_1778"
+      },
+      "first_publication_year": 1778,
+      "authorship_status": "author_original_epistolary_essay_published_as_appendix",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fortuna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "destino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=128254",
+        "https://literaturabrasileira.ufsc.br/autores?id=18530&locale=en"
+      ],
+      "notes": "Texto separado de reflexión moral que aparece agregado a la tercera edición de Reflexões en 1778; no confundir año de primera impresión atestiguada con composición, que no se ha podido fechar.",
+      "publication_context": "Apéndice a Reflexões, 3.ª ed., Lisboa 1778"
+    },
+    {
+      "work_id": "0287-w003",
+      "title": "Problema de arquitectura civil",
+      "work_type": "posthumous_natural_philosophy_and_architecture_printed_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "posthumous_work_composed_before_1763"
+      },
+      "first_publication_year": 1770,
+      "authorship_status": "posthumous_printed_author_work_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arquitectura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "duración de edificios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "terremotos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=18530&locale=en"
+      ],
+      "notes": "Edición póstuma de 1770, publicada por su hijo Manoel Inácio Ramos da Silva de Eça; se conocen ejemplares de una edición de 1777. No asignar composición en 1770 (autor murió en 1763).",
+      "first_edition_reported": 1770,
+      "later_editions": [
+        {
+          "year": 1777,
+          "edition": "posterior printing"
+        }
+      ]
+    },
+    {
+      "work_id": "0287-w004",
+      "title": "Philosophia rationalis et via ad Campum Sophiae, seu physicae subterraneae",
+      "work_type": "lost_or_unlocated_latinate_philosophical_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_historical_bibliography"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographic_attribution_without_verified_extant_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía racional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=18530&locale=en",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Obra mencionada en bibliografía de Aires; manuscrito no localizado. No se inventa edición impresa, fecha ni volumen.",
+      "manuscript_status": "historically_attributed_not_located"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reflexión filosófica sobre vanidad, autoengaño, fortuna y moral de la vida social",
+      "kind": "early_modern_moral_philosophy",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "university_original_edition_catalog",
+      "title": "Biblioteca Brasiliana USP, Reflexões, primera edición 1752",
+      "url": "https://digital.bbm.usp.br/handle/bbm/4062"
+    },
+    {
+      "kind": "university_literary_repository",
+      "title": "UFSC, catálogo de ediciones 1752–1778 y Carta sobre a fortuna",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=128254"
+    },
+    {
+      "kind": "literary_author_bibliography",
+      "title": "UFSC, obras póstumas y manuscritos atribuidos a Matias Aires",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=18530&locale=en"
+    }
+  ],
+  "research_notes": [
+    "Primera edición de Reflexões (1752) acreditada materialmente; la Carta incorporada en 1778 cuenta como ensayo distinto, no nueva Reflexões.",
+    "No fijar fecha de Philosophia rationalis sin manuscrito.",
+    "En el libro base el término 'segunda edición' aparece 1761 y se confirman los ejemplares en USP."
+  ]
+}

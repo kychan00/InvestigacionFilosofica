@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "author_id": 19,
+  "canonical_name": "Sor Juana Inés de la Cruz",
+  "alternate_names": [
+    "Juana Inés de Asbaje y Ramírez de Santillana",
+    "Juana Inés de la Cruz"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "source_conflict",
+      "candidates": [
+        1648,
+        1651
+      ]
+    },
+    "died": {
+      "year": 1695,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_prose_poetry_and_theatre_seeded_coauthorship_explicit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0019-w001",
+      "title": "Neptuno alegórico",
+      "work_type": "allegorical_prose_poetry_festival_text",
+      "original_language": "español",
+      "original_date": {
+        "year": 1680,
+        "certainty": "publication_context"
+      },
+      "first_publication_year": 1680,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "alegoría",
+          "provenance": "inferred"
+        },
+        {
+          "term": "entrada virreinal",
+          "provenance": "inferred"
+        },
+        {
+          "term": "mitología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w002",
+      "title": "Los empeños de una casa",
+      "work_type": "theatre_comedia",
+      "original_language": "español",
+      "original_date": {
+        "century": 17,
+        "certainty": "composition_before_1692"
+      },
+      "first_publication_year": 1692,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro",
+          "provenance": "catalog"
+        },
+        {
+          "term": "comedia de enredo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "agencia femenina",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w003",
+      "title": "Amor es más laberinto",
+      "work_type": "theatre_comedia",
+      "original_language": "español",
+      "original_date": {
+        "year": 1689,
+        "certainty": "performance"
+      },
+      "first_publication_year": 1692,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Juan de Guevara",
+          "role": "coauthor_second_jornada"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Teseo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "laberinto de Creta",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Sor Juana escribió las jornadas primera y tercera; Juan de Guevara, la segunda."
+    },
+    {
+      "work_id": "0019-w004",
+      "title": "Inundación castálida",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1689,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1689,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "barroco",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w005",
+      "title": "Carta Atenagórica",
+      "alternate_titles": [
+        "Crisis sobre un sermón"
+      ],
+      "work_type": "theological_criticism_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1690,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1690,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Antonio Vieira",
+          "role": "sermon_author_criticized"
+        },
+        {
+          "name": "Manuel Fernández de Santa Cruz",
+          "role": "publisher_under_pseudonym_Sor_Filotea"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "finezas de Cristo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "controversia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w006",
+      "title": "El Divino Narciso",
+      "work_type": "auto_sacramental",
+      "original_language": "español",
+      "original_date": {
+        "year": 1690,
+        "certainty": "early_print_context"
+      },
+      "first_publication_year": 1690,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "auto sacramental",
+          "provenance": "catalog"
+        },
+        {
+          "term": "alegoría",
+          "provenance": "inferred"
+        },
+        {
+          "term": "mitología clásica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w007",
+      "title": "Primero sueño",
+      "alternate_titles": [
+        "El Sueño"
+      ],
+      "work_type": "philosophical_poem",
+      "original_language": "español",
+      "original_date": {
+        "century": 17,
+        "certainty": "composition_before_1692"
+      },
+      "first_publication_year": 1692,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conocimiento",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sueño",
+          "provenance": "inferred"
+        },
+        {
+          "term": "intelecto",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Góngora",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w008",
+      "title": "Respuesta a Sor Filotea de la Cruz",
+      "work_type": "epistolary_intellectual_autobiography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1691,
+        "certainty": "signed",
+        "date": "1691-03-01"
+      },
+      "first_publication_year": 1700,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad intelectual",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación de las mujeres",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autobiografía intelectual",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0019-w009",
+      "title": "Segundo volumen de las obras de Sor Juana Inés de la Cruz",
+      "work_type": "author_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1692,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1692,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "teatro",
+          "provenance": "inferred"
+        },
+        {
+          "term": "prosa",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Catálogo de Sor Juana Inés de la Cruz",
+      "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/su_obra_catalogo/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "bibliographic_study",
+      "title": "El Sueño de Sor Juana: guía bibliográfica razonada",
+      "url": "https://www.cervantesvirtual.com/obra-visor/el-sueno-de-sor-juana-ines-de-la-cruz-tradiciones-literarias-y-originalidad--0/html/ab3cccb0-db7a-4fd2-aabb-82aab1faeb1a_17.html",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "manuscript_catalog",
+      "title": "Amor es más laberinto",
+      "url": "https://manos.net/manuscripts/bne/14-944-amor-es-mas-laberinto",
+      "publisher": "Manos Teatrales / BNE manuscript data"
+    }
+  ],
+  "research_notes": [
+    "Pendiente inventariar villancicos, loas, autos, poemas y piezas devocionales uno por uno. Mantener visible el conflicto 1648/1651 para nacimiento."
+  ]
+}

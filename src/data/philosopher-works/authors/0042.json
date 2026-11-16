@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "author_id": 42,
+  "canonical_name": "José Esteban Echeverría",
+  "alternate_names": [
+    "Esteban Echeverría"
+  ],
+  "life": {
+    "born": {
+      "year": 1805,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1851,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_literary_political_and_pedagogical_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0042-w001",
+      "title": "Elvira o la novia del Plata",
+      "work_type": "poetry_narrative",
+      "original_language": "español",
+      "original_date": {
+        "year": 1832,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1832,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "romanticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesía argentina",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0042-w002",
+      "title": "Los consuelos",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1834,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "romanticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0042-w003",
+      "title": "Rimas",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1837,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1837,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía argentina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "romanticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura nacional",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0042-w004",
+      "title": "La cautiva",
+      "work_type": "narrative_poem",
+      "parent_work_id": "0042-w003",
+      "original_language": "español",
+      "original_date": {
+        "year": 1837,
+        "certainty": "publication_in_Rimas"
+      },
+      "first_publication_year": 1837,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pampa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "desierto",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "color local",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "frontera",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0042-w005",
+      "title": "Dogma socialista de la Asociación de Mayo",
+      "alternate_titles": [
+        "Código o declaración de principios que constituyen la creencia social de la República Argentina"
+      ],
+      "work_type": "political_social_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "start": 1838,
+        "end": 1839,
+        "certainty": "first_formulation_publication"
+      },
+      "first_publication_year": 1839,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Asociación de Mayo / Joven Argentina",
+          "role": "collective_political_context"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo romántico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Mayo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "nación",
+          "provenance": "inferred"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1846,
+          "place": "Montevideo",
+          "kind": "expanded_edition_with_Ojeada_retrospectiva"
+        }
+      ]
+    },
+    {
+      "work_id": "0042-w006",
+      "title": "El matadero",
+      "work_type": "short_story_political_allegory",
+      "original_language": "español",
+      "original_date": {
+        "start": 1839,
+        "end": 1840,
+        "certainty": "probable_composition_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "violencia política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "rosismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "civilización y barbarie",
+          "provenance": "scholarly"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1871,
+          1872
+        ],
+        "certainty": "source_conflict"
+      },
+      "notes": "Las fuentes consultadas discrepan entre 1871 y 1872 para la primera publicación póstuma; se conserva el conflicto."
+    },
+    {
+      "work_id": "0042-w007",
+      "title": "Manual de enseñanza moral",
+      "work_type": "moral_education_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1846,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1846,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciudadanía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "formación republicana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0042-w008",
+      "title": "La insurrección del Sud",
+      "work_type": "political_poem",
+      "original_language": "español",
+      "original_date": {
+        "start": 1839,
+        "end": 1840,
+        "certainty": "composition_context"
+      },
+      "first_publication_year": 1849,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "insurrección",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "rosismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "exilio",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_portal",
+      "title": "Esteban Echeverría",
+      "url": "https://www.cervantesvirtual.com/portales/esteban_echeverria/presentacion/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "scholarly_portal",
+      "title": "Esteban Echeverría y la fundación de una literatura nacional",
+      "url": "https://www.cervantesvirtual.com/obra-visor/esteban-echeverria-y-la-fundacion-de-una-literatura-nacional/html/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar lecturas del Salón Literario, artículos de 1848, polémicas y epistolario.",
+    "Mantener El matadero como obra compuesta en vida y publicada póstumamente con conflicto 1871/1872."
+  ]
+}

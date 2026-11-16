@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "author_id": 358,
+  "canonical_name": "Pedro Scalabrini",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1848,
+      "certainty": "biographical_study"
+    },
+    "died": {
+      "year": 1916,
+      "certainty": "biographical_study"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0358-w001",
+      "title": "Concordancia del derecho público argentino con el derecho público norteamericano y recopilación de las constituciones provinciales vigentes en la República Argentina",
+      "work_type": "comparative_constitutional_law_printed_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho comparado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionazara.org.ar/img/libros/Pedro-Scalabrini.pdf"
+      ],
+      "notes": "Paraná, Imprenta El Litoral, 1875, según bibliografía de Fundación Azara. Combina argumentación propia y textos constitucionales de terceros; no atribuirle autoría de todas las constituciones recopiladas.",
+      "edition": {
+        "year": 1875,
+        "publisher": "El Litoral",
+        "region": "Paraná"
+      },
+      "contributor_roles": [
+        "author",
+        "compiler"
+      ]
+    },
+    {
+      "work_id": "0358-w002",
+      "title": "Cartas científicas al general Eduardo Racedo",
+      "work_type": "scientific_positive_education_correspondence_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "letters_in_press_1886_1887",
+        "period": {
+          "start": 1886,
+          "end": 1887
+        }
+      },
+      "first_publication_year": 1887,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "museos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionazara.org.ar/img/libros/Pedro-Scalabrini.pdf"
+      ],
+      "notes": "Paraná, Imprenta La Velocidad, 1887, 207 páginas, con correspondencia previamente divulgada en prensa. Otras noticias sobre Cartas científicas de 1890 requieren cotejo como posible edición distinta.",
+      "edition": {
+        "year": 1887,
+        "publisher": "La Velocidad",
+        "region": "Paraná"
+      },
+      "pages": 207
+    },
+    {
+      "work_id": "0358-w003",
+      "title": "Materialismo, darwinismo, positivismo: diferencias y semejanzas",
+      "work_type": "original_philosophical_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1889,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "darwinismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "materialismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionazara.org.ar/img/libros/Pedro-Scalabrini.pdf",
+        "https://bdigital.uncu.edu.ar/ficha/4229"
+      ],
+      "notes": "La bibliografía de Fundación Azara identifica primera edición Paraná 1889. El catálogo de reproducción en CUYO/UNCuyo 1967 atribuye al folleto 1899. La contradicción 1889/1899 permanece visible, sin duplicar el título.",
+      "edition": {
+        "year": 1889,
+        "publisher": "Museo de Entre Ríos / La Velocidad",
+        "region": "Paraná"
+      },
+      "other_reported_first_year": 1899,
+      "other_source": "https://bdigital.uncu.edu.ar/ficha/4229"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión de filosofía positivista y pedagogía experimental en Paraná y Corrientes, y organización de museos de ciencias",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Fundación Azara, Pedro Scalabrini, estudio y bibliografía cronológica",
+      "url": "https://www.fundacionazara.org.ar/img/libros/Pedro-Scalabrini.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "UNCuyo, reproducción de Materialismo, darwinismo, positivismo (1967)",
+      "url": "https://bdigital.uncu.edu.ar/ficha/4229"
+    }
+  ],
+  "research_notes": [
+    "Los libros de 1889 y 1899 señalados en diferentes bibliografías pueden referir a ediciones o un error de catálogo: cotejo físico pendiente.",
+    "La revista La Escuela Positiva se registra con su coeditor Alfredo Ferreira; no se adjudica exclusivamente a Scalabrini."
+  ]
+}

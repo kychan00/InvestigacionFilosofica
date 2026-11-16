@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "author_id": 159,
+  "canonical_name": "Mariano Ibérico",
+  "alternate_names": [
+    "Mariano Ibérico Rodríguez"
+  ],
+  "life": {
+    "born": {
+      "year": 1892,
+      "date": "1892-04-11",
+      "certainty": "university_authority"
+    },
+    "died": {
+      "year": 1974,
+      "date": "1974-07-04",
+      "certainty": "university_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_titles_first_editions_and_roles_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0159-w001",
+      "title": "El carácter",
+      "work_type": "philosophical_psychology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "carácter",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ],
+      "composition_year": 1912,
+      "earlier_publications": [
+        {
+          "year": 1912,
+          "kind": "university_thesis_journal_serialization"
+        }
+      ],
+      "notes": "Tesis de bachiller de 1912 con publicación serial en Revista Universitaria ese año; el volumen de 1913 es edición en libro; conservar ambas etapas."
+    },
+    {
+      "work_id": "0159-w002",
+      "title": "La filosofía de Enrique Bergson",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "doctoral_thesis_published",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bergson",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ],
+      "related_people": [
+        {
+          "name": "Henri Bergson",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0159-w003",
+      "title": "Una filosofía estética",
+      "work_type": "aesthetics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía estética",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w004",
+      "title": "El nuevo absoluto",
+      "work_type": "metaphysics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nuevo absoluto",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w005",
+      "title": "La unidad dividida",
+      "work_type": "metaphysics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "unidad dividida",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w006",
+      "title": "Psicología",
+      "work_type": "coauthored_psychology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Honorio Delgado",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w007",
+      "title": "Notas sobre el paisaje de la sierra",
+      "work_type": "aesthetics_landscape_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "paisaje",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sierra",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ],
+      "title_variants": [
+        "Notas sobre el pasaje de la sierra"
+      ],
+      "notes": "Bibliografía PUCP presenta 'pasaje' mientras otros catálogos 'paisaje'; conservar ambas variantes y revisar portada."
+    },
+    {
+      "work_id": "0159-w008",
+      "title": "El sentimiento de la vida cósmica",
+      "work_type": "philosophical_anthropology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida cósmica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w009",
+      "title": "Principios de lógica jurídica",
+      "work_type": "legal_logic_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica jurídica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w010",
+      "title": "La aparición: ensayos sobre el ser y el aparecer",
+      "work_type": "metaphysics_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "aparecer",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w011",
+      "title": "Perspectivas sobre el tema del tiempo",
+      "work_type": "philosophy_of_time_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tiempo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w012",
+      "title": "El espacio humano",
+      "work_type": "philosophical_anthropology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espacio humano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ]
+    },
+    {
+      "work_id": "0159-w013",
+      "title": "La aparición histórica: ensayos y notas sobre los temas de la historia y el tiempo",
+      "work_type": "philosophy_of_history_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tiempo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+      ],
+      "notes": "Un estudio secundario lo describe equívocamente como póstumo, pese a edición 1971 anterior a muerte verificada en 1974; se mantiene fecha de edición y NO se marca posthumous."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0159-c001",
+      "title": "Rectorado de la Universidad Nacional Mayor de San Marcos (1952–1955) y cátedras de estética, filosofía y metafísica",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0159-c002",
+      "title": "Filosofía del paisaje, experiencia estética y reflexión metafísica sobre tiempo, aparición y vida cósmica",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_academic_bibliography",
+      "title": "Pontificia Universidad Católica del Perú: bibliografía principal de Mariano Ibérico",
+      "url": "https://eltalondeaquiles.pucp.edu.pe/wp-content/uploads/2018/03/sebastian-pimentel-la-historia-en-la-filosofia-de-mariano-iberico.pdf"
+    },
+    {
+      "kind": "university_biographical_research",
+      "title": "Repositorio de tesis de UNMSM: semblanza académica de Mariano Ibérico",
+      "url": "https://repositorioletrascorpus.unmsm.edu.pe/server/api/core/bitstreams/63c628ff-03fb-4e30-afe7-89bff668e23a/content"
+    },
+    {
+      "kind": "university_research_catalog",
+      "title": "Repositorio académico PUCP: filosofía de Mariano Ibérico",
+      "url": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2F5FVW7Z"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: perfiles de Bolivia y Perú, pp. 916–930"
+    }
+  ],
+  "research_notes": [
+    "Psicología (1933) es coautoría con Honorio Delgado, no edición con mero editor.",
+    "El carácter contiene antecedentes de tesis 1912; volumen publicado 1913.",
+    "La aparición histórica de 1971 no puede ser publicación póstuma si el autor fallece en 1974: conflicto descriptivo de bibliografía secundaria para auditoría."
+  ]
+}

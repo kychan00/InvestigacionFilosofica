@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "author_id": 175,
+  "canonical_name": "Carlos Bernardo Gutiérrez",
+  "alternate_names": [
+    "Carlos B. Gutiérrez",
+    "Carlos Bernardo Gutiérrez Alemán"
+  ],
+  "life": {
+    "born": {
+      "year": 1938,
+      "certainty": "source_book_biography"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_books_and_recompiled_works_not_complete_oeuvre",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0175-w001",
+      "title": "Temas de filosofía hermenéutica: conferencias y ensayos",
+      "work_type": "essay_and_lecture_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "individual_composition_dates_not_verified"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "publisher_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789588063108"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "hermenéutica",
+          "provenance": "editorial"
+        }
+      ],
+      "evidence_urls": [
+        "https://ediciones.uniandes.edu.co/gpd-temas-de-filosofia-hermeneutica-conferencias-y-ensayos-9789588063108-680d1c2ec333d.html"
+      ],
+      "notes": "Ediciones Uniandes, 365 pp.; fecha del volumen no es fecha de composición de cada conferencia o ensayo."
+    },
+    {
+      "work_id": "0175-w002",
+      "title": "Obras reunidas. Volumen I: Andanzas filosóficas: del Greenwich Village a Heidelberg",
+      "work_type": "collected_works_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "contains_earlier_texts"
+      },
+      "first_publication_year": 2017,
+      "authorship_status": "collected_author_texts_with_editorial_coordination",
+      "coauthors": [],
+      "related_contributor_roles": [
+        {
+          "role": "coordinador",
+          "name": null,
+          "certainty": "publisher_lists_role_without_person_in_excerpt"
+        }
+      ],
+      "identifiers": {
+        "doi": "10.7440/2016.40",
+        "isbn": [
+          "9789587745061",
+          "9789587745092"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cienciassociales.uniandes.edu.co/filosofia/publicaciones/carlos-b-gutierrez-obras-reunidas-volumen-i/"
+      ],
+      "notes": "Volumen retrospectivo; incluye tesis de maestría escrita en 1961 y disertación doctoral posterior. DOI corresponde al volumen editorial, no a las tesis originales."
+    },
+    {
+      "work_id": "0175-w003",
+      "title": "Obras reunidas. Volumen III: Ensayos en clave hermenéutica",
+      "work_type": "collected_works_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "individual_essays_not_dated"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "collected_author_texts_with_editorial_coordination",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30778/2019.13",
+        "isbn": [
+          "9789587748024",
+          "9789587748031"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cienciassociales.uniandes.edu.co/publicaciones/carlos-b-gutierrez-obras-reunidas-volumen-iii/"
+      ],
+      "notes": "Compilación de ensayos; no tratar 2019 como fecha de composición de cada texto."
+    }
+  ],
+  "editorial_notes": [
+    "El libro de Dussel, Mendieta y Bohórquez señala doctorado en Heidelberg (1977) y trabajo de 1961 sobre Wittgenstein; cotejar títulos originales antes de registrarlos como obras independientes.",
+    "No atribuir el DOI de la reseña de Carla Cordua al libro de Gutiérrez."
+  ]
+}

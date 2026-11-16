@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "author_id": 36,
+  "canonical_name": "Andrés Bello",
+  "alternate_names": [
+    "Andrés de Jesús María y José Bello López"
+  ],
+  "life": {
+    "born": {
+      "year": 1781,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1865,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophical_grammatical_legal_scientific_and_poetic_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0036-w001",
+      "title": "Alocución a la Poesía",
+      "work_type": "poem",
+      "original_language": "español",
+      "original_date": {
+        "year": 1823,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1823,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América",
+          "provenance": "inferred"
+        },
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "naturaleza americana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0036-w002",
+      "title": "Principios de derecho de gentes",
+      "alternate_titles": [
+        "Principios de derecho internacional"
+      ],
+      "work_type": "international_law_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1832,
+        "certainty": "title_page"
+      },
+      "first_publication_year": 1833,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho de gentes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "naciones",
+          "provenance": "inferred"
+        },
+        {
+          "term": "guerra",
+          "provenance": "catalog"
+        },
+        {
+          "term": "diplomacia",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "La portada de la primera edición indica 1832, aunque fuentes bibliográficas registran salida efectiva en 1833. Desde 1844 se tituló Principios de derecho internacional."
+    },
+    {
+      "work_id": "0036-w003",
+      "title": "Análisis ideológica de los tiempos de la conjugación castellana",
+      "work_type": "linguistic_grammar_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1841,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1841,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conjugación castellana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "gramática",
+          "provenance": "catalog"
+        },
+        {
+          "term": "tiempo verbal",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0036-w004",
+      "title": "Gramática de la lengua castellana destinada al uso de los americanos",
+      "work_type": "grammar_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1847,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1847,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gramática castellana",
+          "provenance": "catalog"
+        },
+        {
+          "term": "americanos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lengua",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0036-w005",
+      "title": "Cosmografía o descripción del universo conforme a los últimos descubrimientos",
+      "work_type": "science_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1848,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1848,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cosmografía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "astronomía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "universo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0036-w006",
+      "title": "Proyecto de Código Civil",
+      "work_type": "legal_code_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "principal_drafter",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho civil",
+          "provenance": "catalog"
+        },
+        {
+          "term": "codificación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Chile",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Proyecto publicado en cuatro volúmenes; forma parte del proceso de codificación que culminó en el Código Civil chileno."
+    },
+    {
+      "work_id": "0036-w007",
+      "title": "Código Civil de la República de Chile",
+      "work_type": "civil_code",
+      "original_language": "español",
+      "original_date": {
+        "year": 1855,
+        "certainty": "promulgation"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "principal_drafter_institutionally_enacted",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Congreso Nacional de Chile",
+          "role": "legislative_approver"
+        },
+        {
+          "name": "Presidencia de Chile",
+          "role": "promulgating_authority"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho civil",
+          "provenance": "catalog"
+        },
+        {
+          "term": "codificación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona y bienes",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0036-w008",
+      "title": "Filosofía del entendimiento",
+      "work_type": "philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "century": 19,
+        "certainty": "composition_before_death"
+      },
+      "first_publication_year": 1881,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría del conocimiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicología moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "empirismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_collection",
+      "title": "Obras completas de don Andrés Bello",
+      "url": "https://www.bibliotecanacionaldigital.gob.cl/visor/BND%3A330178",
+      "publisher": "Biblioteca Nacional Digital de Chile"
+    },
+    {
+      "kind": "author_bibliography",
+      "title": "Bibliografía de Andrés Bello",
+      "url": "https://cervantesvirtual.com/portales/andres_bello/su_obra_bibliografia/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "national_library_study",
+      "title": "El pensamiento filosófico de Andrés Bello",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-94698.html",
+      "publisher": "Memoria Chilena"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar poesía, crítica literaria, opúsculos jurídicos, epistolario y textos científicos.",
+    "Mantener separados el Proyecto de Código Civil y el Código Civil promulgado institucionalmente."
+  ]
+}

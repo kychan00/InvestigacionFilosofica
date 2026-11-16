@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "author_id": 144,
+  "canonical_name": "Mario Sambarino",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1918,
+      "certainty": "university_archive"
+    },
+    "died": {
+      "year": 1984,
+      "certainty": "university_archive"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_not_exhaustive_pending_bibliographic_audit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0144-w001",
+      "title": "Investigaciones sobre la estructura aporético-dialéctica de la eticidad",
+      "work_type": "ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "eticidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estructura aporético-dialéctica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "composition_year_range": [
+        1953,
+        1958
+      ],
+      "notes": "Primera redacción entre 1953 y 1955; texto definitivo terminado 1958, publicado 1959. Se publicó parcialmente en la revista de la facultad 1959–1960, no dos obras nuevas."
+    },
+    {
+      "work_id": "0144-w002",
+      "title": "La hipótesis cartesiana del genio maligno y el problema del valor de la evidencia",
+      "work_type": "history_of_philosophy_research_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "genio maligno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Descartes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evidencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "related_people": [
+        {
+          "name": "René Descartes",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0144-w003",
+      "title": "Individualidad e historicidad",
+      "work_type": "philosophical_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "individualidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historicidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "notes": "Artículo filosófico analizado en estudio UNAM sobre Sambarino."
+    },
+    {
+      "work_id": "0144-w004",
+      "title": "La cultura nacional como problema",
+      "work_type": "cultural_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura nacional",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ]
+    },
+    {
+      "work_id": "0144-w005",
+      "title": "Ciencia, técnica y tecnología",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "técnica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "publication_context": "Revista Galileo, núms. 6–7 (1970)"
+    },
+    {
+      "work_id": "0144-w006",
+      "title": "Apuntes de filosofía de la práctica: clases dictadas",
+      "work_type": "course_transcript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la práctica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "notes": "Apuntes de clases y no necesariamente tratado autónomo preparado para publicación comercial."
+    },
+    {
+      "work_id": "0144-w007",
+      "title": "El ser y el deber-ser en Maquiavelo",
+      "work_type": "history_of_ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "deber-ser",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Maquiavelo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "related_people": [
+        {
+          "name": "Nicolás Maquiavelo",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0144-w008",
+      "title": "Identidad, tradición, autenticidad: tres problemas de América Latina",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "identidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tradición",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "autenticidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ]
+    },
+    {
+      "work_id": "0144-w009",
+      "title": "Libertad y valor",
+      "work_type": "conference_paper_or_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "documented_conference_presentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valor",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "first_publication_year_candidates": [],
+      "notes": "Comunicación presentada al XII Congreso Internacional de Filosofía 1958; catálogo recoge folleto s.d. No afirmar 1958 como edición impresa."
+    },
+    {
+      "work_id": "0144-w010",
+      "title": "Historical fact and historicity",
+      "work_type": "conference_paper",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1968,
+        "certainty": "documented_conference_presentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historical fact",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historicity",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+      ],
+      "notes": "Ponencia Viena 1968; fecha de impresión pendiente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0144-c001",
+      "title": "Docencia de Filosofía de la Práctica y dirección del Instituto de Filosofía de la Universidad de la República",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0144-c002",
+      "title": "Investigación de la eticidad y estructura formal del ethos con aproximación aporético-dialéctica",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_catalog",
+      "title": "Historias Universitarias: Mario Sambarino",
+      "url": "https://historiasuniversitarias.edu.uy/biografia/sambarino-mario/"
+    },
+    {
+      "kind": "university_academic_study",
+      "title": "Ensayo académico sobre Sambarino y bibliografía (UNAM)",
+      "url": "https://rilzea.cialc.unam.mx/jspui/bitstream/CIALC-UNAM/CL474/1/PLS_19.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay, páginas impresas 894–901"
+    }
+  ],
+  "research_notes": [
+    "El documento universitario distingue composición 1953–1958 y publicación 1959 de las Investigaciones; este registro conserva esa separación.",
+    "Ponencias de 1958 y 1968 se separan de obras impresas y se deja first_publication_year=null."
+  ]
+}

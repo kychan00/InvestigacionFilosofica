@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "author_id": 113,
+  "canonical_name": "Carlos Pereda",
+  "alternate_names": [
+    "Juan Carlos Pereda Failache"
+  ],
+  "life": {
+    "born": {
+      "year": 1944,
+      "certainty": "project_canonical"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_argumentation_reason_uncertainty_morality_literature_exile_and_trust_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0113-w001",
+      "title": "Para una teoría de la argumentación. En relación con una lectura de la filosofía práctica de Kant",
+      "work_type": "doctoral_thesis",
+      "original_language": "alemán_o_español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "doctoral_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Immanuel Kant",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "argumentación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía práctica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Kant",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w002",
+      "title": "Debates",
+      "work_type": "argumentation_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "debate",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "argumentación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w003",
+      "title": "Conversar es humano",
+      "work_type": "argumentation_dialogue_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conversación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "argumentación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w004",
+      "title": "Razón e incertidumbre",
+      "work_type": "epistemology_rationality_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "incertidumbre",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w005",
+      "title": "Vértigos argumentales. Una ética de la disputa",
+      "work_type": "argumentation_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vértigos argumentales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética de la disputa",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "argumentación",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w006",
+      "title": "Sueños de vagabundos. Un ensayo sobre filosofía, moral y literatura",
+      "work_type": "philosophy_morality_literature_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "moral",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "literatura",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w007",
+      "title": "Crítica de la razón arrogante",
+      "work_type": "rationality_ethics_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón arrogante",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w008",
+      "title": "Los aprendizajes del exilio",
+      "work_type": "philosophical_autobiographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "exilio",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "aprendizaje",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0113-w009",
+      "title": "Sobre la confianza",
+      "work_type": "ethics_social_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "confianza",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de una teoría de la argumentación y de la razón enfática/reflexiva en la filosofía latinoamericana contemporánea",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1974,
+        "end": 2026,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "argumentación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón enfática",
+          "provenance": "project_primary_source"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Carlos Pereda — publicaciones",
+      "url": "https://posgrado.unam.mx/filosofia/?tutor=pereda-failache-juan-carlos",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Carlos Pereda (1944-)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar libros posteriores sobre autonomía, razón y ciudadanía.",
+    "La tesis doctoral de 1974 se mantiene como tesis y no se infiere una edición monográfica."
+  ]
+}

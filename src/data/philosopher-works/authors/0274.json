@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 274,
+  "canonical_name": "Antonio Peralta",
+  "alternate_names": [
+    "Antonio de Peralta"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_confirmed_mexican_imprints_conflicting_first_year_1724_1725",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0274-w001",
+      "title": "Dissertationes scholasticae de divina scientia media, sanctissimo Societatis Jesu parenti, ac duci Ignatio de Loyola, consecratae",
+      "work_type": "latin_scholastic_treatise_printed",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1724,
+        "certainty": "national_library_mexico_catalog_date_conflicts_with_secondary_1725"
+      },
+      "first_publication_year": 1724,
+      "authorship_status": "national_library_physical_print_catalog_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia media",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conocimiento divino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad humana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/3864",
+        "https://revistas.up.edu.mx/topicos/es/article/view/172",
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "La BNM-UNAM fecha el ejemplar 1724; Walter Redmond y la bibliografía del libro base citan 1725. Mantener la discrepancia y priorizar año del catálogo físico, sujeto a cotejo de portada. Edición en Amberes 1734 según Redmond (no confundir con otro registro que cita 1743).",
+      "edition": {
+        "year": 1724,
+        "publisher": "Josephus Bernardus de Hogal",
+        "region": "Ciudad de México"
+      },
+      "alternate_reported_first_publication_year": 1725,
+      "alternate_report_source": "https://revistas.up.edu.mx/topicos/es/article/view/172",
+      "reported_reprint_year": 1734
+    },
+    {
+      "work_id": "0274-w002",
+      "title": "Dissertationes scholasticae de divinis decretis sacratissimae Virgini Mariae Dei Genitrici, nostraeque etiam charissimae Matri, ac Dominae",
+      "work_type": "latin_scholastic_treatise_printed",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1727,
+        "certainty": "national_library_mexico_print_catalog"
+      },
+      "first_publication_year": 1727,
+      "authorship_status": "national_library_physical_print_catalog_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "decretos divinos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escolástica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad humana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/3863",
+        "https://revistas.up.edu.mx/topicos/es/article/view/172"
+      ],
+      "notes": "BNM-UNAM documenta impresión mexicana de 1727, Joseph Bernardo de Hogal; Walter Redmond reporta reimpresión Amberes 1734.",
+      "edition": {
+        "year": 1727,
+        "publisher": "Josephus Bernardus de Hogal",
+        "region": "Ciudad de México"
+      },
+      "reported_reprint_year": 1734
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Argumentación escolástica mexicana sobre libre albedrío, ciencia media y decretos divinos",
+      "kind": "historical_intellectual_contribution",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "national_library_physical_catalog",
+      "title": "Biblioteca Nacional de México (UNAM), 1724, Dissertationes scholasticae de divina scientia media",
+      "url": "https://repositorio.unam.mx/3864"
+    },
+    {
+      "kind": "national_library_physical_catalog",
+      "title": "Biblioteca Nacional de México (UNAM), 1727, Dissertationes scholasticae de divinis decretis",
+      "url": "https://repositorio.unam.mx/3863"
+    },
+    {
+      "kind": "specialist_scholarly_article",
+      "title": "Walter Redmond, The three-stranded cord",
+      "url": "https://revistas.up.edu.mx/topicos/es/article/view/172"
+    }
+  ],
+  "research_notes": [
+    "Diferencia bibliográfica clave: UNAM data primera obra 1724, mientras Redmond registra 1725; resolver únicamente mediante portada/colofón.",
+    "No inventar edición 1743 ni afirmar 1734 como única reimpresión sin revisar ejemplares."
+  ]
+}

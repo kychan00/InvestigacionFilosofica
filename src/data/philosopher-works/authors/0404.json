@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "author_id": 404,
+  "canonical_name": "Alberto Sales",
+  "alternate_names": [
+    "João Alberto Sales"
+  ],
+  "life": {
+    "born": {
+      "year": 1857,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1904,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0404-w001",
+      "title": "Política republicana",
+      "work_type": "republican_political_theory_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1882,
+        "certainty": "first_edition_catalog"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "republicanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciência política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=221719&locale=es",
+        "https://neamp.pucsp.br/liderancas/joao-alberto-sales"
+      ],
+      "notes": "Rio de Janeiro, Leuzinger, 1882. A fonte bibliográfica descreve o livro como sistematização dos princípios republicanos sob influência de autores positivistas e liberais."
+    },
+    {
+      "work_id": "0404-w002",
+      "title": "Ensaio sobre a moderna concepção do direito",
+      "work_type": "legal_philosophy_and_social_science_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": 1885,
+        "certainty": "first_edition_catalog"
+      },
+      "first_publication_year": 1885,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciências sociais",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolução do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo jurídico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=192745"
+      ],
+      "notes": "São Paulo, Tipografia da Província de São Paulo, 1885. Algumas biografias secundárias mencionam lançamento em 1883; o catálogo de obra rara utilizado data a edição de 1885, discrepância preservada."
+    },
+    {
+      "work_id": "0404-w003",
+      "title": "Catecismo republicano",
+      "work_type": "political_propaganda_and_civic_instruction_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1885,
+        "certainty": "political_biographical_source"
+      },
+      "first_publication_year": 1885,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "republicanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação cívica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "programa político",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://neamp.pucsp.br/liderancas/joao-alberto-sales"
+      ],
+      "notes": "Publicado em 1885 em doze lições como síntese do programa republicano; a fonte registra tiragem/distribuição política ampla."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Sistematização positivista e evolucionista do republicanismo paulista e crítica do jusnaturalismo",
+      "kind": "brazilian_republican_and_positive_legal_thought_contribution",
+      "authorship_status": "documented_in_library_and_political_history_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Política republicana, 1882",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=221719&locale=es"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Ensaio sobre a moderna concepção do direito, 1885",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=192745"
+    },
+    {
+      "kind": "political_history_source",
+      "title": "PUC-SP NEAMP — João Alberto Sales",
+      "url": "https://neamp.pucsp.br/liderancas/joao-alberto-sales"
+    }
+  ],
+  "research_notes": [
+    "A forma João Alberto Sales aparece na fonte política; o inventário preserva Alberto Sales.",
+    "A data 1883 para o Ensaio aparece em biografia, mas a edição catalogada é de 1885."
+  ]
+}

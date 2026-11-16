@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "author_id": 141,
+  "canonical_name": "José Enrique Rodó",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1871,
+      "certainty": "national_library_authority"
+    },
+    "died": {
+      "year": 1917,
+      "date": "1917-05-01",
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_not_exhaustive_pending_bibliographic_audit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0141-w001",
+      "title": "La vida nueva (I): El que vendrá",
+      "work_type": "literary_philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1897,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1897,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida nueva",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "El que vendrá",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "notes": "Primer opúsculo de la serie La vida nueva; no confundir con ediciones integrales posteriores."
+    },
+    {
+      "work_id": "0141-w002",
+      "title": "La vida nueva (II): Rubén Darío. Su personalidad literaria, su última obra",
+      "work_type": "literary_philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Rubén Darío",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "personalidad literaria",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "related_people": [
+        {
+          "name": "Rubén Darío",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0141-w003",
+      "title": "La vida nueva (III): Ariel",
+      "work_type": "latin_american_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1900,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ariel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vida nueva",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "edition_history": [
+        {
+          "year": 1900,
+          "edition": "segunda edición corregida por el autor",
+          "notes": "No crear registro independiente"
+        }
+      ]
+    },
+    {
+      "work_id": "0141-w004",
+      "title": "Liberalismo y jacobinismo",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1906,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1906,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "jacobinismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ]
+    },
+    {
+      "work_id": "0141-w005",
+      "title": "Motivos de Proteo",
+      "work_type": "philosophical_literary_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Proteo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ]
+    },
+    {
+      "work_id": "0141-w006",
+      "title": "El mirador de Próspero",
+      "work_type": "literary_philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Próspero",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ]
+    },
+    {
+      "work_id": "0141-w007",
+      "title": "Cinco ensayos: Montalvo, Ariel, Bolívar, Rubén Darío, Liberalismo y jacobinismo",
+      "work_type": "author_essay_anthology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1915,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Montalvo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Ariel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bolívar",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "notes": "Recopila ensayos ya publicados: registrar como volumen editorial, no atribuir a 1915 primera publicación de cada texto."
+    },
+    {
+      "work_id": "0141-w008",
+      "title": "El camino de Paros: meditaciones y andanzas",
+      "work_type": "posthumous_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1919,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "meditaciones",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "andanzas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "posthumous": true,
+      "first_publication_year_candidates": [
+        1918,
+        1919
+      ],
+      "source_conflict": true,
+      "notes": "Biblioteca Cervantes documenta Valencia, 1919; referencias secundarias mencionan 1918. Conservar 1919 de ejemplar catalogado y conflicto."
+    },
+    {
+      "work_id": "0141-w009",
+      "title": "Hombres de América: Montalvo, Bolívar, Rubén Darío; discursos parlamentarios",
+      "work_type": "posthumous_essay_and_speech_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Montalvo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bolívar",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Rubén Darío",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "posthumous": true,
+      "notes": "Recopilación póstuma; no redatar los originales."
+    },
+    {
+      "work_id": "0141-w010",
+      "title": "Epistolario",
+      "work_type": "posthumous_correspondence_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistolario",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "posthumous": true,
+      "notes": "Edición póstuma de correspondencia anterior; composición de cartas individual pendiente."
+    },
+    {
+      "work_id": "0141-w011",
+      "title": "Nuevos motivos de Proteo",
+      "work_type": "posthumous_editorial_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Proteo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "posthumous": true,
+      "notes": "Material póstumo distinto de Motivos de Proteo (1909); historia textual pendiente."
+    },
+    {
+      "work_id": "0141-w012",
+      "title": "Últimos motivos de Proteo",
+      "work_type": "posthumous_editorial_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Proteo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+      ],
+      "posthumous": true,
+      "notes": "Edición de escritos póstumos; título editorial no autoriza fechar composición en 1932."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0141-c001",
+      "title": "Articulación del arielismo y del debate latinoamericano sobre cultura, idealismo y utilitarismo",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_library_specialist_bibliography",
+      "title": "Biblioteca Virtual Miguel de Cervantes: Bibliografía de José Enrique Rodó",
+      "url": "https://www.cervantesvirtual.com/portales/jose_enrique_rodo/bibliografia/"
+    },
+    {
+      "kind": "academic_biographical_bibliography",
+      "title": "Diccionario biográfico de las izquierdas latinoamericanas: José Enrique Rodó",
+      "url": "https://diccionario.cedinci.org/rodo-jose-enrique/"
+    },
+    {
+      "kind": "national_library_edition_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes: Obras completas, edición de Emir Rodríguez Monegal",
+      "url": "https://www.cervantesvirtual.com/obra/obras-completas--4/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay, páginas impresas 894–901"
+    }
+  ],
+  "research_notes": [
+    "Se distinguen los tres opúsculos de La vida nueva como partes editoriales individualizadas.",
+    "Las Obras completas Aguilar (1967) y reproducción digital (2009) no cambian fechas originales.",
+    "El camino de Paros tiene conflicto bibliográfico 1918/1919; se privilegia catálogo de primera edición 1919, preservando conflicto."
+  ]
+}

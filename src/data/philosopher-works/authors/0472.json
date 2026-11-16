@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "author_id": 472,
+  "canonical_name": "Roberto Prudencio",
+  "alternate_names": [
+    "Roberto Prudencio Romecín",
+    "Roberto Prudencio Romecin"
+  ],
+  "life": {
+    "born": {
+      "year": 1908,
+      "certainty": "scholarly_history_source"
+    },
+    "died": {
+      "year": 1975,
+      "certainty": "scholarly_history_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_posthumous_collections_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0472-w001",
+      "title": "Sentido y proyección del Kollasuyo",
+      "work_type": "telluric_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "contemporary_journal_and_scholarly_source"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "telurismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "paisaje",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?lng=es&nrm=iso&pid=S2077-33232019000200015&script=sci_arttext&tlng=es",
+        "https://www.andesacd.org/wp-content/uploads/2011/12/Ensayos-Hist%C3%B3ricos.pdf"
+      ],
+      "notes": "Publicado originalmente en el núm. 12 de Kollasuyo, 1939. Formula la tesis de la cultura como expresión de lo telúrico."
+    },
+    {
+      "work_id": "0472-w002",
+      "title": "Kollasuyo: revista de estudios bolivianos",
+      "work_type": "cultural_and_philosophical_journal",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "serial_record"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "founder_and_director",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bolivia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "telurismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.andesacd.org/revista-kollasuyo-2/",
+        "https://search.worldcat.org/title/Kollasuyo-revista-de-estudios-bolivianos/oclc/1782347"
+      ],
+      "notes": "Fundador y director de la revista desde 1939, con varias etapas editoriales. Se registra responsabilidad de dirección y proyecto intelectual, no autoría de todos los artículos."
+    },
+    {
+      "work_id": "0472-w003",
+      "title": "Ensayos literarios",
+      "work_type": "posthumous_literary_and_philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "catalog_record"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "original_author_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la vida",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Goethe",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://search.rsl.ru/ru/record/01000354077"
+      ],
+      "notes": "La Paz, Fundación Manuel Vicente Ballivián, 1977, publicación póstuma de ensayos dispersos."
+    },
+    {
+      "work_id": "0472-w004",
+      "title": "Ensayos históricos",
+      "work_type": "posthumous_historical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "posthumous_collection_record"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia boliviana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Kollasuyo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "territorio",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.andesacd.org/wp-content/uploads/2011/12/Ensayos-Hist%C3%B3ricos.pdf"
+      ],
+      "notes": "Colección póstuma de 1990; incluye Sentido y proyección del Kollasuyo, ya registrado por su publicación original de 1939, por lo que no se vuelve a contar ese ensayo como obra nueva."
+    },
+    {
+      "work_id": "0472-w005",
+      "title": "Ensayos filosóficos y de arte",
+      "work_type": "posthumous_philosophy_and_art_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.upds.edu.bo/biblioteca/index.php?dcote=&id=30&lcote=&location=8&lvl=section_see&main=&nbr_lignes=6716&nc=&page=26&plettreaut=&ssub="
+      ],
+      "notes": "Librería Editorial Juventud, primera edición 1990, 184 p.; volumen póstumo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación del telurismo boliviano y creación de Kollasuyo como centro de irradiación filosófica, histórica y cultural",
+      "kind": "bolivian_tellurism_and_cultural_philosophy_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_history_source",
+      "title": "SciELO Bolivia — Apuntes críticos sobre la filosofía política en Bolivia",
+      "url": "https://www.scielo.org.bo/scielo.php?pid=S2077-33232017000200008&script=sci_arttext"
+    },
+    {
+      "kind": "journal_archive_source",
+      "title": "ANDES — Revista Kollasuyo",
+      "url": "https://www.andesacd.org/revista-kollasuyo-2/"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UPDS — Ensayos filosóficos y de arte",
+      "url": "https://biblioteca.upds.edu.bo/biblioteca/index.php?dcote=&id=30&lcote=&location=8&lvl=section_see&main=&nbr_lignes=6716&nc=&page=26&plettreaut=&ssub="
+    }
+  ],
+  "research_notes": [
+    "Prudencio no publicó en vida un libro sistemático que reuniera su filosofía; buena parte de su obra quedó dispersa en revistas y fue compilada póstumamente.",
+    "Las colecciones de 1977 y 1990 se marcan expresamente como póstumas para no confundir fecha de escritura y fecha editorial."
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "author_id": 340,
+  "canonical_name": "Guillermo Prieto",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1857_travel_book_1871_economics_first_print_and_posthumous_memoir",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0340-w001",
+      "title": "Viajes de orden suprema: años de 1853, 54, 55",
+      "work_type": "historical_political_travel_narrative_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1857,
+        "certainty": "author_first_print_book"
+      },
+      "first_publication_year": 1857,
+      "authorship_status": "first_original_book_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "viajes políticos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia mexicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/obra/directa/2589/"
+      ],
+      "notes": "Libro de viajes políticos y crónica publicado en México en 1857 por Vicente García Torres, que narra acontecimientos de 1853–1855; esas son fechas de viaje, NO del primer impreso.",
+      "edition": {
+        "year": 1857,
+        "publisher": "Vicente García Torres",
+        "region": "México"
+      }
+    },
+    {
+      "work_id": "0340-w002",
+      "title": "Lecciones elementales de economía política: dadas en la Escuela de Jurisprudencia de México en el curso de 1871",
+      "work_type": "political_economy_first_course_textbook_printed",
+      "original_language": "español",
+      "original_date": {
+        "year": 1871,
+        "certainty": "first_physical_book_catalog_confirmed"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "original_author_first_1871_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación económica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo económico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/lecciones-elementales-de-economia-politica-dadas-en-la-escuela-de-jurisprudencia-de-mexico-en-el-curso-de-1871-4220?as=2&c=pNn52Z&d=false&i=5&q=%2A%3A%2A&t=search_0&v=1",
+        "https://www.adabi.org.mx/vufind/Record/1075893",
+        "https://historicas.unam.mx/publicaciones/publicadigital/libros/317_04/317_04_04_01_GuillermoPrieto.pdf"
+      ],
+      "notes": "Biblioteca Nacional Digital de México UNAM y ADABI confirman impreso de 1871, Imprenta del Gobierno en Palacio a cargo de J. M. Sandoval; edición ampliada de 1876 NO es primera edición.",
+      "edition": {
+        "year": 1871,
+        "publisher": "Imprenta del Gobierno, a cargo de J. M. Sandoval",
+        "region": "México"
+      },
+      "later_editions": [
+        {
+          "year": 1876,
+          "edition": "ampliada y revisada"
+        }
+      ]
+    },
+    {
+      "work_id": "0340-w003",
+      "title": "Memorias de mis tiempos",
+      "work_type": "autobiographical_political_memories_posthumously_printed",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "written_before_author_death_1897_not_precisely_dated"
+      },
+      "first_publication_year": 1906,
+      "authorship_status": "author_autobiographical_manuscript_posthumous_first_book_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memorias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia mexicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.elem.mx/obra/datos/7304",
+        "https://historicas.unam.mx/publicaciones/publicadigital/libros/317_04/317_04_04_01_GuillermoPrieto.pdf"
+      ],
+      "notes": "Memorias escritas en vida (falleció 1897) y publicadas póstumamente en 1906 según Enciclopedia de la Literatura en México; diversos catálogos confunden primeros pasajes con las fechas narradas desde 1828. No declarar 1853 primera edición.",
+      "first_print_status": "posthumous_1906"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Economía política liberal, historia y memoria pública de México y periodismo satírico compartido con Ignacio Ramírez",
+      "kind": "mexican_liberal_political_economy",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_university_first_book_catalog",
+      "title": "Biblioteca Nacional Digital de México (UNAM), Lecciones elementales 1871",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/lecciones-elementales-de-economia-politica-dadas-en-la-escuela-de-jurisprudencia-de-mexico-en-el-curso-de-1871-4220?as=2&c=pNn52Z&d=false&i=5&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "physical_print_catalog",
+      "title": "ADABI, ejemplar de Lecciones elementales 1871",
+      "url": "https://www.adabi.org.mx/vufind/Record/1075893"
+    },
+    {
+      "kind": "university_historical_essay",
+      "title": "UNAM, Guillermo Prieto e historia de economía política",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/317_04/317_04_04_01_GuillermoPrieto.pdf"
+    },
+    {
+      "kind": "literary_reference",
+      "title": "ELEM, Viajes de orden suprema, primera impresión",
+      "url": "https://www.elem.mx/autor/obra/directa/2589/"
+    },
+    {
+      "kind": "literary_bibliography",
+      "title": "ELEM, Memorias de mis tiempos",
+      "url": "https://www.elem.mx/obra/datos/7304"
+    }
+  ],
+  "research_notes": [
+    "El periódico Don Simplicio se registra ya como corpus conjunto en Ignacio Ramírez 0339; la contribución de Prieto es compartida, no se crea otro periódico para inflar registros.",
+    "La edición más extensa de las Lecciones de 1876 es revisión de la de 1871, acreditada por UNAM.",
+    "La obra Memorias no puede llevar fecha de composición 1906, posterior a la muerte del autor; es solo su edición."
+  ]
+}

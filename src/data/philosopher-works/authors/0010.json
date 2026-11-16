@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "author_id": 10,
+  "canonical_name": "Juan de Torquemada",
+  "alternate_names": [
+    "Fray Juan de Torquemada"
+  ],
+  "life": {
+    "born": {
+      "year": 1557,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1624,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_extant_work_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0010-w001",
+      "title": "Monarquía indiana",
+      "alternate_titles": [
+        "De los veinte y un libros rituales y monarquía indiana"
+      ],
+      "work_type": "chronicle_history_ethnography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1615,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1615,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pueblos indígenas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Nueva España",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conquista",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conversión",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia",
+          "provenance": "catalog"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1723,
+          "place": "Madrid",
+          "kind": "second_edition"
+        },
+        {
+          "year": 1975,
+          "publisher": "UNAM, Instituto de Investigaciones Históricas",
+          "kind": "critical_modern_edition"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "institutional_digital_edition",
+      "title": "Monarquía indiana, volúmenes I al VI",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/monarquia/index.html",
+      "publisher": "UNAM, Instituto de Investigaciones Históricas"
+    },
+    {
+      "kind": "literary_catalog",
+      "title": "Obra publicada de Fray Juan de Torquemada",
+      "url": "https://www.elem.mx/autor/obra/directa/127604/",
+      "publisher": "Enciclopedia de la Literatura en México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente investigar escritos menores, cartas, sermones y atribuciones fuera de Monarquía indiana."
+  ]
+}

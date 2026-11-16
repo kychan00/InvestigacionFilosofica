@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "author_id": 146,
+  "canonical_name": "Yamandú Acosta",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1949,
+      "date": "1949-03-22",
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_selected_works_with_editorial_disambiguation_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0146-w001",
+      "title": "Filosofía latinoamericana, globalización y democracia",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "compiler_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9974420644"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ],
+      "notes": "Currículum del autor clasifica explícitamente el volumen como libro compilado; no atribuir todos los capítulos al compilador."
+    },
+    {
+      "work_id": "0146-w002",
+      "title": "Las nuevas referencias del pensamiento crítico en América Latina: ética y ampliación de la sociedad civil",
+      "work_type": "critical_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9974002044"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pensamiento crítico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad civil",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ],
+      "notes": "Primera edición 2003, serie Tesis de Posgrado en Humanidades núm. 2, Facultad de Humanidades Udelar."
+    },
+    {
+      "work_id": "0146-w003",
+      "title": "Sujeto y democratización en el contexto de la globalización: perspectivas críticas desde América Latina",
+      "work_type": "latin_american_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9974421314"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "sujeto",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democratización",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ],
+      "notes": "La editorial explica que integra artículos originales de marzo de 1996 a octubre de 2004; año de volumen 2005, no fecha de cada ensayo."
+    },
+    {
+      "work_id": "0146-w004",
+      "title": "Ariel de Rodó, un comienzo de la filosofía latinoamericana y la identidad democrática de un sujeto en construcción",
+      "work_type": "chapter_in_edited_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ariel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "identidad democrática",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ],
+      "related_people": [
+        {
+          "name": "José Enrique Rodó",
+          "role": "subject"
+        }
+      ],
+      "notes": "Capítulo dentro de un libro compilado; no registrar el conjunto como libro propio."
+    },
+    {
+      "work_id": "0146-w005",
+      "title": "La sociedad civil y sus relaciones con la sociedad política, el estado y el mercado",
+      "work_type": "chapter_in_edited_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad civil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mercado",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ],
+      "notes": "Capítulo en Transformaciones sociopolíticas recientes en América Latina, pp. 23–66; editores Álvaro Márquez Fernández y Zulay Díaz Montiel."
+    },
+    {
+      "work_id": "0146-w006",
+      "title": "Filosofía latinoamericana y democracia en clave de derechos humanos",
+      "work_type": "political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9974421500"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derechos humanos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ]
+    },
+    {
+      "work_id": "0146-w007",
+      "title": "Pensamiento uruguayo: estudios latinoamericanos de historia de las ideas y filosofía de la práctica",
+      "work_type": "history_of_ideas_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789974421561"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pensamiento uruguayo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la práctica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ]
+    },
+    {
+      "work_id": "0146-w008",
+      "title": "Pensamiento crítico, sujeto y democracia en América Latina",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento crítico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sujeto",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ],
+      "publication_context": "Utopía y Praxis Latinoamericana, vol. 15, núm. 51, pp. 15–43"
+    },
+    {
+      "work_id": "0146-w009",
+      "title": "Nuestra América: un programa revolucionario en el siglo XXI",
+      "work_type": "critical_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nuestra América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "programa revolucionario",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ]
+    },
+    {
+      "work_id": "0146-w010",
+      "title": "Nuevas constituciones y otras democracias en América Latina",
+      "work_type": "political_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constituciones",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ]
+    },
+    {
+      "work_id": "0146-w011",
+      "title": "Sujeto, transmodernidad, interculturalidad: tres tópicos utópicos en la transformación del mundo",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sujeto",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "transmodernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "interculturalidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0146-c001",
+      "title": "Docencia e investigación en historia de las ideas en América Latina en la Universidad de la República",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0146-c002",
+      "title": "Propuesta de filosofía latinoamericana como reconstrucción crítica del sujeto, racionalidad, universalismo ético y utopía",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_publisher_catalog",
+      "title": "Universidad de la República: catálogo de libros y artículos de Yamandú Acosta",
+      "url": "https://fhce.edu.uy/libros-y-articulos/?paged=2"
+    },
+    {
+      "kind": "university_researcher_cv",
+      "title": "Facultad de Humanidades y Ciencias de la Educación, CV Yamandú Acosta",
+      "url": "https://www.fhce.edu.uy/images/CEIL/CV_investigadores/Y.%20Acosta.pdf"
+    },
+    {
+      "kind": "university_original_edition",
+      "title": "Universidad de la República: Las nuevas referencias del pensamiento crítico en América Latina (primera edición 2003)",
+      "url": "https://www.fhce.edu.uy/images/CEIL/publicaciones/Las%20nuevas%20referencias%20del%20pensamiento%20cr%C3%ADtico%20en%20Am%C3%A9rica%20Latina%20%28parte%201%29.pdf"
+    },
+    {
+      "kind": "university_research_bibliography",
+      "title": "Universidad de la República: publicaciones de Yamandú Acosta",
+      "url": "https://fhce.edu.uy/author/fhce/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay y Chile, páginas impresas 901–907"
+    }
+  ],
+  "research_notes": [
+    "El libro-base de 2009 registra primeras dos publicaciones como libros y otras dos compilaciones; se amplía con catálogo Udelar posterior.",
+    "No tratar libro compilado como obra enteramente escrita por Acosta; los artículos recopilados en libros conservan su historia editorial."
+  ]
+}

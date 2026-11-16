@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "author_id": 375,
+  "canonical_name": "Federico Henríquez y Carvajal",
+  "alternate_names": [
+    "Federico Henríquez i Carvajal"
+  ],
+  "life": {
+    "born": {
+      "year": 1848,
+      "certainty": "academy_authority"
+    },
+    "died": {
+      "year": 1952,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0375-w001",
+      "title": "Sobre el lugar cierto en que reposan las cenizas de Cristóbal Colón",
+      "work_type": "historical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1892,
+        "certainty": "academy_bibliographic_source"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cristóbal Colón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Santo Domingo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://academiadominicanahistoria.org.do/wp-content/uploads/2017/07/HenriquezyCarvajal.pdf"
+      ],
+      "notes": "Título y fecha consignados en la ficha de autoridad de la Academia Dominicana de la Historia. El seed no presupone que esta sea su única publicación historiográfica del período."
+    },
+    {
+      "work_id": "0375-w002",
+      "title": "Cuba y Quisqueya: discursos y conferencias",
+      "work_type": "speech_and_conference_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "original_author_and_speaker_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "República Dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "solidaridad antillana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecadelcongreso.gob.do/Libros/0003636.pdf",
+        "https://academiadominicanahistoria.org.do/wp-content/uploads/2017/07/HenriquezyCarvajal.pdf"
+      ],
+      "notes": "Bibliografía dominicana registra edición Habana, Imprenta El Siglo XX, 1920, 42 páginas. Es una colección de discursos y conferencias, no una sola alocución de 1920."
+    },
+    {
+      "work_id": "0375-w003",
+      "title": "Nacionalismo",
+      "work_type": "nationalist_essay_and_speech_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nacionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ocupación estadounidense",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad nacional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/84351189-4524-4e54-8e18-a60839320e6a/full"
+      ],
+      "notes": "Santo Domingo, Imprenta J. R. vda. García, 1925, 251 páginas, según BNPHU. Reúne textos del movimiento nacionalista; no se asume que cada pieza interna fue originalmente redactada en 1925."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Nacionalismo dominicano, solidaridad con la independencia cubana y defensa de la soberanía frente a la ocupación estadounidense",
+      "kind": "dominican_nationalist_and_antillean_solidarity_contribution",
+      "authorship_status": "documented_in_academy_and_national_library_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_authority_source",
+      "title": "Academia Dominicana de la Historia — Federico Henríquez y Carvajal",
+      "url": "https://academiadominicanahistoria.org.do/wp-content/uploads/2017/07/HenriquezyCarvajal.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — Nacionalismo, 1925",
+      "url": "https://bd.bnphu.gob.do/items/84351189-4524-4e54-8e18-a60839320e6a/full"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Biblioteca del Congreso Nacional RD — bibliografía oratoria dominicana",
+      "url": "https://bibliotecadelcongreso.gob.do/Libros/0003636.pdf"
+    }
+  ],
+  "research_notes": [
+    "La variante ortográfica «Henríquez i Carvajal» aparece en impresos y catálogos y se conserva como nombre alternativo.",
+    "Las colecciones de discursos se registran como unidades editoriales, sin convertir cada discurso interno en una obra independiente sin cotejo."
+  ]
+}

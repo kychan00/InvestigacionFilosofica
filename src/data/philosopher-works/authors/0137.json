@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "author_id": 137,
+  "canonical_name": "Ricardo Gómez",
+  "alternate_names": [
+    "Ricardo Juan Gómez",
+    "Ricardo J. Gómez"
+  ],
+  "life": {
+    "born": {
+      "year": 1935,
+      "date": "1935-01-25",
+      "certainty": "verified_university_archive"
+    },
+    "died": {
+      "year": 2024,
+      "date": "2024-02-14",
+      "certainty": "verified_university_archive"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_and_selected_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0137-w001",
+      "title": "Neoliberalismo y seudociencia",
+      "work_type": "philosophy_of_economics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neoliberalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "seudociencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ]
+    },
+    {
+      "work_id": "0137-w002",
+      "title": "Neoliberalismo globalizado: refutación y debacle",
+      "work_type": "philosophy_of_political_economy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neoliberalismo globalizado",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ]
+    },
+    {
+      "work_id": "0137-w003",
+      "title": "The Impact of Globalized Neoliberalism in Latin America: Philosophical Perspectives",
+      "work_type": "edited_collective_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neoliberalism",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Latin America",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ],
+      "notes": "Editor, no autor único del volumen colectivo."
+    },
+    {
+      "work_id": "0137-w004",
+      "title": "La dimensión valorativa de las ciencias: hacia una filosofía política",
+      "work_type": "philosophy_of_science_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencias",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía política",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ]
+    },
+    {
+      "work_id": "0137-w005",
+      "title": "Neoliberalismo, fin de la historia y después",
+      "work_type": "political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neoliberalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fin de la historia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ]
+    },
+    {
+      "work_id": "0137-w006",
+      "title": "Sir Karl Popper: el legitimador",
+      "work_type": "critical_history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Karl Popper",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ],
+      "related_people": [
+        {
+          "name": "Karl Popper",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0137-w007",
+      "title": "El poder y los límites de la razón científica",
+      "work_type": "philosophy_of_science_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón científica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ],
+      "notes": "La fuente registra un título abreviado; título completo y portada pendientes de control."
+    },
+    {
+      "work_id": "0137-w008",
+      "title": "El fin de la ciencia, la historia y la modernidad: una mirada crítica",
+      "work_type": "critical_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ]
+    },
+    {
+      "work_id": "0137-w009",
+      "title": "Tecnología y sociedad: una filosofía política",
+      "work_type": "philosophy_of_technology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tecnología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía política",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0137-c001",
+      "title": "Docencia, dirección y trabajo editorial en filosofía de las ciencias en la Universidad Nacional de La Plata",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0137-c002",
+      "title": "Participación fundadora en la Sociedad Argentina de Análisis Filosófico",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_authority_record",
+      "title": "Red de Archivos de la Universidad Nacional de La Plata: Ricardo Juan Gómez",
+      "url": "https://www.archivos.unlp.edu.ar/index.php/gomez-ricardo-juan"
+    },
+    {
+      "kind": "academic_memorial_bibliography",
+      "title": "In memoriam: Ricardo J. Gómez, referencias de sus libros",
+      "url": "https://revistamemoria.mx/wp-content/uploads/2024/07/Memoria-289-web.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: perfiles de Argentina, pp. 885–893"
+    }
+  ],
+  "research_notes": [
+    "La Red de Archivos UNLP documenta 13 libros en total, pero esta semilla se limita a los nueve títulos localizados con soporte bibliográfico concreto.",
+    "No confundir Ricardo Juan Gómez, nacido en 1935 en Buenos Aires, con homónimos de Guatemala identificados en repertorios latinoamericanos."
+  ]
+}

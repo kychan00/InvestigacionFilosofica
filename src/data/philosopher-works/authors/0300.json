@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "author_id": 300,
+  "canonical_name": "José Sánchez Labrador",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "three_documented_manuscript_corpora_2025_recovery_partial_editions_only",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0300-w001",
+      "title": "Paraguay natural ilustrado: Noticias de la naturaleza del país con la explicación de fenómenos físicos generales y particulares",
+      "work_type": "jesuit_colonial_natural_history_four_part_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_documented_specialist_studies",
+        "period": {
+          "start": 1771,
+          "end": 1776
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "autograph_manuscript_attested_in_jesuit_archive",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "medicina colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Paraguay",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://asclepio.revistas.csic.es/index.php/asclepio/article/download/758/1200?inline=1",
+        "https://dialnet.unirioja.es/servlet/articulo?codigo=10031613"
+      ],
+      "notes": "Redacción definitiva 1771–1776, original en Archivum Romanum Societatis Iesu (ARSI), cuatro partes y material gráfico del autor. Se han impreso extractos durante siglo XX y edición crítica parcial; no asignar año de una edición completa que no existe.",
+      "archive": "Archivum Romanum Societatis Iesu",
+      "volume_count": 4,
+      "publication_status": "partial_editions_only"
+    },
+    {
+      "work_id": "0300-w002",
+      "title": "Paraguay católico",
+      "work_type": "jesuit_colonial_ethnographic_missionary_manuscript_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "early_exile_manuscript_layers_approximate",
+        "period": {
+          "start": 1767,
+          "end": 1770
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "author_original_multiple_manuscript_part_versions",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "misiones guaraníes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia eclesiástica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "etnografía colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/articulo?codigo=10031613",
+        "https://cultura.gov.py/2020/11/presentaran-paraguay-catholico-un-manuscrito-jesuita-inedito/"
+      ],
+      "notes": "Ciclo manuscrito compuesto por varios tomos; ediciones de partes en 1910/1917, 1936 y edición de un manuscrito de la Lilly Library presentada en 2020. No contar cada tomo como obra independiente ni asumir publicación completa.",
+      "later_partial_editions": [
+        1910,
+        1917,
+        1936,
+        2020
+      ],
+      "known_manuscript_witness": "Lilly Library, Indiana University (un testimonio específico)"
+    },
+    {
+      "work_id": "0300-w003",
+      "title": "Paraguay cultivado",
+      "work_type": "jesuit_colonial_agronomy_manuscript_rediscovered",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "original_composition_not_securely_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historically_documented_manuscript_rediscovered_in_2025_scholarship",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "agricultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ganadería",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "producción colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/articulo?codigo=10031613"
+      ],
+      "notes": "Investigación de Franz Obermeier (2025) reporta haber localizado en Hispanic Society, Nueva York, la parte previamente considerada perdida del proyecto tripartito. NO catalogarla como aún perdida; no inventar signatura ni publicación.",
+      "manuscript_location": "Hispanic Society, Nueva York, EEUU (investigación de Obermeier 2025)",
+      "status_of_copy": "rediscovered_unedited_manuscript"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Proyecto enciclopédico manuscrito sobre naturaleza, misiones y cultivo de Paraguay y el Río de la Plata, con aportes a conocimiento botánico y etnográfico",
+      "kind": "colonial_rioplatense_natural_philosophy_and_ethnography",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "peer_reviewed_critical_review",
+      "title": "Asclepio (CSIC), reseña documental del manuscrito Paraguay natural ilustrado",
+      "url": "https://asclepio.revistas.csic.es/index.php/asclepio/article/download/758/1200?inline=1"
+    },
+    {
+      "kind": "peer_reviewed_specialist_research",
+      "title": "Franz Obermeier, La enciclopedia rioplatense ... Paraguay natural, católico y cultivado, 2025",
+      "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=10031613"
+    },
+    {
+      "kind": "government_archival_publication_notice",
+      "title": "Secretaría Nacional de Cultura Paraguay, lanzamiento de manuscrito Paraguay Catholico 2020",
+      "url": "https://cultura.gov.py/2020/11/presentaran-paraguay-catholico-un-manuscrito-jesuita-inedito/"
+    }
+  ],
+  "research_notes": [
+    "Los tomos y partes del proyecto no son obras separadas: tres conjuntos literarios principales, aunque están vinculados como proyecto enciclopédico.",
+    "Hallazgo de 2025 corrige historiografía que consideraba Paraguay cultivado perdido; mantener temporalidad de afirmaciones.",
+    "No confundir copia conservada en ARSI con ediciones parciales del siglo XX."
+  ]
+}

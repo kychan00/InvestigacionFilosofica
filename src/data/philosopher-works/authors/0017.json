@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "author_id": 17,
+  "canonical_name": "Juan de Espinosa Medrano",
+  "alternate_names": [
+    "El Lunarejo",
+    "Juan de Espinoza Medrano"
+  ],
+  "life": {
+    "born": {
+      "year": 1632,
+      "certainty": "approximate_source_variation"
+    },
+    "died": {
+      "year": 1688,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_printed_and_theatrical_works_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0017-w001",
+      "title": "Apologético en favor de don Luis de Góngora",
+      "work_type": "literary_criticism_aesthetic_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1662,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1662,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Luis de Góngora",
+          "role": "defended_author"
+        },
+        {
+          "name": "Manuel de Faria y Sousa",
+          "role": "critic_answered"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Góngora",
+          "provenance": "catalog"
+        },
+        {
+          "term": "crítica literaria",
+          "provenance": "catalog"
+        },
+        {
+          "term": "poética barroca",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0017-w002",
+      "title": "Philosophia Thomistica",
+      "work_type": "philosophy_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1688,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1688,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tomismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía escolástica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "lógica",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Primera parte de un curso filosófico dictado en el Seminario de San Antonio Abad del Cuzco; las partes de Física y Metafísica no parecen haber llegado a editarse."
+    },
+    {
+      "work_id": "0017-w003",
+      "title": "La novena maravilla",
+      "work_type": "sermon_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1695,
+        "certainty": "posthumous_publication"
+      },
+      "first_publication_year": 1695,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Agustín Cortés de la Cruz",
+          "role": "posthumous_compiler_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "homilética",
+          "provenance": "catalog"
+        },
+        {
+          "term": "sermones panegíricos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "barroco",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Reúne treinta sermones y fue publicada póstumamente por iniciativa de su discípulo y albacea."
+    },
+    {
+      "work_id": "0017-w004",
+      "title": "Amar su propia muerte",
+      "work_type": "theatre_comedia",
+      "original_language": "español",
+      "original_date": {
+        "start": 1645,
+        "end": 1650,
+        "certainty": "scholarly_estimate"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_from_lost_manuscript_copy_tradition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro peruano",
+          "provenance": "catalog"
+        },
+        {
+          "term": "barroco",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "La copia antigua conocida se perdió en el incendio de la Biblioteca Nacional del Perú de 1943; la atribución aparece en la tradición manuscrita usada por editores modernos."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "primary_digital_edition",
+      "title": "Apologético en favor de don Luis de Góngora",
+      "url": "https://obtic.huma-num.fr/obvil-web/corpus/gongora/html/1662_apologetico.html",
+      "publisher": "Sorbonne Université"
+    },
+    {
+      "kind": "bibliographic_study",
+      "title": "Documentos inéditos para la biografía de Espinosa Medrano",
+      "url": "https://repositorio.pucp.edu.pe/server/api/core/bitstreams/c240f2f5-fcc3-48af-950c-8456316bb6a3/content",
+      "publisher": "PUCP"
+    },
+    {
+      "kind": "rare_book_catalog",
+      "title": "La novena maravilla",
+      "url": "https://www.adabi.org.mx/vufind/Record/1053406",
+      "publisher": "ADABI / Biblioteca Palafoxiana"
+    },
+    {
+      "kind": "digital_catalog",
+      "title": "Amar su propia muerte",
+      "url": "https://www.cervantesvirtual.com/obra/amar-su-propia-muerte--0/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incorporar autos sacramentales en quechua/castellano y otros manuscritos reportados; no sumar títulos perdidos sin evidencia bibliográfica suficiente."
+  ]
+}

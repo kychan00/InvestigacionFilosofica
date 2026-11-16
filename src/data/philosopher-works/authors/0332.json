@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "author_id": 332,
+  "canonical_name": "Carlos Walker Martínez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_first_printed_collections_1888_1889",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0332-w001",
+      "title": "Balance del liberalismo chileno: discursos pronunciados por el diputado de Maipo don Carlos Walker Martínez en las sesiones extraordinarias de 1887",
+      "work_type": "conservative_political_speeches_collected_original_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1887,
+        "certainty": "senate_speech_year_distinct_from_print"
+      },
+      "first_publication_year": 1888,
+      "authorship_status": "named_parliamentary_speaker_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conservadurismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo político",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-1177579.html"
+      ],
+      "notes": "Discursos de 1887 impresos como volumen, Santiago, Imprenta de El Progreso, 1888, ix+204 p.; no atribuir impresión en 1887.",
+      "edition": {
+        "year": 1888,
+        "publisher": "Imprenta de El Progreso",
+        "region": "Santiago"
+      }
+    },
+    {
+      "work_id": "0332-w002",
+      "title": "Historia de la administración Santa María",
+      "work_type": "two_volume_political_history_collected_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "catalogued_print_period",
+        "period": {
+          "start": 1888,
+          "end": 1889
+        }
+      },
+      "first_publication_year": 1888,
+      "authorship_status": "original_author_political_history_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno de Santa María",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "matrimonio civil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-1177579.html",
+        "https://www.memoriachilena.gob.cl/602/w3-article-68473.html"
+      ],
+      "notes": "Santiago, Imprenta de El Progreso, 1888–1889, dos tomos encuadernados en un volumen; capítulos La elección de Santa María, Los falsificadores de 1882 y La lei de matrimonio civil son secciones, NO obras adicionales.",
+      "volume_count": 2,
+      "publication_years": [
+        1888,
+        1889
+      ],
+      "edition": {
+        "publisher": "Imprenta de El Progreso",
+        "region": "Santiago"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Intervención conservadora sobre el liberalismo, régimen representativo, legislación civil e historia política de Chile",
+      "kind": "nineteenth_century_political_philosophical_contribution",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_historical_catalog",
+      "title": "Biblioteca Nacional de Chile, Carlos Walker Martínez, catálogos de 1888 y 1888–1889",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-1177579.html"
+    },
+    {
+      "kind": "national_library_contents",
+      "title": "Memoria Chilena, partes de Historia de la administración Santa María",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-68473.html"
+    }
+  ],
+  "research_notes": [
+    "Los dos tomos de Historia... no son dos obras; los discursos individuales de Balance forman una antología editorial.",
+    "No considerar cada artículo digitalizado de los tomos como publicación autónoma sin confirmar origen separado."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "author_id": 316,
+  "canonical_name": "Juan José Paso",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_reconstructed_1810_oral_argument_not_an_original_print",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0316-w001",
+      "title": "Intervención de Juan José Paso en el Cabildo abierto del 22 de mayo de 1810 (título descriptivo)",
+      "work_type": "historically_reconstructed_oral_political_argument",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "historical_cabildo_discussion_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "oral_intervention_historically_reconstructed_not_stenographic_author_text",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "retroversion de soberanía",
+        "representación política",
+        "gobierno provisional"
+      ],
+      "evidence_urls": [
+        "https://buenosaireshistoria.org/juntas/juan-jose-paso-1/",
+        "https://www.scielo.br/scielo.php?lng=pt&nrm=iso&pid=S0104-44782012000200003&script=sci_arttext&tlng=es"
+      ],
+      "notes": "Intervención sobre urgencia de constituir junta en Buenos Aires, admitiendo el argumento de consultar a los demás pueblos del Virreinato; transmitida en narraciones históricas y actas parciales. No existe certeza de transcripción taquigráfica literal ni primera edición personal contemporánea.",
+      "title_status": "modern_descriptive_label",
+      "speech_date": "1810-05-22"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa de la formación de una junta provisional en 1810 y acción como secretario de la Primera Junta rioplatense",
+      "kind": "rio_platense_constitutional_political_argument",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "local_historical_research",
+      "title": "Buenos Aires Historia, Juan José Paso y la intervención del 22 de mayo",
+      "url": "https://buenosaireshistoria.org/juntas/juan-jose-paso-1/"
+    },
+    {
+      "kind": "peer_reviewed_political_history",
+      "title": "SciELO Brasil, Construir la república: dilemas de la soberanía popular durante el siglo XIX",
+      "url": "https://www.scielo.br/scielo.php?lng=pt&nrm=iso&pid=S0104-44782012000200003&script=sci_arttext&tlng=es"
+    }
+  ],
+  "research_notes": [
+    "Los discursos de Castelli, Paso y Villota no deben fusionarse ni atribuirse mutuamente.",
+    "Los textos de Junta firmados por sus secretarios representan responsabilidad institucional, no autoría individual automática."
+  ]
+}

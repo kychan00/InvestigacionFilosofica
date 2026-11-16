@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "author_id": 359,
+  "canonical_name": "Alfredo J. Ferreira",
+  "alternate_names": [
+    "José Alfredo Ferreira",
+    "J. Alfredo Ferreira"
+  ],
+  "life": {
+    "born": {
+      "year": 1863,
+      "certainty": "institutional"
+    },
+    "died": {
+      "year": 1938,
+      "certainty": "institutional"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0359-w001",
+      "title": "Derecho electoral",
+      "work_type": "doctoral_law_thesis_unverified_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1891,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sufragio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho electoral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mujeres",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ifdferreyra-crr.infd.edu.ar/sitio/j-alfredo-ferreira-2/"
+      ],
+      "notes": "Tesis de Jurisprudencia de la Universidad de Buenos Aires de 1891, según instituto de formación docente que lleva su nombre; propuso extensión del voto a mujeres. No se encontró ejemplar ni primera impresión: first_publication_year=null.",
+      "manuscript_status": "thesis_defended_original_imprint_unlocated"
+    },
+    {
+      "work_id": "0359-w002",
+      "title": "La Nueva Escuela",
+      "work_type": "pedagogical_periodical_coedited",
+      "original_language": "español",
+      "original_date": {
+        "year": 1892,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma escolar",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bnm.educacion.gob.ar/digital/documentos/EL008069.pdf",
+        "https://ifdferreyra-crr.infd.edu.ar/sitio/j-alfredo-ferreira-2/"
+      ],
+      "notes": "Bibliografía de Pablo Pizzurno en Biblioteca Nacional de Maestras y Maestros fecha inicio julio 1892; otros catálogos lo sitúan en 1893. Coeditado con Pablo Pizzurno, no escrito enteramente por Ferreira.",
+      "first_issue_reported": "1892-07",
+      "alternative_catalog_year": 1893,
+      "coeditor": "Pablo Pizzurno"
+    },
+    {
+      "work_id": "0359-w003",
+      "title": "La Escuela Positiva",
+      "work_type": "positivist_pedagogy_periodical_coedited",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pedagogía científica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaseletronicas.pucrs.br/iberoamericana/article/view/24120"
+      ],
+      "notes": "Primer número febrero 1895 en Corrientes, dirigido e inspirado por Alfredo Ferreira y Pedro Scalabrini, según estudio académico. Distinguir el periódico de La Nueva Escuela y la autoría de los artículos de otros docentes.",
+      "first_issue": "1895-02",
+      "coeditor": "Pedro Scalabrini"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pedagogía positivista argentina, reforma curricular y dirección de instituciones educativas en Corrientes",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Instituto Superior de Formación Docente José Alfredo Ferreira, biografía",
+      "url": "https://ifdferreyra-crr.infd.edu.ar/sitio/j-alfredo-ferreira-2/"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Estudos Ibero-Americanos: Ferreira, Scalabrini y La Escuela Positiva",
+      "url": "https://revistaseletronicas.pucrs.br/iberoamericana/article/view/24120"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Biblioteca Nacional de Maestras y Maestros, historia de La Nueva Escuela",
+      "url": "https://bnm.educacion.gob.ar/digital/documentos/EL008069.pdf"
+    }
+  ],
+  "research_notes": [
+    "Nombre canónico Alfredo J. Ferreira corresponde a José Alfredo Ferreira (1863–1938).",
+    "La Nueva Escuela fechada 1892/1893 en fuentes distintas: se conserva conflicto.",
+    "No inferir primera edición impresa de la tesis de 1891."
+  ]
+}

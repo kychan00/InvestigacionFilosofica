@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "author_id": 405,
+  "canonical_name": "Pedro Lessa",
+  "alternate_names": [
+    "Pedro Augusto Carneiro Lessa"
+  ],
+  "life": {
+    "born": {
+      "year": 1860,
+      "certainty": "library_authority_with_1859_variant_in_cpdoc"
+    },
+    "died": {
+      "year": 1921,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0405-w001",
+      "title": "É a história uma ciência?",
+      "work_type": "philosophy_of_history_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": 1900,
+        "certainty": "first_publication_in_buckle_translation"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia da história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cientificidade da história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Buckle",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "método científico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cpdoc.fgv.br/sites/default/files/verbetes/primeira-republica/1%20Verbetes%20letra%20L.pdf",
+        "https://literaturabrasileira.ufsc.br/documentos?id=209054"
+      ],
+      "notes": "Texto publicado originalmente em 1900 como introdução à tradução brasileira da História da Civilização de Buckle; alguns catálogos datam o opúsculo isolado em 1901. Preserva-se 1900 como primeira publicação do texto."
+    },
+    {
+      "work_id": "0405-w002",
+      "title": "Dissertações e polêmicas: estudos jurídicos",
+      "work_type": "legal_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1909,
+        "certainty": "first_edition_catalog"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "original_author_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "jurisprudência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia jurídica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://portal.stf.jus.br/textos/verTexto.asp?pagina=PedroLessaLivros&servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro",
+        "https://literaturabrasileira.ufsc.br/documentos?id=196378"
+      ],
+      "notes": "Rio de Janeiro, Typ. do Jornal do Commercio, 1909, 360 páginas, segundo catálogo do STF."
+    },
+    {
+      "work_id": "0405-w003",
+      "title": "Estudos de filosofia do direito",
+      "work_type": "philosophy_of_law_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1912,
+        "certainty": "academy_and_legal_bibliography"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "original_author_collection_of_earlier_and_current_studies",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "método positivo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciência do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Kant",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ihering",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/academicos/pedro-lessa/textos-escolhidos",
+        "https://revista.direito.ufmg.br/index.php/revista/pt_BR/article/download/824/769"
+      ],
+      "notes": "Publicado em 1912. Parte dos capítulos deriva de artigos anteriores; não se criam duplicatas automáticas para cada versão sem cotejo."
+    },
+    {
+      "work_id": "0405-w004",
+      "title": "Do poder judiciário",
+      "work_type": "constitutional_law_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1915,
+        "certainty": "supreme_court_catalog"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Poder Judiciário",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "direito constitucional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Supremo Tribunal Federal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "habeas corpus",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://portal.stf.jus.br/textos/verTexto.asp?pagina=PedroLessaLivros&servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro",
+        "https://www.academia.org.br/academicos/pedro-lessa/biografia"
+      ],
+      "notes": "Rio de Janeiro, F. Alves, 1915, 435 páginas, segundo catálogo do STF."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Consolidação da filosofia científica do direito no ensino jurídico paulista e ampliação doutrinária do papel constitucional do Judiciário",
+      "kind": "philosophy_of_law_and_constitutional_contribution",
+      "authorship_status": "documented_in_stf_academy_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "supreme_court_library_source",
+      "title": "STF — livros de Pedro Lessa",
+      "url": "https://portal.stf.jus.br/textos/verTexto.asp?pagina=PedroLessaLivros&servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Brasileira de Letras — Pedro Lessa",
+      "url": "https://www.academia.org.br/academicos/pedro-lessa/biografia"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Revista Expedições — concepção de ciências sociais e história em Pedro Lessa",
+      "url": "https://www.revista.ueg.br/index.php/revista_geth/en/article/view/9887/7598"
+    }
+  ],
+  "research_notes": [
+    "Há discrepância 1859/1860 para o nascimento em fontes de autoridade; o catálogo literário consultado usa 1860, enquanto CPDOC usa 1859.",
+    "A obra de 1912 incorpora artigos anteriores; evita-se contagem dupla sem cotejo textual."
+  ]
+}

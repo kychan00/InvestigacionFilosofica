@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "author_id": 35,
+  "canonical_name": "Silvestre Pinheiro Ferreira",
+  "alternate_names": [
+    "Silvestre Pinheiro-Ferreira"
+  ],
+  "life": {
+    "born": {
+      "year": 1769,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1846,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophical_and_political_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0035-w001",
+      "title": "Prelecções philosophicas sobre a theorica do discurso e da linguagem, a estética, a diceosina e a cosmologia",
+      "work_type": "philosophy_lecture_series",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1813,
+        "end": 1820,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría del discurso",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "diceosina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cosmología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sensualismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Se conocen treinta prelecciones, publicadas por fascículos entre 1813 y 1820."
+    },
+    {
+      "work_id": "0035-w002",
+      "title": "Categorias de Aristóteles",
+      "work_type": "translation_commentary",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1814,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1814,
+      "authorship_status": "verified_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Aristóteles",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "categorías",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Aristóteles",
+          "provenance": "catalog"
+        },
+        {
+          "term": "lógica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0035-w003",
+      "title": "Memórias políticas sobre os abusos gerais e modos de os reformar e prevenir a Revolução Popular",
+      "work_type": "political_memorial",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1814,
+        "end": 1815,
+        "certainty": "composition_range"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified_posthumous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reforma política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revolução popular",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "monarquia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0035-w004",
+      "title": "Essai sur la psychologie",
+      "work_type": "philosophy_psychology",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1826,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1826,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "razonamiento",
+          "provenance": "catalog"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ontología",
+          "provenance": "catalog"
+        },
+        {
+          "term": "estética",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0035-w005",
+      "title": "Observações sobre a Carta Constitucional do Reino de Portugal e a Constituição do Império do Brasil",
+      "work_type": "constitutional_commentary",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1831,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1831,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitucionalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Portugal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0035-w006",
+      "title": "Manual do cidadão em um governo representativo",
+      "work_type": "constitutional_political_theory",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1834,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "governo representativo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "direito constitucional",
+          "provenance": "catalog"
+        },
+        {
+          "term": "direito administrativo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "direito das gentes",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Publicado en tres volúmenes."
+    },
+    {
+      "work_id": "0035-w007",
+      "title": "Noções elementares de philosophia e suas aplicações às ciências morais e políticas",
+      "work_type": "philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1839,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1839,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciências morais",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciências políticas",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_archive_biography",
+      "title": "Silvestre Pinheiro Ferreira",
+      "url": "https://mapa.arquivonacional.gov.br/index.php/mapa/centrais-de-conteudo/producao/biografias/451-silvestre-pinheiro-ferreira",
+      "publisher": "Arquivo Nacional do Brasil"
+    },
+    {
+      "kind": "national_library_study",
+      "title": "Bibliografia de obras de Silvestre Pinheiro Ferreira",
+      "url": "https://antigo.bn.gov.br/sites/default/files/documentos/producao/pesquisa/2012//maria_das_gracas_de_moraes_augusto_trab_revisado_0.pdf",
+      "publisher": "Fundação Biblioteca Nacional"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar tratados jurídicos posteriores a 1839 y proyectos legislativos.",
+    "La serie Prelecções debe conservar sus fascículos/fechas individuales en una futura expansión."
+  ]
+}

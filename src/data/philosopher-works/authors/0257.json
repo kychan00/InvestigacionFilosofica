@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "author_id": 257,
+  "canonical_name": "Nicolás Plantich",
+  "alternate_names": [
+    "Nicolás Plantich S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_corpus_with_publication_or_source_uncertainty",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0257-w001",
+      "title": "Curso de lógica (1752; título descriptivo)",
+      "work_type": "jesuit_colonial_logic_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1752,
+        "certainty": "course_dated_by_historical_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_source_attribution_first_print_unverified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+      ],
+      "title_status": "modern_descriptive_label",
+      "manuscript_location": "not_verified",
+      "notes": "Libro-base registra curso de lógica de Plantich en 1752; no se conoce título literal ni prueba de primera impresión."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza jesuita de lógica en instituciones educativas del Perú virreinal hacia 1752",
+      "kind": "colonial_intellectual_or_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000), Nicolás Plantich 1752",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "historical_colonial_educational_article",
+      "title": "Mauricio Beuchot, La enseñanza de la filosofía",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 84–85"
+    }
+  ],
+  "research_notes": [
+    "No extrapolar influencias doctrinales no documentadas a partir de contemporáneos de Plantich."
+  ]
+}

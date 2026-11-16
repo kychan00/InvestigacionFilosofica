@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "author_id": 192,
+  "canonical_name": "Alejandro Serrano Caldera",
+  "life": {
+    "born": {
+      "year": 1938,
+      "certainty": "book_biographical_index_2009"
+    },
+    "died": {
+      "year": 2026,
+      "certainty": "external_biographical_report_requires_confirmation"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "192-w001",
+      "title": "Introducción al pensamiento dialéctico",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://philpapers.org/rec/SERIAP"
+      ],
+      "notes": "Fondo de Cultura Económica, México; confirmado por testimonio del propio autor en entrevista de 2015."
+    },
+    {
+      "work_id": "192-w002",
+      "title": "Dialéctica y enajenación",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lemondediplomatique.cl/la-crisis-de-la-idea-del-fin-de-la-historia-y-un-recomienzo-de-la-filosofia-de.html"
+      ],
+      "notes": "El autor señala EDUCA, San José, Costa Rica, 1979."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico y referencia biográfica del libro de 2009.",
+    "La fuente de 2009 registra solo año de nacimiento; fallecimiento 2026 requiere cotejo con obituario independiente.",
+    "Bibliografía parcial; fechas de composición no inferidas."
+  ]
+}

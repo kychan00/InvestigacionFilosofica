@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "author_id": 286,
+  "canonical_name": "Nuno Marques Pereira",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1728_original_first_edition_and_later_second_part_not_double_counted",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0286-w001",
+      "title": "Compêndio narrativo do peregrino da América",
+      "work_type": "religious_moral_allegorical_narrative_printed_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1728,
+        "certainty": "USP_first_edition_catalog"
+      },
+      "first_publication_year": 1728,
+      "authorship_status": "original_author_first_edition_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral religiosa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "peregrinación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "costumbres del Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.brasiliana.usp.br/handle/bbm/4067",
+        "https://www.brasiliana.usp.br/handle/bbm/4069"
+      ],
+      "notes": "Edición princeps: Lisboa Ocidental, oficina de Manoel Fernandes da Costa, 1728, 475 pp. Segunda parte inédita añadida en edición de 1939; esta continuación no se cuenta como segunda obra sin identificación textual autónoma.",
+      "edition": {
+        "year": 1728,
+        "publisher": "Manoel Fernandes da Costa",
+        "region": "Lisboa Occidental"
+      },
+      "later_editions": [
+        {
+          "year": 1760,
+          "edition": "4.ª, catálogo USP"
+        },
+        {
+          "year": 1939,
+          "edition": "6.ª ampliada, segunda parte hasta entonces inédita"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Prosa moralizante de crítica de vicios y costumbres del Brasil colonial, articulada mediante alegoría de peregrinación",
+      "kind": "colonial_brazilian_moral_philosophy",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "university_physical_first_edition_catalog",
+      "title": "Biblioteca Brasiliana USP, Compendio narrativo do Peregrino da America, 1728",
+      "url": "https://www.brasiliana.usp.br/handle/bbm/4067"
+    },
+    {
+      "kind": "university_critical_edition_catalog",
+      "title": "Biblioteca Brasiliana USP, edición de 1939 completada con segunda parte",
+      "url": "https://www.brasiliana.usp.br/handle/bbm/4069"
+    }
+  ],
+  "research_notes": [
+    "Los ejemplares de 1728 y las ediciones posteriores son manifestaciones de una obra, no obras distintas.",
+    "El libro base y otras fuentes discrepan en año de muerte, por lo que no se fija en la ficha."
+  ]
+}

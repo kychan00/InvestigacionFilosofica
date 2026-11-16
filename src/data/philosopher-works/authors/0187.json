@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 187,
+  "canonical_name": "Diego Domínguez Caballero",
+  "life": {
+    "born": {
+      "year": 1915,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": null,
+      "certainty": "biographical_reference_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0187-w001",
+      "title": "Razón y sentido de lo panameño",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://launiversidad.up.ac.pa/node/3322"
+      ],
+      "notes": "La Universidad de Panamá identifica una colección de ensayos; año de primera edición sin verificar."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; biografía contrastada con índice del libro base.",
+    "Bibliografía parcial; evitar atribuir a autor artículos sobre él."
+  ]
+}

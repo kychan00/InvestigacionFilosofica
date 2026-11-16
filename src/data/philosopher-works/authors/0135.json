@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "author_id": 135,
+  "canonical_name": "Juan Carlos Scannone",
+  "alternate_names": [
+    "Juan Carlos Scannone S.J."
+  ],
+  "life": {
+    "born": {
+      "year": 1931,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 2019,
+      "date": "2019-11-27",
+      "certainty": "university_report"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_and_editorial_distinctions_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0135-w001",
+      "title": "Ser y encarnación",
+      "work_type": "philosophical_theological_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "encarnación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w002",
+      "title": "Teología de la liberación y praxis popular",
+      "work_type": "theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "praxis popular",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w003",
+      "title": "La racionalidad científico-tecnológica y la racionalidad sapiencial de la cultura latinoamericana",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "racionalidad científico-tecnológica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura latinoamericana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ],
+      "publication_context": "Stromata, vol. 37, núms. 3–4, pp. 155–164"
+    },
+    {
+      "work_id": "0135-w004",
+      "title": "Sabiduría popular, símbolo y filosofía: diálogo internacional en torno de una interpretación latinoamericana",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "editorial_role_collective_work_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sabiduría popular",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "símbolo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ],
+      "notes": "Obra de diálogo colectivo: comprobar el rol de editor y delimitar capítulos propios antes de atribuir el conjunto."
+    },
+    {
+      "work_id": "0135-w005",
+      "title": "Teología de la liberación y doctrina social de la Iglesia",
+      "work_type": "theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "doctrina social",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w006",
+      "title": "Nuevo punto de partida en la filosofía latinoamericana",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ],
+      "notes": "Distinto del artículo de 1980 'Un nuevo punto de partida en la filosofía latinoamericana' registrado en Dialnet."
+    },
+    {
+      "work_id": "0135-w007",
+      "title": "Evangelización, cultura y teología",
+      "work_type": "theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "evangelización",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w008",
+      "title": "Sabiduría y liberación",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sabiduría",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w009",
+      "title": "Religión y pensamiento: hacia una filosofía de la religión para nuestro tiempo desde América Latina",
+      "work_type": "philosophy_of_religion_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la religión",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w010",
+      "title": "Discernimiento filosófico de la acción y pasión históricas: planteo para el mundo global desde América Latina",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "discernimiento filosófico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "acción",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    },
+    {
+      "work_id": "0135-w011",
+      "title": "La teología del pueblo: raíces teológicas del papa Francisco",
+      "work_type": "theology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2017,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2017,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología del pueblo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "papa Francisco",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0135-c001",
+      "title": "Participación en el movimiento argentino de filosofía de la liberación y en el diálogo filosofía-teología de la cultura popular",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0135-c002",
+      "title": "Docencia, investigación y dirección académica en instituciones jesuitas argentinas",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_publisher",
+      "title": "UAM Iztapalapa: publicaciones de Scannone",
+      "url": "https://divcsh.izt.uam.mx/consejo_editorial/index.php/libros-publicados-2000-2009/"
+    },
+    {
+      "kind": "academic_article",
+      "title": "SciELO México: diálogo y bibliografía de Scannone",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S2007-24062019000300002&script=sci_arttext&tlng=es"
+    },
+    {
+      "kind": "academic_bibliography",
+      "title": "Dialnet: Juan Carlos Scannone",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=187424"
+    },
+    {
+      "kind": "university_obituary",
+      "title": "ODUCAL memorial del P. Juan Carlos Scannone",
+      "url": "https://vrf.usal.edu.ar/archivos/vrf/docs/boletin_oducalcomunica_dic2019.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: filósofos de Argentina, páginas impresas 879–893"
+    }
+  ],
+  "research_notes": [
+    "Scannone falleció en 2019; publicaciones de 2020 en Dialnet pueden ser póstumas y requieren catalogarse con precaución.",
+    "El volumen de 1984 se clasifica como colectivo/editorial a la espera de verificación de roles por capítulo."
+  ]
+}

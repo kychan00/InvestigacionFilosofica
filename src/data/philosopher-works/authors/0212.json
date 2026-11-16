@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "author_id": 212,
+  "canonical_name": "Tecayehuatzin",
+  "alternate_names": [
+    "Tecayehuatzin de Huexotzinco"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_tradition_or_bibliographic_evidence_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0212-w001",
+      "title": "Diálogos y cantos de la tradición de Huexotzinco atribuidos a Tecayehuatzin",
+      "work_type": "traditionally_attributed_oral_poetic_corpus",
+      "original_language": "náhuatl",
+      "original_date": {
+        "year": null,
+        "certainty": "attributed_or_original_year_unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "traditional_attribution_not_authorially_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cantos nahuas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://historicas.unam.mx/publicaciones/catalogo/ficha?id=111b"
+      ],
+      "notes": "Conjunto de cuícatl conservado en fuentes documentales coloniales y estudiado por León-Portilla; no es un libro impreso durante vida del autor ni se presupone autógrafo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Tradición de diálogo filosófico y poesía náhuatl en el círculo de Huexotzinco",
+      "kind": "historical_intellectual_or_ritual_contribution",
+      "contribution_id": "0212-c001",
+      "authorship_status": "traditionally_attributed_or_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_critical_catalog",
+      "title": "Miguel León-Portilla, Trece poetas del mundo azteca",
+      "url": "https://historicas.unam.mx/publicaciones/catalogo/ficha?id=111b"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y 'latino' (1300–2000)",
+      "locator": "La filosofía náhuatl y los tlamatinime, pp. 703–704"
+    }
+  ],
+  "research_notes": [
+    "La atribución es tradicional y mediada por registros posteriores; composición y fecha inicial de circulación son inciertas.",
+    "El libro Trece poetas del mundo azteca es obra de Miguel León-Portilla (primera edición 1967), no de los autores prehispánicos."
+  ]
+}

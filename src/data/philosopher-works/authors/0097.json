@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "author_id": 97,
+  "canonical_name": "José Vasconcelos",
+  "alternate_names": [
+    "José Vasconcelos Calderón",
+    "José María Albino Vasconcelos Calderón"
+  ],
+  "life": {
+    "born": {
+      "year": 1882,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1959,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_aesthetic_metaphysical_americanist_pedagogical_autobiographical_and_systematic_corpus_verified_with_date_conflicts",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0097-w001",
+      "title": "Pitágoras: una teoría del ritmo",
+      "work_type": "philosophical_aesthetic_essay",
+      "original_language": "español",
+      "original_date": {
+        "start": 1916,
+        "end": 1918,
+        "certainty": "first_edition_date_conflict"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Pitágoras",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ritmo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1916,
+          1918
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0097-w002",
+      "title": "El monismo estético",
+      "work_type": "aesthetic_metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 1917,
+        "end": 1919,
+        "certainty": "first_edition_date_conflict"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "monismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conocimiento emocional",
+          "provenance": "scholarly"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1917,
+          1918,
+          1919
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0097-w003",
+      "title": "Estudios indostánicos",
+      "work_type": "comparative_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "India",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía comparada",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w004",
+      "title": "La raza cósmica: misión de la raza iberoamericana",
+      "work_type": "americanist_philosophy_of_history_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "raza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mestizaje",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la historia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w005",
+      "title": "Indología: una interpretación de la cultura ibero-americana",
+      "work_type": "americanist_cultural_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 1926,
+        "end": 1927,
+        "certainty": "edition_date_conflict"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Iberoamérica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "panamericanismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1926,
+          1927
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0097-w006",
+      "title": "Tratado de metafísica",
+      "work_type": "metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "energía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w007",
+      "title": "Ética",
+      "work_type": "ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "moral",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w008",
+      "title": "De Robinson a Odiseo: pedagogía estructurativa",
+      "work_type": "philosophy_of_education_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w009",
+      "title": "Ulises criollo",
+      "work_type": "autobiography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autobiografía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "México",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w010",
+      "title": "Estética",
+      "work_type": "aesthetics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "a priori estético",
+          "provenance": "catalog"
+        },
+        {
+          "term": "bellas artes",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w011",
+      "title": "Historia del pensamiento filosófico",
+      "work_type": "history_of_philosophy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento filosófico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0097-w012",
+      "title": "Todología: filosofía de la coordinación",
+      "work_type": "systematic_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "todología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "coordinación",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reforma educativa y proyecto cultural desde la Universidad Nacional y la Secretaría de Educación Pública",
+      "kind": "educational_cultural_institutional_contribution",
+      "period": {
+        "start": 1920,
+        "end": 1924,
+        "certainty": "public_office_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "educación pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura iberoamericana",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "bibliographic_primary_study",
+      "title": "La Raza Cósmica, Madrid 1925",
+      "url": "https://www.filosofia.org/bol/bib/nb060.htm",
+      "publisher": "Filosofía en español"
+    },
+    {
+      "kind": "historical_reference",
+      "title": "José Vasconcelos — obras principales",
+      "url": "https://www.filosofia.org/enc/fer/1941569.htm",
+      "publisher": "Diccionario de filosofía"
+    },
+    {
+      "kind": "academic_article",
+      "title": "¿Cómo leer La raza cósmica?",
+      "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2176",
+      "publisher": "Diánoia, UNAM",
+      "doi": "10.22201/iifs.18704913e.2026.96.2176"
+    },
+    {
+      "kind": "publisher_bibliography",
+      "title": "Estética — Biblioteca José Vasconcelos",
+      "url": "https://www.etrillas.mx/libro/estetica_10690",
+      "publisher": "Editorial Trillas"
+    }
+  ],
+  "research_notes": [
+    "Las fechas de Pitágoras, Monismo estético e Indología presentan discrepancias entre repertorios; se preservan en lugar de forzar una fecha única.",
+    "Pendiente ampliar memorias, novelas, discursos, artículos y obras políticas."
+  ]
+}

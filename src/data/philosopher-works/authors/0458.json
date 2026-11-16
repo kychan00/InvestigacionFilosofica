@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "author_id": 458,
+  "canonical_name": "Oward Ferrari",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0458-w001",
+      "title": "Heidegger y la filosofía",
+      "work_type": "heidegger_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "scholarly_reception_history"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uis.edu.co/index.php/revistasantander/article/download/2190/2551"
+      ],
+      "notes": "Philosophia, núm. 27, 1963, pp. 43-49."
+    },
+    {
+      "work_id": "0458-w002",
+      "title": "Filosofía y metafísica de Heidegger",
+      "work_type": "heidegger_metaphysics_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "scholarly_reception_history"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uis.edu.co/index.php/revistasantander/article/download/2190/2551"
+      ],
+      "notes": "Philosophia, núm. 28, 1964, pp. 41-47."
+    },
+    {
+      "work_id": "0458-w003",
+      "title": "El ser en la fenomenología de Husserl y de Heidegger",
+      "work_type": "husserl_heidegger_phenomenology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_database_and_project_bibliography"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.clafen.org/bfe/buscar.php?annofinal=+&annoinicial=+&pag=376&pag=380&tipo=cualquiera",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Philosophia, núm. 35, 1969, pp. 65-110."
+    },
+    {
+      "work_id": "0458-w004",
+      "title": "Filosofía o barbarie: la Europa de la razón (del logos) y la Europa de la traición. Una introducción a la filosofía",
+      "work_type": "philosophy_history_and_cultural_critique_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2004,
+        "certainty": "university_publisher_catalog"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "950390028X"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Europa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ediunc.uncuyo.edu.ar/catalogo/buscar?idcoleccion=17&page=9",
+        "https://bdigital.uncuyo.edu.ar/ficha/790"
+      ],
+      "notes": "Mendoza, EDIUNC, 2004, 308 p., Serie Manuales núm. 42."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción mendocina de Husserl y Heidegger, con énfasis en ser, metafísica, razón y libertad",
+      "kind": "argentine_husserl_heidegger_and_philosophy_history_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_publisher_source",
+      "title": "EDIUNC — Filosofía o barbarie",
+      "url": "https://ediunc.uncuyo.edu.ar/catalogo/buscar?idcoleccion=17&page=9"
+    },
+    {
+      "kind": "university_audiovisual_source",
+      "title": "UNCuyo — ¿Qué es la filosofía?, Oward Ferrari",
+      "url": "https://bdigital.uncuyo.edu.ar/ficha/790"
+    },
+    {
+      "kind": "bibliographic_database",
+      "title": "Bibliografía Filosófica en Español — Oward Ferrari",
+      "url": "https://www.clafen.org/bfe/buscar.php?annofinal=+&annoinicial=+&pag=376&pag=380&tipo=cualquiera"
+    }
+  ],
+  "research_notes": [
+    "El título del artículo de 1969 se normaliza como 'El ser en la fenomenología de Husserl y de Heidegger', forma corroborada por historia de recepción y base bibliográfica.",
+    "Filosofía o barbarie se registra en su edición EDIUNC de 2004, no a partir de menciones posteriores a conferencias."
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "author_id": 377,
+  "canonical_name": "Gregorio Luperón",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1839,
+      "certainty": "national_library_authority"
+    },
+    "died": {
+      "year": 1897,
+      "certainty": "national_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0377-w001",
+      "title": "Notas autobiográficas y apuntes históricos sobre la República Dominicana desde la Restauración hasta nuestros días",
+      "work_type": "autobiography_and_national_history_multivolume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "first_volume_publication_documented"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Restauración dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autobiografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/clio/clio_1939_No_36-37.pdf",
+        "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OP003&idpag=0944126427&informatico=00292348PI"
+      ],
+      "notes": "Obra en tres tomos tratada como una sola unidad bibliográfica. La evidencia de la Academia Dominicana de la Historia consigna tomo I, Ponce 1895; tomos II y III, Ponce 1896. La edición gubernamental de 1939 es segunda edición, no primera."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Liderazgo restaurador y reflexión histórica sobre soberanía, república y relaciones dominico-haitianas",
+      "kind": "restoration_and_republican_historical_contribution",
+      "authorship_status": "documented_in_national_historical_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Dominicana de la Historia — Reliquias de Gregorio Luperón",
+      "url": "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/clio/clio_1939_No_36-37.pdf"
+    },
+    {
+      "kind": "archival_catalog_source",
+      "title": "Archivo General de la Nación RD — Notas autobiográficas, tomo III, Ponce 1896",
+      "url": "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OP003&idpag=0944126427&informatico=00292348PI"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — Notas autobiográficas y apuntes históricos",
+      "url": "https://bd.bnphu.gob.do/items/ca51ced9-29c6-4413-9223-639f1e05d618/full"
+    }
+  ],
+  "research_notes": [
+    "La obra no se divide artificialmente en tres obras por sus tomos.",
+    "Algunos registros antiguos del AGN muestran por error 1839-1879; la autoridad bibliográfica y la BNPHU usan 1839-1897."
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "author_id": 40,
+  "canonical_name": "Juan León Mera",
+  "alternate_names": [
+    "Juan León Mera Martínez"
+  ],
+  "life": {
+    "born": {
+      "year": 1832,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1894,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_literary_critical_national_education_and_folklore_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0040-w001",
+      "title": "Poesías",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1858,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1858,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía ecuatoriana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "romanticismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w002",
+      "title": "La virgen del sol",
+      "work_type": "verse_novel_indigenous_legend",
+      "original_language": "español",
+      "original_date": {
+        "year": 1861,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1861,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "leyenda indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesía narrativa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w003",
+      "title": "Himno Nacional del Ecuador",
+      "work_type": "national_anthem_lyrics",
+      "original_language": "español",
+      "original_date": {
+        "year": 1865,
+        "certainty": "exact",
+        "date": "1865-11-15"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "verified_lyrics",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Antonio Neumane",
+          "role": "composer"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "patria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w004",
+      "title": "Ojeada histórico-crítica sobre la poesía ecuatoriana",
+      "work_type": "literary_history_criticism",
+      "original_language": "español",
+      "original_date": {
+        "year": 1868,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1868,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía ecuatoriana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "crítica literaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nación",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w005",
+      "title": "Confidencias y lecciones",
+      "work_type": "educational_moral_prose",
+      "original_language": "español",
+      "original_date": {
+        "year": 1876,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "moral",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w006",
+      "title": "Cumandá",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela ecuatoriana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Amazonía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "nación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w007",
+      "title": "La escuela doméstica",
+      "work_type": "educational_article_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1880,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "familia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w008",
+      "title": "Melodías indígenas",
+      "work_type": "poetry_music_indigenous_collection",
+      "original_language": "español_y_material_indígena",
+      "original_date": {
+        "year": 1887,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1887,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "melodías indígenas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura indígena",
+          "provenance": "inferred"
+        },
+        {
+          "term": "nación",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w009",
+      "title": "Cantares del pueblo ecuatoriano",
+      "work_type": "folklore_poetry_collection",
+      "original_language": "español_y_quichua_material",
+      "original_date": {
+        "year": 1892,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "verified_compiler_and_commentator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tradición oral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "quichua",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesía popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0040-w010",
+      "title": "Catecismo explicado de la Constitución de la República del Ecuador",
+      "work_type": "civic_education_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1894,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitución del Ecuador",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación cívica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciudadanía",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_authority",
+      "title": "Mera, Juan León, 1832-1894",
+      "url": "https://biblioteca.casadelacultura.gob.ec/cgi-bin/koha/opac-authoritiesdetail.pl?authid=5082",
+      "publisher": "Casa de la Cultura Ecuatoriana"
+    },
+    {
+      "kind": "academic_anthology",
+      "title": "Juan León Mera. Estudio, selección y notas",
+      "url": "https://www.uasb.edu.ec/publicacion/juan-leon-mera-estudio-seleccion-y-notas-raul-vallejo-corral/",
+      "publisher": "Universidad Andina Simón Bolívar"
+    },
+    {
+      "kind": "government_history",
+      "title": "Día del Himno Nacional",
+      "url": "https://www.comunicacion.gob.ec/ecuatorianos-conmemoran-el-dia-del-himno-nacional/",
+      "publisher": "Presidencia de la República del Ecuador"
+    }
+  ],
+  "research_notes": [
+    "Pendiente agregar fábulas, periodismo, Novelitas ecuatorianas, Tijeretazos y plumadas, textos geográficos y artículos de 1880-1890.",
+    "El Himno separa letra de Mera y música de Antonio Neumane como roles distintos."
+  ]
+}

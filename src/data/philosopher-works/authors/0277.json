@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "author_id": 277,
+  "canonical_name": "Ottobah Cugoano",
+  "alternate_names": [
+    "Quobna Ottobah Cugoano",
+    "Ottabah Cugoano"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1787_first_edition_and_1791_revision_deduplicated",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0277-w001",
+      "title": "Thoughts and Sentiments on the Evil and Wicked Traffic of the Slavery and Commerce of the Human Species",
+      "work_type": "abolitionist_moral_and_political_philosophy_printed_book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1787,
+        "certainty": "first_print_documented"
+      },
+      "first_publication_year": 1787,
+      "authorship_status": "original_author_printed_work",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolicionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos naturales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "responsabilidad moral",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/entries/cugoano/",
+        "https://digital-collections.princeton.edu/i/thoughts-sentiments-evil-wicked-tra/item/eee25191-018f-489c-a490-b9b8124539bd"
+      ],
+      "notes": "Primera edición de Londres de 1787; edición abreviada con nuevo título dirigida a los Sons of Africa en 1791, y traducción francesa de 1788, son testimonios posteriores de la misma obra, no obras originales adicionales.",
+      "edition": {
+        "year": 1787,
+        "region": "Londres"
+      },
+      "later_editions": [
+        {
+          "year": 1788,
+          "language": "francés",
+          "title": "Réflexions sur la traite et l'esclavage des Nègres",
+          "status": "translation"
+        },
+        {
+          "year": 1791,
+          "title": "Thoughts and Sentiments on the Evil of Slavery",
+          "status": "revised_and_abridged_second_edition"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filosofía moral y política antiesclavista de la diáspora africana, crítica de la trata atlántica",
+      "kind": "africana_abolitionist_philosophy",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "peer_reviewed_reference_work",
+      "title": "Stanford Encyclopedia of Philosophy, «Ottobah Cugoano» (2026)",
+      "url": "https://plato.stanford.edu/entries/cugoano/"
+    },
+    {
+      "kind": "first_edition_digitization",
+      "title": "Princeton Digital Collections, edición original de 1787",
+      "url": "https://digital-collections.princeton.edu/i/thoughts-sentiments-evil-wicked-tra/item/eee25191-018f-489c-a490-b9b8124539bd"
+    }
+  ],
+  "research_notes": [
+    "Stanford Encyclopedia considera el volumen de 1787 su única obra publicada, aunque sobreviven cartas; no crear tratados por interpretaciones académicas.",
+    "La segunda edición de 1791 es sustancialmente abreviada, pero se conserva bajo la misma identidad de obra."
+  ]
+}

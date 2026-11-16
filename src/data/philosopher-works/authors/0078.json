@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "author_id": 78,
+  "canonical_name": "Oswald de Andrade",
+  "alternate_names": [
+    "José Oswald de Sousa Andrade"
+  ],
+  "life": {
+    "born": {
+      "year": 1890,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1954,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_modernist_manifesto_poetry_novel_theatre_and_philosophical_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0078-w001",
+      "title": "Os condenados",
+      "work_type": "novel",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1922,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "romance",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w002",
+      "title": "Manifesto da Poesia Pau-Brasil",
+      "work_type": "modernist_manifesto",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1924,
+        "certainty": "exact",
+        "date": "1924-03-18"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Pau-Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "descolonização cultural",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w003",
+      "title": "Memórias sentimentais de João Miramar",
+      "work_type": "experimental_novel",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1924,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "romance experimental",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w004",
+      "title": "Pau-Brasil",
+      "work_type": "poetry_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Pau-Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "descolonização cultural",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w005",
+      "title": "Manifesto Antropófago",
+      "work_type": "modernist_philosophical_manifesto",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1928,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antropofagia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "colonialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura brasileira",
+          "provenance": "inferred"
+        },
+        {
+          "term": "descolonização",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w006",
+      "title": "Serafim Ponte Grande",
+      "work_type": "experimental_novel",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "romance experimental",
+          "provenance": "inferred"
+        },
+        {
+          "term": "burguesia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w007",
+      "title": "O rei da vela",
+      "work_type": "play",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1937,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro",
+          "provenance": "catalog"
+        },
+        {
+          "term": "capitalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "burguesia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w008",
+      "title": "Marco Zero I: A revolução melancólica",
+      "work_type": "novel",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1943,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crise de 1930",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedade paulista",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w009",
+      "title": "Marco Zero II: Chão",
+      "work_type": "novel",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1946,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedade paulista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crise",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w010",
+      "title": "A crise da filosofia messiânica",
+      "work_type": "philosophical_thesis_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1950,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia messiânica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropofagia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "matriarcado",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0078-w011",
+      "title": "Um homem sem profissão: sob as ordens de mamãe",
+      "work_type": "memoir",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1954,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memórias",
+          "provenance": "inferred"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulação da Semana de Arte Moderna e dos movimentos Pau-Brasil e Antropofágico",
+      "kind": "cultural_intellectual_movement_contribution",
+      "period": {
+        "start": 1922,
+        "end": 1928,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Semana de Arte Moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Pau-Brasil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Antropofagia",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_archive",
+      "title": "Oswald de Andrade",
+      "url": "https://www.ieb.usp.br/oswald-de-andrade/",
+      "publisher": "Instituto de Estudos Brasileiros, USP"
+    },
+    {
+      "kind": "university_article",
+      "title": "A descoberta, Erro de Português, Vício na fala, e Pronominais — biographical bibliography",
+      "url": "https://revistas.usp.br/comueduc/es/article/view/37442",
+      "publisher": "Universidade de São Paulo"
+    },
+    {
+      "kind": "university_study",
+      "title": "Antropofagia — manifesto and publication chronology",
+      "url": "https://teses.usp.br/teses/disponiveis/8/8151/tde-04082016-165033/publico/2012_AnaBeatrizSampaioSoaresAzevedo_VOrig.pdf",
+      "publisher": "Universidade de São Paulo"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar teatro, poesía, periodismo y ensayos filosóficos tardíos, incluida A marcha das utopias con su edición póstuma.",
+    "El Manifesto Antropófago se trata como manifiesto filosófico-cultural, no como libro."
+  ]
+}

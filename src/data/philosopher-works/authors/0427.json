@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "author_id": 427,
+  "canonical_name": "Alberto Rougès",
+  "alternate_names": [
+    "Alberto Rouges"
+  ],
+  "life": {
+    "born": {
+      "year": 1880,
+      "certainty": "provincial_archive_authority"
+    },
+    "died": {
+      "year": 1945,
+      "certainty": "foundation_and_archive_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0427-w001",
+      "title": "La lógica de la acción y su aplicación al derecho",
+      "work_type": "doctoral_thesis_in_axiology_and_legal_philosophy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "axiología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica de la acción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/objetos_digitales/4227/91-cuyo-1967-tomo-03.pdf",
+        "https://archivohistorico.tucuman.gov.ar/efemerides/ver/175"
+      ],
+      "notes": "Tesis doctoral publicada por Edición Las Ciencias, Buenos Aires, 1905. Historiografía filosófica argentina la señala como una de las primeras elaboraciones locales sobre valores."
+    },
+    {
+      "work_id": "0427-w002",
+      "title": "Totalidades sucesivas",
+      "work_type": "philosophical_article_on_time_and_spiritual_reality",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tiempo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espíritu",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "totalidades sucesivas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra-visor/luz-vital--estudios-de-cultura-hispnica-en-memoria-de-victor-ouimette-0/html/ff1b45bc-82b1-11df-acc7-002185ce6064_42.htm",
+        "https://digicoll.lib.berkeley.edu/record/91149/files/b128979094_C2671096.pdf"
+      ],
+      "notes": "Artículo de 1938 que anticipa la teoría madura del tiempo y de la realidad espiritual desarrollada después en Las jerarquías del ser y la eternidad."
+    },
+    {
+      "work_id": "0427-w003",
+      "title": "Las jerarquías del ser y la eternidad",
+      "work_type": "metaphysical_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "first_edition_library_catalog"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tiempo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "eternidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "realidad espiritual",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "jerarquías del ser",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.unm.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=13970&shelfbrowse_itemnumber=46319",
+        "https://www.memoria.fahce.unlp.edu.ar/library?a=d&c=arti&d=Jpr10744"
+      ],
+      "notes": "Tucumán, Universidad Nacional de Tucumán, 1943, 154 páginas. Algunas referencias secundarias mencionan 1942; el catálogo de la edición y reseña contemporánea confirman 1943."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de una filosofía argentina del tiempo, los valores y la realidad espiritual basada en la noción de totalidades sucesivas",
+      "kind": "argentine_axiological_and_metaphysical_contribution",
+      "authorship_status": "documented_in_university_and_archive_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "provincial_archive_source",
+      "title": "Archivo Histórico de Tucumán — Alberto Rougés",
+      "url": "https://archivohistorico.tucuman.gov.ar/efemerides/ver/175"
+    },
+    {
+      "kind": "university_history_of_philosophy_source",
+      "title": "UNCuyo — La filosofía de Alberto Rougès",
+      "url": "https://bdigital.uncu.edu.ar/ficha/4227"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "Biblioteca UNM — Las jerarquías del ser y la eternidad, 1943",
+      "url": "https://biblioteca.unm.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=13970&shelfbrowse_itemnumber=46319"
+    }
+  ],
+  "research_notes": [
+    "La grafía Rougès con acento grave se conserva como canónica; Rouges aparece ampliamente en fuentes.",
+    "Para Las jerarquías del ser y la eternidad se adopta 1943 por catálogo de primera edición, pese a una referencia secundaria aislada a 1942."
+  ]
+}

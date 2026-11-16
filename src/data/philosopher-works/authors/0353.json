@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "author_id": 353,
+  "canonical_name": "Pablo Rodríguez Machicao",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0353-w001",
+      "title": "Introducción al estudio del derecho",
+      "work_type": "bolivian_original_natural_law_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1868,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1868,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm",
+        "https://biblioteca.corteidh.or.cr/tablas/r31089.pdf"
+      ],
+      "notes": "La Paz, Imprenta del Pueblo, 1868, 67 páginas, según historia del krausismo. Un estudio jurídico académico cita la página 21 sobre libre albedrío y derecho natural. Adaptación local del debate de Ahrens.",
+      "edition": {
+        "year": 1868,
+        "publisher": "Imprenta del Pueblo",
+        "region": "La Paz"
+      },
+      "pages": 67
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de filosofía del derecho en Bolivia mediante debates de libertad y moral",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Gómez-Martínez, bibliografía de Rodríguez Machicao 1868",
+      "url": "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Estudio académico jurídico que cita Introducción 1868",
+      "url": "https://biblioteca.corteidh.or.cr/tablas/r31089.pdf"
+    }
+  ],
+  "research_notes": [
+    "No adjudicar al autor textos de Ahrens como obras originales.",
+    "Primera edición de 1868 se reporta en repertorios; ejemplar original aún por cotejar físicamente."
+  ]
+}

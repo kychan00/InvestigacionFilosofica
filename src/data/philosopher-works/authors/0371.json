@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "author_id": 371,
+  "canonical_name": "Segundo Ruiz Belvis",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1829,
+      "certainty": "biographical_source"
+    },
+    "died": {
+      "year": 1867,
+      "certainty": "biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0371-w001",
+      "title": "Informe sobre la abolición inmediata de la esclavitud en la Isla de Puerto Rico",
+      "work_type": "collective_abolitionist_report_presented_to_colonial_reform_board",
+      "original_language": "español",
+      "original_date": {
+        "year": 1867,
+        "certainty": "presentation_date_verified"
+      },
+      "first_publication_year": 1870,
+      "authorship_status": "coauthor_and_principal_drafter_reported_by_biographical_source",
+      "coauthors": [
+        "José Julián Acosta",
+        "Francisco Mariano Quiñones"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trabajo libre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "catalog"
+        },
+        {
+          "term": "reforma colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/segundo-ruiz-belvis/",
+        "https://documentaliablog.wordpress.com/wp-content/uploads/2019/01/ruiz_belvis_1867_proyecto.pdf",
+        "https://milenio.uprb.edu/Milenio1997/Oliver97MIL.pdf"
+      ],
+      "notes": "Presentado por los tres comisionados puertorriqueños ante la Junta de Información el 10 de abril de 1867. La portada conservada de la impresión madrileña consultada fecha la publicación en 1870; parte de la historiografía denomina el texto «Proyecto» y lo fecha por su presentación en 1867. No se atribuye en exclusiva a Ruiz Belvis."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Abolicionismo inmediato e independentismo puertorriqueño articulados como programa de libertad civil y política",
+      "kind": "abolitionist_and_anticolonial_contribution",
+      "authorship_status": "documented_in_puerto_rican_historical_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "reference_source",
+      "title": "EnciclopediaPR — Segundo Ruiz Belvis",
+      "url": "https://enciclopediapr.org/content/segundo-ruiz-belvis/"
+    },
+    {
+      "kind": "primary_or_facsimile_source",
+      "title": "Informe sobre la abolición inmediata de la esclavitud, Madrid 1870",
+      "url": "https://documentaliablog.wordpress.com/wp-content/uploads/2019/01/ruiz_belvis_1867_proyecto.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "UPR Bayamón, estudio sobre Cortes y abolición",
+      "url": "https://milenio.uprb.edu/Milenio1997/Oliver97MIL.pdf"
+    }
+  ],
+  "research_notes": [
+    "El nombre del documento varía en bibliografía entre «Proyecto para la abolición...» e «Informe sobre la abolición inmediata...». Se conserva el título de la portada de 1870 y se documenta la presentación de 1867.",
+    "La coautoría con Acosta y Quiñones es obligatoria; no tratar el informe como obra exclusiva de Ruiz Belvis."
+  ]
+}

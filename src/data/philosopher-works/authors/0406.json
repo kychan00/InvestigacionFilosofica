@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 406,
+  "canonical_name": "Paulo Egydio",
+  "alternate_names": [
+    "Paulo Egídio de Oliveira Carvalho",
+    "Paulo Egydio de Oliveira Carvalho"
+  ],
+  "life": {
+    "born": {
+      "year": 1843,
+      "certainty": "academy_authority_with_1842_variant_in_scholarly_source"
+    },
+    "died": {
+      "year": 1906,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0406-w001",
+      "title": "Estudos de sociologia criminal",
+      "work_type": "criminal_sociology_essay_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1900,
+        "certainty": "municipal_and_scholarly_source"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociologia criminal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Durkheim",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crime",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "questão social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.limeira.sp.leg.br/vereadores/view/393",
+        "https://www.scielo.br/j/ts/a/8FWdPJgdch3hTxSRxrDbTdj/?format=html&lang=pt"
+      ],
+      "notes": "Identificado como principal trabalho teórico de Paulo Egídio, publicado em 1900. Sua recepção de Durkheim é objeto de estudos de história da sociologia brasileira."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introdução da sociologia durkheimiana e da sociologia criminal nos debates jurídicos e sociais de São Paulo",
+      "kind": "brazilian_criminal_sociology_contribution",
+      "authorship_status": "documented_in_scholarly_and_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Tempo Social / SciELO — Paulo Egídio e a sociologia criminal em São Paulo",
+      "url": "https://www.scielo.br/j/ts/a/8FWdPJgdch3hTxSRxrDbTdj/?format=html&lang=pt"
+    },
+    {
+      "kind": "academy_authority_source",
+      "title": "Academia Paulista de Letras — Paulo Egydio de Oliveira Carvalho",
+      "url": "https://academiapaulistadeletras.org.br/patronos.asp?materia=146"
+    },
+    {
+      "kind": "municipal_biographical_source",
+      "title": "Câmara Municipal de Limeira — Paulo Egídio de Oliveira Carvalho",
+      "url": "https://www.limeira.sp.leg.br/vereadores/view/393"
+    }
+  ],
+  "research_notes": [
+    "As fontes divergem entre 1842 e 1843 para o nascimento; a ficha conserva 1843 conforme Academia Paulista e Câmara de Limeira.",
+    "A produção jornalística foi extensa, mas não é decomposta em artigos individuais sem bibliografia de primeira publicação."
+  ]
+}

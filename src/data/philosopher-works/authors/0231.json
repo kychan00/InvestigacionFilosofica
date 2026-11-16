@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "author_id": 231,
+  "canonical_name": "Fermín de Ylárregui",
+  "alternate_names": [
+    "Fermín de Ylarregui",
+    "Fermín y Larregui",
+    "Fray Fermín de Ylarregui"
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "scholastic_course_manuscript_documented_not_printed",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0231-w001",
+      "title": "Orimda Philosophia",
+      "title_variant_candidates": [
+        "Oriunda Philosophia"
+      ],
+      "work_type": "scholastic_lecture_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "lecture_and_copy_period",
+        "period": {
+          "start": 1717,
+          "end": 1718
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "lecture_dictated_by_author_copied_by_student",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Nicolás de Castañeda",
+          "role": "manuscript_copyist_not_coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        }
+      ],
+      "manuscript": {
+        "repository": "Biblioteca Nacional de México",
+        "catalog": "Ms. 257",
+        "extent": "153 folios",
+        "college": "Real Colegio Agustiniano de San Pablo",
+        "completion_date": "1718-06-11"
+      },
+      "evidence_urls": [
+        "https://www.iifilologicas.unam.mx/pnovohispano/uploads/fyc/art15_fyc.pdf"
+      ],
+      "notes": "Estudio UNAM transcribe el título de portada «Orimda Philosophia», dictado en 1717 por Fermín de Ylárregui y copiado por Nicolás de Castañeda. Manuscrito terminado el 11 de junio de 1718, sin primera edición impresa comprobada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza de súmulas y lógica en el colegio agustiniano de San Pablo, Ciudad de México, 1717–1718",
+      "kind": "colonial_philosophical_teaching",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_scholarly_manuscript_study",
+      "title": "Arturo E. Ramírez Trejo, Fermín y Larregui: doctrina sobre el término",
+      "url": "https://www.iifilologicas.unam.mx/pnovohispano/uploads/fyc/art15_fyc.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Historia de enseñanza filosófica colonial, Fermín de Ylárregui (1717)"
+    }
+  ],
+  "research_notes": [
+    "No atribuir a Fermín el acto material de copia del manuscrito: el amanuense fue Nicolás de Castañeda.",
+    "Las notas marginales de 1723 no convierten al curso de 1717–1718 en publicación de 1723."
+  ]
+}

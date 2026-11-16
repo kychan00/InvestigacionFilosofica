@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author_id": 357,
+  "canonical_name": "Longinos Cadena",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1862,
+      "certainty": "historical_study"
+    },
+    "died": {
+      "year": 1933,
+      "certainty": "historical_study"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0357-w001",
+      "title": "La Constitución del 57 juzgada a la luz de la razón: estudio constitucional",
+      "work_type": "mexican_krausist_constitutional_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1893,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado e Iglesia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://filosofia.org/aut/001/ev190427.htm",
+        "https://www.scielo.org.mx/scielo.php?pid=S1665-44202010000100001&script=sci_arttext"
+      ],
+      "notes": "Diecinueve artículos de Estudio constitucional aparecieron en La Voz de México de junio a noviembre 1893, posteriormente editados como un solo libro, México, Imprenta y Encuadernación de Mariano Nava, 1894. No contarlos como 19 obras.",
+      "edition": {
+        "year": 1894,
+        "publisher": "Mariano Nava y Cía.",
+        "region": "México"
+      },
+      "first_serial_year": 1893,
+      "article_count": 19
+    },
+    {
+      "work_id": "0357-w002",
+      "title": "Teoría y práctica de la educación y la enseñanza: ensayo filosófico",
+      "work_type": "mexican_education_philosophy_first_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1897,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1897,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía pedagógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "didáctica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://filosofia.org/aut/001/ev190427.htm"
+      ],
+      "notes": "México, Talleres de la Librería Religiosa, 1897, tomo I. Emeterio Valverde Téllez (1904) lo cataloga y no confirma segundo volumen; no inventarlo.",
+      "edition": {
+        "year": 1897,
+        "publisher": "Talleres de la Librería Religiosa",
+        "region": "México"
+      },
+      "volume": "I",
+      "volume_II_status": "not_verified"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción selectiva del krausismo, crítica constitucional conservadora y enseñanza pedagógica en México",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Emeterio Valverde Téllez, bibliografía de Longinos Cadena 1894 y 1897",
+      "url": "https://filosofia.org/aut/001/ev190427.htm"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Kant en México del siglo XIX: Longinos Cadena en prensa 1893",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S1665-44202010000100001&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "La serie de 1893 y el libro de 1894 se relacionan como textos en diferente soporte.",
+    "No afirmar que se imprimió un tomo II en 1897."
+  ]
+}

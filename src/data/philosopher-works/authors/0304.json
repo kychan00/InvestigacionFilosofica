@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "author_id": 304,
+  "canonical_name": "Pedro José Márquez",
+  "alternate_names": [
+    "Pietro Márquez",
+    "Pedro Marquez S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_aesthetic_archaeological_works_1801_to_1808_selected",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0304-w001",
+      "title": "Sobre lo bello en general: discurso a un amigo",
+      "work_type": "aesthetic_philosophical_printed_discourse",
+      "original_language": "español",
+      "original_date": {
+        "year": 1801,
+        "certainty": "early_physical_catalog"
+      },
+      "first_publication_year": 1801,
+      "authorship_status": "original_author_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "belleza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría del arte",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1097236",
+        "https://www.realacademiadebellasartessanfernando.com/actividades/conferencias/la-cultura-jesuita-y-el-neoclasicismo-hispanico/"
+      ],
+      "notes": "Discurso de estética impreso en la Oficina del Diario, 1801, 31 páginas, según catálogo ADABI; no confundirlo con el apéndice «sul bello» de la obra italiana de 1808.",
+      "edition": {
+        "year": 1801,
+        "publisher": "Oficina del Diario",
+        "region": "sin lugar indicado en catálogo"
+      }
+    },
+    {
+      "work_id": "0304-w002",
+      "title": "Due antichi monumenti di architettura messicana",
+      "work_type": "neoclassical_american_architecture_antiquarian_treatise",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1804,
+        "certainty": "physical_imprint"
+      },
+      "first_publication_year": 1804,
+      "authorship_status": "original_author_1804_imprint_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arquitectura prehispánica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "monumentos mexicanos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética comparada",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1045366",
+        "https://www.realacademiadebellasartessanfernando.com/actividades/conferencias/la-cultura-jesuita-y-el-neoclasicismo-hispanico/"
+      ],
+      "notes": "Roma, presso il Salomoni, 1804, según ejemplar Biblioteca Palafoxiana, 47 páginas + grabados.",
+      "edition": {
+        "year": 1804,
+        "publisher": "Salomoni",
+        "region": "Roma"
+      }
+    },
+    {
+      "work_id": "0304-w003",
+      "title": "Saggio dell'astronomia, cronologia e mitologia degli antichi Messicani",
+      "work_type": "study_of_pre_hispanic_astronomy_and_mythology",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1804,
+        "certainty": "academy_bibliographic_listing"
+      },
+      "first_publication_year": 1804,
+      "authorship_status": "historical_academic_bibliography_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "astronomía mexica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cronología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mitología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.realacademiadebellasartessanfernando.com/actividades/conferencias/la-cultura-jesuita-y-el-neoclasicismo-hispanico/"
+      ],
+      "notes": "La Real Academia de Bellas Artes de San Fernando incluye este título entre las publicaciones del jesuita en 1804; falta cotejo de ejemplar/pie de imprenta para mayor precisión."
+    },
+    {
+      "work_id": "0304-w004",
+      "title": "Esercitazioni architettoniche sopra gli spettacoli degli antichi, con appendice sul bello in generale",
+      "work_type": "neoclassical_architectural_aesthetic_study",
+      "original_language": "italiano",
+      "original_date": {
+        "year": 1808,
+        "certainty": "academy_bibliography_year"
+      },
+      "first_publication_year": 1808,
+      "authorship_status": "original_author_historically_attested",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Vitruvio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arquitectura clásica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.realacademiadebellasartessanfernando.com/actividades/conferencias/la-cultura-jesuita-y-el-neoclasicismo-hispanico/"
+      ],
+      "notes": "Obra italiana publicada en 1808, según relación de la Real Academia de Bellas Artes de San Fernando. El apéndice sobre lo bello está relacionado con el discurso de 1801; no contarlo como tercera obra original."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Interpretación comparativa de belleza, ruinas clásicas y arquitectura mesoamericana desde el neoclasicismo hispánico",
+      "kind": "enlightenment_aesthetic_and_architectural_philosophy",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "royal_academy_bibliography",
+      "title": "Real Academia de Bellas Artes de San Fernando, «La cultura jesuita y el neoclasicismo hispánico»",
+      "url": "https://www.realacademiadebellasartessanfernando.com/actividades/conferencias/la-cultura-jesuita-y-el-neoclasicismo-hispanico/"
+    },
+    {
+      "kind": "physical_rare_book_catalog",
+      "title": "ADABI, Sobre lo bello en general, 1801",
+      "url": "https://www.adabi.org.mx/vufind/Record/1097236"
+    },
+    {
+      "kind": "physical_rare_book_catalog",
+      "title": "ADABI/Biblioteca Palafoxiana, Due antichi monumenti, Roma 1804",
+      "url": "https://www.adabi.org.mx/vufind/Record/1045366"
+    }
+  ],
+  "research_notes": [
+    "Los títulos de 1804 y 1808 están acreditados en bibliografía académica, pero falta cotejo de algunas portadas.",
+    "El discurso estético de 1801 y el apéndice de 1808 pueden compartir materia y texto; se registra el solapamiento sin adjudicar automáticamente identidad exacta."
+  ]
+}

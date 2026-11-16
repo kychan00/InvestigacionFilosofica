@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 341,
+  "canonical_name": "Cecilio Acosta",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1818,
+      "certainty": "national_biographical_authority"
+    },
+    "died": {
+      "year": 1881,
+      "certainty": "national_biographical_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_verified_1856_first_print_education_political_pamphlet_other_works_pending",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0341-w001",
+      "title": "Cosas sabidas y cosas por saberse, ó Federación Colombiana, tolerancia política, universidades e instrucción elemental, y cuestión holandesa",
+      "work_type": "political_and_education_philosophical_pamphlet_original_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1856,
+        "certainty": "first_book_imprint_confirmed"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "author_original_1856_print_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universidades",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tolerancia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Cosas_sabidas_y_cosas_por_saberse_%C3%B3_Fed.html?id=4SMYQr5lm3gC",
+        "https://bibliofep.fundacionempresaspolar.org/dhv/entradas/a/acosta-cecilio/"
+      ],
+      "notes": "Ejemplar histórico procedente de Harvard, 31 páginas, impreso en la Imprenta de Jesús María Soriano y compañía, 1856. El título es más largo que su abreviación conocida. Las ediciones de 1954, 1958 y 1981 son testimonios editoriales posteriores, no nuevos escritos originales.",
+      "edition": {
+        "year": 1856,
+        "publisher": "Jesús María Soriano y compañía",
+        "region": "Caracas, Venezuela (lugar pendiente de cotejo en portada)"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Humanismo venezolano decimonónico en debates sobre educación, libertades y reforma social",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "first_print_digitized_rare_book",
+      "title": "Harvard University / Google Books, Cosas sabidas... edición de 1856",
+      "url": "https://books.google.com/books/about/Cosas_sabidas_y_cosas_por_saberse_%C3%B3_Fed.html?id=4SMYQr5lm3gC"
+    },
+    {
+      "kind": "national_biographical_authority",
+      "title": "Fundación Empresas Polar, Diccionario de Historia de Venezuela, Cecilio Acosta",
+      "url": "https://bibliofep.fundacionempresaspolar.org/dhv/entradas/a/acosta-cecilio/"
+    },
+    {
+      "kind": "university_collected_writings_catalog",
+      "title": "Universidad Monteávila, Pensamiento político, colección posterior 1981 en dos volúmenes",
+      "url": "https://catalagobiblioteca.uma.edu.ve/bib/12026"
+    }
+  ],
+  "research_notes": [
+    "Colección «Pensamiento político» de 1981 contiene ensayos anteriores, pero no se les asigna primera fecha de publicación sin ejemplares.",
+    "«Caridad» se atribuye en bibliografía a 1885, DESPUÉS del fallecimiento en 1881: no fijar fecha de composición desde fecha editorial póstuma sin cotejo.",
+    "Se conserva extensión real del panfleto 1856, no los 2 tomos de una compilación moderna."
+  ]
+}

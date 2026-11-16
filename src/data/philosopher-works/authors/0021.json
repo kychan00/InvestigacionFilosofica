@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "author_id": 21,
+  "canonical_name": "José Rafael Campoy",
+  "alternate_names": [
+    "José Rafael Campoy Gastélum"
+  ],
+  "life": {
+    "born": {
+      "year": 1723,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1777,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "surviving_philosophical_work_not_verified_reported_writings_lost_or_unlocated",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0021-w001",
+      "title": "Proyecto cristiano y político para nuevas poblaciones y comercio en la Provincia de Sinaloa",
+      "work_type": "political_economic_project",
+      "original_language": "español",
+      "original_date": {
+        "century": 18,
+        "certainty": "reported_only"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_lost_or_unlocated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sinaloa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poblaciones",
+          "provenance": "inferred"
+        },
+        {
+          "term": "comercio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Título reportado por historiografía mexicana; no se verificó ejemplar conservado."
+    },
+    {
+      "work_id": "0021-w002",
+      "title": "Carta geográfica de la América Septentrional",
+      "work_type": "cartographic_work",
+      "original_language": "español",
+      "original_date": {
+        "century": 18,
+        "certainty": "reported_only"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_lost_or_unlocated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cartografía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "América Septentrional",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0021-w003",
+      "title": "Interpretaciones de los libros de Plinio",
+      "work_type": "natural_history_commentary",
+      "original_language": "español_o_latín",
+      "original_date": {
+        "century": 18,
+        "certainty": "reported_work_in_progress"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_unlocated",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Plinio el Viejo",
+          "role": "author_commented"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Plinio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "especies naturales",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "La investigación de Campoy sobre Plinio está documentada, pero no se conoce cuánto concluyó ni dónde quedó el manuscrito."
+    },
+    {
+      "work_id": "0021-w004",
+      "title": "Rudo ensayo. Tentativa de una prebencional descripción geographica de la provincia de Sonora",
+      "work_type": "regional_natural_history_geography",
+      "original_language": "español",
+      "original_date": {
+        "century": 18,
+        "certainty": "mid_eighteenth_century"
+      },
+      "first_publication_year": null,
+      "authorship_status": "disputed_attribution",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Juan Nentuig",
+          "role": "traditionally_attributed_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sonora",
+          "provenance": "catalog"
+        },
+        {
+          "term": "geografía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia natural",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "La atribución tradicional es a Juan Nentuig; investigaciones modernas han planteado como hipótesis que Campoy pudo ser autor o redactor."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Renovación de la enseñanza filosófica novohispana",
+      "kind": "pedagogical_intellectual_contribution",
+      "period": {
+        "start": 1740,
+        "end": 1767,
+        "certainty": "approximate"
+      },
+      "authorship_status": "scholarly_attribution",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "reforma filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica de la escolástica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "El libro-base del proyecto lo caracteriza como un pensador de enseñanza oral, sin obra filosófica extensa conservada."
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "José Rafael Campoy (1723-1777)"
+    },
+    {
+      "kind": "scholarly_study",
+      "title": "La introducción de la filosofía moderna en México",
+      "url": "https://repositorio.colmex.mx/pdf_viewer/0k225f90c?locale=es",
+      "publisher": "El Colegio de México"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "José Rafael Campoy, hermano mayor y caudillo",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/jose-rafael-campoy-hermano-mayor-y-caudillo-21301",
+      "publisher": "UNAM",
+      "doi": "10.19130/iifl.nt.1988.6.0.73"
+    }
+  ],
+  "research_notes": [
+    "No afirmar que dejó una obra filosófica sistemática: las fuentes consultadas dicen expresamente que no se conserva tal obra.",
+    "Pendiente buscar catálogos jesuitas y archivos italianos para verificar manuscritos reportados."
+  ]
+}

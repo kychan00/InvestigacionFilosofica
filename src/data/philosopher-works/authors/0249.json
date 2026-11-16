@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "author_id": 249,
+  "canonical_name": "Diego Marín de Alcázar",
+  "alternate_names": [
+    "Diego Marín de Alcazar S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1640,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1708,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_jesuit_scholastic_manuscripts_not_commercial_publications",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0249-w001",
+      "title": "Triennalis philosophiae cursus — tomo I: Logica (Summulae et Dialectica)",
+      "work_type": "jesuit_scholastic_philosophy_course_volume",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1667,
+        "certainty": "manuscript_tome_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_scholarly_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Triennalis philosophiae cursus",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Logica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html",
+        "https://aprenderly.com/doc/3470280/historia-del-pensamiento-filos%C3%A3%C2%B3fico-latinoamericano?page=193",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "series_title": "Triennalis philosophiae cursus",
+      "volume": 1,
+      "sections": [
+        "Summulae",
+        "Dialectica"
+      ],
+      "notes": "Primer tomo de un curso manuscrito trienal 1667–1669. No existe edición comercial original acreditada."
+    },
+    {
+      "work_id": "0249-w002",
+      "title": "Disputationes in octo physicorum libros Aristotelis Stagiritae",
+      "work_type": "jesuit_natural_philosophy_course_volume",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1668,
+        "certainty": "manuscript_tome_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_scholarly_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Disputationes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "physicorum",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Aristotelis",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html",
+        "https://aprenderly.com/doc/3470280/historia-del-pensamiento-filos%C3%A3%C2%B3fico-latinoamericano?page=193",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "series_title": "Triennalis philosophiae cursus",
+      "volume": 2,
+      "sections": [
+        "Física",
+        "Cosmogonía",
+        "proyectiles"
+      ],
+      "notes": "Segundo tomo del curso (1668), que incluye física y discusiones sobre cosmología y proyectiles."
+    },
+    {
+      "work_id": "0249-w003",
+      "title": "Disputationes in universam philosophiam scholasticam, quam metaphysicam scientiam universalissimam vocant",
+      "work_type": "jesuit_metaphysics_course_volume",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1669,
+        "certainty": "manuscript_tome_dated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_scholarly_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Disputationes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metaphysicam",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html",
+        "https://aprenderly.com/doc/3470280/historia-del-pensamiento-filos%C3%A3%C2%B3fico-latinoamericano?page=193",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "series_title": "Triennalis philosophiae cursus",
+      "volume": 3,
+      "notes": "Metafísica del curso (1669), con argumentos críticos ante el tomismo y escotismo; conservar título y volumen. No confundir año del manuscrito con impresión."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0249-c001",
+      "title": "Docencia jesuita novohispana y elaboración de un curso sistemático de lógica, física y metafísica con discusión del legado de Francisco Suárez",
+      "kind": "colonial_scholastic_philosophical_teaching",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_colonial_philosophy_monograph",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial, sección Diego Marín de Alcázar",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "scholarly_historical_study",
+      "title": "Carlos Beorlegui, Historia del pensamiento filosófico latinoamericano, Marín de Alcázar",
+      "url": "https://aprenderly.com/doc/3470280/historia-del-pensamiento-filos%C3%A3%C2%B3fico-latinoamericano?page=193"
+    },
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Mauricio Beuchot, Textos filosóficos en la Nueva España",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», p. 82; y «La ontología y la metafísica», p. 555"
+    }
+  ],
+  "research_notes": [
+    "Biblioteca Nacional conserva dos copias incompletas del curso, según Beuchot; el conjunto de tres tomos no debe contarse como cuatro libros independientes.",
+    "Las fechas 1667–1669 identifican los tres tratados/manuscritos y no impresiones."
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "author_id": 396,
+  "canonical_name": "José Inácio de Abreu e Lima",
+  "alternate_names": [
+    "General Abreu e Lima",
+    "José Ignácio de Abreu e Lima"
+  ],
+  "life": {
+    "born": {
+      "year": 1794,
+      "certainty": "library_authority_with_variant_1796_in_secondary_sources"
+    },
+    "died": {
+      "year": 1869,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0396-w001",
+      "title": "Compêndio da história do Brasil",
+      "work_type": "national_history_multivolume_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1843,
+        "certainty": "first_edition_library_catalog"
+      },
+      "first_publication_year": 1843,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história do Brasil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Império do Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://digital.bbm.usp.br/handle/bbm/7639",
+        "https://literaturabrasileira.ufsc.br/documentos?id=219584&locale=pt_BR"
+      ],
+      "notes": "Primeira edição Rio de Janeiro, E. e H. Laemmert, 1843, em dois volumes. Mantém-se como uma única obra multivolume."
+    },
+    {
+      "work_id": "0396-w002",
+      "title": "Sinopse ou dedução cronológica dos fatos mais notáveis da história do Brasil",
+      "work_type": "chronological_national_history_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1845,
+        "certainty": "first_edition_bibliographic_source"
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história do Brasil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cronologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=219586&locale=pt_BR"
+      ],
+      "notes": "Primeira edição Recife, Tipografia de Manuel Figueiroa de Faria, 1845. Algumas referências secundárias usam 1846; o catálogo digital citado identifica 1845 como primeira edição."
+    },
+    {
+      "work_id": "0396-w003",
+      "title": "O socialismo",
+      "work_type": "philosophical_social_and_historical_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1855,
+        "certainty": "first_edition_bibliographic_and_press_source"
+      },
+      "first_publication_year": 1855,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia da história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "questão social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cristianismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=219589&locale=pt_BR",
+        "https://periodicos.ufes.br/agora/pt_BR/article/download/44612/32169/166261"
+      ],
+      "notes": "Publicado no Recife em 1855; estudo recente confirma anúncio de venda em julho daquele ano e consulta a exemplar original. A obra é classificada por repertório bibliográfico como livro filosófico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulação entre historiografia nacional, republicanismo, liberdade de culto e uma interpretação própria do socialismo no Brasil oitocentista",
+      "kind": "brazilian_historical_socialist_and_republican_contribution",
+      "authorship_status": "documented_in_library_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección sobre pensamiento filosófico brasileño del siglo XIX",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_historical_source",
+      "title": "UFF Impressões Rebeldes — José Inácio de Abreu e Lima",
+      "url": "https://www.historia.uff.br/impressoesrebeldes/pessoa/jose-inacio-de-abreu-e-lima/"
+    },
+    {
+      "kind": "library_source",
+      "title": "Brasiliana USP — Compêndio da História do Brasil, 1843",
+      "url": "https://digital.bbm.usp.br/handle/bbm/7639"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — O socialismo, 1855",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=219589&locale=pt_BR"
+    }
+  ],
+  "research_notes": [
+    "A data de nascimento aparece como 1794 em catálogos e 1796 em algumas biografias; a divergência é registrada.",
+    "A Sinopse é datada 1845 pelo catálogo de primeira edição, apesar de referência secundária a 1846."
+  ]
+}

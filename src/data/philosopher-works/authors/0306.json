@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 306,
+  "canonical_name": "Andrés Cavo",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_manuscript_corpus_first_publication_1836_38_edited_and_continued",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0306-w001",
+      "title": "Historia civil y política de México / Los tres siglos de México durante el gobierno español, hasta la entrada del Ejército Trigarante",
+      "work_type": "colonial_mexican_history_posthumously_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "author_exile_rome_undated_manuscript_before_death",
+        "period": {
+          "start": 1767,
+          "end": 1803
+        }
+      },
+      "first_publication_year": 1836,
+      "authorship_status": "author_original_manuscript_edited_and_supplemented_by_Bustamante",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia virreinal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía mexicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliografia200y500.iib.unam.mx/index.php/consumacion-de-la-independencia-200/32-los-tres-siglos-de-mexico-durante-el-gobierno-espanol-hasta-la-entrada-del-ejercito-trigarante",
+        "https://buscador.adabi.org.mx/vufind/Record/946635"
+      ],
+      "notes": "La obra original de Andrés Cavo, escrita en Roma y conservada manuscrita hasta la edición de Carlos María de Bustamante, se publicó en 1836–1838 por Luis Abadiano y Valdés, México, cuatro tomos. Bustamante añadió notas y suplemento hasta 1821; Cavo murió en 1803 y no redactó esas partes. No multiplicar por tomos ni atribuir suplemento a Cavo.",
+      "author_original_title": "Historia civil y política de México (título histórico atribuido)",
+      "editor_and_continuator": "Carlos María de Bustamante",
+      "editions": [
+        {
+          "start": 1836,
+          "end": 1838,
+          "volumes": 4,
+          "publisher": "Luis Abadiano y Valdés",
+          "region": "México"
+        },
+        {
+          "year": 1852,
+          "publisher": "J. R. Navarro",
+          "region": "México"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historia política y civil del periodo virreinal novohispano narrada desde el exilio jesuita",
+      "kind": "mexican_colonial_political_historiography",
+      "authorship_status": "scholarly_or_archive_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico y capítulo histórico",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_exhibition",
+      "title": "Instituto de Investigaciones Bibliográficas UNAM, Los tres siglos de México (1836–1838)",
+      "url": "https://bibliografia200y500.iib.unam.mx/index.php/consumacion-de-la-independencia-200/32-los-tres-siglos-de-mexico-durante-el-gobierno-espanol-hasta-la-entrada-del-ejercito-trigarante"
+    },
+    {
+      "kind": "physical_book_catalog",
+      "title": "ADABI, obra de Andrés Cavo editada con notas y suplemento por Carlos María de Bustamante",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/946635"
+    }
+  ],
+  "research_notes": [
+    "El libro no fue compuesto hasta la Independencia de 1821: esa extensión es suplemento editorial de Bustamante.",
+    "El catálogo ADABI tiene fechas de muerte discrepantes en algunas autoridades; prevalece cautela historiográfica.",
+    "Se registra conjunto único de cuatro tomos, no cuatro obras ni edición 1852 como original."
+  ]
+}

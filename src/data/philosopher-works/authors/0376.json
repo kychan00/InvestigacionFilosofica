@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 376,
+  "canonical_name": "Francisco Henríquez y Carvajal",
+  "alternate_names": [
+    "Francisco Hilario Henríquez y Carvajal"
+  ],
+  "life": {
+    "born": {
+      "year": 1859,
+      "certainty": "government_biographical_source"
+    },
+    "died": {
+      "year": 1935,
+      "certainty": "government_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0376-w001",
+      "title": "Discurso pronunciado en la reunión patriótica dominical celebrada en el teatro Colón por la Asociación de jóvenes de Santiago de los Caballeros",
+      "work_type": "nationalist_public_speech_transcribed_and_printed",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "archival_catalog_date"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "speaker_transcribed_from_oral_delivery",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ocupación estadounidense",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "movilización cívica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OPPUB&idpag=0001161786&informatico=00281658PI&suposi=2",
+        "https://bibliotecadelcongreso.gob.do/Libros/0003636.pdf"
+      ],
+      "notes": "Impreso en Santiago en 1921 y señalado como tomado taquigráficamente. El registro AGN presenta una anomalía: su campo de autor dice Federico Henríquez y Carvajal, mientras el título, materias y bibliografía histórica identifican como orador a Francisco. Se conserva la atribución a Francisco y se documenta la inconsistencia catalográfica."
+    },
+    {
+      "work_id": "0376-w002",
+      "title": "Orden presidencial sobre recaudación de renta interna, organización de las Fuerzas Armadas y discusión del tratado con Estados Unidos",
+      "work_type": "presidential_institutional_order",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "archival_document_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "institutional_presidential_authority_not_claimed_as_sole_drafter",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Hacienda",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Fuerzas Armadas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estados Unidos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OPPUB&idpag=0055319055&informatico=00062882PI"
+      ],
+      "notes": "Expediente del Archivo General de la Nación fechado 1 de septiembre de 1916. Se registra la responsabilidad presidencial de Henríquez y Carvajal, sin atribuirle automáticamente la redacción exclusiva de todos los proyectos y copias incluidos en el expediente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa cívica y diplomática de la soberanía dominicana durante y después de la ocupación militar estadounidense",
+      "kind": "dominican_sovereignty_and_nationalist_contribution",
+      "authorship_status": "documented_in_government_and_archival_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "government_biographical_source",
+      "title": "Comisión Permanente de Efemérides Patrias — Francisco Henríquez y Carvajal",
+      "url": "https://cpep.gob.do/Documentos/Seccion/Biograf%C3%ADas%20patrias%20letra%20grafica.pdf"
+    },
+    {
+      "kind": "archival_source",
+      "title": "Archivo General de la Nación RD — discurso de 1921",
+      "url": "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OPPUB&idpag=0001161786&informatico=00281658PI&suposi=2"
+    },
+    {
+      "kind": "authority_source",
+      "title": "Biblioteca del Congreso Nacional RD — Francisco Henríquez y Carvajal, autoridad",
+      "url": "https://opac.bibliotecadelcongreso.gob.do/cgi-bin/koha/opac-authoritiesdetail.pl?authid=4336"
+    }
+  ],
+  "research_notes": [
+    "El discurso de 1921 tiene una inconsistencia en el campo de autor del catálogo AGN; otras partes del registro y la bibliografía dominicana lo atribuyen a Francisco.",
+    "Los actos presidenciales se registran como responsabilidad institucional, no como obra intelectual de autoría exclusiva."
+  ]
+}

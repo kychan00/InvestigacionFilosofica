@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "author_id": 448,
+  "canonical_name": "Lucía Piossek",
+  "alternate_names": [
+    "Lucía Piossek Prebisch",
+    "Lucía Piossek de Zucchi"
+  ],
+  "life": {
+    "born": {
+      "year": 1925,
+      "certainty": "foundation_biographical_source"
+    },
+    "died": {
+      "year": 2020,
+      "certainty": "foundation_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0448-w001",
+      "title": "Pensamiento argentino. Creencias e ideas",
+      "work_type": "argentine_intellectual_history_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento argentino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad cultural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/rec/PIOPAC",
+        "https://biblioteca.anh.org.ar/cgi-bin/koha/opac-search.pl?q=su%3A%22GENERACION+DE+1837%22"
+      ],
+      "notes": "Tucumán, Instituto de Historia y Pensamiento Argentinos, Facultad de Filosofía y Letras, UNT, 1988."
+    },
+    {
+      "work_id": "0448-w002",
+      "title": "De la trama de la experiencia",
+      "work_type": "philosophical_essays_on_experience",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "author_cv"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "experiencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensayo filosófico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/upload/descargar_archivo/?file=2016033004453940201ae01f349f50a15d1ecd7d19b316.lucia+piossek+prebisch+-+curriculum+vitae.pdf"
+      ],
+      "notes": "Tucumán, edición de la autora, 1994."
+    },
+    {
+      "work_id": "0448-w003",
+      "title": "El «filósofo topo». Sobre Nietzsche y el lenguaje",
+      "work_type": "nietzsche_and_philosophy_of_language_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9505544553"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía del lenguaje",
+          "provenance": "catalog"
+        },
+        {
+          "term": "nihilismo",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecas.ucasal.edu.ar/opac_css/index.php?id=49112&lvl=notice_display"
+      ],
+      "notes": "Tucumán, Facultad de Filosofía y Letras, UNT, 2005, 178 p.; segunda edición en 2008."
+    },
+    {
+      "work_id": "0448-w004",
+      "title": "Argentina: identidad y utopía",
+      "work_type": "argentine_identity_and_political_thought_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "author_cv_and_publisher_record"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789871366309"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Argentina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "utopía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b4654-lucia-piossek-prebisch",
+        "https://www.lagaceta.com.ar/nota/354487/la-gaceta-literaria/imprescindible-tarea-pensar-pais-como-proyecto.html"
+      ],
+      "notes": "Tucumán, EDUNT, 2009. El CV de la autora y la presentación editorial contemporánea fijan 2009."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudio del pensamiento argentino, la identidad cultural y la recepción de Nietzsche desde Tucumán",
+      "kind": "argentine_intellectual_history_identity_and_nietzsche_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "foundation_biographical_source",
+      "title": "Fundación Konex — Lucía Piossek Prebisch",
+      "url": "https://www.fundacionkonex.org/b4654-lucia-piossek-prebisch"
+    },
+    {
+      "kind": "author_cv_source",
+      "title": "Currículum vitae de Lucía Piossek Prebisch",
+      "url": "https://www.fundacionkonex.org/upload/descargar_archivo/?file=2016033004453940201ae01f349f50a15d1ecd7d19b316.lucia+piossek+prebisch+-+curriculum+vitae.pdf"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UCASAL — El filósofo topo",
+      "url": "https://bibliotecas.ucasal.edu.ar/opac_css/index.php?id=49112&lvl=notice_display"
+    }
+  ],
+  "research_notes": [
+    "Argentina: identidad y utopía se fija en 2009 por el CV de la autora y registros de presentación/editoriales contemporáneos.",
+    "El filósofo topo se registra por su primera edición de 2005; la segunda edición de 2008 no se cuenta como obra nueva."
+  ]
+}

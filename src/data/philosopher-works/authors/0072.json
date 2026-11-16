@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "author_id": 72,
+  "canonical_name": "Ernesto Guevara",
+  "alternate_names": [
+    "Ernesto Che Guevara",
+    "Ernesto Guevara de la Serna",
+    "Che Guevara"
+  ],
+  "life": {
+    "born": {
+      "year": 1928,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1967,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_travel_guerrilla_economic_socialist_and_diary_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0072-w001",
+      "title": "Notas de viaje",
+      "alternate_titles": [
+        "Diarios de motocicleta"
+      ],
+      "work_type": "travel_diary",
+      "original_language": "español",
+      "original_date": {
+        "start": 1951,
+        "end": 1952,
+        "certainty": "travel_diary_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript_posthumously_published",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Latina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "viaje",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "desigualdad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0072-w002",
+      "title": "La guerra de guerrillas",
+      "work_type": "guerrilla_strategy_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guerra de guerrillas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revolución",
+          "provenance": "inferred"
+        },
+        {
+          "term": "campesinado",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0072-w003",
+      "title": "Pasajes de la guerra revolucionaria",
+      "work_type": "revolutionary_memoir",
+      "original_language": "español",
+      "original_date": {
+        "start": 1958,
+        "end": 1961,
+        "certainty": "articles_composition_range"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Revolución cubana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "guerra revolucionaria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Sierra Maestra",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Los capítulos aparecieron antes como artículos entre 1959 y 1961; la primera edición en libro es de 1963."
+    },
+    {
+      "work_id": "0072-w004",
+      "title": "Contra el burocratismo",
+      "work_type": "political_economic_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "burocratismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0072-w005",
+      "title": "Sobre el sistema presupuestario de financiamiento",
+      "work_type": "socialist_economic_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sistema presupuestario",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "financiamiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "economía socialista",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0072-w006",
+      "title": "El socialismo y el hombre en Cuba",
+      "work_type": "socialist_humanist_letter_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "exact",
+        "date": "1965-03"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Carlos Quijano",
+          "role": "recipient_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hombre nuevo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trabajo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0072-w007",
+      "title": "Mensaje a los pueblos del mundo a través de la Tricontinental",
+      "alternate_titles": [
+        "Crear dos, tres... muchos Vietnam"
+      ],
+      "work_type": "internationalist_revolutionary_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "internacionalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Vietnam",
+          "provenance": "primary_title_variant"
+        },
+        {
+          "term": "antiimperialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0072-w008",
+      "title": "Diario del Che en Bolivia",
+      "work_type": "campaign_diary",
+      "original_language": "español",
+      "original_date": {
+        "start": 1966,
+        "end": 1967,
+        "certainty": "diary_range"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bolivia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "guerrilla",
+          "provenance": "inferred"
+        },
+        {
+          "term": "revolución latinoamericana",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_archive",
+      "title": "Che Guevara: Escritos",
+      "url": "https://www.marxists.org/espanol/guevara/escritos/",
+      "publisher": "Marxists Internet Archive"
+    },
+    {
+      "kind": "primary_digital_text",
+      "title": "Pasajes de la guerra revolucionaria",
+      "url": "https://www.marxists.org/espanol/guevara/escritos/op/libros/pasajes/index.htm",
+      "publisher": "Ocean Press / Marxists Internet Archive"
+    },
+    {
+      "kind": "primary_digital_text",
+      "title": "El socialismo y el hombre en Cuba",
+      "url": "https://www.marxists.org/espanol/guevara/65-socyh.htm",
+      "publisher": "Marxists Internet Archive"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Ernesto Guevara, el Che (1928-1967)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente añadir discursos económicos, cartas, Congo Diary, notas de lectura y cuadernos filosóficos.",
+    "No tratar antologías póstumas como libros autorales originales."
+  ]
+}

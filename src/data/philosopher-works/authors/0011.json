@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "author_id": 11,
+  "canonical_name": "Antonio Vieira",
+  "alternate_names": [
+    "António Vieira",
+    "Padre Antônio Vieira"
+  ],
+  "life": {
+    "born": {
+      "year": 1608,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1697,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_works_and_sermon_corpus_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0011-w001",
+      "title": "Sermões",
+      "work_type": "sermon_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1679,
+        "end": 1748,
+        "certainty": "edition_range"
+      },
+      "first_publication_year": 1679,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oratória",
+          "provenance": "catalog"
+        },
+        {
+          "term": "sermão",
+          "provenance": "catalog"
+        },
+        {
+          "term": "missões religiosas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "jesuítas",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Editio princeps distribuida em 15 volumes; os dois últimos são póstumos e incluem escritos diversos."
+    },
+    {
+      "work_id": "0011-w002",
+      "title": "Sermão da Sexagésima",
+      "work_type": "sermon",
+      "parent_work_id": "0011-w001",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1655,
+        "certainty": "preached"
+      },
+      "first_publication_year": 1668,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pregação",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "retórica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "oratória sacra",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Pregado na Capela Real em 1655; saiu antes em italiano, em Nápoles, em 1668, e integra o primeiro volume dos Sermões de 1679."
+    },
+    {
+      "work_id": "0011-w003",
+      "title": "Sermão de Santo António aos Peixes",
+      "work_type": "sermon",
+      "parent_work_id": "0011-w001",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1654,
+        "certainty": "preached"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "escravidão indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "missões",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Maranhão",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0011-w004",
+      "title": "História do Futuro",
+      "work_type": "prophetic_political_theology",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 17,
+        "certainty": "composition_incomplete"
+      },
+      "first_publication_year": 1718,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "profecia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Quinto Império",
+          "provenance": "inferred"
+        },
+        {
+          "term": "história providencial",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicação póstuma."
+    },
+    {
+      "work_id": "0011-w005",
+      "title": "Clavis Prophetarum",
+      "work_type": "prophetic_theology",
+      "original_language": "latín",
+      "original_date": {
+        "century": 17,
+        "certainty": "unfinished_at_death"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_incomplete",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "profecia",
+          "provenance": "editorial"
+        },
+        {
+          "term": "escatologia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "estilo barroco",
+          "provenance": "editorial"
+        }
+      ],
+      "notes": "Obra inacabada e editorialmente inconclusa à morte do autor; cópia organizada para Roma em 1699."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "digital_rare_book",
+      "title": "Sermoens do P. Antonio Vieira (Volume 01)",
+      "url": "https://digital.bbm.usp.br/handle/bbm/4578",
+      "publisher": "Biblioteca Brasiliana Guita e José Mindlin, USP"
+    },
+    {
+      "kind": "literary_database",
+      "title": "História do futuro",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=144101",
+      "publisher": "UFSC"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "A estética barroca do Latim da Clavis Prophetarum",
+      "url": "https://repositorio.ulisboa.pt/entities/publication/445d6db2-df42-4571-a75a-5080dfc3fc89",
+      "publisher": "Universidade de Lisboa"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar los sermones individualmente y separar fecha de predicación, primera impresión suelta y volumen de la edición príncipe."
+  ]
+}

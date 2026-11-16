@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "author_id": 163,
+  "canonical_name": "María Luisa Rivara de Tuesta",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_with_sources_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0163-w001",
+      "title": "Principales tendencias de la filosofía norteamericana",
+      "work_type": "translated_philosophy_reference_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "translator_of_others_work_not_original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía norteamericana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "related_people": [
+        {
+          "name": "Elizabeth Flower",
+          "role": "original_coauthor"
+        },
+        {
+          "name": "Murray G. Murphey",
+          "role": "original_coauthor"
+        }
+      ],
+      "notes": "Traducción del inglés de libro de Elizabeth Flower y Murray Murphey, no atribuir autoría original a Rivara."
+    },
+    {
+      "work_id": "0163-w002",
+      "title": "José de Acosta, un humanista reformista",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "José de Acosta",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanismo reformista",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "related_people": [
+        {
+          "name": "José de Acosta",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0163-w003",
+      "title": "La investigación monográfica",
+      "work_type": "research_methodology_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "investigación monográfica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ]
+    },
+    {
+      "work_id": "0163-w004",
+      "title": "Bibliografía de Alejandro Octavio Deustua",
+      "work_type": "coauthored_scholarly_bibliography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Augusto Salazar Bondy",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alejandro Octavio Deustua",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "notes": "Contribución a Los fundadores en la filosofía de América Latina (OEA), pp. 15–29; no autoría de volumen completo."
+    },
+    {
+      "work_id": "0163-w005",
+      "title": "Ideólogos de la emancipación peruana",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "emancipación peruana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "edition_history": [
+        {
+          "year": 1988,
+          "publisher": "Universidad Autónoma del Estado de México",
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0163-w006",
+      "title": "La entrevista de Bolívar y San Martín",
+      "work_type": "unpublished_or_mimeographed_history_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "mimeographed_circulation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bolívar",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "San Martín",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "notes": "Bibliografía de autora cita copias mimeográficas Lima 1972; publicación comercial no verificada, first_publication_year=null."
+    },
+    {
+      "work_id": "0163-w007",
+      "title": "Bibliografía de Augusto Salazar Bondy",
+      "work_type": "academic_bibliography_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Augusto Salazar Bondy",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "publication_context": "San Marcos, Nueva época, núm. 12 (julio-sept. 1975), pp. 165–185."
+    },
+    {
+      "work_id": "0163-w008",
+      "title": "Augusto Salazar Bondy: filosofía e ideología en Latinoamérica y en el Perú",
+      "work_type": "history_of_philosophy_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Salazar Bondy",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "publication_context": "Nuestra América, vol. 11 (mayo-agosto 1984), pp. 41–54."
+    },
+    {
+      "work_id": "0163-w009",
+      "title": "Las ideas en el Perú: ilustración y romanticismo",
+      "work_type": "history_of_ideas_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas en el Perú",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ilustración",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "romanticismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "publication_context": "Siglo XIX, revista de historia, núm. 2 (julio-dic. 1986), pp. 119–174."
+    },
+    {
+      "work_id": "0163-w010",
+      "title": "El cuerpo en la filosofía de Maurice Merleau-Ponty",
+      "work_type": "phenomenology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuerpo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Merleau-Ponty",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "related_people": [
+        {
+          "name": "Maurice Merleau-Ponty",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0163-w011",
+      "title": "Pensamiento pre-hispánico y filosofía e ideología en Latinoamérica",
+      "work_type": "latin_american_philosophy_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/arete.199401.008",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento prehispánico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/5144"
+      ],
+      "publication_context": "Areté, vol. 6 núm. 1 (1994), pp. 103–115."
+    },
+    {
+      "work_id": "0163-w012",
+      "title": "Las ideas pedagógicas del padre José de Acosta",
+      "work_type": "doctoral_dissertation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "doctoral_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas pedagógicas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "José de Acosta",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "notes": "Tesis doctoral mimeografiada en la UNMSM, Lima 1996; circulación impresa comercial pendiente."
+    },
+    {
+      "work_id": "0163-w013",
+      "title": "Pensamiento prehispánico y filosofía colonial en el Perú",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento prehispánico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía colonial",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Perú",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ],
+      "notes": "El tomo FCE 2000 reúne investigaciones previas; no redatar a 2000 cada artículo original."
+    },
+    {
+      "work_id": "0163-w014",
+      "title": "Tres ensayos sobre la filosofía en el Perú",
+      "work_type": "latin_american_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Perú",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ]
+    },
+    {
+      "work_id": "0163-w015",
+      "title": "La intelectualidad peruana del siglo XX ante la condición humana",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intelectualidad peruana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "condición humana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.oocities.org/athens/forum/5305/"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0163-c001",
+      "title": "Historiografía del pensamiento peruano prehispánico y colonial y recuperación de tradiciones filosóficas andinas",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0163-c002",
+      "title": "Participación fundadora en institutos y sociedades de filosofía y pensamiento andino del Perú",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_cv_archive",
+      "title": "Currículum histórico de María Luisa Rivara de Tuesta, bibliografía propia",
+      "url": "https://www.oocities.org/athens/forum/5305/"
+    },
+    {
+      "kind": "university_journal_original_article",
+      "title": "Revista Areté PUCP: Pensamiento prehispánico y filosofía e ideología en Latinoamérica",
+      "url": "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/5144"
+    },
+    {
+      "kind": "original_publisher_catalog",
+      "title": "Google Books / Fondo de Cultura Económica: Pensamiento prehispánico y filosofía colonial",
+      "url": "https://books.google.com/books/about/Pensamiento_prehisp%C3%A1nico_y_filosof%C3%ADa_c.html?id=cCzXAAAAMAAJ"
+    },
+    {
+      "kind": "library_bibliography",
+      "title": "Open Library, autor María Luisa Rivara de Tuesta",
+      "url": "https://openlibrary.org/authors/OL5446058A/Mar%C3%ADa_Luisa_Rivara_de_Tuesta"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: Perú, Ecuador y Colombia, pp. 924–940"
+    }
+  ],
+  "research_notes": [
+    "La traducción de Flower y Murphey de 1963 está marcada como traducción, no monografía original.",
+    "La autobiografía académica lista manuscritos inéditos y documentos mimeografiados, cuya primera publicación no se inventa.",
+    "La biblioteca FCE 2000 constituye volumen de compilación, no primera publicación de cada trabajo incluido."
+  ]
+}

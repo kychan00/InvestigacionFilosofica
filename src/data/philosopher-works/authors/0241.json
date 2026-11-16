@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "author_id": 241,
+  "canonical_name": "Antonio de Hinojosa",
+  "alternate_names": [
+    "Fray Antonio de Hinojosa"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_manuscripts_and_early_prints_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0241-w001",
+      "title": "Clypeus thomistarum ex quaestionibus metaphysicis et theologicis affabre compactum",
+      "work_type": "unpublished_dominican_scholastic_treatise_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unknown_manuscript_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_manuscript_attribution_unpublished",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "thomistarum",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "quaestionibus metaphysicis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "theologicis",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "manuscript_status": "unpublished_not_physically_collated",
+      "title_variants": [
+        "Clypeus thomistarum ex quaestionibus metaphysicis et theologicis compactum"
+      ],
+      "notes": "Tratado tomista descrito como inédito en la historiografía moderna, sin fecha de edición ni ubicación material comprobada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0241-c001",
+      "title": "Docencia dominica en Nueva España desde 1603 y magisterio en teología obtenido en la universidad en 1606",
+      "kind": "historical_colonial_scholastic_or_intellectual_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "peer_reviewed_university_article",
+      "title": "Mauricio Beuchot, Textos filosóficos en la Nueva España (2008)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "scholarly_monograph",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "Ingresó en la Orden de Predicadores en 1590, según Beuchot.",
+    "La presencia de la palabra Clypeus en el título no lo hace equivalente a obras del dominico húngaro Petrus Niger o del dominico francés Jean-Baptiste Gonet."
+  ]
+}

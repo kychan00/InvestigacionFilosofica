@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "author_id": 152,
+  "canonical_name": "Ricardo Salas Astraín",
+  "alternate_names": [
+    "Ricardo Florentino Salas Astraín",
+    "Ricardo Salas Astrain"
+  ],
+  "life": {
+    "born": {
+      "year": 1957,
+      "certainty": "project_primary_source"
+    },
+    "born_year_conflict": {
+      "year": 1958,
+      "source": "biblioteca_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_source_checked_with_explicit_provisional_attributions",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0152-w001",
+      "title": "Lenguaje, símbolo religioso y hermenéutica: una interpretación del lenguaje religioso a la luz de P. Ricoeur",
+      "work_type": "doctoral_dissertation",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1989,
+        "certainty": "doctoral_thesis_defense"
+      },
+      "first_publication_year": null,
+      "authorship_status": "doctoral_thesis_defended_not_confirmed_printed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lenguaje religioso",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Ricoeur",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "notes": "Tesis doctoral en Lovaina 1989; edición comercial no verificada.",
+      "related_people": [
+        {
+          "name": "Paul Ricoeur",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0152-w002",
+      "title": "Conquista, traducción y lenguaje misionero en el siglo XVI",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conquista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "traducción",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lenguaje misionero",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "publication_context": "Revista Mapocho 32 (1992), pp. 209–224"
+    },
+    {
+      "work_id": "0152-w003",
+      "title": "Lenguaje religioso mapuche, hermenéutica e innovación semántica",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lenguaje religioso mapuche",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "publication_context": "Aisthesis núm. 27, pp. 97–109"
+    },
+    {
+      "work_id": "0152-w004",
+      "title": "Etno-desarrollo, modernización y pueblo mapuche",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "etno-desarrollo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pueblo mapuche",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "publication_context": "Perspectivas núm. 1, pp. 17–26"
+    },
+    {
+      "work_id": "0152-w005",
+      "title": "Lo sagrado y lo humano: para una hermenéutica de los símbolos religiosos",
+      "work_type": "philosophy_of_religion_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sagrado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "símbolos religiosos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w006",
+      "title": "Sociedad multicultural, pluralismo ético y educación",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad multicultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pluralismo ético",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "publication_context": "Pensamiento educativo 18(1), pp. 53–86",
+      "title_variants": [
+        "Sociedad multicultural, pluralismo ético y educación: algunos problemas sobre la argumentación ético-valórica"
+      ]
+    },
+    {
+      "work_id": "0152-w007",
+      "title": "Las humanidades frente al debate filosófico sobre modernidad y posmodernidad",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanidades",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "posmodernidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w008",
+      "title": "Problemas y perspectivas de una ética intercultural en el marco de la globalización cultural",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética intercultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización cultural",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w009",
+      "title": "Ética intercultural: ensayos de una ética discursiva para contextos culturales conflictivos",
+      "work_type": "philosophical_ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789567947133"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ética intercultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética discursiva",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "title_variants": [
+        "Ética intercultural: (re)lecturas del pensamiento latinoamericano"
+      ],
+      "edition_history": [
+        {
+          "year": 2005,
+          "note": "Edición revisada citada por Google Books"
+        },
+        {
+          "year": 2006,
+          "publisher": "Abya-Yala",
+          "note": "Edición ecuatoriana"
+        }
+      ]
+    },
+    {
+      "work_id": "0152-w010",
+      "title": "Problemas y perspectivas de la filosofía como diálogo intercultural",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18172/brocar.1879",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "diálogo intercultural",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "publication_context": "Brocar núm. 27, pp. 275–294"
+    },
+    {
+      "work_id": "0152-w011",
+      "title": "Estudios interculturales, hermenéutica y sujetos históricos",
+      "work_type": "intercultural_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estudios interculturales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sujetos históricos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w012",
+      "title": "Pensamiento crítico latinoamericano: conceptos fundamentales. Volumen I",
+      "work_type": "edited_collective_reference_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9567947325"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pensamiento crítico latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "notes": "Volumen colectivo bajo coordinación; no atribuir capítulos ajenos a Salas."
+    },
+    {
+      "work_id": "0152-w013",
+      "title": "Pensamiento crítico latinoamericano: conceptos fundamentales. Volumen II",
+      "work_type": "edited_collective_reference_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9567947333"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pensamiento crítico latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w014",
+      "title": "Pensamiento crítico latinoamericano: conceptos fundamentales. Volumen III",
+      "work_type": "edited_collective_reference_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9567947341"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pensamiento crítico latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w015",
+      "title": "Para una reconstrucción intercultural de la historia republicana",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reconstrucción intercultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia republicana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ]
+    },
+    {
+      "work_id": "0152-w016",
+      "title": "Intersubjetividad, otredad y reconocimiento",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intersubjetividad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "otredad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reconocimiento",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+      ],
+      "title_variants": [
+        "Intersubjetividad, otredad y reconocimiento: diálogos fenomenológicos para pensar la cuestión del otro en la filosofía intercultural"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0152-c001",
+      "title": "Investigación sobre diálogo filosófico intercultural, reconocimiento y tradiciones mapuche en universidades chilenas",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0152-c002",
+      "title": "Edición y coordinación del proyecto colectivo Pensamiento crítico latinoamericano: conceptos fundamentales",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_cv",
+      "title": "Universidad Católica de Temuco: Ricardo Florentino Salas Astraín",
+      "url": "https://posgrado.uct.cl/profesores/ricardo-florentino-salas-astrain/"
+    },
+    {
+      "kind": "academic_bibliography",
+      "title": "Dialnet: Ricardo Salas Astraín",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=334827"
+    },
+    {
+      "kind": "academic_bibliography",
+      "title": "Ediciones UCSH, bibliografía de Salas Astraín",
+      "url": "https://ediciones.ucsh.cl/index.php/hirf/article/view/3646"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "Catálogo Biblioteca Utopía: Pensamiento crítico latinoamericano",
+      "url": "https://ccc.opac.com.ar/pergamo/opac.php?a=bsqAutor&n=Salas+Astra%C3%ADn%2C+Ricardo+Florentino"
+    },
+    {
+      "kind": "university_journal",
+      "title": "Revista Brocar: Problemas y perspectivas de la filosofía como diálogo intercultural",
+      "url": "https://publicaciones.unirioja.es/ojs/index.php/brocar/article/view/1879"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Chile y Paraguay, páginas impresas 908–915"
+    }
+  ],
+  "research_notes": [
+    "El libro-base de 2009 sitúa nacimiento en 1957; catálogo académico refiere 1958. Se mantiene dato canónico y conflicto expreso.",
+    "Los tres volúmenes del compendio de 2005 son tomos editados de obra colectiva, no tres libros monográficos exclusivos de Salas."
+  ]
+}

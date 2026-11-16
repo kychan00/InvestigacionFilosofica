@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "author_id": 383,
+  "canonical_name": "José Ramón López",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1866,
+      "certainty": "national_library_authority"
+    },
+    "died": {
+      "year": 1922,
+      "certainty": "national_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0383-w001",
+      "title": "La alimentación y las razas",
+      "work_type": "sociological_and_social_hygiene_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1896,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1896,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "alimentación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "campesinado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pesimismo sociológico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.intec.edu.do/index.php/ciso/article/download/1043/html?inline=1",
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=32364"
+      ],
+      "notes": "Primera edición documentada en Santiago de Cuba, 1896; segunda edición en 1899. Sus tesis sobre raza, degeneración y nutrición se registran como categorías históricas del autor, no como conocimiento científico vigente."
+    },
+    {
+      "work_id": "0383-w002",
+      "title": "La paz en la República Dominicana: contribución al estudio de la sociología nacional",
+      "work_type": "sociological_national_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1915,
+        "certainty": "scholarly_bibliographic_source"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociología nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "paz política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "República Dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pesimismo sociológico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.intec.edu.do/index.php/ciso/article/download/1043/html?inline=1",
+        "https://sibm.unade.edu.do/bib/3628"
+      ],
+      "notes": "Obra de 1915 analizada junto con La alimentación y las razas por la historiografía del pensamiento sociológico dominicano. La recopilación Ensayos y artículos (1991) es edición posterior, no fecha original."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de una sociología dominicana centrada en alimentación, estructura social, conflicto político y diagnóstico nacional",
+      "kind": "dominican_sociological_thought_contribution",
+      "authorship_status": "documented_in_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Ciencia y Sociedad (INTEC) — Fundamentos del pesimismo en José Ramón López",
+      "url": "https://revistas.intec.edu.do/index.php/ciso/article/download/1043/html?inline=1"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — La alimentación y las razas",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=32364"
+    }
+  ],
+  "research_notes": [
+    "La segunda edición de 1899 de La alimentación y las razas no se cuenta como obra nueva.",
+    "Las categorías racialistas del texto se contextualizan críticamente."
+  ]
+}

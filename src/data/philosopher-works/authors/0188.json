@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 188,
+  "canonical_name": "Héctor-Neri Castañeda",
+  "life": {
+    "born": {
+      "year": 1924,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1991,
+      "certainty": "biographical_reference_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0188-w001",
+      "title": "Thinking and Doing: The Philosophical Foundations of Institutions",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-010-9888-5",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://link.springer.com/book/10.1007/978-94-010-9888-5"
+      ],
+      "notes": "Edición original Reidel 1975; reimpresión en tapa blanda 1981, edición digital 2012 y traducción española UNAM 1993. DOI de libro digital, no de una reseña."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; biografía contrastada con índice del libro base.",
+    "Bibliografía parcial; evitar atribuir a autor artículos sobre él."
+  ]
+}

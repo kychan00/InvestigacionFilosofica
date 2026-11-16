@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "author_id": 82,
+  "canonical_name": "João Cruz Costa",
+  "alternate_names": [
+    "João Cruz Costa"
+  ],
+  "life": {
+    "born": {
+      "year": 1904,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1978,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_history_of_ideas_and_brazilian_philosophy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0082-w001",
+      "title": "Alguns aspectos da filosofia no Brasil",
+      "work_type": "history_of_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia no Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história das ideias",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0082-w002",
+      "title": "Crítica das ideias políticas tomistas de Suarez",
+      "work_type": "doctoral_thesis_philosophy",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1940,
+        "certainty": "doctoral_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francisco Suárez",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tomismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Suárez",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideias políticas",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0082-w003",
+      "title": "O desenvolvimento da filosofia no Brasil no século XIX e a evolução histórica nacional",
+      "work_type": "history_of_philosophy_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1954,
+        "certainty": "publication_and_chair_thesis"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia brasileira",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "século XIX",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história nacional",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0082-w004",
+      "title": "Contribuição à história das ideias no Brasil",
+      "work_type": "intellectual_history_synthesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história das ideias",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historicismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0082-w005",
+      "title": "Esboço de uma história das ideias no Brasil",
+      "work_type": "intellectual_history_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 20,
+        "certainty": "publication_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_bibliographic_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história das ideias",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0082-w006",
+      "title": "Artigos sobre filosofia brasileira, historicismo e ISEB",
+      "work_type": "academic_article_corpus",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1938,
+        "end": 1978,
+        "certainty": "career_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_not_exhausted",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia brasileira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ISEB",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Consolidação da história das ideias como campo filosófico na USP",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1940,
+        "end": 1965,
+        "certainty": "academic_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "USP",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história das ideias",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_history",
+      "title": "João Cruz Costa",
+      "url": "https://www.eca.usp.br/acervo/producao-academica/002684322.pdf",
+      "publisher": "Universidade de São Paulo"
+    },
+    {
+      "kind": "university_article",
+      "title": "A trajetória de João Cruz Costa e a formação da filosofia uspiana",
+      "url": "https://revistas.usp.br/plural/pt_BR/article/view/74595",
+      "publisher": "Universidade de São Paulo",
+      "doi": "10.11606/issn.2176-8099.pcso.2009.74595"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "João Cruz Costa (1904-1978)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente completar títulos menores, conferencias y artículos en revistas brasileñas.",
+    "Las tres obras 1938, 1954 y 1956 forman el núcleo verificable de su historia de las ideas brasileñas."
+  ]
+}

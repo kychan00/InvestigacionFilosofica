@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 194,
+  "canonical_name": "Eugenio María de Hostos",
+  "life": {
+    "born": {
+      "year": 1839,
+      "certainty": "book_biographical_index_2009"
+    },
+    "died": {
+      "year": 1903,
+      "certainty": "book_biographical_index_2009"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0194-w001",
+      "title": "Moral social",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1888,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/df9556bc-dbcf-4001-bfe0-44f522dfe4ab"
+      ],
+      "notes": "Edición de 1888, Sociedad de Enseñanza de Santo Domingo; reediciones documentadas 1962 y 2003."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; fechas biográficas cotejadas con índice del libro base de 2009.",
+    "Bibliografía selectiva: fechas de composición no inferidas; roles editoriales diferenciados en notas."
+  ]
+}

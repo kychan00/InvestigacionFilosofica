@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "author_id": 46,
+  "canonical_name": "José Victorino Lastarria",
+  "alternate_names": [
+    "José Victorino Lastarria Santander"
+  ],
+  "life": {
+    "born": {
+      "year": 1817,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1888,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_liberal_historical_constitutional_and_literary_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0046-w001",
+      "title": "Discurso de incorporación a la Sociedad Literaria de Santiago",
+      "work_type": "literary_political_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1842,
+        "certainty": "exact",
+        "date": "1842-05-03"
+      },
+      "first_publication_year": 1842,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "emancipación mental",
+          "provenance": "inferred"
+        },
+        {
+          "term": "descolonización cultural",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w002",
+      "title": "Investigaciones sobre la influencia social de la Conquista i del sistema colonial de los españoles en Chile",
+      "work_type": "historical_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1844,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1844,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Conquista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sistema colonial",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Chile",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w003",
+      "title": "Discursos académicos",
+      "work_type": "academic_speech_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1844,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1844,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w004",
+      "title": "Elementos de derecho público constitucional teórico positivo i político",
+      "work_type": "constitutional_law_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1846,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1846,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho constitucional",
+          "provenance": "catalog"
+        },
+        {
+          "term": "juventud americana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "gobierno representativo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w005",
+      "title": "Bosquejo histórico de la Constitución del Gobierno de Chile durante el primer período de la revolución, desde 1810 hasta 1814",
+      "work_type": "constitutional_history",
+      "original_language": "español",
+      "original_date": {
+        "year": 1847,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1847,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitución de Chile",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revolución",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia constitucional",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w006",
+      "title": "Don Guillermo",
+      "work_type": "novel_political_allegory",
+      "original_language": "español",
+      "original_date": {
+        "year": 1860,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1860,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela chilena",
+          "provenance": "catalog"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autoritarismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w007",
+      "title": "La América",
+      "work_type": "political_americanist_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1865,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "unidad continental",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w008",
+      "title": "Historia constitucional del medio siglo",
+      "work_type": "comparative_constitutional_history",
+      "original_language": "español",
+      "original_date": {
+        "year": 1866,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sistema representativo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Europa",
+          "provenance": "catalog"
+        },
+        {
+          "term": "América",
+          "provenance": "catalog"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w009",
+      "title": "Lecciones de política positiva",
+      "work_type": "political_science_lecture_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política positiva",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0046-w010",
+      "title": "Recuerdos literarios",
+      "work_type": "literary_memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memoria literaria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "generación de 1842",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Chile",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_author_portal",
+      "title": "José Victorino Lastarria",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-166347.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_biography",
+      "title": "José Victorino Lastarria (1817-1888)",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-31493.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar con Proyectos de lei i discursos parlamentarios, Miscelánea histórica i literaria, ficción corta y correspondencia.",
+    "La cronología de 1842-1878 está verificada contra Memoria Chilena."
+  ]
+}

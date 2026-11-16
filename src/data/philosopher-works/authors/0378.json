@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "author_id": 378,
+  "canonical_name": "Américo Lugo",
+  "alternate_names": [
+    "Isidro Américo Lugo Herrera"
+  ],
+  "life": {
+    "born": {
+      "year": 1870,
+      "certainty": "national_library_and_repository_authority"
+    },
+    "died": {
+      "year": 1952,
+      "certainty": "national_library_and_repository_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0378-w001",
+      "title": "A punto largo",
+      "work_type": "political_and_historical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1901,
+        "certainty": "national_library_original_edition"
+      },
+      "first_publication_year": 1901,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "República Dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/27be038a-e742-4cdf-8a73-19be0011a51e",
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=31931"
+      ],
+      "notes": "BNPHU conserva testimonios de 1901 con diferencias de pie de imprenta: Santo Domingo, Imprenta La Cuna de América, y un ejemplar catalogado París, Paul Ollendorff. Se conserva la discrepancia editorial sin duplicar la obra."
+    },
+    {
+      "work_id": "0378-w002",
+      "title": "El Estado Dominicano ante el derecho público",
+      "work_type": "doctoral_thesis_in_public_law",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "university_catalog"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho público",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado dominicano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia constitucional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://pegasus.law.columbia.edu/record/125968",
+        "https://books.google.com/books/about/El_Estado_Dominicano_ante_el_derecho_p%C3%BA.html?id=9t82AQAAMAAJ"
+      ],
+      "notes": "Tesis doctoral de la Universidad Central de Santo Domingo, 1916, 34 páginas más hoja final según catálogos jurídicos. No se confunde con reediciones digitales posteriores."
+    },
+    {
+      "work_id": "0378-w003",
+      "title": "Historia de Santo Domingo: desde el 1556 hasta 1608",
+      "work_type": "historical_monograph_written_earlier_published_posthumously",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "national_library_description_of_composition"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author_with_posthumous_editorial_notes",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Santo Domingo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "siglo XVI",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "siglo XVII",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/d313c630-001a-4720-8a61-d1f9e2cfc2fd"
+      ],
+      "notes": "La BNPHU indica que la obra fue escrita en 1938 y publicada en 1952, puesta al día con notas de Fray Cipriano de Utrera y semblanza de Manuel Arturo Peña Batlle. Se separa claramente composición de publicación."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Nacionalismo jurídico e historiográfico dominicano, con defensa de soberanía y crítica de la ocupación estadounidense",
+      "kind": "nationalist_legal_and_historiographical_contribution",
+      "authorship_status": "documented_in_library_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — A punto largo, 1901",
+      "url": "https://bd.bnphu.gob.do/items/27be038a-e742-4cdf-8a73-19be0011a51e"
+    },
+    {
+      "kind": "law_library_source",
+      "title": "Columbia Law Library — El Estado Dominicano ante el derecho público, 1916",
+      "url": "https://pegasus.law.columbia.edu/record/125968"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — Historia de Santo Domingo, escrita 1938/publicada 1952",
+      "url": "https://bd.bnphu.gob.do/items/d313c630-001a-4720-8a61-d1f9e2cfc2fd"
+    }
+  ],
+  "research_notes": [
+    "A punto largo presenta variantes de pie de imprenta en los ejemplares catalogados de 1901; se conserva una sola identidad bibliográfica.",
+    "Historia de Santo Domingo distingue redacción en 1938 y edición de 1952."
+  ]
+}

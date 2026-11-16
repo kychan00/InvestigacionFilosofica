@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "author_id": 107,
+  "canonical_name": "Graciela Hierro",
+  "alternate_names": [
+    "Graciela Hierro Pérezcastro"
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "project_canonical_with_external_conflict",
+      "source_conflict_candidates": [
+        1926,
+        1928
+      ]
+    },
+    "died": {
+      "year": 2003,
+      "certainty": "verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_feminist_ethics_education_gender_and_pleasure_corpus_verified_birth_year_conflict_preserved",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0107-w001",
+      "title": "La naturaleza femenina",
+      "work_type": "collective_feminist_philosophy_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "compiler_editor_collective_volume",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "participantes del Tercer Coloquio Nacional de Filosofía",
+          "role": "collective_contributors"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9688374377"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "naturaleza femenina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía feminista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "género",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Volumen colectivo derivado de una mesa redonda de 1979; no se presenta como monografía individual."
+    },
+    {
+      "work_id": "0107-w002",
+      "title": "Ética y feminismo",
+      "work_type": "feminist_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9688371564",
+          "9789688371565"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "feminismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "condición femenina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "patriarcado",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0107-w003",
+      "title": "De la domesticación a la educación de las mexicanas",
+      "work_type": "feminist_history_of_education_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación de las mexicanas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "domesticación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "feminismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0107-w004",
+      "title": "Ética de la libertad",
+      "work_type": "ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0107-w005",
+      "title": "Naturaleza y fines de la educación superior",
+      "work_type": "philosophy_of_higher_education_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación superior",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fines",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0107-w006",
+      "title": "La enseñanza de la ética",
+      "work_type": "ethics_education_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "enseñanza",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0107-w007",
+      "title": "Filosofía de la educación y género",
+      "work_type": "edited_feminist_education_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "compiler_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9709170236"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "género",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0107-w008",
+      "title": "La ética del placer",
+      "work_type": "feminist_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9683693164"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "placer",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética feminista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sexualidad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "poder",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación y dirección del Programa Universitario de Estudios de Género de la UNAM",
+      "kind": "academic_feminist_institutional_contribution",
+      "period": {
+        "start": 1992,
+        "end": 2003,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "estudios de género",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "PUEG",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_catalog",
+      "title": "Bibliografía Graciela Hierro",
+      "url": "https://cieg.bibliotecas.unam.mx/images/pdf/bibliografia/Graciela_Hierro.pdf",
+      "publisher": "CIEG-UNAM"
+    },
+    {
+      "kind": "university_book",
+      "title": "Ética y feminismo",
+      "url": "https://divulgacion.humanidades.unam.mx/libros/%C3%A9tica-y-feminismo",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_memory",
+      "title": "Programa Universitario de Estudios de Género 2003",
+      "url": "https://web.planeacion.unam.mx/Memoria/Memoria-1973-2006/2003/pdf/pueg.pdf",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Graciela Hierro (1930-2003)"
+    }
+  ],
+  "research_notes": [
+    "El inventario maestro usa 1930; repertorios externos dan 1926 y 1928. Se conserva el conflicto sin reemplazar el dato canónico.",
+    "Pendiente ampliar Gracias a la vida, Me confieso mujer y artículos de ética, educación y género."
+  ]
+}

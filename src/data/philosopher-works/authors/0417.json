@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "author_id": 417,
+  "canonical_name": "Fausto Cardoso",
+  "alternate_names": [
+    "Fausto de Aguiar Cardoso"
+  ],
+  "life": {
+    "born": {
+      "year": 1864,
+      "certainty": "political_biographical_source"
+    },
+    "died": {
+      "year": 1906,
+      "certainty": "political_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0417-w001",
+      "title": "Cosmogonia política e americana",
+      "work_type": "political_and_historical_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1892,
+        "certainty": "digital_library_catalog"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "América",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=191358",
+        "https://repositorio.unb.br/jspui/bitstream/10482/4060/1/2009_GiliardSilvaPrado.pdf"
+      ],
+      "notes": "Rio de Janeiro, 1892. A literatura biográfica apresenta a obra como antecedente do projeto filosófico Cosmos do Direito e da Moral."
+    },
+    {
+      "work_id": "0417-w002",
+      "title": "Concepção Monística do Universo",
+      "work_type": "philosophical_monist_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1894,
+        "certainty": "scholarly_biographical_source"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "monismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unb.br/jspui/bitstream/10482/4060/1/2009_GiliardSilvaPrado.pdf"
+      ],
+      "notes": "Volume de 1894, prefaciado por Graça Aranha, apresentado por biógrafos como parte do grande projeto Cosmos do Direito e da Moral."
+    },
+    {
+      "work_id": "0417-w003",
+      "title": "Taxionomia Social",
+      "work_type": "social_philosophy_and_sociology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1898,
+        "certainty": "scholarly_biographical_source"
+      },
+      "first_publication_year": 1898,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "taxonomia social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "monismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unb.br/jspui/bitstream/10482/4060/1/2009_GiliardSilvaPrado.pdf"
+      ],
+      "notes": "Publicado em 1898. O projeto Cosmos do Direito e da Moral previa ainda Lei Fundamental da História e Cultura e Civilização, que permaneceram inconclusos segundo a fonte; não são registrados como obras publicadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desenvolvimento de um monismo filosófico e sociológico ligado à Escola do Recife e aplicação dessas ideias à crítica política republicana",
+      "kind": "monist_social_philosophy_and_republican_contribution",
+      "authorship_status": "documented_in_academic_and_political_history_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Cosmogonia política e americana, 1892",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=191358"
+    },
+    {
+      "kind": "academic_biographical_source",
+      "title": "UnB — Fausto Cardoso e sua produção filosófica",
+      "url": "https://repositorio.unb.br/jspui/bitstream/10482/4060/1/2009_GiliardSilvaPrado.pdf"
+    },
+    {
+      "kind": "political_biographical_source",
+      "title": "CPDOC/FGV — verbete Fausto Cardoso",
+      "url": "https://www.academia.edu/4177572/Fausto_Cardoso_Verbete_do_Dicion%C3%A1rio_da_Elite_Pol%C3%ADtica_Republicana_1889_1930_CPDOC_FGV_"
+    }
+  ],
+  "research_notes": [
+    "Cosmos do Direito e da Moral é tratado como projeto amplo, não como título publicado único; apenas volumes efetivamente identificados são registrados.",
+    "As partes Lei Fundamental da História e Cultura e Civilização ficaram inconclusas segundo a biografia citada."
+  ]
+}

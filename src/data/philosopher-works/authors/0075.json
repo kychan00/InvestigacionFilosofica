@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "author_id": 75,
+  "canonical_name": "Subcomandante Marcos",
+  "alternate_names": [
+    "Subcomandante Insurgente Marcos",
+    "Delegado Zero"
+  ],
+  "life": {
+    "born": {
+      "year": 1957,
+      "certainty": "project_source_claim_not_required_for_bibliography"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_zapatist_essay_story_communique_and_interview_books_verified_collective_authorship_separated",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0075-w001",
+      "title": "Siete piezas sueltas del rompecabezas mundial",
+      "work_type": "political_globalization_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "8488455674"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "neoliberalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "globalización",
+          "provenance": "inferred"
+        },
+        {
+          "term": "resistencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0075-w002",
+      "title": "El sueño zapatista",
+      "work_type": "interview_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "interview_participant_not_single_author",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Yvon Le Bot",
+          "role": "interviewer_editor"
+        },
+        {
+          "name": "Comandante Moisés",
+          "role": "interview_participant"
+        },
+        {
+          "name": "Comandante Tacho",
+          "role": "interview_participant"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9681102479"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "zapatismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "autonomía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0075-w003",
+      "title": "Relatos de El Viejo Antonio",
+      "work_type": "literary_political_story_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1994,
+        "end": 1998,
+        "certainty": "stories_and_compilation_range"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "zapatismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "inferred"
+        },
+        {
+          "term": "emancipación",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0075-w004",
+      "title": "Don Durito de la Lacandona",
+      "work_type": "literary_political_story_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "José Saramago",
+          "role": "prologue_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9685112037"
+        ],
+        "oclc": [
+          "43958008"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "neoliberalismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "zapatismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "literatura",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0075-w005",
+      "title": "Desde las montañas del sureste mexicano",
+      "work_type": "story_letter_communicate_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Chiapas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "zapatismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "cuentos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "comunicados",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0075-w006",
+      "title": "La historia de los colores",
+      "work_type": "illustrated_story",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "colores",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cosmovisión indígena",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0075-w007",
+      "title": "Comunicados y cartas del EZLN firmados por el Subcomandante Marcos",
+      "work_type": "political_communicate_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1994,
+        "end": 2014,
+        "certainty": "public_spokesperson_period"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "mixed_personal_and_collective_authorship_requires_item_level_review",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Ejército Zapatista de Liberación Nacional",
+          "role": "collective_political_body"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "EZLN",
+          "provenance": "inferred"
+        },
+        {
+          "term": "zapatismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autonomía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "neoliberalismo",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "No atribuir automáticamente al individuo todas las declaraciones institucionales del EZLN; requiere revisión documento por documento."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Vocería y producción discursiva pública del EZLN",
+      "kind": "political_communicative_contribution",
+      "period": {
+        "start": 1994,
+        "end": 2014,
+        "certainty": "public_spokesperson_period"
+      },
+      "authorship_status": "historically_documented_role",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "vocería",
+          "provenance": "inferred"
+        },
+        {
+          "term": "EZLN",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_author_portal",
+      "title": "Subcomandante Marcos",
+      "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/subcomandante-marcos/",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "primary_organization_archive",
+      "title": "Comunicados del EZLN",
+      "url": "https://palabra.ezln.org.mx/",
+      "publisher": "EZLN"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "Don Durito de la Lacandona",
+      "url": "https://ccc.opac.com.ar/pergamo/documento.php?id=CCC.1.57373&recno=57373&ui=1",
+      "publisher": "Biblioteca Utopía / Centro Cultural de la Cooperación"
+    }
+  ],
+  "research_notes": [
+    "Pendiente separar cada comunicado por autoría personal, firma colectiva, fecha y destinatario.",
+    "No se guarda aquí ningún dato de identidad civil como criterio bibliográfico; la ficha corresponde al seudónimo autoral/político del inventario canónico."
+  ]
+}

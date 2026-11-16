@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "author_id": 479,
+  "canonical_name": "Arturo Orías Median",
+  "alternate_names": [
+    "Arturo Orías Medina",
+    "Arturo Orias Medina"
+  ],
+  "life": {
+    "born": {
+      "year": 1931,
+      "certainty": "national_bibliography_authority"
+    },
+    "died": {
+      "year": 2001,
+      "certainty": "national_bibliography_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_posthumous_editions_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0479-w001",
+      "title": "Ethik und Staatsphilosophie bei Jean-Jacques Rousseau: Beitrag zu einer einheitlichen Interpretation der Werke Rousseaus",
+      "work_type": "doctoral_dissertation_on_rousseau",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1964,
+        "certainty": "international_dissertation_bibliography"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Rousseau",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía del Estado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.e-periodica.ch/cntmng?pid=bsg-001%3A1964%3A52%3A%3A59",
+        "https://journals.azbuki.bg/philosophy/vzgledite-za-svobodata-na-zan-zak-ruso-i-robrt-nozik/view"
+      ],
+      "notes": "Tesis doctoral, Universität Tübingen, Bamberg, Urlaub, 1964, aproximadamente 134-135 p. La traducción española fue publicada póstumamente en Bolivia en 2007."
+    },
+    {
+      "work_id": "0479-w002",
+      "title": "Escritos escogidos",
+      "work_type": "posthumous_selected_writings_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "national_bibliography"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "original_author_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9990502552"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Rousseau",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento boliviano",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.archivoybibliotecanacionales.org.bo/images/Contenido/biblioteca/bibliografia-boliviana/BibliografiaBoliviana2002a2003.pdf"
+      ],
+      "notes": "La Paz, Imprenta Visuall, 2002, 197 p.; obra póstuma seleccionada por Christa Fabri de Orías."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudios bolivianos de Rousseau, ética y filosofía política, junto con una influencia decisiva en el currículo y la enseñanza filosófica de la UMSA",
+      "kind": "bolivian_rousseau_ethics_and_philosophy_education_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_bibliography",
+      "title": "Archivo y Biblioteca Nacionales de Bolivia — Bibliografía Boliviana",
+      "url": "https://www.archivoybibliotecanacionales.org.bo/images/Contenido/biblioteca/bibliografia-boliviana/BibliografiaBoliviana2002a2003.pdf"
+    },
+    {
+      "kind": "university_institution_source",
+      "title": "Instituto de Estudios Bolivianos — UMSA",
+      "url": "https://ieb.umsa.bo/"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UAGRM — Ética y filosofía del Estado en Jean-Jacques Rousseau",
+      "url": "https://bibliotecas.uagrm.edu.bo/opac_web/catalogo_de_titulos/?ind=E&view=row"
+    }
+  ],
+  "research_notes": [
+    "El inventario maestro contiene la forma 'Arturo Orías Median'; la autoridad bibliográfica e institucional es Arturo Orías Medina. Se conserva el canónico del inventario y se añade la forma corregida.",
+    "La edición española de 2007 es traducción póstuma de la tesis de 1964 y no se cuenta como una segunda obra conceptual independiente."
+  ]
+}

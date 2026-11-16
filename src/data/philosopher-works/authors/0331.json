@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "author_id": 331,
+  "canonical_name": "Zorobabel Rodríguez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_early_editions_1872_1873_1875_1894_catalogued",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0331-w001",
+      "title": "Francisco Bilbao: su vida i sus doctrinas",
+      "work_type": "liberal_political_religious_biography_and_criticism",
+      "original_language": "español",
+      "original_date": {
+        "year": 1872,
+        "certainty": "national_library_historical_edition"
+      },
+      "first_publication_year": 1872,
+      "authorship_status": "original_author_printed_book",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Francisco Bilbao",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica doctrinal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-671341.html"
+      ],
+      "notes": "Santiago, 1872, xxiii + 213 páginas según la Biblioteca Nacional de Chile; texto sobre vida y doctrinas de Bilbao, no escrito por Francisco Bilbao.",
+      "edition": {
+        "year": 1872,
+        "region": "Santiago",
+        "publisher": "no identificado en catálogo"
+      }
+    },
+    {
+      "work_id": "0331-w002",
+      "title": "Miscelánea literaria, política i relijiosa",
+      "work_type": "two_volume_collected_critical_and_political_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1873,
+        "certainty": "national_library_first_catalog"
+      },
+      "first_publication_year": 1873,
+      "authorship_status": "original_author_compilation_printed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica literaria",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-671341.html"
+      ],
+      "notes": "Santiago, Imprenta de El Independiente, 1873, dos volúmenes de una única colección; textos individuales no se duplican aquí.",
+      "volume_count": 2,
+      "edition": {
+        "year": 1873,
+        "publisher": "El Independiente",
+        "region": "Santiago"
+      }
+    },
+    {
+      "work_id": "0331-w003",
+      "title": "Diccionario de chilenismos",
+      "work_type": "normative_lexicographic_dictionary_and_language_ideology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "physical_catalog_first_print"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "original_author_first_print_physical_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lexicografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lengua chilena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "normatividad lingüística",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bvfe.es/es/directorio-bibliografico-diccionarios-vocabularios-glosarios-tratados-y-obras-lexicografia/24925-diccionario-de-chilenismos.html",
+        "https://www.memoriachilena.gob.cl/602/w3-article-602838.html"
+      ],
+      "notes": "Santiago, Imprenta de El Independiente, 1875, xii + 487 páginas. La reedición de 1979 no es primera edición; proyecto de segundo volumen quedó inconcluso.",
+      "edition": {
+        "year": 1875,
+        "publisher": "Imprenta de El Independiente",
+        "region": "Santiago"
+      }
+    },
+    {
+      "work_id": "0331-w004",
+      "title": "Tratado de economía política",
+      "work_type": "political_economy_printed_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1894,
+        "certainty": "national_library_print_catalog"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "author_original_first_print_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberalismo económico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "comercio",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-671341.html",
+        "https://www.memoriachilena.gob.cl/602/w3-article-602838.html"
+      ],
+      "notes": "Valparaíso, Imprenta del Comercio de Juan Miguel Sandoval, 1894, viii + 454 pp. (paginación real del catálogo difiere); no confundir con Estudios económicos (1893).",
+      "edition": {
+        "year": 1894,
+        "publisher": "Imprenta del Comercio de Juan Miguel Sandoval",
+        "region": "Valparaíso"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensamiento católico-liberal, reflexión económica y lexicografía normativa en el Chile decimonónico",
+      "kind": "chilean_political_economy_and_language_philosophy",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_bibliography",
+      "title": "Biblioteca Nacional de Chile, Zorobabel Rodríguez, lista de impresos",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-671341.html"
+    },
+    {
+      "kind": "historic_physical_lexicographic_catalog",
+      "title": "BVFE, Diccionario de chilenismos, 1875",
+      "url": "https://www.bvfe.es/es/directorio-bibliografico-diccionarios-vocabularios-glosarios-tratados-y-obras-lexicografia/24925-diccionario-de-chilenismos.html"
+    },
+    {
+      "kind": "national_library_scholarly_biography",
+      "title": "Memoria Chilena, Zorobabel Rodríguez: pensamiento y lexicografía",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-602838.html"
+    }
+  ],
+  "research_notes": [
+    "Los dos volúmenes de Miscelánea son una obra editorial y no dos obras originales.",
+    "«Estudios económicos» de 1893 aparece en bibliografía, pendiente de identificación de contenidos para evitar duplicación con Tratado de 1894."
+  ]
+}

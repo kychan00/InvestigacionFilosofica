@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "author_id": 438,
+  "canonical_name": "Víctor Massuh",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1924,
+      "certainty": "foundation_biographical_source"
+    },
+    "died": {
+      "year": 2008,
+      "certainty": "foundation_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0438-w001",
+      "title": "La libertad y la violencia",
+      "work_type": "philosophical_and_political_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "foundation_bibliography"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "violencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b210-victor-massuh"
+      ],
+      "notes": "Ensayo filosófico destacado por Fundación Konex, publicado en 1968."
+    },
+    {
+      "work_id": "0438-w002",
+      "title": "Nietzsche y el fin de la religión",
+      "work_type": "history_of_philosophy_and_religion_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "foundation_bibliography"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nihilismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b210-victor-massuh"
+      ],
+      "notes": "Obra de 1969 listada entre los ensayos filosóficos centrales de Massuh."
+    },
+    {
+      "work_id": "0438-w003",
+      "title": "Nihilismo y experiencia extrema",
+      "work_type": "philosophical_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "foundation_bibliography"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nihilismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "experiencia extrema",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b210-victor-massuh"
+      ],
+      "notes": "Ensayo de 1975."
+    },
+    {
+      "work_id": "0438-w004",
+      "title": "La Argentina como sentimiento",
+      "work_type": "national_identity_and_cultural_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "foundation_bibliography"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Argentina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sentimiento nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b210-victor-massuh"
+      ],
+      "notes": "Ensayo de 1982 incluido por Fundación Konex entre las obras centrales del autor."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Humanismo filosófico radical centrado en libertad, violencia, nihilismo, religión e identidad argentina",
+      "kind": "argentine_humanist_and_contemporary_philosophy_contribution",
+      "authorship_status": "documented_in_foundation_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "foundation_biographical_source",
+      "title": "Fundación Konex — Víctor Massuh",
+      "url": "https://www.fundacionkonex.org/b210-victor-massuh"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Nacional de Ciencias de Buenos Aires — publicaciones y escritos de Víctor Massuh",
+      "url": "https://www.ciencias.org.ar/user/CEF/PUBLICACIONES%20ARCHIVO.pdf"
+    }
+  ],
+  "research_notes": [
+    "La flecha del tiempo (1990) queda fuera de este seed inicial aunque está catalogada, para privilegiar el núcleo humanístico-filosófico reconocido por la fuente biográfica.",
+    "La ficha es selectiva y no pretende agotar su producción ensayística."
+  ]
+}

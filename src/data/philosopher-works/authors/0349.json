@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "author_id": 349,
+  "canonical_name": "Manuel Ignacio Salvatierra",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1806,
+      "certainty": "regional_scholarly_source"
+    },
+    "died": {
+      "year": 1886,
+      "certainty": "regional_scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1847_grammar_1874_travel_press_1883_law_compilation_with_1853_Ahrens_teaching",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0349-w001",
+      "title": "Cuaderno de oraciones gramaticales, para uso de los alumnos del Seminario de Sucre",
+      "work_type": "pedagogical_grammar_printed_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1847,
+        "certainty": "secondary_historical_bibliography_cites_1847"
+      },
+      "first_publication_year": 1847,
+      "authorship_status": "historical_bibliographic_attribution_no_direct_print_inspection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "enseñanza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gramática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formación humanística",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://rcharquina.wordpress.com/2024/05/01/manuel-ignacio-salvatierra-1806-1886/",
+        "https://www.icees.org.bo/2024/01/pensadores-crucenos/"
+      ],
+      "notes": "El inventario bibliográfico local sitúa el impreso en Sucre (1847), utilizado en el Seminario. También citado en Gabriel René Moreno, Biblioteca Boliviana, pieza 904. No confundir gramática escolar con tratado de filosofía del derecho.",
+      "place": "Sucre",
+      "later_bibliographic_witness": "Gabriel René Moreno, Biblioteca Boliviana (1879), pieza 904"
+    },
+    {
+      "work_id": "0349-w002",
+      "title": "Recuerdos de un viaje a Europa",
+      "work_type": "nineteenth_century_travel_press_articles",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "secondary_bibliographic_1874_published_articles"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "historical_bibliography_author_press_articles_not_full_book_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "viajes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Europa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "observación social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://rcharquina.wordpress.com/2024/05/01/manuel-ignacio-salvatierra-1806-1886/"
+      ],
+      "notes": "Relación de viaje fechada 1874 y descrita por bibliografía local como artículos escritos desde París y publicados en Sucre; NO se confirma primera monografía independiente y se registra como corpus de artículos.",
+      "publication_status": "press_articles_original_newspaper_or_museum_unlocated"
+    },
+    {
+      "work_id": "0349-w003",
+      "title": "Códigos bolivianos",
+      "work_type": "legal_codification_editorial_or_compilatory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1883,
+        "certainty": "secondary_bibliographic_imprint_date"
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "historical_catalog_record_author_or_compiler_role_uncertain",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho boliviano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "legislación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "códigos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://rcharquina.wordpress.com/2024/05/01/manuel-ignacio-salvatierra-1806-1886/",
+        "https://www.icees.org.bo/2024/01/pensadores-crucenos/"
+      ],
+      "notes": "La bibliografía histórica citada a Arturo Costa de la Torre registra Sucre, 1883, bajo Salvatierra, pero debe comprobarse si fue autor, compilador o editor de normas legislativas. No considerar las leyes recopiladas obra enteramente suya.",
+      "contributor_role": "compilador o autor de notas; por cotejar",
+      "publisher": "por verificar"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción del curso de Ahrens de derecho natural en la Universidad de San Francisco Xavier de Chuquisaca hacia 1853 y difusión del krausismo jurídico boliviano",
+      "kind": "nineteenth_century_krausist_or_liberal_philosophical_contribution",
+      "authorship_status": "historical_and_scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulo «El krausismo», pp. 208–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 209 (fuente del inventario; incluye homonimias/variantes que requieren cotejo)"
+    },
+    {
+      "kind": "bolivian_university_history",
+      "title": "Pensadores cruceños, Fundación ICEES / UPSA, biografía de Manuel Ignacio Salvatierra",
+      "url": "https://www.icees.org.bo/2024/01/pensadores-crucenos/"
+    },
+    {
+      "kind": "scholarly_history_of_krausism",
+      "title": "Guillermo Francovich, La filosofía en Bolivia: Salvatierra y Ahrens",
+      "url": "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+    },
+    {
+      "kind": "local_bibliographical_compilation",
+      "title": "Reacción Charquina, Escritos de Manuel Ignacio Salvatierra, cotejo de fuentes históricas",
+      "url": "https://rcharquina.wordpress.com/2024/05/01/manuel-ignacio-salvatierra-1806-1886/"
+    }
+  ],
+  "research_notes": [
+    "La edición/curso de Ahrens enseñado en 1853 NO es una obra original redactada por Salvatierra. Registrar sólo contribución docente.",
+    "La atribución y carácter de Códigos bolivianos requieren examen de portada; ya señalado como compilación de responsabilidad incierta.",
+    "El cuaderno escolar de 1847 y artículos de 1874 son registros preliminares basados en bibliografía histórica, no exhaustividad demostrada."
+  ]
+}

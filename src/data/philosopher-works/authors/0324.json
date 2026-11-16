@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "author_id": 324,
+  "canonical_name": "José Baquijano y Carrillo",
+  "alternate_names": [
+    "José Baquíjano y Carrillo",
+    "Joseph Baquijano y Carrillo"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_first_1781_oration_physical_rare_print_corroborated",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0324-w001",
+      "title": "Elogio del excelentísimo señor don Agustín de Jáuregui y Aldecoa, pronunciado en el recibimiento que le hizo la Real Universidad de San Marcos",
+      "work_type": "enlightenment_creole_political_oration_original_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1781,
+        "certainty": "public_oration_august_27"
+      },
+      "first_publication_year": 1781,
+      "authorship_status": "first_print_catalogue_author_explicit",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reformas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política peruana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.mcu.es/ccbae/en/consulta/registro.do?control=BAB20170031567",
+        "https://www.iberoamericadigital.net/BDPI/CompleteSearch.do?institution=Biblioteca+Nacional+de+Espa%C3%B1a&matter=Per%C3%BA+-+Historia+-+1780-1781+%28Rebeli%C3%B3n+Tupac-Amaru%29&pageNumber=2&pageSize=1&pageSizeAbrv=20",
+        "https://repositorio.bicentenario.gob.pe/handle/20.500.12934/105"
+      ],
+      "notes": "Discurso pronunciado en San Marcos el 27 de agosto de 1781. Catálogos públicos de impresos antiguos identifican ejemplar de 82 páginas fechado [Lima?] [1781] con pie editorial inferido. Reedición 1976 en colección documental del Perú no equivale a primera edición.",
+      "edition": {
+        "year": 1781,
+        "region": "[Lima?]",
+        "publisher": "[s.n.]"
+      },
+      "physical_pages": 82,
+      "publication_imprint_certainty": "place_and_publisher_inferred_by_catalog"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Crítica ilustrada de aspectos del régimen virreinal mediante oratoria académica y redes criollas del Perú",
+      "kind": "peruvian_creole_enlightenment_thought",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "government_rare_print_catalog",
+      "title": "Red de Bibliotecas de los Archivos Estatales España, Elogio 1781, 82 pp.",
+      "url": "https://www.mcu.es/ccbae/en/consulta/registro.do?control=BAB20170031567"
+    },
+    {
+      "kind": "national_library_federated_catalog",
+      "title": "BDPI / Biblioteca Nacional de España, ejemplar histórico de Elogio 1781",
+      "url": "https://www.iberoamericadigital.net/BDPI/CompleteSearch.do?institution=Biblioteca+Nacional+de+Espa%C3%B1a&matter=Per%C3%BA+-+Historia+-+1780-1781+%28Rebeli%C3%B3n+Tupac-Amaru%29&pageNumber=2&pageSize=1&pageSizeAbrv=20"
+    },
+    {
+      "kind": "official_documentary_collection",
+      "title": "Proyecto Bicentenario del Perú, Los ideólogos: José Baquíjano y Carrillo (1976)",
+      "url": "https://repositorio.bicentenario.gob.pe/handle/20.500.12934/105"
+    }
+  ],
+  "research_notes": [
+    "La fecha 1781 de la oratoria coincide con impresión estimada en catálogos, pero editor y lugar precisos se conservan entre corchetes.",
+    "No reducir al autor a héroe anticolonial: su reforma se expresa dentro de límites criollos y lealtades monárquicas.",
+    "187 documentos de la antología de 1976 son materiales sobre él y época, no 187 obras propias."
+  ]
+}

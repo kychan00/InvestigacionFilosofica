@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "author_id": 117,
+  "canonical_name": "Ambrosio Velasco Gómez",
+  "alternate_names": [
+    "Ambrosio Francisco Javier Velasco Gómez"
+  ],
+  "life": {
+    "born": {
+      "year": 1954,
+      "certainty": "verified",
+      "date": "1954-12-07"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_political_theory_philosophy_of_science_hermeneutics_republicanism_multiculturalism_and_mexican_philosophy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0117-w001",
+      "title": "Teoría política: Filosofía e Historia. ¿Anacrónicos o anticuarios?",
+      "work_type": "political_theory_history_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w002",
+      "title": "La tenacidad de la política",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "verified_university_profile",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "racionalidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w003",
+      "title": "Racionalidad y cambio científico",
+      "work_type": "philosophy_of_science_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "verified_university_profile",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "racionalidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cambio científico",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w004",
+      "title": "Tradiciones naturalistas y hermenéuticas en la filosofía de las ciencias sociales",
+      "work_type": "philosophy_of_social_science_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 1998,
+        "end": 2000,
+        "certainty": "date_conflict_between_university_profiles"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "naturalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciencias sociales",
+          "provenance": "primary_title"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1998,
+          2000
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0117-w005",
+      "title": "Republicanismo y multiculturalismo",
+      "work_type": "political_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "republicanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "multiculturalismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w006",
+      "title": "La persistencia del humanismo republicano en la formación de la nación y el Estado en México",
+      "work_type": "history_of_political_thought_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo republicano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w007",
+      "title": "Aspectos epistemológicos, hermenéuticos y políticos de la diversidad cultural",
+      "work_type": "diversity_epistemology_political_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 2013,
+        "end": 2014,
+        "certainty": "date_conflict_in_university_profile"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "diversidad cultural",
+          "provenance": "primary_title"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          2013,
+          2014
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0117-w008",
+      "title": "Humanismo republicano iberoamericano. Un debate",
+      "work_type": "political_philosophy_dialogue_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Rafael Orden",
+          "role": "coauthor"
+        },
+        {
+          "name": "José Luis Villacañas",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo republicano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Iberoamérica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w009",
+      "title": "500 años de filosofías sobre el imperialismo y el colonialismo",
+      "work_type": "history_of_philosophy_colonialism_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2021,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "imperialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "colonialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0117-w010",
+      "title": "El devenir de la filosofía mexicana a través de sus tradiciones y controversias",
+      "work_type": "history_of_mexican_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786073068468"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "filosofía mexicana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tradiciones",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "controversias",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de una filosofía política de la ciencia y de una perspectiva republicana sobre diversidad cultural",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1990,
+        "end": 2026,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofía política de la ciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "diversidad cultural",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Ambrosio Velasco Gómez",
+      "url": "https://filosoficas.unam.mx/sitio/ambrosio-velasco",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_profile",
+      "title": "Ambrosio Velasco Gómez — publicaciones",
+      "url": "https://posgrado.unam.mx/filosofia/?tutor=velasco-gomez-francisco-javier-ambrosio",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "El devenir de la filosofía mexicana",
+      "url": "https://www.filosoficas.unam.mx/catalogo/?autores=velasco-gomez-ambrosio",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Ambrosio Velasco Gómez (1954-)"
+    }
+  ],
+  "research_notes": [
+    "Se preservan conflictos 1998/2000 y 2013/2014 entre perfiles institucionales de UNAM.",
+    "Pendiente ampliar artículos sobre filosofía política de la ciencia y volúmenes colectivos coordinados."
+  ]
+}

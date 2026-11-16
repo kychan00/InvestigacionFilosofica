@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "author_id": 91,
+  "canonical_name": "Leandro Konder",
+  "alternate_names": [
+    "Leandro Augusto Marques Coelho Konder"
+  ],
+  "life": {
+    "born": {
+      "year": 1936,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2014,
+      "certainty": "verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_marxist_dialectics_aesthetics_and_intellectual_history_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0091-w001",
+      "title": "Marxismo e alienação: contribuição para um estudo do conceito marxista de alienação",
+      "work_type": "marxist_philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alienação",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w002",
+      "title": "Kafka: vida e obra",
+      "work_type": "intellectual_literary_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1966,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Franz Kafka",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kafka",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w003",
+      "title": "Os marxistas e a arte: breve estudo histórico-crítico de algumas tendências da estética marxista",
+      "work_type": "marxist_aesthetics_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1967,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética marxista",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "arte",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w004",
+      "title": "Marx: vida e obra",
+      "work_type": "intellectual_biography",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1968,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Karl Marx",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Marx",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w005",
+      "title": "Introdução ao fascismo",
+      "work_type": "political_history_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1977,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fascismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "autoritarismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w006",
+      "title": "A democracia e os comunistas no Brasil",
+      "work_type": "political_marxist_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "comunistas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w007",
+      "title": "Lukács",
+      "work_type": "philosopher_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "György Lukács",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Lukács",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo ocidental",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w008",
+      "title": "O que é dialética",
+      "work_type": "philosophy_introductory_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w009",
+      "title": "O marxismo na batalha das ideias",
+      "work_type": "marxist_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1984,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideias",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w010",
+      "title": "A derrota da dialética: a recepção das ideias de Marx no Brasil até o começo dos anos 1930",
+      "work_type": "doctoral_thesis_intellectual_history",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1984,
+        "certainty": "doctoral_thesis"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Marx",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0091-w011",
+      "title": "Walter Benjamin: o marxismo da melancolia",
+      "work_type": "philosopher_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1988,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Walter Benjamin",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Walter Benjamin",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "melancolia",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "left_intellectual_archive",
+      "title": "Konder, Leandro — Obra bibliográfica",
+      "url": "https://diccionario.cedinci.org/konder-leandro/",
+      "publisher": "CeDInCI"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Leandro Konder (1936-)"
+    },
+    {
+      "kind": "obituary",
+      "title": "Filósofo Leandro Konder morre no Rio aos 78",
+      "url": "https://www1.folha.uol.com.br/fsp/poder/195336-filosofo-leandro-konder-morre-no-rio-aos-78.shtml",
+      "publisher": "Folha de S.Paulo"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar Hegel, Fourier, Gramsci, Brecht, ideologia y obras posteriores a 1988.",
+    "A derrota da dialética distingue la tesis doctoral de 1984 de la edición en libro de 1988."
+  ]
+}

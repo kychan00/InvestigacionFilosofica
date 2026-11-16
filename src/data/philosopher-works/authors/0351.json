@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 351,
+  "canonical_name": "José R. Mas",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0351-w001",
+      "title": "Nociones elementales de derecho natural o filosofía del derecho",
+      "work_type": "bolivian_natural_law_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad religiosa",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf",
+        "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm"
+      ],
+      "notes": "Manual de La Paz de 1879. El autor declara que usa el método y palabras de José Silva Santisteban tras cuatro años enseñando con ese texto, aunque no comparte todas sus doctrinas. Mantiene posiciones propias de conservadurismo católico, no idénticas a Ahrens.",
+      "edition": {
+        "year": 1879,
+        "region": "La Paz"
+      },
+      "related_authors": [
+        "José Silva Santisteban",
+        "Heinrich Ahrens"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión y relectura conservadora del krausismo en la enseñanza boliviana del derecho natural",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Historia de la filosofía en Bolivia, Guillermo Francovich",
+      "url": "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "El krausismo en Iberoamérica, José Luis Gómez-Martínez",
+      "url": "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm"
+    }
+  ],
+  "research_notes": [
+    "No convertir la influencia de Ahrens o Santisteban en coautoría legal del manual.",
+    "El nombre abreviado R. permanece sin expansión verificable."
+  ]
+}

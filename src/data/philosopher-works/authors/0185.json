@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 185,
+  "canonical_name": "Álvaro Márquez-Fernández",
+  "life": {
+    "born": {
+      "year": 1952,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": null,
+      "certainty": "biographical_reference_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0185-w001",
+      "title": "El Derecho a la Vida como supuesto ético-político de los Derechos Humanos",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.produccioncientificaluz.org/index.php/filosofia/article/view/17940"
+      ],
+      "notes": "Año tomado del volumen 14 números 26-27 (1997), no del campo defectuoso (1) del sitio."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; biografía contrastada con índice del libro base.",
+    "Bibliografía parcial; evitar atribuir a autor artículos sobre él."
+  ]
+}

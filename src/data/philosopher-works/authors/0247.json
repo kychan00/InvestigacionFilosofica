@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 247,
+  "canonical_name": "Andrés de Valencia",
+  "alternate_names": [
+    "Andrés de Valencia S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1578,
+      "certainty": "project_primary_source",
+      "place": "Guanajuato"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_scholastic_manuscripts_with_evidence_and_authorship_caveats",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0247-w001",
+      "title": "Comentaria quatuor quibus universa Aristotelis Stagiritae logica comprehenditur, una cum dialecticis institutionibus in principio additis, quas summulas nuncupamus",
+      "work_type": "jesuit_aristotelian_logic_manuscript_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_teaching_and_copy_period",
+        "period": {
+          "start": 1609,
+          "end": 1610
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "lectures_attributed_to_andres_de_valencia_in_manuscript_cover",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristotelis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "logica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dialecticis institutionibus",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/84028864/Perspectivas_hist%C3%B3ricas_y_filos%C3%B3ficas_del_discurso_novohispano",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "components": [
+        "Summulae",
+        "Prooemialis",
+        "In Porphyrii de quinque vocibus sive praedicabilibus",
+        "Lógica aristotélica"
+      ],
+      "date_notes": {
+        "initial_part": "1609",
+        "treatise_closing": "1610-04-06"
+      },
+      "notes": "Un estudio paleográfico identifica portada con Andrés de Valencia y sección del tratado terminada el 6 de abril de 1610. No marcar 1609 como año de publicación impresa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza jesuita de lógica, súmulas y dialéctica aristotélica en Nueva España durante 1609–1610",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_manuscript_research",
+      "title": "Perspectivas históricas y filosóficas del discurso novohispano, transcripción de la portada del curso de Valencia",
+      "url": "https://www.academia.edu/84028864/Perspectivas_hist%C3%B3ricas_y_filos%C3%B3ficas_del_discurso_novohispano"
+    },
+    {
+      "kind": "project_primary_source_bibliography",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "La descripción de manuscrito es más precisa que la datación genérica 1609 del libro base; se conserva intervalo real."
+  ]
+}

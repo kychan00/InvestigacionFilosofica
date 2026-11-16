@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "author_id": 57,
+  "canonical_name": "Enrique José Varona",
+  "alternate_names": [
+    "Enrique José Varona y Pera"
+  ],
+  "life": {
+    "born": {
+      "year": 1849,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1933,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophical_literary_critical_and_aphoristic_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0057-w001",
+      "title": "Estudios literarios",
+      "work_type": "literary_criticism_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1873,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1873,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica literaria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0057-w002",
+      "title": "Conferencias filosóficas. Primera serie: Lógica",
+      "work_type": "philosophy_logic_lecture_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1880,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "método inductivo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0057-w003",
+      "title": "Conferencias filosóficas. Segunda serie: Psicología",
+      "work_type": "philosophy_psychology_lecture_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1881,
+        "certainty": "periodical_publication"
+      },
+      "first_publication_year": 1881,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicofisiología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Alexander Bain",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0057-w004",
+      "title": "Conferencias filosóficas. Tercera serie: Moral",
+      "work_type": "ethics_lecture_course",
+      "original_language": "español",
+      "original_date": {
+        "start": 1883,
+        "end": 1888,
+        "certainty": "serial_to_book_publication"
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociabilidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "La serie circuló en Revista de Cuba desde 1883; existe edición en volumen de 1888."
+    },
+    {
+      "work_id": "0057-w005",
+      "title": "Lecciones de Psicología",
+      "work_type": "psychology_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1901,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1901,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0057-w006",
+      "title": "Nociones de Lógica",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1902,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metodología científica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0057-w007",
+      "title": "Con el eslabón",
+      "work_type": "aphorism_philosophical_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "aforismos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la vida",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "experiencia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0057-w008",
+      "title": "Estudios y conferencias",
+      "work_type": "posthumous_or_late_author_collection",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "collection_history"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía cubana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crítica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Colección usada como repositorio de discursos y ensayos; debe desglosarse a nivel de texto y edición."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "philosophy_reference",
+      "title": "Enrique José Varona",
+      "url": "https://www.filosofia.org/enc/fer/1941568.htm",
+      "publisher": "Diccionario de filosofía / Filosofía en español"
+    },
+    {
+      "kind": "historical_philosophy_article",
+      "title": "Situación de la filosofía cubana — El advenimiento de Varona",
+      "url": "https://www.filosofia.org/hem/dep/rcf/n04p004.htm",
+      "publisher": "Revista Cubana de Filosofía"
+    },
+    {
+      "kind": "historical_study",
+      "title": "Varona y el positivismo",
+      "url": "https://www.filosofia.org/aut/001/1960hpg.htm",
+      "publisher": "Humberto Piñera, Panorama de la filosofía cubana"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar poesía, crítica literaria, ensayos políticos, discursos y correspondencia.",
+    "Las Conferencias Filosóficas se modelan por serie porque Lógica, Psicología y Moral tuvieron historias editoriales separadas."
+  ]
+}

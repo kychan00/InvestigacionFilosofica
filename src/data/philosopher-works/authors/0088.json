@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "author_id": 88,
+  "canonical_name": "Paulo Freire",
+  "alternate_names": [
+    "Paulo Reglus Neves Freire"
+  ],
+  "life": {
+    "born": {
+      "year": 1921,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1997,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_adult_education_liberation_dialogue_pedagogy_and_late_ethics_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0088-w001",
+      "title": "Educação e atualidade brasileira",
+      "work_type": "academic_thesis_education",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1959,
+        "certainty": "academic_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis_later_published",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "atualidade brasileira",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w002",
+      "title": "Educação como prática da liberdade",
+      "work_type": "philosophy_of_education_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1967,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democratização",
+          "provenance": "catalog"
+        },
+        {
+          "term": "transformação social",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w003",
+      "title": "Pedagogia do oprimido",
+      "work_type": "critical_pedagogy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1968,
+        "certainty": "manuscript_completed_in_chile"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Ernani Maria Fiori",
+          "role": "preface_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oprimido",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conscientização",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "diálogo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação",
+          "provenance": "catalog"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1970,
+          "language": "inglês_e_espanhol",
+          "kind": "first_publications"
+        },
+        {
+          "year": 1974,
+          "language": "portugués",
+          "place": "Brasil",
+          "kind": "first_brazilian_edition"
+        }
+      ],
+      "notes": "Manuscrito de 1968; publicado primeiro em inglês e espanhol em 1970, e no Brasil em 1974."
+    },
+    {
+      "work_id": "0088-w004",
+      "title": "Extensão ou comunicação?",
+      "work_type": "rural_education_dialogue_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1969,
+        "certainty": "original_spanish_chilean_publication_context"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "extensão",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "comunicação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educação rural",
+          "provenance": "inferred"
+        },
+        {
+          "term": "diálogo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w005",
+      "title": "Ação cultural para a liberdade e outros escritos",
+      "work_type": "critical_pedagogy_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1975,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ação cultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alfabetização",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w006",
+      "title": "Cartas à Guiné-Bissau: registros de uma experiência em processo",
+      "work_type": "education_letters_project_report",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1977,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guiné-Bissau",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alfabetização",
+          "provenance": "inferred"
+        },
+        {
+          "term": "descolonização",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w007",
+      "title": "Medo e ousadia: o cotidiano do professor",
+      "work_type": "dialogue_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1986,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Ira Shor",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "professor",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "medo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ousadia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w008",
+      "title": "Pedagogia da esperança: um reencontro com a pedagogia do oprimido",
+      "work_type": "critical_pedagogy_reflective_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1992,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Ana Maria Araújo Freire",
+          "role": "explanatory_notes"
+        },
+        {
+          "name": "Leonardo Boff",
+          "role": "preface_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "8521900104"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "esperança",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Pedagogia do oprimido",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "prática",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w009",
+      "title": "Política e educação",
+      "work_type": "political_pedagogy_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1993,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educação",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w010",
+      "title": "Cartas a Cristina",
+      "work_type": "autobiographical_pedagogical_letters",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memória",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educação",
+          "provenance": "inferred"
+        },
+        {
+          "term": "cartas",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w011",
+      "title": "À sombra desta mangueira",
+      "work_type": "philosophical_autobiographical_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1995,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memória",
+          "provenance": "inferred"
+        },
+        {
+          "term": "esperança",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educação",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0088-w012",
+      "title": "Pedagogia da autonomia: saberes necessários à prática educativa",
+      "work_type": "teacher_education_ethics_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1996,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "8521902433"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "autonomia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "prática educativa",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "ética",
+          "provenance": "catalog"
+        },
+        {
+          "term": "formação de professores",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Método de alfabetização e educação popular dialógica",
+      "kind": "pedagogical_method_institutional_contribution",
+      "period": {
+        "start": 1958,
+        "end": 1997,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "alfabetização",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "diálogo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_archive",
+      "title": "Manuscritos da Pedagogia do Oprimido",
+      "url": "https://acervo.paulofreire.org/items/891643c9-01ab-4232-a7d8-44ce29f53357",
+      "publisher": "Instituto Paulo Freire"
+    },
+    {
+      "kind": "author_archive",
+      "title": "Pedagogia do Oprimido — histórico editorial",
+      "url": "https://acervo.paulofreire.org/items/c936ce1b-46b5-4241-8f0e-94f36faa2474",
+      "publisher": "Instituto Paulo Freire"
+    },
+    {
+      "kind": "education_repository",
+      "title": "Educação como prática da liberdade",
+      "url": "https://observatoriodeeducacao.institutounibanco.org.br/cedoc/detalhe/tf-educacao-como-pratica-da-liberdade%2C91bf4793-11f6-46f7-a947-cda6c8db379f",
+      "publisher": "Observatório de Educação"
+    },
+    {
+      "kind": "university_repository",
+      "title": "Pedagogia da autonomia",
+      "url": "https://bds.unb.br/handle/123456789/622",
+      "publisher": "Universidade de Brasília"
+    }
+  ],
+  "research_notes": [
+    "Pendiente completar obras dialogadas con Sérgio Guimarães, Donaldo Macedo y otros coautores, además del corpus epistolar.",
+    "Pedagogia do oprimido conserva claramente manuscrito 1968, primera publicación 1970 y primera edición brasileña 1974."
+  ]
+}

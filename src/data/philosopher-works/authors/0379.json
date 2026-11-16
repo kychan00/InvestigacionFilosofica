@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "author_id": 379,
+  "canonical_name": "Pedro Bonó",
+  "alternate_names": [
+    "Pedro Francisco Bonó"
+  ],
+  "life": {
+    "born": {
+      "year": 1828,
+      "certainty": "national_archive_authority"
+    },
+    "died": {
+      "year": 1906,
+      "certainty": "national_archive_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0379-w001",
+      "title": "El montero",
+      "work_type": "costumbrist_novel_serialized_in_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": 1856,
+        "certainty": "scholarly_and_editorial_source"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad rural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "costumbrismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "República Dominicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/El_montero.html?id=-zYWywEACAAJ",
+        "https://repositorio.unapec.edu.do/bitstream/123456789/87/1/Estudios%20linguisticos%2C%20literarios%2C%20culturales%20y%20semioticos%20%281%29.pdf"
+      ],
+      "notes": "Publicado en París en 1856 como folletín de doce entregas en El Correo de Ultramar. Las ediciones modernas se usan como testigos editoriales, no como primera publicación."
+    },
+    {
+      "work_id": "0379-w002",
+      "title": "Cuestión de Hacienda",
+      "work_type": "political_economic_article_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 1876,
+        "certainty": "scholarly_source_with_periodical_citation"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hacienda pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "producción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "economía dominicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uasd.edu.do/index.php/ecos/article/download/138/251/255"
+      ],
+      "notes": "Serie de reflexión político-económica documentada en la prensa dominicana de 1876; el estudio de UASD cita específicamente «Ideas corrientes del día y su influencia sobre la producción» en El Amante de la Luz, 6 de julio de 1876. Se conserva como corpus temático, no como libro supuesto."
+    },
+    {
+      "work_id": "0379-w003",
+      "title": "Apuntes sobre las clases trabajadoras dominicanas",
+      "work_type": "social_analysis_article_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 1881,
+        "certainty": "periodical_publication_documented"
+      },
+      "first_publication_year": 1881,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "clases trabajadoras",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "campesinado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "propiedad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "producción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "República Dominicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://app-wordpressfundacioncorripio-web-cndrhacmgxatfpak.westus3-01.azurewebsites.net/wp-content/uploads/2023/01/pedro-francisco-bono-el-montero-epistolario.pdf",
+        "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/ppcodice/CLIO-1996-155-007-028.pdf"
+      ],
+      "notes": "Serie publicada en La Voz de Santiago desde el 23 de octubre de 1881. Se registra como unidad intelectual seriada, no como monografía de 1964, año de una compilación posterior."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Análisis pionero de las clases trabajadoras, la economía campesina y la formación social dominicana desde una perspectiva crítica",
+      "kind": "dominican_social_thought_contribution",
+      "authorship_status": "documented_in_academic_and_editorial_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_archive_catalog_source",
+      "title": "Archivo General de la Nación RD — Pedro Francisco Bonó",
+      "url": "https://colecciones.agn.gob.do/opac/busca.php?codopac=OP003&formTipo=0&lautor=BON%EF%BF%BD%2C+PEDRO+FRANCISCO"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "UASD Ecos — Pedro Francisco Bonó: Municipalidad, poder, ciudadanía y conciencia",
+      "url": "https://revistas.uasd.edu.do/index.php/ecos/article/download/138/251/255"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Dominicana de la Historia — Apología a Pedro Francisco Bonó",
+      "url": "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/ppcodice/CLIO-1996-155-007-028.pdf"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico usa «Pedro Bonó»; se conserva «Pedro Francisco Bonó» como forma documental extendida.",
+    "Apuntes sobre las clases trabajadoras se fecha por su publicación periodística de 1881 y no por compilaciones del siglo XX."
+  ]
+}

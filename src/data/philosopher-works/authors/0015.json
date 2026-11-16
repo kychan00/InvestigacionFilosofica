@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "author_id": 15,
+  "canonical_name": "Inca Garcilaso de la Vega",
+  "alternate_names": [
+    "Garcilaso de la Vega, El Inca",
+    "Gómez Suárez de Figueroa"
+  ],
+  "life": {
+    "born": {
+      "year": 1539,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1616,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0015-w001",
+      "title": "La traduzión del indio de los tres Diálogos de Amor de León Hebreo",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1590,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1590,
+      "authorship_status": "verified_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "León Hebreo (Judah Abravanel)",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "amor",
+          "provenance": "catalog"
+        },
+        {
+          "term": "neoplatonismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "traducción",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0015-w002",
+      "title": "Relación de la descendencia del famoso Garci Pérez de Vargas",
+      "work_type": "genealogical_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1596,
+        "certainty": "autograph_date",
+        "date": "1596-05-05"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_autograph",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [],
+        "manuscript_shelfmark": [
+          "BNE MSS/18109"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "genealogía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Garci Pérez de Vargas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "linaje",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0015-w003",
+      "title": "La Florida del Inca",
+      "work_type": "history_chronicle",
+      "original_language": "español",
+      "original_date": {
+        "year": 1605,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1605,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hernando de Soto",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Florida",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conquista",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0015-w004",
+      "title": "Primera parte de los Comentarios Reales",
+      "alternate_titles": [
+        "Comentarios Reales de los Incas"
+      ],
+      "work_type": "history_intellectual_memory",
+      "original_language": "español",
+      "original_date": {
+        "year": 1609,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1609,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Incas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Perú",
+          "provenance": "catalog"
+        },
+        {
+          "term": "memoria andina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "identidad mestiza",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0015-w005",
+      "title": "Historia general del Perú",
+      "alternate_titles": [
+        "Segunda parte de los Comentarios Reales"
+      ],
+      "work_type": "history_chronicle",
+      "original_language": "español",
+      "original_date": {
+        "year": 1617,
+        "certainty": "posthumous_publication"
+      },
+      "first_publication_year": 1617,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Perú",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conquista",
+          "provenance": "catalog"
+        },
+        {
+          "term": "guerras civiles",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0015-w006",
+      "title": "Anotaciones a La historia general de las Indias y nuevo mundo de Francisco López de Gómara",
+      "work_type": "annotations_marginalia",
+      "original_language": "español",
+      "original_date": {
+        "century": 16,
+        "certainty": "manuscript_annotations"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_annotation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francisco López de Gómara",
+          "role": "author_of_annotated_work"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historiografía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crítica textual",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Catálogo de obras del Inca Garcilaso de la Vega",
+      "url": "https://cervantesvirtual.com/portales/inca_garcilaso_de_la_vega/su_obra_catalogo/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "autograph_catalog",
+      "title": "Relación de la descendencia del famoso Garci Pérez de Vargas",
+      "url": "https://www.cervantesvirtual.com/portales/portal_nacional_peru/obra/relacion-de-la-descendencia-del-famoso-garci-perez-de-vargas-manuscrito--0/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente normalizar primeras ediciones, dedicatorias y variantes de título; verificar si las anotaciones a Gómara deben modelarse como obra o como testimonio documental."
+  ]
+}

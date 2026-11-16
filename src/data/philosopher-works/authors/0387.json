@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "author_id": 387,
+  "canonical_name": "José de Diego",
+  "alternate_names": [
+    "José de Diego Martínez"
+  ],
+  "life": {
+    "born": {
+      "year": 1866,
+      "certainty": "reference_source"
+    },
+    "died": {
+      "year": 1918,
+      "certainty": "reference_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0387-w001",
+      "title": "La codificación administrativa: notas para un libro",
+      "work_type": "legal_administrative_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1890,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1890,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho administrativo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "codificación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://plpr.uh.edu/s/es/item/331",
+        "https://www.vegaalta.pr.gov/personajes-ilustres/jose-de-diego-martinez"
+      ],
+      "notes": "Título jurídico publicado en 1890, anterior a su producción política independentista del siglo XX."
+    },
+    {
+      "work_id": "0387-w002",
+      "title": "Pomarrosas",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "literary_project_and_reference_source"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://plpr.uh.edu/s/es/item/331",
+        "https://enciclopediapr.org/content/jose-de-diego-martinez/"
+      ],
+      "notes": "Poemario publicado en 1904; no se confunde con la correspondencia de 1913 relacionada con el libro conservada por la UPR."
+    },
+    {
+      "work_id": "0387-w003",
+      "title": "El problema de Puerto Rico",
+      "work_type": "political_conference_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "dated_conference_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_speaker_and_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autodeterminación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Lake Mohonk",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://documentaliablog.wordpress.com/documentalia-jose-de-diego-martinez/",
+        "https://enciclopediapr.org/content/jose-de-diego-martinez/"
+      ],
+      "notes": "Discurso pronunciado en las Conferencias de Lake Mohonk en 1913. Se conoce por reproducciones posteriores en Nuevas campañas; no se impone aquí una primera edición independiente sin cotejo."
+    },
+    {
+      "work_id": "0387-w004",
+      "title": "Cantos de rebeldía",
+      "work_type": "political_poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "first_edition_catalog"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independentismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "rebeldía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://openlibrary.org/works/OL15430421W/Cantos_de_rebeld%C3%ADa",
+        "https://enciclopediapr.org/content/jose-de-diego-martinez/"
+      ],
+      "notes": "Barcelona, Casa Editorial Maucci, 1916, 206 páginas según catálogo enlazado a registro de Library of Congress/Internet Archive."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Independentismo puertorriqueño, unión antillana y defensa cultural del español articulados mediante política, derecho y poesía",
+      "kind": "puerto_rican_independence_and_antillean_contribution",
+      "authorship_status": "documented_in_reference_and_archival_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "reference_source",
+      "title": "EnciclopediaPR — José de Diego Martínez",
+      "url": "https://enciclopediapr.org/content/jose-de-diego-martinez/"
+    },
+    {
+      "kind": "digital_literary_project_source",
+      "title": "University of Houston — Puerto Rican Literature Project, José de Diego",
+      "url": "https://plpr.uh.edu/s/es/item/331"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Open Library / Library of Congress — Cantos de rebeldía, 1916",
+      "url": "https://openlibrary.org/works/OL15430421W/Cantos_de_rebeld%C3%ADa"
+    }
+  ],
+  "research_notes": [
+    "Cantos de pitirre se publicó póstumamente y no se usa aquí para inflar el seed.",
+    "El problema de Puerto Rico se conserva como discurso de 1913 sin forzar una princeps independiente."
+  ]
+}

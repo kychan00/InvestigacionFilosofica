@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "author_id": 125,
+  "canonical_name": "Miguel Ángel Virasoro",
+  "alternate_names": [
+    "Miguel A. Virasoro"
+  ],
+  "life": {
+    "born": {
+      "year": 1900,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1966,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_idealism_hegel_existential_dialectics_anthropology_and_metaphysical_intuition_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0125-w001",
+      "title": "Una teoría del yo como cultura. Precedida de otros ensayos",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "yo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w002",
+      "title": "La lógica de Hegel",
+      "work_type": "history_of_philosophy_logic_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "G. W. F. Hegel",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w003",
+      "title": "La libertad, la existencia y el ser",
+      "work_type": "existential_metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w004",
+      "title": "La ética de Scheler",
+      "work_type": "ethics_philosopher_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Max Scheler",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Scheler",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w005",
+      "title": "Intuición existencial e intuición mística",
+      "work_type": "existential_mysticism_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intuición existencial",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "intuición mística",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w006",
+      "title": "Etopeya del Espíritu Absoluto",
+      "work_type": "metaphysics_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espíritu absoluto",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "persona",
+          "provenance": "editorial"
+        },
+        {
+          "term": "intersubjetividad",
+          "provenance": "editorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w007",
+      "title": "Existencia y dialéctica",
+      "work_type": "existential_dialectics_conference",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "conference"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w008",
+      "title": "La estructura existencial. La dialéctica existencial en los tres momentos del cuidado",
+      "work_type": "existentialism_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estructura existencial",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cuidado",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w009",
+      "title": "Mi filosofía",
+      "work_type": "philosophical_self_exposition_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo dialéctico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w010",
+      "title": "Introducción al existencialismo",
+      "work_type": "existentialism_symposium_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w011",
+      "title": "Para una nueva idea del hombre y de la antropología filosófica",
+      "work_type": "philosophical_anthropology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0125-w012",
+      "title": "La intuición metafísica: ensayo de fundamentación de la metafísica como ciencia estricta",
+      "work_type": "metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intuición metafísica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "ciencia estricta",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación del existencialismo dialéctico en la filosofía argentina",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1928,
+        "end": 1966,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "existencialismo dialéctico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_bibliography",
+      "title": "Escritos del doctor Miguel Ángel Virasoro",
+      "url": "https://bdigital.uncu.edu.ar/objetos_digitales/4389/241-cuyo-1971-tomo-07.pdf",
+      "publisher": "Universidad Nacional de Cuyo"
+    },
+    {
+      "kind": "academic_article",
+      "title": "Entre el cielo y la tierra: las fuentes y sus derivas en Miguel A. Virasoro",
+      "url": "https://qellqasqa.com.ar/ojs/index.php/estudios/article/view/528",
+      "publisher": "Estudios de Filosofía Práctica e Historia de las Ideas"
+    },
+    {
+      "kind": "university_article",
+      "title": "Etopeya del Espíritu Absoluto",
+      "url": "https://revistas.unal.edu.co/index.php/revistaun/article/view/13506",
+      "publisher": "Universidad Nacional de Colombia"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Miguel Ángel Virasoro (1900-1966)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente completar ensayos 1950-1965 y artículos sobre Husserl, Jaspers y Heidegger.",
+    "La bibliografía de UNCuyo permite separar con precisión libros, folletos y artículos."
+  ]
+}

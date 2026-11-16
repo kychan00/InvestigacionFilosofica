@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "author_id": 323,
+  "canonical_name": "Manuel Belgrano",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_original_consular_memorials_and_one_newspaper_partial_other_memorials",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0323-w001",
+      "title": "Medios generales de fomentar la agricultura, animar la industria y proteger el comercio en un país agricultor",
+      "work_type": "consular_economic_memoir_original_reading",
+      "original_language": "español",
+      "original_date": {
+        "year": 1796,
+        "certainty": "address_at_consulate_july_15"
+      },
+      "first_publication_year": null,
+      "authorship_status": "authored_conciliar_economic_memorial_later_edited",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "agricultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "industria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "comercio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cpel.opac.com.ar/pergamo/documento.php?id=CPEL.1.28190&recno=28190&ui=1",
+        "https://bnm.educacion.gob.ar/efemerides/manuel-belgrano/pensamiento-economico/"
+      ],
+      "notes": "Memoria leída ante el Real Consulado el 15 de julio de 1796; la antología «Escritos económicos» de Raigal 1954 la reproduce. No atribuir primera impresión al día de lectura.",
+      "lecture_date": "1796-07-15",
+      "later_witness": {
+        "year": 1954,
+        "title": "Escritos económicos",
+        "publisher": "Raigal"
+      }
+    },
+    {
+      "work_id": "0323-w002",
+      "title": "Memoria leída en la Junta de Gobierno del Consulado de Buenos Aires el 14 de junio de 1798",
+      "work_type": "economic_political_consular_memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": 1798,
+        "certainty": "consulate_address_june_14"
+      },
+      "first_publication_year": null,
+      "authorship_status": "authored_conciliar_memoir_later_edited",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "economía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "agricultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cpel.opac.com.ar/pergamo/documento.php?id=CPEL.1.28190&recno=28190&ui=1"
+      ],
+      "notes": "Texto pronunciado 14 de junio de 1798; publicado en colecciones posteriores. Distinto de memoria de 1796, pero tampoco se inventa primera edición 1798.",
+      "lecture_date": "1798-06-14"
+    },
+    {
+      "work_id": "0323-w003",
+      "title": "Correo de Comercio de Buenos Aires",
+      "work_type": "economic_enlightenment_newspaper_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "periodical_original_publication",
+        "period": {
+          "start": 1810,
+          "end": 1811
+        }
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "founder_editor_contributor_not_sole_author_every_article",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "instrucción pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "agricultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "prensa",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bnm.educacion.gob.ar/efemerides/manuel-belgrano/pensamiento-economico/",
+        "https://inbelgraniano.cultura.gob.ar/media/uploads/site-40/multimedia/manuel_belgrano_y_la_economia_politica_-_2022.pdf",
+        "https://cpel.opac.com.ar/pergamo/documento.php?id=CPEL.1.28190&recno=28190&ui=1"
+      ],
+      "notes": "Periódico iniciado el 3 de marzo de 1810, editado bajo impulso de Belgrano; colaboraciones y artículos posteriores a su salida deben distinguirse. El Instituto Nacional Belgraniano documenta facsímil 1810–1811.",
+      "first_issue": "1810-03-03"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Programa ilustrado de fomento de agricultura, comercio, industria y educación del Consulado rioplatense",
+      "kind": "rio_platense_enlightenment_economic_thought",
+      "authorship_status": "documented_in_historical_or_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), capítulos Independencia y conservadurismo chileno",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 162 y 180–182, impresa; índices canónicos"
+    },
+    {
+      "kind": "national_library_education",
+      "title": "Biblioteca Nacional de Maestras y Maestros, Manuel Belgrano y pensamiento económico",
+      "url": "https://bnm.educacion.gob.ar/efemerides/manuel-belgrano/pensamiento-economico/"
+    },
+    {
+      "kind": "institute_critical_reprint",
+      "title": "Instituto Nacional Belgraniano, Manuel Belgrano y la economía política, edición de memorias y Correo de Comercio",
+      "url": "https://inbelgraniano.cultura.gob.ar/media/uploads/site-40/multimedia/manuel_belgrano_y_la_economia_politica_-_2022.pdf"
+    },
+    {
+      "kind": "historical_library_catalog",
+      "title": "Biblioteca Teodosio Muñoz Molina, Escritos económicos 1954, índice de memorias 1796, 1797, 1798",
+      "url": "https://cpel.opac.com.ar/pergamo/documento.php?id=CPEL.1.28190&recno=28190&ui=1"
+    }
+  ],
+  "research_notes": [
+    "Las memorias fueron leídas ante Consulado; el año del acto NO asegura año de primera impresión.",
+    "Los artículos firmados por colaboradores en Correo de Comercio no son obras personales de Belgrano.",
+    "La Autobiografía aparece en antologías y podría incorporarse en lote de revisión previa corroboración de fecha original."
+  ]
+}

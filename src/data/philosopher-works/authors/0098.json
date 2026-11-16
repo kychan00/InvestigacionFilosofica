@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "author_id": 98,
+  "canonical_name": "Antonio Caso",
+  "alternate_names": [
+    "Antonio Caso Andrade"
+  ],
+  "life": {
+    "born": {
+      "year": 1883,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1946,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_intuition_spiritualist_existentialist_aesthetic_sociological_and_national_philosophy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0098-w001",
+      "title": "La filosofía de la intuición",
+      "work_type": "philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1914,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intuición",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w002",
+      "title": "Los problemas filosóficos",
+      "work_type": "philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1915,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "problemas filosóficos",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w003",
+      "title": "La existencia como economía, como desinterés y como caridad",
+      "work_type": "existential_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "first_form"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "desinterés",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "caridad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1919,
+          "kind": "expanded_edition"
+        }
+      ],
+      "notes": "La obra tuvo una primera forma en 1916 y una edición ampliada en 1919; no se cuentan como obras distintas."
+    },
+    {
+      "work_id": "0098-w004",
+      "title": "Discursos a la nación mexicana",
+      "work_type": "national_philosophy_speech_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nación mexicana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "bovarismo nacional",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w005",
+      "title": "El concepto de la historia universal en la filosofía de los valores",
+      "work_type": "philosophy_of_history_values_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1923,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1923,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia universal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valores",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w006",
+      "title": "El problema de México y la ideología nacional",
+      "work_type": "national_philosophy_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1924,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología nacional",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w007",
+      "title": "Principios de estética",
+      "work_type": "aesthetics_textbook_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "arte",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w008",
+      "title": "Sociología genética y sistemática",
+      "work_type": "sociology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociología genética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociología sistemática",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w009",
+      "title": "Positivismo, neopositivismo y fenomenología",
+      "work_type": "philosophical_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "neopositivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w010",
+      "title": "La persona humana y el Estado totalitario",
+      "work_type": "political_philosophy_personalism_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "persona humana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Estado totalitario",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0098-w011",
+      "title": "El acto ideatorio y la filosofía de Husserl",
+      "work_type": "phenomenology_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Edmund Husserl",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "acto ideatorio",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ateneo de la Juventud, magisterio filosófico y defensa de la libertad de cátedra",
+      "kind": "academic_intellectual_institutional_contribution",
+      "period": {
+        "start": 1909,
+        "end": 1946,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Ateneo de la Juventud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad de cátedra",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_academic_biography",
+      "title": "Antonio Caso",
+      "url": "https://colnal.mx/integrantes/antonio-caso/",
+      "publisher": "El Colegio Nacional"
+    },
+    {
+      "kind": "university_profile",
+      "title": "Mtro. Antonio Caso",
+      "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/mtro-antonio-caso/",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "literary_authority",
+      "title": "Antonio Caso",
+      "url": "https://www.elem.mx/autor/datos/3335",
+      "publisher": "Enciclopedia de la Literatura en México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar polémicas, prensa, cursos y Obras completas.",
+    "La existencia se modela como una obra con primera forma en 1916 y ampliación en 1919."
+  ]
+}

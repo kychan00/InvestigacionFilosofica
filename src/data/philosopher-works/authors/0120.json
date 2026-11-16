@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "author_id": 120,
+  "canonical_name": "Coriolano Alberini",
+  "alternate_names": [
+    "Coriolano Alberini"
+  ],
+  "life": {
+    "born": {
+      "year": 1886,
+      "certainty": "project_canonical",
+      "date": "1886-11-27"
+    },
+    "died": {
+      "year": 1960,
+      "certainty": "verified",
+      "date": "1960-10-18"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_axiology_bergson_einstein_international_relations_argentine_philosophy_and_posthumous_collections_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0120-w001",
+      "title": "Amoralismo subjetivo",
+      "work_type": "ethics_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "amoralismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "subjetividad",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w002",
+      "title": "Introducción a la axiogenia",
+      "work_type": "axiology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "axiogenia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "axiología",
+          "provenance": "editorial"
+        },
+        {
+          "term": "psicologismo",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "logismo",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w003",
+      "title": "El problema ético en la filosofía de Bergson",
+      "work_type": "ethics_philosopher_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Henri Bergson",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bergson",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w004",
+      "title": "La reforma epistemológica de Einstein",
+      "work_type": "philosophy_of_science_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Albert Einstein",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Einstein",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w005",
+      "title": "La filosofía y las relaciones internacionales",
+      "work_type": "philosophy_international_relations_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "relaciones internacionales",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w006",
+      "title": "Die Deutsche Philosophie in Argentinien",
+      "work_type": "history_of_philosophy_book",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1930,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía alemana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w007",
+      "title": "La cultura filosófica en la Argentina",
+      "work_type": "history_of_argentine_philosophy_conference",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "conference_publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura filosófica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w008",
+      "title": "Génesis y evolución del pensamiento filosófico argentino",
+      "work_type": "history_of_argentine_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento filosófico argentino",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w009",
+      "title": "Problemas de la historia de las ideas filosóficas en la Argentina",
+      "work_type": "posthumous_history_of_ideas_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1908,
+        "end": 1960,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de las ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Recopilación póstuma; no se usa 1966 como fecha de composición de los textos individuales."
+    },
+    {
+      "work_id": "0120-w010",
+      "title": "Escritos de ética",
+      "work_type": "posthumous_collected_writings",
+      "original_language": "español",
+      "original_date": {
+        "start": 1908,
+        "end": 1960,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "axiología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w011",
+      "title": "Escritos de metafísica",
+      "work_type": "posthumous_collected_writings",
+      "original_language": "español",
+      "original_date": {
+        "start": 1908,
+        "end": 1960,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0120-w012",
+      "title": "Escritos de filosofía de la educación y pedagogía",
+      "work_type": "posthumous_collected_writings",
+      "original_language": "español",
+      "original_date": {
+        "start": 1918,
+        "end": 1960,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Impulso de la Reforma Universitaria y superación del positivismo en la filosofía académica argentina",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1918,
+        "end": 1960,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Reforma Universitaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antipositivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_article",
+      "title": "Introducción a la axiogenia",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/14322",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "university_history",
+      "title": "Coriolano Alberini",
+      "url": "https://www.psi.uba.ar/institucional/historia/psicologia/precursores/alberini.php",
+      "publisher": "Universidad de Buenos Aires"
+    },
+    {
+      "kind": "academic_bibliography",
+      "title": "Coriolano Alberini — publicaciones",
+      "url": "https://www.ensayistas.org/critica/generales/C-H/argentina/alberini.htm",
+      "publisher": "Proyecto Ensayo Hispánico"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Coriolano Alberini (1886-1960)"
+    }
+  ],
+  "research_notes": [
+    "Las colecciones de 1966 y 1973 se mantienen explícitamente como póstumas.",
+    "El inventario maestro usa 1886; algunas fuentes secundarias equivocan 1887, por lo que no se altera el dato canónico."
+  ]
+}

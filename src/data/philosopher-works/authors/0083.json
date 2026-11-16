@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "author_id": 83,
+  "canonical_name": "Caio Prado Jr.",
+  "alternate_names": [
+    "Caio Prado Júnior",
+    "Caio da Silva Prado Júnior"
+  ],
+  "life": {
+    "born": {
+      "year": 1907,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1990,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_historical_geographical_economic_marxist_and_philosophical_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0083-w001",
+      "title": "Evolução política do Brasil",
+      "work_type": "marxist_history_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "evolução política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w002",
+      "title": "Formação do Brasil contemporâneo: Colônia",
+      "work_type": "historical_synthesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1942,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "colonização",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil colonial",
+          "provenance": "catalog"
+        },
+        {
+          "term": "sentido da colonização",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w003",
+      "title": "História econômica do Brasil",
+      "work_type": "economic_history",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1945,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história econômica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w004",
+      "title": "Dialética do conhecimento",
+      "work_type": "marxist_philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conhecimento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "materialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w005",
+      "title": "Diretrizes para uma política econômica brasileira",
+      "work_type": "economic_policy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1954,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política econômica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w006",
+      "title": "Esboço dos fundamentos da teoria econômica",
+      "work_type": "economic_theory_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1957,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoria econômica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "economia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w007",
+      "title": "A revolução brasileira",
+      "work_type": "marxist_political_analysis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1966,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolução brasileira",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "reforma agrária",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w008",
+      "title": "Estruturalismo de Lévi-Strauss e marxismo de Louis Althusser",
+      "work_type": "philosophical_critique",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1971,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Claude Lévi-Strauss",
+          "role": "subject_criticized"
+        },
+        {
+          "name": "Louis Althusser",
+          "role": "subject_criticized"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estruturalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w009",
+      "title": "O que é filosofia",
+      "work_type": "philosophy_introductory_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conhecimento",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0083-w010",
+      "title": "A cidade de São Paulo: geografia e história",
+      "work_type": "urban_geography_history",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 20,
+        "certainty": "publication_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_date_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "São Paulo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "geografia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundação e direção da Editora Brasiliense",
+      "kind": "editorial_intellectual_institutional_contribution",
+      "period": {
+        "start": 1943,
+        "end": 1990,
+        "certainty": "institutional_history"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Editora Brasiliense",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "difusão intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_archive",
+      "title": "Caio Prado Jr.",
+      "url": "https://www.ieb.usp.br/caio-prado-jr/",
+      "publisher": "Instituto de Estudos Brasileiros, USP"
+    },
+    {
+      "kind": "national_library_exhibition",
+      "title": "Formação do Brasil contemporâneo — primeira edição",
+      "url": "https://bndigital.bn.gov.br/projetos/expo/caioprado/histformacao.htm",
+      "publisher": "Biblioteca Nacional Digital do Brasil"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Caio Prado Jr. (1907-1990)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente completar el catálogo de 16 libros, diarios políticos y cuadernos manuscritos del archivo IEB.",
+    "No convertir el archivo personal de ~30 mil documentos en una obra única."
+  ]
+}

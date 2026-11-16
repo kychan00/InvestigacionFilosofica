@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "author_id": 167,
+  "canonical_name": "Pío Jaramillo Alvarado",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1884,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1968,
+      "certainty": "project_canonical",
+      "year_candidates": [
+        1968,
+        1978
+      ],
+      "source_conflict": true
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_publications_not_full_oeuvre",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0167-w001",
+      "title": "El indio ecuatoriano: contribución al estudio de la sociología nacional",
+      "work_type": "indigenist_social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "indio ecuatoriano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociología nacional",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ],
+      "first_edition": {
+        "year": 1922,
+        "publisher": "Ed. Quito",
+        "place": "Quito",
+        "pages": 227
+      },
+      "edition_history": [
+        {
+          "year": 1983,
+          "edition": "sexta edición registrada por Biblioteca Cuenca"
+        },
+        {
+          "year": 2006,
+          "notes": "Edición Universidad Alfredo Pérez Guerrero"
+        },
+        {
+          "year": 2008,
+          "notes": "Edición Universidad Técnica Particular de Loja"
+        }
+      ],
+      "notes": "La edición 2006 lleva 'primera edición' según editorial de esa reimpresión, NO primera publicación histórica (1922)."
+    },
+    {
+      "work_id": "0167-w002",
+      "title": "Asamblea liberal y sus aspectos políticos",
+      "work_type": "political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1924,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "asamblea liberal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ],
+      "notes": "Catálogo municipal registra libro Quito 1924, 369 pp."
+    },
+    {
+      "work_id": "0167-w003",
+      "title": "Estudios históricos: ensayos sobre la vida interna e internacional de la República",
+      "work_type": "historical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estudios históricos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "República",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ],
+      "edition_history": [
+        {
+          "year": 1960,
+          "notes": "Reedición o colección de 'Estudios históricos' en Casa de la Cultura Ecuatoriana, verificar identidad textual"
+        }
+      ]
+    },
+    {
+      "work_id": "0167-w004",
+      "title": "Del agro ecuatoriano",
+      "work_type": "agrarian_political_economy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "agro ecuatoriano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "propiedad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ],
+      "notes": "Primera edición Quito: Universidad Central del Ecuador 1936; aborda cuestión agraria y concertaje."
+    },
+    {
+      "work_id": "0167-w005",
+      "title": "La presidencia de Quito: memoria histórico-jurídica",
+      "work_type": "political_history_multivolume_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "presidencia de Quito",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ],
+      "notes": "Obra histórica en dos tomos, no inventar fechas distintas por tomo."
+    },
+    {
+      "work_id": "0167-w006",
+      "title": "El régimen totalitario en América",
+      "work_type": "political_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "régimen totalitario",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ]
+    },
+    {
+      "work_id": "0167-w007",
+      "title": "La guerra de conquista en América",
+      "work_type": "history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conquista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ]
+    },
+    {
+      "work_id": "0167-w008",
+      "title": "La nación quiteña: perfil biográfico de una cultura",
+      "work_type": "cultural_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nación quiteña",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ]
+    },
+    {
+      "work_id": "0167-w009",
+      "title": "El gran mariscal José de la Mar",
+      "work_type": "political_historical_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "José de la Mar",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ],
+      "related_people": [
+        {
+          "name": "José de la Mar",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0167-w010",
+      "title": "Derecho público interno",
+      "work_type": "law_university_coursebook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho público",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ]
+    },
+    {
+      "work_id": "0167-w011",
+      "title": "Historia de Loja y su provincia",
+      "work_type": "regional_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Loja",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ]
+    },
+    {
+      "work_id": "0167-w012",
+      "title": "Las provincias orientales del Ecuador",
+      "work_type": "regional_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "provincias orientales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Ecuador",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0167-c001",
+      "title": "Ensayo pionero sobre problemas agrarios e indígenas de Ecuador y crítica del concertaje",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0167-c002",
+      "title": "Participación en la Casa de la Cultura Ecuatoriana y proyectos culturales e históricos de Loja",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_cultural_institution_catalog",
+      "title": "Casa de la Cultura Ecuatoriana: El indio ecuatoriano primera edición 1922",
+      "url": "https://biblioteca.casadelacultura.gob.ec/bib/20242"
+    },
+    {
+      "kind": "municipal_library_catalog",
+      "title": "Red de Bibliotecas Municipales Cuenca: Pío Jaramillo Alvarado",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?id=3092&lvl=author_see"
+    },
+    {
+      "kind": "library_first_edition_catalog",
+      "title": "Red de Bibliotecas Cuenca: Del agro ecuatoriano 1936",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?dcote=&id=11&lcote=0&location=15&lvl=section_see&main=&nb_per_page_custom=21&nbr_lignes=7072&nc=0&page=63&plettreaut=&ssub=0"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, Perú, Ecuador y Colombia, pp. 932–940"
+    }
+  ],
+  "research_notes": [
+    "Conflicto biográfico serio: el inventario y catálogos de Casa de la Cultura fechan fallecimiento 1968, pero Bibliotecas Municipales de Cuenca etiquetan la autoridad 1884–1978. No resolver silenciosamente.",
+    "El indio ecuatoriano primera edición 1922 comprobada; múltiples reediciones tardías no alteran la fecha.",
+    "Volúmenes históricos y jurísdicos conservados como parte de producción intelectual, no sólo tratados filosóficos."
+  ]
+}

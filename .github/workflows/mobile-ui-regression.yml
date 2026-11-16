@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "index.html"
+      - "filosofia-latinoamericana.html"
+      - "js/latin-american-philosophy.js"
+      - "scripts/qa/latin-american-philosophy-smoke.mjs"
       - "tesis.html"
       - "atlas.html"
       - "articulos.html"
@@ -165,6 +168,9 @@ jobs:
           exit 1
       - name: Check phone, tablet and desktop geometry
         run: node scripts/qa/mobile-ui-smoke.mjs
+
+      - name: Verify Latin American philosophy archive on phone tablet and desktop
+        run: node scripts/qa/latin-american-philosophy-smoke.mjs
       - name: Check record detail modal visual design
         run: node scripts/qa/record-modal-smoke.mjs
       - name: Check author timeline interactions and layout
@@ -214,6 +220,7 @@ jobs:
           name: mobile-ui-screenshots
           path: |
             artifacts/mobile-ui/
+            artifacts/latin-american-philosophy/
             artifacts/thesis-demo-ui/
             artifacts/thesis-atlas-ui/
             artifacts/record-detail/

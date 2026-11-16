@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "author_id": 126,
+  "canonical_name": "Vicente Fatone",
+  "alternate_names": [
+    "Vicente Fatone"
+  ],
+  "life": {
+    "born": {
+      "year": 1903,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1962,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_mysticism_indian_philosophy_buddhism_existentialism_religion_and_posthumous_collections_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0126-w001",
+      "title": "Misticismo épico",
+      "work_type": "mysticism_indian_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "misticismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la India",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w002",
+      "title": "Sacrificio y gracia. De los Upanishads al Mahayana",
+      "work_type": "comparative_religion_indian_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1931,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sacrificio",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "gracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Upanishads",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "Mahayana",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w003",
+      "title": "El budismo «nihilista»",
+      "work_type": "buddhist_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "budismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nihilismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w004",
+      "title": "Introducción al conocimiento de la filosofía en la India",
+      "work_type": "history_of_indian_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la India",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento oriental",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w005",
+      "title": "El existencialismo y la libertad creadora. Una crítica al existencialismo de Jean-Paul Sartre",
+      "work_type": "existentialism_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Jean-Paul Sartre",
+          "role": "subject_criticized"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad creadora",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Sartre",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w006",
+      "title": "El hombre y Dios",
+      "work_type": "philosophy_of_religion_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Dios",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mística",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w007",
+      "title": "Lógica y teoría del conocimiento",
+      "work_type": "logic_epistemology_textbook",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "first_edition_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_first_edition_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teoría del conocimiento",
+          "provenance": "primary_title"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1960,
+          "kind": "eighth_edition_verified"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w008",
+      "title": "Temas de mística y religión",
+      "work_type": "posthumous_mysticism_religion_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1928,
+        "end": 1962,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mística",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w009",
+      "title": "Obras completas I: Ensayos sobre hinduismo y budismo",
+      "work_type": "posthumous_collected_writings",
+      "original_language": "español",
+      "original_date": {
+        "start": 1928,
+        "end": 1962,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hinduismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "budismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0126-w010",
+      "title": "Obras completas II: El budismo «nihilista» y otros ensayos",
+      "work_type": "posthumous_collected_writings",
+      "original_language": "español",
+      "original_date": {
+        "start": 1928,
+        "end": 1962,
+        "certainty": "collected_writings_range"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "budismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía oriental",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción sistemática de los estudios de filosofía oriental en la academia argentina",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1928,
+        "end": 1962,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofía oriental",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "India",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_study",
+      "title": "Vicente Fatone y sus apropiaciones de Oriente",
+      "url": "https://revistas.uncu.edu.ar/ojs3/index.php/anuariocuyo/article/view/8801/7488",
+      "publisher": "Universidad Nacional de Cuyo"
+    },
+    {
+      "kind": "university_conference",
+      "title": "El joven Vicente Fatone: Misticismo épico y Sacrificio y gracia",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/182329",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "El existencialismo y la libertad creadora",
+      "url": "https://biblioteca.seminario.edu.uy/index.php?id=282&lvl=publisher_see",
+      "publisher": "Biblioteca Padre Juan Alberto Sancho"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "El hombre y Dios",
+      "url": "https://bibliotecas.ucasal.edu.ar/opac_css/index.php?id=48271&lvl=notice_display",
+      "publisher": "Universidad Católica de Salta"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Vicente Fatone (1903-1962)"
+    }
+  ],
+  "research_notes": [
+    "Las Obras completas de 1972 se registran como recopilaciones póstumas y no duplican las fechas de los textos originales.",
+    "Pendiente completar manuales y artículos de lógica, religión y existencialismo."
+  ]
+}

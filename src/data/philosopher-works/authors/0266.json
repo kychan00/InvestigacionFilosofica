@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "author_id": 266,
+  "canonical_name": "José Benito Lamas",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1787,
+      "certainty": "national_library_catalog"
+    },
+    "died": {
+      "year": 1857,
+      "certainty": "national_library_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_attested_philosophical_writings_and_teaching_partial",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0266-w001",
+      "title": "Discurso inaugural de la Cátedra de Filosofía",
+      "work_type": "philosophical_inaugural_lecture",
+      "original_language": "español",
+      "original_date": {
+        "year": 1833,
+        "certainty": "public_address_date_documented_by_Ardao"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historically_attributed_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/57344/1/filosofiapreuniversitariaeneluruguay_segunda_ardaoarturo_1994.pdf"
+      ],
+      "notes": "Discurso inaugural del 18 de junio de 1833; Ardao remite a reproducción en Revista Nacional, tomo I, 1938. El año 1938 es testimonio editorial posterior, no fecha original de composición ni primera edición demostrada.",
+      "later_editions": [
+        {
+          "year": 1938,
+          "venue": "Revista Nacional, t. I (referencia de Ardao)"
+        }
+      ]
+    },
+    {
+      "work_id": "0266-w002",
+      "title": "Descripción jeneral de los actos públicos de conclusiones y exámenes del curso filosófico que dictó el presbítero D. José Benito Lamas",
+      "work_type": "philosophical_education_exam_printed_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1836,
+        "certainty": "library_catalog_print_date"
+      },
+      "first_publication_year": 1836,
+      "authorship_status": "catalog_attributed_responsibility_full_authorship_to_be_collated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "exámenes públicos",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.iberoamericadigital.net/BDPI/CompleteSearch.do?doctype=Libro&institution=Biblioteca+Nacional+de+Uruguay&languageView=pt&pageNumber=87&pageSize=1&pageSizeAbrv=20"
+      ],
+      "notes": "La Biblioteca Nacional de Uruguay registra el impreso de 51 páginas, Imprenta de los Amigos, Montevideo, 1836, bajo la entrada de Lamas. Su responsabilidad bibliográfica está catalogada, pero conviene cotejar portada y textos internos para delimitar autoría de cada intervención.",
+      "edition": {
+        "year": 1836,
+        "publisher": "Imprenta de los Amigos",
+        "region": "Montevideo"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía en el Colegio de San Bernardino (1810–1811) y en la Casa de Estudios Generales de Montevideo (1833–1835), con cursos de lógica, metafísica, ética y física",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_historical_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Mauricio Beuchot, «La filosofía académica», en El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300-2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "p. 84-85"
+    },
+    {
+      "kind": "university_history",
+      "title": "Arturo Ardao, La Universidad de Montevideo",
+      "url": "https://udelar.edu.uy/pmb/doc_num.php?explnum_id=1035",
+      "locator": "pp. 17–18: docencia 1810 y 1833-1835"
+    },
+    {
+      "kind": "historical_critical_study",
+      "title": "Arturo Ardao, Filosofía pre-universitaria en el Uruguay, 2.ª ed.",
+      "url": "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/57344/1/filosofiapreuniversitariaeneluruguay_segunda_ardaoarturo_1994.pdf",
+      "locator": "pp. 37–39: estructura del curso y discurso inaugural"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca Nacional de Uruguay en Biblioteca Digital del Patrimonio Iberoamericano, «Descripción jeneral ...» (1836)",
+      "url": "https://www.iberoamericadigital.net/BDPI/CompleteSearch.do?doctype=Libro&institution=Biblioteca+Nacional+de+Uruguay&languageView=pt&pageNumber=87&pageSize=1&pageSizeAbrv=20",
+      "locator": "catálogo 47462, 51 páginas"
+    }
+  ],
+  "research_notes": [
+    "Ardao distingue su primer ciclo docente (1810-1811) del curso completo de 1833–1835.",
+    "No convertir los cuatro campos docentes del curso (lógica, metafísica, ética y física) en cuatro libros originales.",
+    "El discurso de 1833, su reproducción posterior y el impreso de 1836 son unidades documentales distintas; la responsabilidad precisa de partes del impreso 1836 queda abierta a cotejo."
+  ]
+}

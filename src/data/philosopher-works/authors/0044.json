@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "author_id": 44,
+  "canonical_name": "Juan Bautista Alberdi",
+  "alternate_names": [
+    "Juan Bautista Alberdi y Aráoz"
+  ],
+  "life": {
+    "born": {
+      "year": 1810,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1884,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_legal_political_economic_philosophical_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0044-w001",
+      "title": "El espíritu de la música",
+      "work_type": "aesthetic_music_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1832,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1832,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "música",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w002",
+      "title": "Memoria descriptiva sobre Tucumán",
+      "work_type": "regional_description_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1834,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Tucumán",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "territorio",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w003",
+      "title": "Fragmento preliminar al estudio del derecho",
+      "work_type": "philosophy_of_law_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1837,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1837,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "catalog"
+        },
+        {
+          "term": "jurisprudencia",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "derecho positivo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "progreso",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w004",
+      "title": "Ideas para presidir a la confección del curso de filosofía contemporánea",
+      "work_type": "philosophical_program",
+      "original_language": "español",
+      "original_date": {
+        "year": 1842,
+        "certainty": "lecture_program"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía americana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "necesidades sociales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía práctica",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w005",
+      "title": "Bases y puntos de partida para la organización política de la República Argentina",
+      "work_type": "constitutional_political_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1852,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1852,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitución argentina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "inmigración",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "organización nacional",
+          "provenance": "inferred"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w006",
+      "title": "Elementos de derecho público provincial argentino",
+      "work_type": "constitutional_law_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho público",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "provincias argentinas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w007",
+      "title": "Sistema económico y rentístico de la Confederación Argentina según su Constitución de 1853",
+      "work_type": "political_economy_constitutional_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1854,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1854,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economía política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "rentas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Constitución de 1853",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad económica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w008",
+      "title": "El crimen de la guerra",
+      "work_type": "international_law_peace_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1870,
+        "certainty": "composition_for_competition"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guerra",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "paz",
+          "provenance": "inferred"
+        },
+        {
+          "term": "derecho internacional",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0044-w009",
+      "title": "La omnipotencia del Estado es la negación de la libertad individual",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1880,
+        "certainty": "lecture_or_publication_context"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad individual",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_biography",
+      "title": "Juan Bautista Alberdi",
+      "url": "https://constelaciones.bn.gov.ar/noticias/29-de-agosto-de-1810-nace-juan-bautista-alberdi",
+      "publisher": "Biblioteca Nacional Mariano Moreno"
+    },
+    {
+      "kind": "primary_bibliographic_record",
+      "title": "Fragmento preliminar al estudio del derecho",
+      "url": "https://books.google.com/books/about/Fragmento_preliminar_al_estudio_del_dere.html?id=EU8slQEACAAJ",
+      "publisher": "Imprenta de la Libertad, 1837"
+    },
+    {
+      "kind": "author_catalog",
+      "title": "Juan Bautista Alberdi — obras",
+      "url": "https://www.cervantesvirtual.com/obras/autor/alberdi-juan-bautista-1810-1884-49/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incorporar Grandes y pequeños hombres del Plata, Peregrinación de Luz del Día, escritos diplomáticos y epistolario.",
+    "Verificar primera edición de El crimen de la guerra contra bibliografía crítica antes de declarar exhaustividad."
+  ]
+}

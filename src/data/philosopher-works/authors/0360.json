@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "author_id": 360,
+  "canonical_name": "Juan Agustín García",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1862,
+      "certainty": "biography"
+    },
+    "died": {
+      "year": 1923,
+      "certainty": "biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0360-w001",
+      "title": "Cosas varias",
+      "work_type": "collected_early_philosophical_and_literary_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1891,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1891,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica cultural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Schopenhauer",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecafundeme.uns.edu.ar/cgi-bin/opacmarc/wxis?IsisScript=opac%2Fxis%2Fopac.xis&cid=&curr=3320&db=estrada&task=BIB-RECORD&total="
+      ],
+      "notes": "Colección fechada 1891 en catálogo de Obras completas, incluye ensayos críticos de Goethe y Schopenhauer. La compilación moderna es testigo posterior, no fecha original del autor."
+    },
+    {
+      "work_id": "0360-w002",
+      "title": "Introducción al estudio de las ciencias sociales argentinas",
+      "work_type": "argentine_early_sociological_methodological_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "economía política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecafundeme.uns.edu.ar/cgi-bin/opacmarc/wxis?IsisScript=opac%2Fxis%2Fopac.xis&cid=&curr=3320&db=estrada&task=BIB-RECORD&total=",
+        "https://ri.conicet.gov.ar/bitstream/handle/11336/264576/CONICET_Digital_Nro.8b987fce-c4d9-4c9e-8197-692fe71a92eb_B.pdf?isAllowed=y&sequence=2"
+      ],
+      "notes": "Primera edición Buenos Aires, Pedro Igon, 1899, 360 páginas. Reelabora contenidos del curso Introducción al estudio del derecho argentino (1896), sin convertir ese antecedente en un nuevo libro autónomo dentro del seed.",
+      "edition": {
+        "year": 1899,
+        "publisher": "Pedro Igon",
+        "region": "Buenos Aires"
+      },
+      "precursor": {
+        "year": 1896,
+        "title": "Introducción al estudio del derecho argentino"
+      }
+    },
+    {
+      "work_id": "0360-w003",
+      "title": "La ciudad indiana: Buenos Aires desde 1600 hasta mediados del siglo XVIII",
+      "work_type": "argentine_social_history_original_printed_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1900,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "instituciones coloniales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Buenos Aires",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ucel.edu.ar/biblioteca/la-ciudad-indiana-buenos-aires-desde-1600-hasta-mediados-del-siglo-xviii-juan-agustin-garcia/",
+        "https://ri.conicet.gov.ar/bitstream/handle/11336/264576/CONICET_Digital_Nro.8b987fce-c4d9-4c9e-8197-692fe71a92eb_B.pdf?isAllowed=y&sequence=2"
+      ],
+      "notes": "Obra publicada 1900; reelabora parte de El régimen colonial (1898), como documenta investigación de historia del derecho. No multiplicar por ediciones de la misma obra.",
+      "precursor": {
+        "year": 1898,
+        "title": "El régimen colonial"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de sociología histórica argentina y estudio de costumbres e instituciones coloniales",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Universidad Nacional del Sur, catálogo Obras completas García",
+      "url": "https://bibliotecafundeme.uns.edu.ar/cgi-bin/opacmarc/wxis?IsisScript=opac%2Fxis%2Fopac.xis&cid=&curr=3320&db=estrada&task=BIB-RECORD&total="
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "CONICET, estudio de historia jurídica con precusores 1896/1898",
+      "url": "https://ri.conicet.gov.ar/bitstream/handle/11336/264576/CONICET_Digital_Nro.8b987fce-c4d9-4c9e-8197-692fe71a92eb_B.pdf?isAllowed=y&sequence=2"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Universidad UCEL, La ciudad indiana, 1900",
+      "url": "https://www.ucel.edu.ar/biblioteca/la-ciudad-indiana-buenos-aires-desde-1600-hasta-mediados-del-siglo-xviii-juan-agustin-garcia/"
+    }
+  ],
+  "research_notes": [
+    "El título «Introducción» de 1899 deriva de materiales de 1896, pero se conserva como reelaboración documentada.",
+    "La ciudad indiana de 1900 es obra propia con antecedente de 1898.",
+    "No confundir recopilación moderna Obras completas con primera impresión."
+  ]
+}

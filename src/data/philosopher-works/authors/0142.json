@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "author_id": 142,
+  "canonical_name": "Carlos Vaz Ferreira",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1872,
+      "date": "1872-10-15",
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1958,
+      "date": "1958-01-03",
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_not_exhaustive_pending_bibliographic_audit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0142-w001",
+      "title": "Curso expositivo de psicología elemental",
+      "work_type": "psychology_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1897,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1897,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología elemental",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w002",
+      "title": "Apuntes de lógica elemental",
+      "work_type": "logic_course_notes",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica elemental",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w003",
+      "title": "Cuestiones escolares",
+      "work_type": "philosophy_of_education_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1902,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuestiones escolares",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w004",
+      "title": "Ideas y observaciones",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "observaciones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w005",
+      "title": "Los problemas de la libertad",
+      "work_type": "philosophical_treatise_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ],
+      "notes": "Versiones parciales en Anales de la Universidad desde 1903; libro autónomo documentado de 1907. Composición/publicación parcial anterior conservada.",
+      "earlier_publications": [
+        {
+          "year": 1903,
+          "kind": "journal_installment"
+        },
+        {
+          "year": 1904,
+          "kind": "journal_installment"
+        }
+      ]
+    },
+    {
+      "work_id": "0142-w006",
+      "title": "Conocimiento y acción",
+      "work_type": "epistemology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conocimiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "acción",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ],
+      "edition_history": [
+        {
+          "year": 1920,
+          "edition": "segunda versión revisada"
+        }
+      ]
+    },
+    {
+      "work_id": "0142-w007",
+      "title": "La exageración y el simplismo en pedagogía",
+      "work_type": "philosophy_of_education_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "exageración",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "simplismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w008",
+      "title": "Moral para intelectuales",
+      "work_type": "ethics_lecture_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "intelectuales",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ],
+      "edition_history": [
+        {
+          "year": 1920,
+          "note": "Edición revisada documentada; no primera publicación"
+        }
+      ]
+    },
+    {
+      "work_id": "0142-w009",
+      "title": "El pragmatismo",
+      "work_type": "pragmatism_philosophy_lecture_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pragmatismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ],
+      "earlier_publications": [
+        {
+          "year": 1908,
+          "kind": "lectures_published_in_journal"
+        }
+      ]
+    },
+    {
+      "work_id": "0142-w010",
+      "title": "Lógica viva",
+      "work_type": "logic_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica viva",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w011",
+      "title": "Los concursos escolares",
+      "work_type": "education_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1915,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "concursos escolares",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w012",
+      "title": "Programas de filosofía",
+      "work_type": "philosophy_of_education_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w013",
+      "title": "Lecciones de pedagogía y cuestiones de enseñanza",
+      "work_type": "philosophy_of_education_lecture_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w014",
+      "title": "Sobre la propiedad de la tierra",
+      "work_type": "social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "propiedad de la tierra",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w015",
+      "title": "Sobre la percepción métrica",
+      "work_type": "epistemology_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "percepción métrica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w016",
+      "title": "Estudios pedagógicos",
+      "work_type": "philosophy_of_education_essay_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estudios pedagógicos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ],
+      "publication_year_range": [
+        1921,
+        1922
+      ],
+      "notes": "Bibliografía parlamentaria indica 1921–1922; año de primera entrega y de última edición en serie requieren desagregación."
+    },
+    {
+      "work_id": "0142-w017",
+      "title": "Sobre los problemas sociales",
+      "work_type": "social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "problemas sociales",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w018",
+      "title": "Un proyecto sobre escuelas y liceos",
+      "work_type": "education_proposal_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "escuelas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liceos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w019",
+      "title": "Parques escolares",
+      "work_type": "education_proposal_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "parques escolares",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w020",
+      "title": "Sobre feminismo",
+      "work_type": "social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "feminismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w021",
+      "title": "¿Cuál es el signo moral de la inquietud humana?",
+      "work_type": "ethics_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "inquietud humana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w022",
+      "title": "Fermentario",
+      "work_type": "philosophical_fragments_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fermentario",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    },
+    {
+      "work_id": "0142-w023",
+      "title": "La actual crisis del mundo desde el punto de vista racional",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crisis del mundo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0142-c001",
+      "title": "Rectorado de la Universidad de la República y participación en la fundación de la Facultad de Humanidades y Ciencias",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0142-c002",
+      "title": "Desarrollo de la lógica viva, la psico-lógica y la crítica de los paralogismos del pensamiento cotidiano",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_parliament_library",
+      "title": "Parlamento Uruguay: biobibliografía Carlos Vaz Ferreira",
+      "url": "https://omeka.parlamento.gub.uy/omeka-s/s/biobibliografias/item/3468"
+    },
+    {
+      "kind": "university_first_editions_bibliography",
+      "title": "Historias Universitarias: obras originales de Carlos Vaz Ferreira",
+      "url": "https://historiasuniversitarias.edu.uy/biografia/vaz-ferreira-carlos/"
+    },
+    {
+      "kind": "university_library",
+      "title": "Universidad de la República, Facultad de Derecho: producción académica Vaz Ferreira",
+      "url": "https://www.fder.edu.uy/node/9206"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay, páginas impresas 894–901"
+    }
+  ],
+  "research_notes": [
+    "Las anotaciones de 1903–1904 de Los problemas de la libertad anteceden al volumen de 1907.",
+    "Conocimiento y acción primera versión 1908, segunda versión 1920; una sola entidad de obra.",
+    "Moral para intelectuales y El pragmatismo tienen antecedentes de clases y publicaciones periódicas, separar soporte."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 211,
+  "canonical_name": "Quetzalcóatl",
+  "alternate_names": [
+    "Topiltzin Quetzalcóatl",
+    "Ce Ácatl Topiltzin Quetzalcóatl"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "non_bibliographic_attributed_tradition_identity_uncertain",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Tradición sapiencial nahua atribuida a Quetzalcóatl, transmitida por narraciones y crónicas de generaciones posteriores",
+      "kind": "historical_intellectual_or_ritual_contribution",
+      "contribution_id": "0211-c001",
+      "authorship_status": "traditionally_attributed_or_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_critical_catalog",
+      "title": "Miguel León-Portilla, Trece poetas del mundo azteca",
+      "url": "https://historicas.unam.mx/publicaciones/catalogo/ficha?id=111b"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y 'latino' (1300–2000)",
+      "locator": "La filosofía náhuatl y los tlamatinime, pp. 703–704"
+    },
+    {
+      "kind": "university_historical_study",
+      "title": "UNAM, estudio sobre Quetzalcóatl como deidad y gobernante tolteca",
+      "url": "https://tesiunamdocumentos.dgb.unam.mx/ptb2011/enero/0665789/0665789_A1.pdf"
+    }
+  ],
+  "research_notes": [
+    "Quetzalcóatl nombra una deidad y también una figura histórica sacerdotal tolteca (Ce Ácatl Topiltzin); sus identidades se superponen en fuentes coloniales y mitológicas.",
+    "No existe fundamento para asignar libros individuales escritos por Quetzalcóatl; se clasifica como figura de atribución tradicional, no autor bibliográfico verificable.",
+    "El inventario mantiene nombre e ID canónicos, sin alterar la autoridad."
+  ]
+}

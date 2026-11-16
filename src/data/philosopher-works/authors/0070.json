@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "author_id": 70,
+  "canonical_name": "Aníbal Ponce",
+  "alternate_names": [
+    "Aníbal Norberto Ponce"
+  ],
+  "life": {
+    "born": {
+      "year": 1898,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1938,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_psychological_liberal_marxist_educational_and_humanist_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0070-w001",
+      "title": "Eduardo Wilde. Apuntes para un estudio crítico",
+      "work_type": "literary_intellectual_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Eduardo Wilde",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Eduardo Wilde",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "crítica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w002",
+      "title": "José Ingenieros, su vida y su obra",
+      "work_type": "intellectual_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "José Ingenieros",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "José Ingenieros",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w003",
+      "title": "La vejez de Sarmiento",
+      "work_type": "intellectual_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Domingo Faustino Sarmiento",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sarmiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "generación del 80",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w004",
+      "title": "Cuaderno de croquis",
+      "work_type": "essay_sketch_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ensayo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "croquis",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w005",
+      "title": "Sarmiento, constructor de la nueva Argentina",
+      "work_type": "political_intellectual_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Domingo Faustino Sarmiento",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sarmiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w006",
+      "title": "El viento en el mundo",
+      "work_type": "political_intellectual_conference_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estudiantes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "obreros",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "intelectuales",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Recopila conferencias dirigidas a estudiantes y obreros."
+    },
+    {
+      "work_id": "0070-w007",
+      "title": "Educación y lucha de clases",
+      "work_type": "marxist_history_of_education",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "lecture_course"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lucha de clases",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "materialismo histórico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de la educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Derivada de un curso de 1934; repertorios señalan ediciones de libro 1936/1937. Se usa 1937 según catálogo biográfico CeDInCI y se conserva el antecedente del curso."
+    },
+    {
+      "work_id": "0070-w008",
+      "title": "Ambición y angustia de los adolescentes",
+      "work_type": "psychology_adolescence_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1931,
+        "certainty": "lecture_course"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "adolescencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicología",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w009",
+      "title": "Humanismo burgués y humanismo proletario",
+      "work_type": "marxist_humanism_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "conference_basis"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified_posthumous_or_final_year_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo burgués",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanismo proletario",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w010",
+      "title": "Examen de la España actual",
+      "work_type": "political_analysis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "composition_or_conference_context"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "España",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "guerra civil",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antifascismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w011",
+      "title": "Dos hombres: Marx, Fourier",
+      "work_type": "intellectual_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Karl Marx",
+          "role": "subject"
+        },
+        {
+          "name": "Charles Fourier",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Marx",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Fourier",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0070-w012",
+      "title": "Apuntes de viaje",
+      "work_type": "travel_intellectual_notes_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1926,
+        "end": 1938,
+        "certainty": "travel_notes_range"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Clara Ponce",
+          "role": "posthumous_editorial_family_role"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "viajes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Europa",
+          "provenance": "inferred"
+        },
+        {
+          "term": "México",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirección de Revista de Filosofía y Dialéctica",
+      "kind": "editorial_intellectual_contribution",
+      "period": {
+        "start": 1925,
+        "end": 1938,
+        "certainty": "editorial_activity_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Revista de Filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Dialéctica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "left_archive_biography",
+      "title": "Ponce, Aníbal",
+      "url": "https://diccionario.cedinci.org/ponce-anibal/",
+      "publisher": "CeDInCI"
+    },
+    {
+      "kind": "academic_article",
+      "title": "Educación y lucha de clases",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-26982015000300014&script=sci_arttext",
+      "publisher": "SciELO México"
+    },
+    {
+      "kind": "psychology_reference",
+      "title": "Ponce, Aníbal",
+      "url": "https://bvs-psi.mdp.edu.ar/?page_id=99",
+      "publisher": "Biblioteca Virtual en Psicología Argentina"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar conferencias, Dialéctica, Revista de Filosofía y manuscritos del exilio mexicano.",
+    "Hay variación 1936/1937 para la primera edición de Educación y lucha de clases; se conserva el curso de 1934 y la edición de 1937 como referencia principal."
+  ]
+}

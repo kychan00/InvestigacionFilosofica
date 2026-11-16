@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 354,
+  "canonical_name": "Telmo Ichazo",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1853,
+      "certainty": "historical_biography"
+    },
+    "died": {
+      "year": 1900,
+      "certainty": "historical_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0354-w001",
+      "title": "Estracto de derecho natural o de filosofía del derecho, dividido en tres partes y recopilado",
+      "work_type": "natural_law_compilation_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1871,
+        "certainty": "scholarly_or_catalog_date"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "historically_attributed_author_or_editor_role_disambiguated",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "krausismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf",
+        "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm",
+        "https://www.academia.edu/145025442/400_a%C3%B1os_formando_revolucionarios_Transformaci%C3%B3n_social_pol%C3%ADtica_y_econ%C3%B3mica_en_la_Universidad_Mayor_Real_y_Pontificia_de_San_Francisco_Xavier_de_Chuquisaca_siglo_XIX_"
+      ],
+      "notes": "Sucre, Imprenta Pedro España. Historiografía tradicional sitúa impreso en 1871; investigación universitaria reciente ubica la ficha bajo 1870. Mantener conflicto entre 1870 y 1871 y entre extensiones 76/78 páginas hasta cotejar portada.",
+      "edition": {
+        "year": 1871,
+        "publisher": "Imprenta Pedro España",
+        "region": "Sucre"
+      },
+      "reported_alternative_year": 1870,
+      "reported_pages": [
+        76,
+        78
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia y recepción de manuales krausistas de derecho natural en Chuquisaca",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Guillermo Francovich, Telmo Ichazo",
+      "url": "https://www.andesacd.org/wp-content/uploads/2011/12/La-Filosof%C3%ADa-en-bolivia.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Gómez-Martínez, impresos bolivianos de Ahrens",
+      "url": "https://www.ensayistas.org/critica/generales/krausismo/estudios/gomez.htm"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Estudio de Chuquisaca, noticia editorial alternativa 1870",
+      "url": "https://www.academia.edu/145025442/400_a%C3%B1os_formando_revolucionarios_Transformaci%C3%B3n_social_pol%C3%ADtica_y_econ%C3%B3mica_en_la_Universidad_Mayor_Real_y_Pontificia_de_San_Francisco_Xavier_de_Chuquisaca_siglo_XIX_"
+    }
+  ],
+  "research_notes": [
+    "El título corresponde a un extracto/recopilación, no original de Ahrens.",
+    "Se conserva la discrepancia de año 1870/1871 sin inventar certeza."
+  ]
+}
