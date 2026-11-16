@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "author_id": 337,
+  "canonical_name": "Ricardo Palma",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1861_serial_1863_book_and_1872_tradiciones_series",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0337-w001",
+      "title": "Anales de la Inquisición de Lima (estudio histórico)",
+      "work_type": "historical_critical_original_monograph_serialized_earlier",
+      "original_language": "español",
+      "original_date": {
+        "year": 1861,
+        "certainty": "early_Chilean_newspaper_serialization"
+      },
+      "first_publication_year": 1863,
+      "authorship_status": "author_first_book_print_1863_earlier_serial_1861",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Inquisición",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Perú colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia religiosa",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cervantesvirtual.com/portales/ricardo_palma/obra/anales-de-la-inquisicion-de-lima-estudio-historico-1371048/",
+        "https://www.cervantesvirtual.com/obra-visor/revista-de-la-casa-museo-ricardo-palma--0/html/035187ae-82b2-11df-acc7-002185ce6064_21.html"
+      ],
+      "notes": "La primera forma apareció por entregas en un periódico chileno en 1861, según nota del propio Palma. Primera edición en libro: Lima, Tipografía de Aurelio Alfaro, 1863. 1863 se registra como primera publicación en libro; el serial de 1861 se declara explícitamente.",
+      "first_serial_year": 1861,
+      "edition": {
+        "year": 1863,
+        "publisher": "Tipografía de Aurelio Alfaro",
+        "region": "Lima"
+      }
+    },
+    {
+      "work_id": "0337-w002",
+      "title": "Tradiciones peruanas",
+      "work_type": "literary_historical_traditions_evolving_multiseries_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1872,
+        "certainty": "first_book_series_print"
+      },
+      "first_publication_year": 1872,
+      "authorship_status": "author_original_tradiciones_multiple_series_and_reprints",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura peruana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía popular",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/ricardo_palma/su_obra_bibliografia/",
+        "https://www.cervantesvirtual.com/obra-visor/revista-de-la-casa-museo-ricardo-palma--0/html/035187ae-82b2-11df-acc7-002185ce6064_21.html"
+      ],
+      "notes": "Primera serie impresa 1872; posteriores series en 1874, 1875, 1877 y nuevas recopilaciones. Las seis series forman un corpus evolutivo; no duplicar por número de tomos ni confundir reediciones con nuevos títulos originales.",
+      "first_series_year": 1872,
+      "additional_series_years": [
+        1874,
+        1875,
+        1877,
+        1883
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Producción de tradiciones histórico-literarias y crítica cultural de la herencia colonial peruana",
+      "kind": "peruvian_historical_literary_thought",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "critical_rare_book_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes, Anales de la Inquisición de Lima, 1863 y serial previo 1861",
+      "url": "https://cervantesvirtual.com/portales/ricardo_palma/obra/anales-de-la-inquisicion-de-lima-estudio-historico-1371048/"
+    },
+    {
+      "kind": "author_bibliography",
+      "title": "Cervantes Virtual, Ricardo Palma: obra y bibliografía de Tradiciones",
+      "url": "https://www.cervantesvirtual.com/portales/ricardo_palma/su_obra_bibliografia/"
+    },
+    {
+      "kind": "critical_scholarly_article",
+      "title": "Revista Casa Museo Ricardo Palma, historia e interpretación de tradiciones",
+      "url": "https://www.cervantesvirtual.com/obra-visor/revista-de-la-casa-museo-ricardo-palma--0/html/035187ae-82b2-11df-acc7-002185ce6064_21.html"
+    }
+  ],
+  "research_notes": [
+    "Tradiciones combinan historia, mito y ficción; nunca presentarlas como registro documental neutral de cada hecho.",
+    "La primera publicación del texto de Anales (por entregas 1861) y su primera edición de libro 1863 son eventos distintos."
+  ]
+}

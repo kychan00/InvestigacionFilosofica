@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "author_id": 336,
+  "canonical_name": "Andrés Lamas",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_historical_written_works_and_one_edited_multiauthor_collection",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0336-w001",
+      "title": "Apuntes históricos sobre las agresiones del dictador argentino D. Juan Manuel Rosas contra la independencia de la República Oriental del Uruguay",
+      "work_type": "political_history_and_diplomatic_pamphlet_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1845,
+        "certainty": "initial_El_Nacional_newspaper_publication"
+      },
+      "first_publication_year": 1849,
+      "authorship_status": "original_essay_1845_separately_printed_book_1849",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Rosas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Uruguay",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.cl/books?id=yfrjU-Ux8DkC"
+      ],
+      "notes": "Las notas aparecieron originalmente en El Nacional (Montevideo, 1845) y fueron reunidas en un libro en 1849. Campo first_publication_year = 1849 representa la edición independiente de libro; no negar circulación periódica previa.",
+      "initial_serial_year": 1845,
+      "edition": {
+        "year": 1849,
+        "publisher": "por cotejar",
+        "region": "Montevideo"
+      }
+    },
+    {
+      "work_id": "0336-w002",
+      "title": "La revolución de mayo de 1810",
+      "work_type": "historical_and_political_journal_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1872,
+        "certainty": "Revista_del_Rio_de_la_Plata_volume_IV"
+      },
+      "first_publication_year": 1872,
+      "authorship_status": "original_article_attributed_author_Rio_de_la_Plata",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolución de mayo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria histórica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cervantesvirtual.com/obra-visor/revista-del-rio-de-la-plata-periodico-mensual-de-historia-y-literatura-de-america--19/html/"
+      ],
+      "notes": "Artículo publicado en Revista del Río de la Plata, tomo IV, 1872, pp. 465–485. La publicación coeditada también incluía documentos de otras personas; no atribuirlos a Lamas.",
+      "periodical": "Revista del Río de la Plata",
+      "volume": "IV",
+      "pages": "465–485"
+    },
+    {
+      "work_id": "0336-w003",
+      "title": "Colección de obras, documentos y noticias inéditas o poco conocidas para servir a la historia física, política y literaria del Río de la Plata",
+      "work_type": "historical_source_collection_compiled_not_original_authored_documents",
+      "original_language": "español",
+      "original_date": {
+        "year": 1873,
+        "certainty": "first_collection_print"
+      },
+      "first_publication_year": 1873,
+      "authorship_status": "editor_and_compiler_not_author_of_edited_original_sources",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "edición documental",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Río de la Plata",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Andr%C3%A9s_Lamas"
+      ],
+      "notes": "Colección iniciada en 1873 que recoge documentos y obras de múltiples autores. Lamas actuó como compilador/editor; los textos originales de terceros NO son obra intelectual redactada por él.",
+      "contributor_role": "editor_and_compiler"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Edición de fuentes coloniales y estudio historiográfico de las relaciones políticas y diplomáticas rioplatenses",
+      "kind": "nineteenth_century_political_philosophical_contribution",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "first_historical_print",
+      "title": "Apuntes históricos sobre las agresiones de Rosas, edición de 1849 digitalizada",
+      "url": "https://books.google.cl/books?id=yfrjU-Ux8DkC"
+    },
+    {
+      "kind": "historical_periodical_source",
+      "title": "Revista del Río de la Plata, artículo de Andrés Lamas 1872",
+      "url": "https://cervantesvirtual.com/obra-visor/revista-del-rio-de-la-plata-periodico-mensual-de-historia-y-literatura-de-america--19/html/"
+    },
+    {
+      "kind": "bibliographical_list",
+      "title": "Andrés Lamas, listado de trabajos y colecciones",
+      "url": "https://es.wikisource.org/wiki/Autor:Andr%C3%A9s_Lamas"
+    }
+  ],
+  "research_notes": [
+    "La revista de historia tenía otros coeditores; no atribuirle todos los textos del periódico.",
+    "Una colección de fuentes no implica que su editor haya escrito todos los documentos compilados.",
+    "No inventar identidad entre ensayo de 1845 y nueva obra 1849: mismo cuerpo de apuntes en soportes distintos."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 330,
-    "authors_remaining": 1174,
-    "works_or_contributions_seeded": 2312,
-    "current_batch": "033",
+    "authors_seeded": 340,
+    "authors_remaining": 1164,
+    "works_or_contributions_seeded": 2345,
+    "current_batch": "034",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1747,6 +1747,58 @@
       "author_id": 330,
       "canonical_name": "Manuel José Irarrázaval",
       "path": "authors/0330.json"
+    }
+  ],
+  "batch_034": [
+    {
+      "author_id": 331,
+      "canonical_name": "Zorobabel Rodríguez",
+      "path": "authors/0331.json"
+    },
+    {
+      "author_id": 332,
+      "canonical_name": "Carlos Walker Martínez",
+      "path": "authors/0332.json"
+    },
+    {
+      "author_id": 333,
+      "canonical_name": "Francisco Quintanilla",
+      "path": "authors/0333.json"
+    },
+    {
+      "author_id": 334,
+      "canonical_name": "Vicente López",
+      "path": "authors/0334.json"
+    },
+    {
+      "author_id": 335,
+      "canonical_name": "Bartolomé Mitre",
+      "path": "authors/0335.json"
+    },
+    {
+      "author_id": 336,
+      "canonical_name": "Andrés Lamas",
+      "path": "authors/0336.json"
+    },
+    {
+      "author_id": 337,
+      "canonical_name": "Ricardo Palma",
+      "path": "authors/0337.json"
+    },
+    {
+      "author_id": 338,
+      "canonical_name": "Francisco de Paula Vigil",
+      "path": "authors/0338.json"
+    },
+    {
+      "author_id": 339,
+      "canonical_name": "Ignacio Ramírez",
+      "path": "authors/0339.json"
+    },
+    {
+      "author_id": 340,
+      "canonical_name": "Guillermo Prieto",
+      "path": "authors/0340.json"
     }
   ]
 }

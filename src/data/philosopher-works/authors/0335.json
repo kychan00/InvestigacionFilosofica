@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 335,
+  "canonical_name": "Bartolomé Mitre",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_multi_edition_national_histories_first_book_1859_and_complete_1887",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0335-w001",
+      "title": "Historia de Belgrano y de la Independencia Argentina (ediciones anteriores bajo título Historia del general Belgrano)",
+      "work_type": "historical_biography_revised_expanded_across_editions",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "earliest_Belgrano_biographical_editions_and_imprints",
+        "period": {
+          "start": 1857,
+          "end": 1859
+        }
+      },
+      "first_publication_year": 1859,
+      "authorship_status": "author_first_independent_book_catalog_1859_earlier_sketch_possible",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Independencia argentina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Belgrano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://digital.bbm.usp.br/handle/bbm/9070",
+        "https://dialnet.unirioja.es/descarga/articulo/2345365.pdf"
+      ],
+      "notes": "Un esbozo biográfico circuló en Galería de Celebridades Argentinas (1857/1858 según bibliografía). La Biblioteca Brasiliana USP conserva Historia del general Belgrano de 1859, en 2 tomos; la versión ampliada Historia de Belgrano y de la independencia argentina se difundió 1876–1877. Se registra UNA obra en desarrollo, NO tres títulos originales. Año first_publication_year 1859 refiere al libro autónomo catalogado.",
+      "initial_biographical_sketch_reported": [
+        1857,
+        1858
+      ],
+      "first_independent_edition": {
+        "year": 1859,
+        "title": "Historia del general Belgrano",
+        "volume_count": 2
+      },
+      "expanded_edition": {
+        "start": 1876,
+        "end": 1877,
+        "title": "Historia de Belgrano y de la Independencia Argentina"
+      }
+    },
+    {
+      "work_id": "0335-w002",
+      "title": "Historia de San Martín y de la emancipación sudamericana",
+      "work_type": "historical_biography_three_volume_first_complete_edition",
+      "original_language": "español",
+      "original_date": {
+        "year": 1887,
+        "certainty": "first_complete_print_verified_national_sanmartiniano"
+      },
+      "first_publication_year": 1887,
+      "authorship_status": "original_author_first_complete_print",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "San Martín",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia sudamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://sanmartiniano.cultura.gob.ar/noticia/la-historia-de-san-martin-de-bartolome-mitre/"
+      ],
+      "notes": "Primera edición completa publicada en Buenos Aires en 1887, 3 vols., impresión en talleres de La Nación; antes circularon artículos y anticipos parciales, sin equivaler a historia completa.",
+      "edition": {
+        "year": 1887,
+        "region": "Buenos Aires",
+        "publisher": "Talleres de La Nación"
+      },
+      "volume_count": 3
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Construcción de grandes narrativas historiográficas de la independencia argentina, con trabajo en documentos históricos y debate sobre interpretación nacional",
+      "kind": "nineteenth_century_political_philosophical_contribution",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "rare_book_catalog",
+      "title": "Biblioteca Brasiliana USP, Historia del general Belgrano 1859",
+      "url": "https://digital.bbm.usp.br/handle/bbm/9070"
+    },
+    {
+      "kind": "national_historical_institute",
+      "title": "Instituto Nacional Sanmartiniano, Historia de San Martín primera edición completa 1887",
+      "url": "https://sanmartiniano.cultura.gob.ar/noticia/la-historia-de-san-martin-de-bartolome-mitre/"
+    },
+    {
+      "kind": "academic_historiography",
+      "title": "Estudio de procesos editoriales e historiográficos de Bartolomé Mitre",
+      "url": "https://dialnet.unirioja.es/descarga/articulo/2345365.pdf"
+    }
+  ],
+  "research_notes": [
+    "Hay esbozos de Belgrano de 1857/1858 y ediciones ampliadas: no tratarlas como obras completamente independientes.",
+    "La Historia de San Martín tiene primera edición COMPLETA en 1887; no anticiparla a la fecha de artículos preliminares."
+  ]
+}

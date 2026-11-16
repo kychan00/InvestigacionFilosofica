@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "author_id": 333,
+  "canonical_name": "Francisco Quintanilla",
+  "alternate_names": [
+    "Francisco Javier Quintanilla",
+    "Presbítero Francisco Javier Quintanilla"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "original_1869_university_philosophical_dissertation_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0333-w001",
+      "title": "Tradicionalismo; su refutacion. Discurso del Presbítero don Francisco Javier Quintanilla, en su incorporacion a la Facultad de Teolojía i Ciencias Sagradas, leido el 24 de marzo de 1869",
+      "work_type": "academic_philosophy_and_theology_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1869,
+        "certainty": "public_lecture_and_Anales_print"
+      },
+      "first_publication_year": 1869,
+      "authorship_status": "named_author_article_in_original_Anales",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tradicionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón y fe",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernidad filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaschilenas.uchile.cl/handle/2250/6580/browse?etal=-1&offset=14942&order=ASC&rpp=20&sort_by=1&starts_with=V&type=title",
+        "https://www.scielo.cl/scielo.php?pid=s0049-34492015000200002&script=sci_arttext"
+      ],
+      "notes": "Anales de la Universidad de Chile, tomo 32, enero–junio 1869, pp. 205–223. El discurso fue leído 24 marzo 1869. La historiografía lo abrevia «Refutación del tradicionalismo»; es el MISMO texto, no dos obras.",
+      "journal": "Anales de la Universidad de Chile",
+      "volume": "32",
+      "pages": "205–223",
+      "delivery_date": "1869-03-24"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa de la capacidad de la razón humana para conocer verdades naturales en polémica con el tradicionalismo católico",
+      "kind": "nineteenth_century_political_philosophical_contribution",
+      "authorship_status": "historical_and_bibliographic_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario de autores y discusiones del siglo XIX",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_original_periodical_catalog",
+      "title": "Universidad de Chile, Anales de la Universidad de Chile 1869, Quintanilla pp. 205–223",
+      "url": "https://revistaschilenas.uchile.cl/handle/2250/6580/browse?etal=-1&offset=14942&order=ASC&rpp=20&sort_by=1&starts_with=V&type=title"
+    },
+    {
+      "kind": "peer_reviewed_history",
+      "title": "La Iglesia católica chilena en el siglo XIX: encuentros y desencuentros con la modernidad filosófica (2015)",
+      "url": "https://www.scielo.cl/scielo.php?pid=s0049-34492015000200002&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "El nombre del inventario es Francisco Quintanilla; la portada académica proporciona nombre Francisco Javier Quintanilla.",
+    "No convertir la reedición de La Revista Católica del discurso en una segunda obra.",
+    "«Historia de la Teolojía» aparece en biohistoriografía sin ejemplar concreto; requiere identificación de portada antes de incorporarse."
+  ]
+}
