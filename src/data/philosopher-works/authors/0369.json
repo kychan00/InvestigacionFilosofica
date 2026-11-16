@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "author_id": 369,
+  "canonical_name": "Martín C. Martínez",
+  "alternate_names": [
+    "Martín C Martínez"
+  ],
+  "life": {
+    "born": {
+      "year": 1859,
+      "certainty": "authority_record"
+    },
+    "died": {
+      "year": 1946,
+      "certainty": "authority_record"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0369-w001",
+      "title": "Programa de Derecho Natural",
+      "work_type": "university_course_program",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "scholarly_history_of_university_source"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "documented_author_or_course_holder",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.colibri.udelar.edu.uy/jspui/bitstream/20.500.12008/54126/1/Paris%20y%20Oddone_Historia%20de%20la%20Udelar_Tomo%201.pdf"
+      ],
+      "notes": "La historia de la Universidad de la República documenta el Programa de Derecho Natural de 1884 en Revista de la Sociedad Universitaria, 15 de enero de 1884, año I, tomo III, n.º 21."
+    },
+    {
+      "work_id": "0369-w002",
+      "title": "Artículos doctrinarios de Martín C. Martínez en Anales del Ateneo",
+      "work_type": "philosophical_political_article_corpus",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "scholarly_bibliographic_range"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberanía popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno parlamentario",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "organización social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.colibri.udelar.edu.uy/jspui/bitstream/20.500.12008/54126/1/Paris%20y%20Oddone_Historia%20de%20la%20Udelar_Tomo%201.pdf"
+      ],
+      "notes": "Corpus documentado en Anales del Ateneo, Montevideo, 1884–1885, tomos VII–IX. Incluye «Valor teórico práctico de la soberanía del pueblo», «Ideales positivistas», «El gobierno parlamentario y los politiqueros», «A propósito de una correspondencia», «Influencia del dogmatismo espiritualista en los problemas políticos» y «Conexiones entre la organización social y la organización política». Se agrupa porque la fuente citada no separa con seguridad el año exacto de cada pieza."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Intervención en la reforma universitaria positivista uruguaya y reflexión sobre soberanía, representación y organización social",
+      "kind": "uruguayan_positivist_legal_political_contribution",
+      "authorship_status": "documented_in_university_history",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_history_source",
+      "title": "Universidad de la República — Historia de la Universidad, tomo I, Martín C. Martínez y positivismo",
+      "url": "https://www.colibri.udelar.edu.uy/jspui/bitstream/20.500.12008/54126/1/Paris%20y%20Oddone_Historia%20de%20la%20Udelar_Tomo%201.pdf"
+    }
+  ],
+  "research_notes": [
+    "Los seis artículos de 1884–1885 se agrupan como corpus para evitar asignar años individuales no desglosados por la fuente consultada.",
+    "La bibliografía política y económica posterior de Martínez requiere una segunda ronda de catalogación."
+  ]
+}
