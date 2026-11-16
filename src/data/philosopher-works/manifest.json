@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 420,
-    "authors_remaining": 1084,
-    "works_or_contributions_seeded": 2614,
-    "current_batch": "042",
+    "authors_seeded": 430,
+    "authors_remaining": 1074,
+    "works_or_contributions_seeded": 2654,
+    "current_batch": "043",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2215,6 +2215,58 @@
       "author_id": 420,
       "canonical_name": "Pontes de Miranda",
       "path": "authors/0420.json"
+    }
+  ],
+  "batch_043": [
+    {
+      "author_id": 421,
+      "canonical_name": "José de Jesús María Portugal y Serratos",
+      "path": "authors/0421.json"
+    },
+    {
+      "author_id": 422,
+      "canonical_name": "Emeterio Valverde Téllez",
+      "path": "authors/0422.json"
+    },
+    {
+      "author_id": 423,
+      "canonical_name": "Mamerto Oyola",
+      "path": "authors/0423.json"
+    },
+    {
+      "author_id": 424,
+      "canonical_name": "Francisco García Calderón",
+      "path": "authors/0424.json"
+    },
+    {
+      "author_id": 425,
+      "canonical_name": "Víctor Andrés Belaúnde",
+      "path": "authors/0425.json"
+    },
+    {
+      "author_id": 426,
+      "canonical_name": "Rodolfo Rivarola",
+      "path": "authors/0426.json"
+    },
+    {
+      "author_id": 427,
+      "canonical_name": "Alberto Rougès",
+      "path": "authors/0427.json"
+    },
+    {
+      "author_id": 428,
+      "canonical_name": "Ezequiel A. Chávez",
+      "path": "authors/0428.json"
+    },
+    {
+      "author_id": 429,
+      "canonical_name": "Macedonio Fernández",
+      "path": "authors/0429.json"
+    },
+    {
+      "author_id": 430,
+      "canonical_name": "Carlos Cossio",
+      "path": "authors/0430.json"
     }
   ]
 }
