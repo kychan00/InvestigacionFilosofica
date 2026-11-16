@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "author_id": 259,
+  "canonical_name": "José Rufo",
+  "alternate_names": [
+    "José Rufo S. J."
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "historical_source_attested_modern_physics_teaching_no_original_book_identified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0259-w001",
+      "title": "Exposición de física moderna y de Newton (curso jesuita, título descriptivo)",
+      "work_type": "late_colonial_jesuit_natural_philosophy_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "before_jesuit_expulsion",
+        "period": {
+          "start": null,
+          "end": 1767
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_course_attribution_without_witness_or_original_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Newton",
+          "provenance": "scholarly"
+        }
+      ],
+      "title_status": "modern_descriptive_label",
+      "evidence_urls": [
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "La fuente describe a José Rufo como uno de los últimos jesuitas anteriores a 1767 y partidario de la física newtoniana. No identifica portada literal, signatura, año preciso ni primera impresión de su exposición."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza o exposición jesuita de física moderna con recepción de ideas newtonianas en el Perú colonial",
+      "kind": "colonial_history_of_science_intellectual_contribution",
+      "authorship_status": "project_primary_source_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, p. 84"
+    }
+  ],
+  "research_notes": [
+    "La exposición del pensamiento de Newton se registra como testimonio histórico de docencia; no se crea un libro impreso inexistente.",
+    "Se debe localizar un manuscrito o curso concreto para pasar de atribución textual a ficha bibliográfica verificada."
+  ]
+}
