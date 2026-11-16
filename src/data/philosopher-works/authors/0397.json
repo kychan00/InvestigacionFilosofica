@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "author_id": 397,
+  "canonical_name": "Monte Alverne",
+  "alternate_names": [
+    "Frei Francisco de Monte Alverne",
+    "Francisco José de Carvalho"
+  ],
+  "life": {
+    "born": {
+      "year": 1784,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1858,
+      "certainty": "project_and_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0397-w001",
+      "title": "Obras oratórias do P. M. Fr. Francisco de Monte Alverne",
+      "work_type": "collected_sermons_multivolume_publication",
+      "original_language": "português",
+      "original_date": {
+        "year": 1853,
+        "certainty": "first_volume_publication"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "original_sermon_author_collected_in_multivolume_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oratória sacra",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "retórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pregação",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=142199",
+        "https://bdce.unb.br/wp-content/uploads/tainacan-items/88001/90253/1853_Fr.FranciscoDoMonteAlverne_ObrasOratorias.pdf"
+      ],
+      "notes": "Coleção em quatro volumes publicada entre 1853 e 1854. Reúne sermões pronunciados em anos anteriores; a data da coleção não é apresentada como data de composição de cada sermão."
+    },
+    {
+      "work_id": "0397-w002",
+      "title": "Compêndio de filosofia",
+      "work_type": "philosophy_textbook_written_earlier_published_posthumously",
+      "original_language": "português",
+      "original_date": {
+        "year": 1833,
+        "certainty": "project_history_of_philosophy_source"
+      },
+      "first_publication_year": 1859,
+      "authorship_status": "original_author_posthumous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ecletismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sensualismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Victor Cousin",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=142198",
+        "https://cpbn.bn.gov.br/planor/handle/20.500.12156.6/3263"
+      ],
+      "notes": "Compêndio escrito no período de magistério filosófico; a fonte-base do projeto data a redação em 1833. Publicado postumamente no Rio de Janeiro pela Typographia Nacional em 1859."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Transição do sensualismo para o ecletismo espiritualista no ensino filosófico brasileiro e renovação da oratória sacra",
+      "kind": "brazilian_eclectic_philosophy_and_oratory_contribution",
+      "authorship_status": "documented_in_project_and_library_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección sobre pensamiento filosófico brasileño del siglo XIX",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Compêndio de filosofia, 1859",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=142198"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "PLANOR — Compêndio de philosophia, Typographia Nacional, 1859",
+      "url": "https://cpbn.bn.gov.br/planor/handle/20.500.12156.6/3263"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Obras oratórias, 1853-1854",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=142199"
+    }
+  ],
+  "research_notes": [
+    "Obras oratórias é uma coleção editorial de sermões, não quatro obras independentes por volume.",
+    "O Compêndio distingue redação anterior e publicação póstuma."
+  ]
+}
