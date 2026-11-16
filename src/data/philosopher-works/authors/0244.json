@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "author_id": 244,
+  "canonical_name": "Diego de Villarrubia",
+  "alternate_names": [
+    "Diego de Villarubia",
+    "Fray Diego de Villarrubia"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_manuscripts_and_early_prints_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0244-w001",
+      "title": "Philosophia scholastico-christiana",
+      "work_type": "augustinian_scholastic_philosophy_work_manuscript_or_edition_unverified",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unknown_manuscript_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Philosophia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "scholastico-christiana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "documentary_status": "bibliographic_attribution_without_confirmed_printed_edition",
+      "notes": "La historia de la filosofía colonial atribuye esta obra al agustino natural de Puebla, profesor en Valladolid de Michoacán; no se verificó año ni primera impresión."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0244-c001",
+      "title": "Docencia agustiniana de filosofía escolástica en Valladolid de Michoacán, Nueva España",
+      "kind": "historical_colonial_scholastic_or_intellectual_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "historical_public_academic_article",
+      "title": "Mauricio Beuchot, La enseñanza de la filosofía (texto)",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+    },
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "El inventario normaliza Villarrubia, con variante Villarubia en fuentes académicas."
+  ]
+}
