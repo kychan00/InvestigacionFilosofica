@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "author_id": 108,
+  "canonical_name": "Alejandro Rossi",
+  "alternate_names": [
+    "Alejandro Francisco Rossi Guerrero"
+  ],
+  "life": {
+    "born": {
+      "year": 1932,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2009,
+      "certainty": "verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_analytic_language_essay_fiction_and_literary_philosophical_corpus_verified_with_date_conflicts",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0108-w001",
+      "title": "Lenguaje y significado",
+      "work_type": "analytic_philosophy_of_language_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1968,
+        "end": 1969,
+        "certainty": "first_edition_date_conflict"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lenguaje",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "significado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía analítica",
+          "provenance": "scholarly"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1968,
+          1969
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0108-w002",
+      "title": "Manual del distraído",
+      "work_type": "essay_literary_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ensayo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "vida cotidiana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0108-w003",
+      "title": "Sueños de Occam",
+      "work_type": "story_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1982,
+        "end": 1983,
+        "certainty": "first_edition_date_conflict"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Occam",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ficción",
+          "provenance": "inferred"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1982,
+          1983
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0108-w004",
+      "title": "El cielo de Sotero",
+      "work_type": "story_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ficción",
+          "provenance": "inferred"
+        },
+        {
+          "term": "memoria",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0108-w005",
+      "title": "La fábula de las regiones",
+      "work_type": "fiction_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1988,
+        "end": 1997,
+        "certainty": "edition_history_conflict"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "verified_with_edition_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "regiones",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ficción",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "El Colegio Nacional registra 1988; la ficha institucional de UNAM cita edición Anagrama de 1997. Se mantiene como primera fecha 1988 y la reedición posterior."
+    },
+    {
+      "work_id": "0108-w006",
+      "title": "Diario de guerra",
+      "work_type": "narrative_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guerra",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "narrativa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0108-w007",
+      "title": "Cartas credenciales",
+      "work_type": "essay_prose_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ensayo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0108-w008",
+      "title": "Un café con Gorrondona",
+      "work_type": "story_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuento",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0108-w009",
+      "title": "Edén. Vida imaginada",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida imaginada",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "memoria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ficción",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación de Crítica. Revista Hispanoamericana de Filosofía",
+      "kind": "editorial_analytic_philosophy_contribution",
+      "period": {
+        "start": 1967,
+        "end": 2009,
+        "certainty": "foundational_role_and_career"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [
+        {
+          "name": "Luis Villoro",
+          "role": "cofounder"
+        },
+        {
+          "name": "Fernando Salmerón",
+          "role": "cofounder"
+        }
+      ],
+      "keywords": [
+        {
+          "term": "filosofía analítica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Crítica",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_academic_profile",
+      "title": "Alejandro Rossi",
+      "url": "https://colnal.mx/integrantes/alejandro-rossi/",
+      "publisher": "El Colegio Nacional"
+    },
+    {
+      "kind": "university_profile",
+      "title": "Alejandro Rossi Guerrero",
+      "url": "https://www.filosoficas.unam.mx/sitio/alejandro-rossi",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "government_cultural_profile",
+      "title": "Alejandro Rossi",
+      "url": "https://www.cultura.gob.mx/noticias/efemerides/4387-la-funcion-del-escritor-es-diseminar-la-palabra%3A-alejandro-rossi.html",
+      "publisher": "Secretaría de Cultura"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Alejandro Rossi (1932-2009)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar artículos analíticos originales incluidos en Lenguaje y significado.",
+    "Los conflictos 1968/1969 y 1982/1983 se conservan explícitamente."
+  ]
+}
