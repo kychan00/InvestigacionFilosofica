@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "author_id": 363,
+  "canonical_name": "Mariano Cornejo",
+  "alternate_names": [
+    "Mariano H. Cornejo",
+    "Mariano Hilario Cornejo Zenteno"
+  ],
+  "life": {
+    "born": {
+      "year": 1866,
+      "certainty": "scholarly_source"
+    },
+    "died": {
+      "year": 1942,
+      "certainty": "scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0363-w001",
+      "title": "Los principios generales de Sociología",
+      "work_type": "academic_sociology_conference",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "scholarly_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_lecturer_and_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo evolucionista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Comte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Spencer",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://journals.openedition.org/bifea/pdf/4426"
+      ],
+      "notes": "Conferencia de 1899 identificada por estudios de historia de la sociología peruana como primer ordenamiento de su reflexión sociológica. No se presume una primera impresión independiente sin cotejo."
+    },
+    {
+      "work_id": "0363-w002",
+      "title": "Sociología general",
+      "work_type": "sociology_treatise_multivolume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "scholarly_and_catalog_date"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociología general",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo evolucionista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.cl/scielo.php?lng=pt&nrm=iso&pid=S0716-54552020000100455&script=sci_arttext&tlng=es",
+        "https://journals.openedition.org/bifea/pdf/4426"
+      ],
+      "notes": "Tratado publicado en Madrid en dos volúmenes, 1908 y 1910. Se registra como una sola obra multivolumen; fue traducido al francés en 1930, edición posterior que no se duplica."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Institucionalización temprana de la sociología en San Marcos y formulación de una sociología positivista-evolucionista peruana",
+      "kind": "sociology_institutional_and_intellectual_contribution",
+      "authorship_status": "documented_in_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Bulletin de l’Institut français d’études andines — presencia temprana de la sociología en el Perú",
+      "url": "https://journals.openedition.org/bifea/pdf/4426"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Revista de Estudios Histórico-Jurídicos — Mariano H. Cornejo y el jurado",
+      "url": "https://www.scielo.cl/scielo.php?lng=pt&nrm=iso&pid=S0716-54552020000100455&script=sci_arttext&tlng=es"
+    }
+  ],
+  "research_notes": [
+    "La conferencia de 1899 no recibe un año de primera publicación sin evidencia de impresión independiente.",
+    "Sociología general se conserva como una obra de dos volúmenes, 1908 y 1910."
+  ]
+}
