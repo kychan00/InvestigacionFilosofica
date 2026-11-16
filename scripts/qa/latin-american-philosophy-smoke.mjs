@@ -141,6 +141,12 @@ try {
         "Loading the next period batch should add authors");
     }
 
+    await page.screenshot({
+      path: ARTIFACTS + "/archive-" + width + "-light.png",
+      fullPage: true,
+      animations: "disabled"
+    });
+
     if (width >= 821) {
       await page.locator('[data-theme-choice="dark"]').click();
       assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
@@ -154,7 +160,7 @@ try {
     assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
 
     await page.screenshot({
-      path: ARTIFACTS + "/archive-" + width + ".png",
+      path: ARTIFACTS + "/archive-" + width + "-dark.png",
       fullPage: true,
       animations: "disabled"
     });
