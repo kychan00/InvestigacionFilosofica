@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "author_id": 151,
+  "canonical_name": "Roberto Torretti",
+  "alternate_names": [
+    "Roberto Torretti Edwards"
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "date": "1930-01-16",
+      "certainty": "institutional_biography"
+    },
+    "died": {
+      "year": 2022,
+      "date": "2022-11-12",
+      "certainty": "national_library"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_source_checked_with_explicit_provisional_attributions",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0151-w001",
+      "title": "Der systematische Aufbau des politischen Denkens Fichtes",
+      "work_type": "doctoral_dissertation",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1954,
+        "certainty": "dissertation_completed"
+      },
+      "first_publication_year": null,
+      "authorship_status": "doctoral_thesis",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Fichte",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "politisches Denken",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ],
+      "notes": "Tesis doctoral en Universidad de Friburgo, composición/defensa 1954; publicación independiente y datos de edición pendientes."
+    },
+    {
+      "work_id": "0151-w002",
+      "title": "Manuel Kant: estudio sobre los fundamentos de la filosofía crítica",
+      "work_type": "kantian_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kant",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía crítica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1980,
+          "edition": "segunda edición"
+        },
+        {
+          "year": 2005,
+          "edition": "reedición corregida"
+        }
+      ]
+    },
+    {
+      "work_id": "0151-w003",
+      "title": "Textos filosóficos clásicos y contemporáneos",
+      "work_type": "edited_philosophical_text_anthology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "editor_and_translator_not_original_author_of_classics",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "textos filosóficos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ],
+      "notes": "Selección y edición de textos de filósofos clásicos y contemporáneos; no atribuir a Torretti como autor de textos fuente."
+    },
+    {
+      "work_id": "0151-w004",
+      "title": "Philosophy of Geometry from Riemann to Poincaré",
+      "work_type": "philosophy_of_mathematics_monograph",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1978,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "geometry",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Riemann",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Poincaré",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1984,
+          "edition": "corrected reprint"
+        }
+      ]
+    },
+    {
+      "work_id": "0151-w005",
+      "title": "Relativity and Geometry",
+      "work_type": "philosophy_of_physics_monograph",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "relativity",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "geometry",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1996,
+          "edition": "corrected Dover reprint"
+        }
+      ]
+    },
+    {
+      "work_id": "0151-w006",
+      "title": "Creative Understanding: Philosophical Reflections on Physics",
+      "work_type": "philosophy_of_physics_monograph",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "creative understanding",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "physics",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    },
+    {
+      "work_id": "0151-w007",
+      "title": "Variedad en la razón: ensayos sobre Kant",
+      "work_type": "coauthored_kantian_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Carla Cordua",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Kant",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    },
+    {
+      "work_id": "0151-w008",
+      "title": "La geometría del universo y otros ensayos de filosofía natural",
+      "work_type": "philosophy_of_science_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "geometría",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "universo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    },
+    {
+      "work_id": "0151-w009",
+      "title": "Sophocles' Philoctetes: Text and Commentary",
+      "work_type": "critical_edition_and_commentary",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "editor_and_commentator_not_original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sophocles",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Philoctetes",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ],
+      "related_people": [
+        {
+          "name": "Sófocles",
+          "role": "original_author"
+        }
+      ],
+      "notes": "Es edición comentada de obra clásica de Sófocles; no atribuir a Torretti autoría original del drama."
+    },
+    {
+      "work_id": "0151-w010",
+      "title": "El paraíso de Cantor: la tradición conjuntista en la filosofía matemática",
+      "work_type": "philosophy_of_mathematics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cantor",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teoría de conjuntos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    },
+    {
+      "work_id": "0151-w011",
+      "title": "The Philosophy of Physics",
+      "work_type": "philosophy_of_physics_monograph",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "philosophy",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "physics",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    },
+    {
+      "work_id": "0151-w012",
+      "title": "Diccionario de lógica y filosofía de la ciencia",
+      "work_type": "coauthored_reference_dictionary",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Jesús Mosterín",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    },
+    {
+      "work_id": "0151-w013",
+      "title": "Relatividad y espacio tiempo",
+      "work_type": "philosophy_of_physics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "relatividad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espacio-tiempo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0151-c001",
+      "title": "Dirección del Centro de Estudios Humanísticos de la Universidad de Chile y edición de la revista Diálogos de la Universidad de Puerto Rico",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0151-c002",
+      "title": "Filosofía de las ciencias, relatividad y fundamentos de las matemáticas; Premio Nacional de Humanidades y Ciencias Sociales 2011 compartido con Carla Cordua",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_professional_cv",
+      "title": "Stanford Encyclopedia of Philosophy: Roberto Torretti curriculum vitae",
+      "url": "https://plato.stanford.edu/archives/spr2001/entries/geometry-19th/vita.html"
+    },
+    {
+      "kind": "national_library_biography",
+      "title": "Biblioteca Nacional de Chile: Roberto Torretti 1930–2022",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-3689.html"
+    },
+    {
+      "kind": "university_author_bibliography",
+      "title": "Universidad Diego Portales: Roberto Torretti",
+      "url": "https://www.udp.cl/academico/roberto-torretti/"
+    },
+    {
+      "kind": "university_memorial_bibliography",
+      "title": "Universidad Diego Portales: homenaje bibliográfico 2022",
+      "url": "https://institutodefilosofia.udp.cl/2022/11/18/roberto-torretti-edwards-la-filosofia-y-los-limites-hasta-donde-podemos-llegar/"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Chile y Paraguay, páginas impresas 908–915"
+    }
+  ],
+  "research_notes": [
+    "No confundir texto de Sófocles con autoría de Torretti, quien realiza edición y comentario.",
+    "La coautoría con Carla Cordua y Jesús Mosterín se registra explícitamente; no confundir a colaboradores con traductores."
+  ]
+}
