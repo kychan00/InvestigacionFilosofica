@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "author_id": 79,
+  "canonical_name": "Jackson de Figueiredo",
+  "alternate_names": [
+    "Jackson de Figueiredo Martins"
+  ],
+  "life": {
+    "born": {
+      "year": 1891,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1928,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_farias_brito_catholic_nationalist_political_and_literary_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0079-w001",
+      "title": "Algumas reflexões sobre a filosofia de Farias Brito",
+      "work_type": "philosophical_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1916,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Farias Brito",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Farias Brito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w002",
+      "title": "A questão social na filosofia de Farias Brito",
+      "work_type": "social_philosophy_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1919,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Farias Brito",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "questão social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Farias Brito",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w003",
+      "title": "Do nacionalismo na hora presente",
+      "work_type": "nationalist_political_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1921,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nacionalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w004",
+      "title": "Afirmações",
+      "work_type": "political_religious_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1921,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autoridade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w005",
+      "title": "A reação do bom senso",
+      "work_type": "political_polemic",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1921,
+        "end": 1922,
+        "certainty": "publication_context"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ordem",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w006",
+      "title": "Auta de Sousa",
+      "work_type": "literary_critical_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1922,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Auta de Souza",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica literária",
+          "provenance": "inferred"
+        },
+        {
+          "term": "poesia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w007",
+      "title": "Pascal e a inquietação moderna",
+      "work_type": "philosophical_religious_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1924,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Blaise Pascal",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Pascal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "inquietação moderna",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w008",
+      "title": "Literatura reacionária",
+      "work_type": "literary_political_criticism",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1924,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conservadorismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w009",
+      "title": "A coluna de fogo",
+      "work_type": "political_polemic_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ordem pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tenentismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo político",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0079-w010",
+      "title": "Aevum",
+      "work_type": "novel",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 20,
+        "certainty": "composed_before_1928"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "romance",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundação do Centro Dom Vital e da revista A Ordem",
+      "kind": "catholic_intellectual_institutional_contribution",
+      "period": {
+        "start": 1921,
+        "end": 1922,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Centro Dom Vital",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "A Ordem",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "digital_literature_database",
+      "title": "Algumas reflexões sobre a filosofia de Farias Brito",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=144169&locale=pt_BR",
+      "publisher": "Universidade Federal de Santa Catarina"
+    },
+    {
+      "kind": "biographical_reference",
+      "title": "Jackson de Figueiredo",
+      "url": "https://educacao.uol.com.br/biografias/jackson-de-figueiredo.htm",
+      "publisher": "UOL Educação / reference bibliography"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Jackson de Figueiredo (1891-1928)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar poesía juvenil, correspondencia y polémicas periodísticas.",
+    "Aevum se mantiene como novela póstuma, no como libro publicado en vida."
+  ]
+}
