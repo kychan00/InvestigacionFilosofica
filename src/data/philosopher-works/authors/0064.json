@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "author_id": 64,
+  "canonical_name": "José Ingenieros",
+  "alternate_names": [
+    "Giuseppe Ingegnieri",
+    "José Ingegnieros"
+  ],
+  "life": {
+    "born": {
+      "year": 1877,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1925,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_socialist_criminological_psychological_sociological_and_ethical_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0064-w001",
+      "title": "¿Qué es el socialismo?",
+      "work_type": "socialist_political_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication_context"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "organización social",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "ideal del porvenir",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w002",
+      "title": "La simulación en la lucha por la vida",
+      "work_type": "psychology_sociology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1900,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "simulación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lucha por la vida",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w003",
+      "title": "La simulación de la locura",
+      "work_type": "forensic_psychopathology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1903,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "simulación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "locura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psiquiatría",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "criminología",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w004",
+      "title": "Criminología",
+      "work_type": "criminology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "criminología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "delincuencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicopatología",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w005",
+      "title": "Sociología argentina",
+      "work_type": "sociology_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1908,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1908,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociología argentina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolución social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estructuras económicas",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Tuvo edición destacada/definitiva en 1913; no confundir ésta con la primera aparición de 1908."
+    },
+    {
+      "work_id": "0064-w006",
+      "title": "Principios de psicología",
+      "alternate_titles": [
+        "Principios de psicología biológica"
+      ],
+      "work_type": "psychology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "biología",
+          "provenance": "alternate_title"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w007",
+      "title": "El hombre mediocre",
+      "work_type": "ethical_social_psychology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mediocridad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "moral",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "psicología",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w008",
+      "title": "Hacia una moral sin dogmas",
+      "work_type": "ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1917,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1917,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dogmas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "idealismo ético",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w009",
+      "title": "La evolución de las ideas argentinas",
+      "work_type": "intellectual_history",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas argentinas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w010",
+      "title": "Las doctrinas de Ameghino",
+      "work_type": "scientific_intellectual_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Florentino Ameghino",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ameghino",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencia argentina",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0064-w011",
+      "title": "Las fuerzas morales",
+      "work_type": "ethical_deontological_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1918,
+        "end": 1923,
+        "certainty": "articles_composition_range"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fuerzas morales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "juventud",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "idealismo ético",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "deontología",
+          "provenance": "primary_text"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirección y fundación de Revista de Filosofía",
+      "kind": "editorial_intellectual_project",
+      "period": {
+        "start": 1915,
+        "end": 1925,
+        "certainty": "author_leadership_period"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura científica",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_repository",
+      "title": "La obra psicológica de José Ingenieros",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/14608",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "archive_authority",
+      "title": "Ingenieros, José",
+      "url": "https://diccionario.cedinci.org/ingenieros-jose/",
+      "publisher": "CeDInCI"
+    },
+    {
+      "kind": "primary_digital_book",
+      "title": "El Hombre Mediocre",
+      "url": "https://www.gutenberg.org/files/64974/64974-h/64974-h.htm",
+      "publisher": "Renacimiento, 1913 / Project Gutenberg"
+    },
+    {
+      "kind": "archive_catalog",
+      "title": "Fondo José Ingenieros",
+      "url": "https://archivos.cedinci.org/index.php/borrador?listLimit=10&sort=lastUpdated&sortDir=desc",
+      "publisher": "CeDInCI"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar psicopatología, correspondencia, artículos de Revista de Filosofía y series científicas.",
+    "La ficha distingue primeras publicaciones de ediciones definitivas europeas de 1913."
+  ]
+}
