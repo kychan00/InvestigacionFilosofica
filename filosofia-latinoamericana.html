@@ -106,7 +106,7 @@
           <article class="period-card period-originarios" data-period="originarios">
             <div class="period-visual" aria-hidden="true">
               <span class="period-symbol">◆</span>
-              <span class="period-era">1300 → 1492</span>
+              <span class="period-era">PUEBLOS ORIGINARIOS</span>
               <div class="period-swatch"><i></i><i></i><i></i><i></i></div>
             </div>
             <div class="period-copy">
@@ -123,7 +123,7 @@
           <article class="period-card period-colonial" data-period="colonial">
             <div class="period-visual" aria-hidden="true">
               <span class="period-symbol">✣</span>
-              <span class="period-era">1492 → ca. 1750</span>
+              <span class="period-era">MODERNIDAD TEMPRANA</span>
               <div class="period-swatch"><i></i><i></i><i></i><i></i></div>
             </div>
             <div class="period-copy">
@@ -140,7 +140,7 @@
           <article class="period-card period-madura" data-period="madura">
             <div class="period-visual" aria-hidden="true">
               <span class="period-symbol">✦</span>
-              <span class="period-era">ca. 1750 → 1900</span>
+              <span class="period-era">MODERNIDAD MADURA</span>
               <div class="period-swatch"><i></i><i></i><i></i><i></i></div>
             </div>
             <div class="period-copy">
@@ -157,7 +157,7 @@
           <article class="period-card period-sigloxx" data-period="sigloxx">
             <div class="period-visual" aria-hidden="true">
               <span class="period-symbol">●</span>
-              <span class="period-era">SIGLO XX</span>
+              <span class="period-era">CORRIENTES DEL SIGLO XX</span>
               <div class="period-swatch"><i></i><i></i><i></i><i></i></div>
             </div>
             <div class="period-copy">
@@ -194,6 +194,7 @@
           <p id="periodization-status">Preparando periodización desde las fichas bibliográficas…</p>
         </div>
         <div id="periodized-authors" class="periodized-authors" aria-live="polite"></div>
+        <button id="load-more-period-authors" class="load-more load-more-periods" type="button" hidden>Cargar 40 fichas más</button>
       </section>
 
       <section class="quote-band" aria-label="Principio editorial">
@@ -246,6 +247,20 @@
 
     <div class="ornament-frame ornament-frame-bottom" aria-hidden="true"><span>✦</span><span>❦</span><span>✦</span></div>
   </div>
+
+  <dialog id="author-dialog" class="author-dialog" aria-labelledby="author-dialog-title">
+    <div class="author-dialog-shell">
+      <div class="author-dialog-head">
+        <div>
+          <p class="section-kicker">FICHA BIBLIOGRÁFICA</p>
+          <h2 id="author-dialog-title">Autor</h2>
+          <p id="author-dialog-life" class="author-dialog-life"></p>
+        </div>
+        <button id="author-dialog-close" class="author-dialog-close" type="button" aria-label="Cerrar ficha">×</button>
+      </div>
+      <div id="author-dialog-body" class="author-dialog-body"></div>
+    </div>
+  </dialog>
 
   <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
   <script type="module" src="./js/latin-american-philosophy.js?v=20261116-period-cards-v2"></script>
