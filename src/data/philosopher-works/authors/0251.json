@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "author_id": 251,
+  "canonical_name": "Alonso de Sandoval",
+  "alternate_names": [
+    "Alonso de Sandoval S. J."
+  ],
+  "life": {
+    "born": {
+      "year": 1576,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1652,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_originals_or_manuscript_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0251-w001",
+      "title": "Naturaleza, policía sagrada y profana, costumbres y ritos, disciplina y catecismo evangélico de todos los etíopes (De instauranda Aethiopum salute)",
+      "work_type": "early_modern_ethnographic_missionary_and_slavery_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1627,
+        "certainty": "documented_first_publication"
+      },
+      "first_publication_year": 1627,
+      "authorship_status": "documented_historical_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "aethiopum",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "catecismo evangélico",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=SANDOVAL%2C_Alonso_de",
+        "https://data.cervantesvirtual.com/manifestation/256890"
+      ],
+      "original_edition": {
+        "year": 1627,
+        "place": "Sevilla",
+        "printer": "Francisco de Lira",
+        "language": "español",
+        "structure": "cuatro libros"
+      },
+      "edition_history": [
+        {
+          "year": 1647,
+          "title": "De instauranda Aethiopum salute: historia de Aethiopia",
+          "place": "Madrid",
+          "printer": "Alonso de Paredes",
+          "structure": "revisión ampliada pero solo la primera parte",
+          "note": "Segunda edición sustancialmente revisada; no mismo contenido exacto"
+        },
+        {
+          "year": 1648,
+          "language": "latín",
+          "note": "Versión latina realizada por el autor; cotejar fecha de circulación y alcance"
+        }
+      ],
+      "notes": "Una sola línea intelectual con dos versiones editoriales materialmente diferentes: edición de 1627 en 4 libros y revisión 1647 de la primera parte; no atribuir a edición 1647 la composición inicial del texto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación e intervención religiosa y social en Cartagena de Indias en el contexto de la esclavización de personas africanas",
+      "kind": "colonial_historical_theological_philosophical_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialist_history_of_church_bibliography",
+      "title": "Alonso de Sandoval, Dicionário de História Cultural da Igreja na América Latina",
+      "url": "https://www.dhial.org/diccionario/index.php?title=SANDOVAL%2C_Alonso_de"
+    },
+    {
+      "kind": "national_digital_library_first_editions",
+      "title": "Biblioteca Virtual Miguel de Cervantes, De instauranda aethiopum salute, Madrid 1647",
+      "url": "https://data.cervantesvirtual.com/manifestation/256890"
+    },
+    {
+      "kind": "specialist_research_publication",
+      "title": "Estudio de ediciones de De instauranda aethiopum salute (1627/1647)",
+      "url": "https://www.academia.edu/2186806/De_Instauranda_%C3%86thiopum_Salute_Sobre_las_ediciones_y_caracter%C3%ADsticas_de_la_obra_de_Alonso_de_Sandoval"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 82–84"
+    }
+  ],
+  "research_notes": [
+    "La obra se presenta como fuente histórica de pensamiento moral y misión cristiana; sus ideas y prácticas coloniales requieren lectura crítica, no suponer abolicionismo moderno integral.",
+    "La reproducción digital de 1647 es fuente de una edición, no de primera publicación."
+  ]
+}
