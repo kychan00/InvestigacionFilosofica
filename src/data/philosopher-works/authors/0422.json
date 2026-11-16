@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "author_id": 422,
+  "canonical_name": "Emeterio Valverde Téllez",
+  "alternate_names": [
+    "Emeterio Valverde y Téllez"
+  ],
+  "life": {
+    "born": {
+      "year": 1864,
+      "certainty": "academy_authority"
+    },
+    "died": {
+      "year": 1948,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0422-w001",
+      "title": "Apuntaciones históricas sobre la filosofía en México",
+      "work_type": "history_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1896,
+        "certainty": "first_edition_bibliographic_source"
+      },
+      "first_publication_year": 1896,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía en México",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historiografía filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a248.htm",
+        "https://www.academiamh.com.mx/miembros/emeterio-valverde-y-tellez/"
+      ],
+      "notes": "Primera edición México, Herrero Hermanos, 1896. La Academia Mexicana de la Historia lo considera pionero de la historiografía filosófica mexicana."
+    },
+    {
+      "work_id": "0422-w002",
+      "title": "Crítica filosófica: estudio bibliográfico y crítico de las obras de filosofía escritas, traducidas o publicadas en México desde el siglo XVI hasta nuestros días",
+      "work_type": "philosophical_bibliography_and_critical_history_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "first_edition_bibliographic_source"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bibliografía filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía mexicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia intelectual",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a248.htm",
+        "https://www.academiamh.com.mx/miembros/emeterio-valverde-y-tellez/"
+      ],
+      "notes": "México, Tipografía de los Sucesores de Francisco Díaz de León, 1904. Se presenta como continuación/complemento de las Apuntaciones, pero se conserva como obra editorial independiente."
+    },
+    {
+      "work_id": "0422-w003",
+      "title": "Bibliografía filosófica mexicana",
+      "work_type": "philosophical_bibliography_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "first_edition_bibliographic_source"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bibliografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía mexicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a248.htm",
+        "https://moderna.historicas.unam.mx/index.php/ehm/article/view/68880"
+      ],
+      "notes": "Primera edición de 1907; la edición de 1913-1914 es segunda edición en dos volúmenes y no se cuenta como nueva obra."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación de una historiografía y bibliografía sistemática de la filosofía mexicana desde el periodo colonial",
+      "kind": "mexican_history_of_philosophy_and_bibliography_contribution",
+      "authorship_status": "documented_in_academy_and_unam_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Mexicana de la Historia — Emeterio Valverde y Téllez",
+      "url": "https://www.academiamh.com.mx/miembros/emeterio-valverde-y-tellez/"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Proyecto Filosofía en español — selección bibliográfica cronológica",
+      "url": "https://www.filosofia.org/ave/001/a248.htm"
+    },
+    {
+      "kind": "university_source",
+      "title": "UNAM — reseña de Bibliografía filosófica mexicana",
+      "url": "https://moderna.historicas.unam.mx/index.php/ehm/article/view/68880"
+    }
+  ],
+  "research_notes": [
+    "La Academia Mexicana de la Historia ofrece por error tipográfico 1986 para las Apuntaciones; las fuentes bibliográficas especializadas confirman 1896.",
+    "La segunda edición 1913-1914 de la Bibliografía filosófica mexicana no se duplica."
+  ]
+}
