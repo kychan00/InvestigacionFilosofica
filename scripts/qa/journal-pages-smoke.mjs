@@ -171,6 +171,44 @@ try {
           journal + " " + name + " quicknav must scroll away instead of covering reading content");
       }
 
+      if (width > 820) {
+        const layout = await page.evaluate(() => {
+          const masthead = document.querySelector(".journal-header .journal-nav");
+          const quicknav = document.querySelector(".journal-quicknav");
+          const hero = document.querySelector(".journal-header .journal-hero");
+          const mastheadBox = masthead.getBoundingClientRect();
+          const quicknavBox = quicknav.getBoundingClientRect();
+          return {
+            inHeader: quicknav.parentElement === masthead.parentElement,
+            followsMasthead: quicknav.previousElementSibling === masthead,
+            position: getComputedStyle(quicknav).position,
+            mastheadBottom: mastheadBox.bottom,
+            navTop: quicknavBox.top,
+            navBottom: quicknavBox.bottom,
+            heroTop: hero.getBoundingClientRect().top,
+            viewportWidth: innerWidth,
+            pageWidth: document.documentElement.scrollWidth
+          };
+        });
+        assert.equal(layout.inHeader && layout.followsMasthead, true,
+          journal + " desktop quicknav must follow the editorial masthead");
+        assert.equal(layout.position, "relative");
+        assert.ok(layout.navTop >= layout.mastheadBottom - 2,
+          journal + " desktop quicknav covers the masthead: " + JSON.stringify(layout));
+        assert.ok(layout.heroTop >= layout.navBottom - 2,
+          journal + " desktop quicknav covers the hero: " + JSON.stringify(layout));
+        assert.ok(layout.pageWidth <= layout.viewportWidth + 2,
+          journal + " desktop quicknav must not cause horizontal page overflow");
+
+        assert.equal(await page.locator('.journal-quicknav select option').count(), 3);
+        await page.locator('.journal-quicknav [data-quicknav-id="journal-atlas-panel"]').click();
+        assert.equal(await page.locator("#journal-atlas-panel").isVisible(), true,
+          journal + " desktop Atlas quicklink must activate its view");
+        await page.locator('.journal-quicknav [data-quicknav-id="journal-archive-panel"]').click();
+        assert.equal(await page.locator("#journal-archive-panel").isVisible(), true,
+          journal + " desktop Artículos quicklink must restore the archive");
+      }
+
       assert.equal(await page.locator(".journal-card").count(), expected);
       assert.ok(await page.locator(".taxonomy-chip").count() >= 1);
       assert.ok(await page.locator(".journal-card-byline .journal-author-link").count() >= 1);

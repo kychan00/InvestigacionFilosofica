@@ -65,6 +65,19 @@ test("componente común conserva vínculos locales y controles accesibles", asyn
   const navRule = css.split("  .journal-quicknav {")[1]?.split("  .journal-quicknav,")[0];
   assert.ok(navRule?.includes("position: relative;"), "mobile quicknav must stay in flow");
   assert.ok(!navRule?.includes("position: sticky;"), "mobile quicknav must not float over hero");
+  assert.ok(css.includes("@media (min-width: 821px)"));
+  const desktopRules = css.split("/* Desktop editorial navigator.")[1];
+  assert.ok(desktopRules?.includes("display: grid;"), "desktop quicknav must be visible");
+  assert.ok(desktopRules?.includes("grid-template-columns"), "desktop quicknav must adapt to available width");
+  assert.ok(desktopRules?.includes("overflow-x: auto"), "desktop destinations need a scrollable fallback");
+  assert.ok(desktopRules?.includes("position: relative;"), "desktop navigation must stay in flow");
+  assert.ok(!desktopRules?.includes("position: sticky;") && !desktopRules?.includes("position: fixed;"));
+  assert.match(js, /const desktopAnchor = institutional/);
+  assert.ok(js.includes(".ji .nav-wrap"));
+  assert.ok(js.includes(".journal-header .journal-nav"));
+  assert.ok(js.includes('mobileBreakpoint.addEventListener("change"'));
+  assert.match(js, /stickyHeight/);
+
   assert.doesNotMatch(js, /toolbarHeight - quicknavHeight/);
   assert.match(css, /overflow-x: auto/);
   assert.match(css, /:focus-visible/);
