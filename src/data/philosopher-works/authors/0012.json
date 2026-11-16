@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "author_id": 12,
+  "canonical_name": "Bernardino de Sahagún",
+  "alternate_names": [
+    "Fray Bernardino de Sahagún"
+  ],
+  "life": {
+    "born": {
+      "year": 1499,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1590,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_works_verified_collaborative_authorship_explicit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0012-w001",
+      "title": "Historia general de las cosas de Nueva España",
+      "alternate_titles": [
+        "Códice Florentino",
+        "Florentine Codex"
+      ],
+      "work_type": "encyclopedic_ethnography_history",
+      "original_language": "náhuatl y español",
+      "original_date": {
+        "start": 1540,
+        "end": 1577,
+        "certainty": "research_and_compilation_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "compiled_with_indigenous_collaborators",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "principales nahuas de pueblos del centro de México",
+          "role": "oral_and_pictorial_informants"
+        },
+        {
+          "name": "estudiantes y egresados nahuas del Colegio de Santa Cruz de Tlatelolco",
+          "role": "transcription_interpretation_translation_and_illustration"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aztecs",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Indigenous peoples",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Mesoamerica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "natural history",
+          "provenance": "catalog"
+        },
+        {
+          "term": "rituals",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Manuscrito final completado hacia 1575–1577; la autoría intelectual es de Sahagún, pero el proceso fue profundamente colaborativo con sabios e intelectuales nahuas."
+    },
+    {
+      "work_id": "0012-w002",
+      "title": "Psalmodia Christiana",
+      "work_type": "religious_hymnal",
+      "original_language": "náhuatl",
+      "original_date": {
+        "year": 1583,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1583,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "himnos cristianos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "náhuatl",
+          "provenance": "inferred"
+        },
+        {
+          "term": "evangelización",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Fue la única obra de Sahagún que vio impresa durante su vida."
+    },
+    {
+      "work_id": "0012-w003",
+      "title": "Coloquios y Doctrina Cristiana",
+      "work_type": "bilingual_missionary_dialogue",
+      "original_language": "náhuatl y español",
+      "original_date": {
+        "century": 16,
+        "certainty": "manuscript"
+      },
+      "first_publication_year": null,
+      "authorship_status": "compiled_and_reworked",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "colaboradores indígenas de Sahagún",
+          "role": "transcription_and_linguistic_mediation"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "968-837823-2"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Coloquios",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Psalmodia christiana",
+          "provenance": "editorial"
+        },
+        {
+          "term": "metáfora",
+          "provenance": "editorial"
+        },
+        {
+          "term": "huehuetlatolli",
+          "provenance": "editorial"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "primary_digital_manuscript",
+      "title": "General History of the Things of New Spain — Florentine Codex",
+      "url": "https://www.loc.gov/item/2021667837",
+      "publisher": "Library of Congress"
+    },
+    {
+      "kind": "institutional_edition",
+      "title": "Coloquios y Doctrina Cristiana",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/224/coloquios_doctrinas.html",
+      "publisher": "UNAM, Instituto de Investigaciones Históricas"
+    }
+  ],
+  "research_notes": [
+    "Pendiente distinguir las distintas etapas manuscritas (Primeros memoriales, manuscritos de Madrid/Florencia) sin contarlas automáticamente como obras independientes."
+  ]
+}
