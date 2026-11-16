@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "author_id": 361,
+  "canonical_name": "José Ramos Mejía",
+  "alternate_names": [
+    "José María Ramos Mejía"
+  ],
+  "life": {
+    "born": {
+      "year": 1849,
+      "certainty": "biography"
+    },
+    "died": {
+      "year": 1914,
+      "certainty": "biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0361-w001",
+      "title": "Las neurosis de los hombres célebres en la historia argentina",
+      "work_type": "historical_psychopathology_original_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "institutional_biographical_source"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psiquiatría",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia argentina",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://anm.edu.ar/recurso/jose-maria-ramos-mejia/"
+      ],
+      "notes": "La Academia Nacional de Medicina indica que Ramos Mejía publicó en 1878, todavía estudiante, el primer tomo. No se equiparan reediciones posteriores con la primera publicación."
+    },
+    {
+      "work_id": "0361-w002",
+      "title": "Las multitudes argentinas",
+      "work_type": "social_psychology_and_sociology_original_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1899,
+        "certainty": "repository_first_publication"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "multitudes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política argentina",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.filo.uba.ar/entities/publication/552350ec-196d-4c5d-9bfc-19ec17096030"
+      ],
+      "notes": "Repositorio de Filosofía y Letras UBA: Buenos Aires, Félix Lajouane, 1899."
+    },
+    {
+      "work_id": "0361-w003",
+      "title": "Los simuladores del talento en las luchas por la personalidad y la vida",
+      "work_type": "social_psychology_original_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "catalog_date"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "simulación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicología social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "personalidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Los_simuladores_del_talento_en_las_lucha.html?id=1KlXAAAAMAAJ"
+      ],
+      "notes": "Edición catalogada: F. Lajouane & Cía., 1904, 268 páginas."
+    },
+    {
+      "work_id": "0361-w004",
+      "title": "Rosas y su tiempo",
+      "work_type": "historical_sociology_multivolume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "digital_facsimile_original_edition"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Juan Manuel de Rosas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicología histórica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra/rosas-y-su-tiempo-tomo-1/"
+      ],
+      "notes": "Obra en varios tomos tratada como una sola identidad bibliográfica. Biblioteca Virtual Miguel de Cervantes reproduce la edición bonaerense de Félix Lajouane y Cía., 1907."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación positivista de medicina, psicología colectiva e interpretación histórica de la política argentina",
+      "kind": "positivist_social_thought_contribution",
+      "authorship_status": "documented_in_institutional_and_repository_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_biographical_source",
+      "title": "Academia Nacional de Medicina de Buenos Aires — José María Ramos Mejía",
+      "url": "https://anm.edu.ar/recurso/jose-maria-ramos-mejia/"
+    },
+    {
+      "kind": "repository_source",
+      "title": "UBA Filosofía y Letras — Las multitudes argentinas (1899)",
+      "url": "https://repositorio.filo.uba.ar/entities/publication/552350ec-196d-4c5d-9bfc-19ec17096030"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Biblioteca Virtual Miguel de Cervantes — Rosas y su tiempo, edición de 1907",
+      "url": "https://www.cervantesvirtual.com/obra/rosas-y-su-tiempo-tomo-1/"
+    }
+  ],
+  "research_notes": [
+    "El nombre canónico del inventario se conserva como José Ramos Mejía; se añade José María Ramos Mejía como variante de autoridad.",
+    "Rosas y su tiempo se registra como una sola obra multivolumen."
+  ]
+}
