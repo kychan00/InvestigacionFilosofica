@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "author_id": 55,
+  "canonical_name": "Luís Pereira Barreto",
+  "alternate_names": [
+    "Luis Pereira Barreto"
+  ],
+  "life": {
+    "born": {
+      "year": 1840,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1923,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_positive_philosophy_political_medical_and_agricultural_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0055-w001",
+      "title": "Teoria das gastralgias e das nevroses em geral",
+      "work_type": "medical_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1865,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "verified_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gastralgias",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nevroses",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "medicina",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w002",
+      "title": "As três filosofias",
+      "work_type": "positivist_philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1874,
+        "end": 1876,
+        "certainty": "publication_parts"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia teológica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia metafísica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofia positiva",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "La primera parte apareció en 1874 y la segunda en 1876; el proyecto de tres partes tuvo transmisión editorial incompleta."
+    },
+    {
+      "work_id": "0055-w003",
+      "title": "A horticultura",
+      "work_type": "agricultural_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1878,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "verified_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "horticultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "agricultura",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w004",
+      "title": "Guia médica",
+      "work_type": "medical_guide",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1878,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "verified_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "medicina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w005",
+      "title": "Os abolicionistas e a situação do país",
+      "work_type": "political_social_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1880,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolicionismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "inferred"
+        },
+        {
+          "term": "escravidão",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w006",
+      "title": "Positivismo e teologia",
+      "work_type": "philosophical_religious_polemic",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1880,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified_catalog",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Nash Morton",
+          "role": "polemical_interlocutor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religião",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w007",
+      "title": "Soluções positivas da política brasileira",
+      "work_type": "positivist_political_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1880,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "verified_first_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política brasileira",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "monarquia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w008",
+      "title": "Revista agrícola",
+      "work_type": "agricultural_periodical_project",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "editorial_project_associated_with_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "agricultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciência aplicada",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0055-w009",
+      "title": "Artigos na Província de São Paulo e O Estado de S. Paulo",
+      "work_type": "journalistic_scientific_political_corpus",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1876,
+        "end": 1922,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "agricultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "higiene",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Incluye series de artículos sobre agricultura, higiene, economía, política y polémicas; requiere desglose por fecha."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "digital_literature_database",
+      "title": "Luís Pereira Barreto — obras",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=15833",
+      "publisher": "Universidade Federal de Santa Catarina"
+    },
+    {
+      "kind": "primary_digital_book",
+      "title": "Soluções positivas da política brasileira",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=210694",
+      "publisher": "Universidade Federal de Santa Catarina"
+    },
+    {
+      "kind": "bibliographic_study",
+      "title": "Luís Pereira Barreto — bibliografia e artigos",
+      "url": "https://bdor.sibi.ufrj.br/bitstream/doc/369/1/322%20PDF%20-%20OCR%20-%20RED.pdf",
+      "publisher": "UFRJ / bibliografia histórica"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar el enorme corpus periodístico por fecha y tema.",
+    "As três filosofias se conserva como proyecto multipartito con publicación parcial 1874-1876."
+  ]
+}
