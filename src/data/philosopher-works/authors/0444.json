@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "author_id": 444,
+  "canonical_name": "Ábel Orlando Pugliese",
+  "alternate_names": [
+    "Abel Orlando Pugliese",
+    "Orlando Pugliese"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0444-w001",
+      "title": "Vermittlung und Kehre. Grundzüge des Geschichtsdenkens bei Martin Heidegger",
+      "work_type": "heidegger_history_of_being_monograph",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publisher_catalog_and_project_bibliography"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Kehre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Vermittlung",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.abebooks.com/book-search/author/pugliese-orlando/",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Verlag Karl Alber, Freiburg/München, 1965. Se normaliza Vermittlung frente a errores de OCR presentes en algunas referencias."
+    },
+    {
+      "work_id": "0444-w002",
+      "title": "La lógica de E. Lask como transición entre la teoría del juicio en H. Rickert y el concepto de verdad en Heidegger",
+      "work_type": "history_of_philosophy_and_logic_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "project_bibliography_with_coauthor_variant"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Konrad Hube"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Emil Lask",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Heinrich Rickert",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "verdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Cuadernos de Filosofía, año XI, núms. 15-16, pp. 105-136. El índice de la UBA da al coautor como Konrad Hube; la bibliografía del libro base transcribe Konrad Hobe."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción argentina y alemana de Heidegger, con atención al pensamiento histórico, la Kehre y la transición neokantiana hacia la ontología",
+      "kind": "heidegger_reception_and_history_of_being_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "AbeBooks — Vermittlung und Kehre",
+      "url": "https://www.abebooks.com/book-search/author/pugliese-orlando/"
+    }
+  ],
+  "research_notes": [
+    "La forma correcta del título alemán se registra como Vermittlung und Kehre; la bibliografía digitalizada presenta una corrupción OCR.",
+    "La forma del apellido del coautor del artículo de 1971 varía entre Hube (índice UBA) y Hobe (bibliografía del libro base); se conserva Hube y se documenta la variante."
+  ]
+}

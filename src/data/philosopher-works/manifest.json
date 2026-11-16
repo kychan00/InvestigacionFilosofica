@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 440,
-    "authors_remaining": 1064,
-    "works_or_contributions_seeded": 2694,
-    "current_batch": "044",
+    "authors_seeded": 450,
+    "authors_remaining": 1054,
+    "works_or_contributions_seeded": 2744,
+    "current_batch": "045",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2319,6 +2319,58 @@
       "author_id": 440,
       "canonical_name": "Adolfo Carpio",
       "path": "authors/0440.json"
+    }
+  ],
+  "batch_045": [
+    {
+      "author_id": 441,
+      "canonical_name": "Arturo García Astrada",
+      "path": "authors/0441.json"
+    },
+    {
+      "author_id": 442,
+      "canonical_name": "Carlos Ludovico Ceriotto",
+      "path": "authors/0442.json"
+    },
+    {
+      "author_id": 443,
+      "canonical_name": "Oscar Masotta",
+      "path": "authors/0443.json"
+    },
+    {
+      "author_id": 444,
+      "canonical_name": "Ábel Orlando Pugliese",
+      "path": "authors/0444.json"
+    },
+    {
+      "author_id": 445,
+      "canonical_name": "José Vilanova",
+      "path": "authors/0445.json"
+    },
+    {
+      "author_id": 446,
+      "canonical_name": "Antonio Aguirre",
+      "path": "authors/0446.json"
+    },
+    {
+      "author_id": 447,
+      "canonical_name": "Joaquín Adúriz",
+      "path": "authors/0447.json"
+    },
+    {
+      "author_id": 448,
+      "canonical_name": "Lucía Piossek",
+      "path": "authors/0448.json"
+    },
+    {
+      "author_id": 449,
+      "canonical_name": "Roberto Walton",
+      "path": "authors/0449.json"
+    },
+    {
+      "author_id": 450,
+      "canonical_name": "Julia Valentina Iribarne",
+      "path": "authors/0450.json"
     }
   ]
 }

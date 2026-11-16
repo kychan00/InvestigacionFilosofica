@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "author_id": 449,
+  "canonical_name": "Roberto Walton",
+  "alternate_names": [
+    "Roberto J. Walton"
+  ],
+  "life": {
+    "born": {
+      "year": 1942,
+      "certainty": "foundation_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0449-w001",
+      "title": "El fenómeno y sus configuraciones",
+      "work_type": "phenomenology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "foundation_biographical_source_over_project_variant"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenómeno",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "intencionalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b348-roberto-walton"
+      ],
+      "notes": "Buenos Aires, Almagesto, 1992 según Fundación Konex. La bibliografía del libro base ofrece la variante 1993b; se prioriza el registro biográfico independiente."
+    },
+    {
+      "work_id": "0449-w002",
+      "title": "Husserl: mundo, conciencia y temporalidad",
+      "work_type": "husserl_phenomenology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "foundation_and_journal_review"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mundo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "temporalidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b348-roberto-walton",
+        "https://analisisfilosofico.org/index.php/af/article/view/676"
+      ],
+      "notes": "Buenos Aires, Almagesto, 1993, 195 p.; reseñado en Análisis Filosófico el mismo año."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Consolidación de los estudios husserlianos en Argentina mediante análisis de mundo, conciencia, temporalidad e intencionalidad",
+      "kind": "argentine_husserl_phenomenology_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "foundation_biographical_source",
+      "title": "Fundación Konex — Roberto Walton",
+      "url": "https://www.fundacionkonex.org/b348-roberto-walton"
+    },
+    {
+      "kind": "journal_review_source",
+      "title": "Análisis Filosófico — Husserl: mundo, conciencia y temporalidad",
+      "url": "https://analisisfilosofico.org/index.php/af/article/view/676"
+    }
+  ],
+  "research_notes": [
+    "El fenómeno y sus configuraciones se fecha 1992 por Fundación Konex; el libro base lo presenta como 1993b. La discrepancia queda documentada."
+  ]
+}

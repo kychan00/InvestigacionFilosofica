@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "author_id": 446,
+  "canonical_name": "Antonio Aguirre",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1927,
+      "certainty": "academy_biographical_source"
+    },
+    "died": {
+      "year": 2015,
+      "certainty": "academy_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0446-w001",
+      "title": "Natürlichkeit und Transzendentalität. Der skeptisch-genetische Rückgang auf die Erscheinung als Ermöglichung der Epoché bei Edmund Husserl",
+      "work_type": "doctoral_dissertation_in_phenomenology",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1968,
+        "certainty": "academy_biography_and_project_bibliography"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Epoché",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trascendentalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escepticismo genético",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ciencias.org.ar/user/CEF/BIOGRAFIAS%202_compressed.pdf",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Disertación doctoral presentada en la Universidad de Colonia en 1968 bajo la dirección de Ludwig Landgrebe; la fuente biográfica resume su tema como naturalidad y trascendentalidad en Husserl."
+    },
+    {
+      "work_id": "0446-w002",
+      "title": "Genetische Phänomenologie und Reduktion: Zur Letztbegründung der Wissenschaft aus der radikalen Skepsis im Denken E. Husserls",
+      "work_type": "husserlian_genetic_phenomenology_monograph",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1970,
+        "certainty": "publisher_record"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1007/978-94-010-3234-6",
+        "isbn": [
+          "9789024750252"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología genética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reducción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escepticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mundo de la vida",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://link.springer.com/book/10.1007/978-94-010-3234-6"
+      ],
+      "notes": "Martinus Nijhoff, Den Haag, 1970, Phaenomenologica 38."
+    },
+    {
+      "work_id": "0446-w003",
+      "title": "Die Phänomenologie Husserls im Lichte ihrer gegenwärtigen Interpretation und Kritik",
+      "work_type": "husserl_interpretation_and_criticism_book",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1982,
+        "certainty": "project_bibliography"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "interpretación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Darmstadt, Wissenschaftliche Buchgesellschaft, 1982."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de la fenomenología genética husserliana desde la reducción, la radicalización escéptica y el mundo de la vida",
+      "kind": "husserlian_genetic_phenomenology_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_biographical_source",
+      "title": "Academia Nacional de Ciencias de Buenos Aires — Antonio Aguirre (1927-2015)",
+      "url": "https://www.ciencias.org.ar/user/CEF/BIOGRAFIAS%202_compressed.pdf"
+    },
+    {
+      "kind": "publisher_source",
+      "title": "Springer — Genetische Phänomenologie und Reduktion",
+      "url": "https://link.springer.com/book/10.1007/978-94-010-3234-6"
+    }
+  ],
+  "research_notes": [
+    "La tesis de 1968 y el libro de 1970 se distinguen: el segundo desarrolla y publica sistemáticamente la investigación dentro de Phaenomenologica.",
+    "La Academia confirma identidad, fechas 1927-2015 y formación con Ludwig Landgrebe, evitando homónimos."
+  ]
+}

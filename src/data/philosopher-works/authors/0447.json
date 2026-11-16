@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "author_id": 447,
+  "canonical_name": "Joaquín Adúriz",
+  "alternate_names": [
+    "Joaquín Aduriz",
+    "Joaquín Adúriz, S.J."
+  ],
+  "life": {
+    "born": {
+      "year": 1920,
+      "certainty": "uca_historical_faculty_source"
+    },
+    "died": {
+      "year": 1969,
+      "certainty": "uca_historical_faculty_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0447-w001",
+      "title": "La crítica fundamental del conocimiento en Santo Tomás de Aquino",
+      "work_type": "thomist_epistemology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "journal_record"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conocimiento",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Santo Tomás de Aquino",
+          "provenance": "editorial"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "editorial"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.bibdigital.uccor.edu.ar/index.php/CF/es/article/view/4873"
+      ],
+      "notes": "Ciencia y Fe, vol. 2, núm. 5, 1945, pp. 68-99."
+    },
+    {
+      "work_id": "0447-w002",
+      "title": "Gabriel Marcel. El existencialismo de la esperanza",
+      "work_type": "existentialism_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Gabriel Marcel",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "esperanza",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/opac.php?a=bsqMateria&n=141.32",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Buenos Aires, Espasa-Calpe, 1949."
+    },
+    {
+      "work_id": "0447-w003",
+      "title": "La «primera semana» y toma de conciencia del hombre adamita",
+      "work_type": "theology_and_spirituality_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "journal_bibliography"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "primera semana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Ciencia y Fe, vol. 12, núm. 46, 1956, pp. 57-59."
+    },
+    {
+      "work_id": "0447-w004",
+      "title": "Para un estudio teológico del Estado laical. Introducción bibliográfica",
+      "work_type": "theology_of_laity_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "journal_bibliography"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "laicado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estado laical",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Ciencia y Fe, vol. 13, 1957, pp. 55-67."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de ontología, cosmología y teología, junto con una lectura tomista y existencial de Marcel",
+      "kind": "argentine_jesuit_ontology_thomism_and_existentialism_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "journal_source",
+      "title": "Ciencia y Fe — La crítica fundamental del conocimiento en Santo Tomás de Aquino",
+      "url": "https://revistas.bibdigital.uccor.edu.ar/index.php/CF/es/article/view/4873"
+    },
+    {
+      "kind": "uca_historical_faculty_source",
+      "title": "UCA — El claustro de profesores y directivos",
+      "url": "https://repositorio.uca.edu.ar/bitstream/123456789/7035/1/claustro-profesores-directivos-albado.pdf"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "Bibliotecas de la Ciudad de Buenos Aires — Gabriel Marcel",
+      "url": "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/opac.php?a=bsqMateria&n=141.32"
+    }
+  ],
+  "research_notes": [
+    "La nómina histórica de la Facultad de Teología identifica a Joaquín Adúriz S.J. como 1920-1969 y registra su docencia en Ontología, Cosmología y Teología.",
+    "No se atribuyen publicaciones de 1971 sin prueba de edición póstuma, para evitar mezclar un posible homónimo."
+  ]
+}
