@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 360,
-    "authors_remaining": 1144,
-    "works_or_contributions_seeded": 2408,
-    "current_batch": "036",
+    "authors_seeded": 370,
+    "authors_remaining": 1134,
+    "works_or_contributions_seeded": 2446,
+    "current_batch": "037",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1903,6 +1903,58 @@
       "author_id": 360,
       "canonical_name": "Juan Agustín García",
       "path": "authors/0360.json"
+    }
+  ],
+  "batch_037": [
+    {
+      "author_id": 361,
+      "canonical_name": "José Ramos Mejía",
+      "path": "authors/0361.json"
+    },
+    {
+      "author_id": 362,
+      "canonical_name": "Valentín Letelier",
+      "path": "authors/0362.json"
+    },
+    {
+      "author_id": 363,
+      "canonical_name": "Mariano Cornejo",
+      "path": "authors/0363.json"
+    },
+    {
+      "author_id": 364,
+      "canonical_name": "Javier Prado",
+      "path": "authors/0364.json"
+    },
+    {
+      "author_id": 365,
+      "canonical_name": "Manuel Vicente Villarán",
+      "path": "authors/0365.json"
+    },
+    {
+      "author_id": 366,
+      "canonical_name": "Ignacio Prudencio Bustillo",
+      "path": "authors/0366.json"
+    },
+    {
+      "author_id": 367,
+      "canonical_name": "Alcides Arguedas",
+      "path": "authors/0367.json"
+    },
+    {
+      "author_id": 368,
+      "canonical_name": "José Pedro Varela",
+      "path": "authors/0368.json"
+    },
+    {
+      "author_id": 369,
+      "canonical_name": "Martín C. Martínez",
+      "path": "authors/0369.json"
+    },
+    {
+      "author_id": 370,
+      "canonical_name": "Ramón Emeterio Betances",
+      "path": "authors/0370.json"
     }
   ]
 }
