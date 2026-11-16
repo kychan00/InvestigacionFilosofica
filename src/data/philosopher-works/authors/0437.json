@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "author_id": 437,
+  "canonical_name": "Héctor Mandrioni",
+  "alternate_names": [
+    "Héctor D. Mandrioni"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0437-w001",
+      "title": "Introducción a la filosofía",
+      "work_type": "philosophy_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "university_library_catalog"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "catalog"
+        },
+        {
+          "term": "valores morales",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ser",
+          "provenance": "catalog"
+        },
+        {
+          "term": "religión",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://koha.eco.unsa.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=4029",
+        "https://sedici.unlp.edu.ar/handle/10915/11829"
+      ],
+      "notes": "Buenos Aires, Kapelusz, 1964, 310 páginas. El contenido cubre conocimiento, valores, persona, ser, ciencia, teología, religión y arte."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Sistematización pedagógica de problemas fundamentales de filosofía, conocimiento, persona, valores, ser y relación entre filosofía, ciencia y religión",
+      "kind": "argentine_philosophy_teaching_and_systematic_contribution",
+      "authorship_status": "documented_in_university_library_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_library_source",
+      "title": "UNSa — Introducción a la filosofía, Héctor D. Mandrioni, 1964",
+      "url": "https://koha.eco.unsa.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=4029"
+    },
+    {
+      "kind": "university_repository_source",
+      "title": "UNLP SEDICI — reseña de Introducción a la Filosofía, 1964",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/11829"
+    }
+  ],
+  "research_notes": [
+    "Se incorpora un solo título fuertemente documentado en esta rodada; la producción posterior de Mandrioni requiere bibliografía de primera edición más completa.",
+    "La forma Héctor D. Mandrioni aparece en catálogos; el inventario usa Héctor Mandrioni."
+  ]
+}
