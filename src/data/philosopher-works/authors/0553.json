@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "author_id": 553,
+  "canonical_name": "José Rafael Bustamante",
+  "alternate_names": [
+    "José Rafael Bustamante Cevallos"
+  ],
+  "life": {
+    "born": {
+      "year": 1881,
+      "certainty": "academy_and_library_authority"
+    },
+    "died": {
+      "year": 1961,
+      "certainty": "academy_and_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_contributions_and_documented_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0553-w001",
+      "title": "Para matar el gusano",
+      "work_type": "novel_with_social_and_political_themes",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "first_serial_publication_1912_to_1915"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela ecuatoriana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uasb.edu.ec/server/api/core/bitstreams/28dcae78-eb76-4c19-a544-601be9cccac5/content",
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=15728"
+      ],
+      "notes": "Publicada primero por entregas en Letras (1912–1915); edición en libro de 1935 y nueva edición de 1960 no cuentan como trabajos diferentes."
+    },
+    {
+      "work_id": "0553-w002",
+      "title": "La claridad de la elocución",
+      "work_type": "academic_discourse_on_language",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "biographical_source"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lengua",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "retórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "expresión",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.enciclopediadelecuador.com/dr-jose-rafael-bustamante/?print=pdf"
+      ],
+      "notes": "Discurso de ingreso a la Academia Ecuatoriana de la Lengua; publicado en las Memorias de 1921."
+    },
+    {
+      "work_id": "0553-w003",
+      "title": "Consideraciones sobre la libertad",
+      "work_type": "philosophy_of_freedom_lectures",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "academic_or_bibliographic_record"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://academia.org.mx/academicos-1955/item/jose-rafael-bustamante-2",
+        "https://openlibrary.org/authors/OL5538822A/Jos%C3%A9_Rafael_Bustamante"
+      ],
+      "notes": "Conjunto de conferencias de 1938; también citado en bibliografías bajo el rótulo Filosofía de la libertad. Se evita contarlo como otra obra sin prueba de independencia editorial."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensamiento filosófico y político ecuatoriano sobre libertad, educación humanística y vida pública",
+      "kind": "ecuadorian_freedom_and_public_life_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "library_authority",
+      "title": "Casa de la Cultura Ecuatoriana — autoridad de José Rafael Bustamante",
+      "url": "https://biblioteca.casadelacultura.gob.ec/cgi-bin/koha/opac-authoritiesdetail.pl?authid=9596"
+    },
+    {
+      "kind": "academic_biographical_source",
+      "title": "Academia Mexicana de la Lengua — José Rafael Bustamante",
+      "url": "https://academia.org.mx/academicos-1955/item/jose-rafael-bustamante-2"
+    }
+  ],
+  "research_notes": [
+    "La ficha de la Academia Mexicana contiene una errata interna en el texto biográfico (1861); sus propios metadatos de defunción indican 1961, igual que la autoridad de Casa de la Cultura.",
+    "Las fechas 1912, 1935 y 1960 de Para matar el gusano corresponden respectivamente a entregas iniciales, primera edición monográfica y reedición."
+  ]
+}

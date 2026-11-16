@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "author_id": 554,
+  "canonical_name": "Aurelio García",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_contributions_and_documented_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0554-w001",
+      "title": "Ciencia del Estado",
+      "work_type": "political_and_state_theory_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "contemporary_scholarly_review"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cepc.gob.es/sites/default/files/2021-12/9002rep168211.pdf",
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?dcote=&id=11&lcote=0&location=15&lvl=section_see&main=&nb_per_page_custom=38&nbr_lignes=7063&nc=0&page=16&plettreaut=&ssub=0"
+      ],
+      "notes": "Primera edición de 1946; segunda edición en 1953; ejemplar catalogado en Cuenca, 1978. Se contabiliza una sola obra."
+    },
+    {
+      "work_id": "0554-w002",
+      "title": "Historia de las doctrinas e instituciones políticas",
+      "work_type": "history_of_political_thought_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "municipal_library_catalog"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "instituciones políticas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "doctrinas políticas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?dcote=&id=11&lcote=0&location=15&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=4517&nc=0&page=141&plettreaut=&ssub=0"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Sistematización académica ecuatoriana de la teoría del Estado y la historia de las doctrinas e instituciones políticas",
+      "kind": "ecuadorian_state_theory_and_political_institutions_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "municipal_library_catalog",
+      "title": "Bibliotecas Municipales de Cuenca — Ciencia del Estado",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?dcote=&id=11&lcote=0&location=15&lvl=section_see&main=&nb_per_page_custom=38&nbr_lignes=7063&nc=0&page=16&plettreaut=&ssub=0"
+    },
+    {
+      "kind": "municipal_library_catalog",
+      "title": "Bibliotecas Municipales de Cuenca — Historia de las doctrinas e instituciones políticas",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?dcote=&id=11&lcote=0&location=15&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=4517&nc=0&page=141&plettreaut=&ssub=0"
+    }
+  ],
+  "research_notes": [
+    "La reseña académica sobre Ciencia del Estado confirma expresamente que la edición de 1953 es la segunda y que la primera apareció en 1946.",
+    "La inclusión de Aurelio García en Pensamiento idealista ecuatoriano (1981) no lo convierte en autor de todos los textos del volumen colectivo."
+  ]
+}

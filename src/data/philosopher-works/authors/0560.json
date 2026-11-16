@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "author_id": 560,
+  "canonical_name": "Oscar Miró Quesada",
+  "alternate_names": [
+    "Óscar Miró Quesada de la Guerra",
+    "Oscar Miró Quesada de la Guerra",
+    "Racso"
+  ],
+  "life": {
+    "born": {
+      "year": 1884,
+      "certainty": "national_isbn_authority"
+    },
+    "died": {
+      "year": 1981,
+      "certainty": "national_isbn_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_contributions_and_documented_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0560-w001",
+      "title": "Problemas ético-sociológicos del Perú",
+      "work_type": "ethics_and_social_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "historical_bibliography_with_modern_reedition"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Perú",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://isbn.bnp.gob.pe/catalogo.php?mode=detalle&nt=125320",
+        "https://alicia.concytec.gob.pe/vufind/Record/USUR_940c22748ba7184d4c798d8e9a83d6ba"
+      ],
+      "notes": "Obra originalmente fechada en 1907 en repertorios biobibliográficos; existe reedición de 2021/2022 con DOI e ISBN nuevos, que no constituye obra original nueva."
+    },
+    {
+      "work_id": "0560-w002",
+      "title": "La realidad del ideal",
+      "work_type": "ethical_and_philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "secondary_bibliography"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "realidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/%C3%93scar_Mir%C3%B3_Quesada_de_la_Guerra"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0560-w003",
+      "title": "Psicología integral",
+      "work_type": "psychology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "history_of_psychology_study"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "integración",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mente",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ripehp.com/wp-content/uploads/2021/02/rev-peru-hist-psicol-2019-5.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0560-w004",
+      "title": "Lo que es la filosofía",
+      "work_type": "introduction_to_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "secondary_bibliography"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "divulgación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/%C3%93scar_Mir%C3%B3_Quesada_de_la_Guerra"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0560-w005",
+      "title": "Psicoanálisis y perfeccionamiento individual",
+      "work_type": "psychoanalysis_and_self_development_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "secondary_bibliography"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicoanálisis",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "personalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/%C3%93scar_Mir%C3%B3_Quesada_de_la_Guerra"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0560-w006",
+      "title": "La relatividad y los quanta",
+      "work_type": "popular_physics_and_philosophy_of_science_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "peruvian_cultural_heritage_catalog"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "relatividad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cuantos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "divulgación científica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://transparencia.cultura.gob.pe/sites/default/files/transparencia/2023/12/resoluciones-del-viceministerio-de-patrimonio-cultural-e-industrias-culturales/rvm000341-2023-vmpcic-mc-anexo.pdf"
+      ],
+      "notes": "Ejemplar patrimonial de Santiago de Chile, Editorial Zig-Zag, [1939], con dedicatoria autógrafa. Otras bibliografías dan 1940; se prefiere catalogación material de 1939."
+    },
+    {
+      "work_id": "0560-w007",
+      "title": "Nueva imagen del mundo físico",
+      "work_type": "philosophy_and_history_of_physics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "philosophical_bibliographic_record"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "relatividad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/rec/MIRNID"
+      ],
+      "notes": "Lima, Ministerio de Educación Pública, 1958. Los dos tomos de la obra no se contabilizan por separado."
+    },
+    {
+      "work_id": "0560-w008",
+      "title": "Cibernética: ensayo de divulgación",
+      "work_type": "cybernetics_popular_science_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "secondary_bibliography"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cibernética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "información",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "divulgación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/%C3%93scar_Mir%C3%B3_Quesada_de_la_Guerra"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Divulgación científica y filosófica peruana de la psicología, ética social, relatividad, física moderna y cibernética bajo el seudónimo Racso",
+      "kind": "peruvian_scientific_journalism_and_philosophical_science_popularization_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_bibliographic_authority",
+      "title": "Biblioteca Nacional del Perú — Agencia ISBN, Problemas ético-sociológicos",
+      "url": "https://isbn.bnp.gob.pe/catalogo.php?mode=detalle&nt=125320"
+    },
+    {
+      "kind": "primary_copy_heritage_catalog",
+      "title": "Ministerio de Cultura del Perú — ejemplar patrimonial de La relatividad y los quanta",
+      "url": "https://transparencia.cultura.gob.pe/sites/default/files/transparencia/2023/12/resoluciones-del-viceministerio-de-patrimonio-cultural-e-industrias-culturales/rvm000341-2023-vmpcic-mc-anexo.pdf"
+    },
+    {
+      "kind": "philosophy_bibliographic_catalog",
+      "title": "PhilPapers — Nueva imagen del mundo físico",
+      "url": "https://philpapers.org/rec/MIRNID"
+    }
+  ],
+  "research_notes": [
+    "No confundir a Óscar Miró Quesada de la Guerra (1884–1981), Racso, con Francisco Miró Quesada Cantuarias (1918–2019).",
+    "La edición patrimonial de La relatividad y los quanta se fecha [1939]; se mantiene la discrepancia con repertorios que reportan 1940.",
+    "La reimpresión contemporánea de Problemas ético-sociológicos del Perú posee DOI e ISBN propios y no se contabiliza como otro título."
+  ]
+}

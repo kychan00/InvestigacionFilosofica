@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "author_id": 552,
+  "canonical_name": "Julio Enrique Moreno",
+  "alternate_names": [
+    "Julio E. Moreno"
+  ],
+  "life": {
+    "born": {
+      "year": 1874,
+      "certainty": "scholarly_biobibliographical_source"
+    },
+    "died": {
+      "year": 1952,
+      "certainty": "scholarly_biobibliographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_contributions_and_documented_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0552-w001",
+      "title": "El problema de nuestra política educacional",
+      "work_type": "educational_policy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "academic_or_bibliographic_record"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.corredordelasideas.org/docs/ix_encuentro/clara_%20jalif_%20de_bertranou.pdf",
+        "https://biblioteca.uhemisferios.edu.ec/cgi-bin/koha/opac-detail.pl?biblionumber=9528"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0552-w002",
+      "title": "Humanidad y espiritualidad: bosquejo de una antropología sociológica",
+      "work_type": "philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "academic_or_bibliographic_record"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antropología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida humana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.bne.gob.ec/xmlui/handle/34000/1416",
+        "https://www.revistamexicanadesociologia.unam.mx/index.php/rms/article/view/59262"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0552-w003",
+      "title": "El sentido histórico y la cultura: para una sociología ecuatoriana",
+      "work_type": "philosophy_of_history_and_sociology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "academic_or_bibliographic_record"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología ecuatoriana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.uhemisferios.edu.ec/cgi-bin/koha/opac-detail.pl?biblionumber=9528",
+        "https://www.corredordelasideas.org/docs/ix_encuentro/clara_%20jalif_%20de_bertranou.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0552-w004",
+      "title": "Filosofía de la existencia: notas sobre Ortega y Gasset",
+      "work_type": "existential_and_ortega_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "academic_or_bibliographic_record"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ortega y Gasset",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía vital",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.uhemisferios.edu.ec/cgi-bin/koha/opac-detail.pl?biblionumber=9528",
+        "https://www.corredordelasideas.org/docs/ix_encuentro/clara_%20jalif_%20de_bertranou.pdf"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Elaboración de una filosofía sociovital ecuatoriana articulando antropología, educación, historicidad y recepción crítica de Ortega y Gasset",
+      "kind": "ecuadorian_sociovital_philosophy_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_primary_item",
+      "title": "Biblioteca Nacional Eugenio Espejo — Humanidad y espiritualidad",
+      "url": "https://repositorio.bne.gob.ec/xmlui/handle/34000/1416"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "Biblioteca Universidad de los Hemisferios — Pensamiento filosófico social",
+      "url": "https://biblioteca.uhemisferios.edu.ec/cgi-bin/koha/opac-detail.pl?biblionumber=9528"
+    },
+    {
+      "kind": "scholarly_study",
+      "title": "Jalif de Bertranou — historia de las ideas ecuatorianas",
+      "url": "https://www.corredordelasideas.org/docs/ix_encuentro/clara_%20jalif_%20de_bertranou.pdf"
+    }
+  ],
+  "research_notes": [
+    "Pensamiento filosófico-social: textos escogidos (1979; reeditado en 1985) es recopilación posterior de originales y no se cuenta como obra nueva.",
+    "La reseña de 1940 en Revista Mexicana de Sociología tiene autoría de R. B.; no se atribuye a Moreno."
+  ]
+}

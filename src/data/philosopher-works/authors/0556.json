@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 556,
+  "canonical_name": "Hernán Malo González",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1931,
+      "certainty": "academic_biographical_source"
+    },
+    "died": {
+      "year": 1983,
+      "certainty": "academic_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_contributions_and_documented_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0556-w001",
+      "title": "Pensamiento universitario ecuatoriano",
+      "work_type": "ecuadorian_university_thought_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "university_bibliographic_record"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación superior",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ecuador",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://simposio.uazuay.edu.ec/bibliografia",
+        "https://www.uasb.edu.ec/publicacion/pensamiento-de-hernan-malo-gonzalez-ensayos-de-interpretacion/"
+      ],
+      "notes": "Edición de 1981, anterior a su fallecimiento; se distingue de los volúmenes póstumos de obras de Hernán Malo."
+    },
+    {
+      "work_id": "0556-w002",
+      "title": "Pensamiento filosófico, I",
+      "work_type": "posthumous_collected_philosophical_writings",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "author_of_collected_texts_posthumously_edited",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789978840207"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía ecuatoriana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?id=36759&lvl=notice_display"
+      ],
+      "notes": "Recopilación póstuma de ensayos y escritos docentes. Selección y estudio introductorio de Arturo Andrés Roig; Roig figura como editor científico, no como coautor de todos los textos."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Renovación de la filosofía ecuatoriana y defensa de la universidad como sede de la razón, el pensamiento crítico y el debate público",
+      "kind": "ecuadorian_philosophy_university_reason_and_critical_thought_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "municipal_library_catalog",
+      "title": "Biblioteca Municipal de Cuenca — Pensamiento filosófico I",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?id=36759&lvl=notice_display"
+    },
+    {
+      "kind": "university_scholarly_study",
+      "title": "Universidad Andina Simón Bolívar — estudios sobre Hernán Malo",
+      "url": "https://www.uasb.edu.ec/publicacion/pensamiento-de-hernan-malo-gonzalez-ensayos-de-interpretacion/"
+    },
+    {
+      "kind": "republication_of_author_text",
+      "title": "Universidad del Azuay — Universidad, sede de la razón",
+      "url": "https://universidadverdad.uazuay.edu.ec/index.php/udaver/es/article/view/224"
+    }
+  ],
+  "research_notes": [
+    "El artículo Universidad, sede de la razón figura en una republicación digital fechada 2018; sin verificar su primera aparición, no se registra 2018 como primera publicación de un texto de Malo fallecido en 1983.",
+    "Pensamiento universitario (1996 y reimpresión 2018) reúne textos del mismo autor y queda documentado como edición retrospectiva, sin inflar el conteo como obra original distinta."
+  ]
+}
