@@ -27,11 +27,11 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 170,
-    "authors_remaining": 1334,
-    "works_or_contributions_seeded": 1769,
-    "current_batch": "017",
-    "last_updated": "2026-11-15"
+    "authors_seeded": 180,
+    "authors_remaining": 1324,
+    "works_or_contributions_seeded": 1803,
+    "current_batch": "018",
+    "last_updated": "2026-11-16"
   },
   "batch_001": [
     {
@@ -915,6 +915,58 @@
       "author_id": 170,
       "canonical_name": "Fernando González Ochoa",
       "path": "authors/0170.json"
+    }
+  ],
+  "batch_018": [
+    {
+      "author_id": 171,
+      "canonical_name": "Luis Eduardo Nieto Arteta",
+      "path": "authors/171.json"
+    },
+    {
+      "author_id": 172,
+      "canonical_name": "Danilo Cruz Vélez",
+      "path": "authors/172.json"
+    },
+    {
+      "author_id": 173,
+      "canonical_name": "Estanislao Zuleta",
+      "path": "authors/173.json"
+    },
+    {
+      "author_id": 174,
+      "canonical_name": "Guillermo Hoyos Vásquez",
+      "path": "authors/174.json"
+    },
+    {
+      "author_id": 175,
+      "canonical_name": "Carlos Bernardo Gutiérrez",
+      "path": "authors/175.json"
+    },
+    {
+      "author_id": 176,
+      "canonical_name": "Juan David García Bacca",
+      "path": "authors/176.json"
+    },
+    {
+      "author_id": 177,
+      "canonical_name": "Ernesto Mayz Vallenilla",
+      "path": "authors/177.json"
+    },
+    {
+      "author_id": 178,
+      "canonical_name": "Juan Antonio Nuño Montes",
+      "path": "authors/178.json"
+    },
+    {
+      "author_id": 179,
+      "canonical_name": "José Manuel Delgado Ocando",
+      "path": "authors/179.json"
+    },
+    {
+      "author_id": 180,
+      "canonical_name": "José Rafael Núñez Tenorio",
+      "path": "authors/180.json"
     }
   ]
 }
