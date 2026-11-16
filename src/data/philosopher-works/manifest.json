@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 590,
-    "authors_remaining": 914,
-    "works_or_contributions_seeded": 3682,
-    "current_batch": "059",
+    "authors_seeded": 600,
+    "authors_remaining": 904,
+    "works_or_contributions_seeded": 3779,
+    "current_batch": "060",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3099,6 +3099,58 @@
       "author_id": 590,
       "canonical_name": "Aníbal del Campo",
       "path": "authors/0590.json"
+    }
+  ],
+  "batch_060": [
+    {
+      "author_id": 591,
+      "canonical_name": "Manuel Arturo Claps",
+      "path": "authors/0591.json"
+    },
+    {
+      "author_id": 592,
+      "canonical_name": "Homero Altesor",
+      "path": "authors/0592.json"
+    },
+    {
+      "author_id": 593,
+      "canonical_name": "Julio Fausto Fernández",
+      "path": "authors/0593.json"
+    },
+    {
+      "author_id": 594,
+      "canonical_name": "Ismael San Miguel",
+      "path": "authors/0594.json"
+    },
+    {
+      "author_id": 595,
+      "canonical_name": "Javier Sasso",
+      "path": "authors/0595.json"
+    },
+    {
+      "author_id": 596,
+      "canonical_name": "Manuel Granell",
+      "path": "authors/0596.json"
+    },
+    {
+      "author_id": 597,
+      "canonical_name": "Mariano Picón Salas",
+      "path": "authors/0597.json"
+    },
+    {
+      "author_id": 598,
+      "canonical_name": "Federico Riu",
+      "path": "authors/0598.json"
+    },
+    {
+      "author_id": 599,
+      "canonical_name": "Eduardo Vásquez",
+      "path": "authors/0599.json"
+    },
+    {
+      "author_id": 600,
+      "canonical_name": "Alberto Rosales",
+      "path": "authors/0600.json"
     }
   ]
 }
