@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "author_id": 67,
+  "canonical_name": "José Martí",
+  "alternate_names": [
+    "José Julián Martí Pérez"
+  ],
+  "life": {
+    "born": {
+      "year": 1853,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1895,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_poetic_essay_journalistic_children_literature_and_political_documents_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0067-w001",
+      "title": "El presidio político en Cuba",
+      "work_type": "political_testimonial_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1871,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "presidio político",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Cuba",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "colonialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0067-w002",
+      "title": "La República Española ante la Revolución Cubana",
+      "work_type": "political_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1873,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1873,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "República Española",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Revolución Cubana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0067-w003",
+      "title": "Ismaelillo",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1882,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "infancia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "paternidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0067-w004",
+      "title": "Amistad funesta",
+      "alternate_titles": [
+        "Lucía Jerez"
+      ],
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1885,
+        "certainty": "serial_publication"
+      },
+      "first_publication_year": 1885,
+      "authorship_status": "verified_pseudonymous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Publicada bajo el seudónimo femenino Adelaida Ral."
+    },
+    {
+      "work_id": "0067-w005",
+      "title": "La Edad de Oro",
+      "work_type": "children_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": 1889,
+        "certainty": "serial_publication"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified_author_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura infantil",
+          "provenance": "catalog"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "América",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicación mensual infantil de cuatro números; algunas reediciones modernas consignan erróneamente 1891 como fecha del periódico."
+    },
+    {
+      "work_id": "0067-w006",
+      "title": "Nuestra América",
+      "work_type": "americanist_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1891,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1891,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nuestra América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antiimperialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad latinoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0067-w007",
+      "title": "Versos sencillos",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1891,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1891,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "identidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0067-w008",
+      "title": "Patria",
+      "work_type": "political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "start": 1892,
+        "end": 1895,
+        "certainty": "author_leadership_period"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "founder_editor_primary_contributor",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Partido Revolucionario Cubano",
+          "role": "political_organizational_context"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Partido Revolucionario Cubano",
+          "provenance": "inferred"
+        },
+        {
+          "term": "periodismo revolucionario",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0067-w009",
+      "title": "Manifiesto de Montecristi",
+      "work_type": "independence_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "exact",
+        "date": "1895-03-25"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified_joint_signature_and_political_authorship",
+      "coauthors": [
+        {
+          "name": "Máximo Gómez",
+          "role": "co_signatory_and_political_coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "guerra necesaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antirracismo",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "La redacción material se atribuye principalmente a Martí en estudios especializados, pero el documento fue firmado conjuntamente con Máximo Gómez; la matriz conserva la condición conjunta sin simplificarla."
+    },
+    {
+      "work_id": "0067-w010",
+      "title": "Carta a Manuel Mercado",
+      "work_type": "political_personal_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "exact",
+        "date": "1895-05-18"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Manuel Mercado",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estados Unidos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Cuba",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antiimperialismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "academic_digital_book",
+      "title": "La Edad de Oro",
+      "url": "https://babel.banrepcultural.org/digital/collection/p17054coll3/id/9/",
+      "publisher": "Biblioteca Virtual del Banco de la República"
+    },
+    {
+      "kind": "scholarly_study",
+      "title": "José Martí. A propósito de su Ismaelillo",
+      "url": "https://www.cervantesvirtual.com/obra/jose-marti-a-proposito-de-su-ismaelillo/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "José Martí (1853-1895)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar las Escenas norteamericanas, discursos, traducciones, epistolario y los artículos de Patria.",
+    "Versos libres se deja para una pasada posterior porque su composición y edición póstuma requieren modelado separado."
+  ]
+}
