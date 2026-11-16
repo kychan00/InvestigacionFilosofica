@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "author_id": 389,
+  "canonical_name": "Januário da Cunha Barbosa",
+  "alternate_names": [
+    "Cônego Januário da Cunha Barbosa"
+  ],
+  "life": {
+    "born": {
+      "year": 1780,
+      "certainty": "biobibliographic_source"
+    },
+    "died": {
+      "year": 1846,
+      "certainty": "biobibliographic_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0389-w001",
+      "title": "O Nicteroy: Metamorphose do Rio de Janeiro",
+      "work_type": "poem_or_literary_work",
+      "original_language": "português",
+      "original_date": {
+        "year": 1822,
+        "certainty": "scholarly_literary_source"
+      },
+      "first_publication_year": 1822,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Rio de Janeiro",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "indianismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independência do Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.ufg.br/sig/article/download/44868/23233/0"
+      ],
+      "notes": "Obra publicada em Londres em 1822, segundo estudo literário especializado."
+    },
+    {
+      "work_id": "0389-w002",
+      "title": "Parnaso brasileiro ou coleção das melhores poesias dos poetas do Brasil, tanto inéditas, como já impressas",
+      "work_type": "national_poetry_anthology_edited_by_author",
+      "original_language": "português",
+      "original_date": {
+        "year": 1829,
+        "certainty": "digital_library_catalog"
+      },
+      "first_publication_year": 1829,
+      "authorship_status": "editor_compiler_not_author_of_collected_poems",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesia brasileira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "canon literário",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=221722",
+        "https://www.gov.br/bn/pt-br/atuacao/colecoes-e-servicos-aos-leitores/plano-nacional-de-recuperacao-de-obras-raras-planor/boletim-do-planor-1/bip06-09.pdf"
+      ],
+      "notes": "Antologia organizada por Januário e publicada em cadernos entre 1829 e 1830/1831. Os poemas reunidos são de múltiplos autores; seu papel é de organizador/editor."
+    },
+    {
+      "work_id": "0389-w003",
+      "title": "A Rusga da Praia Grande ou o Quixotismo do General das Massas",
+      "work_type": "political_comedy",
+      "original_language": "português",
+      "original_date": {
+        "year": 1834,
+        "certainty": "scholarly_literary_source"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "original_author_with_historical_anonymous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sátira política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teatro",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil imperial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.ufg.br/sig/article/download/44868/23233/0"
+      ],
+      "notes": "Comédia política em três atos, publicada no Rio de Janeiro em 1834; bibliografia antiga registra circulação anônima."
+    },
+    {
+      "work_id": "0389-w004",
+      "title": "Discurso recitado no acto de estatuir-se o Instituto Histórico e Geográfico Brasileiro",
+      "work_type": "foundational_historiographical_address",
+      "original_language": "português",
+      "original_date": {
+        "year": 1838,
+        "certainty": "institutional_event_date"
+      },
+      "first_publication_year": 1839,
+      "authorship_status": "original_author_and_speaker",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historiografia brasileira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memória nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "IHGB",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história nacional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://funag.gov.br/biblioteca-nova/pdf/mostraPdf/1/196/relacoes_internacionais_do_brasil%3A_antologia_comentada_de_artigos_da_revista_do_ihgb_1841-2004",
+        "https://www.ihgb.org.br/sobre-o-ihgb/linha-do-tempo/"
+      ],
+      "notes": "Discurso da fundação do IHGB, instituição criada em 1838; publicado no tomo I da Revista do IHGB em 1839. Expressa o programa de construção e preservação de uma memória histórica nacional."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundação do IHGB e formulação de um programa de historiografia, memória e cânone literário para o Brasil imperial",
+      "kind": "brazilian_historiographical_and_literary_institution_building_contribution",
+      "authorship_status": "documented_in_ihgb_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_source",
+      "title": "IHGB — cronologia institucional",
+      "url": "https://www.ihgb.org.br/sobre-o-ihgb/linha-do-tempo/"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Parnaso brasileiro, 1829-1830",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=221722"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Revista Signótica — estudo sobre Januário da Cunha Barbosa",
+      "url": "https://revistas.ufg.br/sig/article/download/44868/23233/0"
+    }
+  ],
+  "research_notes": [
+    "Parnaso brasileiro é tratado como antologia organizada por Januário, não como autoria das poesias reunidas.",
+    "O discurso inaugural distingue a reunião institucional de 1838 da publicação na Revista em 1839."
+  ]
+}
