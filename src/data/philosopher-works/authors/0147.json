@@ -1,0 +1,810 @@
+{
+  "schema_version": 1,
+  "author_id": 147,
+  "canonical_name": "Enrique Molina",
+  "alternate_names": [
+    "Enrique Molina Garmendia"
+  ],
+  "life": {
+    "born": {
+      "year": 1871,
+      "certainty": "national_library"
+    },
+    "died": {
+      "year": 1964,
+      "date": "1964-03-06",
+      "certainty": "national_library"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_selected_works_with_editorial_disambiguation_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0147-w001",
+      "title": "La misión del profesor y la enseñanza",
+      "work_type": "philosophy_of_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "misión del profesor",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w002",
+      "title": "La ciencia y el tradicionalismo",
+      "work_type": "epistemology_cultural_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tradicionalismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "first_publication_year_candidates": [
+        1907,
+        1909
+      ],
+      "source_conflict": true,
+      "notes": "El libro-base da 1907; una bibliografía UAM de su obra la sitúa en 1909. Mantener fecha original indeterminada."
+    },
+    {
+      "work_id": "0147-w003",
+      "title": "La filosofía social de Lester Ward",
+      "work_type": "history_of_social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Lester Ward",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "related_people": [
+        {
+          "name": "Lester Frank Ward",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0147-w004",
+      "title": "El pragmatismo de William James",
+      "work_type": "history_of_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pragmatismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "William James",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "related_people": [
+        {
+          "name": "William James",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0147-w005",
+      "title": "La cultura y la educación general",
+      "work_type": "philosophy_of_education_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación general",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w006",
+      "title": "Filosofía americana: ensayos",
+      "work_type": "latin_american_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía americana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "first_publication_year_candidates": [
+        1913,
+        1914
+      ],
+      "source_conflict": true,
+      "notes": "Biografía documental cita París 1913; el libro-base consigna París 1914, no resolver sin ejemplar original."
+    },
+    {
+      "work_id": "0147-w007",
+      "title": "Educación contemporánea",
+      "work_type": "philosophy_of_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1914,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación contemporánea",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w008",
+      "title": "La filosofía de Bergson",
+      "work_type": "history_of_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bergson",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.revistaliteratura.uchile.cl/index.php/ANUC/article/view/24406"
+      ],
+      "notes": "Artículo seriado y estudio de 1916 publicado por Anales de la Universidad de Chile; reedición o compilación posterior 1944 no cambia año inicial de la investigación.",
+      "related_people": [
+        {
+          "name": "Henri Bergson",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0147-w009",
+      "title": "Las democracias americanas y sus deberes",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1917,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1917,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "democracias americanas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "deberes",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w010",
+      "title": "Por las dos Américas",
+      "work_type": "travel_cultural_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Américas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w011",
+      "title": "De California a Harvard",
+      "work_type": "philosophy_of_education_travel_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "California",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Harvard",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w012",
+      "title": "Proyecciones de la intuición: nuevos estudios sobre la filosofía bergsoniana",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intuición",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía bergsoniana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w013",
+      "title": "Dos filósofos contemporáneos: Guyau y Bergson",
+      "work_type": "history_of_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guyau",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bergson",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "related_people": [
+        {
+          "name": "Jean-Marie Guyau",
+          "role": "subject"
+        },
+        {
+          "name": "Henri Bergson",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0147-w014",
+      "title": "De lo espiritual en la vida humana",
+      "work_type": "metaphysics_philosophical_anthropology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espíritu",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vida humana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "edition_history": [
+        {
+          "year": 1947,
+          "publisher": "Nascimento",
+          "edition": "segunda edición confirmada por reseña coetánea"
+        }
+      ],
+      "notes": "Testimonio bibliográfico de 1938 identifica primera edición 1937. El libro-base cita la reedición de 1947; no redatar primera publicación."
+    },
+    {
+      "work_id": "0147-w015",
+      "title": "Por los valores espirituales",
+      "work_type": "metaphysics_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valores espirituales",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "first_publication_year_candidates": [
+        1938,
+        1939
+      ],
+      "source_conflict": true,
+      "notes": "Edición ampliada documentada 1938; otros catálogos dan 1939, primera edición necesita ejemplar primario."
+    },
+    {
+      "work_id": "0147-w016",
+      "title": "Alejandro Venegas: estudios y recuerdos",
+      "work_type": "intellectual_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alejandro Venegas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "related_people": [
+        {
+          "name": "Alejandro Venegas",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0147-w017",
+      "title": "Peregrinaje de un universitario: notas y reflexiones",
+      "work_type": "autobiographical_travel_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universitario",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reflexiones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w018",
+      "title": "Confesión filosófica y llamado de superación a la América hispana",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "confesión filosófica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América hispana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w019",
+      "title": "Nietzsche, dionisíaco y asceta: su vida y su ideario",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "dionisíaco",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "asceta",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "related_people": [
+        {
+          "name": "Friedrich Nietzsche",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0147-w020",
+      "title": "Tragedia y realización del espíritu: del sentido de la muerte y del sentido de la vida",
+      "work_type": "philosophical_anthropology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espíritu",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "muerte",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vida",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ]
+    },
+    {
+      "work_id": "0147-w021",
+      "title": "La filosofía en Chile en la primera mitad del siglo XX",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía en Chile",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "first_publication_year_candidates": [
+        1953,
+        1957
+      ],
+      "source_conflict": true,
+      "notes": "Estudio académico cita 1953, libro-base 1957. Verificar portada y si hay segunda edición antes de fijar fecha."
+    },
+    {
+      "work_id": "0147-w022",
+      "title": "Lo que ha sido el vivir: recuerdos y reflexiones",
+      "work_type": "autobiographical_memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "recuerdos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reflexiones",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+      ],
+      "edition_history": [
+        {
+          "year": 2013,
+          "note": "Segunda edición Universidad de Concepción, no primera publicación"
+        }
+      ],
+      "notes": "Primera edición anterior a 2013 sin año aún verificado."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0147-c001",
+      "title": "Impulso y rectorado de la Universidad de Concepción, institución de educación superior chilena",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0147-c002",
+      "title": "Defensa de la formación humanística integral, la democracia y los valores espirituales en la educación",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_library_biography",
+      "title": "Biblioteca Nacional de Chile: Enrique Molina Garmendia",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-94705.html"
+    },
+    {
+      "kind": "academic_article",
+      "title": "Estudio sobre Molina y fechas de primeras publicaciones",
+      "url": "https://www.scielo.cl/scielo.php?pid=S0716-58112016000200005&script=sci_arttext"
+    },
+    {
+      "kind": "university_historical_review",
+      "title": "Universidad de Concepción: primera edición 1937 de De lo espiritual en la vida humana",
+      "url": "https://revistas.udec.cl/index.php/atenea/article/view/13077"
+    },
+    {
+      "kind": "university_historical_review",
+      "title": "Universidad de Concepción: segunda edición 1947 de De lo espiritual en la vida humana",
+      "url": "https://revistas.udec.cl/atenea/article/view/16031"
+    },
+    {
+      "kind": "university_biobibliography",
+      "title": "Universidad Autónoma Metropolitana: obras de Molina Garmendia",
+      "url": "https://divcsh.izt.uam.mx/cefilibe/wp-content/uploads/2013/12/E_Molina.pdf"
+    },
+    {
+      "kind": "university_journal_study",
+      "title": "Universidad Autónoma de Nuevo León: concepción del espíritu de Enrique Molina",
+      "url": "https://humanitas.uanl.mx/index.php/ah/es/article/view/1202"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay y Chile, páginas impresas 901–907"
+    }
+  ],
+  "research_notes": [
+    "La reseña coetánea UdeC de 1938 prueba De lo espiritual... como libro publicado en 1937, y 1947 fue segunda edición; corrige el dato de libro-base como primera.",
+    "En La filosofía de Bergson, el texto original de 1916 no debe confundirse con reediciones posteriores.",
+    "No confundir Enrique Molina Garmendia con otros homónimos contemporáneos catalogados en Dialnet."
+  ]
+}
