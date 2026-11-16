@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 517,
+  "canonical_name": "Adalberto Botero Escobar",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0517-w001",
+      "title": "Tres momentos de la fenomenología de Husserl",
+      "work_type": "husserl_phenomenology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "project_primary_source"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Publicado en Revista Colombiana de Filosofía en 1948."
+    },
+    {
+      "work_id": "0517-w002",
+      "title": "Necesidad y posibilidad de la filosofía en Colombia",
+      "work_type": "colombian_philosophy_editorial_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "scholarly_historiographical_attribution"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "editorial_author_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía en Colombia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "normalización",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "institucionalización",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/127442674/Escrituras_anfibias_parte_I_Anomal%C3%ADas_de_la_normalizaci%C3%B3n_filos%C3%B3fica_en_Colombia_1940_1969_Amphibious_Writings_Part_I_Anomalies_of_Philosophical_Normalization_in_Colombia_1940_1969"
+      ],
+      "notes": "Texto programático/editorial del primer número de Revista Colombiana de Filosofía (1948), asociado en la historiografía a Botero y al proyecto editorial de la revista. La naturaleza editorial se explicita para evitar una atribución individual excesiva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación y dirección de la Revista Colombiana de Filosofía, decisiva para la institucionalización del oficio filosófico en Colombia desde 1948",
+      "kind": "colombian_philosophy_journal_and_institutionalization_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_historiography",
+      "title": "Escrituras anfibias: anomalías de la normalización filosófica en Colombia",
+      "url": "https://www.academia.edu/127442674/Escrituras_anfibias_parte_I_Anomal%C3%ADas_de_la_normalizaci%C3%B3n_filos%C3%B3fica_en_Colombia_1940_1969_Amphibious_Writings_Part_I_Anomalies_of_Philosophical_Normalization_in_Colombia_1940_1969"
+    }
+  ],
+  "research_notes": [
+    "Necesidad y posibilidad de la filosofía en Colombia se modela como atribución editorial asociada a Botero, no como autoría individual incontrovertible."
+  ]
+}

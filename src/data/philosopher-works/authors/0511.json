@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "author_id": 511,
+  "canonical_name": "Maria do Prado Reabra",
+  "alternate_names": [
+    "Maria do Prado Seabra",
+    "Maria Seabra Loubet",
+    "Maria do Prado Seabra Loubet"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0511-w001",
+      "title": "La mise en question de l’esthétique par l’art contemporain",
+      "work_type": "doctoral_dissertation_in_contemporary_aesthetics",
+      "original_language": "français",
+      "original_date": {
+        "year": 1975,
+        "certainty": "scholarly_bibliographic_reference"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esthétique",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "art contemporain",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "phénoménologie",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Mikel Dufrenne",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://portaldelivros.ufg.br/index.php/cegrafufg/catalog/download/688/660/2739?inline=1"
+      ],
+      "notes": "Tese de doutorado apresentada em Paris X-Nanterre, sob orientação de Mikel Dufrenne. A fonte bibliográfica usa a forma Maria do Prado Seabra Loubet."
+    },
+    {
+      "work_id": "0511-w002",
+      "title": "O Imaginário",
+      "work_type": "phenomenological_aesthetics_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1977,
+        "certainty": "journal_issue_index"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "imaginário",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/download/15776/12428/54380"
+      ],
+      "notes": "Artigo registrado em Presença Filosófica em 1977 sob a forma de autoria Maria do Prado Seabra."
+    },
+    {
+      "work_id": "0511-w003",
+      "title": "Estudos de estética",
+      "work_type": "aesthetics_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1993,
+        "certainty": "book_catalog_and_scholarly_reference"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arte contemporânea",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Dufrenne",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/maria-seabra-loubet",
+        "https://portaldelivros.ufg.br/index.php/cegrafufg/catalog/download/688/660/2739?inline=1"
+      ],
+      "notes": "Campinas, Editora da Unicamp, 1993. A obra aparece sob o nome Maria Seabra Loubet."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desenvolvimento da estética fenomenológica brasileira em diálogo direto com Mikel Dufrenne, o imaginário e a arte contemporânea",
+      "kind": "brazilian_phenomenological_aesthetics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_authority_source",
+      "title": "UFRJ — Maria do Prado Seabra no IFCS",
+      "url": "https://siarq.ufrj.br/wp-content/uploads/2025/08/21-1992-revisado.pdf"
+    },
+    {
+      "kind": "scholarly_bibliographic_source",
+      "title": "UFG — estudo sobre estética fenomenológica e Maria Seabra Loubet",
+      "url": "https://portaldelivros.ufg.br/index.php/cegrafufg/catalog/download/688/660/2739?inline=1"
+    }
+  ],
+  "research_notes": [
+    "O inventário mestre contém a forma corrompida 'Maria do Prado Reabra'. Autoridades da UFRJ e bibliografia especializada identificam a filósofa como Maria do Prado Seabra, também publicada como Maria Seabra Loubet. O canonical_name do inventário é preservado para estabilidade do ID e as formas corretas são registradas em alternate_names."
+  ]
+}

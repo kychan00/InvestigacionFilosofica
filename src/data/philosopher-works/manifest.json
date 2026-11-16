@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 510,
-    "authors_remaining": 994,
-    "works_or_contributions_seeded": 3126,
-    "current_batch": "051",
+    "authors_seeded": 520,
+    "authors_remaining": 984,
+    "works_or_contributions_seeded": 3179,
+    "current_batch": "052",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2683,6 +2683,58 @@
       "author_id": 510,
       "canonical_name": "Mario Guerreiro",
       "path": "authors/0510.json"
+    }
+  ],
+  "batch_052": [
+    {
+      "author_id": 511,
+      "canonical_name": "Maria do Prado Reabra",
+      "path": "authors/0511.json"
+    },
+    {
+      "author_id": 512,
+      "canonical_name": "Zenilda Lopes Siqueira",
+      "path": "authors/0512.json"
+    },
+    {
+      "author_id": 513,
+      "canonical_name": "Julio Barata",
+      "path": "authors/0513.json"
+    },
+    {
+      "author_id": 514,
+      "canonical_name": "Marco Aurelio Correa Arango",
+      "path": "authors/0514.json"
+    },
+    {
+      "author_id": 515,
+      "canonical_name": "Rafael Carrillo",
+      "path": "authors/0515.json"
+    },
+    {
+      "author_id": 516,
+      "canonical_name": "Carlos Jaramillo Borda",
+      "path": "authors/0516.json"
+    },
+    {
+      "author_id": 517,
+      "canonical_name": "Adalberto Botero Escobar",
+      "path": "authors/0517.json"
+    },
+    {
+      "author_id": 518,
+      "canonical_name": "Abel Naranjo Villegas",
+      "path": "authors/0518.json"
+    },
+    {
+      "author_id": 519,
+      "canonical_name": "Cayetano Betancur",
+      "path": "authors/0519.json"
+    },
+    {
+      "author_id": 520,
+      "canonical_name": "Jaime Vélez Sáenz",
+      "path": "authors/0520.json"
     }
   ]
 }

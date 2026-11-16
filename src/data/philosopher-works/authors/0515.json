@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "author_id": 515,
+  "canonical_name": "Rafael Carrillo",
+  "alternate_names": [
+    "Rafael Carrillo Lúquez",
+    "Rafael Carrillo Luquez"
+  ],
+  "life": {
+    "born": {
+      "year": 1907,
+      "certainty": "university_biographical_source"
+    },
+    "died": {
+      "year": 1996,
+      "certainty": "university_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_collections_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0515-w001",
+      "title": "Ambiente axiológico de la Teoría Pura del Derecho",
+      "work_type": "axiology_and_philosophy_of_law_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "journal_original_publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kelsen",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "axiología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría pura del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.unal.edu.co/index.php/revistaun/article/view/12824"
+      ],
+      "notes": "Primera parte publicada en 1944 y conclusión en 1945 en la Revista de la Universidad Nacional. Existe historia editorial posterior, incluida una edición/libro de 1947; no se duplica como obra distinta."
+    },
+    {
+      "work_id": "0515-w002",
+      "title": "Filosofía del derecho como filosofía de la persona",
+      "work_type": "philosophy_of_law_and_person_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "scholarly_history_source"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persona",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "axiología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revista.unal.edu.co/detalle/la-filosofia-de-las-ciencias-en-el-pensamiento-de-rafael-carrillo"
+      ],
+      "notes": "Trabajo de 1945 destacado por la historiografía universitaria sobre Carrillo."
+    },
+    {
+      "work_id": "0515-w003",
+      "title": "La filosofía como espacio de las ciencias",
+      "work_type": "philosophy_of_science_inaugural_address",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "historical_bibliographic_source"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revista.unal.edu.co/detalle/la-filosofia-de-las-ciencias-en-el-pensamiento-de-rafael-carrillo"
+      ],
+      "notes": "Lección/discurso inaugural pronunciado en marzo de 1946 al abrirse el Instituto de Filosofía y Letras; posteriormente recogido en sus escritos."
+    },
+    {
+      "work_id": "0515-w004",
+      "title": "Escritos filosóficos",
+      "work_type": "philosophical_writings_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "retrospective_collection_record"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "original_author_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "axiología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revista.unal.edu.co/detalle/la-filosofia-de-las-ciencias-en-el-pensamiento-de-rafael-carrillo"
+      ],
+      "notes": "Bogotá, Universidad Santo Tomás, 1986. Colección retrospectiva; textos ya registrados por su publicación original no se vuelven a contar individualmente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación e institucionalización de los estudios filosóficos en la Universidad Nacional de Colombia y desarrollo de filosofía del derecho, axiología y filosofía de las ciencias",
+      "kind": "colombian_philosophy_normalization_law_axiology_and_science_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_scholarly_source",
+      "title": "Universidad Nacional de Colombia — La filosofía de las ciencias en el pensamiento de Rafael Carrillo",
+      "url": "https://revista.unal.edu.co/detalle/la-filosofia-de-las-ciencias-en-el-pensamiento-de-rafael-carrillo"
+    },
+    {
+      "kind": "journal_source",
+      "title": "Revista UNAL — Ambiente axiológico de la Teoría Pura del Derecho",
+      "url": "https://revistas.unal.edu.co/index.php/revistaun/article/view/12824"
+    }
+  ],
+  "research_notes": [
+    "Ambiente axiológico se registra por su publicación seriada original 1944-1945; ediciones posteriores no generan un segundo work_id."
+  ]
+}

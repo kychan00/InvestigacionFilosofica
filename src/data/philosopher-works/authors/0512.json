@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "author_id": 512,
+  "canonical_name": "Zenilda Lopes Siqueira",
+  "alternate_names": [
+    "Zenilda Lopes de Siqueira"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0512-w001",
+      "title": "Introdução à Filosofia de Friedrich Nietzsche",
+      "work_type": "nietzsche_introductory_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1976,
+        "certainty": "book_market_and_bibliographic_record"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernidade",
+          "provenance": "catalog"
+        },
+        {
+          "term": "crítica",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/introducao-a-filosofia-de-friedrich-nietzsche"
+      ],
+      "notes": "Obra publicada em 1976, cerca de 139 p., sob a forma de autoria Zenilda Lopes de Siqueira."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Atuação docente e institucional na filosofia brasileira, com recepção de Nietzsche e presença no ambiente fenomenológico do Rio de Janeiro",
+      "kind": "brazilian_nietzsche_and_philosophy_teaching_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "Estante Virtual — Introdução à Filosofia de Friedrich Nietzsche",
+      "url": "https://www.estantevirtual.com.br/busca/introducao-a-filosofia-de-friedrich-nietzsche"
+    }
+  ],
+  "research_notes": [
+    "A bibliografia localizada para esta passada é escassa. Não se inventam títulos de artigos atribuídos genericamente à autora em revistas filosóficas."
+  ]
+}
