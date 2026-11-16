@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "author_id": 585,
+  "canonical_name": "Pepi Patrón Costa",
+  "alternate_names": [
+    "Pepi Patrón",
+    "Pepi Patrón de Costa"
+  ],
+  "life": {
+    "born": {
+      "year": 1955,
+      "certainty": "project_primary_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0585-w001",
+      "title": "El debate Habermas-Gadamer",
+      "work_type": "Gadamer_Habermas_doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "project_primary_biobibliography"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Gadamer",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Habermas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w002",
+      "title": "El futuro de las humanidades, las humanidades del futuro",
+      "work_type": "edited_humanities_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "university_author_record"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Miguel Giusti"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanidades",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "universidad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/?pagina=1&x="
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w003",
+      "title": "Tolerancia: ética y política",
+      "work_type": "edited_ethical_political_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "university_author_record"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Ciro Alegría Varona",
+        "Fidel Tubino"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tolerancia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/?pagina=1&x="
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w004",
+      "title": "El enfoque de las capacidades y su pretensión universalista: ¿un proyecto emancipatorio?",
+      "work_type": "capabilities_approach_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "university_author_record"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "capacidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "emancipación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/?pagina=1&x="
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w005",
+      "title": "El poder como acción concertada en espacios públicos inclusivos. Una discusión con Amartya Sen",
+      "work_type": "political_philosophy_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "university_author_record"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Amartya Sen",
+          "provenance": "inferred"
+        },
+        {
+          "term": "participación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "espacios públicos",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w006",
+      "title": "Las emociones como juicios de valor: un diálogo interdisciplinario",
+      "work_type": "emotion_value_philosophy_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "university_author_record"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "emociones",
+          "provenance": "inferred"
+        },
+        {
+          "term": "juicios de valor",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w007",
+      "title": "Power and Deliberative Participation in Sen's Capability Approach",
+      "work_type": "capabilities_philosophy_book_chapter",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2019,
+        "certainty": "university_author_record"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "capacidades",
+          "provenance": "inferred"
+        },
+        {
+          "term": "participación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Sen",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w008",
+      "title": "On Ingrid Robeyns' Wellbeing, Freedom and Social Justice: Framework vs Theories: a Dialogue with Martha Nussbaum",
+      "work_type": "capability_philosophy_review_article",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2019,
+        "certainty": "PUCP_bibliography_with_DOI"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1080/19452829.2019.1631982",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Robeyns",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Nussbaum",
+          "provenance": "inferred"
+        },
+        {
+          "term": "justicia",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+      ],
+      "notes": "Un registro repetido con variante tipográfica en la base PUCP representa la misma publicación y no genera dos work_id."
+    },
+    {
+      "work_id": "0585-w009",
+      "title": "Ética y género",
+      "work_type": "gender_ethics_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2024,
+        "certainty": "PUCP_author_bibliography"
+      },
+      "first_publication_year": 2024,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "género",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "justicia",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0585-w010",
+      "title": "La falta de la participación de las mujeres en el poder político en el Perú y la perpetuación de la violencia de género",
+      "work_type": "gender_political_participation_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2025,
+        "certainty": "PUCP_author_bibliography"
+      },
+      "first_publication_year": 2025,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mujeres",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "violencia de género",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filosofía práctica feminista y de las capacidades, hermenéutica del diálogo, derechos y participación democrática en el Perú",
+      "kind": "peruvian_Gadamer_Habermas_gender_capabilities_practical_philosophy",
+      "authorship_status": "documented_academic_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_authority",
+      "title": "PUCP — bibliografía de Pepi Patrón Costa",
+      "url": "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/"
+    },
+    {
+      "kind": "university_editorial_bibliography",
+      "title": "PUCP — publicación de libros colectivos",
+      "url": "https://www.pucp.edu.pe/profesor/pepi-patron-costa/publicaciones/?pagina=1&x="
+    }
+  ],
+  "research_notes": [
+    "Su tesis sobre Habermas y Gadamer es un trabajo doctoral identificado por el libro-base y no una obra editorial independiente.",
+    "Los volúmenes 2010 y 2011 se registran con rol de coeditora; no se atribuyen los capítulos ajenos a Patrón.",
+    "La plataforma PUCP duplica variantes de la reseña de Robeyns de 2019; se agrega un registro único."
+  ]
+}

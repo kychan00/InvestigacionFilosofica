@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "author_id": 587,
+  "canonical_name": "Juan Brito del Pino",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "no_individual_work_verified_keep_research_open",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de fenomenología y existencialismo en el Instituto de Estudios Superiores de Montevideo a fines de la década de 1930",
+      "kind": "uruguayan_institutional_fenomenology_and_existentialism_teaching",
+      "authorship_status": "documented_academic_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — Uruguay, p. 302",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "homonym_exclusion",
+      "title": "Facultad de Derecho Udelar — Eduardo Brito del Pino (autor distinto)",
+      "url": "https://www.fder.edu.uy/node/6457"
+    }
+  ],
+  "research_notes": [
+    "El libro-base menciona a Juan Brito del Pino entre profesores de fenomenología y existencialismo en el Instituto de Estudios Superiores de Montevideo (ca. 1930s), sin enumerar publicaciones suyas.",
+    "No se localizaron obras que se pudieran atribuir a Juan con evidencia suficiente. Se deja works vacío, coverage.works_status no_individual_work_verified_keep_research_open y se registra su contribución institucional.",
+    "NO atribuir textos de Eduardo Manuel Brito del Pino (1839–1928), jurista uruguayo y autor de Los ideales del partido clerical; se trata de otra persona."
+  ]
+}

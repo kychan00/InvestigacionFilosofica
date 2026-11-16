@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "author_id": 582,
+  "canonical_name": "Teresa Arrieta de Guzmán",
+  "alternate_names": [
+    "Teresa Abigail Arrieta viuda de Guzmán",
+    "Teresa Arrieta vda. de Guzmán"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0582-w001",
+      "title": "Sobre El origen de la obra de arte de Heidegger",
+      "work_type": "heidegger_aesthetics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "project_primary_edition_bibliography"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "inferred"
+        },
+        {
+          "term": "arte",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w002",
+      "title": "El arte y sus clasificaciones",
+      "work_type": "aesthetics_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "CONCYTEC_researcher_publications"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arte",
+          "provenance": "inferred"
+        },
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "clasificación",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=61232"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w003",
+      "title": "Perfiles filosóficos",
+      "work_type": "philosophical_profiles_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2016,
+        "certainty": "researcher_ORCID_self_asserted"
+      },
+      "first_publication_year": 2016,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filósofos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ensayos filosóficos",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=61232",
+        "https://orcid.org/0000-0003-2384-2721"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w004",
+      "title": "Actas. Congreso Internacional de Filosofía de la ciencia y la tecnología",
+      "work_type": "conference_proceedings_edited_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2017,
+        "certainty": "researcher_ORCID_self_asserted"
+      },
+      "first_publication_year": 2017,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=61232",
+        "https://orcid.org/0000-0003-2384-2721"
+      ],
+      "notes": "Registro ORCID indica explícitamente Edited book, por lo que no se atribuyen todas las ponencias a Arrieta."
+    },
+    {
+      "work_id": "0582-w005",
+      "title": "Sobre el pensamiento feminista y la ciencia",
+      "work_type": "feminist_epistemology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2018,
+        "certainty": "journal_DOI_and_OpenAlex_record"
+      },
+      "first_publication_year": 2018,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.89.130.3",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "feminismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://openalex.org/W2908358199",
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=61232"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w006",
+      "title": "Antropología filosófica",
+      "work_type": "philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "author_ORCID_record"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786124465161"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "antropología filosófica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://orcid.org/0000-0003-2384-2721"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w007",
+      "title": "Nuevo humanismo, viejas raíces",
+      "work_type": "humanism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "author_ORCID_record"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786124465147"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "cultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://orcid.org/0000-0003-2384-2721"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w008",
+      "title": "Pandemias y corrupción",
+      "work_type": "philosophical_social_analysis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "author_ORCID_record"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786124465154"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pandemias",
+          "provenance": "inferred"
+        },
+        {
+          "term": "corrupción",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://orcid.org/0000-0003-2384-2721"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0582-w009",
+      "title": "Sobre la naturaleza humana",
+      "work_type": "philosophical_anthropology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2021,
+        "certainty": "CONCYTEC_researcher_publications"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "naturaleza humana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=61232"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación peruana sobre estética heideggeriana, filosofía de la ciencia, género y antropología filosófica",
+      "kind": "peruvian_heidegger_feminist_epistemology_and_anthropology",
+      "authorship_status": "documented_academic_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_researcher_registry",
+      "title": "CTI Vitae CONCYTEC — Teresa Abigail Arrieta",
+      "url": "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=61232"
+    },
+    {
+      "kind": "author_ORCID_record",
+      "title": "ORCID 0000-0003-2384-2721",
+      "url": "https://orcid.org/0000-0003-2384-2721"
+    },
+    {
+      "kind": "scholarly_DOI_index",
+      "title": "OpenAlex — Sobre el pensamiento feminista y la ciencia",
+      "url": "https://openalex.org/W2908358199"
+    }
+  ],
+  "research_notes": [
+    "El inventario usa Teresa Arrieta de Guzmán; CONCYTEC registra Teresa Abigail Arrieta vda de Guzmán. Se conserva canónico y variante institucional.",
+    "Las tres monografías de 2020 tienen ISBN independientes; no son reediciones idénticas."
+  ]
+}

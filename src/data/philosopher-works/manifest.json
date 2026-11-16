@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 580,
-    "authors_remaining": 924,
-    "works_or_contributions_seeded": 3608,
-    "current_batch": "058",
+    "authors_seeded": 590,
+    "authors_remaining": 914,
+    "works_or_contributions_seeded": 3682,
+    "current_batch": "059",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3047,6 +3047,58 @@
       "author_id": 580,
       "canonical_name": "Francisco Nicoli",
       "path": "authors/0580.json"
+    }
+  ],
+  "batch_059": [
+    {
+      "author_id": 581,
+      "canonical_name": "Luis Silva Santisteban",
+      "path": "authors/0581.json"
+    },
+    {
+      "author_id": 582,
+      "canonical_name": "Teresa Arrieta de Guzmán",
+      "path": "authors/0582.json"
+    },
+    {
+      "author_id": 583,
+      "canonical_name": "Salomón Lerner",
+      "path": "authors/0583.json"
+    },
+    {
+      "author_id": 584,
+      "canonical_name": "Rosemary Rizo Patrón",
+      "path": "authors/0584.json"
+    },
+    {
+      "author_id": 585,
+      "canonical_name": "Pepi Patrón Costa",
+      "path": "authors/0585.json"
+    },
+    {
+      "author_id": 586,
+      "canonical_name": "Cecilia Monteagudo",
+      "path": "authors/0586.json"
+    },
+    {
+      "author_id": 587,
+      "canonical_name": "Juan Brito del Pino",
+      "path": "authors/0587.json"
+    },
+    {
+      "author_id": 588,
+      "canonical_name": "Juan Llambías de Azevedo",
+      "path": "authors/0588.json"
+    },
+    {
+      "author_id": 589,
+      "canonical_name": "José Carlos Montaner",
+      "path": "authors/0589.json"
+    },
+    {
+      "author_id": 590,
+      "canonical_name": "Aníbal del Campo",
+      "path": "authors/0590.json"
     }
   ]
 }
