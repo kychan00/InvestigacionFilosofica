@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "author_id": 45,
+  "canonical_name": "Domingo Faustino Sarmiento",
+  "alternate_names": [
+    "Domingo F. Sarmiento"
+  ],
+  "life": {
+    "born": {
+      "year": 1811,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1888,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_political_educational_autobiographical_and_historical_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0045-w001",
+      "title": "Mi defensa",
+      "work_type": "autobiographical_political_self_defense",
+      "original_language": "español",
+      "original_date": {
+        "year": 1843,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1843,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autobiografía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "polémica política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w002",
+      "title": "Civilización i barbarie. Vida de Juan Facundo Quiroga",
+      "alternate_titles": [
+        "Facundo",
+        "Facundo o civilización y barbarie"
+      ],
+      "work_type": "political_sociological_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1845,
+        "certainty": "serial_and_book_publication"
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Juan Facundo Quiroga",
+          "role": "biographical_subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "civilización y barbarie",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "caudillismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "pampa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w003",
+      "title": "Viajes en Europa, África i América, 1845-1847",
+      "work_type": "travel_writing",
+      "original_language": "español",
+      "original_date": {
+        "start": 1845,
+        "end": 1847,
+        "certainty": "travel_range"
+      },
+      "first_publication_year": 1849,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "viajes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación comparada",
+          "provenance": "inferred"
+        },
+        {
+          "term": "modernización",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w004",
+      "title": "De la educación popular",
+      "work_type": "education_policy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1849,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1849,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "enseñanza primaria",
+          "provenance": "catalog"
+        },
+        {
+          "term": "educación popular",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Europa",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Argentina",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w005",
+      "title": "Recuerdos de provincia",
+      "work_type": "autobiography_intellectual_memory",
+      "original_language": "español",
+      "original_date": {
+        "year": 1850,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1850,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autobiografía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "San Juan",
+          "provenance": "inferred"
+        },
+        {
+          "term": "memoria",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w006",
+      "title": "Argirópolis",
+      "work_type": "political_federal_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1850,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1850,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Confederación Argentina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "capital",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Río de la Plata",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w007",
+      "title": "Campaña en el Ejército Grande",
+      "work_type": "political_military_memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": 1852,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1852,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ejército Grande",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Rosas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Caseros",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w008",
+      "title": "Las escuelas: base de la prosperidad y de la república en los Estados Unidos",
+      "work_type": "education_policy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1866,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "escuelas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Estados Unidos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "prosperidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "república",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w009",
+      "title": "Conflicto y armonías de las razas en América",
+      "work_type": "historical_sociological_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1883,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "relaciones raciales",
+          "provenance": "catalog"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "instituciones republicanas",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0045-w010",
+      "title": "Vida de Dominguito",
+      "work_type": "biography_memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1886,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Domingo Fidel Sarmiento",
+          "role": "biographical_subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memoria familiar",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Guerra de la Triple Alianza",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Catálogo de obras de Domingo Faustino Sarmiento",
+      "url": "https://www.cervantesvirtual.com/portales/domingo_faustino_sarmiento/su_obra_catalogo/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "national_memory",
+      "title": "Memorias del siglo XIX",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-336726.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar a biografías, periodismo, correspondencia, escritos presidenciales y los 52 tomos de Obras completas.",
+    "La matriz conserva 1883 para la primera edición de Conflicto y armonías, verificada en catálogo; no usa 1884 del resumen secundario del libro-base."
+  ]
+}
