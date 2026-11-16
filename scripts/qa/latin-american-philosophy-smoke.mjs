@@ -108,6 +108,14 @@ try {
       return {
         viewport: innerWidth,
         scrollWidth: document.documentElement.scrollWidth,
+        mobileToolbar: rect(".site-mobile-toolbar"),
+        ornament: rect(".ornament-frame"),
+        mobileSubnav: rect(".latam-mobile-sections"),
+        mobileSubnavDisplay: getComputedStyle(document.querySelector(".latam-mobile-sections")).display,
+        mobileSubnavLinks: [...document.querySelectorAll(".latam-mobile-sections a")].map(link => {
+          const box = link.getBoundingClientRect();
+          return { text: link.textContent.trim(), width: box.width, height: box.height };
+        }),
         hero: rect(".latam-hero"),
         heroIllustration: rect(".hero-illustration"),
         heroTitle: rect(".hero-copy h1"),
@@ -141,6 +149,34 @@ try {
     );
     assert.equal(geometry.periodCards.length, 4, "Exactly four major period cards are required");
     assert.equal(geometry.skipLink, true, "Skip link must exist");
+
+    if (width <= 820) {
+      assert.equal(geometry.mobileSubnavDisplay, "flex",
+        "Archive section navigation must remain visible in portrait/tablet mobile layouts");
+      assert.deepEqual(
+        geometry.mobileSubnavLinks.map(link => link.text),
+        ["Periodos", "Con obra", "Autores", "Acerca"],
+        "Mobile archive navigation must expose the same four destinations as desktop"
+      );
+      assert.ok(
+        geometry.mobileSubnavLinks.every(link => link.height >= 44),
+        "Mobile archive navigation links must remain comfortably tappable"
+      );
+      assert.ok(
+        geometry.ornament.top <= geometry.mobileToolbar.bottom + 3,
+        "Archive content must not duplicate the global toolbar gap: " + JSON.stringify({
+          toolbar: geometry.mobileToolbar,
+          ornament: geometry.ornament
+        })
+      );
+      assert.ok(
+        geometry.mobileSubnav.top >= geometry.ornament.bottom - 2,
+        "Mobile archive subnavigation should follow the ornament strip"
+      );
+    } else {
+      assert.equal(geometry.mobileSubnavDisplay, "none",
+        "Mobile archive subnavigation should not duplicate the desktop navigation");
+    }
 
     assert.ok(
       geometry.heroTitle.left >= -2 && geometry.heroTitle.right <= geometry.viewport + 2,
