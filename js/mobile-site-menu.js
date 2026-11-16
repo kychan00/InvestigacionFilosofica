@@ -109,6 +109,13 @@ const menuItems = [
   },
   {
     index: "06",
+    label: "Filosofía latinoamericana",
+    icon: "archive",
+    detail: "1,504 autores · archivo continental",
+    href: siteHref("filosofia-latinoamericana.html")
+  },
+  {
+    index: "07",
     label: "Artículos",
     icon: "articles",
     detail: "Revistas por universidad",
@@ -153,7 +160,7 @@ const menuItems = [
     ]
   },
   {
-    index: "07",
+    index: "08",
     label: "Acerca de",
     icon: "info",
     detail: "Proyecto, método y cifras",
