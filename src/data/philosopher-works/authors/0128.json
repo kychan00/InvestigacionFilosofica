@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "author_id": 128,
+  "canonical_name": "Eugenio Pucciarelli",
+  "alternate_names": [
+    "Eugenio Pucciarelli"
+  ],
+  "life": {
+    "born": {
+      "year": 1907,
+      "certainty": "standard",
+      "date": "1907-08-28"
+    },
+    "died": {
+      "year": 1995,
+      "certainty": "verified",
+      "date": "1995-01-03"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_logic_cartesian_time_reason_technology_humanism_and_philosophical_anthropology_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0128-w001",
+      "title": "La causalidad en Descartes",
+      "work_type": "history_of_philosophy_conference_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "conference",
+        "date": "1934-10-06"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_conference_publication_year_pending",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "René Descartes",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "causalidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Descartes",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w002",
+      "title": "Lógica",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Francisco Romero",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w003",
+      "title": "Lógica y nociones de teoría del conocimiento",
+      "work_type": "logic_epistemology_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Francisco Romero",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teoría del conocimiento",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w004",
+      "title": "La situación actual de la filosofía",
+      "work_type": "metaphilosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "situación contemporánea",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w005",
+      "title": "El tiempo en la filosofía actual",
+      "work_type": "philosophy_of_time_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tiempo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "editorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w006",
+      "title": "Tiempo y lenguaje",
+      "work_type": "philosophy_of_time_language_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tiempo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w007",
+      "title": "Las expresiones temporales y sus compromisos filosóficos",
+      "work_type": "philosophy_of_time_language_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "expresiones temporales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w008",
+      "title": "El instante y el tiempo",
+      "work_type": "philosophy_of_time_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "instante",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tiempo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w009",
+      "title": "El hombre: corporalidad y temporalidad",
+      "work_type": "philosophical_anthropology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "corporalidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "temporalidad",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0128-w010",
+      "title": "Los rostros del humanismo",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "collection_publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified_collection_of_earlier_essays",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Malena Lasala",
+          "role": "preliminary_study_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología",
+          "provenance": "catalog"
+        },
+        {
+          "term": "libertad",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Recopila trabajos originalmente aparecidos en 1971, 1974 y 1976; la fecha 1987 es la de la colección."
+    },
+    {
+      "work_id": "0128-w011",
+      "title": "Borges y las metáforas del tiempo",
+      "work_type": "philosophy_literature_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Jorge Luis Borges",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Borges",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metáforas del tiempo",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación del Centro de Estudios Filosóficos de la Academia Nacional de Ciencias de Buenos Aires y de Escritos de Filosofía",
+      "kind": "academic_editorial_institutional_contribution",
+      "period": {
+        "start": 1970,
+        "end": 1995,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Escritos de Filosofía",
+          "provenance": "project_primary_source"
+        },
+        {
+          "term": "filosofía argentina",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_repository",
+      "title": "El tiempo en la filosofía actual",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/132074",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "academic_foundation_profile",
+      "title": "Eugenio Pucciarelli",
+      "url": "https://www.fundacionkonex.org/b1538-eugenio-pucciarelli",
+      "publisher": "Fundación Konex"
+    },
+    {
+      "kind": "national_academy_collection",
+      "title": "Antología de trabajos sobre el tiempo",
+      "url": "https://www.ciencias.org.ar/user/CEF/Pucciarelli.Academia.pdf",
+      "publisher": "Academia Nacional de Ciencias de Buenos Aires"
+    },
+    {
+      "kind": "university_review",
+      "title": "Los rostros del humanismo",
+      "url": "https://bdigital.uncu.edu.ar/4083",
+      "publisher": "Universidad Nacional de Cuyo"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Eugenio Pucciarelli (1907-1995)"
+    }
+  ],
+  "research_notes": [
+    "Se preserva la diferencia entre artículos originales y recopilaciones tardías.",
+    "Pendiente ampliar razón, técnica, ideología, violencia, Ortega, Herder y Alejandro Korn."
+  ]
+}
