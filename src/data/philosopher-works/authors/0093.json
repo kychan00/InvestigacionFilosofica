@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "author_id": 93,
+  "canonical_name": "Antonio Carlos Wolkmer",
+  "alternate_names": [
+    "Antônio Carlos Wolkmer",
+    "Antonio C. Wolkmer"
+  ],
+  "life": {
+    "born": {
+      "year": 1952,
+      "certainty": "project_canonical"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_critical_legal_pluralism_state_history_and_human_rights_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0093-w001",
+      "title": "Para uma hermenêutica jurídica crítico-emancipatória",
+      "work_type": "critical_legal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1987,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.5007/%x",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hermenêutica jurídica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "emancipação",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w002",
+      "title": "Constitucionalismo e os direitos sociais no Brasil",
+      "work_type": "constitutional_law_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1989,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitucionalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "direitos sociais",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w003",
+      "title": "Ideologia, Estado e Direito",
+      "work_type": "critical_legal_political_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1989,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Direito",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w004",
+      "title": "Elementos para uma crítica do Estado",
+      "work_type": "state_theory_critical_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1990,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "crítica",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w005",
+      "title": "Introdução ao pensamento jurídico crítico",
+      "work_type": "critical_legal_theory_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1991,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamento jurídico crítico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "direito alternativo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w006",
+      "title": "Pluralismo jurídico: fundamentos de uma nova cultura no Direito",
+      "work_type": "legal_pluralism_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1994,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [],
+        "oclc": [
+          "33092374"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "pluralismo jurídico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura jurídica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "novos sujeitos sociais",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w007",
+      "title": "História do Direito no Brasil",
+      "work_type": "legal_history_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1998,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história do direito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w008",
+      "title": "Direitos humanos e filosofia jurídica na América Latina",
+      "work_type": "human_rights_legal_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2004,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "direitos humanos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofia jurídica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w009",
+      "title": "Pluralismo, justiça e legitimidade dos novos direitos",
+      "work_type": "critical_legal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2007,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.5007/%x",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pluralismo jurídico",
+          "provenance": "editorial"
+        },
+        {
+          "term": "justiça",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "novos direitos",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0093-w010",
+      "title": "As questões delimitativas do direito no Pluralismo Jurídico",
+      "work_type": "legal_pluralism_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2008,
+        "certainty": "issue_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Renata Ovenhausen Albernaz",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": "10.5007/2177-7055.2008v29n57p67",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pluralismo jurídico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "juridicidade",
+          "provenance": "editorial"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Consolidação do pluralismo jurídico crítico latino-americano",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1980,
+        "end": 2026,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "pluralismo jurídico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "direito crítico",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_article",
+      "title": "Para uma hermenêutica jurídica crítico-emancipatória",
+      "url": "https://periodicos.ufsc.br/index.php/sequencia/article/view/16392",
+      "publisher": "UFSC"
+    },
+    {
+      "kind": "professional_library_catalog",
+      "title": "Pluralismo jurídico: fundamentos de uma nova cultura no direito",
+      "url": "https://www2.oabsp.org.br/asp/biblioteca/site/detalhes_livro.asp?id_livro=14056",
+      "publisher": "OAB São Paulo"
+    },
+    {
+      "kind": "university_first_edition_record",
+      "title": "História do Direito no Brasil",
+      "url": "https://sigconteudo.ufsb.edu.br/arquivos/2023102125412e96886762ca5a899c54/Antonio_Carlos_Wolkmer_-_Histria_do_Direito_no_Brasil_-_Cap._2_-_O_DIREITO_NA_.pdf",
+      "publisher": "Universidade Federal do Sul da Bahia"
+    },
+    {
+      "kind": "university_article",
+      "title": "As questões delimitativas do direito no Pluralismo Jurídico",
+      "url": "https://periodicos.ufsc.br/index.php/sequencia/article/view/2177-7055.2008v29n57p67",
+      "publisher": "UFSC",
+      "doi": "10.5007/2177-7055.2008v29n57p67"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar derechos de la naturaleza, constitucionalismo latinoamericano y obras del siglo XXI.",
+    "Los DOI históricos de Seqüência que el sitio expone como 10.5007/%x se preservan tal cual fuente y deben normalizarse en una pasada posterior."
+  ]
+}
