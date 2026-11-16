@@ -36,13 +36,36 @@ try {
         body: JSON.stringify({
           status: "ok",
           message: {
-            items: [{
-              title: ["De l'égalité des races humaines: anthropologie positive"],
-              author: [{ given: "Anténor", family: "Firmin" }],
-              published: { "date-parts": [[1885]] },
-              type: "book",
-              URL: "https://example.test/firmin-1885"
-            }]
+            items: [
+              {
+                title: ["De l'égalité des races humaines: anthropologie positive"],
+                author: [{ given: "Anténor", family: "Firmin" }],
+                published: { "date-parts": [[1885]] },
+                type: "book",
+                URL: "https://example.test/firmin-1885"
+              },
+              {
+                title: ["Haïti au point de vue politique, administratif et économique"],
+                author: [{ given: "Anténor", family: "Firmin" }],
+                published: { "date-parts": [[1891]] },
+                type: "book",
+                URL: "https://example.test/firmin-1891"
+              },
+              {
+                title: ["M. Roosevelt, président des États-Unis, et la République d'Haïti"],
+                author: [{ given: "Anténor", family: "Firmin" }],
+                published: { "date-parts": [[1905]] },
+                type: "book",
+                URL: "https://example.test/firmin-1905"
+              },
+              {
+                title: ["Lettres de Saint-Thomas: études sociologiques, historiques et littéraires"],
+                author: [{ given: "Anténor", family: "Firmin" }],
+                published: { "date-parts": [[1910]] },
+                type: "book",
+                URL: "https://example.test/firmin-1910"
+              }
+            ]
           }
         })
       });
@@ -163,7 +186,7 @@ try {
     await page.locator("#author-dossier-research-section").waitFor({ state: "visible" });
     await page.locator("[data-live-author-search]").click();
     await page.waitForFunction(() =>
-      document.querySelectorAll(".author-live-result").length >= 1
+      document.querySelectorAll(".author-live-result").length >= 4
     );
 
     assert.ok(
@@ -174,6 +197,36 @@ try {
       (await page.locator(".author-live-result-head strong").first().textContent()).includes("YA ESTÁ EN LA FICHA"),
       "Federated result matching a curated title must be recognized as already curated"
     );
+
+    const motorGeometry = await page.evaluate(() => {
+      const reader = document.querySelector(".author-dossier-reader");
+      const section = document.querySelector("#author-dossier-research-section");
+      const results = document.querySelector(".author-live-results");
+      return {
+        readerClient: reader?.clientWidth || 0,
+        readerScroll: reader?.scrollWidth || 0,
+        sectionClient: section?.clientWidth || 0,
+        sectionScroll: section?.scrollWidth || 0,
+        resultsClient: results?.clientWidth || 0,
+        resultsScroll: results?.scrollWidth || 0
+      };
+    });
+
+    assert.ok(
+      motorGeometry.readerScroll <= motorGeometry.readerClient + 2,
+      "Dossier reader must not overflow horizontally after federated results: " + JSON.stringify(motorGeometry)
+    );
+    assert.ok(
+      motorGeometry.sectionScroll <= motorGeometry.sectionClient + 2 &&
+      motorGeometry.resultsScroll <= motorGeometry.resultsClient + 2,
+      "Motor section must remain within its reading column: " + JSON.stringify(motorGeometry)
+    );
+
+    await settlePaint(page);
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-motor-light.png",
+      animations: "disabled"
+    });
 
     assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
       "Dossier must retain the canonical author identifier");
