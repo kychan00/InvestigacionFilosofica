@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 6,
+  "canonical_name": "Tomás de Mercado",
+  "alternate_names": [
+    "Thomas de Mercado"
+  ],
+  "life": {
+    "born": {
+      "year": 1523,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1575,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0006-w001",
+      "title": "Summa de tratos y contratos",
+      "work_type": "economic_moral_theology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1569,
+        "certainty": "first_version"
+      },
+      "first_publication_year": 1569,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "contratos",
+          "provenance": "catalog"
+        },
+        {
+          "term": "derecho mercantil",
+          "provenance": "catalog"
+        },
+        {
+          "term": "economía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "comercio",
+          "provenance": "catalog"
+        },
+        {
+          "term": "justicia en el intercambio",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Edición ampliada/revisada publicada en 1571."
+    },
+    {
+      "work_id": "0006-w002",
+      "title": "Commentarii lucidissimi in textum Petri Hispani",
+      "work_type": "logic_commentary",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1571,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1571,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Pedro Hispano",
+          "provenance": "catalog"
+        },
+        {
+          "term": "escolástica novohispana",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0006-w003",
+      "title": "In Logicam magnam Aristotelis commentarii",
+      "work_type": "logic_commentary",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1571,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1571,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristóteles",
+          "provenance": "catalog"
+        },
+        {
+          "term": "lógica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "categorías",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Obras de Tomás de Mercado",
+      "url": "https://www.cervantesvirtual.com/portales/inca_garcilaso_de_la_vega/obras/autor/mercado-tomas-de-1523-1575-208",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "institutional_catalog",
+      "title": "MERCADO, Tomás de",
+      "url": "https://www.filosoficas.unam.mx/catalogo/?autores=mercado-tomas-de",
+      "publisher": "UNAM, Instituto de Investigaciones Filosóficas"
+    }
+  ],
+  "research_notes": [
+    "El catálogo de Cervantes lista varios registros/ejemplares; falta normalizar completamente obra frente a edición."
+  ]
+}
