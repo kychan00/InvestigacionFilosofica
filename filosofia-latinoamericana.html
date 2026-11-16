@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17382f">
+  <meta name="description" content="Archivo especial de filosofía latinoamericana: 1,504 autores, periodos históricos y fichas bibliográficas en construcción.">
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Filosofía latinoamericana · Investigación Filosófica</title>
+  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261116-architecture-v1">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
+</head>
+<body>
+  <div class="site-mobile-toolbar">
+    <a class="site-mobile-toolbar-brand" href="./" aria-label="Ir a Investigación Filosófica">
+      <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
+      <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
+    </a>
+    <button type="button" class="site-menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-mobile-menu">
+      <span class="site-menu-toggle-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+
+  <div class="latam-page">
+    <div class="ornament-frame" aria-hidden="true"><span>✦</span><span>❦</span><span>✦</span></div>
+
+    <header class="latam-header">
+      <nav class="latam-nav" aria-label="Navegación principal">
+        <a class="latam-brand" href="./">
+          <span class="latam-brand-flower" aria-hidden="true">✺</span>
+          <span>Investigación Filosófica <small>Archivo latinoamericano</small></span>
+        </a>
+        <div class="latam-nav-links">
+          <a href="#periodos">Periodos</a>
+          <a href="#con-obra">Con obra</a>
+          <a href="#directorio">Autores</a>
+          <a href="./acerca.html">Acerca de</a>
+        </div>
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+        </div>
+      </nav>
+
+      <section class="latam-hero">
+        <div class="hero-illustration" aria-hidden="true">
+          <div class="hero-sun"></div>
+          <div class="hero-mountain mountain-a"></div>
+          <div class="hero-mountain mountain-b"></div>
+          <div class="hero-tree tree-left"><i></i><i></i><i></i></div>
+          <div class="hero-tree tree-right"><i></i><i></i></div>
+          <div class="hero-book"><span>1300</span><b>—</b><span>2000</span></div>
+          <div class="hero-flowers">✿ ❀ ✾ ✿ ❀</div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow">HISTORIA · CORRIENTES · TEMAS · FILÓSOFOS</p>
+          <h1>Filosofía latinoamericana, <em>un archivo vivo.</em></h1>
+          <p class="hero-lead">
+            Un recorrido por los autores reunidos a partir de <cite>El pensamiento filosófico
+            latinoamericano, del Caribe y “latino” (1300–2000)</cite>, conectado con la matriz
+            bibliográfica que estamos reconstruyendo obra por obra.
+          </p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#periodos">Recorrer los periodos →</a>
+            <a class="button-quiet" href="#directorio">Ver los 1,504 autores</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="latam-stats" aria-label="Estado del archivo">
+        <article><strong id="stat-total">1,504</strong><span>autores del inventario</span></article>
+        <article><strong id="stat-seeded">—</strong><span>con ficha bibliográfica</span></article>
+        <article><strong id="stat-records">—</strong><span>obras y contribuciones</span></article>
+        <article><strong>1300–2000</strong><span>arco histórico del libro base</span></article>
+      </section>
+    </header>
+
+    <main>
+      <section id="periodos" class="period-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">01 / EL RECORRIDO DEL LIBRO</p>
+            <h2>Cuatro territorios para orientarse en siete siglos.</h2>
+          </div>
+          <p>
+            La página conserva las tres épocas históricas de la primera parte del libro y
+            abre una cuarta colección para sus corrientes filosóficas del siglo XX. La
+            asignación fina por corriente se incorporará conforme avance la curación.
+          </p>
+        </div>
+
+        <div class="period-grid">
+          <article class="period-card period-originarios" data-period="originarios">
+            <span class="period-number">I</span>
+            <p>PRIMERA ÉPOCA</p>
+            <h3>Filosofías de algunos pueblos originarios</h3>
+            <small>Náhuatl · Maya · Tojolabal · Quechua · Mapuche · Guaraní</small>
+            <button type="button" data-period-jump="originarios">Explorar esta colección →</button>
+          </article>
+          <article class="period-card period-colonial" data-period="colonial">
+            <span class="period-number">II</span>
+            <p>SEGUNDA ÉPOCA</p>
+            <h3>Filosofía colonial en la modernidad temprana</h3>
+            <small>Debate de la modernidad · filosofía académica · lógica · barroco · Caribe · Brasil</small>
+            <button type="button" data-period-jump="colonial">Explorar esta colección →</button>
+          </article>
+          <article class="period-card period-madura" data-period="madura">
+            <span class="period-number">III</span>
+            <p>TERCERA ÉPOCA</p>
+            <h3>Filosofía ante la modernidad madura</h3>
+            <small>Ilustración · independencia · conservadurismo · liberalismo · krausismo · positivismo</small>
+            <button type="button" data-period-jump="madura">Explorar esta colección →</button>
+          </article>
+          <article class="period-card period-sigloxx" data-period="sigloxx">
+            <span class="period-number">IV</span>
+            <p>SEGUNDA PARTE</p>
+            <h3>Corrientes filosóficas del siglo XX</h3>
+            <small>Antipositivismo · fenomenología · analítica · marxismo · liberación · feminismo · bioética y más</small>
+            <button type="button" data-period-jump="sigloxx">Explorar esta colección →</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-band">
+        <div>
+          <p class="section-kicker">ARCHIVO EN CONSTRUCCIÓN</p>
+          <h2>No todos los nombres tienen todavía la misma profundidad documental.</h2>
+        </div>
+        <p>
+          Cada ficha marcada como <strong>con obra</strong> ya pasó por una investigación
+          bibliográfica inicial. Las restantes permanecen visibles para que el archivo muestre
+          tanto lo conquistado como lo que todavía falta por documentar.
+        </p>
+      </section>
+
+      <section id="con-obra" class="works-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">02 / AUTORES CON FICHA</p>
+            <h2>La biblioteca crece autor por autor.</h2>
+          </div>
+          <p id="periodization-status">Preparando periodización desde las fichas bibliográficas…</p>
+        </div>
+        <div id="periodized-authors" class="periodized-authors" aria-live="polite"></div>
+      </section>
+
+      <section class="quote-band" aria-label="Principio editorial">
+        <span aria-hidden="true">❦</span>
+        <blockquote>
+          “Mucho más que un libro, el inicio de un movimiento filosófico continental.”
+        </blockquote>
+        <small>Principio de lectura retomado de la introducción del libro base.</small>
+      </section>
+
+      <section id="directorio" class="directory-section">
+        <div class="section-heading directory-heading">
+          <div>
+            <p class="section-kicker">03 / DIRECTORIO COMPLETO</p>
+            <h2>Todos los autores, sin esconder lo pendiente.</h2>
+          </div>
+          <p>
+            Busque por nombre o filtre el estado de investigación. El número canónico se mantiene
+            para que cada persona siga siendo rastreable dentro de la matriz bibliográfica.
+          </p>
+        </div>
+
+        <div class="directory-tools">
+          <label class="author-search">
+            <span>Buscar autor</span>
+            <input id="author-search" type="search" autocomplete="off" placeholder="Ej. Leopoldo Zea, Sor Juana, Firmin…">
+          </label>
+          <div class="status-filter" role="group" aria-label="Filtrar autores">
+            <button type="button" class="is-active" data-status-filter="all">Todos</button>
+            <button type="button" data-status-filter="seeded">Con obra</button>
+            <button type="button" data-status-filter="pending">Pendientes</button>
+          </div>
+        </div>
+
+        <p id="directory-status" class="directory-status" role="status" aria-live="polite">Cargando inventario…</p>
+        <div id="author-directory" class="author-directory"></div>
+        <button id="load-more-authors" class="load-more" type="button" hidden>Mostrar más autores</button>
+      </section>
+    </main>
+
+    <footer class="latam-footer">
+      <div>
+        <span class="footer-mark">Φ</span>
+        <strong>Investigación Filosófica</strong>
+        <small>Filosofía latinoamericana · archivo vivo</small>
+      </div>
+      <p>Basado editorialmente en Dussel · Mendieta · Bohórquez, 2009.</p>
+      <a href="./">Volver a investigación →</a>
+    </footer>
+
+    <div class="ornament-frame ornament-frame-bottom" aria-hidden="true"><span>✦</span><span>❦</span><span>✦</span></div>
+  </div>
+
+  <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
+  <script type="module" src="./js/latin-american-philosophy.js?v=20261116-architecture-v1"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
+</body>
+</html>
