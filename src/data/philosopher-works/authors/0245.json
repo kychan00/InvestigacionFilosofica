@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "author_id": 245,
+  "canonical_name": "Juan de Rueda",
+  "alternate_names": [
+    "Fray Juan de Rueda"
+  ],
+  "life": {
+    "died": {
+      "year": 1697,
+      "certainty": "scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_scholastic_manuscripts_with_evidence_and_authorship_caveats",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0245-w001",
+      "title": "Cursus philosophicus",
+      "work_type": "augustinian_scholastic_manuscript_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "teaching_and_manuscript_period",
+        "period": {
+          "start": 1675,
+          "end": 1677
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "traditionally_attributed_to_rueda_but_surviving_ms_identifies_student",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cursus philosophicus",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://studylib.es/doc/7642708/los-comentaristas-de-arist%C3%B3teles-en-la-nueva-espa%C3%B1a",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "manuscript": {
+        "repository": "Biblioteca Nacional de México",
+        "catalog": "MS. 165",
+        "named_in_manuscript": "José de Casanova",
+        "rueda_named_in_manuscript": false
+      },
+      "sections": [
+        "Summulae",
+        "Logica sive Dialectica",
+        "Physica sive Philosophia naturalis",
+        "Disputationes in duos libros Aristotelis de Generatione et Corruptione",
+        "Disputationes in octo libros Aristotelis de Coelo et Mundo",
+        "Tractatus de Anima",
+        "Disputationes Metaphysicae",
+        "Quaestiunculae in libros de Meteoribus"
+      ],
+      "notes": "Los estudios atribuyen a Juan de Rueda el curso de 1675–1677, pero el manuscrito conservado MS.165 no incluye su nombre y sí el de su alumno José de Casanova; autoría material pendiente de comparación."
+    },
+    {
+      "work_id": "0245-w002",
+      "title": "Commentarium in orationem Ciceronis pro Marco Marcello",
+      "work_type": "commentary_for_university_rhetoric_examination",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified_course_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_study_attributes_text_for_rhetoric_competition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ciceronis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Marco Marcello",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://studylib.es/doc/7642708/los-comentaristas-de-arist%C3%B3teles-en-la-nueva-espa%C3%B1a",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "related_people": [
+        {
+          "name": "Marco Tulio Cicerón",
+          "role": "original_speech_author"
+        }
+      ],
+      "notes": "Comentario preparado en el contexto de oposiciones a cátedra de retórica. No se conoce primera edición independiente ni manuscrito autógrafo cotejado."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía en el Colegio de San Pablo y cátedra de artes en la Real y Pontificia Universidad de México desde 1689",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_historiographic_study",
+      "title": "Los comentaristas de Aristóteles en la Nueva España, sección sobre Juan de Rueda y manuscrito MS.165",
+      "url": "https://studylib.es/doc/7642708/los-comentaristas-de-arist%C3%B3teles-en-la-nueva-espa%C3%B1a"
+    },
+    {
+      "kind": "university_peer_reviewed_article",
+      "title": "Mauricio Beuchot, Textos filosóficos en la Nueva España",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "La diferencia de atribución Rueda/Casanova no debe borrarse para elevar artificialmente el grado de verificación.",
+    "El comentario sobre el discurso de Cicerón es autoría crítica atribuida a Rueda, no autoría de la oración clásica de Cicerón."
+  ]
+}
