@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "dataset": "philosopher-works-matrix",
+  "based_on_author_inventory": {
+    "count": 1504,
+    "branch": "data/philosopher-inventory-metadata-1496",
+    "source_file": "src/data/latin-american-philosophers-metadata.json"
+  },
+  "strategy": {
+    "storage": "one_json_file_per_author",
+    "keyword_provenance": [
+      "editorial",
+      "catalog",
+      "scholarly",
+      "inferred"
+    ],
+    "date_model": "separate original/composition date, first publication and later editions",
+    "authorship_model": "explicit authorship_status plus coauthors and related contributor roles",
+    "identifier_slots": [
+      "doi",
+      "isbn",
+      "openalex",
+      "orcid",
+      "oclc",
+      "internet_archive"
+    ]
+  },
+  "progress": {
+    "authors_total": 1504,
+    "authors_seeded": 10,
+    "authors_remaining": 1494,
+    "works_or_contributions_seeded": 34,
+    "current_batch": "001",
+    "last_updated": "2026-11-15"
+  },
+  "batch_001": [
+    {
+      "author_id": 1,
+      "canonical_name": "Tlacaélel",
+      "path": "authors/0001.json"
+    },
+    {
+      "author_id": 2,
+      "canonical_name": "Nezahualcóyotl",
+      "path": "authors/0002.json"
+    },
+    {
+      "author_id": 3,
+      "canonical_name": "Vasco de Quiroga",
+      "path": "authors/0003.json"
+    },
+    {
+      "author_id": 4,
+      "canonical_name": "Bartolomé de Las Casas",
+      "path": "authors/0004.json"
+    },
+    {
+      "author_id": 5,
+      "canonical_name": "Alonso de la Vera Cruz",
+      "path": "authors/0005.json"
+    },
+    {
+      "author_id": 6,
+      "canonical_name": "Tomás de Mercado",
+      "path": "authors/0006.json"
+    },
+    {
+      "author_id": 7,
+      "canonical_name": "José Acosta",
+      "path": "authors/0007.json"
+    },
+    {
+      "author_id": 8,
+      "canonical_name": "Antonio Rubio",
+      "path": "authors/0008.json"
+    },
+    {
+      "author_id": 9,
+      "canonical_name": "Francisco Suárez",
+      "path": "authors/0009.json"
+    },
+    {
+      "author_id": 10,
+      "canonical_name": "Juan de Torquemada",
+      "path": "authors/0010.json"
+    }
+  ]
+}
