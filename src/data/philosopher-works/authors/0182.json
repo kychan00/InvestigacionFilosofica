@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 182,
+  "canonical_name": "Carmen Bohórquez",
+  "life": {
+    "born": {
+      "year": 1946,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": null,
+      "certainty": "biographical_reference_or_not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0182-w001",
+      "title": "Francisco de Miranda. Precursor de las independencias de la América Latina",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.casamerica.es/node/29892"
+      ],
+      "notes": "Casa de América confirma autoría, no primera fecha de publicación."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; año biográfico cotejado con índice del libro base cuando está disponible.",
+    "Bibliografía parcial; no se asignan fechas de primera edición sin evidencia específica."
+  ]
+}
