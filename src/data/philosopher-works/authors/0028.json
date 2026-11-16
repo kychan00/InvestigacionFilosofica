@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "author_id": 28,
+  "canonical_name": "Francisco de Miranda",
+  "alternate_names": [
+    "Sebastián Francisco de Miranda y Rodríguez de Espinoza"
+  ],
+  "life": {
+    "born": {
+      "year": 1750,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1816,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_diary_constitutional_and_proclamation_corpus_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0028-w001",
+      "title": "Diario de viajes",
+      "work_type": "travel_diary_corpus",
+      "original_language": "español_multilingual_notes",
+      "original_date": {
+        "start": 1783,
+        "end": 1789,
+        "certainty": "core_travel_diary_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "diario de viaje",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Modernidad ilustrada",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Estados Unidos",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Europa",
+          "provenance": "catalog"
+        },
+        {
+          "term": "autorrepresentación",
+          "provenance": "editorial"
+        }
+      ],
+      "notes": "Forma parte de un archivo personal mucho mayor; existen diarios anteriores y posteriores, pero 1783-1789 constituye el núcleo del viaje ilustrado."
+    },
+    {
+      "work_id": "0028-w002",
+      "title": "Proyecto constitucional para Hispanoamérica",
+      "work_type": "constitutional_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1798,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hispanoamérica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitución",
+          "provenance": "inferred"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "representación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0028-w003",
+      "title": "Proyecto de Gobierno Provisional",
+      "work_type": "government_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1801,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno provisional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "representación política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cabildos",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0028-w004",
+      "title": "Proyecto de Gobierno Federal",
+      "work_type": "federal_constitutional_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1801,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Hispanoamérica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "gobierno representativo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0028-w005",
+      "title": "Proclamación a los pueblos habitantes del continente Américo-Colombiano",
+      "work_type": "independence_proclamation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1806,
+        "certainty": "publication_and_campaign"
+      },
+      "first_publication_year": 1806,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "libertad",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "Américo-Colombiano",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "ciudadanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mérito y virtud",
+          "provenance": "primary_text"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "memory_of_world_archive",
+      "title": "Colombeia: Generalissimo Francisco de Miranda’s Archives",
+      "url": "https://www.unesco.org/en/memory-world/colombeia-generalissimo-francisco-de-mirandas-archives",
+      "publisher": "UNESCO"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "El diario de viaje (1783-1789) de Francisco de Miranda",
+      "url": "https://revistatelar.ct.unt.edu.ar/index.php/revistatelar/article/view/130"
+    },
+    {
+      "kind": "digital_anthology",
+      "title": "Escritos selectos",
+      "url": "https://www.cervantesvirtual.com/obra-visor/escritos-selectos--0/html/ff713986-82b1-11df-acc7-002185ce6064_18.html",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "document_collection",
+      "title": "Francisco de Miranda. Documentos",
+      "url": "https://docecalles.com/wp-content/uploads/2018/03/Descarga026002-B.pdf"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar Colombeia por documento: cartas, diarios, proclamas, planes militares, memorias y proyectos constitucionales.",
+    "No contar Colombeia como una obra autoral única: es el archivo organizado y preservado por Miranda."
+  ]
+}
