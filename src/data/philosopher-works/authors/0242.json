@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "author_id": 242,
+  "canonical_name": "José Calderón",
+  "alternate_names": [
+    "Fray José Calderón"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_colonial_manuscripts_and_early_prints_non_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0242-w001",
+      "title": "Compendium philosophiae thomisticae in usum fratrum praedicatorum provinciae S. Hippolyti de Oaxaca",
+      "work_type": "dominican_scholastic_philosophy_compendium",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "unknown_manuscript_composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_bibliographic_attribution_first_print_or_manuscript_unverified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "philosophiae thomisticae",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+      ],
+      "physical_witness_status": "to_be_located",
+      "notes": "La fuente asocia el compendio al uso de los dominicos de la provincia de San Hipólito de Oaxaca; no se acredita fecha de primera impresión o ejemplar en este registro."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0242-c001",
+      "title": "Enseñanza y transmisión de la filosofía tomista entre los dominicos de la provincia de Oaxaca",
+      "kind": "historical_colonial_scholastic_or_intellectual_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "historical_public_academic_article",
+      "title": "Mauricio Beuchot, La enseñanza de la filosofía (texto)",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+    },
+    {
+      "kind": "peer_reviewed_university_article",
+      "title": "Mauricio Beuchot, Textos filosóficos en la Nueva España (2008)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-30582008000200001&script=sci_arttext"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La filosofía académica», pp. 81–82"
+    }
+  ],
+  "research_notes": [
+    "No atribuir año a partir de actividad conventual sin comprobar edición o manuscrito.",
+    "No confundir al dominico con autores de Oaxaca homónimos de épocas posteriores."
+  ]
+}
