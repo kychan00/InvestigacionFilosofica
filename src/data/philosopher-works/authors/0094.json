@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "author_id": 94,
+  "canonical_name": "Celso Luiz Ludwig",
+  "alternate_names": [
+    "Celso Ludwig"
+  ],
+  "life": {
+    "born": {
+      "year": 1955,
+      "certainty": "project_canonical"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "small_verified_legal_liberation_philosophy_theses_book_and_articles",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0094-w001",
+      "title": "A alternatividade jurídica na perspectiva da libertação: uma leitura a partir da filosofia de Henrique Dussel",
+      "work_type": "masters_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1993,
+        "certainty": "masters_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Enrique Dussel",
+          "role": "philosophical_reference"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "alternatividade jurídica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Enrique Dussel",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0094-w002",
+      "title": "Formas da razão: racionalidade jurídica e fundamentação do direito",
+      "work_type": "doctoral_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1998,
+        "certainty": "doctoral_thesis"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_thesis",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "racionalidade jurídica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fundamentação do direito",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0094-w003",
+      "title": "A transformação jurídica na ótica da filosofia transmoderna: a legitimidade dos novos direitos",
+      "work_type": "legal_philosophy_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2004,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia transmoderna",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "novos direitos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "legitimidade",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0094-w004",
+      "title": "Para uma filosofia jurídica da libertação: paradigmas da filosofia, filosofia da libertação e direito alternativo",
+      "work_type": "legal_philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2006,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia jurídica da libertação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "direito alternativo",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "paradigmas",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0094-w005",
+      "title": "A transformação da filosofia e a libertação",
+      "work_type": "philosophy_of_liberation_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2006,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.5380/rfdufpr.v44i0.9414",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertação",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formação jurídico-filosófica crítica e filosofia da libertação na UFPR",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1990,
+        "end": 2026,
+        "certainty": "academic_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofia do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia da libertação",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Celso Luiz Ludwig recebe o título de Professor Emérito",
+      "url": "https://ufpr.br/celso-luiz-ludwig-recebe-o-titulo-de-professor-emerito/",
+      "publisher": "Universidade Federal do Paraná"
+    },
+    {
+      "kind": "university_article",
+      "title": "A transformação da filosofia e a libertação",
+      "url": "https://revistas.ufpr.br/direito/article/view/9414",
+      "publisher": "Universidade Federal do Paraná",
+      "doi": "10.5380/rfdufpr.v44i0.9414"
+    },
+    {
+      "kind": "academic_profile",
+      "title": "Celso Luiz Ludwig — formação e teses",
+      "url": "https://www.escavador.com/sobre/7120071/celso-luiz-ludwig"
+    },
+    {
+      "kind": "bibliographic_reference",
+      "title": "Para uma filosofia jurídica da libertação",
+      "url": "https://ojs.editoraforum.com.br/rihj/index.php/rihj/article/view/423",
+      "publisher": "Revista do Instituto de Hermenêutica Jurídica"
+    }
+  ],
+  "research_notes": [
+    "Semilla pequeña a propósito: su producción dispersa requiere revisión artículo por artículo.",
+    "Pendiente recuperar libros, capítulos y artículos 1997-2006 enumerados en la bibliografía del libro-base."
+  ]
+}
