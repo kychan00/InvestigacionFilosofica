@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "author_id": 2,
+  "canonical_name": "Nezahualcóyotl",
+  "alternate_names": [
+    "Nezahualcoyotl",
+    "Nezahualcóyotl de Texcoco"
+  ],
+  "life": {
+    "born": {
+      "year": 1402,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1472,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "attributed_corpus_not_individually_exhausted",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0002-w001",
+      "title": "Corpus de cantos y poemas atribuidos a Nezahualcóyotl",
+      "work_type": "oral_poetic_corpus",
+      "original_language": "náhuatl",
+      "original_date": {
+        "century": 15,
+        "certainty": "approximate"
+      },
+      "first_publication_year": null,
+      "authorship_status": "attributed_disputed_in_part",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [],
+        "openalex": []
+      },
+      "keywords": [
+        {
+          "term": "poesía náhuatl",
+          "provenance": "catalog"
+        },
+        {
+          "term": "flor y canto",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mortalidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "divinidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "transitoriedad de la vida",
+          "provenance": "inferred"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Trece poetas del mundo náhuatl",
+          "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/111d/trece_poetas_nahuatl.html",
+          "publisher": "UNAM"
+        },
+        {
+          "title": "Nezahualcóyotl, príncipe providencial en los escritos de Fernando de Alva Ixtlilxóchitl",
+          "url": "https://nahuatl.historicas.unam.mx/index.php/ecn/article/view/78164",
+          "publisher": "Estudios de Cultura Náhuatl"
+        }
+      ],
+      "notes": "La atribución individual de poemas requiere auditoría poema por poema."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "scholarly_catalog",
+      "title": "Trece poetas del mundo náhuatl",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/111d/trece_poetas_nahuatl.html",
+      "publisher": "UNAM"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar cada poema/canto con manuscrito fuente, variantes de título y nivel de atribución."
+  ]
+}
