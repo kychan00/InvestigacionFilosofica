@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "author_id": 48,
+  "canonical_name": "Francisco Bilbao",
+  "alternate_names": [
+    "Francisco de Sales Bilbao Barquín",
+    "Francisco Bilbao Barquín"
+  ],
+  "life": {
+    "born": {
+      "year": 1823,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1865,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_democratic_republican_americanist_and_anticlerical_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0048-w001",
+      "title": "Sociabilidad chilena",
+      "work_type": "political_social_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1844,
+        "certainty": "exact",
+        "date": "1844-06-10"
+      },
+      "first_publication_year": 1844,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociabilidad chilena",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w002",
+      "title": "Boletines del espíritu",
+      "work_type": "philosophical_political_bulletin_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 1850,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1850,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espíritu",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w003",
+      "title": "La revolución en Chile y los mensajes del proscripto",
+      "work_type": "political_history_polemic",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolución de 1851",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Chile",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Partido Liberal",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w004",
+      "title": "La resurrección del Evangelio",
+      "work_type": "religious_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Evangelio",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cristianismo social",
+          "provenance": "inferred"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w005",
+      "title": "El gobierno de la libertad",
+      "work_type": "political_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1855,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1855,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w006",
+      "title": "Movimiento social de los pueblos de la América Meridional",
+      "work_type": "americanist_political_essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1856,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Meridional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "unidad latinoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w007",
+      "title": "La América en peligro",
+      "work_type": "anti_imperialist_americanist_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1862,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1862,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "imperialismo europeo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "unidad latinoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "México",
+          "provenance": "inferred"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0048-w008",
+      "title": "El evangelio americano",
+      "work_type": "political_catechism_americanist_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1864,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1864,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justicia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_author_portal",
+      "title": "Francisco Bilbao Barquín (1823-1865)",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-631.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "collected_works",
+      "title": "Obras completas de Francisco Bilbao",
+      "url": "https://www.filosofia.org/aut/002/fbb.htm",
+      "publisher": "Buenos Aires, 1866"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incorporar Prefacio a los Evangelios, La ley de la historia, polémicas, periodismo y epistolario.",
+    "Las Obras completas de 1866 sirven como control de textos y fechas, no como obra autoral nueva."
+  ]
+}
