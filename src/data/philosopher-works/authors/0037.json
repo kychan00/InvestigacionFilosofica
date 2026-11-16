@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "author_id": 37,
+  "canonical_name": "Lucas Alamán",
+  "alternate_names": [
+    "Lucas Ignacio Alamán y Escalada"
+  ],
+  "life": {
+    "born": {
+      "year": 1792,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1853,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_political_historical_and_administrative_writings_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0037-w001",
+      "title": "Memoria de la Secretaría de Estado y del Despacho de Relaciones Exteriores e Interiores",
+      "work_type": "government_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1823,
+        "certainty": "exact",
+        "date": "1823-11-08"
+      },
+      "first_publication_year": 1823,
+      "authorship_status": "verified_official_report",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fomento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "comercio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "industria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "beneficencia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0037-w002",
+      "title": "Defensa del ex-ministro de Relaciones D. Lucas Alamán",
+      "work_type": "political_legal_self_defense",
+      "original_language": "español",
+      "original_date": {
+        "year": 1834,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "responsabilidad ministerial",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Vicente Guerrero",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno de Bustamante",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0037-w003",
+      "title": "Examen imparcial de la administración del general vicepresidente D. Anastasio Bustamante",
+      "work_type": "political_constitutional_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1834,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1834,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "separación de poderes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno representativo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0037-w004",
+      "title": "Disertaciones sobre la historia de la República Mejicana",
+      "work_type": "historical_essay_series",
+      "original_language": "español",
+      "original_date": {
+        "start": 1844,
+        "end": 1849,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1844,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "conquista",
+          "provenance": "catalog"
+        },
+        {
+          "term": "historia colonial",
+          "provenance": "catalog"
+        },
+        {
+          "term": "independencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Publicada en varios tomos; el tomo 3 apareció en 1849."
+    },
+    {
+      "work_id": "0037-w005",
+      "title": "La liquidación general de la deuda exterior de la República Mexicana",
+      "work_type": "financial_public_policy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1845,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "deuda exterior",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "finanzas públicas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0037-w006",
+      "title": "Historia de Méjico desde los primeros movimientos que prepararon su Independencia en el año 1808 hasta la época presente",
+      "work_type": "national_history",
+      "original_language": "español",
+      "original_date": {
+        "start": 1849,
+        "end": 1852,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1849,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Independencia de México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "historia política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conservadurismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0037-w007",
+      "title": "Correspondencia y papeles de Lucas Alamán",
+      "work_type": "archive_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1810,
+        "end": 1853,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_archive_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "correspondencia política",
+          "provenance": "catalog"
+        },
+        {
+          "term": "diplomacia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "minería",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Archivo personal conservado en colecciones como los Lucas Alamán Papers; debe desglosarse documento por documento."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "archive_collection",
+      "title": "Lucas Alamán Papers",
+      "url": "https://archives.lib.utexas.edu/repositories/4/resources/858",
+      "publisher": "University of Texas Libraries"
+    },
+    {
+      "kind": "author_catalog",
+      "title": "Obras de Lucas Alamán",
+      "url": "https://www.cervantesvirtual.com/portales/biblioteca_americana/obras/autor/alaman-lucas-1792-1853-2814",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "Lucas Alamán, Examen imparcial de la administración de Bustamante",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-26202009000100006&script=sci_arttext",
+      "publisher": "SciELO México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente incorporar periodismo, memorias ministeriales de 1825/1830, textos industriales y documentos diplomáticos.",
+    "El archivo epistolar no debe contarse como obra unitaria final."
+  ]
+}
