@@ -103,9 +103,9 @@
           <small>registros en el corpus efectivo V2</small>
         </div>
         <div class="signal-stat signal-stat-accent">
-          <span>Licencia del código</span>
-          <strong>MIT</strong>
-          <small>abierto, auditable y reutilizable</small>
+          <span>Filosofía latinoamericana</span>
+          <strong id="latin-philosophers-total-hero">1,504</strong>
+          <small>filósofos en el inventario canónico</small>
         </div>
       </section>
 
@@ -137,8 +137,9 @@
             <h2 id="metrics-title">Una infraestructura que ya tiene escala.</h2>
           </div>
           <p>
-            Las cifras se toman del manifiesto de liberación del proyecto. No son números
-            decorativos: describen el material que hoy sostiene búsquedas, fichas, atlas y tesis.
+            Las cifras reflejan los corpus de investigación y el inventario latinoamericano.
+            Las fichas y sus registros bibliográficos cuentan sólo lo publicado, no los lotes
+            de investigación que todavía estén pendientes de integrar.
           </p>
         </div>
 
@@ -178,6 +179,24 @@
             <strong>33</strong>
             <h3>Obras Editorial UdeG</h3>
             <p>Registros filosóficos de referencia integrados sin apropiarse de los textos.</p>
+          </article>
+          <article>
+            <span class="metric-index">07</span>
+            <strong id="latin-philosophers-total">1,504</strong>
+            <h3>Filósofos latinoamericanos inventariados</h3>
+            <p>Inventario canónico de pensadores de América Latina y el Caribe, base del archivo de autores.</p>
+          </article>
+          <article>
+            <span class="metric-index">08</span>
+            <strong id="latin-philosophers-seeded">480</strong>
+            <h3>Autores con ficha bibliográfica</h3>
+            <p>Fichas documentadas y publicadas con fuentes rastreables; su cobertura no es necesariamente exhaustiva.</p>
+          </article>
+          <article>
+            <span class="metric-index">09</span>
+            <strong id="latin-philosophers-records">2,908</strong>
+            <h3>Obras y contribuciones registradas</h3>
+            <p>Obras, documentos y contribuciones de las fichas publicadas; los resultados del motor federado se contabilizan aparte.</p>
           </article>
         </div>
       </section>
@@ -623,6 +642,27 @@
   <script type="module" src="./js/theme.js"></script>
   <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
   <script>
+    // Los contadores bibliográficos siguen el manifiesto publicado, no el HEAD de un PR sin fusionar.
+    fetch("./src/data/philosopher-works/manifest.json")
+      .then(response => response.ok ? response.json() : null)
+      .then(data => {
+        const progress = data?.progress;
+        const counters = [
+          ["latin-philosophers-total-hero", progress?.authors_total ?? data?.based_on_author_inventory?.count],
+          ["latin-philosophers-total", progress?.authors_total ?? data?.based_on_author_inventory?.count],
+          ["latin-philosophers-seeded", progress?.authors_seeded],
+          ["latin-philosophers-records", progress?.works_or_contributions_seeded]
+        ];
+        for (const [id, rawValue] of counters) {
+          const value = Number(rawValue);
+          const target = document.getElementById(id);
+          if (target && rawValue != null && Number.isSafeInteger(value) && value >= 0) {
+            target.textContent = value.toLocaleString("es-MX");
+          }
+        }
+      })
+      .catch(() => {});
+
     fetch("./src/data/cucsh-filosofia.json")
       .then(response => response.ok ? response.json() : null)
       .then(data => {
