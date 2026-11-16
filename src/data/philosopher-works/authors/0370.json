@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "author_id": 370,
+  "canonical_name": "Ramón Emeterio Betances",
+  "alternate_names": [
+    "Ramón Emeterio Betances y Alacán",
+    "El Antillano"
+  ],
+  "life": {
+    "born": {
+      "year": 1827,
+      "certainty": "university_authority"
+    },
+    "died": {
+      "year": 1898,
+      "certainty": "university_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0370-w001",
+      "title": "Proclama de los Diez Mandamientos de los Hombres Libres",
+      "work_type": "political_proclamation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1867,
+        "certainty": "university_and_historical_source"
+      },
+      "first_publication_year": 1867,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolicionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertades civiles",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anticolonialismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://museocoleccion.uprrp.edu/people/959/ramon-emeterio-betances-y-alacan",
+        "https://enciclopediapr.org/content/ramon-emeterio-betances/"
+      ],
+      "notes": "Proclama enviada a Puerto Rico desde Saint Thomas en noviembre de 1867; no confundir su circulación política con ediciones modernas del texto."
+    },
+    {
+      "work_id": "0370-w002",
+      "title": "Toussaint L’Ouverture",
+      "work_type": "political_translation_and_abolitionist_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1869,
+        "certainty": "scholarly_source"
+      },
+      "first_publication_year": 1869,
+      "authorship_status": "translator_not_original_author",
+      "coauthors": [
+        "Wendell Phillips (original lecture/biographical text)"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Toussaint Louverture",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "abolición",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Revolución haitiana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://openurl.ebsco.com/contentitem/gcd%3A153627311?crl=c&id=ebsco%3Agcd%3A153627311&jrnl=19328648&sid=ebsco%3Aplink%3Acrawler-gcd"
+      ],
+      "notes": "Traducción de Betances de un texto de Wendell Phillips, publicada en 1869. Se marca expresamente como traducción y no como biografía original de Betances."
+    },
+    {
+      "work_id": "0370-w003",
+      "title": "A Cuba libre",
+      "work_type": "political_historical_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1871,
+        "certainty": "scholarly_source"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alexandre Pétion",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Revolución haitiana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Confederación Antillana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://openurl.ebsco.com/contentitem/gcd%3A153627311?crl=c&id=ebsco%3Agcd%3A153627311&jrnl=19328648&sid=ebsco%3Aplink%3Acrawler-gcd"
+      ],
+      "notes": "Estudio sobre Alexandre Pétion escrito en el contexto de la lucha antillana y publicado en Nueva York en 1871 según investigación especializada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Abolicionismo, independencia puertorriqueña y formulación de una perspectiva confederacionista antillana",
+      "kind": "caribbean_abolitionist_and_anticolonial_contribution",
+      "authorship_status": "documented_in_university_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_authority_source",
+      "title": "Universidad de Puerto Rico — Ramón Emeterio Betances y Alacán",
+      "url": "https://museocoleccion.uprrp.edu/people/959/ramon-emeterio-betances-y-alacan"
+    },
+    {
+      "kind": "reference_source",
+      "title": "EnciclopediaPR — Ramón Emeterio Betances",
+      "url": "https://enciclopediapr.org/content/ramon-emeterio-betances/"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "The Global South — Betances, Firmin and Caribbean political thought",
+      "url": "https://openurl.ebsco.com/contentitem/gcd%3A153627311?crl=c&id=ebsco%3Agcd%3A153627311&jrnl=19328648&sid=ebsco%3Aplink%3Acrawler-gcd"
+    }
+  ],
+  "research_notes": [
+    "La traducción de Wendell Phillips se conserva separada de la autoría original.",
+    "Los Diez Mandamientos se tratan como proclama política fechada en noviembre de 1867, no como libro posterior."
+  ]
+}
