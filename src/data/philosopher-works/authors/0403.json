@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 403,
+  "canonical_name": "Antônio Pedro de Figueiredo",
+  "alternate_names": [
+    "Antonio Pedro de Figueiredo",
+    "Cousin Fusco",
+    "Abdalah El-Kratiff"
+  ],
+  "life": {
+    "born": {
+      "year": 1814,
+      "certainty": "scholarly_source"
+    },
+    "died": {
+      "year": 1859,
+      "certainty": "scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0403-w001",
+      "title": "O Progresso",
+      "work_type": "social_scientific_and_political_periodical_founded_and_led_by_author",
+      "original_language": "português",
+      "original_date": {
+        "year": 1846,
+        "certainty": "periodical_start_date"
+      },
+      "first_publication_year": 1846,
+      "authorship_status": "founder_editor_and_principal_intellectual_not_author_of_all_contents",
+      "coauthors": [
+        "Louis Léger Vauthier",
+        "Henrique Milet and other collaborators"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo utópico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ecletismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "progresso social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciências sociais",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.histedbr.fe.unicamp.br/navegando/glossario/o-progresso",
+        "https://econtents.sbu.unicamp.br/inpec/index.php/tematicas/article/view/10950"
+      ],
+      "notes": "Revista pernambucana que circulou de 12 de julho de 1846 a setembro de 1848. Figueiredo foi idealizador/fundador e figura intelectual central, mas o periódico tinha vários colaboradores; não se atribuem a ele todos os textos."
+    },
+    {
+      "work_id": "0403-w002",
+      "title": "A Carteira",
+      "work_type": "newspaper_column_corpus_under_pseudonym",
+      "original_language": "português",
+      "original_date": {
+        "year": 1856,
+        "certainty": "documented_column_start_period"
+      },
+      "first_publication_year": 1856,
+      "authorship_status": "original_column_author_under_pseudonym",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica de livros",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamento social",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "jornalismo intelectual",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Recife",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.histedbr.fe.unicamp.br/navegando/glossario/antonio-pedro-de-figueiredo",
+        "https://ler.letras.up.pt/uploads/ficheiros/artigo10561.pdf"
+      ],
+      "notes": "Folhetim/coluna do Diário de Pernambuco entre 1856 e 1858, em que Figueiredo escreveu sob o pseudônimo Abdalah El-Kratiff. Registra-se como corpus seriado, não cada artigo isolado."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Mediação entre ecletismo de Victor Cousin, socialismo utópico e programa de modernização social no Recife oitocentista",
+      "kind": "eclectic_and_utopian_socialist_contribution",
+      "authorship_status": "documented_in_unicamp_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_history_source",
+      "title": "HISTEDBR/UNICAMP — Antônio Pedro de Figueiredo",
+      "url": "https://www.histedbr.fe.unicamp.br/navegando/glossario/antonio-pedro-de-figueiredo"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Temáticas/UNICAMP — O Progresso e Antônio Pedro de Figueiredo",
+      "url": "https://econtents.sbu.unicamp.br/inpec/index.php/tematicas/article/view/10950"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Universidade do Porto — comunidades utópicas e primórdios do socialismo no Brasil",
+      "url": "https://ler.letras.up.pt/uploads/ficheiros/artigo10561.pdf"
+    }
+  ],
+  "research_notes": [
+    "Figueiredo traduziu Victor Cousin, Ortolan e George Sand; como a primeira edição/titulação exata da tradução de Cousin não ficou suficientemente estabilizada nesta rodada, ela não entra como registro bibliográfico completo.",
+    "O Progresso é responsabilidade editorial e intelectual compartilhada, não obra exclusiva."
+  ]
+}
