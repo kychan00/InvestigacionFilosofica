@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "author_id": 81,
+  "canonical_name": "Leonardo van Acker",
+  "alternate_names": [
+    "Leonardo Van Acker"
+  ],
+  "life": {
+    "born": {
+      "year": 1896,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1986,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "small_verified_neothomist_logic_natural_law_and_contemporary_philosophy_corpus",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0081-w001",
+      "title": "Introdução à filosofia. Lógica",
+      "work_type": "philosophy_logic_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1942,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tomismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0081-w002",
+      "title": "Fenomenologia do direito natural",
+      "work_type": "philosophy_of_law_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1970,
+        "certainty": "publication_in_Revista_Brasileira_de_Filosofia"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "W. Luijpen",
+          "role": "author_criticized"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "direito natural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Merleau-Ponty",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0081-w003",
+      "title": "Escritos de filosofia pedagógica e formação moral",
+      "work_type": "lecture_article_corpus",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1930,
+        "end": 1960,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_not_exhausted",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia pedagógica",
+          "provenance": "primary_source"
+        },
+        {
+          "term": "formação moral",
+          "provenance": "primary_source"
+        },
+        {
+          "term": "educação católica",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Inclui conferências e artigos dispersos; deve ser desglosado por publicação e data."
+    },
+    {
+      "work_id": "0081-w004",
+      "title": "Escritos sobre filosofia contemporânea e tomismo aberto",
+      "work_type": "philosophical_article_corpus",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1940,
+        "end": 1980,
+        "certainty": "career_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_not_exhausted",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tomismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "bergsonismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pragmatismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "A obra de Van Acker é majoritariamente dispersa em revistas e cursos; não se inventa uma bibliografia monográfica extensa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensino de filosofia e difusão do tomismo aberto no Brasil",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1921,
+        "end": 1980,
+        "certainty": "approximate_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "tomismo aberto",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Pontifícia Universidade Católica de São Paulo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Leonardo van Acker (1896-1986)"
+    },
+    {
+      "kind": "historical_bibliographic_study",
+      "title": "Leonardo Van Acker — manuais e conferências filosóficas",
+      "url": "https://sistemabu.udesc.br/pergamumweb/vinculos/000082/00008270.pdf"
+    }
+  ],
+  "research_notes": [
+    "Pendiente localizar catálogo exhaustivo de artigos na Revista Brasileira de Filosofia e revistas católicas.",
+    "La semilla se mantiene pequeña porque sus escritos están dispersos y el libro-base señala expresamente que publicó pocos libros."
+  ]
+}
