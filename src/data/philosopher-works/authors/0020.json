@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "author_id": 20,
+  "canonical_name": "Benito Jerónimo Feijóo",
+  "alternate_names": [
+    "Benito Jerónimo Feijoo y Montenegro",
+    "Benito Jerónimo Feijoo"
+  ],
+  "life": {
+    "born": {
+      "year": 1676,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1764,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "principal_collections_and_apologetic_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0020-w001",
+      "title": "Teatro crítico universal",
+      "work_type": "essay_discourse_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1726,
+        "end": 1740,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1726,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "errores comunes",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crítica",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "118/117 discursos publicados en nueve volúmenes según la Biblioteca Feijoniana; el noveno fue suplemento redistribuido después."
+    },
+    {
+      "work_id": "0020-w002",
+      "title": "Ilustración apologética al primero y segundo tomo del Teatro Crítico",
+      "work_type": "apologetic_response",
+      "original_language": "español",
+      "original_date": {
+        "year": 1729,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1729,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "apología",
+          "provenance": "catalog"
+        },
+        {
+          "term": "controversia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0020-w003",
+      "title": "Cartas eruditas y curiosas",
+      "work_type": "essay_letter_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1742,
+        "end": 1760,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1742,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "opiniones comunes",
+          "provenance": "catalog"
+        },
+        {
+          "term": "erudición",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crítica",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "163 cartas distribuidas en cinco volúmenes publicados entre 1742 y 1760."
+    },
+    {
+      "work_id": "0020-w004",
+      "title": "Justa repulsa de inicuas acusaciones",
+      "work_type": "apologetic_response",
+      "original_language": "español",
+      "original_date": {
+        "year": 1749,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1749,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "apología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "controversia intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "specialized_digital_library",
+      "title": "Biblioteca Feijoniana",
+      "url": "https://www.filosofia.org/feijoo.htm",
+      "publisher": "Filosofía en español"
+    },
+    {
+      "kind": "author_bibliography",
+      "title": "Bibliografía de las obras de Benito Jerónimo Feijoo",
+      "url": "https://www.cervantesvirtual.com/portales/benito_jeronimo_feijoo/su_obra_bibliografia_1/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar cada discurso del Teatro crítico y cada carta de Cartas eruditas como unidades individuales con sus temas y fechas de volumen."
+  ]
+}
