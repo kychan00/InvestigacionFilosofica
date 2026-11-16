@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "author_id": 575,
+  "canonical_name": "Alfonso Cobián",
+  "alternate_names": [
+    "Alfonso Cobián y Macchiavello"
+  ],
+  "life": {
+    "born": {
+      "year": 1936,
+      "certainty": "pucp_memorial"
+    },
+    "died": {
+      "year": 1960,
+      "certainty": "pucp_memorial"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0575-w001",
+      "title": "Martin Heidegger. ¿Qué es esto, la filosofía? (reseña de traducción de Víctor Li Carrillo)",
+      "work_type": "heidegger_translation_review",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "pucp_archival_journal_source"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "reviewer",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "inferred"
+        },
+        {
+          "term": "traducción filosófica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.pucp.edu.pe/items/ec4c5cf5-8894-4e48-96b6-9cac83ec3f6b"
+      ],
+      "notes": "Reseña de la traducción de Víctor Li Carrillo, publicada en Boletín del Instituto Riva-Agüero 3 (1956); ni Heidegger ni Li Carrillo son coautores del ensayo crítico de Cobián."
+    },
+    {
+      "work_id": "0575-w002",
+      "title": "Una obra inédita de Ortega. Nota sobre ¿Qué es filosofía?",
+      "work_type": "ortega_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ortega y Gasset",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "textos inéditos",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ahf-filosofia.es/media/files/ReviHispanismoFiloso_14_2009.pdf"
+      ],
+      "notes": "Mercurio Peruano n.º 375, julio 1958, según estudio sobre la recepción peruana de Ortega."
+    },
+    {
+      "work_id": "0575-w003",
+      "title": "La estructura del mundo y el problema de la ontología de Ortega y Gasset",
+      "work_type": "ortega_ontology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ortega y Gasset",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "mundo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://ahf-filosofia.es/media/files/ReviHispanismoFiloso_14_2009.pdf"
+      ],
+      "notes": "Mercurio Peruano n.º 385, mayo 1959."
+    },
+    {
+      "work_id": "0575-w004",
+      "title": "La ontología de Ortega y Gasset",
+      "work_type": "undergraduate_philosophy_thesis_published_as_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "original_text_and_secondary_bibliography"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ortega y Gasset",
+          "provenance": "inferred"
+        },
+        {
+          "term": "vida humana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.acuedi.org/ddata/6112.pdf",
+        "https://ahf-filosofia.es/media/files/ReviHispanismoFiloso_14_2009.pdf"
+      ],
+      "notes": "Tesis de bachillerato presentada anteriormente y editada en Boletín del Instituto Riva-Agüero IV (1958–1959), con referencia bibliográfica de impresión de 1960. No se duplica con la tesis original."
+    },
+    {
+      "work_id": "0575-w005",
+      "title": "Justicia y seguridad jurídica, supuestos del derecho positivo",
+      "work_type": "posthumously_published_law_and_value_theory_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho positivo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "justicia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Max Scheler",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/derechopucp/pt_BR/article/view/19714"
+      ],
+      "notes": "Tesis sustentada el 3 de octubre de 1960 y publicada póstumamente en Derecho PUCP 20 (1961) tras el fallecimiento del autor en Lovaina."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Intersección entre ontología de Ortega, existencialismo, axiología de Scheler y crítica del positivismo jurídico en el Perú",
+      "kind": "peruvian_ortega_existentialism_and_value_based_law",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_primary_posthumous_text",
+      "title": "PUCP — Justicia y seguridad jurídica, supuestos del derecho positivo",
+      "url": "https://revistas.pucp.edu.pe/index.php/derechopucp/pt_BR/article/view/19714"
+    },
+    {
+      "kind": "primary_institute_journal",
+      "title": "PUCP — La ontología de Ortega y Gasset",
+      "url": "https://www.acuedi.org/ddata/6112.pdf"
+    },
+    {
+      "kind": "historical_scholarly_study",
+      "title": "Revista de Hispanismo Filosófico — Recepción de Ortega en Perú",
+      "url": "https://ahf-filosofia.es/media/files/ReviHispanismoFiloso_14_2009.pdf"
+    }
+  ],
+  "research_notes": [
+    "El autor murió en Lovaina en noviembre de 1960, a los 24 años, mientras cursaba estudios filosóficos; no confundir con otros Cobián.",
+    "El título de 1956 es reseña escrita por Cobián sobre una traducción de Heidegger; no se atribuye la traducción al crítico."
+  ]
+}

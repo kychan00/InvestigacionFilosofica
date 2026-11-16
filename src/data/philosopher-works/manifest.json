@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 570,
-    "authors_remaining": 934,
-    "works_or_contributions_seeded": 3552,
-    "current_batch": "057",
+    "authors_seeded": 580,
+    "authors_remaining": 924,
+    "works_or_contributions_seeded": 3608,
+    "current_batch": "058",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2995,6 +2995,58 @@
       "author_id": 570,
       "canonical_name": "Beatriz Benoit de Velazco",
       "path": "authors/0570.json"
+    }
+  ],
+  "batch_058": [
+    {
+      "author_id": 571,
+      "canonical_name": "Nelly Festini",
+      "path": "authors/0571.json"
+    },
+    {
+      "author_id": 572,
+      "canonical_name": "Juan Bautista Ferro",
+      "path": "authors/0572.json"
+    },
+    {
+      "author_id": 573,
+      "canonical_name": "J. Antonio López Cornejo",
+      "path": "authors/0573.json"
+    },
+    {
+      "author_id": 574,
+      "canonical_name": "Luis Felipe Guerra",
+      "path": "authors/0574.json"
+    },
+    {
+      "author_id": 575,
+      "canonical_name": "Alfonso Cobián",
+      "path": "authors/0575.json"
+    },
+    {
+      "author_id": 576,
+      "canonical_name": "Luis Herrera Zavaleta",
+      "path": "authors/0576.json"
+    },
+    {
+      "author_id": 577,
+      "canonical_name": "José Ignacio López Soria",
+      "path": "authors/0577.json"
+    },
+    {
+      "author_id": 578,
+      "canonical_name": "Fernando Elguegrén Reátegui",
+      "path": "authors/0578.json"
+    },
+    {
+      "author_id": 579,
+      "canonical_name": "Federico Camino Macedo",
+      "path": "authors/0579.json"
+    },
+    {
+      "author_id": 580,
+      "canonical_name": "Francisco Nicoli",
+      "path": "authors/0580.json"
     }
   ]
 }
