@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "author_id": 90,
+  "canonical_name": "Hilton Ferreira Japiassu",
+  "alternate_names": [
+    "Hilton Japiassu",
+    "Hilton Japiassú"
+  ],
+  "life": {
+    "born": {
+      "year": 1934,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2015,
+      "certainty": "verified_external_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_epistemology_interdisciplinarity_science_psychology_and_transdisciplinarity_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0090-w001",
+      "title": "Introdução ao pensamento epistemológico",
+      "work_type": "epistemology_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1975,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofia da ciência",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w002",
+      "title": "O mito da neutralidade científica",
+      "work_type": "epistemology_science_critique",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1975,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neutralidade científica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "objetividade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ideologia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w003",
+      "title": "Interdisciplinaridade e patologia do saber",
+      "work_type": "epistemology_interdisciplinarity_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1976,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "interdisciplinaridade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fragmentação do saber",
+          "provenance": "inferred"
+        },
+        {
+          "term": "epistemologia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w004",
+      "title": "Para ler Bachelard",
+      "work_type": "philosopher_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1976,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Gaston Bachelard",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bachelard",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "epistemologia histórica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w005",
+      "title": "Nascimento e morte das ciências humanas",
+      "work_type": "epistemology_human_sciences_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1978,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciências humanas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "epistemologia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w006",
+      "title": "Introdução à epistemologia da psicologia",
+      "work_type": "psychology_epistemology_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1975,
+        "end": 1978,
+        "certainty": "edition_date_conflict"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicologia",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Referência acadêmica de 1981 cita edição Francisco Alves de 1975; repertório biobibliográfico posterior lista 1978. Preserva-se o conflito."
+    },
+    {
+      "work_id": "0090-w007",
+      "title": "A psicologia dos psicólogos",
+      "work_type": "psychology_critique",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1979,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicólogos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "epistemologia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w008",
+      "title": "Questões epistemológicas",
+      "work_type": "epistemology_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemologia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w009",
+      "title": "A pedagogia da incerteza",
+      "work_type": "philosophy_of_education_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1983,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "incerteza",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pedagogia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w010",
+      "title": "A revolução científica moderna",
+      "work_type": "history_philosophy_of_science_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolução científica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidade",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w011",
+      "title": "As paixões da ciência",
+      "work_type": "science_society_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1991,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "paixões",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w012",
+      "title": "Francis Bacon: o profeta da ciência moderna",
+      "work_type": "philosopher_science_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1995,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Francis Bacon",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Francis Bacon",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciência moderna",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0090-w013",
+      "title": "O sonho transdisciplinar",
+      "work_type": "transdisciplinarity_conference_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2014,
+        "certainty": "conference_text"
+      },
+      "first_publication_year": 2016,
+      "authorship_status": "verified_posthumous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.20873/uft.2359-3652.2016v3n1p3",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "transdisciplinaridade",
+          "provenance": "editorial"
+        },
+        {
+          "term": "pesquisa",
+          "provenance": "editorial"
+        },
+        {
+          "term": "sociedade",
+          "provenance": "editorial"
+        }
+      ],
+      "notes": "Texto encomendado para conferência de 2014 e publicado postumamente em 2016."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introdução e consolidação do debate interdisciplinar na epistemologia brasileira",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1975,
+        "end": 2015,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "interdisciplinaridade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "epistemologia",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_reference",
+      "title": "A filosofia como saber interdisciplinar na epistemologia de Hilton Japiassu",
+      "url": "https://periodicos.puc-campinas.edu.br/reflexao/article/view/11926",
+      "publisher": "PUC-Campinas"
+    },
+    {
+      "kind": "bibliographic_methodology_reference",
+      "title": "Biobibliografia de Hilton Japiassu",
+      "url": "https://files.cercomp.ufg.br/weby/up/151/o/SEVERINO_Metodologia_do_Trabalho_Cientifico_2007_%281%29.pdf"
+    },
+    {
+      "kind": "primary_bibliographic_record",
+      "title": "Interdisciplinaridade e patologia do saber",
+      "url": "https://books.google.com/books/about/Interdisciplinaridade_e_patologia_do_sab.html?id=aa0QAAAAYAAJ",
+      "publisher": "Imago, 1976"
+    },
+    {
+      "kind": "university_article",
+      "title": "O Sonho Transdisciplinar",
+      "url": "https://sistemas.uft.edu.br/periodicos/index.php/desafios/article/view/2555",
+      "publisher": "Universidade Federal do Tocantins",
+      "doi": "10.20873/uft.2359-3652.2016v3n1p3"
+    }
+  ],
+  "research_notes": [
+    "Pendiente completar más de veinte libros, traducciones y artículos posteriores a 1995.",
+    "Se preserva conflicto 1975/1978 para Introdução à epistemologia da psicologia."
+  ]
+}
