@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "author_id": 80,
+  "canonical_name": "Alceu Amoroso Lima",
+  "alternate_names": [
+    "Tristão de Athayde",
+    "Tristão de Ataíde"
+  ],
+  "life": {
+    "born": {
+      "year": 1893,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1983,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "large_catholic_humanist_literary_social_and_political_corpus_major_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0080-w001",
+      "title": "Estudos",
+      "work_type": "literary_critical_series",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1927,
+        "end": 1933,
+        "certainty": "five_series_publication_range"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified_series",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica literária",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura brasileira",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w002",
+      "title": "Tentativa de itinerário",
+      "work_type": "intellectual_religious_autobiographical_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1929,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "itinerário intelectual",
+          "provenance": "inferred"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w003",
+      "title": "Introdução à economia moderna",
+      "work_type": "economic_social_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1930,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "economia moderna",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "questão social",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w004",
+      "title": "Preparação à sociologia",
+      "work_type": "sociology_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1931,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedade",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w005",
+      "title": "Debates pedagógicos",
+      "work_type": "education_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1931,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educação",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w006",
+      "title": "O problema da burguesia",
+      "work_type": "social_political_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1932,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "burguesia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "questão social",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w007",
+      "title": "Contrarrevolução espiritual",
+      "work_type": "catholic_political_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "contrarrevolução",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espiritualidade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w008",
+      "title": "O Espírito e o Mundo",
+      "work_type": "catholic_humanist_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1936,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espírito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mundo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w009",
+      "title": "Idade, sexo e tempo",
+      "work_type": "philosophical_anthropology_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "idade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sexo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tempo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pessoa",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w010",
+      "title": "Humanismo pedagógico",
+      "work_type": "philosophy_of_education_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1944,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pedagogia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w011",
+      "title": "O existencialismo",
+      "work_type": "philosophical_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1951,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofia moderna",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w012",
+      "title": "Revolução, reação ou reforma",
+      "work_type": "political_social_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolução",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reforma",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0080-w013",
+      "title": "Memórias improvisadas",
+      "work_type": "memoir",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1973,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memórias",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vida intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Direção do Centro Dom Vital após 1928 e atuação no laicato católico brasileiro",
+      "kind": "catholic_intellectual_institutional_contribution",
+      "period": {
+        "start": 1928,
+        "end": 1960,
+        "certainty": "approximate_leadership_influence_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Centro Dom Vital",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_academy_bibliography",
+      "title": "Alceu Amoroso Lima — Bibliografia",
+      "url": "https://www.academia.org.br/academicos/alceu-amoroso-lima-pseud-tristao-de-ataide/bibliografia",
+      "publisher": "Academia Brasileira de Letras"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Alceu Amoroso Lima (1893-1983)"
+    }
+  ],
+  "research_notes": [
+    "La bibliografía completa supera ampliamente esta semilla; la ABL registra decenas de libros entre 1918 y 1984.",
+    "Pendiente ampliar crítica literaria, Acción Católica, trabajo, existencialismo, derechos humanos y memorias tardías."
+  ]
+}
