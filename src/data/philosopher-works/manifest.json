@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 210,
-    "authors_remaining": 1294,
-    "works_or_contributions_seeded": 1940,
-    "current_batch": "021",
+    "authors_seeded": 220,
+    "authors_remaining": 1284,
+    "works_or_contributions_seeded": 1987,
+    "current_batch": "022",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1123,6 +1123,58 @@
       "author_id": 210,
       "canonical_name": "Nelson Maldonado-Torres",
       "path": "authors/0210.json"
+    }
+  ],
+  "batch_022": [
+    {
+      "author_id": 211,
+      "canonical_name": "Quetzalcóatl",
+      "path": "authors/0211.json"
+    },
+    {
+      "author_id": 212,
+      "canonical_name": "Tecayehuatzin",
+      "path": "authors/0212.json"
+    },
+    {
+      "author_id": 213,
+      "canonical_name": "Ayocuan",
+      "path": "authors/0213.json"
+    },
+    {
+      "author_id": 214,
+      "canonical_name": "Nezahualpilli",
+      "path": "authors/0214.json"
+    },
+    {
+      "author_id": 215,
+      "canonical_name": "Cuacuahtzin",
+      "path": "authors/0215.json"
+    },
+    {
+      "author_id": 216,
+      "canonical_name": "Tochihuatzin",
+      "path": "authors/0216.json"
+    },
+    {
+      "author_id": 217,
+      "canonical_name": "Fausto Reinaga",
+      "path": "authors/0217.json"
+    },
+    {
+      "author_id": 218,
+      "canonical_name": "Valentín Mejillones Akharapi",
+      "path": "authors/0218.json"
+    },
+    {
+      "author_id": 219,
+      "canonical_name": "Moisés Santiago Bertoni",
+      "path": "authors/0219.json"
+    },
+    {
+      "author_id": 220,
+      "canonical_name": "Narciso R. Colmán",
+      "path": "authors/0220.json"
     }
   ]
 }
