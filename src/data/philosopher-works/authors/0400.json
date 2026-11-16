@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "author_id": 400,
+  "canonical_name": "Luiz Vieira da Silva",
+  "alternate_names": [
+    "Luís Vieira da Silva",
+    "Cônego Luís Vieira da Silva",
+    "Canônigo Vieira"
+  ],
+  "life": {
+    "born": {
+      "year": 1735,
+      "certainty": "baptismal_biographical_source"
+    },
+    "died": {
+      "year": 1809,
+      "certainty": "project_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Magistério filosófico no Seminário de Mariana, formação de extensa biblioteca ilustrada e participação intelectual na Inconfidência Mineira",
+      "kind": "enlightenment_philosophy_teaching_and_conspiratorial_contribution",
+      "authorship_status": "documented_in_scholarly_and_project_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección sobre pensamiento filosófico brasileño del siglo XIX",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Secuencia / SciELO México — Livros científicos, saberes ilustrados e condutas sediciosas na livraria do cônego Luís Vieira da Silva",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0186-03482020000200106&script=sci_arttext"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "Academia Mineira de Letras — história da filosofia em Minas Gerais e ausência de livro autoral de Luís Vieira",
+      "url": "https://academiamineiradeletras.org.br/wp-content/uploads/2025/08/REVISTA-DA-AML-85-EDICAO-DIGITAL.pdf"
+    }
+  ],
+  "research_notes": [
+    "A pesquisa recente documenta uma biblioteca de aproximadamente 270 obras e cerca de 800 volumes, além de 32 anos de ensino de filosofia.",
+    "Fonte acadêmica de história da filosofia mineira ressalta a falta de livro de autoria do cônego; `works` permanece vazio para não confundir sua biblioteca com produção própria."
+  ]
+}
