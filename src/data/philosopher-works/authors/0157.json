@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "author_id": 157,
+  "canonical_name": "Manfredo Kempff Mercado",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1922,
+      "date": "1922-01-08",
+      "certainty": "university_and_scholarly"
+    },
+    "died": {
+      "year": 1974,
+      "certainty": "academic_biographical"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_titles_first_editions_and_roles_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0157-w001",
+      "title": "El fenómeno económico en la evolución nacional",
+      "work_type": "undergraduate_law_dissertation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "date": "1942-12-30",
+        "certainty": "thesis_defended"
+      },
+      "first_publication_year": null,
+      "authorship_status": "doctoral_or_professional_thesis_defended_print_publication_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenómeno económico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolución nacional",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+      ],
+      "notes": "Tesis de abogacía defendida 30 diciembre 1942 en UAGRM. No afirmar que fue editada comercialmente ese año."
+    },
+    {
+      "work_id": "0157-w002",
+      "title": "Vida y obra de Mamerto Oyola",
+      "work_type": "history_of_philosophy_journal_offprint",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Mamerto Oyola",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vida",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "obra",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+      ],
+      "related_people": [
+        {
+          "name": "Mamerto Oyola Cuéllar",
+          "role": "subject"
+        }
+      ],
+      "publication_context": "Separata de la revista Kollasuyo (La Paz), año 1952."
+    },
+    {
+      "work_id": "0157-w003",
+      "title": "Historia de la filosofía en Latinoamérica",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Latinoamérica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+      ],
+      "first_edition": {
+        "year": 1958,
+        "publisher": "Zig-Zag",
+        "place": "Santiago de Chile"
+      }
+    },
+    {
+      "work_id": "0157-w004",
+      "title": "Introducción a la antropología filosófica",
+      "work_type": "philosophical_anthropology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antropología filosófica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+      ],
+      "edition_history": [
+        {
+          "year": 1975,
+          "place": "Bolivia",
+          "notes": "Edición póstuma según fallecimiento en 1974; no redatar primera edición de 1965"
+        }
+      ]
+    },
+    {
+      "work_id": "0157-w005",
+      "title": "¿Cuándo valen los valores? Ensayos de axiología",
+      "work_type": "axiology_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valores",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "axiología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+      ],
+      "first_edition": {
+        "year": 1965,
+        "publisher": "Universidad del Zulia",
+        "place": "Maracaibo"
+      }
+    },
+    {
+      "work_id": "0157-w006",
+      "title": "Filosofía del amor",
+      "work_type": "philosophy_of_love_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "amor",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+      ],
+      "first_edition": {
+        "year": 1973,
+        "publisher": "Editorial Universitaria",
+        "place": "Chile"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0157-c001",
+      "title": "Docencia filosófica boliviana, chilena y venezolana y difusión de la antropología filosófica",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0157-c002",
+      "title": "Estudios de recepción de Kant y de Mamerto Oyola en la historia intelectual cruceña",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "peer_reviewed_historical_bibliography",
+      "title": "Revista Ciencia y Cultura, Universidad Católica Boliviana: De la verdad al poder",
+      "url": "https://www.scielo.org.bo/scielo.php?pid=S2077-33232022000100039&script=sci_arttext"
+    },
+    {
+      "kind": "university_biography",
+      "title": "Universidad Privada de Santa Cruz de la Sierra: cátedra Manfredo Kempff Mercado",
+      "url": "https://www.upsa.bo/es/noticias-upsa/1779-upsa-inauguro-catedra-libre-manfredo-kempff-mercado"
+    },
+    {
+      "kind": "local_library_catalog",
+      "title": "Biblioteca histórica cruceña, autor Manfredo Kempff Mercado",
+      "url": "https://leamospuej.gmsantacruz.gob.bo/libros.php?enlace-autor=Kempff+Mercado%2C+Manfredo"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: perfiles de Bolivia y Perú, pp. 916–930"
+    }
+  ],
+  "research_notes": [
+    "El ensayo académico de 2022 identifica fecha de defensa de tesis en 1942, no publicación como libro.",
+    "Obras completas editadas en 2004 son recopilación póstuma y no obra original compuesta ese año.",
+    "La producción hemerográfica dispersa exige revisión antes de crear títulos individuales."
+  ]
+}
