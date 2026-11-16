@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "author_id": 87,
+  "canonical_name": "Luís Washington Vita",
+  "alternate_names": [
+    "Luís Washington Vita",
+    "Luis Washington Vita"
+  ],
+  "life": {
+    "born": {
+      "year": 1921,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1968,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "substantial_aesthetics_history_of_philosophy_law_and_brazilian_thought_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0087-w001",
+      "title": "Encontro d'água: apontamentos de filosofia",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1950,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w002",
+      "title": "A filosofia no Brasil",
+      "work_type": "history_of_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1950,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia no Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w003",
+      "title": "Arte e existência: notas de estética e de filosofia da arte",
+      "work_type": "aesthetics_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1950,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arte",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w004",
+      "title": "Compêndio de Filosofia",
+      "work_type": "philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1954,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história da filosofia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w005",
+      "title": "Introdução à pedagogia musical",
+      "work_type": "philosophy_of_music_education_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogia musical",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "música",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w006",
+      "title": "Páginas de estética",
+      "work_type": "aesthetics_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "arte",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w007",
+      "title": "Soren Kierkegaard",
+      "work_type": "philosopher_study",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Søren Kierkegaard",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kierkegaard",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w008",
+      "title": "Namoro com Thêmis: notas de ciência e filosofia do direito",
+      "work_type": "philosophy_of_law_essay_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1958,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia do direito",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "ciência do direito",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w009",
+      "title": "O mito de Hefestos",
+      "work_type": "technology_industry_philosophy_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1959,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "técnica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "indústria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Hefesto",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w010",
+      "title": "Introdução à filosofia",
+      "work_type": "philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Miguel Reale",
+          "role": "preface_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w011",
+      "title": "Escorço da filosofia no Brasil",
+      "work_type": "history_of_philosophy_synthesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia no Brasil",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w012",
+      "title": "Momentos decisivos do pensamento filosófico",
+      "work_type": "history_of_philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamento filosófico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história da filosofia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w013",
+      "title": "Alberto Sales: ideólogo da República",
+      "work_type": "intellectual_history_biography",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Alberto Sales",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "República",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Alberto Sales",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w014",
+      "title": "Pequena história da filosofia",
+      "work_type": "history_of_philosophy_manual",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1968,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história da filosofia",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0087-w015",
+      "title": "Panorama da filosofia no Brasil",
+      "work_type": "history_of_brazilian_philosophy",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1968,
+        "certainty": "prepared_before_death"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia no Brasil",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "história das ideias",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Secretaria do Instituto Brasileiro de Filosofia e edição da Revista Brasileira de Filosofia",
+      "kind": "editorial_institutional_contribution",
+      "period": {
+        "start": 1950,
+        "end": 1968,
+        "certainty": "approximate_activity_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Revista Brasileira de Filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "difusão filosófica",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_bibliography",
+      "title": "Luís Washington Vita — bibliografia",
+      "url": "https://www.ensayistas.org/filosofos/brasil/vita/introd.htm",
+      "publisher": "Proyecto Ensayo Hispánico"
+    },
+    {
+      "kind": "scholarly_bibliographic_study",
+      "title": "Juristas orgânicos da ditadura — nota bibliográfica de Luís Washington Vita",
+      "url": "https://www.pimentacultural.com/wp-content/uploads/2024/04/eBook_Juristas-organicos.pdf"
+    }
+  ],
+  "research_notes": [
+    "Pendiente completar diccionarios, traducciones, antologías y artículos de la Revista Brasileira de Filosofia.",
+    "Panorama da filosofia no Brasil aparece póstumamente en 1969 y se mantiene separado de los libros de vida."
+  ]
+}
