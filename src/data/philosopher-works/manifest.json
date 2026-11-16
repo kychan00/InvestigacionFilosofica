@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 70,
-    "authors_remaining": 1434,
-    "works_or_contributions_seeded": 463,
-    "current_batch": "007",
+    "authors_seeded": 80,
+    "authors_remaining": 1424,
+    "works_or_contributions_seeded": 564,
+    "current_batch": "008",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -395,6 +395,58 @@
       "author_id": 70,
       "canonical_name": "Aníbal Ponce",
       "path": "authors/0070.json"
+    }
+  ],
+  "batch_008": [
+    {
+      "author_id": 71,
+      "canonical_name": "Adolfo Sánchez Vázquez",
+      "path": "authors/0071.json"
+    },
+    {
+      "author_id": 72,
+      "canonical_name": "Ernesto Guevara",
+      "path": "authors/0072.json"
+    },
+    {
+      "author_id": 73,
+      "canonical_name": "Agustín Cueva",
+      "path": "authors/0073.json"
+    },
+    {
+      "author_id": 74,
+      "canonical_name": "Bolívar Echeverría",
+      "path": "authors/0074.json"
+    },
+    {
+      "author_id": 75,
+      "canonical_name": "Subcomandante Marcos",
+      "path": "authors/0075.json"
+    },
+    {
+      "author_id": 76,
+      "canonical_name": "Evo Morales",
+      "path": "authors/0076.json"
+    },
+    {
+      "author_id": 77,
+      "canonical_name": "Raimundo de Farias Brito",
+      "path": "authors/0077.json"
+    },
+    {
+      "author_id": 78,
+      "canonical_name": "Oswald de Andrade",
+      "path": "authors/0078.json"
+    },
+    {
+      "author_id": 79,
+      "canonical_name": "Jackson de Figueiredo",
+      "path": "authors/0079.json"
+    },
+    {
+      "author_id": 80,
+      "canonical_name": "Alceu Amoroso Lima",
+      "path": "authors/0080.json"
     }
   ]
 }
