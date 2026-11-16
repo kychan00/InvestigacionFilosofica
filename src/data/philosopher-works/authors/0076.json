@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "author_id": 76,
+  "canonical_name": "Evo Morales",
+  "alternate_names": [
+    "Juan Evo Morales Ayma",
+    "Evo Morales Ayma"
+  ],
+  "life": {
+    "born": {
+      "year": 1959,
+      "certainty": "standard"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "autobiographical_and_major_presidential_speech_corpus_seeded_institutional_documents_separated",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0076-w001",
+      "title": "Discurso de posesión del Presidente Constitucional de la República",
+      "work_type": "presidential_inaugural_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "exact",
+        "date": "2006-01-22"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified_speech",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pueblos indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "descolonización",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria insurreccional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "revolución democrática cultural",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0076-w002",
+      "title": "Discurso ante la Asamblea General de las Naciones Unidas, 61º período de sesiones",
+      "work_type": "international_political_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "exact",
+        "date": "2006-09-19"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified_speech",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bolivia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "pueblos indígenas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Naciones Unidas",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0076-w003",
+      "title": "Hacia una Declaración Universal de los Derechos de la Madre Tierra",
+      "work_type": "international_environmental_proposal_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "exact",
+        "date": "2009-04-22"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "verified_presidential_proposal",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Madre Tierra",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho a la vida",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "biocapacidad",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "armonía",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "equilibrio",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0076-w004",
+      "title": "Discurso ante la Asamblea General de las Naciones Unidas, 64º período de sesiones",
+      "work_type": "international_political_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "exact",
+        "date": "2009-09-23"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "verified_speech",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "capitalismo",
+          "provenance": "primary_speech_summary"
+        },
+        {
+          "term": "Madre Tierra",
+          "provenance": "primary_speech_summary"
+        },
+        {
+          "term": "desigualdad",
+          "provenance": "primary_speech_summary"
+        },
+        {
+          "term": "integración",
+          "provenance": "primary_speech_summary"
+        }
+      ]
+    },
+    {
+      "work_id": "0076-w005",
+      "title": "Mi vida, de Orinoca al Palacio Quemado",
+      "work_type": "oral_autobiography_mediated_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "verified_autobiographical_narrator_with_editorial_mediation",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Iván Canelas",
+          "role": "editor_and_interviewer"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789505639281"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "autobiografía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Orinoca",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "presidencia de Bolivia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "movimiento indígena",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "El libro se construyó en buena medida a partir de entrevistas; se distingue la voz autobiográfica de Morales de la mediación editorial de Iván Canelas."
+    },
+    {
+      "work_id": "0076-w006",
+      "title": "Discursos presidenciales y sindicales de Evo Morales",
+      "work_type": "political_speech_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1990,
+        "end": 2019,
+        "certainty": "approximate_public_career_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_requires_item_level_review",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "movimiento cocalero",
+          "provenance": "inferred"
+        },
+        {
+          "term": "MAS-IPSP",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Estado Plurinacional",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Vivir Bien",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Unidad provisional para discursos dispersos. Debe separarse por fecha, foro y condición de discurso sindical, partidario o presidencial."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "university_document_archive",
+      "title": "Discurso de posesión de Evo Morales, 22 de enero de 2006",
+      "url": "https://sedici.unlp.edu.ar/bitstream/handle/10915/47813/Bolivia_-_Discurso_de_posesi%C3%B3n_del_presidente_Evo_Morales_Aima__28_p._.pdf?isAllowed=y&sequence=5",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "united_nations_record",
+      "title": "Statement by Evo Morales Ayma, 61st UN General Assembly",
+      "url": "https://digitallibrary.un.org/record/589608",
+      "publisher": "United Nations Digital Library"
+    },
+    {
+      "kind": "united_nations_document",
+      "title": "Hacia una Declaración Universal de los Derechos de la Madre Tierra",
+      "url": "https://www.un.org/esa/socdev/unpfii/documents/MEDSE_Morales_es.pdf",
+      "publisher": "United Nations"
+    },
+    {
+      "kind": "publisher_catalog",
+      "title": "Mi vida de Orinoca al Palacio Quemado",
+      "url": "https://colihue.com.ar/producto/mi-vida-de-orinoca-al-palacio-quemado/",
+      "publisher": "Ediciones Colihue"
+    }
+  ],
+  "research_notes": [
+    "No atribuir a Evo Morales la autoría personal de la Constitución boliviana de 2009 ni de resoluciones estatales colectivas.",
+    "Pendiente desglosar discursos sindicales, posesiones de 2010/2015 y mensajes internacionales."
+  ]
+}
