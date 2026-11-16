@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 310,
-    "authors_remaining": 1194,
-    "works_or_contributions_seeded": 2255,
-    "current_batch": "031",
+    "authors_seeded": 320,
+    "authors_remaining": 1184,
+    "works_or_contributions_seeded": 2281,
+    "current_batch": "032",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1643,6 +1643,58 @@
       "author_id": 310,
       "canonical_name": "Antonio José de Sucre y Alcalá",
       "path": "authors/0310.json"
+    }
+  ],
+  "batch_032": [
+    {
+      "author_id": 311,
+      "canonical_name": "Antonio Nariño",
+      "path": "authors/0311.json"
+    },
+    {
+      "author_id": 312,
+      "canonical_name": "Francisco Primo Verdad y Ramos",
+      "path": "authors/0312.json"
+    },
+    {
+      "author_id": 313,
+      "canonical_name": "Pedro Luis Pacheco",
+      "path": "authors/0313.json"
+    },
+    {
+      "author_id": 314,
+      "canonical_name": "Pantaleón García",
+      "path": "authors/0314.json"
+    },
+    {
+      "author_id": 315,
+      "canonical_name": "Cornelio Saavedra",
+      "path": "authors/0315.json"
+    },
+    {
+      "author_id": 316,
+      "canonical_name": "Juan José Paso",
+      "path": "authors/0316.json"
+    },
+    {
+      "author_id": 317,
+      "canonical_name": "Gregorio Funes",
+      "path": "authors/0317.json"
+    },
+    {
+      "author_id": 318,
+      "canonical_name": "Juan Hipólito Vieytes",
+      "path": "authors/0318.json"
+    },
+    {
+      "author_id": 319,
+      "canonical_name": "Juan José Castelli",
+      "path": "authors/0319.json"
+    },
+    {
+      "author_id": 320,
+      "canonical_name": "Mariano Moreno",
+      "path": "authors/0320.json"
     }
   ]
 }

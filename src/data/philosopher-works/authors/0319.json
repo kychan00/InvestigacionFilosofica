@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 319,
+  "canonical_name": "Juan José Castelli",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_1811_indigenous_rights_proclamations_distinguished",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0319-w001",
+      "title": "Proclama dirigida a los indígenas del Virreinato del Perú desde Chuquisaca (5 de febrero de 1811)",
+      "work_type": "revolutionary_indigenous_political_proclamation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1811,
+        "certainty": "historical_proclamation_february_5"
+      },
+      "first_publication_year": null,
+      "authorship_status": "political_proclamation_historically_attributed_to_Castelli_transcript_in_scholarly_study",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "ciudadanía indígena",
+        "libertad civil",
+        "derechos"
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/34807515/El_movimiento_revolucionario_rioplatense_y_los_pueblos_ind%C3%ADgenas"
+      ],
+      "notes": "Intervención previa a Tiahuanaco, identificada por estudio sobre los pueblos indígenas como proclama desde Chuquisaca del 5 de febrero de 1811. Sin examen de impreso original no se asigna primera edición.",
+      "document_date": "1811-02-05",
+      "title_status": "modern_descriptive_label"
+    },
+    {
+      "work_id": "0319-w002",
+      "title": "Proclama de Tiahuanaco a favor de la igualdad de derechos de los indígenas",
+      "work_type": "revolutionary_indigenous_equality_proclamation_official_text",
+      "original_language": "español",
+      "original_date": {
+        "year": 1811,
+        "certainty": "signed_proclamation_may_25"
+      },
+      "first_publication_year": null,
+      "authorship_status": "political_proclamation_signed_by_Castelli_secretary_Monteagudo",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "igualdad jurídica",
+        "derechos indígenas",
+        "educación",
+        "ayllus"
+      ],
+      "evidence_urls": [
+        "https://adhilac.com.ar/?p=1371",
+        "https://www.academia.edu/34807515/El_movimiento_revolucionario_rioplatense_y_los_pueblos_ind%C3%ADgenas"
+      ],
+      "notes": "Documento emitido en Tiahuanaco el 25 de mayo de 1811, conservado en Papeles de Castelli del Archivo General de la Nación, Sala VII-3-6-17, fol. 189 según la transcripción; refrendado por el secretario José Bernardo de Monteagudo. No inventar fecha de primera impresión.",
+      "document_date": "1811-05-25",
+      "archive": "Archivo General de la Nación Argentina, Sala VII-3-6-17, Papeles de Castelli, fol. 189 (cita de transcripción)",
+      "related_contributor": {
+        "name": "José Bernardo de Monteagudo",
+        "role": "secretary"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Proclamas por igualdad civil de indígenas, abolición de tributos y representación durante la expedición al Alto Perú",
+      "kind": "rio_platense_indigenous_rights_and_revolution",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "historical_documents_transcription",
+      "title": "ADHILAC, medidas a favor de los pueblos originarios: texto de Proclama de Tiahuanaco",
+      "url": "https://adhilac.com.ar/?p=1371"
+    },
+    {
+      "kind": "scholarly_political_history",
+      "title": "El movimiento revolucionario rioplatense y los pueblos indígenas: proclamas de 1811",
+      "url": "https://www.academia.edu/34807515/El_movimiento_revolucionario_rioplatense_y_los_pueblos_ind%C3%ADgenas"
+    }
+  ],
+  "research_notes": [
+    "Distinguir documento de 5 febrero de documento de 25 mayo 1811: no una sola proclama.",
+    "El decreto de Junta Grande de septiembre 1811 corresponde a órgano colegiado y es posterior al periodo de representación directa de Castelli.",
+    "Las proclamas expresan un programa político de la Junta, no necesariamente una ley nacional ejecutada en su totalidad."
+  ]
+}

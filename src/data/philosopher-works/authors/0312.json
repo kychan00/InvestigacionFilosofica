@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "author_id": 312,
+  "canonical_name": "Francisco Primo Verdad y Ramos",
+  "alternate_names": [
+    "Licenciado Francisco Primo de Verdad",
+    "Francisco Primo de Verdad y Ramos"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1808_speech_and_memoria_postuma_manuscript_not_original_imprints",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0312-w001",
+      "title": "Intervención del síndico Francisco Primo de Verdad en la Junta de México del 9 de agosto de 1808",
+      "work_type": "constitutional_sovereignty_speech_junta_archival_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1808,
+        "certainty": "oral_political_discourse_august_9"
+      },
+      "first_publication_year": null,
+      "authorship_status": "oral_intervention_from_manuscript_and_historical_transcription_not_author_printed_book",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ayuntamientos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crisis monárquica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Palabras_del_S%C3%ADndico_de_Cabildo_de_la_Ciudad_de_M%C3%A9xico_Francisco_Primo_de_Verdad_y_Ramos",
+        "https://www.gob.mx/agn/articulos/agnrecuerda-a-francisco-primo-de-verdad-y-ramos-un-precursor-de-las-juntas-de-gobierno-en-la-nueva-espana"
+      ],
+      "notes": "Discurso político ante Junta de México, posteriormente transmitido en actas y documentos; se asocia con fundamentación de soberanía popular y gobierno provisional. La formulación que ha llegado por copias no es edición autoral de 1808.",
+      "speech_date": "1808-08-09"
+    },
+    {
+      "work_id": "0312-w002",
+      "title": "Memoria póstuma (exposición de Francisco Primo de Verdad sobre la soberanía de Nueva España)",
+      "work_type": "political_juridical_manuscript_posthumously_published",
+      "original_language": "español",
+      "original_date": {
+        "year": 1808,
+        "certainty": "autograph_draft_september_12"
+      },
+      "first_publication_year": null,
+      "authorship_status": "manuscript_attributed_to_author_via_lilly_library_and_historical_editions",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberanía popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "representación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno provisional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriapoliticademexico.org/Textos/1Independencia/1808AAM.html",
+        "https://www.gob.mx/agn/articulos/agnrecuerda-a-francisco-primo-de-verdad-y-ramos-un-precursor-de-las-juntas-de-gobierno-en-la-nueva-espana"
+      ],
+      "notes": "Texto redactado el 12 de septiembre de 1808, conocido por ediciones documentales con rótulo editorial «Memoria póstuma». El manuscrito corresponde a la crisis de soberanía antes de su encarcelamiento; no se asigna primera edición impresa sin cotejo.",
+      "composition_date": "1808-09-12",
+      "title_status": "later_documentary_title"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Argumentación municipal sobre la retroversión de la soberanía al pueblo y convocatoria de una junta provisional en Nueva España, 1808",
+      "kind": "independence_era_political_intellectual_contribution",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "government_historical_archive",
+      "title": "Archivo General de la Nación México, Primo de Verdad y juntas de 1808",
+      "url": "https://www.gob.mx/agn/articulos/agnrecuerda-a-francisco-primo-de-verdad-y-ramos-un-precursor-de-las-juntas-de-gobierno-en-la-nueva-espana"
+    },
+    {
+      "kind": "documentary_junta_transcription",
+      "title": "Memoria política de México, intervención en actas municipales de julio/agosto 1808",
+      "url": "https://www.memoriapoliticademexico.org/Textos/1Independencia/1808AAM.html"
+    },
+    {
+      "kind": "archival_speech_transcription",
+      "title": "Palabras del síndico del cabildo de México, 1808",
+      "url": "https://es.wikisource.org/wiki/Palabras_del_S%C3%ADndico_de_Cabildo_de_la_Ciudad_de_M%C3%A9xico_Francisco_Primo_de_Verdad_y_Ramos"
+    }
+  ],
+  "research_notes": [
+    "El libro «Idea del Congreso Nacional de Nueva España» es de Melchor de Talamantes, NO de Primo de Verdad.",
+    "El título Memoria póstuma es denominación editorial posterior de un texto redactado en vida.",
+    "Las propuestas del Ayuntamiento eran colectivas; la autoría precisa de cada acta se comprueba por firma."
+  ]
+}

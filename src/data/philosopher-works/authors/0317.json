@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "author_id": 317,
+  "canonical_name": "Gregorio Funes",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "three_volume_1816_1817_history_as_one_original_work",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0317-w001",
+      "title": "Ensayo de la historia civil del Paraguay, Buenos-Ayres y Tucumán",
+      "work_type": "three_volume_colonial_history_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "print_across_three_volumes",
+        "period": {
+          "start": 1816,
+          "end": 1817
+        }
+      },
+      "first_publication_year": 1816,
+      "authorship_status": "first_original_print_volume_one_1816_subsequent_volume_1817",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "historiografía",
+        "historia de Paraguay",
+        "Revolución de Mayo",
+        "colonización"
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecadigitaldebogota.gov.co/resources/2910641/",
+        "https://revistas.ungs.edu.ar/index.php/wirapuru/article/view/1377"
+      ],
+      "notes": "Buenos Aires, Imprenta de M. J. Gandarillas y socios, 1816–1817, tres tomos; el Bosquejo de la Revolución del tercer tomo es una sección integrante y no cuarta obra automática. Catálogo Biblioteca Nacional de Colombia y estudio académico lo confirman.",
+      "volume_count": 3,
+      "edition": {
+        "year": 1816,
+        "publisher": "M. J. Gandarillas y socios",
+        "region": "Buenos Aires"
+      },
+      "years_of_edition": "1816–1817"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historiografía de la colonia y la revolución rioplatense desde el Deán de Córdoba, con participación en la política de 1810",
+      "kind": "rio_platense_historiography_and_state_formation",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "national_library_digitization",
+      "title": "Biblioteca Nacional de Colombia, Ensayo de Gregorio Funes (1816–1817)",
+      "url": "https://www.bibliotecadigitaldebogota.gov.co/resources/2910641/"
+    },
+    {
+      "kind": "recent_academic_historiography",
+      "title": "La Compañía de Jesús en los orígenes de la historiografía argentina, 2026",
+      "url": "https://revistas.ungs.edu.ar/index.php/wirapuru/article/view/1377"
+    }
+  ],
+  "research_notes": [
+    "No considerar el Bosquejo del tercer tomo una obra nueva sin estudio de edición separada.",
+    "No multiplicar por tres el total de obras originales de Funes."
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "author_id": 311,
+  "canonical_name": "Antonio Nariño",
+  "alternate_names": [
+    "Antonio Amador José de Nariño y Álvarez del Casal"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "translation_1793_defense_1795_periodical_1811_12_author_roles_separated",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0311-w001",
+      "title": "Declaración de los Derechos del Hombre y del Ciudadano (traducción e impresión de Antonio Nariño)",
+      "work_type": "translated_revolutionary_declaration_first_clandestine_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1793,
+        "certainty": "first_clandestine_print_december"
+      },
+      "first_publication_year": 1793,
+      "authorship_status": "translator_and_unauthorized_publisher_not_original_french_declaration_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derechos humanos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "igualdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "propiedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecanacional.gov.co/content/antonio-narino-la-impresion-de-los-derechos-del-hombre",
+        "https://www.bibliotecanacional.gov.co/content/antonio-narino-presentacion"
+      ],
+      "notes": "Nariño tradujo del texto francés adoptado por la Asamblea Nacional Constituyente en 1789 y lo imprimió clandestinamente en Santafé en diciembre de 1793; autor del original colectivo francés, NO Nariño. El original de 1793 no debe confundirse con reedición de 1811.",
+      "source_original_author": "Asamblea Nacional Constituyente de Francia (texto 1789)",
+      "contributor_roles": [
+        "translator",
+        "publisher"
+      ],
+      "reprint_year": 1811
+    },
+    {
+      "work_id": "0311-w002",
+      "title": "Defensa de Antonio Nariño ante la Real Audiencia por la traducción de los Derechos del Hombre",
+      "work_type": "judicial_legal_defense_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1795,
+        "certainty": "defense_pleading_july_august"
+      },
+      "first_publication_year": null,
+      "authorship_status": "authorial_defense_with_legal_assistance_and_later_prints",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad de imprenta",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "defensa legal",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecanacional.gov.co/content/antonio-narino-la-impresion-de-los-derechos-del-hombre"
+      ],
+      "notes": "Defensa formulada en julio–agosto de 1795 con ayuda del apoderado y familiares; manuscritos y testimonios se conocen por las exposiciones de Biblioteca Nacional de Colombia. Existe edición posterior «Defensa del General Nariño» 1823, sin identificarla como primera impresión del mismo testimonio sin cotejo textual.",
+      "later_witness": {
+        "year": 1823,
+        "title": "Defensa del General Nariño",
+        "publication_status": "cotejo_pendiente"
+      }
+    },
+    {
+      "work_id": "0311-w003",
+      "title": "La Bagatela",
+      "work_type": "political_critical_newspaper_edited_and_written",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "periodical_publication",
+        "period": {
+          "start": 1811,
+          "end": 1812
+        }
+      },
+      "first_publication_year": 1811,
+      "authorship_status": "founder_editor_and_contributor_not_sole_author_every_issue",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "centralismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "prensa política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecanacional.gov.co/content/antonio-narino-presentacion",
+        "https://www.letrasmexicanas.mx/portales/biblioteca_nacional_de_mexico/obra/la-bagatela-893589/"
+      ],
+      "notes": "Periódico fundado por Nariño, primer número 14 de julio de 1811 y actividad 1811–1812; los artículos de terceros no se atribuyen automáticamente al editor, ni cada número se cuenta como libro diferente.",
+      "first_issue": "1811-07-14"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión de derechos revolucionarios, oposición política desde la prensa y participación en las instituciones de la independencia neogranadina",
+      "kind": "independence_era_political_intellectual_contribution",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "national_library_historical_essay",
+      "title": "Biblioteca Nacional de Colombia, La impresión de los Derechos del Hombre y Defensa de Nariño",
+      "url": "https://www.bibliotecanacional.gov.co/content/antonio-narino-la-impresion-de-los-derechos-del-hombre"
+    },
+    {
+      "kind": "national_library_biography",
+      "title": "Biblioteca Nacional de Colombia, cronología y La Bagatela",
+      "url": "https://www.bibliotecanacional.gov.co/content/antonio-narino-presentacion"
+    },
+    {
+      "kind": "literary_periodical_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes / Banco de la República, La Bagatela",
+      "url": "https://www.letrasmexicanas.mx/portales/biblioteca_nacional_de_mexico/obra/la-bagatela-893589/"
+    }
+  ],
+  "research_notes": [
+    "La traducción de 1793 NO es tratado escrito originalmente por Nariño; conservar rol de traductor y autor colectivo francés.",
+    "No contar reimpresión 1811 y periódico La Bagatela como versiones de un mismo texto.",
+    "La defensa de 1795 incluye asistencia jurídica; no la equiparar automáticamente con impreso distinto de 1823."
+  ]
+}

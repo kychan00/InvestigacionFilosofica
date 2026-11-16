@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "author_id": 320,
+  "canonical_name": "Mariano Moreno",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1809_memorial_printed_1810_and_Rousseau_translation_1810_disputed_plan_not_assigned",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0320-w001",
+      "title": "Representación de los hacendados",
+      "work_type": "economic_political_memorial_first_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1809,
+        "certainty": "formal_submission_september_30"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "author_on_early_print_and_economic_legal_representative_witness",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "libre comercio",
+        "economía política",
+        "representación económica",
+        "reforma colonial"
+      ],
+      "evidence_urls": [
+        "https://www.memoria.fahce.unlp.edu.ar/library?a=d&c=libros&d=Jpm1676",
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=26980&lvl=notice_display"
+      ],
+      "notes": "Escrito presentado al virrey Cisneros el 30 de septiembre de 1809; primera impresión documentada Buenos Aires, Real Imprenta de Niños Expósitos, 1810, según catálogo de facsímil de Universidad de La Plata. No confundir entrega en 1809 con primera publicación en 1810.",
+      "submission_date": "1809-09-30",
+      "edition": {
+        "year": 1810,
+        "publisher": "Real Imprenta de Niños Expósitos",
+        "region": "Buenos Aires"
+      }
+    },
+    {
+      "work_id": "0320-w002",
+      "title": "Del contrato social o principios del derecho político (traducción de Mariano Moreno)",
+      "work_type": "political_philosophy_translation_print",
+      "original_language": "español",
+      "original_date": {
+        "year": 1810,
+        "certainty": "first_buenos_aires_translation_print"
+      },
+      "first_publication_year": 1810,
+      "authorship_status": "translator_and_editor_not_original_author_Rousseau",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "contrato social",
+        "soberanía",
+        "representación",
+        "Ilustración"
+      ],
+      "evidence_urls": [
+        "https://www.letrasmexicanas.mx/portales/universidad_de_guadalajara/obra/del-contrato-social-o-principios-del-derecho-politico/",
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=26980&lvl=notice_display"
+      ],
+      "notes": "Buenos Aires, Real Imprenta de Niños Expósitos, 1810. Rousseau es autor del original; Moreno lo tradujo y difundió. Prólogo de Moreno pertenece a su actividad editorial, no se atribuye El contrato social como obra original del revolucionario.",
+      "original_author": "Jean-Jacques Rousseau",
+      "contributor_role": "translator_and_prologue_author",
+      "edition": {
+        "year": 1810,
+        "publisher": "Real Imprenta de Niños Expósitos",
+        "region": "Buenos Aires"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Secretaría y periodismo revolucionario, debate económico y difusión del contractualismo en la Primera Junta del Río de la Plata",
+      "kind": "rio_platense_political_philosophy_and_economy",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "university_original_imprint_catalog",
+      "title": "Universidad Nacional de La Plata, facsímil de Representación de los hacendados, original 1810",
+      "url": "https://www.memoria.fahce.unlp.edu.ar/library?a=d&c=libros&d=Jpm1676"
+    },
+    {
+      "kind": "University_of_Guadalajara_hosted_rare_catalog",
+      "title": "Biblioteca Pública Juan José Arreola / Cervantes, Rousseau traducido por Moreno (1810)",
+      "url": "https://www.letrasmexicanas.mx/portales/universidad_de_guadalajara/obra/del-contrato-social-o-principios-del-derecho-politico/"
+    },
+    {
+      "kind": "national_foreign_affairs_archive",
+      "title": "Cancillería Argentina, «El Plan de operaciones de ¿Mariano Moreno?», controversia documental",
+      "url": "https://www.cancilleria.gob.ar/es/institucional/patrimonio/archivo-historico-de-cancilleria/documento-destacado-el-plan-de-operaciones"
+    },
+    {
+      "kind": "legislative_library_catalog",
+      "title": "Biblioteca del Poder Legislativo Uruguay, Moreno, escritos políticos",
+      "url": "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=26980&lvl=notice_display"
+    }
+  ],
+  "research_notes": [
+    "Se excluye del conjunto de obras indiscutiblemente firmadas el «Plan de operaciones» de 1810: Cancillería argentina advierte disputa persistente de autoría.",
+    "«Gazeta de Buenos Ayres» incluye publicaciones oficiales y colaboraciones; no atribuir toda la publicación seriada al secretario Moreno.",
+    "No duplicar textos por aparecer en ediciones antológicas del siglo XX."
+  ]
+}

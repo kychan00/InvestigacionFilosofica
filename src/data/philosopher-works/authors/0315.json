@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 315,
+  "canonical_name": "Cornelio Saavedra",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1829_political_memoir_1830_periodical_witness_partial",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0315-w001",
+      "title": "Memoria autógrafa",
+      "work_type": "political_autobiographical_memorial_manuscript_published_later",
+      "original_language": "español",
+      "original_date": {
+        "year": 1829,
+        "certainty": "author_autobiographical_composition_year"
+      },
+      "first_publication_year": 1830,
+      "authorship_status": "autobiographical_author_text_original_1829_later_print_testimony",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "revolución de mayo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memorias políticas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.educ.ar/recursos/129381/el-concepto-de-revolucion",
+        "https://biblioteca.anh.org.ar/cgi-bin/koha/opac-MARCdetail.pl?biblionumber=3518"
+      ],
+      "notes": "Redactada en 1829 como memoria para sus hijos; portal educativo argentino cita testimonio en La Gaceta Mercantil de 1830 y versión en Museo Histórico Nacional, Memorias y autobiografías, t. I, 1910. El catálogo de 1969 llama 1.ª edición solo a su propia tirada, no a la primera publicación histórica.",
+      "first_publication_scope": "early_periodical_testimony_1830_cited_in_Educ_ar_further_collation",
+      "later_editions": [
+        {
+          "year": 1910,
+          "collection": "Museo Histórico Nacional, Memorias y autobiografías"
+        },
+        {
+          "year": 1969,
+          "publisher": "Carlos Pérez Editor"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Presidencia de la Primera Junta y debate sobre soberanía, autoridad revolucionaria y memoria de los acontecimientos de Mayo",
+      "kind": "rio_platense_independence_political_memoir",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "official_education_portal",
+      "title": "Educ.ar, El concepto de revolución: Memoria Autógrafa 1829 y Gaceta Mercantil 1830",
+      "url": "https://www.educ.ar/recursos/129381/el-concepto-de-revolucion"
+    },
+    {
+      "kind": "national_academy_library",
+      "title": "Academia Nacional de la Historia Argentina, catálogo Memoria autógrafa",
+      "url": "https://biblioteca.anh.org.ar/cgi-bin/koha/opac-MARCdetail.pl?biblionumber=3518"
+    }
+  ],
+  "research_notes": [
+    "El acta de formación de la Primera Junta es documento colectivo, no obra individual de Saavedra.",
+    "La primera fecha de publicación se registra con reserva: se cita testimonio de Gaceta Mercantil 1830 y corresponde comprobar la integridad de la serie.",
+    "No atribuir a Saavedra un tratado doctrinal ajeno a su autobiografía sin ejemplar."
+  ]
+}

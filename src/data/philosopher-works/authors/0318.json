@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "author_id": 318,
+  "canonical_name": "Juan Hipólito Vieytes",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1802_1807_enlightenment_serial_editor_and_collaborators_distinguished",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0318-w001",
+      "title": "Semanario de Agricultura, Industria y Comercio",
+      "work_type": "economic_political_enlightenment_periodical_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "original_serial_publication",
+        "period": {
+          "start": 1802,
+          "end": 1807
+        }
+      },
+      "first_publication_year": 1802,
+      "authorship_status": "editor_and_major_contributor_with_Pedro_Antonio_Cervino",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        "economía política",
+        "agricultura",
+        "comercio",
+        "fisiocracia"
+      ],
+      "evidence_urls": [
+        "https://www.iberoamericadigital.net/BDPI/Search.do%3Bjsessionid%3D63657D9B90D0D2891CA17E31CEA2CF81?matter=Agricultura+-+Peri%C3%B3dicos+%28Publicaciones%29",
+        "https://books.google.com.mx/books?id=KCTwAAAAMAAJ&lr=&num=20"
+      ],
+      "notes": "Periódico publicado en Buenos Aires por la Real Imprenta de Niños Expósitos desde el 1 de septiembre de 1802 hasta el 11 febrero 1807, total 218 números y suplementos según estudio. Colaboró Pedro Antonio Cerviño. Un número no equivale a un libro, y los artículos de colaboradores no son autoría exclusiva de Vieytes.",
+      "period_start": "1802-09-01",
+      "period_end": "1807-02-11",
+      "issues_count_reported": 218,
+      "collaborating_editor": "Pedro Antonio Cerviño"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión ilustrada de economía política, técnicas agrícolas e industria mediante prensa periódica en el Río de la Plata",
+      "kind": "rio_platense_economic_enlightenment",
+      "authorship_status": "historical_sources_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), filosofía de la Independencia",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulo La filosofía de la Independencia, p. 173 y siguientes"
+    },
+    {
+      "kind": "national_library_iberoamerican_catalog",
+      "title": "BDPI, Biblioteca Nacional Argentina, Semanario de Agricultura 1802–1807",
+      "url": "https://www.iberoamericadigital.net/BDPI/Search.do%3Bjsessionid%3D63657D9B90D0D2891CA17E31CEA2CF81?matter=Agricultura+-+Peri%C3%B3dicos+%28Publicaciones%29"
+    },
+    {
+      "kind": "historical_fascimile_catalog",
+      "title": "Academia Nacional de la Historia, reimpresión facsimilar de 1928 y números 1–218",
+      "url": "https://books.google.com.mx/books?id=KCTwAAAAMAAJ&lr=&num=20"
+    }
+  ],
+  "research_notes": [
+    "No confundir 218 números con 218 libros ni asignar todas las contribuciones al editor.",
+    "Se registra una unidad bibliográfica seriada y no cinco volúmenes como obras independientes."
+  ]
+}
