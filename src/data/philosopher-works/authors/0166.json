@@ -1,0 +1,649 @@
+{
+  "schema_version": 1,
+  "author_id": 166,
+  "canonical_name": "Miguel Giusti",
+  "alternate_names": [
+    "Miguel Ángel Giusti Hundskopf"
+  ],
+  "life": {
+    "born": {
+      "year": 1952,
+      "certainty": "government_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_publications_not_full_oeuvre",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0166-w001",
+      "title": "La crítica de Hegel al mundo moderno",
+      "work_type": "hegelian_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mundo moderno",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "related_people": [
+        {
+          "name": "Georg Wilhelm Friedrich Hegel",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0166-w002",
+      "title": "Alas y raíces: ensayos sobre ética y modernidad",
+      "work_type": "ethics_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789972421433"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "first_edition": {
+        "year": 1999,
+        "publisher": "PUCP",
+        "place": "Lima"
+      }
+    },
+    {
+      "work_id": "0166-w003",
+      "title": "El retorno del espíritu: motivos hegelianos en la filosofía práctica contemporánea",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espíritu",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía práctica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "notes": "Editor de volumen colectivo; autores de capítulos distintos."
+    },
+    {
+      "work_id": "0166-w004",
+      "title": "Tras el consenso: entre la utopía y la nostalgia",
+      "work_type": "ethics_political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "consenso",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "utopía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nostalgia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w005",
+      "title": "¿Por qué leer filosofía hoy?",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w006",
+      "title": "El soñado bien, el mal presente: rumores de la ética",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bien",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "mal",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "edition_history": [
+        {
+          "year": 2011,
+          "notes": "Reedición editorial; no alterar original 2008"
+        }
+      ]
+    },
+    {
+      "work_id": "0166-w007",
+      "title": "La cuestión de la dialéctica",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w008",
+      "title": "Dimensiones de la libertad: sobre la actualidad de la filosofía del derecho de Hegel",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía del derecho",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w009",
+      "title": "Disfraces y extravíos: sobre el descuido del alma",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789972663864"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "disfraces",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "alma",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w010",
+      "title": "El paradigma del reconocimiento en la ética contemporánea",
+      "work_type": "ethics_social_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2017,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2017,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786123173142"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "reconocimiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "notes": "Catálogo Fondo Editorial PUCP confirma primera edición 2017, 265 páginas."
+    },
+    {
+      "work_id": "0166-w011",
+      "title": "Postsecularización: nuevos escenarios del encuentro entre culturas",
+      "work_type": "coedited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2017,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2017,
+      "authorship_status": "joint_editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "postsecularización",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "culturas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "related_contributors": [
+        {
+          "name": "Salomón Lerner Febres",
+          "role": "co-editor"
+        }
+      ]
+    },
+    {
+      "work_id": "0166-w012",
+      "title": "El conflicto de las facultades: sobre la universidad y el sentido de las humanidades",
+      "work_type": "philosophy_of_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2019,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conflicto de las facultades",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanidades",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w013",
+      "title": "Verdad, historia y posverdad: la construcción de narrativas en las humanidades",
+      "work_type": "philosophy_of_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "verdad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "posverdad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w014",
+      "title": "La travesía de la libertad: ensayos sobre Hegel",
+      "work_type": "hegelian_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w015",
+      "title": "Rostros del perdón",
+      "work_type": "coedited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "joint_editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "perdón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "related_contributors": [
+        {
+          "name": "Salomón Lerner Febres",
+          "role": "co-editor"
+        }
+      ]
+    },
+    {
+      "work_id": "0166-w016",
+      "title": "Actualidad del pensamiento de Hegel",
+      "work_type": "edited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "actualidad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ]
+    },
+    {
+      "work_id": "0166-w017",
+      "title": "¿Cuál debe ser el comienzo de la ciencia? Sobre la relevancia de la lógica para la filosofía según Hegel",
+      "work_type": "coedited_collective_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "joint_editor_not_sole_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "comienzo de la ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+      ],
+      "related_contributors": [
+        {
+          "name": "Claudia Aponte",
+          "role": "co-editor"
+        },
+        {
+          "name": "Josimar Castilla",
+          "role": "co-editor"
+        },
+        {
+          "name": "Carlos Schoof",
+          "role": "co-editor"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0166-c001",
+      "title": "Investigación ética y hegeliana en el Centro de Estudios Filosóficos de la PUCP y redes latinoamericanas de reconocimiento",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0166-c002",
+      "title": "Presidencia de la Sociedad Interamericana de Filosofía 2004–2009 y promoción de investigación filosófica internacional",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_author_profile",
+      "title": "PUCP Centro de Estudios Filosóficos: publicaciones de Miguel Giusti",
+      "url": "https://cef.pucp.edu.pe/miembros/miguel-giusti/"
+    },
+    {
+      "kind": "university_author_profile",
+      "title": "Congreso Hegel PUCP: bibliografía y roles de Miguel Giusti",
+      "url": "https://congreso-hegel.pucp.edu.pe/ponentes/miguel-giusti.html"
+    },
+    {
+      "kind": "university_publisher_catalog",
+      "title": "Fondo Editorial PUCP: Miguel Giusti",
+      "url": "https://www.fondoeditorial.pucp.edu.pe/244__miguel-giusti"
+    },
+    {
+      "kind": "university_library_first_edition",
+      "title": "Universidad Nacional del Altiplano: Alas y raíces 1999 primera edición",
+      "url": "https://biblioteca.unap.edu.pe/opac_css/index.php?id=19752&lvl=author_see"
+    },
+    {
+      "kind": "government_biography",
+      "title": "Ministerio de Cultura Perú: perfil de Miguel Giusti",
+      "url": "https://lum.cultura.pe/cdi/fotografia/pensadores-peruanos-miguel-giusti"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, Perú, Ecuador y Colombia, pp. 932–940"
+    }
+  ],
+  "research_notes": [
+    "La pasión de la razón. Miguel Giusti (2025) es volumen de homenaje sobre Giusti, NO obra suya: se excluye expresamente.",
+    "Obras colectivas editadas y coeditadas distinguidas de monografías individuales; otros contribuyentes no coautores de todos los textos.",
+    "No atribuir la producción de redes institucionales a autoría de libros."
+  ]
+}
