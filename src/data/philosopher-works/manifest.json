@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 130,
-    "authors_remaining": 1374,
-    "works_or_contributions_seeded": 1120,
-    "current_batch": "013",
+    "authors_seeded": 140,
+    "authors_remaining": 1364,
+    "works_or_contributions_seeded": 1262,
+    "current_batch": "014",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -707,6 +707,58 @@
       "author_id": 130,
       "canonical_name": "Mario Bunge",
       "path": "authors/0130.json"
+    }
+  ],
+  "batch_014": [
+    {
+      "author_id": 131,
+      "canonical_name": "Rodolfo Kusch",
+      "path": "authors/0131.json"
+    },
+    {
+      "author_id": 132,
+      "canonical_name": "Arturo Andrés Roig",
+      "path": "authors/0132.json"
+    },
+    {
+      "author_id": 133,
+      "canonical_name": "Enrique Eduardo Marí",
+      "path": "authors/0133.json"
+    },
+    {
+      "author_id": 134,
+      "canonical_name": "Ricardo Maliandi",
+      "path": "authors/0134.json"
+    },
+    {
+      "author_id": 135,
+      "canonical_name": "Juan Carlos Scannone",
+      "path": "authors/0135.json"
+    },
+    {
+      "author_id": 136,
+      "canonical_name": "Ernesto Laclau",
+      "path": "authors/0136.json"
+    },
+    {
+      "author_id": 137,
+      "canonical_name": "Ricardo Gómez",
+      "path": "authors/0137.json"
+    },
+    {
+      "author_id": 138,
+      "canonical_name": "Hugo Biagini",
+      "path": "authors/0138.json"
+    },
+    {
+      "author_id": 139,
+      "canonical_name": "Carlos Cullen",
+      "path": "authors/0139.json"
+    },
+    {
+      "author_id": 140,
+      "canonical_name": "Clara Alicia Jalif de Bertranou",
+      "path": "authors/0140.json"
     }
   ]
 }
