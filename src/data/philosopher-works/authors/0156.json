@@ -1,0 +1,1147 @@
+{
+  "schema_version": 1,
+  "author_id": 156,
+  "canonical_name": "Guillermo Francovich",
+  "alternate_names": [
+    "Guillermo Francovich Salazar"
+  ],
+  "life": {
+    "born": {
+      "year": 1901,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1990,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_titles_first_editions_and_roles_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0156-w001",
+      "title": "Supay",
+      "work_type": "philosophical_dialogue_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Supay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "composition_year_before": 1932,
+      "first_publication_language": "portugués",
+      "first_edition": {
+        "year": 1935,
+        "place": "Rio de Janeiro",
+        "publisher": "Norma Editora",
+        "translator": "Pizarro Loureiro"
+      },
+      "edition_history": [
+        {
+          "year": 1939,
+          "place": "Sucre",
+          "publisher": "Charcas",
+          "language": "español",
+          "edition": "segunda edición"
+        },
+        {
+          "year": 1971,
+          "place": "La Paz",
+          "publisher": "Ediciones Camarlinghi",
+          "edition": "tercera edición"
+        }
+      ],
+      "notes": "Seis diálogos redactados antes de 1932; primera edición impresa en traducción portuguesa, no cambiar 1935 por la posterior versión castellana."
+    },
+    {
+      "work_id": "0156-w002",
+      "title": "Los ídolos de Bacon",
+      "work_type": "philosophical_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ídolos de Bacon",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "first_publication_language": "portugués",
+      "first_edition": {
+        "year": 1938,
+        "place": "Rio de Janeiro",
+        "translator": "Pizarro Loureiro"
+      },
+      "edition_history": [
+        {
+          "year": 1942,
+          "place": "Sucre",
+          "language": "español",
+          "edition": "segunda edición"
+        },
+        {
+          "year": 1947,
+          "edition": "tercera edición"
+        },
+        {
+          "year": 1974,
+          "edition": "cuarta edición"
+        }
+      ],
+      "notes": "La traducción portuguesa precede a la edición en castellano 1942."
+    },
+    {
+      "work_id": "0156-w003",
+      "title": "Filósofos brasileños",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filósofos brasileños",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1943,
+          "place": "Buenos Aires",
+          "publisher": "Losada",
+          "edition": "segunda edición"
+        },
+        {
+          "year": 1947,
+          "language": "portugués",
+          "translator": "Irineu Strenger",
+          "edition": "primera edición portuguesa"
+        },
+        {
+          "year": 1979,
+          "language": "portugués",
+          "edition": "segunda edición portuguesa"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w004",
+      "title": "Pachamama: diálogo sobre el porvenir de la cultura en Bolivia",
+      "work_type": "philosophical_dialogue",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Pachamama",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura en Bolivia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1973,
+          "publisher": "Juventud",
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w005",
+      "title": "La filosofía en Bolivia",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía en Bolivia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1945,
+          "language": "portugués",
+          "title": "A filosofia na Bolivia",
+          "notes": "Traducción del mismo año; cotejar secuencia exacta"
+        },
+        {
+          "year": 1966,
+          "publisher": "Juventud",
+          "edition": "segunda edición castellana"
+        },
+        {
+          "year": 1987,
+          "publisher": "Juventud",
+          "edition": "tercera edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w006",
+      "title": "La filosofía existencialista de Martín Heidegger",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "related_people": [
+        {
+          "name": "Martin Heidegger",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w007",
+      "title": "El pensamiento universitario de Charcas y otros ensayos",
+      "work_type": "history_of_ideas_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Charcas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento universitario",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "notes": "Recopilación de ensayos de publicación potencialmente anterior; no confundir fecha de volumen con composición de cada ensayo."
+    },
+    {
+      "work_id": "0156-w008",
+      "title": "Valéry y Kierkegaard",
+      "work_type": "history_of_philosophy_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Valéry",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Kierkegaard",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "related_people": [
+        {
+          "name": "Paul Valéry",
+          "role": "subject"
+        },
+        {
+          "name": "Søren Kierkegaard",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w009",
+      "title": "Los papeles de José Ramón",
+      "work_type": "philosophical_dialogue_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "José Ramón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1984,
+          "title": "Los papeles de José Ramón y otros diálogos",
+          "notes": "Edición ampliada con otros textos; no obra enteramente independiente"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w010",
+      "title": "El mundo, el hombre y los valores",
+      "work_type": "axiology_metaphysics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mundo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valores",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "title_variants": [
+        "Restauración de la filosofía"
+      ],
+      "edition_history": [
+        {
+          "year": 1967,
+          "title": "Restauración de la filosofía",
+          "publisher": "Orión",
+          "place": "México",
+          "notes": "Segunda edición con nuevo título, incluye texto íntegro de 1950"
+        },
+        {
+          "year": 1981,
+          "publisher": "Juventud",
+          "edition": "tercera edición"
+        }
+      ],
+      "notes": "Restauración de la filosofía (1967) no es un libro original separado."
+    },
+    {
+      "work_id": "0156-w011",
+      "title": "Toynbee, Heidegger y Whitehead",
+      "work_type": "history_of_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Toynbee",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Whitehead",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1973,
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w012",
+      "title": "La seguridad colectiva internacional",
+      "work_type": "political_legal_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "seguridad colectiva internacional",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w013",
+      "title": "El condenado por desconfiado",
+      "work_type": "philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1954,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "desconfianza",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w014",
+      "title": "El pensamiento boliviano en el siglo XX",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento boliviano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "siglo XX",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1985,
+          "publisher": "Los Amigos del Libro",
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w015",
+      "title": "Todo ángel es terrible",
+      "work_type": "philosophical_theatre_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ángel",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w016",
+      "title": "Franz Tamayo",
+      "work_type": "intellectual_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Franz Tamayo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "related_people": [
+        {
+          "name": "Franz Tamayo",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w017",
+      "title": "Tres poetas modernistas de Bolivia",
+      "work_type": "literary_criticism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poetas modernistas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "edition_history": [
+        {
+          "year": 1971,
+          "publisher": "Juventud",
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0156-w018",
+      "title": "El cinismo",
+      "work_type": "philosophical_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cinismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w019",
+      "title": "Los tipos humanos y la historia",
+      "work_type": "philosophy_of_history_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tipos humanos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w020",
+      "title": "Ensayos sobre el estructuralismo",
+      "work_type": "philosophy_of_structuralism_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estructuralismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "title_variants": [
+        "El estructuralismo"
+      ],
+      "edition_history": [
+        {
+          "year": 1973,
+          "title": "El estructuralismo",
+          "publisher": "Plus Ultra",
+          "notes": "Edición retitulada, no obra nueva de 1973"
+        }
+      ],
+      "notes": "Incluye ensayos sobre Lévi-Strauss, Foucault, Sartre, Marcuse y MacLuhan."
+    },
+    {
+      "work_id": "0156-w021",
+      "title": "La búsqueda: ensayo sobre la religión",
+      "work_type": "philosophy_of_religion_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "búsqueda",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w022",
+      "title": "Alberto Ostria Gutiérrez",
+      "work_type": "intellectual_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alberto Ostria Gutiérrez",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w023",
+      "title": "Teatro completo. Volumen I",
+      "work_type": "author_collected_plays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "notes": "Compilación editorial de obras dramáticas anteriores; no sustituye fechas de estreno/composición de piezas."
+    },
+    {
+      "work_id": "0156-w024",
+      "title": "Los caminos del exceso",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "caminos del exceso",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w025",
+      "title": "Tito Yupanqui, escultor indio",
+      "work_type": "indigenous_art_history_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Tito Yupanqui",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "escultura",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w026",
+      "title": "Alcides Arguedas y otros ensayos sobre la historia",
+      "work_type": "history_of_ideas_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alcides Arguedas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w027",
+      "title": "Ensayos pascalianos",
+      "work_type": "history_of_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Pascal",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w028",
+      "title": "Los mitos profundos de Bolivia",
+      "work_type": "philosophy_of_myth_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mitos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w029",
+      "title": "El monje de Potosí",
+      "work_type": "philosophical_theatre_edition",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "monje",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Potosí",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "notes": "La pieza apareció en Teatro completo I (1975), por lo que el volumen de 1982 es edición individual y no primera composición.",
+      "prior_collection_year": 1975
+    },
+    {
+      "work_id": "0156-w030",
+      "title": "El odio al pensamiento: los nuevos filósofos franceses",
+      "work_type": "philosophical_criticism_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filósofos franceses",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ]
+    },
+    {
+      "work_id": "0156-w031",
+      "title": "Correspondencias",
+      "work_type": "philosophical_literary_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "correspondencias",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "notes": "Recopilación de textos distintos; no fecha la primera aparición de cada ensayo."
+    },
+    {
+      "work_id": "0156-w032",
+      "title": "Teatro completo. Volumen II",
+      "work_type": "author_collected_plays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+      ],
+      "notes": "Compilación de dramaturgia original anterior; no equivale a la fecha de creación de todas sus piezas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0156-c001",
+      "title": "Investigación historiográfica del pensamiento boliviano y participación en el desarrollo de una filosofía cultural latinoamericana",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0156-c002",
+      "title": "Actividad diplomática y universitaria vinculada con proyectos educativos y culturales de Bolivia",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialist_first_editions_bibliography",
+      "title": "Bibliografía detallada de Guillermo Francovich, Repertorio de Ensayistas",
+      "url": "https://www.ensayistas.org/filosofos/bolivia/francovich/bibliogr-de.htm"
+    },
+    {
+      "kind": "university_author_study",
+      "title": "CEFILIBE Universidad Autónoma Metropolitana: Guillermo Francovich",
+      "url": "https://divcsh.izt.uam.mx/cefilibe/wp-content/uploads/2013/12/G_Francovich.pdf"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca del Congreso Nacional de Chile: obras de Guillermo Francovich",
+      "url": "https://www.bcn.cl/portal/resultado-busqueda?dc_source=&npagina=1&orden_ad=desc&orden_por=1&texto=Francovich%2C+Guillermo%2C"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: perfiles de Bolivia y Perú, pp. 916–930"
+    }
+  ],
+  "research_notes": [
+    "Bibliografía especializada distingue primera impresión de traducciones portuguesas: Supay 1935, Los ídolos de Bacon 1938.",
+    "El estructuralismo (1973) es edición retitulada de Ensayos sobre el estructuralismo (1970).",
+    "Restauración de la filosofía (1967) reedita íntegramente El mundo, el hombre y los valores (1950).",
+    "Volúmenes de teatro recopilado no se cuentan como primera composición de cada pieza individual."
+  ]
+}
