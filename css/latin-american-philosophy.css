@@ -936,11 +936,11 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
 .latam-footer a { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 800; }
 
 @media (max-width: 1080px) {
-  .period-grid { grid-template-columns: repeat(2,1fr); }
-  .period-card:nth-child(2){ border-right: 0; }
-  .period-card:nth-child(-n+2){ border-bottom: 1px solid var(--latam-line); }
+  .period-grid { grid-template-columns: 1fr; }
+  .period-card { min-height: 320px; }
+  .period-visual { min-height: 320px; }
   .period-author-list, .author-directory { grid-template-columns: repeat(3,1fr); }
-  .mini-author:nth-child(4n){ border-right: 1px solid var(--latam-line); }
+  .mini-author:nth-child(4n){ border-right: 1px solid color-mix(in srgb, var(--period-accent) 24%, var(--latam-line)); }
   .mini-author:nth-child(3n){ border-right: 0; }
 }
 @media (max-width: 820px) {
@@ -958,9 +958,13 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
   .section-heading h2, .feature-band h2 { font-size: 44px; }
   .feature-band { padding: 54px 20px; }
   .period-grid { grid-template-columns: 1fr; }
-  .period-card { border-right: 0; border-bottom: 1px solid var(--latam-line); }
-  .period-card:last-child { border-bottom: 0; }
-  .period-card:nth-child(-n+2){ border-bottom: 1px solid var(--latam-line); }
+  .period-card {
+    grid-template-columns: minmax(150px,.7fr) minmax(0,1.3fr);
+    min-height: 300px;
+  }
+  .period-visual { min-height: 300px; }
+  .period-copy { padding: 24px 22px 22px; }
+  .period-card h3 { margin-top: 30px; font-size: clamp(28px,6vw,38px); }
   .period-author-list, .author-directory { grid-template-columns: repeat(2,1fr); }
   .mini-author:nth-child(3n){ border-right: 1px solid var(--latam-line); }
   .mini-author:nth-child(2n){ border-right: 0; }
@@ -968,6 +972,28 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
   .status-filter { display: grid; grid-template-columns: repeat(3,1fr); }
   .latam-footer { grid-template-columns: 1fr; align-items: start; }
 }
+@media (max-width: 620px) {
+  .period-card { grid-template-columns: 1fr; }
+  .period-visual,
+  .period-colonial .period-visual,
+  .period-sigloxx .period-visual {
+    order: 1;
+    min-height: 190px;
+  }
+  .period-copy,
+  .period-colonial .period-copy,
+  .period-sigloxx .period-copy { order: 2; }
+  .period-swatch { height: 54%; width: 48%; }
+  .period-era {
+    writing-mode: horizontal-tb;
+    transform: none;
+    left: auto;
+    right: 18px;
+    bottom: 14px;
+  }
+  .period-card h3 { margin-top: 24px; }
+}
+
 @media (max-width: 520px) {
   .hero-illustration { min-height: 310px; }
   .hero-book { left: 12%; padding: 16px 20px; }
