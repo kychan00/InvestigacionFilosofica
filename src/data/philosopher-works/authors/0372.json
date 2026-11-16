@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 372,
+  "canonical_name": "Carlos Manuel de Céspedes",
+  "alternate_names": [
+    "Carlos Manuel de Céspedes y López del Castillo"
+  ],
+  "life": {
+    "born": {
+      "year": 1819,
+      "certainty": "biographical_source"
+    },
+    "died": {
+      "year": 1874,
+      "certainty": "biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0372-w001",
+      "title": "Manifiesto de la Junta Revolucionaria de la Isla de Cuba, dirigido a sus compatriotas y a todas las naciones",
+      "work_type": "independence_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1868,
+        "certainty": "contemporary_manifesto_date"
+      },
+      "first_publication_year": 1868,
+      "authorship_status": "principal_author_and_revolutionary_leader",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "abolición de la esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Grito de Yara",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://slaveryandremembrance.org/partners/partner/index.cfm?id=P0050&lang=spa",
+        "https://www.cubamilitar.org/wiki/Manifiesto_de_la_Junta_Revolucionaria_de_la_Isla_de_Cuba"
+      ],
+      "notes": "Documento fechado el 10 de octubre de 1868 en Manzanillo/La Demajagua y asociado al inicio de la Guerra de los Diez Años. Estudios históricos documentan su circulación impresa contemporánea. Se registra como manifiesto político, no como libro."
+    },
+    {
+      "work_id": "0372-w002",
+      "title": "Decreto de 27 de diciembre de 1868 sobre la esclavitud",
+      "work_type": "revolutionary_government_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1868,
+        "certainty": "dated_primary_document"
+      },
+      "first_publication_year": 1868,
+      "authorship_status": "revolutionary_executive_authority_and_signatory",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "emancipación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ejército Libertador",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Cuba Libre",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Decreto_de_Carlos_Manuel_de_C%C3%A9spedes_sobre_la_esclavitud",
+        "https://www.ensayistas.org/antologia/XIXE/castelar/esclavitud/cespedes.htm"
+      ],
+      "notes": "Decreto firmado en Bayamo el 27 de diciembre de 1868 por Céspedes como capitán general del Ejército Libertador y encargado del gobierno provisional. Su contenido muestra una abolición condicionada y progresiva en el contexto de guerra; no debe resumirse anacrónicamente como abolición general inmediata."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Vinculación del proyecto independentista cubano con la creación republicana y la emancipación de la población esclavizada",
+      "kind": "independence_and_emancipation_contribution",
+      "authorship_status": "documented_in_historical_and_human_rights_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "biographical_source",
+      "title": "CNDH México — Carlos Manuel de Céspedes",
+      "url": "https://www.cndh.org.mx/sites/default/files/documentos/2025-01/FRI_FEB_27-1.pdf"
+    },
+    {
+      "kind": "historical_site_source",
+      "title": "Slavery and Remembrance — Ruinas del Ingenio La Demajagua",
+      "url": "https://slaveryandremembrance.org/partners/partner/index.cfm?id=P0050&lang=spa"
+    },
+    {
+      "kind": "scholarly_text_source",
+      "title": "Ensayistas.org — Decreto sobre la esclavitud cotejado con ediciones cubanas",
+      "url": "https://www.ensayistas.org/antologia/XIXE/castelar/esclavitud/cespedes.htm"
+    }
+  ],
+  "research_notes": [
+    "Se diferencian el manifiesto del 10 de octubre y el decreto del 27 de diciembre de 1868.",
+    "El decreto abolicionista fue una disposición del gobierno revolucionario firmada por Céspedes; su alcance jurídico se describe en las notas y no se simplifica."
+  ]
+}
