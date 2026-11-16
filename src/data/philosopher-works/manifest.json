@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 110,
-    "authors_remaining": 1394,
-    "works_or_contributions_seeded": 898,
-    "current_batch": "011",
+    "authors_seeded": 120,
+    "authors_remaining": 1384,
+    "works_or_contributions_seeded": 1008,
+    "current_batch": "012",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -603,6 +603,58 @@
       "author_id": 110,
       "canonical_name": "Enrique Dussel",
       "path": "authors/0110.json"
+    }
+  ],
+  "batch_012": [
+    {
+      "author_id": 111,
+      "canonical_name": "Juliana González Valenzuela",
+      "path": "authors/0111.json"
+    },
+    {
+      "author_id": 112,
+      "canonical_name": "Jaime Labastida Ochoa",
+      "path": "authors/0112.json"
+    },
+    {
+      "author_id": 113,
+      "canonical_name": "Carlos Pereda",
+      "path": "authors/0113.json"
+    },
+    {
+      "author_id": 114,
+      "canonical_name": "Mario Magallón Anaya",
+      "path": "authors/0114.json"
+    },
+    {
+      "author_id": 115,
+      "canonical_name": "Mauricio Beuchot",
+      "path": "authors/0115.json"
+    },
+    {
+      "author_id": 116,
+      "canonical_name": "Horacio Cerutti Guldberg",
+      "path": "authors/0116.json"
+    },
+    {
+      "author_id": 117,
+      "canonical_name": "Ambrosio Velasco Gómez",
+      "path": "authors/0117.json"
+    },
+    {
+      "author_id": 118,
+      "canonical_name": "Alejandro Korn",
+      "path": "authors/0118.json"
+    },
+    {
+      "author_id": 119,
+      "canonical_name": "Carlos Astrada",
+      "path": "authors/0119.json"
+    },
+    {
+      "author_id": 120,
+      "canonical_name": "Coriolano Alberini",
+      "path": "authors/0120.json"
     }
   ]
 }
