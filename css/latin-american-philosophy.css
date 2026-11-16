@@ -301,60 +301,328 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
   font-size: 14px;
   line-height: 1.7;
 }
-.period-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--latam-line); }
+.period-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 20px;
+}
+
 .period-card {
-  position: relative;
-  min-height: 360px;
-  padding: 24px 22px 22px;
+  --period-bg: #9f382e;
+  --period-ink: #fff1d1;
+  --period-visual: #17382f;
+  --period-accent: #d7a34d;
+  --period-muted: rgba(255,241,209,.72);
+  display: grid;
+  grid-template-columns: minmax(180px,.78fr) minmax(0,1.22fr);
+  min-height: 340px;
   overflow: hidden;
-  border-right: 1px solid var(--latam-line);
-  background: var(--latam-card);
+  border: 1px solid color-mix(in srgb, var(--period-bg) 70%, #2c2217);
+  background: var(--period-bg);
+  color: var(--period-ink);
+  box-shadow: 0 18px 38px var(--latam-shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
-.period-card:last-child { border-right: 0; }
-.period-card::after {
-  content: "❦";
+
+.period-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--latam-shadow) 82%, transparent);
+}
+
+.period-visual {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  background-color: var(--period-visual);
+  isolation: isolate;
+}
+
+.period-visual::before,
+.period-visual::after {
+  content: "";
   position: absolute;
-  right: 12px; bottom: -18px;
-  color: rgba(162,61,44,.18);
-  font-size: 110px;
-  transform: rotate(-12deg);
+  inset: 0;
+  pointer-events: none;
 }
-.period-number { color: var(--latam-red); font-size: 54px; line-height: 1; }
-.period-card > p {
-  margin: 70px 0 10px;
-  color: var(--latam-muted);
-  font-family: Arial, Helvetica, sans-serif;
+
+.period-visual::after {
+  inset: auto 18px 18px auto;
+  width: 84px;
+  height: 84px;
+  border: 1px solid color-mix(in srgb, var(--period-accent) 75%, transparent);
+  transform: rotate(45deg);
+  opacity: .5;
+}
+
+.period-symbol {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  top: 20px;
+  color: var(--period-accent);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.period-era {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  bottom: 22px;
+  color: var(--period-ink);
+  font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: .14em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
-.period-card h3 { margin: 0; font-size: 29px; font-weight: 400; line-height: 1.02; }
+
+.period-swatch {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 50%;
+  display: grid;
+  width: 58%;
+  height: 42%;
+  grid-template-columns: repeat(4,1fr);
+  transform: translateY(-50%);
+  box-shadow: -18px 18px 0 rgba(0,0,0,.08);
+}
+
+.period-swatch i { min-width: 0; }
+
+.period-copy {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 26px 28px 24px;
+  background: var(--period-bg);
+}
+
+.period-copy::before {
+  content: "";
+  position: absolute;
+  inset: 18px 18px auto auto;
+  width: 72px;
+  height: 1px;
+  background: color-mix(in srgb, var(--period-accent) 74%, transparent);
+}
+
+.period-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.period-number {
+  color: var(--period-accent);
+  font-size: 54px;
+  line-height: .9;
+}
+
+.period-meta p {
+  margin: 0;
+  color: var(--period-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .15em;
+}
+
+.period-card h3 {
+  max-width: 440px;
+  margin: 42px 0 0;
+  font-size: clamp(27px,2.6vw,40px);
+  font-weight: 400;
+  letter-spacing: -.025em;
+  line-height: .96;
+}
+
 .period-card small {
   display: block;
+  max-width: 480px;
   margin-top: 18px;
-  color: var(--latam-muted);
+  color: var(--period-muted);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
-  line-height: 1.55;
+  line-height: 1.6;
 }
+
 .period-card button {
-  position: absolute;
-  left: 22px; bottom: 18px;
-  z-index: 2;
-  padding: 0;
+  width: fit-content;
+  margin-top: auto;
+  padding: 16px 0 0;
   border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--period-accent) 75%, transparent);
   background: transparent;
-  color: var(--latam-red-dark);
+  color: var(--period-ink);
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .035em;
 }
-.period-card:hover { background: color-mix(in srgb, var(--latam-card) 72%, var(--latam-paper-deep)); }
-.period-originarios { border-top: 6px solid var(--latam-gold); }
-.period-colonial { border-top: 6px solid var(--latam-green-2); }
-.period-madura { border-top: 6px solid var(--latam-red); }
-.period-sigloxx { border-top: 6px solid var(--latam-blue); }
+
+/* I · pueblos originarios: textil, tierra, códice */
+.period-originarios {
+  --period-bg: #a33b2f;
+  --period-ink: #fff0cd;
+  --period-visual: #132d32;
+  --period-accent: #e0a53f;
+  --period-muted: #efd9b2;
+}
+
+.period-originarios .period-visual {
+  background:
+    linear-gradient(90deg, transparent 0 50%, rgba(231,169,65,.12) 50% 100%),
+    #142e32;
+}
+
+.period-originarios .period-visual::before {
+  background:
+    linear-gradient(45deg, transparent 40%, rgba(221,164,65,.32) 41% 47%, transparent 48% 100%),
+    linear-gradient(-45deg, transparent 40%, rgba(152,55,47,.42) 41% 47%, transparent 48% 100%);
+  background-size: 42px 42px;
+  opacity: .75;
+}
+
+.period-originarios .period-swatch i:nth-child(1) { background: #d6a13e; }
+.period-originarios .period-swatch i:nth-child(2) {
+  background:
+    repeating-linear-gradient(45deg,#813226 0 8px,#d76543 8px 16px,#efc65f 16px 22px);
+}
+.period-originarios .period-swatch i:nth-child(3) { background: #2b655a; }
+.period-originarios .period-swatch i:nth-child(4) {
+  background:
+    repeating-linear-gradient(-45deg,#172e33 0 9px,#275c56 9px 17px,#d7a143 17px 21px);
+}
+
+/* II · colonia: manuscrito, barroco, archivo */
+.period-colonial {
+  --period-bg: #273c31;
+  --period-ink: #f3e7c8;
+  --period-visual: #e5cf9a;
+  --period-accent: #b54f38;
+  --period-muted: #cec4aa;
+}
+
+.period-colonial .period-visual { order: 2; }
+.period-colonial .period-copy { order: 1; }
+.period-colonial .period-visual {
+  background:
+    linear-gradient(90deg, rgba(99,73,42,.18) 1px, transparent 1px),
+    linear-gradient(rgba(99,73,42,.09) 1px, transparent 1px),
+    #e5cf9a;
+  background-size: 32px 100%, 100% 24px, auto;
+}
+
+.period-colonial .period-visual::before {
+  inset: 24px;
+  border: 1px solid rgba(94,61,35,.45);
+  background:
+    radial-gradient(circle at 22% 24%, rgba(154,68,47,.22) 0 3px, transparent 4px),
+    repeating-radial-gradient(circle at 58% 54%, transparent 0 13px, rgba(39,60,49,.16) 14px 15px);
+}
+
+.period-colonial .period-symbol,
+.period-colonial .period-era { color: #633f2d; }
+
+.period-colonial .period-swatch {
+  width: 48%;
+  height: 48%;
+  right: 12%;
+}
+
+.period-colonial .period-swatch i:nth-child(1) { background: #b34b36; }
+.period-colonial .period-swatch i:nth-child(2) { background: #8e6f3b; }
+.period-colonial .period-swatch i:nth-child(3) { background: #293c31; }
+.period-colonial .period-swatch i:nth-child(4) {
+  background:
+    repeating-linear-gradient(0deg,#d4b879 0 9px,#efe0b3 9px 18px);
+}
+
+/* III · modernidad madura: imprenta, república, siglo XIX */
+.period-madura {
+  --period-bg: #efe0b7;
+  --period-ink: #222f35;
+  --period-visual: #172c38;
+  --period-accent: #a3382f;
+  --period-muted: #665e4c;
+}
+
+.period-madura .period-copy {
+  background:
+    linear-gradient(90deg, rgba(163,56,47,.08) 1px, transparent 1px),
+    var(--period-bg);
+  background-size: 34px 100%;
+}
+
+.period-madura .period-visual {
+  background:
+    linear-gradient(180deg, #172c38 0 64%, #9e352e 64% 78%, #d9b96c 78% 100%);
+}
+
+.period-madura .period-visual::before {
+  inset: 22px 24px 62px;
+  border-top: 2px solid #e4d09c;
+  border-bottom: 1px solid rgba(228,208,156,.6);
+  background:
+    linear-gradient(90deg, rgba(228,208,156,.16) 1px, transparent 1px);
+  background-size: 22px 100%;
+}
+
+.period-madura .period-swatch {
+  width: 74%;
+  height: 28%;
+  right: 0;
+  top: 43%;
+}
+
+.period-madura .period-swatch i:nth-child(1) { background: #f0dfb2; }
+.period-madura .period-swatch i:nth-child(2) { background: #9e352e; }
+.period-madura .period-swatch i:nth-child(3) { background: #31566a; }
+.period-madura .period-swatch i:nth-child(4) { background: #d6a140; }
+
+/* IV · siglo XX: modernismo editorial, geometría y contraste */
+.period-sigloxx {
+  --period-bg: #10232d;
+  --period-ink: #f5e8c9;
+  --period-visual: #c9a53b;
+  --period-accent: #d65e43;
+  --period-muted: #c9c4ae;
+}
+
+.period-sigloxx .period-visual { order: 2; }
+.period-sigloxx .period-copy { order: 1; }
+
+.period-sigloxx .period-visual {
+  background:
+    linear-gradient(90deg, #c7a53b 0 32%, #a53b30 32% 52%, #e3d6aa 52% 72%, #315d6f 72%);
+}
+
+.period-sigloxx .period-visual::before {
+  inset: 14% 10% 18%;
+  background:
+    radial-gradient(circle at 22% 35%, #11242d 0 34px, transparent 35px),
+    linear-gradient(135deg, transparent 0 47%, rgba(16,35,45,.82) 48% 53%, transparent 54%),
+    linear-gradient(45deg, transparent 0 47%, rgba(163,59,48,.58) 48% 53%, transparent 54%);
+}
+
+.period-sigloxx .period-swatch {
+  width: 44%;
+  height: 52%;
+  right: 9%;
+}
+
+.period-sigloxx .period-swatch i:nth-child(1) { background: #10232d; }
+.period-sigloxx .period-swatch i:nth-child(2) { background: #d45d43; }
+.period-sigloxx .period-swatch i:nth-child(3) { background: #eadab1; }
+.period-sigloxx .period-swatch i:nth-child(4) { background: #336374; }
+
 
 .feature-band {
   display: grid;
