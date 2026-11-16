@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "author_id": 105,
+  "canonical_name": "Luis Villoro",
+  "alternate_names": [
+    "Luis Villoro Toranzo"
+  ],
+  "life": {
+    "born": {
+      "year": 1922,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2014,
+      "certainty": "verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_indigenism_independence_epistemology_ideology_modernity_ethics_pluralism_and_democracy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0105-w001",
+      "title": "Los grandes momentos del indigenismo en México",
+      "work_type": "history_of_ideas_indigenism_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "indigenismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w002",
+      "title": "El proceso ideológico de la revolución de Independencia",
+      "work_type": "history_of_ideas_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Independencia de México",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revolución",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w003",
+      "title": "Páginas filosóficas",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w004",
+      "title": "La idea y el ente en la filosofía de Descartes",
+      "work_type": "history_of_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "René Descartes",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Descartes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "idea",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ente",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w005",
+      "title": "Creer, saber, conocer",
+      "work_type": "epistemology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "creencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "saber",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w006",
+      "title": "El concepto de ideología y otros ensayos",
+      "work_type": "political_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w007",
+      "title": "El pensamiento moderno: filosofía del Renacimiento",
+      "work_type": "history_of_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento moderno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Renacimiento",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w008",
+      "title": "El poder y el valor: fundamentos de una ética política",
+      "work_type": "political_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poder",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "valor",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética política",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w009",
+      "title": "Estado plural, pluralidad de culturas",
+      "work_type": "multiculturalism_political_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estado plural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pluralidad cultural",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "multiculturalismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0105-w010",
+      "title": "Los retos de la sociedad por venir: ensayos sobre justicia, democracia y multiculturalismo",
+      "alternate_titles": [
+        "Tres retos de la sociedad por venir: justicia, democracia y pluralidad"
+      ],
+      "work_type": "political_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "verified_title_variant",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "justicia",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "pluralidad",
+          "provenance": "alternate_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Diálogo filosófico con comunidades indígenas y acompañamiento intelectual del zapatismo",
+      "kind": "public_philosophy_contribution",
+      "period": {
+        "start": 1990,
+        "end": 2014,
+        "certainty": "documented_late_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "autonomía indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pluralismo",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Luis Villoro Toranzo",
+      "url": "https://www.filosoficas.unam.mx/sitio/sitio/sitio/sitio/luis-villoro",
+      "publisher": "Instituto de Investigaciones Filosóficas, UNAM"
+    },
+    {
+      "kind": "university_public_portal",
+      "title": "Luis Villoro — obras",
+      "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_audio_bibliography",
+      "title": "Luis Villoro — Voz Viva",
+      "url": "https://vozviva.unam.mx/bitstream/123456789/182/821/VVM044_LV_ficha_VozViva.pdf",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Luis Villoro (1922-)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente añadir La significación del silencio, Signos políticos, artículos y correspondencia.",
+    "La ficha actualiza la muerte a 2014, dato posterior al libro-base de 2009."
+  ]
+}
