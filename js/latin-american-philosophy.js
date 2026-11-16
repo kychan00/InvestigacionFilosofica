@@ -853,7 +853,8 @@ async function runLiveAuthorResearch(record, section) {
   }
 
   liveResearchController?.abort();
-  liveResearchController = new AbortController();
+  const controller = new AbortController();
+  liveResearchController = controller;
   button.disabled = true;
   button.textContent = "Buscando…";
   status.textContent = "Consultando CUCSH Filosofía · Crossref · Internet Archive…";
@@ -867,14 +868,14 @@ async function runLiveAuthorResearch(record, section) {
       {
         maxQueries: 1,
         delayBetweenExpansions: 0,
-        signal: liveResearchController.signal,
+        signal: controller.signal,
         openAlexPhilosophy: { enabled: false },
         cucshFilosofia: { enabled: true, rows: 12 },
         crossref: { enabled: true, rows: 12 },
         internetArchive: { enabled: true, rows: 12 },
         orcid: { enabled: false },
         onPartialResults: partial => {
-          if (!liveResearchController?.signal.aborted) {
+          if (!controller.signal.aborted && liveResearchController === controller) {
             renderLiveResearchResults(record, partial, results, status);
           }
         }
@@ -888,8 +889,11 @@ async function runLiveAuthorResearch(record, section) {
     results.innerHTML = '<div class="author-live-empty"><strong>No fue posible completar la búsqueda.</strong><p>Puede intentarlo de nuevo; la ficha curada no se modifica.</p></div>';
     status.textContent = "Búsqueda federada no disponible en este momento.";
   } finally {
-    button.disabled = false;
-    button.textContent = "Buscar obras en el motor";
+    if (liveResearchController === controller) {
+      liveResearchController = null;
+      button.disabled = false;
+      button.textContent = "Buscar obras en el motor";
+    }
   }
 }
 
