@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "author_id": 233,
+  "canonical_name": "Vicente Tenorio",
+  "alternate_names": [
+    "Fray Vicente Tenorio"
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "historical_manuscript_course_record_not_printed_book",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0233-w001",
+      "title": "Philosophiae cursus",
+      "work_type": "scholastic_philosophy_lecture_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_course_dated",
+        "period": {
+          "start": 1750,
+          "end": 1750
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía escolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "manuscript": {
+        "year": 1750,
+        "order": "Agustinos",
+        "repository": "pendiente_de_cotejo"
+      },
+      "evidence_urls": [
+        "https://www.iifilologicas.unam.mx/pnovohispano/uploads/fyc/art15_fyc.pdf",
+        "https://repositorio.colmex.mx/downloads/0k225f90c?locale=es"
+      ],
+      "notes": "El estudio UNAM cita a Bernabé Navarro identificando Philosophiae Cursus de Vicente Tenorio fechado 1750. Primera edición impresa no verificada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo y transmisión de un curso filosófico agustiniano hacia 1750",
+      "kind": "colonial_philosophical_teaching",
+      "authorship_status": "scholarly_attribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_scholarly_manuscript_study",
+      "title": "Fermín y Larregui: doctrina sobre el término (UNAM), referencia a Vicente Tenorio",
+      "url": "https://www.iifilologicas.unam.mx/pnovohispano/uploads/fyc/art15_fyc.pdf"
+    },
+    {
+      "kind": "academic_historical_monograph",
+      "title": "Bernabé Navarro, La introducción de la filosofía moderna en México",
+      "url": "https://repositorio.colmex.mx/downloads/0k225f90c?locale=es"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Vicente Tenorio, 1750"
+    }
+  ],
+  "research_notes": [
+    "El año 1750 corresponde al curso manuscrito y no se transfiere a first_publication_year.",
+    "Ubicación material exacta del manuscrito pendiente."
+  ]
+}
