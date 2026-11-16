@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "author_id": 364,
+  "canonical_name": "Javier Prado",
+  "alternate_names": [
+    "Javier Prado y Ugarteche"
+  ],
+  "life": {
+    "born": {
+      "year": 1871,
+      "certainty": "university_source"
+    },
+    "died": {
+      "year": 1921,
+      "certainty": "university_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0364-w001",
+      "title": "El genio",
+      "work_type": "bachelors_thesis_and_published_academic_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1888,
+        "certainty": "university_archive_record"
+      },
+      "first_publication_year": 1890,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "genio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unmsm.edu.pe/bitstream/handle/UNMSM/447/Prado_uj.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "Tesis de bachiller leída y aprobada en 1888; el registro del Fondo Reservado UNMSM indica publicación en Anales Universitarios del Perú, tomo XVI, 1890, pp. 145–185."
+    },
+    {
+      "work_id": "0364-w002",
+      "title": "La evolución de la idea filosófica en la historia",
+      "work_type": "doctoral_philosophy_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1891,
+        "certainty": "university_primary_source"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolución",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.unmsm.edu.pe/bitstream/handle/UNMSM/476/Anales_universitarios_t19_1892.pdf?sequence=3"
+      ],
+      "notes": "Tesis doctoral correspondiente al año escolar de 1891, publicada en los Anales Universitarios de 1892."
+    },
+    {
+      "work_id": "0364-w003",
+      "title": "Estado social del Perú durante la dominación española",
+      "work_type": "historical_sociology_academic_discurso_and_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1894,
+        "certainty": "original_edition_catalog"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad colonial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología histórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Perú",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com.pe/books?id=qGQkfXGbHhIC",
+        "https://revistasinvestigacion.unmsm.edu.pe/index.php/ishra/article/download/19253/17476/75657"
+      ],
+      "notes": "Discurso de apertura del año académico de San Marcos en 1894, publicado ese mismo año en Anales y en edición independiente de la Biblioteca de El Diario Judicial/Agois. El contenido contiene tesis racialistas propias de su contexto que deben estudiarse críticamente, no normalizarse como categorías actuales."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de un positivismo académico peruano aplicado a historia de la filosofía, derecho y análisis sociológico",
+      "kind": "peruvian_positivist_philosophy_contribution",
+      "authorship_status": "documented_in_university_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_primary_source",
+      "title": "UNMSM — tesis La evolución de la idea filosófica en la historia, Anales 1892",
+      "url": "https://repositorio.unmsm.edu.pe/bitstream/handle/UNMSM/476/Anales_universitarios_t19_1892.pdf?sequence=3"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Google Books — Estado social del Perú, edición 1894",
+      "url": "https://books.google.com.pe/books?id=qGQkfXGbHhIC"
+    }
+  ],
+  "research_notes": [
+    "El nombre completo Javier Prado y Ugarteche se conserva como variante de autoridad.",
+    "Se separan fecha de defensa de tesis y fecha de impresión en Anales cuando la fuente lo permite."
+  ]
+}
