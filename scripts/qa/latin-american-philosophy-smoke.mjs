@@ -1,0 +1,162 @@
+import assert from "node:assert/strict";
+import { mkdir } from "node:fs/promises";
+import { chromium } from "playwright";
+
+const BASE = process.env.MOBILE_UI_BASE_URL || "http://127.0.0.1:4173/";
+const PAGE_URL = new URL("filosofia-latinoamericana.html", BASE).href;
+const WIDTHS = [390, 768, 1280];
+const ARTIFACTS = "artifacts/latin-american-philosophy";
+
+await mkdir(ARTIFACTS, { recursive: true });
+
+const browser = await chromium.launch({
+  headless: true,
+  args: ["--no-sandbox"]
+});
+
+try {
+  for (const width of WIDTHS) {
+    const context = await browser.newContext({
+      viewport: { width, height: 900 },
+      colorScheme: "light",
+      reducedMotion: "reduce"
+    });
+    const page = await context.newPage();
+    const pageErrors = [];
+    page.on("pageerror", error => pageErrors.push(error.message));
+
+    const response = await page.goto(PAGE_URL, { waitUntil: "domcontentloaded" });
+    assert.equal(response?.status(), 200, "Latin American philosophy page must be served");
+
+    await page.waitForFunction(() => {
+      const seeded = document.querySelector("#stat-seeded")?.textContent?.trim();
+      return seeded && seeded !== "—";
+    });
+
+    const geometry = await page.evaluate(() => {
+      const rect = selector => {
+        const element = document.querySelector(selector);
+        if (!element) return null;
+        const box = element.getBoundingClientRect();
+        return {
+          left: box.left,
+          right: box.right,
+          top: box.top,
+          bottom: box.bottom,
+          width: box.width,
+          height: box.height
+        };
+      };
+
+      return {
+        viewport: innerWidth,
+        scrollWidth: document.documentElement.scrollWidth,
+        hero: rect(".latam-hero"),
+        periodGrid: rect(".period-grid"),
+        periodCards: [...document.querySelectorAll(".period-card")].map(card => {
+          const box = card.getBoundingClientRect();
+          return {
+            left: box.left,
+            right: box.right,
+            width: box.width,
+            height: box.height
+          };
+        }),
+        periodCtas: [...document.querySelectorAll(".period-card button")].map(button => {
+          const box = button.getBoundingClientRect();
+          return { width: box.width, height: box.height };
+        }),
+        directory: rect("#author-directory"),
+        skipLink: Boolean(document.querySelector(".skip-link")),
+        dialogLabel: document.querySelector("#author-dialog")?.getAttribute("aria-labelledby")
+      };
+    });
+
+    assert.ok(
+      geometry.scrollWidth <= geometry.viewport + 3,
+      "Page must not overflow horizontally at " + width + "px: " + JSON.stringify(geometry)
+    );
+    assert.equal(geometry.periodCards.length, 4, "Exactly four major period cards are required");
+    assert.equal(geometry.skipLink, true, "Skip link must exist");
+    assert.equal(geometry.dialogLabel, "author-dialog-title", "Author dialog must be labelled");
+    for (const card of geometry.periodCards) {
+      assert.ok(card.left >= -2 && card.right <= geometry.viewport + 2,
+        "Period card clipped at " + width + "px: " + JSON.stringify(card));
+    }
+    for (const cta of geometry.periodCtas) {
+      assert.ok(cta.height >= 40, "Period CTA should remain a usable target");
+    }
+
+    assert.equal(await page.locator("#author-directory .author-card").count(), 80,
+      "Initial directory should render one bounded page of authors");
+
+    await page.locator("#author-search").fill("Firmin");
+    await page.waitForFunction(() =>
+      document.querySelector("#author-directory")?.textContent?.includes("Anténor Firmin")
+    );
+    assert.equal(await page.locator("#author-directory .author-card").count(), 1,
+      "Search should narrow directory to Firmin");
+
+    const firminCard = page.locator("#author-directory .author-card").first();
+    assert.equal(await firminCard.getAttribute("type"), "button",
+      "Documented author cards should be interactive buttons");
+    await firminCard.click();
+
+    await page.locator("#author-dialog[open]").waitFor({ state: "visible" });
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dialog-title")?.textContent?.includes("Anténor Firmin")
+    );
+    assert.ok(await page.locator("#author-dialog .author-work-list li").count() >= 1,
+      "Author dialog should render documented works");
+    assert.ok(await page.locator("#author-dialog .author-source-list a").count() >= 1,
+      "Author dialog should render source links");
+    await page.locator("#author-dialog-close").click();
+
+    await page.locator("#author-search").fill("");
+    await page.locator('[data-status-filter="seeded"]').click();
+    await page.waitForFunction(() =>
+      document.querySelector("#directory-status")?.textContent?.includes("440")
+    );
+
+    await page.locator("#con-obra").scrollIntoViewIfNeeded();
+    await page.locator(".period-author-group").first().waitFor({ state: "visible" });
+    const firstLoaded = await page.locator(".mini-author").count();
+    assert.ok(firstLoaded > 0 && firstLoaded <= 40,
+      "First period hydration must be bounded to one 40-author batch");
+
+    const periodLoadMore = page.locator("#load-more-period-authors");
+    if (await periodLoadMore.isVisible()) {
+      await periodLoadMore.click();
+      await page.waitForFunction(() => {
+        const text = document.querySelector("#periodization-status")?.textContent || "";
+        return /80 de \d+ fichas cargadas/.test(text);
+      });
+      assert.ok(await page.locator(".mini-author").count() > firstLoaded,
+        "Loading the next period batch should add authors");
+    }
+
+    if (width >= 821) {
+      await page.locator('[data-theme-choice="dark"]').click();
+      assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
+    } else {
+      await page.locator(".site-menu-toggle").click();
+      await page.locator('[data-site-theme="dark"]').click();
+      assert.equal(await page.locator("html").getAttribute("data-theme"), "dark");
+      await page.locator(".site-menu-close").click();
+    }
+
+    assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
+
+    await page.screenshot({
+      path: ARTIFACTS + "/archive-" + width + ".png",
+      fullPage: true,
+      animations: "disabled"
+    });
+
+    await context.close();
+  }
+
+  process.stdout.write("Latin American philosophy responsive smoke OK\n");
+} finally {
+  await browser.close();
+}
