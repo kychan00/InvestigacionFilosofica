@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "author_id": 123,
+  "canonical_name": "Nimio de Anquín",
+  "alternate_names": [
+    "Nimio Manuel de Anquín"
+  ],
+  "life": {
+    "born": {
+      "year": 1896,
+      "certainty": "standard",
+      "date": "1896-08-12"
+    },
+    "died": {
+      "year": 1979,
+      "certainty": "standard",
+      "date": "1979-05-16"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_neoscholastic_anthropology_metaphysics_being_america_and_late_history_of_being_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0123-w001",
+      "title": "Un aspecto de la neoescolástica: nueva forma de realismo inmediato",
+      "work_type": "neoscholastic_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "neoescolástica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "realismo inmediato",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w002",
+      "title": "El problema epistemológico de la filosofía actual",
+      "work_type": "epistemology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "epistemología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía actual",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w003",
+      "title": "Cómo se desarrolló el pensamiento de Aristóteles",
+      "work_type": "history_of_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Aristóteles",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristóteles",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w004",
+      "title": "Sobre la fortaleza y la muerte",
+      "work_type": "ethics_metaphysics_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fortaleza",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "muerte",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w005",
+      "title": "Antropología de los tres hombres históricos",
+      "work_type": "philosophical_anthropology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre judío",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hombre griego",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hombre cristiano",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w006",
+      "title": "Ente y Ser",
+      "work_type": "ontology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "article_publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ente",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Artículo original de 1952 posteriormente recogido y ampliado en el volumen Ente y ser de 1962."
+    },
+    {
+      "work_id": "0123-w007",
+      "title": "Mito y política",
+      "work_type": "political_philosophy_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w008",
+      "title": "El Ser, visto desde América",
+      "work_type": "american_ontology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w009",
+      "title": "Ente y ser: perspectivas para una filosofía del ser naciente",
+      "work_type": "ontology_collected_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "book_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "verified_collection_of_revised_earlier_essays",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ente",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ser",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "América",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Incluye y reelabora varios textos anteriores; no debe borrar las fechas originales de los ensayos incluidos."
+    },
+    {
+      "work_id": "0123-w010",
+      "title": "Presencia de santo Tomás en el pensamiento contemporáneo",
+      "work_type": "thomism_contemporary_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Tomás de Aquino",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Tomás de Aquino",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento contemporáneo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w011",
+      "title": "Los grandes dialécticos del siglo XX",
+      "work_type": "dialectics_history_of_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "siglo XX",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0123-w012",
+      "title": "De las dos inhabitaciones del hombre",
+      "work_type": "philosophical_anthropology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "inhabitación",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de una metafísica del ser naciente y reflexión sobre el ser desde América",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1926,
+        "end": 1979,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser americano",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_bibliography",
+      "title": "Ficha bibliográfica del Dr. Nimio de Anquín",
+      "url": "https://bdigital.uncu.edu.ar/objetos_digitales/4560/221-cuyo-1979-tomo-12.pdf",
+      "publisher": "Universidad Nacional de Cuyo"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "Ente y ser",
+      "url": "https://redbiblio.unne.edu.ar/pergamo/documento.php?id=RESISTENCIA.42.118932&recno=118932&ui=42",
+      "publisher": "Universidad Nacional del Nordeste"
+    },
+    {
+      "kind": "historical_profile",
+      "title": "Nimio de Anquín 1896-1979",
+      "url": "https://www.filosofia.org/ave/003/c154.htm",
+      "publisher": "Filosofía en español"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Nimio de Anquín (1896-1979)"
+    }
+  ],
+  "research_notes": [
+    "Se distinguen el artículo Ente y Ser (1952) y el volumen recopilatorio/reelaborado de 1962.",
+    "Pendiente desglosar producción política, aristotélica y medieval adicional."
+  ]
+}
