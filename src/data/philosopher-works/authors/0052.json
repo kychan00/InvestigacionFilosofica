@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "author_id": 52,
+  "canonical_name": "Juan José Arévalo Bermejo",
+  "alternate_names": [
+    "Juan José Arévalo"
+  ],
+  "life": {
+    "born": {
+      "year": 1904,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1990,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "substantial_pedagogical_philosophical_political_and_autobiographical_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0052-w001",
+      "title": "Método nacional",
+      "work_type": "education_method_text",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "método",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w002",
+      "title": "La pedagogía de la personalidad",
+      "work_type": "doctoral_thesis_pedagogy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "publication_or_thesis_context"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "personalidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "formación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w003",
+      "title": "La filosofía de los valores en la pedagogía",
+      "work_type": "philosophy_of_education_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valores",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w004",
+      "title": "La adolescencia como evasión y retorno",
+      "work_type": "pedagogical_psychology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "adolescencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicología",
+          "provenance": "catalog"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w005",
+      "title": "Escritos pedagógicos y filosóficos",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w006",
+      "title": "Guatemala: la democracia y el imperio",
+      "work_type": "political_analysis_memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1954,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guatemala",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "imperio",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "intervención",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w007",
+      "title": "Fábula del tiburón y las sardinas",
+      "work_type": "political_fable_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Latina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "imperialismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Estados Unidos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w008",
+      "title": "Anticomunismo en América Latina",
+      "work_type": "political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "anticomunismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w009",
+      "title": "La personalidad, la adolescencia, los valores",
+      "work_type": "pedagogy_philosophy_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valores",
+          "provenance": "catalog"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía guatemalteca",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Reúne textos previos, entre ellos La pedagogía de la personalidad, La filosofía de los valores en la pedagogía y La adolescencia como evasión y retorno; no contarlos doble como obras nuevas en estadísticas de producción original."
+    },
+    {
+      "work_id": "0052-w010",
+      "title": "La Argentina que yo viví",
+      "work_type": "autobiographical_intellectual_memory",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Argentina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "memoria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "formación intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w011",
+      "title": "El candidato blanco y el huracán, 1944-1945",
+      "work_type": "autobiographical_political_memory",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "8483760258",
+          "9788483760253"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "elecciones de 1944",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Revolución de Octubre",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Guatemala",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w012",
+      "title": "El concepto de la amistad según los escolares",
+      "work_type": "educational_psychology_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "amistad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "escolares",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicología",
+          "provenance": "catalog"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0052-w013",
+      "title": "Seis años de gobierno",
+      "work_type": "political_presidential_memory",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Guatemala",
+          "provenance": "inferred"
+        },
+        {
+          "term": "socialismo espiritual",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "university_biography",
+      "title": "Juan José Arévalo",
+      "url": "https://unlp.edu.ar/institucional/unlp/historia/legados_personas/vidas_y_retratos_juan_jose_arevalo-7199-12199/",
+      "publisher": "Universidad Nacional de La Plata"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "La personalidad, la adolescencia, los valores",
+      "url": "https://bibliohumanidades.usac.edu.gt/library/index.php?lang=es&query=%40title%3DSpecial%3AGSMSearchPage%40process%3D%40autor%3DAREVALO%2C+JUAN+JOSE+1904-1990+%40mode%3D&recnum=4&title=402",
+      "publisher": "Universidad de San Carlos de Guatemala"
+    },
+    {
+      "kind": "library_of_congress_authority",
+      "title": "Juan José Arévalo Bermejo",
+      "url": "https://www.loc.gov/item/n81127285/juan-jose-arevalo-bermejo-guatemala-1904-1990/",
+      "publisher": "Library of Congress"
+    }
+  ],
+  "research_notes": [
+    "Pendiente verificar primeras ediciones exactas de Método nacional y varias obras tardías en catálogo guatemalteco.",
+    "Las recopilaciones de 1974 reutilizan textos anteriores y deben distinguirse de la producción original."
+  ]
+}
