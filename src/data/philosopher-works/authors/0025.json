@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "author_id": 25,
+  "canonical_name": "José Agustín Caballero",
+  "alternate_names": [
+    "José Agustín Caballero y Rodríguez de la Barrera"
+  ],
+  "life": {
+    "born": {
+      "year": 1762,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1835,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "principal_philosophical_and_reformist_texts_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0025-w001",
+      "title": "Discurso sobre la Física",
+      "work_type": "philosophy_of_science_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1791,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1791,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "experiencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "verdad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crítica de la escolástica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0025-w002",
+      "title": "Philosophia electiva ad usum academicorum accommodata",
+      "alternate_titles": [
+        "Philosophia electiva"
+      ],
+      "work_type": "philosophy_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1797,
+        "certainty": "manuscript_course_use",
+        "date": "1797-09-14"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía electiva",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antiescolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Texto manuscrito usado en la cátedra desde septiembre de 1797; primera edición moderna bilingüe en 1944."
+    },
+    {
+      "work_id": "0025-w003",
+      "title": "Discurso filosófico",
+      "work_type": "philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1798,
+        "certainty": "publication_or_manuscript_context"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_date_needs_primary_bibliographic_check",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0025-w004",
+      "title": "Memoria sobre la necesidad de reformar los establecimientos universitarios",
+      "work_type": "educational_reform_memorial",
+      "original_language": "español",
+      "original_date": {
+        "century": 19,
+        "certainty": "exact_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_date_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma educativa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "digital_collected_works",
+      "title": "José Agustín Caballero: Obras",
+      "url": "https://ufdcimages.uflib.ufl.edu/AA/00/00/86/25/00001/Jac.pdf",
+      "publisher": "Universidad de La Habana / University of Florida Digital Collections"
+    },
+    {
+      "kind": "research_guide",
+      "title": "Cuban Thinkers: José Agustín Caballero",
+      "url": "https://guides.uflib.ufl.edu/cuban-thinkers/joseagustin",
+      "publisher": "University of Florida"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "Retórica y educación en el reformismo cubano: la obra de José Agustín Caballero",
+      "url": "https://www.quadripartitaratio.cucsh.udg.mx/index.php/QR/article/view/76",
+      "publisher": "Universidad de Guadalajara",
+      "doi": "10.32870/qr.v3i5.76"
+    },
+    {
+      "kind": "collected_works_catalog",
+      "title": "José Agustín Caballero. Obras",
+      "url": "https://www.patrialibros.org/book/5",
+      "publisher": "Biblioteca de Clásicos Cubanos",
+      "isbn": "959-7078-09-0"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar artículos del Papel Periódico de La Habana, memorias económicas, textos pedagógicos y traducciones.",
+    "Corregir cualquier fecha secundaria dudosa contra la edición de Obras de 1999 antes de declarar exhaustividad."
+  ]
+}
