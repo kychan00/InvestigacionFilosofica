@@ -637,39 +637,167 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
 .feature-band strong { color: #fff3d6; }
 
 .works-section { background: var(--latam-paper-soft); }
-.periodized-authors { display: grid; gap: 28px; }
-.period-author-group { border: 1px solid var(--latam-line); background: var(--latam-card); }
+.periodized-authors { display: grid; gap: 30px; }
+
+.period-author-group {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--period-bg) 55%, var(--latam-line));
+  background: color-mix(in srgb, var(--latam-paper-soft) 84%, var(--period-bg));
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--latam-shadow) 70%, transparent);
+}
+
 .period-author-group header {
+  position: relative;
   display: grid;
   grid-template-columns: auto minmax(0,1fr) auto;
   gap: 18px;
   align-items: center;
-  padding: 18px 22px;
-  border-bottom: 1px solid var(--latam-line);
+  overflow: hidden;
+  padding: 22px 24px;
+  border-bottom: 1px solid color-mix(in srgb, var(--period-accent) 42%, transparent);
+  background: var(--period-bg);
+  color: var(--period-ink);
 }
-.period-author-group header span { color: var(--latam-red); font-size: 28px; }
-.period-author-group h3 { margin: 0; font-size: 28px; font-weight: 400; }
+
+.period-author-group header::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: -34px;
+  width: 180px;
+  height: 180px;
+  border: 1px solid color-mix(in srgb, var(--period-accent) 52%, transparent);
+  transform: rotate(26deg);
+  opacity: .44;
+}
+
+.period-author-group header span {
+  position: relative;
+  z-index: 1;
+  color: var(--period-accent);
+  font-size: 34px;
+}
+
+.period-author-group h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+}
+
 .period-author-group header small {
-  color: var(--latam-muted);
+  position: relative;
+  z-index: 1;
+  color: var(--period-muted);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
   font-weight: 700;
 }
-.period-author-list { display: grid; grid-template-columns: repeat(4,1fr); }
-.mini-author {
-  min-height: 94px;
-  padding: 15px 16px;
-  border-right: 1px solid var(--latam-line);
-  border-bottom: 1px solid var(--latam-line);
+
+.period-author-list {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  background: color-mix(in srgb, var(--latam-paper-soft) 92%, var(--period-bg));
 }
+
+.mini-author {
+  position: relative;
+  min-height: 112px;
+  overflow: hidden;
+  padding: 18px 17px 22px;
+  border-right: 1px solid color-mix(in srgb, var(--period-accent) 24%, var(--latam-line));
+  border-bottom: 1px solid color-mix(in srgb, var(--period-accent) 24%, var(--latam-line));
+  background: color-mix(in srgb, var(--latam-card) 92%, var(--period-bg));
+}
+
+.mini-author::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--period-accent);
+}
+
+.mini-author::after {
+  content: "";
+  position: absolute;
+  right: -22px;
+  bottom: -24px;
+  width: 76px;
+  height: 76px;
+  border: 1px solid color-mix(in srgb, var(--period-accent) 46%, transparent);
+  transform: rotate(45deg);
+  opacity: .34;
+}
+
 .mini-author:nth-child(4n){ border-right: 0; }
-.mini-author strong { display: block; font-size: 16px; font-weight: 400; }
+
+.mini-author strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 92%;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.12;
+}
+
 .mini-author small {
-  display: block; margin-top: 8px;
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 11px;
   color: var(--latam-muted);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 9px;
+  line-height: 1.4;
 }
+
+/* Ecos materiales de cada época en las fichas */
+.period-author-group.period-originarios .mini-author {
+  background:
+    linear-gradient(135deg, rgba(163,59,47,.08), transparent 38%),
+    color-mix(in srgb, #f0dfbb 92%, var(--period-accent));
+}
+.period-author-group.period-originarios .mini-author::after {
+  background:
+    linear-gradient(45deg, transparent 40%, rgba(163,59,47,.16) 41% 48%, transparent 49%);
+  background-size: 18px 18px;
+}
+
+.period-author-group.period-colonial .mini-author {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 23px, rgba(95,68,39,.05) 24px),
+    #ead8ad;
+  color: #27372e;
+}
+.period-author-group.period-colonial .mini-author small { color: #685f4d; }
+.period-author-group.period-colonial .mini-author::before { height: 3px; }
+
+.period-author-group.period-madura .mini-author {
+  background:
+    linear-gradient(90deg, rgba(163,56,47,.06) 1px, transparent 1px),
+    #f1e3bf;
+  background-size: 28px 100%;
+  color: #22303a;
+}
+.period-author-group.period-madura .mini-author small { color: #635d50; }
+
+.period-author-group.period-sigloxx .mini-author {
+  background:
+    linear-gradient(135deg, rgba(49,99,116,.08) 0 28%, transparent 29%),
+    color-mix(in srgb, #f0e3bd 94%, var(--period-accent));
+  color: #142934;
+}
+.period-author-group.period-sigloxx .mini-author::after {
+  border-radius: 50%;
+  border-color: rgba(214,94,67,.35);
+  transform: none;
+}
+
 .period-loading {
   padding: 28px;
   border: 1px dashed var(--latam-line);
@@ -677,6 +805,7 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
 }
+
 
 .quote-band {
   padding: 80px 9vw;
