@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "author_id": 180,
+  "canonical_name": "José Rafael Núñez Tenorio",
+  "life": {
+    "born": {
+      "year": 1933,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1998,
+      "certainty": "biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0180-w001",
+      "title": "Problemas de la teoría y el método de la economía política marxista",
+      "work_type": "doctoral_thesis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.loc.gov/item/hlas-bi78109594/",
+        "https://bo.celebri.com/books/j-r-nunez-tenorio-problemas-de-la-teoria-y-el-metodo-de-la-economia-politica-marxista-17092456"
+      ],
+      "notes": "Conflicto editorial: catálogo Library of Congress registra edición UCV 1976, catálogo secundario registra 1969; año de primera publicación sin resolver."
+    }
+  ],
+  "editorial_notes": [
+    "Identidad cotejada con inventario canónico y entrada biográfica del libro base; bibliografía parcial, no exhaustiva.",
+    "Fechas y roles se mantienen conservadores cuando las fuentes divergen."
+  ]
+}
