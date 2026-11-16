@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 382,
+  "canonical_name": "Juan Pablo Duarte",
+  "alternate_names": [
+    "Juan Pablo Duarte Díez"
+  ],
+  "life": {
+    "born": {
+      "year": 1813,
+      "certainty": "national_historical_source"
+    },
+    "died": {
+      "year": 1876,
+      "certainty": "national_historical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0382-w001",
+      "title": "Proyecto de Ley Fundamental",
+      "work_type": "constitutional_draft_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1844,
+        "certainty": "scholarly_date_range_march_to_july_1844"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitución",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "soberanía nacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia dominicana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://colecciones.agn.gob.do/opac/ficha.php?codopac=RRRD&idpag=0741237795&informatico=00163225EX&suposi=18",
+        "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/clio/Clio-2021-201-011-025.pdf"
+      ],
+      "notes": "Borrador constitucional autógrafo, inconcluso, redactado probablemente entre marzo y julio de 1844. Permaneció inédito aproximadamente 45 años y fue publicado por Federico Henríquez y Carvajal en Letras y Ciencias en 1889. Se separa estrictamente composición manuscrita de primera publicación."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación republicana, liberal y anticolonial de la soberanía dominicana y de la independencia como ley suprema",
+      "kind": "constitutional_and_independence_contribution",
+      "authorship_status": "documented_in_archival_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "archival_primary_source",
+      "title": "Archivo General de la Nación RD — Proyecto de ley fundamental, original autógrafo",
+      "url": "https://colecciones.agn.gob.do/opac/ficha.php?codopac=RRRD&idpag=0741237795&informatico=00163225EX&suposi=18"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Dominicana de la Historia — Juan Pablo Duarte y su proyecto constitucional",
+      "url": "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/clio/Clio-2021-201-011-025.pdf"
+    }
+  ],
+  "research_notes": [
+    "El Manifiesto del 16 de enero de 1844 no se atribuye aquí a Duarte como autor individual.",
+    "El proyecto es un manuscrito autógrafo, no la Constitución de San Cristóbal finalmente promulgada."
+  ]
+}
