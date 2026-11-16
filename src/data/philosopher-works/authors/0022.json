@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "author_id": 22,
+  "canonical_name": "Francisco Xavier Alegre",
+  "alternate_names": [
+    "Francisco Javier Alegre",
+    "Franciscus Xaverius Alegre"
+  ],
+  "life": {
+    "born": {
+      "year": 1729,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1788,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "substantial_major_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0022-w001",
+      "title": "Historia de la Compañía de Jesús en Nueva España",
+      "work_type": "history_chronicle",
+      "original_language": "español",
+      "original_date": {
+        "start": 1750,
+        "end": 1767,
+        "certainty": "composition_before_exile"
+      },
+      "first_publication_year": 1841,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Carlos María de Bustamante",
+          "role": "posthumous_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Compañía de Jesús",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Nueva España",
+          "provenance": "catalog"
+        },
+        {
+          "term": "misiones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pueblos indígenas",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0022-w002",
+      "title": "Memorias para la historia de la Provincia que tuvo la Compañía de Jesús en Nueva España",
+      "work_type": "historical_memorial",
+      "original_language": "español",
+      "original_date": {
+        "century": 18,
+        "certainty": "post_exile_reconstruction"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Jacinto Jijón y Caamaño",
+          "role": "modern_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "jesuitas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Nueva España",
+          "provenance": "inferred"
+        },
+        {
+          "term": "memoria histórica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0022-w003",
+      "title": "Institutionum theologicarum libri XVIII",
+      "work_type": "systematic_theology",
+      "original_language": "latín",
+      "original_date": {
+        "start": 1789,
+        "end": 1791,
+        "certainty": "posthumous_publication_range"
+      },
+      "first_publication_year": 1789,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "G. Vascellini",
+          "role": "engraver"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología dogmática",
+          "provenance": "catalog"
+        },
+        {
+          "term": "dogmas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filósofos modernos",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Siete tomos publicados en Venecia entre 1789 y 1791."
+    },
+    {
+      "work_id": "0022-w004",
+      "title": "Alexandriados",
+      "alternate_titles": [
+        "Alexandriados, sive de expugnatione Tyri ab Alexandro Macedone libri quatuor"
+      ],
+      "work_type": "neo_latin_epic_poetry",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1773,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1773,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alejandro Magno",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Tiro",
+          "provenance": "inferred"
+        },
+        {
+          "term": "épica neolatina",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0022-w005",
+      "title": "Homerica Ilias latinis versibus expressa",
+      "work_type": "translation_poetry",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1776,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1776,
+      "authorship_status": "verified_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Homero",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ilíada",
+          "provenance": "catalog"
+        },
+        {
+          "term": "traducción latina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "épica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0022-w006",
+      "title": "Homeri Batrachiomachia",
+      "work_type": "translation_poetry",
+      "original_language": "latín",
+      "original_date": {
+        "century": 18,
+        "certainty": "composition"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified_posthumous_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Pseudo-Homero",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Batracomiomaquia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "traducción latina",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0022-w007",
+      "title": "Ars Rhetorices ex Tullii praeceptis concinnata",
+      "work_type": "rhetoric_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "century": 18,
+        "certainty": "publication_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_verified_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "retórica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Cicerón",
+          "provenance": "inferred"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0022-w008",
+      "title": "Elementorum Geometriae libri XI; Sectionum Conicarum libri IV; Tractatus de Gnomonica",
+      "work_type": "mathematics_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "century": 18,
+        "certainty": "publication_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_verified_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "geometría",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "secciones cónicas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gnomónica",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "institutional_history",
+      "title": "Francisco Xavier Alegre",
+      "url": "https://www.analesiie.unam.mx/pdf/01_33-41.pdf",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "Jesuitas y oratorianos",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S1405-09272018000200181&script=sci_arttext",
+      "publisher": "SciELO México"
+    },
+    {
+      "kind": "rare_book_catalog",
+      "title": "Institutionum theologicarum libri XVIII",
+      "url": "https://www.adabi.org.mx/vufind/Record/1113452",
+      "publisher": "ADABI"
+    },
+    {
+      "kind": "institutional_history",
+      "title": "Historia de la Compañía de Jesús en Nueva España",
+      "url": "https://www.sanildefonso.org.mx/docs/CSI_FranciscoXavierAlegre.pdf",
+      "publisher": "Colegio de San Ildefonso"
+    }
+  ],
+  "research_notes": [
+    "Pendiente agotar traducciones de clásicos, poesía religiosa y opúsculos reunidos en 1889.",
+    "Separar en futuras pasadas obra original de sus múltiples ediciones póstumas."
+  ]
+}
