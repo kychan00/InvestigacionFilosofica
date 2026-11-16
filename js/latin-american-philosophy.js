@@ -190,7 +190,7 @@ function makeMiniAuthor(record) {
   card.innerHTML = "<strong></strong><small></small>";
   card.querySelector("strong").textContent = record.canonical_name;
   card.querySelector("small").textContent =
-    `#${canonicalId(record.author_id)} · ${worksCount} ${worksCount === 1 ? "obra" : "obras"} en seed`;
+    `#${canonicalId(record.author_id)} · ${worksCount} ${worksCount === 1 ? "obra documentada" : "obras documentadas"}`;
   card.addEventListener("click", () => openAuthorDialog(record.author_id));
   return card;
 }
@@ -353,6 +353,41 @@ function appendWorkList(record, container) {
   container.append(section);
 }
 
+function appendContributions(record, container) {
+  const contributions = Array.isArray(record.non_bibliographic_contributions)
+    ? record.non_bibliographic_contributions
+    : [];
+  if (!contributions.length) return;
+
+  const section = document.createElement("section");
+  section.className = "author-dialog-section";
+
+  const heading = document.createElement("div");
+  heading.className = "author-dialog-section-heading";
+  const h3 = document.createElement("h3");
+  h3.textContent = "Contribuciones intelectuales";
+  const count = document.createElement("span");
+  count.textContent = contributions.length.toLocaleString("es-MX");
+  heading.append(h3, count);
+
+  const list = document.createElement("ul");
+  list.className = "author-contribution-list";
+
+  for (const contribution of contributions) {
+    const item = document.createElement("li");
+    const title = document.createElement("strong");
+    title.textContent = contribution.title || "Contribución documentada";
+    const meta = document.createElement("small");
+    meta.textContent = humanize(contribution.kind);
+    item.append(title);
+    if (contribution.kind) item.append(meta);
+    list.append(item);
+  }
+
+  section.append(heading, list);
+  container.append(section);
+}
+
 function appendSources(record, container) {
   const sources = (record.sources || []).filter(source => /^https?:\/\//.test(source?.url || ""));
   if (!sources.length) return;
@@ -392,6 +427,7 @@ function renderAuthorDialog(record) {
   authorDialogBody.replaceChildren();
 
   appendWorkList(record, authorDialogBody);
+  appendContributions(record, authorDialogBody);
   appendSources(record, authorDialogBody);
 
   const notes = Array.isArray(record.research_notes) ? record.research_notes.filter(Boolean) : [];
