@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "author_id": 121,
+  "canonical_name": "Angélica Mendoza",
+  "alternate_names": [
+    "Ángela Mendoza",
+    "Angélica Mendoza de Montero"
+  ],
+  "life": {
+    "born": {
+      "year": 1889,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1960,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "small_verified_pragmatism_us_thought_education_and_political_testimony_corpus",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0121-w001",
+      "title": "Cárcel de mujeres",
+      "work_type": "political_prison_testimony",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cárcel de mujeres",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "militancia comunista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "género",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "represión política",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0121-w002",
+      "title": "Fuentes del pensamiento de los Estados Unidos",
+      "work_type": "history_of_ideas_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento de los Estados Unidos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pragmatismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía estadounidense",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Vinculado a su investigación doctoral en Columbia University; El Colegio de México conserva correspondencia editorial relativa al manuscrito."
+    },
+    {
+      "work_id": "0121-w003",
+      "title": "Panorama de las ideas contemporáneas en los Estados Unidos",
+      "work_type": "intellectual_history_survey",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estados Unidos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ideas contemporáneas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pragmatismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0121-w004",
+      "title": "John Dewey a los 100 años de su nacimiento (1859-1959)",
+      "work_type": "philosopher_education_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "centenary_context"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "John Dewey",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "John Dewey",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pragmatismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0121-w005",
+      "title": "Ensayos sobre Dewey, Emerson, Hudson, Descartes y pensamiento estadounidense",
+      "work_type": "philosophical_article_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1938,
+        "end": 1960,
+        "certainty": "career_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus_requires_item_level_review",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "John Dewey",
+          "provenance": "project_primary_source"
+        },
+        {
+          "term": "Ralph Waldo Emerson",
+          "provenance": "project_primary_source"
+        },
+        {
+          "term": "René Descartes",
+          "provenance": "project_primary_source"
+        },
+        {
+          "term": "educación democrática",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "El libro-base enumera varios artículos dispersos sin ofrecer siempre fecha editorial; se agrupan provisionalmente hasta revisión hemerográfica."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación entre pragmatismo, educación democrática y pensamiento latinoamericano",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1930,
+        "end": 1960,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "pragmatismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "institutional_archive",
+      "title": "Correspondencia sobre Fuentes del pensamiento de los Estados Unidos",
+      "url": "https://repositorio.colmex.mx/concern/archival_documents/qz20sw847",
+      "publisher": "El Colegio de México"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "Soy comunista y maestra: resistencias a la maternalización de las mujeres",
+      "url": "https://www.scielo.cl/article_plus.php?lng=es&pid=S0718-50492020000100223&tlng=es",
+      "publisher": "Izquierdas"
+    },
+    {
+      "kind": "bibliographic_record",
+      "title": "Fuentes del pensamiento de los Estados Unidos",
+      "url": "https://philpapers.org/rec/MENFDP-2",
+      "publisher": "PhilPapers"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Angélica Mendoza (1889-1960)"
+    }
+  ],
+  "research_notes": [
+    "Semilla deliberadamente compacta: buena parte de la obra está dispersa en revistas y prensa.",
+    "Pendiente desglosar ensayos de 1938, 1940 y 1962 indicados en la bibliografía del libro-base."
+  ]
+}
