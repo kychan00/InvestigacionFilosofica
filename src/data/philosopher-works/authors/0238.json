@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "author_id": 238,
+  "canonical_name": "Francisco Cruz",
+  "alternate_names": [
+    "Fray Francisco Cruz"
+  ],
+  "life": {
+    "died": {
+      "year": 1655,
+      "certainty": "secondary_historical_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "lost_or_unlocated_scholastic_course_attested_not_printed",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0238-w001",
+      "title": "Curso de filosofía escotista (manuscrito desaparecido; título descriptivo)",
+      "work_type": "lost_or_unlocated_franciscan_scholastic_manuscript_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_date_unknown_before_author_death",
+        "before": 1655
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_scholarly_attribution_to_franciscan_teacher",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía escotista",
+          "provenance": "scholarly"
+        }
+      ],
+      "title_status": "modern_descriptive_label_not_historical_title",
+      "manuscript_status": "not_located",
+      "evidence_urls": [
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "notes": "El estudio histórico refiere la escritura de un curso filosófico escotista, cuyo manuscrito se ha perdido o no está localizado. No se documenta edición impresa, ni un título de portada verificable."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza y transmisión de la filosofía escolástica escotista franciscana en la Nueva España durante el siglo XVII",
+      "kind": "colonial_philosophical_teaching",
+      "authorship_status": "historical_source_attribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial: autores franciscanos",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Francisco Cruz (m. 1655), curso franciscano de filosofía"
+    }
+  ],
+  "research_notes": [
+    "No equiparar a este fray Francisco Cruz con otros autores homónimos de periodos distintos.",
+    "Al no conocerse incipit ni portada, el rótulo es descriptivo y la fecha original se deja en null."
+  ]
+}
