@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "author_id": 443,
+  "canonical_name": "Oscar Masotta",
+  "alternate_names": [
+    "Óscar Masotta",
+    "Oscar A. Masotta"
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1979,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0443-w001",
+      "title": "Sexo y traición en Roberto Arlt",
+      "work_type": "literary_criticism_and_existentialism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Roberto Arlt",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica literaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblios.unju.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=29476"
+      ],
+      "notes": "Buenos Aires, Jorge Álvarez, 1965, 125 p."
+    },
+    {
+      "work_id": "0443-w002",
+      "title": "El pop-art",
+      "work_type": "aesthetics_and_contemporary_art_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pop art",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arte contemporáneo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.seminario.edu.uy/index.php?dcote=&id=34&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=19641&nc=0&page=601&plettreaut=&ssub=0"
+      ],
+      "notes": "Buenos Aires, Columba, 1967."
+    },
+    {
+      "work_id": "0443-w003",
+      "title": "Conciencia y estructura",
+      "work_type": "structuralism_psychoanalysis_and_aesthetics_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estructura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estructuralismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicoanálisis",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.cfe.edu.uy/CERPsuroeste/opac_css/index.php?dcote=1&id=10&lcote=3&location=1&lvl=section_see&main=&nbr_lignes=283&nc=0&page=2&plettreaut=&ssub="
+      ],
+      "notes": "Buenos Aires, Jorge Álvarez, septiembre de 1968. Algunas referencias secundarias desplazan la obra a 1969; se conserva 1968 por el registro de edición consultado."
+    },
+    {
+      "work_id": "0443-w004",
+      "title": "La historieta en el mundo moderno",
+      "work_type": "comics_theory_and_mass_culture_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historieta",
+          "provenance": "catalog"
+        },
+        {
+          "term": "cultura de masas",
+          "provenance": "catalog"
+        },
+        {
+          "term": "semiótica",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.seminario.edu.uy/index.php?dcote=&id=34&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=19641&nc=0&page=342&plettreaut=&ssub=0"
+      ],
+      "notes": "Buenos Aires, Paidós, 1970, 175 p."
+    },
+    {
+      "work_id": "0443-w005",
+      "title": "Ensayos lacanianos",
+      "work_type": "psychoanalysis_and_lacanian_theory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Lacan",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicoanálisis",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "significante",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://koha.ucp.edu.ar/bib/49911"
+      ],
+      "notes": "Barcelona, Anagrama, 1976; reunión de ensayos vinculados con la recepción de Lacan."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción y articulación en Argentina de debates sobre existencialismo, estructuralismo, cultura de masas y psicoanálisis lacaniano",
+      "kind": "argentine_structuralism_lacanian_psychoanalysis_and_aesthetics_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UNJu — Sexo y traición en Roberto Arlt",
+      "url": "https://biblios.unju.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=29476"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "Biblioteca del Seminario — La historieta en el mundo moderno",
+      "url": "https://biblioteca.seminario.edu.uy/index.php?dcote=&id=34&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=19641&nc=0&page=342&plettreaut=&ssub=0"
+    }
+  ],
+  "research_notes": [
+    "Conciencia y estructura se fija en 1968 por el registro de la edición consultada; se conserva nota de la variante 1969 presente en bibliografía secundaria."
+  ]
+}

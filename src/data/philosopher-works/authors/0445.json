@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "author_id": 445,
+  "canonical_name": "José Vilanova",
+  "alternate_names": [
+    "José Manuel Vilanova"
+  ],
+  "life": {
+    "born": {
+      "year": 1924,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1999,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0445-w001",
+      "title": "Filosofía del derecho y fenomenología existencial",
+      "work_type": "philosophy_of_law_and_existential_phenomenology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "book_catalog"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología existencial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Carlos Cossio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "norma jurídica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Filosof%C3%ADa_del_derecho_y_fenomenolog%C3%ADa.html?id=TGNYAAAAMAAJ"
+      ],
+      "notes": "Buenos Aires, Cooperadora de Derecho y Ciencias Sociales, 1973, 338 p."
+    },
+    {
+      "work_id": "0445-w002",
+      "title": "Proyecto existencial y programa de existencia: ideas para una fenomenología del obrar humano y de la razón práctica",
+      "work_type": "phenomenology_of_action_and_practical_reason_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "project_bibliography"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "proyecto existencial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "acción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón práctica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Buenos Aires, Astrea-Depalma, 1974."
+    },
+    {
+      "work_id": "0445-w003",
+      "title": "Carlos Cossio y la teoría egológica",
+      "work_type": "philosophy_of_law_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "project_bibliography"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Carlos Cossio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoría egológica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Cuadernos de Filosofía XV, núms. 22-23, pp. 255-269."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Integración de fenomenología existencial y filosofía jurídica en diálogo con Carlos Cossio y la razón práctica",
+      "kind": "argentine_phenomenological_philosophy_of_law_contribution",
+      "authorship_status": "documented_in_bibliographic_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "Google Books — Filosofía del derecho y fenomenología existencial",
+      "url": "https://books.google.com/books/about/Filosof%C3%ADa_del_derecho_y_fenomenolog%C3%ADa.html?id=TGNYAAAAMAAJ"
+    },
+    {
+      "kind": "library_authority_source",
+      "title": "Biblioteca UNPSJB — autoridad José Manuel Vilanova",
+      "url": "https://sistema-biblio.unp.edu.ar/cgi-bin/koha/opac-authoritiesdetail.pl?attempt=1&authid=14667"
+    }
+  ],
+  "research_notes": [
+    "Se conserva José Vilanova como nombre canónico del inventario y José Manuel Vilanova como forma de autoridad bibliotecaria."
+  ]
+}
