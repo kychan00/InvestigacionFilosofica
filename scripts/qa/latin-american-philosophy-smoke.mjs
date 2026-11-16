@@ -117,7 +117,7 @@ try {
       "Dossier must render complete work cards");
     assert.ok(await page.locator("#author-dialog .author-source-card").count() >= 1,
       "Dossier must render source cards");
-    assert.ok(await page.locator("#author-dialog .author-dossier-nav a").count() === 4,
+    assert.ok(await page.locator("#author-dialog .author-dossier-nav button").count() === 4,
       "Dossier must expose its four reading sections");
     assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
       "Dossier must retain the canonical author identifier");
