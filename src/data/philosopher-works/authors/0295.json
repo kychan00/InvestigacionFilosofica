@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "author_id": 295,
+  "canonical_name": "Juan Benito Díaz de Gamarra y Dávalos",
+  "alternate_names": [
+    "Juan Benito Díaz de Gamarra",
+    "Juan Felipe Bendiaga"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "three_attested_printed_philosophical_works_mixed_teacher_roles",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0295-w001",
+      "title": "Elementa recentioris philosophiae",
+      "work_type": "eclectic_modern_philosophy_two_volume_printed_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1774,
+        "certainty": "physical_original_print"
+      },
+      "first_publication_year": 1774,
+      "authorship_status": "author_first_print_confirmed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "eclecticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica del aristotelismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1050299/Similar",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-25232023000100169&script=sci_arttext"
+      ],
+      "notes": "México, José de Jáuregui, 1774; dos tomos de UNA obra. No confundir al compilador/alumno de ejercicios con autor del texto.",
+      "edition": {
+        "year": 1774,
+        "publisher": "Joseph a Jáuregui",
+        "region": "México"
+      },
+      "volume_count": 2
+    },
+    {
+      "work_id": "0295-w002",
+      "title": "Academias filosóficas",
+      "work_type": "philosophical_academic_exercises_educational_printed_collection",
+      "original_language": "español y latín (según ejercicios; por cotejar)",
+      "original_date": {
+        "year": 1772,
+        "certainty": "first_known_edition_scholarly_study"
+      },
+      "first_publication_year": 1772,
+      "authorship_status": "professor_editor_with_student_presenters",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "métodos de enseñanza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "academias filosóficas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "debates",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.iifilologicas.unam.mx/pnovohispano/uploads/discursos/discursos_art11.pdf",
+        "https://historicas.unam.mx/publicaciones/publicadigital/libros/376/376_04_08_JuanBenito.pdf"
+      ],
+      "notes": "Investigación de la UNAM documenta dos series impresas en 1772 y 1774; autor dirige programa y estudiantes defienden cuestiones. Registrar colección de academias con rol docente; no adjudicar a él todas las respuestas de alumnos.",
+      "later_editions": [
+        {
+          "year": 1774,
+          "status": "second_series_or_printing_to_collate"
+        }
+      ],
+      "authorship_roles": [
+        "organizer",
+        "teacher"
+      ]
+    },
+    {
+      "work_id": "0295-w003",
+      "title": "Errores del entendimiento humano",
+      "work_type": "philosophical_moral_didactic_printed_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1781,
+        "certainty": "first_puebla_print"
+      },
+      "first_publication_year": 1781,
+      "authorship_status": "author_writing_under_pseudonym_juan_felipe_bendiaga",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "errores del entendimiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica de prejuicios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://sic.gob.mx/ficha.php?table=fondo_editorial&table_id=3602",
+        "https://historicas.unam.mx/publicaciones/publicadigital/libros/376/376_04_08_JuanBenito.pdf"
+      ],
+      "notes": "Publicado Puebla 1781 bajo seudónimo Juan Felipe Bendiaga (también variantes de anagrama); edición de selección de 2002 NO es primera impresión.",
+      "pseudonym": "Juan Felipe Bendiaga",
+      "edition": {
+        "year": 1781,
+        "region": "Puebla"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Modernización de estudios filosóficos en San Miguel el Grande y difusión ecléctica de autores antiguos y modernos",
+      "kind": "historical_philosophical_intellectual_contribution",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "physical_rare_print_catalog",
+      "title": "ADABI, Biblioteca Palafoxiana, Elementa 1774 en dos tomos",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/1050299/Similar"
+    },
+    {
+      "kind": "peer_reviewed_philosophy",
+      "title": "Marco Mancera Alba, Eclecticismo en Elementa recentioris philosophiae (2023)",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-25232023000100169&script=sci_arttext"
+    },
+    {
+      "kind": "unam_specialist_educational_history",
+      "title": "UNAM, Academias de filosofía 1772 y 1774",
+      "url": "https://www.iifilologicas.unam.mx/pnovohispano/uploads/discursos/discursos_art11.pdf"
+    },
+    {
+      "kind": "official_mexican_cultural_catalog",
+      "title": "Sistema de Información Cultural, Errores 1781",
+      "url": "https://sic.gob.mx/ficha.php?table=fondo_editorial&table_id=3602"
+    }
+  ],
+  "research_notes": [
+    "No duplicar los dos volúmenes de Elementa como dos obras.",
+    "La serie de academias implica alumnos: responsabilidad plural por intervenciones.",
+    "Las Academias también se citan en 1774; no cancelar la impresión de 1772 señalada por estudio UNAM."
+  ]
+}

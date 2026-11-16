@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 290,
-    "authors_remaining": 1214,
-    "works_or_contributions_seeded": 2187,
-    "current_batch": "029",
+    "authors_seeded": 300,
+    "authors_remaining": 1204,
+    "works_or_contributions_seeded": 2220,
+    "current_batch": "030",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1539,6 +1539,58 @@
       "author_id": 290,
       "canonical_name": "Feliciano Souza Nunes",
       "path": "authors/0290.json"
+    }
+  ],
+  "batch_030": [
+    {
+      "author_id": 291,
+      "canonical_name": "Tomás Antônio Gonzaga",
+      "path": "authors/0291.json"
+    },
+    {
+      "author_id": 292,
+      "canonical_name": "Mariano José Pereira da Fonseca",
+      "path": "authors/0292.json"
+    },
+    {
+      "author_id": 293,
+      "canonical_name": "Antonio Joaquín de Rivadeneira y Barrientos",
+      "path": "authors/0293.json"
+    },
+    {
+      "author_id": 294,
+      "canonical_name": "Melchor de Paz",
+      "path": "authors/0294.json"
+    },
+    {
+      "author_id": 295,
+      "canonical_name": "Juan Benito Díaz de Gamarra y Dávalos",
+      "path": "authors/0295.json"
+    },
+    {
+      "author_id": 296,
+      "canonical_name": "José Antonio de Alzate",
+      "path": "authors/0296.json"
+    },
+    {
+      "author_id": 297,
+      "canonical_name": "Antonio de León y Gama",
+      "path": "authors/0297.json"
+    },
+    {
+      "author_id": 298,
+      "canonical_name": "José Celestino Mutis",
+      "path": "authors/0298.json"
+    },
+    {
+      "author_id": 299,
+      "canonical_name": "Antonio Ruiz de Montoya",
+      "path": "authors/0299.json"
+    },
+    {
+      "author_id": 300,
+      "canonical_name": "José Sánchez Labrador",
+      "path": "authors/0300.json"
     }
   ]
 }

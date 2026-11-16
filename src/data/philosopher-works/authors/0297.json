@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 297,
+  "canonical_name": "Antonio de León y Gama",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_distinct_originals_1790_and_1792_physical_catalog",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0297-w001",
+      "title": "Disertación física sobre la materia y formación de las auroras boreales",
+      "work_type": "new_spanish_printed_natural_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1790,
+        "certainty": "physical_puebla_catalog_first_print"
+      },
+      "first_publication_year": 1790,
+      "authorship_status": "author_original_physical_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "auroras boreales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "astronomía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1074738"
+      ],
+      "notes": "México, Felipe de Zúñiga y Ontiveros, 1790, 37 páginas; estudio motivado por aurora del 14 de noviembre de 1789. No confundir fenómeno observado con año de impresión.",
+      "edition": {
+        "year": 1790,
+        "publisher": "Felipe de Zúñiga y Ontiveros",
+        "region": "México"
+      }
+    },
+    {
+      "work_id": "0297-w002",
+      "title": "Descripción histórica y cronológica de las dos piedras",
+      "work_type": "indigenous_calendar_and_archaeoastronomy_printed_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1792,
+        "certainty": "rare_print_physical_catalog"
+      },
+      "first_publication_year": 1792,
+      "authorship_status": "author_first_edition_physical_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "calendario mexica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "astronomía indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia cronológica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arqueología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.adabi.org.mx/vufind/Record/1097004",
+        "https://ru.historicas.unam.mx/handle/20.500.12525/469?locale-attribute=en"
+      ],
+      "notes": "México, Felipe de Zúñiga y Ontiveros, 1792. Edición ampliada publicada 1832, con 2.ª parte, no duplicar como obra original distinta.",
+      "edition": {
+        "year": 1792,
+        "publisher": "Felipe de Zúñiga y Ontiveros",
+        "region": "México"
+      },
+      "later_editions": [
+        {
+          "year": 1832,
+          "status": "augmented_second_edition"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudios astronómicos e interpretación del calendario mexica y de las piedras halladas en la Plaza Mayor de México en 1790",
+      "kind": "new_spanish_science_and_indigenous_knowledge_interpretation",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "rare_book_physical_catalog",
+      "title": "ADABI, Disertación física 1790",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/1074738"
+    },
+    {
+      "kind": "rare_book_physical_catalog",
+      "title": "ADABI, Descripción histórica 1792",
+      "url": "https://buscador.adabi.org.mx/vufind/Record/1097004"
+    },
+    {
+      "kind": "academic_historical_reprint",
+      "title": "UNAM, edición aumentada 1832",
+      "url": "https://ru.historicas.unam.mx/handle/20.500.12525/469?locale-attribute=en"
+    }
+  ],
+  "research_notes": [
+    "Los dos tratados difieren en tema y primera impresión: 1790 (auroras) y 1792 (piedras/calendario).",
+    "No convertir el descubrimiento material de las piedras (1790) en primera impresión de Descripción (1792)."
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "author_id": 296,
+  "canonical_name": "José Antonio de Alzate",
+  "alternate_names": [
+    "José Antonio Alzate y Ramírez",
+    "José Antonio de Alzate y Ramírez"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_scientific_serial_publications_editorial_roles_documented",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0296-w001",
+      "title": "Diario Literario de México",
+      "work_type": "short_scientific_and_educational_periodical_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": 1768,
+        "certainty": "first_serial_issue"
+      },
+      "first_publication_year": 1768,
+      "authorship_status": "editor_and_contributing_author_not_all_items_sole_authored",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "divulgación científica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencias naturales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/107001",
+        "https://www.tandfonline.com/doi/full/10.1080/14753820701855216"
+      ],
+      "notes": "Ocho números publicados de marzo a mayo de 1768; el autor empleó pseudónimo anagramático «Antonio Ramírez de Letaza» según ELEM y testimonio notarial. No contar cada número como obra independiente.",
+      "series_date_range": {
+        "start": "1768-03",
+        "end": "1768-05"
+      }
+    },
+    {
+      "work_id": "0296-w002",
+      "title": "Asuntos varios sobre ciencias y artes",
+      "work_type": "scientific_periodical_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "serial_publication_range",
+        "period": {
+          "start": 1772,
+          "end": 1773
+        }
+      },
+      "first_publication_year": 1772,
+      "authorship_status": "editor_and_contributing_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "artes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "utilidad pública",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/107001",
+        "https://www.tandfonline.com/doi/full/10.1080/14753820701855216"
+      ],
+      "notes": "Trece números, 26 octubre 1772 a 4 enero 1773, imprenta de José de Jáuregui según Enciclopedia de la Literatura en México. No fusionar automáticamente con Diario Literario como si fueran solo cambio de nombre.",
+      "series_date_range": {
+        "start": "1772-10-26",
+        "end": "1773-01-04"
+      }
+    },
+    {
+      "work_id": "0296-w003",
+      "title": "Observaciones sobre la física, historia natural y artes útiles",
+      "work_type": "scientific_periodical_edited",
+      "original_language": "español",
+      "original_date": {
+        "year": 1787,
+        "certainty": "first_serial_issue"
+      },
+      "first_publication_year": 1787,
+      "authorship_status": "editor_and_contributing_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "artes útiles",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.tandfonline.com/doi/full/10.1080/14753820701855216",
+        "https://www.elem.mx/autor/datos/107001"
+      ],
+      "notes": "Publicación de 1787 distinta de la Gazeta de 1788, con traducciones; no atribuirle traducciones como textos originalmente escritos por él."
+    },
+    {
+      "work_id": "0296-w004",
+      "title": "Gazeta de Literatura de México",
+      "work_type": "scientific_periodical_edited_three_bound_volumes",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "issues_1788_to_1795",
+        "period": {
+          "start": 1788,
+          "end": 1795
+        }
+      },
+      "first_publication_year": 1788,
+      "authorship_status": "editor_and_contributing_author_not_sole_authorship_of_every_text",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "periodismo científico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ilustración novohispana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://palafoxiana.com/gaceta-literaria-alzate/",
+        "https://www.elem.mx/autor/datos/107001"
+      ],
+      "notes": "Primera entrega 15 enero 1788; números hasta 22 octubre 1795 según ELEM. Biblioteca Palafoxiana conserva tres tomos encuadernados; son una sola publicación seriada, no tres obras.",
+      "volume_count": 3,
+      "series_date_range": {
+        "start": "1788-01-15",
+        "end": "1795-10-22"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción y difusión pública del conocimiento científico, observación empírica y prensa ilustrada en Nueva España",
+      "kind": "new_spanish_scientific_enlightenment",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "mexican_literary_reference",
+      "title": "Enciclopedia de la Literatura en México, José Antonio Alzate",
+      "url": "https://www.elem.mx/autor/datos/107001"
+    },
+    {
+      "kind": "rare_book_library_catalog",
+      "title": "Biblioteca Palafoxiana, Gazeta de Literatura de México",
+      "url": "https://palafoxiana.com/gaceta-literaria-alzate/"
+    },
+    {
+      "kind": "academic_publication_history",
+      "title": "Lost in Translation: The Gazeta de Literatura de México (2008)",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/14753820701855216"
+    }
+  ],
+  "research_notes": [
+    "No confundir Gazeta de Literatura de Alzate (1788) con Gazeta de México de Manuel Antonio Valdés (1784).",
+    "No atribuir todos los artículos de revistas a su editor; authorship_status conserva rol editorial.",
+    "Se registran seriadas completas como unidades por título, no cada número ni tomo como libro distinto."
+  ]
+}

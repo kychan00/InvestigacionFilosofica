@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "author_id": 294,
+  "canonical_name": "Melchor de Paz",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_historical_manuscript_dated_parts_conflict_1952_edition",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0294-w001",
+      "title": "Diálogo sobre los sucesos varios acaecidos en este Reino del Perú, los cuales pueden servir de instrucción y entretenimiento al curioso lector",
+      "work_type": "colonial_political_historical_dialogue_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "distinct_manuscript_parts_dated_1786_1788",
+        "period": {
+          "start": 1786,
+          "end": 1788
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "author_as_printed_in_manuscript_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "rebelión de Túpac Amaru",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "administración virreinal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www3.congreso.gob.pe/Docs/FondoEditorial/bicentenario/Tupac_Amaru_1/files/basic-html/page32.html",
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "El Congreso del Perú transcribe un título de manuscrito «Primera parte. Año de 1788. Segunda parte 1786» y señala edición de Luis Antonio Eguiguren en Lima 1952, dos tomos, bajo título «Crónica». Hay contradicción cronológica entre partes, que no se normaliza como una fecha única. No establecer que 1952 sea primera impresión absoluta sin cotejo.",
+      "documented_later_edition": {
+        "year": 1952,
+        "title": "Crónica",
+        "editor": "Luis Antonio Eguiguren",
+        "volumes": 2
+      },
+      "manuscript_status": "historical_source_cited_by_peruvian_congress"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Interpretación criolla de la rebelión de Túpac Amaru y crítica al visitador Juan Antonio de Areche, manteniendo la perspectiva excluyente del autor frente a los pueblos indígenas",
+      "kind": "colonial_creole_political_thought",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "official_historical_edition",
+      "title": "Congreso del Perú, La Rebelión de Túpac Amaru, t. I, p. 32, nota manuscrito de Melchor de Paz",
+      "url": "https://www3.congreso.gob.pe/Docs/FondoEditorial/bicentenario/Tupac_Amaru_1/files/basic-html/page32.html"
+    }
+  ],
+  "research_notes": [
+    "La interpretación no es pro-indígena ni abolicionista; la obra defiende jerarquías coloniales, según libro base.",
+    "Los años 1786 y 1788 se presentan en las partes del manuscrito de modo no secuencial; conservar literalmente sin inventar orden de redacción.",
+    "La edición de 1952 se publicó con título Crónica, no como libro original impreso en 1786."
+  ]
+}

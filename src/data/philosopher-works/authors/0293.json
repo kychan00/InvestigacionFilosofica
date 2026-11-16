@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "author_id": 293,
+  "canonical_name": "Antonio Joaquín de Rivadeneira y Barrientos",
+  "alternate_names": [
+    "Antonio Joachin de Ribadeneyra y Barrientos",
+    "Antonio Joaquín de Ribadeneyra y Barrientos"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_first_print_1755_patronato_indiano_catalog_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0293-w001",
+      "title": "Manual compendio de el Regio Patronato Indiano, para su más fácil uso en las materias conducentes a la práctica",
+      "work_type": "colonial_legal_and_regalist_political_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1755,
+        "certainty": "physical_library_first_edition_print"
+      },
+      "first_publication_year": 1755,
+      "authorship_status": "author_documented_in_title_page",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "regio patronato",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho indiano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "relación Iglesia-Estado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "administración colonial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecamexico-fondoreservado.cultura.gob.mx/fondo-reservado/manual-compendio-de-el-regio-patronato-indiano/",
+        "https://liburutegibiltegi.bizkaia.eus/handle/20.500.11938/75307"
+      ],
+      "notes": "Biblioteca de México y Biblioteca Foral de Bizkaia catalogan impresión de Antonio Marín, Madrid, 1755, 531 pp. No confundir permiso/licencia de 1754 con fecha de libro.",
+      "edition": {
+        "year": 1755,
+        "publisher": "Antonio Marín",
+        "region": "Madrid"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Sistematización regalista del patronato indiano y del derecho eclesiástico-político del imperio español",
+      "kind": "historical_philosophical_intellectual_contribution",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_rare_book_catalog",
+      "title": "Biblioteca de México, Fondo Reservado, Manual compendio del Regio Patronato Indiano",
+      "url": "https://bibliotecamexico-fondoreservado.cultura.gob.mx/fondo-reservado/manual-compendio-de-el-regio-patronato-indiano/"
+    },
+    {
+      "kind": "regional_library_historical_catalog",
+      "title": "Biblioteca Foral de Bizkaia, ejemplar de Madrid 1755",
+      "url": "https://liburutegibiltegi.bizkaia.eus/handle/20.500.11938/75307"
+    }
+  ],
+  "research_notes": [
+    "Variantes del apellido Rivadeneira/Ribadeneyra aparecen en títulos de catálogo; mantener ID canónico y alternancia."
+  ]
+}

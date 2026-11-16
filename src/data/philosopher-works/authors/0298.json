@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 298,
+  "canonical_name": "José Celestino Mutis",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "first_serial_1793_94_distinguished_from_posthumous_1828_and_1792_report",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0298-w001",
+      "title": "El arcano de la quina, revelado a beneficio de la humanidad",
+      "work_type": "pharmacological_natural_philosophy_periodical_essay_and_posthumous_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_serial_appearance",
+        "period": {
+          "start": 1793,
+          "end": 1794
+        }
+      },
+      "first_publication_year": 1793,
+      "authorship_status": "author_original_serial_publication_posthumous_editorial_expansion",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "quina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "botánica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "farmacología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "observación natural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.catedrahch.org/personaje/jose-celestino-mutis-y-bosio/",
+        "https://www.cervantesvirtual.com/portales/traducciones_hispanoamericanas/obra/el-arcano-de-la-quina-discurso-que-contiene-la-parte-medica-de-las-cuatro-especies-de-quinas-oficinales-sus-virtudes-eminentes-y-su-legitima-preparacion/"
+      ],
+      "notes": "Apareció primero en Papel Periódico de Santafé de Bogotá, números 89–129, 1793–1794; libro póstumo de 1828 impreso por Ibarra, Madrid, con notas/prólogo de Manuel Hernández de Gregorio. Es una obra con testimonios editoriales, no dos trabajos independientes.",
+      "original_serial": {
+        "periodical": "Papel Periódico de Santafé de Bogotá",
+        "issues": "89–129",
+        "years": "1793–1794"
+      },
+      "later_editions": [
+        {
+          "year": 1828,
+          "editor": "Manuel Hernández de Gregorio",
+          "region": "Madrid",
+          "publisher": "Ibarra"
+        }
+      ]
+    },
+    {
+      "work_id": "0298-w002",
+      "title": "Instrucción formada por un facultativo existente por muchos años en el Perú, relativa de las especies y virtudes de la quina",
+      "work_type": "pharmaceutical_biological_printed_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1792,
+        "certainty": "catalog_documented_print"
+      },
+      "first_publication_year": 1792,
+      "authorship_status": "historical_bibliography_author_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "quina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "farmacognosia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "farmacopea",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.catedrahch.org/personaje/jose-celestino-mutis-y-bosio/"
+      ],
+      "notes": "La bibliografía de la cátedra historia cultural hispanoamericana lista edición Cádiz de 1792 y facsímil 2008; mantener título histórico y atribución tal como registra fuente; cotejar portada para responsabilidad editorial.",
+      "edition": {
+        "year": 1792,
+        "region": "Cádiz"
+      }
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Expedición Botánica del Nuevo Reino de Granada y promoción de enseñanza de ciencias naturales desde el método de observación",
+      "kind": "enlightenment_scientific_natural_philosophy",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "historical_biobibliography",
+      "title": "Cátedra de Historia de la Cultura Hispanoamericana, José Celestino Mutis, ediciones de obras",
+      "url": "https://www.catedrahch.org/personaje/jose-celestino-mutis-y-bosio/"
+    },
+    {
+      "kind": "historical_library_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes, El arcano de la quina edición póstuma 1828",
+      "url": "https://www.cervantesvirtual.com/portales/traducciones_hispanoamericanas/obra/el-arcano-de-la-quina-discurso-que-contiene-la-parte-medica-de-las-cuatro-especies-de-quinas-oficinales-sus-virtudes-eminentes-y-su-legitima-preparacion/"
+    }
+  ],
+  "research_notes": [
+    "La fecha de 1828 NO es comienzo del texto de El arcano: existe publicación periódica 1793–1794.",
+    "La publicación de 1792 Instrucción necesita cotejar responsabilidades de autoría con portada antes de afirmar exclusividad."
+  ]
+}

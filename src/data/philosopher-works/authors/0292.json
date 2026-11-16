@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "author_id": 292,
+  "canonical_name": "Mariano José Pereira da Fonseca",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "moral_aphorism_corpus_multiple_editions_without_artificial_duplication",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0292-w001",
+      "title": "Máximas, pensamentos e reflexões do Marquês de Maricá",
+      "work_type": "moral_aphorism_collection_serial_and_printed_editions",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "original_serial_appearance_date_not_fully_collated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "author_catalogued_collection_early_editions",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "aforismos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reflexiones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conducta humana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www2.senado.leg.br/bdsf/bitstream/handle/id/546804/Senadores_Brasileiros_4.pdf?isAllowed=y&sequence=4",
+        "https://digital.bbm.usp.br/handle/bbm/7112"
+      ],
+      "notes": "Senado brasileño documenta impresiones en Río de Janeiro de 1837, 1839, 1841 y volúmenes de nuevas máximas de 1843 y 1846; Biblioteca Brasiliana USP tiene colección completa de fecha probable ca. 1850. El Senado también menciona colección revisada por el autor con fecha 1857, pero él murió en 1848: la frase editorial requiere verificación y NO es prueba de revisión personal en 1857.",
+      "documented_printings": [
+        1837,
+        1839,
+        1841,
+        1843,
+        1846
+      ],
+      "catalogued_collected_edition": "Biblioteca Brasiliana USP c. 1850 [?]",
+      "reported_posthumous_edition": 1857
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Producción de aforismos morales y actividad política como senador del Imperio del Brasil; cofirmante del proyecto constitucional de 1823, sin atribuirlo como obra personal única",
+      "kind": "historical_philosophical_intellectual_contribution",
+      "authorship_status": "source_attested",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "brazilian_senate_biography",
+      "title": "Senado Federal do Brasil, biobibliografia de Mariano José Pereira da Fonseca",
+      "url": "https://www2.senado.leg.br/bdsf/bitstream/handle/id/546804/Senadores_Brasileiros_4.pdf?isAllowed=y&sequence=4"
+    },
+    {
+      "kind": "rare_book_catalog",
+      "title": "Biblioteca Brasiliana Guita e José Mindlin USP, Collecção completa",
+      "url": "https://digital.bbm.usp.br/handle/bbm/7112"
+    }
+  ],
+  "research_notes": [
+    "No convertir cada reimpresión o ampliación de máximas en libro distinto sin examen textual.",
+    "El Proyecto de Constitución de 1823 tiene varios firmantes; registrar contribución colectiva, no autoría exclusiva.",
+    "La atribución editorial de una revisión por el autor en edición fechada 1857 entra en conflicto con fecha de fallecimiento 1848; debe cotejarse."
+  ]
+}
