@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author_id": 385,
+  "canonical_name": "Román Baldorioty de Castro",
+  "alternate_names": [
+    "Román Baldorioty de Castro y Díaz"
+  ],
+  "life": {
+    "born": {
+      "year": 1822,
+      "certainty": "library_of_congress_source"
+    },
+    "died": {
+      "year": 1889,
+      "certainty": "library_of_congress_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0385-w001",
+      "title": "Plan de Ponce",
+      "work_type": "collective_autonomist_political_program",
+      "original_language": "español",
+      "original_date": {
+        "year": 1886,
+        "certainty": "scholarly_political_history_source"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "committee_leader_and_reviser_not_sole_author",
+      "coauthors": [
+        "Virgilio Biaggi and other liberal committee members"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autonomismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos civiles",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gobierno propio",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.ucm.es/index.php/CHCO/article/download/CHCO9797110183A/7036",
+        "https://enciclopediapr.org/content/roman-baldorioty-de-castro/"
+      ],
+      "notes": "Programa autonomista de 1886. La historiografía citada señala que fue redactado inicialmente por Virgilio Biaggi y corregido por Baldorioty en su calidad de dirigente; por ello no se registra como autoría individual exclusiva."
+    },
+    {
+      "work_id": "0385-w002",
+      "title": "La Crónica",
+      "work_type": "political_periodical_directed_by_author",
+      "original_language": "español",
+      "original_date": {
+        "year": 1880,
+        "certainty": "biographical_source"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "director_editor_not_author_of_all_contents",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autonomismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "prensa política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Puerto Rico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/roman-baldorioty-de-castro/",
+        "https://guides.loc.gov/world-of-1898/roman-baldorioty-castro"
+      ],
+      "notes": "Baldorioty tomó la dirección del periódico ponceño La Crónica alrededor de 1880 y lo utilizó como vehículo del autonomismo. La cabecera se registra como responsabilidad editorial; no se atribuyen a él todos los artículos del periódico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación y liderazgo del autonomismo puertorriqueño, junto con defensa abolicionista y reforma educativa",
+      "kind": "puerto_rican_autonomist_and_abolitionist_contribution",
+      "authorship_status": "documented_in_library_and_reference_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "library_of_congress_source",
+      "title": "Library of Congress — Román Baldorioty de Castro",
+      "url": "https://guides.loc.gov/world-of-1898/roman-baldorioty-castro"
+    },
+    {
+      "kind": "reference_source",
+      "title": "EnciclopediaPR — Román Baldorioty de Castro",
+      "url": "https://enciclopediapr.org/content/roman-baldorioty-de-castro/"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "UCM — crisis colonial y Plan de Ponce",
+      "url": "https://revistas.ucm.es/index.php/CHCO/article/download/CHCO9797110183A/7036"
+    }
+  ],
+  "research_notes": [
+    "El Plan de Ponce no se atribuye exclusivamente a Baldorioty; se conserva su papel de dirigente y revisor.",
+    "La Crónica se trata como periódico bajo su dirección, no como obra autoral de cada número."
+  ]
+}
