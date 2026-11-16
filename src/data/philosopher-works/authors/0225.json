@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "author_id": 225,
+  "canonical_name": "Antonio Quiñones",
+  "alternate_names": [
+    "Fray Antonio Quiñones"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "manuscript_course_attested_no_independent_printed_book_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0225-w001",
+      "title": "Triennalis philosophicus cursus iuxta Joannis Duns Scoti mentem",
+      "work_type": "scholastic_philosophical_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_and_lectures_dated_without_confirmed_print_publication",
+        "period": {
+          "start": 1716,
+          "end": 1719
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "manuscript_attribution_documented_in_scholarly_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cursus philosophicus",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Juan Duns Escoto",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/534/528/536",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "manuscript_evidence": [
+        {
+          "repository": "Biblioteca Nacional de México",
+          "catalog": "Catálogo de manuscritos latinos de la Biblioteca Nacional de México, J. Yhmoff Cabrera",
+          "catalog_reference_candidates": [
+            "n. 424",
+            "n. 428"
+          ],
+          "description": "Curso escotista en latín; partes sobre lógica menor y mayor, física, metafísica y De anima"
+        }
+      ],
+      "scholastic_order": "Orden Franciscana (OFM)",
+      "teaching_institution": "Colegio de San Buenaventura, Tlatelolco, Nueva España",
+      "notes": "El libro-base y la Historia de Beuchot datan el curso 1716–1719; un estudio de la metafísica señala que ese tratado fue enseñado 1717–1719. Los intervalos no son primeras ediciones impresas. El Tractatus in Aristotelis Metaphysicam figura como parte del curso, no se convierte sin evidencia en libro autónomo. Los catálogos secundarios discrepan en referencias numéricas del manuscrito (424/428); conservar antes de normalizar."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0225-c001",
+      "title": "Docencia y producción manuscrita de un curso de filosofía escolástica escotista en Tlatelolco a comienzos del siglo XVIII",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_academic_history",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_peer_reviewed_study",
+      "title": "Estudio filológico UNAM: «Triennalis philosophicus cursus» de fray Antonio Quiñones, 1717–1719",
+      "url": "https://revistas-filologicas.unam.mx/nouatellus/index.php/nt/article/download/534/528/536"
+    },
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La enseñanza de la filosofía», periodo colonial; cursos novohispanos del siglo XVIII"
+    }
+  ],
+  "research_notes": [
+    "No inferir fecha de impresión a partir de la docencia 1716–1719.",
+    "El DOI de un estudio moderno de Beuchot, si existiera, no corresponde al manuscrito novohispano."
+  ]
+}
