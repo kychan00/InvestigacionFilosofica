@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "author_id": 368,
+  "canonical_name": "José Pedro Varela",
+  "alternate_names": [
+    "José Pedro Varela Berro"
+  ],
+  "life": {
+    "born": {
+      "year": 1845,
+      "certainty": "institutional_source"
+    },
+    "died": {
+      "year": 1879,
+      "certainty": "biographical_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0368-w001",
+      "title": "La educación del pueblo",
+      "work_type": "educational_reform_original_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "institutional_source"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gratuidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "obligatoriedad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "laicidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.anep.edu.uy/la-vigencia-del-pensamiento-de-jose-pedro-varela-179-anos-de-su-nacimiento"
+      ],
+      "notes": "ANEP identifica La educación del pueblo como libro de 1874 y pieza central de la reforma educativa uruguaya."
+    },
+    {
+      "work_id": "0368-w002",
+      "title": "La legislación escolar",
+      "work_type": "educational_policy_and_school_law_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1876,
+        "certainty": "institutional_source"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "legislación escolar",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Estado laico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.anep.edu.uy/19-de-marzo-natalicio-de-jose-pedro-varela"
+      ],
+      "notes": "Obra de 1876 que fundamentó teóricamente su proyecto de Ley de Educación Común. El proyecto legal y el libro relacionado no deben confundirse como una única responsabilidad legislativa estatal."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reforma de la educación pública uruguaya en torno a obligatoriedad, gratuidad y laicidad",
+      "kind": "public_education_reform_contribution",
+      "authorship_status": "documented_in_anep_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_source",
+      "title": "ANEP — vigencia del pensamiento de José Pedro Varela",
+      "url": "https://www.anep.edu.uy/la-vigencia-del-pensamiento-de-jose-pedro-varela-179-anos-de-su-nacimiento"
+    },
+    {
+      "kind": "institutional_source",
+      "title": "ANEP — natalicio de José Pedro Varela",
+      "url": "https://www.anep.edu.uy/19-de-marzo-natalicio-de-jose-pedro-varela"
+    }
+  ],
+  "research_notes": [
+    "El proyecto de Ley de Educación Común fue modificado por una comisión; no se atribuye a Varela la autoría exclusiva de la legislación estatal finalmente aprobada."
+  ]
+}
