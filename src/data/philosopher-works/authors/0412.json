@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "author_id": 412,
+  "canonical_name": "Sílvio Romero",
+  "alternate_names": [
+    "Sílvio Vasconcelos da Silveira Ramos Romero",
+    "Silvio Romero"
+  ],
+  "life": {
+    "born": {
+      "year": 1851,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1914,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0412-w001",
+      "title": "A philosophia no Brasil: ensaio critico",
+      "work_type": "history_and_criticism_of_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1878,
+        "certainty": "first_edition_digital_library"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia brasileira",
+          "provenance": "catalog"
+        },
+        {
+          "term": "crítica filosófica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Escola do Recife",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://digital.bbm.usp.br/handle/bbm/4501",
+        "https://literaturabrasileira.ufsc.br/documentos?id=143215&locale=pt_BR"
+      ],
+      "notes": "Porto Alegre, Typographia da Deutsche Zeitung, 1878, x + 192 p. A Brasiliana USP identifica a obra como primeiro volume da série Oito anos de jornalismo e informa que reúne textos escritos entre 1869 e 1876."
+    },
+    {
+      "work_id": "0412-w002",
+      "title": "Interpretação filosófica na evolução dos fatos históricos",
+      "work_type": "philosophy_of_history_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": 1880,
+        "certainty": "government_bibliography"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia da história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "interpretação histórica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.camara.leg.br/deputados/2108/biografia"
+      ],
+      "notes": "Título e data de 1880 registrados na bibliografia oficial da Câmara dos Deputados."
+    },
+    {
+      "work_id": "0412-w003",
+      "title": "Introdução à história da literatura brasileira",
+      "work_type": "literary_history_and_cultural_theory_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1882,
+        "certainty": "government_bibliography"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história da literatura brasileira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolucionismo cultural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalidade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica literária",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.camara.leg.br/deputados/2108/biografia",
+        "https://literaturabrasileira.ufsc.br/autores?id=7933"
+      ],
+      "notes": "Rio de Janeiro, 1882, segundo a bibliografia da Câmara. É registrada por seu papel na teoria cultural e historiografia literária, não como tratado filosófico estrito."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Consolidação da Escola do Recife mediante evolucionismo, crítica filosófica, sociologia da cultura e interpretação naturalista da formação brasileira",
+      "kind": "recife_school_evolutionist_and_cultural_contribution",
+      "authorship_status": "documented_in_library_and_government_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "rare_book_library_source",
+      "title": "Brasiliana USP — A philosophia no Brasil, 1878",
+      "url": "https://digital.bbm.usp.br/handle/bbm/4501"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Sílvio Romero, dados biobibliográficos",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=7933"
+    },
+    {
+      "kind": "government_biographical_source",
+      "title": "Câmara dos Deputados — Sílvio Romero",
+      "url": "https://www.camara.leg.br/deputados/2108/biografia"
+    }
+  ],
+  "research_notes": [
+    "O título de 1878 é preservado segundo a grafia da edição original.",
+    "A produção de Romero é extensa; este seed seleciona títulos diretamente ligados a filosofia, história e teoria cultural."
+  ]
+}
