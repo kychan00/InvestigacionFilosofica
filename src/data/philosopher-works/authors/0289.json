@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "author_id": 289,
+  "canonical_name": "Francisco Luís dos Santos Leal",
+  "alternate_names": [
+    "Francisco Luiz dos Santos Leal",
+    "Padre Francisco Luiz Leal"
+  ],
+  "life": {
+    "born": {
+      "year": 1740,
+      "certainty": "UFSC_literary_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "four_catalogued_publications_1788_responsibility_and_1801_1802_discrepancies",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0289-w001",
+      "title": "Contos filosóficos: para a instrução e recreio da mocidade portuguesa",
+      "work_type": "moral_philosophical_narrative_collection_printed",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1773,
+        "certainty": "national_literature_catalog_publication_year"
+      },
+      "first_publication_year": 1773,
+      "authorship_status": "catalogued_author_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura didáctica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=8169"
+      ],
+      "notes": "Catálogo de la Biblioteca Digital de Literatura de Países Lusófonos confirma edición de 1773, pero no se revisó portada ni editorial impresa."
+    },
+    {
+      "work_id": "0289-w002",
+      "title": "História dos filósofos antigos e modernos",
+      "work_type": "historical_compendium_of_philosophers_printed",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1788,
+        "certainty": "literature_catalog_year"
+      },
+      "first_publication_year": 1788,
+      "authorship_status": "catalogued_author_role_further_collation_needed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filósofos antiguos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filósofos modernos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=195186",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Catálogo UFSC fecha Lisboa 1788 pero describe a Leal como colaborador («foi o autor colaborador desta obra»). No imponer autoría exclusiva sin cotejar portada y responsabilidad editorial.",
+      "responsibility_status": "catalogued_contributor_authorship_role_not_completely_resolved"
+    },
+    {
+      "work_id": "0289-w003",
+      "title": "Plano de estudos elementares, traçado em maneira de carta",
+      "work_type": "educational_philosophical_plan_printed_epistle",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1801,
+        "certainty": "UFSC_printed_edition_year"
+      },
+      "first_publication_year": 1801,
+      "authorship_status": "original_author_first_edition_catalogued",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estudios elementales",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=197318"
+      ],
+      "notes": "Lisboa, oficina de João Procópio Correia da Silva, 1801. Plan pedagógico dirigido al Conde da Ega para la educación de su hijo.",
+      "edition": {
+        "year": 1801,
+        "publisher": "João Procópio Correia da Silva",
+        "region": "Lisboa"
+      }
+    },
+    {
+      "work_id": "0289-w004",
+      "title": "Instrução moral em diferentes novelas",
+      "work_type": "moral_instruction_didactic_narrative_printed",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1801,
+        "certainty": "UFSC_first_edition_catalog_1801_vs_book_base_1802"
+      },
+      "first_publication_year": 1801,
+      "authorship_status": "first_edition_catalogued_1801_historical_secondary_reports_1802",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "novela didáctica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=197319",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "UFSC documenta ejemplar primera edición Lisboa, João Procópio Correia da Silva, 1801, mientras el libro base reporta 1802. Se conserva la discrepancia; no adjudicar 1802 sin portada nueva.",
+      "edition": {
+        "year": 1801,
+        "publisher": "João Procópio Correia da Silva",
+        "region": "Lisboa"
+      },
+      "alternative_reported_year": 1802,
+      "alternative_year_source": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Divulgación de historia filosófica, educación de la juventud e instrucción moral mediante compendios y narraciones",
+      "kind": "brazilian_enlightenment_philosophical_pedagogy",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "national_literature_bibliography",
+      "title": "UFSC, ficha de Francisco Luiz dos Santos Leal y títulos 1773–1801",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=8169"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "UFSC, ficha de História dos filósofos 1788",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=195186"
+    },
+    {
+      "kind": "university_first_edition_catalog",
+      "title": "UFSC, Plano de estudos elementares 1801",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=197318"
+    },
+    {
+      "kind": "university_first_edition_catalog",
+      "title": "UFSC, Instrução moral 1801",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=197319"
+    }
+  ],
+  "research_notes": [
+    "Existen diferencias en su muerte: libro base indica 1818 y autoridad UFSC 1820; se retiene sin fecha de muerte fija.",
+    "Diferencia de edición importante: Instrução moral 1801 en catálogo vs 1802 en libro base.",
+    "Historia dos filósofos se registra como aportación asociada a Leal, pero el catalogador usa «autor colaborador»: no imponer autor único."
+  ]
+}

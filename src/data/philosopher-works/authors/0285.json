@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "author_id": 285,
+  "canonical_name": "Mateus da Encarnação Pina",
+  "alternate_names": [
+    "Matheus da Encarnação Pina",
+    "Frei Mateus da Encarnação Pina"
+  ],
+  "life": {
+    "born": {
+      "year": 1687,
+      "certainty": "catalog_biography"
+    },
+    "died": {
+      "year": 1764,
+      "certainty": "UFSC_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_printed_texts_and_one_unlocated_scholastic_treatise",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0285-w001",
+      "title": "Defensio purissimae et integerrimae doctrinae Sanctae Matris Ecclesiae",
+      "work_type": "latin_catholic_scholastic_polemical_printed_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1729,
+        "certainty": "historically_documented_lisbon_edition"
+      },
+      "first_publication_year": 1729,
+      "authorship_status": "author_printed_scholastic_treatise_attested",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología escolástica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "jansenismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "doctrina eclesial",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://ojs.umsa.bo/index.php/classica/article/view/569"
+      ],
+      "notes": "Tratado impreso en Lisboa en 1729, dirigido a la defensa de la doctrina eclesial y controversia antijansenista vinculada a la bula Unigenitus; título extenso y pie de imprenta deben cotejarse con ejemplar.",
+      "edition": {
+        "year": 1729,
+        "region": "Lisboa"
+      }
+    },
+    {
+      "work_id": "0285-w002",
+      "title": "Viridário evangélico, em que as flores da virtude se ilustram com discursos morais, e os frutos da santidade se exornam com panegíricos em vários sermões",
+      "work_type": "religious_moral_oratory_four_part_printed_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1730,
+        "certainty": "first_part_print"
+      },
+      "first_publication_year": 1730,
+      "authorship_status": "four_part_collection_published_by_author_attested",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral cristiana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sermones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "oratoria sagrada",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=193739"
+      ],
+      "notes": "Serie de CUATRO partes, fechadas 1730, 1735, 1747 y 1755 (Lisboa): contar una colección, no cuatro obras originales. Catálogo UFSC digitaliza I–III y señala falta de imagen de IV.",
+      "parts_publication_years": [
+        1730,
+        1735,
+        1747,
+        1755
+      ],
+      "parts_count": 4
+    },
+    {
+      "work_id": "0285-w003",
+      "title": "Tratado de teologia dogmática e escolástica (título transmitido por historiografía)",
+      "work_type": "unpublished_theological_scholastic_treatise_attested_not_located",
+      "original_language": "portugués o latín (no comprobado)",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_work_attested_in_historical_benedictine_sources"
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_attribution_unpublished_witness_location_uncertain",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teología dogmática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://ojs.umsa.bo/index.php/classica/article/view/569"
+      ],
+      "notes": "Título citado en la historiografía benedictina como trabajo no publicado; ubicación y existencia física del manuscrito no comprobadas. No convertirlo en primera impresión.",
+      "manuscript_status": "unlocated_or_lost_title_from_secondary_source"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia benedictina de filosofía y teología y producción de polémica antijansenista y discurso moral",
+      "kind": "colonial_benedictine_philosophical_teaching",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "university_literary_catalog",
+      "title": "UFSC, Viridário evangélico (cuatro partes y fechas 1730–1755)",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=193739"
+    },
+    {
+      "kind": "scholarly_history_of_scholasticism",
+      "title": "Roberto Hofmeister Pich, «Frei Gaspar da Madre de Deus e a Philosophia Platonica: um estudo introdutório», referencias a Pina",
+      "url": "https://ojs.umsa.bo/index.php/classica/article/view/569"
+    }
+  ],
+  "research_notes": [
+    "No asignar 1730 a los cuatro tomos: cada parte posee fecha editorial propia.",
+    "El tratado de teología dogmática es un registro de obra atestiguada, no un libro publicado ni un manuscrito físicamente localizado."
+  ]
+}

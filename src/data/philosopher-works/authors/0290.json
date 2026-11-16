@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "author_id": 290,
+  "canonical_name": "Feliciano Souza Nunes",
+  "alternate_names": [
+    "Feliciano Joaquim de Sousa Nunes",
+    "Feliciano Joaquim de Souza Nunes",
+    "Joaquim Feliciano de Sousa Nunes",
+    "Feliciano José de Sousa Nunes"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "suppresssed_1758_first_print_editions_1931_and_2006_not_duplicated",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0290-w001",
+      "title": "Discursos político-morais, comprovados com vasta erudição das divinas e humanas letras",
+      "work_type": "moral_and_political_philosophy_first_print_suppressed",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1758,
+        "certainty": "first_print_and_suppression_attested"
+      },
+      "first_publication_year": 1758,
+      "authorship_status": "original_author_1758_print_suppressed_not_unpublished",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación femenina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "igualdad natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica de costumbres",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://imprensanacional.pt/edicoes/discursos-politico-morais/",
+        "https://atom.ihgb.org.br/atom/index.php/noticia-acerca-da-obra-discursos-politicos-e-morais-escritos-em-1758-por-joaquim-feliciano-de-sousa-nunes-queimados-em-lisboa-por-ordem-do-marques-de-pombal-2",
+        "https://digital.bbm.usp.br/bitstream/bbm/7365/1/45000036239_rbm_anotacoes_bibliofilo.pdf"
+      ],
+      "notes": "Volumen I publicado en Lisboa, oficina de Miguel Manescal da Costa, 1758, y posteriormente mandado destruir por autoridades pombalinas. Se conservaron ejemplares y hubo edición brasileña 1931 y edición Imprensa Nacional 2006. No confundir SUPRESIÓN con NO PUBLICACIÓN.",
+      "edition": {
+        "year": 1758,
+        "publisher": "Miguel Manescal da Costa",
+        "region": "Lisboa"
+      },
+      "later_editions": [
+        {
+          "year": 1931,
+          "region": "Rio de Janeiro",
+          "series": "Biblioteca de Cultura Nacional; Clássicos Brasileiros"
+        },
+        {
+          "year": 2006,
+          "region": "Lisboa",
+          "publisher": "Imprensa Nacional–Casa da Moeda"
+        }
+      ],
+      "original_volume_count_verified": 1,
+      "author_name_in_original": "Feliciano Joaquim de Sousa Nunes"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Discusión de virtud, riqueza, educación, nobleza y orden social desde la filosofía moral crítica del siglo XVIII",
+      "kind": "brazilian_early_modern_political_moral_thought",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "national_publisher_catalog",
+      "title": "Imprensa Nacional (Portugal), Discursos Político-Morais, ed. 2006 con noticia de original 1758",
+      "url": "https://imprensanacional.pt/edicoes/discursos-politico-morais/"
+    },
+    {
+      "kind": "historical_archive_record",
+      "title": "IHGB, registro 125-DL6.012 de noticia de la supresión de 1758",
+      "url": "https://atom.ihgb.org.br/atom/index.php/noticia-acerca-da-obra-discursos-politicos-e-morais-escritos-em-1758-por-joaquim-feliciano-de-sousa-nunes-queimados-em-lisboa-por-ordem-do-marques-de-pombal-2"
+    },
+    {
+      "kind": "historical_bibliography",
+      "title": "Biblioteca Brasiliana USP, volumen de 1931, citado en Anotações de um bibliófilo",
+      "url": "https://digital.bbm.usp.br/bitstream/bbm/7365/1/45000036239_rbm_anotacoes_bibliofilo.pdf"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico conserva nombre «Feliciano Souza Nunes»; forma documental plena «Feliciano Joaquim de Sousa Nunes», también variantes José/Joaquim en historiografía.",
+    "La fecha del item IHGB es 1888 (noticia secundaria), no la composición del libro. Año original 1758 comprobado por editorial nacional portuguesa.",
+    "Nacimiento y muerte son aproximados (c. 1730–1808?), NO convertirlos en fechas ciertas."
+  ]
+}

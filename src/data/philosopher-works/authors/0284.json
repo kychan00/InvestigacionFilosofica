@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "author_id": 284,
+  "canonical_name": "Manuel do Desterro",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "lost_two_volume_work_only_secondary_testimony",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0284-w001",
+      "title": "Philosophia scholastica (dos tomos; también «Filosofia escolástica» o «Tratado de filosofia»)",
+      "work_type": "historically_attested_lost_scholastic_philosophy_work",
+      "original_language": "latín o portugués (no comprobado)",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_lost_work_attested_in_secondary_history"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_historical_attribution_two_lost_volumes_no_extant_witness",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía escolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "La historia brasileña refiere DOS tomos que no se conservaron; no se conocen portadas, signaturas ni primera edición. Títulos alternativos descriptivos no deben contarse como obras distintas. Sermões vários sin identificación individual, no añadidos.",
+      "volume_count_reported": 2,
+      "manuscript_status": "lost_no_extant_witness_known",
+      "title_status": "historical_secondary_label"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Actividad escolástica del religioso Manuel do Desterro, recordada por historiadores de la filosofía colonial brasileña",
+      "kind": "colonial_intellectual_and_philosophical_contribution",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    }
+  ],
+  "research_notes": [
+    "El capítulo base afirma expresamente que no existen ejemplares conocidos de los dos tomos; NO declarar manuscrito localizado.",
+    "La fuente lo llama fray franciscano y custodio, mientras algunas referencias secundarias varían su caracterización; no adscribir monasterios ni órdenes adicionales sin cotejo."
+  ]
+}

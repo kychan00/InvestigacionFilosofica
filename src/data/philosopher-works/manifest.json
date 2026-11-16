@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 280,
-    "authors_remaining": 1224,
-    "works_or_contributions_seeded": 2152,
-    "current_batch": "028",
+    "authors_seeded": 290,
+    "authors_remaining": 1214,
+    "works_or_contributions_seeded": 2187,
+    "current_batch": "029",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1487,6 +1487,58 @@
       "author_id": 280,
       "canonical_name": "Miguel García",
       "path": "authors/0280.json"
+    }
+  ],
+  "batch_029": [
+    {
+      "author_id": 281,
+      "canonical_name": "Manoel da Nóbrega",
+      "path": "authors/0281.json"
+    },
+    {
+      "author_id": 282,
+      "canonical_name": "Francisco Faria",
+      "path": "authors/0282.json"
+    },
+    {
+      "author_id": 283,
+      "canonical_name": "Diogo Gomes Carneiro",
+      "path": "authors/0283.json"
+    },
+    {
+      "author_id": 284,
+      "canonical_name": "Manuel do Desterro",
+      "path": "authors/0284.json"
+    },
+    {
+      "author_id": 285,
+      "canonical_name": "Mateus da Encarnação Pina",
+      "path": "authors/0285.json"
+    },
+    {
+      "author_id": 286,
+      "canonical_name": "Nuno Marques Pereira",
+      "path": "authors/0286.json"
+    },
+    {
+      "author_id": 287,
+      "canonical_name": "Matias Aires",
+      "path": "authors/0287.json"
+    },
+    {
+      "author_id": 288,
+      "canonical_name": "Gaspar da Madre de Deus",
+      "path": "authors/0288.json"
+    },
+    {
+      "author_id": 289,
+      "canonical_name": "Francisco Luís dos Santos Leal",
+      "path": "authors/0289.json"
+    },
+    {
+      "author_id": 290,
+      "canonical_name": "Feliciano Souza Nunes",
+      "path": "authors/0290.json"
     }
   ]
 }

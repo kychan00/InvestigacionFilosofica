@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "author_id": 283,
+  "canonical_name": "Diogo Gomes Carneiro",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_original_and_documentary_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0283-w001",
+      "title": "Oração apodíxica aos cismáticos da pátria",
+      "work_type": "printed_political_moral_rhetorical_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1641,
+        "certainty": "first_lisbon_print"
+      },
+      "first_publication_year": 1641,
+      "authorship_status": "original_author_publisher_catalog_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Restauración portuguesa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lealtad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "retórica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=152521",
+        "https://bndigital.bn.gov.br/dossies/biblioteca-oliveira-lima-projeto-resgate-barao-do-rio-branco/acervo/os-pioneiros/"
+      ],
+      "notes": "Primera impresión Lisboa, Oficina de Lourenço de Anveres, 1641; exhortación política en el contexto de la Restauración portuguesa de 1640. No atribuir a la obra pensamientos de otras traducciones del autor.",
+      "edition": {
+        "year": 1641,
+        "publisher": "Lourenço de Anveres",
+        "region": "Lisboa"
+      }
+    },
+    {
+      "work_id": "0283-w002",
+      "title": "História da guerra dos tártaros (tradução portuguesa)",
+      "work_type": "translation_published_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1657,
+        "certainty": "attributed_portuguese_translation_publication"
+      },
+      "first_publication_year": 1657,
+      "authorship_status": "translator_not_author_of_original",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de Asia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.instituto-camoes.pt/sobre/publicacoes/jornal-de-letras/a-primeira-obra-impressa-de-um-brasileiro"
+      ],
+      "notes": "Traducción portuguesa del relato latino de Martino Martini; el año 1657 se recoge en una fuente crítica de historia de la edición. Traducción distinta de obra propia de filosofía.",
+      "original_author": "Martino Martini",
+      "contributor_role": "translator"
+    },
+    {
+      "work_id": "0283-w003",
+      "title": "História do Capuchino Escocês (tradução portuguesa)",
+      "work_type": "translation_published_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1657,
+        "certainty": "historical_portuguese_translation_year"
+      },
+      "first_publication_year": 1657,
+      "authorship_status": "translator_not_author_of_original",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura religiosa",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.instituto-camoes.pt/sobre/publicacoes/jornal-de-letras/a-primeira-obra-impressa-de-um-brasileiro"
+      ],
+      "notes": "Traducción asociada a Giovanni Battista Rinuccini; distinguir la primera parte de las ediciones de continuación (ejemplares posteriores de 1667) y no confundir al traductor con autor de origen.",
+      "original_author": "Giovanni Battista Rinuccini",
+      "contributor_role": "translator"
+    },
+    {
+      "work_id": "0283-w004",
+      "title": "Instrução para bem crer, bem obrar e bem pedir (tradução portuguesa)",
+      "work_type": "translation_published_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1674,
+        "certainty": "historical_bibliography_reports_1674_conflicting_secondary_1658"
+      },
+      "first_publication_year": 1674,
+      "authorship_status": "translator_not_author_of_original_year_requires_print_collation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "instrucción moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teología práctica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.instituto-camoes.pt/sobre/publicacoes/jornal-de-letras/a-primeira-obra-impressa-de-um-brasileiro"
+      ],
+      "notes": "Traducción de Juan Eusebio Nieremberg. Instituto Camões documenta 1674, pero otros estudios mencionan 1658; la fecha de primera edición de la traducción requiere cotejo de ejemplar físico.",
+      "original_author": "Juan Eusebio Nieremberg",
+      "contributor_role": "translator",
+      "reported_alternative_year": 1658
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Argumentación moral y política en favor de la Restauración portuguesa de 1640, e intercambio cultural a través de traducciones",
+      "kind": "luso_brazilian_moral_and_political_thought",
+      "authorship_status": "documented_in_scholarly_or_catalog_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000); capítulo «El pensamiento filosófico brasileño de los siglos XVI al XVIII»",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "pp. 120–125"
+    },
+    {
+      "kind": "historical_print_catalog",
+      "title": "Biblioteca Digital de Literatura de Países Lusófonos, primera edición de 1641",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=152521"
+    },
+    {
+      "kind": "national_library_historical_collection",
+      "title": "Biblioteca Nacional do Brasil, Os pioneiros: Oração apodixica de 1641",
+      "url": "https://bndigital.bn.gov.br/dossies/biblioteca-oliveira-lima-projeto-resgate-barao-do-rio-branco/acervo/os-pioneiros/"
+    },
+    {
+      "kind": "academic_cultural_institute",
+      "title": "Instituto Camões, «A primeira obra impressa de um brasileiro», fechas de traducciones",
+      "url": "https://www.instituto-camoes.pt/sobre/publicacoes/jornal-de-letras/a-primeira-obra-impressa-de-um-brasileiro"
+    }
+  ],
+  "research_notes": [
+    "Una obra original (1641) y tres traducciones explícitamente marcadas como traducciones, no cuatro libros originales de pensamiento propio.",
+    "La biografía de Diogo Gomes Carneiro presenta variantes del lugar de nacimiento; no fijar localidad sin cotejo."
+  ]
+}
