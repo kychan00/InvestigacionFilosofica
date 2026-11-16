@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "author_id": 434,
+  "canonical_name": "Aníbal Sánchez Reulet",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1910,
+      "certainty": "biographical_reference"
+    },
+    "died": {
+      "year": 1997,
+      "certainty": "biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0434-w001",
+      "title": "Raíz y destino de la filosofía",
+      "work_type": "philosophical_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "destino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=30411"
+      ],
+      "notes": "Tucumán, Universidad Nacional de Tucumán, Facultad de Filosofía y Letras, 1942, 55 páginas."
+    },
+    {
+      "work_id": "0434-w002",
+      "title": "La filosofía latinoamericana contemporánea: selección, prólogo y notas",
+      "work_type": "edited_philosophical_anthology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "selector_editor_prologue_and_notes_not_author_of_anthologized_texts",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/rec/REULFL",
+        "https://www.ensayistas.org/filosofos/cuba/guadarrama/textos/Pensamiento%20I.pdf"
+      ],
+      "notes": "Washington, Unión Panamericana, 1949. Reulet es responsable de selección, prólogo y notas; los textos antologados pertenecen a diversos autores y no se le atribuyen."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Interpretación humanista y trascendental de la filosofía latinoamericana contemporánea y defensa de su existencia como movimiento filosófico histórico",
+      "kind": "latin_american_philosophy_historiography_contribution",
+      "authorship_status": "documented_in_bibliographic_and_intellectual_history_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — Raíz y destino de la filosofía, 1942",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=30411"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "PhilPapers — La filosofía latinoamericana contemporánea, 1949",
+      "url": "https://philpapers.org/rec/REULFL"
+    }
+  ],
+  "research_notes": [
+    "La antología de 1949 se registra por su responsabilidad editorial e interpretativa, no como autoría de cada texto seleccionado.",
+    "Otros títulos atribuidos en fuentes secundarias requieren cotejo bibliográfico adicional y quedan fuera de este seed."
+  ]
+}
