@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "author_id": 101,
+  "canonical_name": "Eduardo Nicol",
+  "alternate_names": [
+    "Eduard Nicol i Franciscà"
+  ],
+  "life": {
+    "born": {
+      "year": 1907,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1990,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_anthropology_expression_science_hispanic_philosophy_and_symbolic_reason_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0101-w001",
+      "title": "Psicología de las situaciones vitales",
+      "work_type": "doctoral_thesis_philosophical_psychology",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "publication_and_doctoral_work"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "situaciones vitales",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "psicología filosófica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w002",
+      "title": "La idea del hombre",
+      "work_type": "philosophical_anthropology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historicidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "expresión",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w003",
+      "title": "Historicismo y existencialismo: la temporalidad del ser y la razón",
+      "work_type": "ontology_history_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historicismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "temporalidad",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w004",
+      "title": "La vocación humana",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vocación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Reúne escritos de 1939-1952; la fecha del libro no debe confundirse con la composición de cada ensayo."
+    },
+    {
+      "work_id": "0101-w005",
+      "title": "Metafísica de la expresión",
+      "work_type": "metaphysics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "first_version"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "expresión",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ser",
+          "provenance": "inferred"
+        }
+      ],
+      "editions": [
+        {
+          "year": 1974,
+          "kind": "second_revised_version"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w006",
+      "title": "El problema de la filosofía hispánica",
+      "work_type": "metaphilosophy_hispanic_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía hispánica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "originalidad filosófica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w007",
+      "title": "Los principios de la ciencia",
+      "work_type": "philosophy_of_science_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historicidad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w008",
+      "title": "El porvenir de la filosofía",
+      "work_type": "metaphilosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "porvenir",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "crisis",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w009",
+      "title": "La reforma de la filosofía",
+      "work_type": "metaphilosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "reforma de la filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "razón",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w010",
+      "title": "Crítica de la razón simbólica",
+      "work_type": "symbolic_reason_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón simbólica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "símbolo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "expresión",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0101-w011",
+      "title": "Ideas de vario linaje",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "publication_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ensayo",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación y dirección del Seminario de Metafísica de la UNAM",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1946,
+        "end": 1990,
+        "certainty": "documented"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "UNAM",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Eduardo Nicol (1907-1990)",
+      "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/eduardo-nicol-1907-1990/",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_course_bibliography",
+      "title": "Curso Filosofía de Nicol — bibliografía general",
+      "url": "https://servicios-galileo.filos.unam.mx/uploads/temarios/20261214030970054/Curso_Filosof%C3%ADa_de_Nicol_2026-1.pdf",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Eduardo Nicol (1907-1990)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar poesía/filosofía, artículos y verificar si Ideas de vario linaje apareció antes o después de su fallecimiento dentro de 1990.",
+    "Los principios de la ciencia se fija en 1965 pese a que perfiles breves de UNAM citan reediciones posteriores."
+  ]
+}
