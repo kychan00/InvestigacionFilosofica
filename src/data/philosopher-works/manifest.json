@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 10,
-    "authors_remaining": 1494,
-    "works_or_contributions_seeded": 34,
-    "current_batch": "001",
+    "authors_seeded": 20,
+    "authors_remaining": 1484,
+    "works_or_contributions_seeded": 80,
+    "current_batch": "002",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -83,6 +83,58 @@
       "author_id": 10,
       "canonical_name": "Juan de Torquemada",
       "path": "authors/0010.json"
+    }
+  ],
+  "batch_002": [
+    {
+      "author_id": 11,
+      "canonical_name": "Antonio Vieira",
+      "path": "authors/0011.json"
+    },
+    {
+      "author_id": 12,
+      "canonical_name": "Bernardino de Sahagún",
+      "path": "authors/0012.json"
+    },
+    {
+      "author_id": 13,
+      "canonical_name": "Hernando de Alvarado Tezozómoc",
+      "path": "authors/0013.json"
+    },
+    {
+      "author_id": 14,
+      "canonical_name": "Felipe Guamán Poma de Ayala",
+      "path": "authors/0014.json"
+    },
+    {
+      "author_id": 15,
+      "canonical_name": "Inca Garcilaso de la Vega",
+      "path": "authors/0015.json"
+    },
+    {
+      "author_id": 16,
+      "canonical_name": "Lucas Fernández de Piedrahita",
+      "path": "authors/0016.json"
+    },
+    {
+      "author_id": 17,
+      "canonical_name": "Juan de Espinosa Medrano",
+      "path": "authors/0017.json"
+    },
+    {
+      "author_id": 18,
+      "canonical_name": "Carlos de Sigüenza y Góngora",
+      "path": "authors/0018.json"
+    },
+    {
+      "author_id": 19,
+      "canonical_name": "Sor Juana Inés de la Cruz",
+      "path": "authors/0019.json"
+    },
+    {
+      "author_id": 20,
+      "canonical_name": "Benito Jerónimo Feijóo",
+      "path": "authors/0020.json"
     }
   ]
 }
