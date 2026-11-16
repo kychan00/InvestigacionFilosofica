@@ -28,6 +28,34 @@ try {
       reducedMotion: "reduce"
     });
     const page = await context.newPage();
+
+    await page.route("**/api.crossref.org/v1/works**", async route => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          status: "ok",
+          message: {
+            items: [{
+              title: ["De l'égalité des races humaines: anthropologie positive"],
+              author: [{ given: "Anténor", family: "Firmin" }],
+              published: { "date-parts": [[1885]] },
+              type: "book",
+              URL: "https://example.test/firmin-1885"
+            }]
+          }
+        })
+      });
+    });
+
+    await page.route("**/archive.org/advancedsearch.php**", async route => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ response: { numFound: 0, docs: [] } })
+      });
+    });
+
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
@@ -123,13 +151,30 @@ try {
       "Dossier must render complete work cards");
     assert.ok(await page.locator("#author-dialog .author-source-card").count() >= 1,
       "Dossier must render source cards");
-    assert.ok(await page.locator("#author-dialog .author-dossier-nav button").count() === 4,
-      "Dossier must expose its four reading sections");
+    assert.ok(await page.locator("#author-dialog .author-dossier-nav button").count() === 5,
+      "Dossier must expose its five reading sections");
     assert.equal(
       await page.locator("#author-dialog .author-dossier-timeline-item").count(),
       await page.locator("#author-dialog .author-work-card").count(),
       "Dossier chronology must represent every documented work"
     );
+
+    await page.locator('[data-dossier-target="author-dossier-research-section"]').click();
+    await page.locator("#author-dossier-research-section").waitFor({ state: "visible" });
+    await page.locator("[data-live-author-search]").click();
+    await page.waitForFunction(() =>
+      document.querySelectorAll(".author-live-result").length >= 1
+    );
+
+    assert.ok(
+      (await page.locator(".author-live-result").first().textContent()).includes("De l'égalité des races humaines"),
+      "Federated author search must surface the mocked Firmin work"
+    );
+    assert.ok(
+      (await page.locator(".author-live-result-head strong").first().textContent()).includes("YA ESTÁ EN LA FICHA"),
+      "Federated result matching a curated title must be recognized as already curated"
+    );
+
     assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
       "Dossier must retain the canonical author identifier");
 

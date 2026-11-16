@@ -1,3 +1,5 @@
+import { searchPhilosophy } from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
+
 const INVENTORY_URL = "./src/data/latin-american-philosophers-metadata.json";
 const MANIFEST_URL = "./src/data/philosopher-works/manifest.json";
 const AUTHOR_BASE = "./src/data/philosopher-works/authors/";
@@ -44,8 +46,11 @@ let periodLoading = false;
 let periodHydrationStarted = false;
 let currentAuthorId = null;
 let dialogReturnHash = "";
+let liveResearchController = null;
+let philosophyMapPromise = null;
 
 const authorCache = new Map();
+const liveResearchCache = new Map();
 
 const PERIODS = [
   {
@@ -665,6 +670,276 @@ function appendWorkList(record, container) {
   container.append(section);
 }
 
+function normalizeName(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function significantNameTokens(value) {
+  const stop = new Set(["de","del","la","las","los","y","e","da","do","dos","das"]);
+  return normalizeName(value).split(" ").filter(token => token.length > 1 && !stop.has(token));
+}
+
+function authorMatchScore(item, record) {
+  const variants = [
+    record.canonical_name,
+    ...(record.alternate_names || [])
+  ].map(normalizeName).filter(Boolean);
+
+  const resultAuthors = (item.authors || [])
+    .map(author => normalizeName(author?.name || author?.sourceName))
+    .filter(Boolean);
+
+  let best = 0;
+  for (const candidate of resultAuthors) {
+    for (const variant of variants) {
+      if (candidate === variant) best = Math.max(best, 100);
+      else if (candidate.length > 5 && (candidate.includes(variant) || variant.includes(candidate))) {
+        best = Math.max(best, 90);
+      } else {
+        const vt = significantNameTokens(variant);
+        const ct = significantNameTokens(candidate);
+        if (!vt.length || !ct.length) continue;
+        const overlap = vt.filter(token => ct.includes(token)).length;
+        const surnameMatch = vt.at(-1) && ct.includes(vt.at(-1));
+        if (surnameMatch && overlap >= Math.min(2, vt.length)) best = Math.max(best, 78);
+      }
+    }
+  }
+  return best;
+}
+
+function normalizedDoi(value) {
+  return String(value || "")
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, "")
+    .replace(/^doi:/i, "")
+    .trim()
+    .toLowerCase();
+}
+
+function normalizedTitle(value) {
+  return normalizeName(value).replace(/\b(el|la|los|las|the|a|an)\b/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function curatedOverlap(item, record) {
+  const doi = normalizedDoi(item.doi || item.urls?.doi);
+  const title = normalizedTitle(item.title);
+  return (record.works || []).some(work => {
+    const workDoi = normalizedDoi(work.identifiers?.doi);
+    if (doi && workDoi && doi === workDoi) return true;
+    return title && normalizedTitle(work.title) === title;
+  });
+}
+
+function liveResultUrl(item) {
+  return item.urls?.openAccess ||
+    item.urls?.doi ||
+    item.urls?.canonical ||
+    item.urls?.landing ||
+    item.urls?.reference ||
+    item.url ||
+    null;
+}
+
+function loadPhilosophyMap() {
+  if (!philosophyMapPromise) {
+    philosophyMapPromise = fetch("./src/data/philosophy-map.json")
+      .then(response => {
+        if (!response.ok) throw new Error("No se pudo cargar philosophy-map.json");
+        return response.json();
+      })
+      .catch(error => {
+        philosophyMapPromise = null;
+        throw error;
+      });
+  }
+  return philosophyMapPromise;
+}
+
+function providerLabel(item) {
+  return [...new Set(item.providers || [])].join(" · ") || "Fuente federada";
+}
+
+function renderLiveResearchResults(record, response, resultsEl, statusEl) {
+  const ranked = (response?.results || [])
+    .map(item => ({ item, match: authorMatchScore(item, record) }))
+    .filter(entry => entry.match >= 78)
+    .sort((a,b) => b.match - a.match || (b.item.relevanceScore || 0) - (a.item.relevanceScore || 0))
+    .slice(0, 16);
+
+  const total = response?.results?.length || 0;
+  const discarded = Math.max(0, total - ranked.length);
+  resultsEl.replaceChildren();
+
+  if (!ranked.length) {
+    const empty = document.createElement("div");
+    empty.className = "author-live-empty";
+    empty.innerHTML = "<strong>No encontré una coincidencia de autoría suficientemente sólida.</strong><p>El motor devolvió resultados, pero esta vista descarta los que sólo mencionan el nombre o no traen autoría verificable.</p>";
+    resultsEl.append(empty);
+    statusEl.textContent = `${total} resultados revisados · 0 coincidencias de autoría conservadas`;
+    return;
+  }
+
+  for (const { item, match } of ranked) {
+    const card = document.createElement("article");
+    card.className = "author-live-result";
+
+    const head = document.createElement("div");
+    head.className = "author-live-result-head";
+
+    const source = document.createElement("span");
+    source.textContent = providerLabel(item);
+
+    const badge = document.createElement("strong");
+    const overlap = curatedOverlap(item, record);
+    badge.className = overlap ? "is-curated" : "is-candidate";
+    badge.textContent = overlap ? "YA ESTÁ EN LA FICHA" : "CANDIDATA NUEVA";
+    head.append(source, badge);
+
+    const title = document.createElement("h4");
+    title.textContent = item.title || "Sin título";
+
+    const meta = document.createElement("p");
+    const authorNames = (item.authors || []).map(author => author?.name || author?.sourceName).filter(Boolean);
+    meta.textContent = [
+      authorNames.join(", "),
+      item.year,
+      humanize(item.type),
+      item.journal
+    ].filter(Boolean).join(" · ");
+
+    const foot = document.createElement("div");
+    foot.className = "author-live-result-foot";
+
+    const confidence = document.createElement("span");
+    confidence.textContent = match >= 95 ? "Autoría coincidente" : "Autoría probable";
+    foot.append(confidence);
+
+    const url = liveResultUrl(item);
+    if (url) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Abrir registro ↗";
+      foot.append(link);
+    }
+
+    card.append(head, title);
+    if (meta.textContent) card.append(meta);
+    card.append(foot);
+    resultsEl.append(card);
+  }
+
+  statusEl.textContent =
+    `${ranked.length} coincidencias de autoría mostradas · ${discarded} resultados descartados por ruido o autoría insuficiente`;
+}
+
+async function runLiveAuthorResearch(record, section) {
+  const button = section.querySelector("[data-live-author-search]");
+  const status = section.querySelector(".author-live-status");
+  const results = section.querySelector(".author-live-results");
+  if (!button || !status || !results) return;
+
+  const cacheKey = record.author_id;
+  if (liveResearchCache.has(cacheKey)) {
+    renderLiveResearchResults(record, liveResearchCache.get(cacheKey), results, status);
+    return;
+  }
+
+  liveResearchController?.abort();
+  const controller = new AbortController();
+  liveResearchController = controller;
+  button.disabled = true;
+  button.textContent = "Buscando…";
+  status.textContent = "Consultando CUCSH Filosofía · Crossref · Internet Archive…";
+  results.innerHTML = '<p class="author-dialog-loading">El motor federado está buscando obras por autoría.</p>';
+
+  try {
+    const map = await loadPhilosophyMap();
+    const response = await searchPhilosophy(
+      record.canonical_name,
+      map,
+      {
+        maxQueries: 1,
+        delayBetweenExpansions: 0,
+        signal: controller.signal,
+        openAlexPhilosophy: { enabled: false },
+        cucshFilosofia: { enabled: true, rows: 12 },
+        crossref: { enabled: true, rows: 12 },
+        internetArchive: { enabled: true, rows: 12 },
+        orcid: { enabled: false },
+        onPartialResults: partial => {
+          if (!controller.signal.aborted && liveResearchController === controller) {
+            renderLiveResearchResults(record, partial, results, status);
+          }
+        }
+      }
+    );
+    liveResearchCache.set(cacheKey, response);
+    renderLiveResearchResults(record, response, results, status);
+  } catch (error) {
+    if (error?.name === "AbortError") return;
+    console.error(error);
+    results.innerHTML = '<div class="author-live-empty"><strong>No fue posible completar la búsqueda.</strong><p>Puede intentarlo de nuevo; la ficha curada no se modifica.</p></div>';
+    status.textContent = "Búsqueda federada no disponible en este momento.";
+  } finally {
+    if (liveResearchController === controller) {
+      liveResearchController = null;
+      button.disabled = false;
+      button.textContent = "Buscar obras en el motor";
+    }
+  }
+}
+
+function appendLiveResearch(record, container) {
+  const section = document.createElement("section");
+  section.id = "author-dossier-research-section";
+  section.className = "author-dossier-section author-dossier-live-research";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "author-dossier-section-index";
+  eyebrow.textContent = "III / MOTOR DE INVESTIGACIÓN";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Buscar más allá de la ficha.";
+
+  const intro = document.createElement("p");
+  intro.className = "author-dossier-lede";
+  intro.textContent = "Consulta en vivo el mismo motor federado de Investigación Filosófica. Estos resultados no se incorporan automáticamente a la bibliografía curada: sirven para descubrir y contrastar nuevas obras.";
+
+  const controls = document.createElement("div");
+  controls.className = "author-live-controls";
+  const button = document.createElement("button");
+  button.type = "button";
+  button.dataset.liveAuthorSearch = String(record.author_id);
+  button.textContent = "Buscar obras en el motor";
+
+  const status = document.createElement("p");
+  status.className = "author-live-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  status.textContent = "Búsqueda bajo demanda · CUCSH Filosofía · Crossref · Internet Archive";
+
+  controls.append(button, status);
+
+  const legend = document.createElement("div");
+  legend.className = "author-live-legend";
+  legend.innerHTML = '<span><i class="is-curated"></i> Ya está en la ficha</span><span><i class="is-candidate"></i> Candidata nueva</span>';
+
+  const results = document.createElement("div");
+  results.className = "author-live-results";
+
+  section.append(eyebrow, heading, intro, controls, legend, results);
+  button.addEventListener("click", () => runLiveAuthorResearch(record, section));
+  container.append(section);
+}
+
 function appendSources(record, container) {
   const section = document.createElement("section");
   section.id = "author-dossier-sources-section";
@@ -672,7 +947,7 @@ function appendSources(record, container) {
 
   const eyebrow = document.createElement("p");
   eyebrow.className = "author-dossier-section-index";
-  eyebrow.textContent = "III / FUENTES";
+  eyebrow.textContent = "IV / FUENTES";
 
   const headingRow = document.createElement("div");
   headingRow.className = "author-dossier-section-heading";
@@ -727,7 +1002,7 @@ function appendNotes(record, container) {
 
   const eyebrow = document.createElement("p");
   eyebrow.className = "author-dossier-section-index";
-  eyebrow.textContent = "IV / NOTAS DE INVESTIGACIÓN";
+  eyebrow.textContent = "V / NOTAS DE INVESTIGACIÓN";
 
   const heading = document.createElement("h3");
   heading.textContent = "Lo que todavía exige cuidado.";
@@ -808,6 +1083,7 @@ function renderAuthorDialog(record) {
 
   appendOverview(record, authorDialogBody);
   appendWorkList(record, authorDialogBody);
+  appendLiveResearch(record, authorDialogBody);
   appendSources(record, authorDialogBody);
   appendNotes(record, authorDialogBody);
 
@@ -819,6 +1095,7 @@ function authorHash(id) {
 }
 
 async function openAuthorDialog(id, { updateHistory = true } = {}) {
+  liveResearchController?.abort();
   const numericId = Number(id);
   if (!Number.isInteger(numericId) || numericId < 1 || numericId > seededCount) return;
 
@@ -855,6 +1132,7 @@ async function openAuthorDialog(id, { updateHistory = true } = {}) {
 }
 
 function closeAuthorDialog({ restoreHistory = true } = {}) {
+  liveResearchController?.abort();
   if (typeof authorDialog.close === "function" && authorDialog.open) {
     authorDialog.close();
   } else {
