@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "author_id": 114,
+  "canonical_name": "Mario Magallón Anaya",
+  "alternate_names": [
+    "Mario Magallón"
+  ],
+  "life": {
+    "born": {
+      "year": 1946,
+      "certainty": "project_canonical"
+    },
+    "died": null
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_history_of_ideas_democracy_modernity_ethics_and_nuestra_america_corpus_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0114-w001",
+      "title": "Historia de las ideas latinoamericanas ¿disciplina fenecida?",
+      "work_type": "history_of_ideas_methodology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "verified_coauthored",
+      "coauthors": [
+        {
+          "name": "Horacio Cerutti Guldberg",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de las ideas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "metodología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0114-w002",
+      "title": "Reflexiones filosóficas desde nuestra América",
+      "work_type": "latin_american_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "nuestra América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "democracia",
+          "provenance": "editorial"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "editorial"
+        },
+        {
+          "term": "utopía",
+          "provenance": "editorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0114-w003",
+      "title": "La democracia en América Latina",
+      "work_type": "political_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "democracia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0114-w004",
+      "title": "Modernidad alternativa: viejos retos y nuevos problemas",
+      "work_type": "latin_american_modernity_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernidad alternativa",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0114-w005",
+      "title": "Reflexiones éticas y políticas de filosofía desde un horizonte propio",
+      "work_type": "ethics_political_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "horizonte propio",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0114-w006",
+      "title": "Los caminos del pensar: la radicalidad de nuestra América",
+      "work_type": "latin_american_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2020,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786073030663"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "nuestra América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "editorial"
+        },
+        {
+          "term": "posmodernidad",
+          "provenance": "editorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0114-w007",
+      "title": "El problema del sujeto en la historicidad de nuestra América",
+      "work_type": "latin_american_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2024,
+        "certainty": "publication"
+      },
+      "first_publication_year": 2024,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.22201/cialc.9786073090254p.2024",
+        "isbn": [
+          "9786073090254"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "sujeto",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historicidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "nuestra América",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética social",
+          "provenance": "editorial"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación y formación en filosofía, política, educación e historia de las ideas latinoamericanas en el CIALC-UNAM",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1985,
+        "end": 2026,
+        "certainty": "documented_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_profile",
+      "title": "Mario Magallón Anaya",
+      "url": "https://posgrado.unam.mx/filosofia/?tutor=magallon-anaya-mario",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_repository",
+      "title": "El problema del sujeto en la historicidad de nuestra América",
+      "url": "https://librosoa.unam.mx/handle/123456789/3803",
+      "publisher": "UNAM-CIALC",
+      "doi": "10.22201/cialc.9786073090254p.2024"
+    },
+    {
+      "kind": "university_repository",
+      "title": "Reflexiones filosóficas desde nuestra América",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/reflexiones-filosoficas-desde-nuestra-america-5000014",
+      "publisher": "UNAM-CIALC"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Mario Magallón Anaya (1946-)"
+    }
+  ],
+  "research_notes": [
+    "Semilla aún parcial: el perfil UNAM reporta casi veinte libros de autoría propia.",
+    "Pendiente incorporar la producción de los años 1980-2000 con ejemplares bibliográficos verificados."
+  ]
+}
