@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "author_id": 362,
+  "canonical_name": "Valentín Letelier",
+  "alternate_names": [
+    "Valentín Letelier Madariaga"
+  ],
+  "life": {
+    "born": {
+      "year": 1852,
+      "certainty": "national_library_authority"
+    },
+    "died": {
+      "year": 1919,
+      "certainty": "national_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0362-w001",
+      "title": "De la ciencia política en Chile",
+      "work_type": "political_science_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1886,
+        "certainty": "national_library_catalog_or_scholarly_source"
+      },
+      "first_publication_year": 1886,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciencia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Chile",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-91041.html"
+      ],
+      "notes": "Memoria Chilena conserva la obra y la identifica entre los trabajos de Letelier; el estudio fue premiado en el Certamen Varela de 1886."
+    },
+    {
+      "work_id": "0362-w002",
+      "title": "Filosofía de la educación",
+      "work_type": "philosophy_of_education_original_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1892,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-91041.html"
+      ],
+      "notes": "Memoria Chilena: Santiago, 1892, xii + 750 páginas. La Universidad de Chile señala que fue escrita en 1891 y publicada en 1892."
+    },
+    {
+      "work_id": "0362-w003",
+      "title": "La lucha por la cultura",
+      "work_type": "educational_and_social_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/archivos2/pdfs/mc0035533.pdf"
+      ],
+      "notes": "Catálogo histórico de obras de Letelier consigna La lucha por la cultura (1895)."
+    },
+    {
+      "work_id": "0362-w004",
+      "title": "La evolución de la historia",
+      "work_type": "philosophy_of_history_multivolume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1900,
+        "certainty": "university_biographical_source"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolución",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://uchile.cl/presentacion/rectoria/luis-riveros-cornejo/discursos/charla-sobre-valentin-letelier",
+        "https://www.memoriachilena.gob.cl/602/w3-article-91041.html"
+      ],
+      "notes": "La Universidad de Chile fecha la publicación en 1900. Los dos tomos se conservan como una sola obra."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción del positivismo sociológico a debates chilenos sobre historia, educación pública y política",
+      "kind": "positivist_educational_and_political_contribution",
+      "authorship_status": "documented_in_national_library_and_university_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "Memoria Chilena — Valentín Letelier, autoridad y bibliografía",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-91041.html"
+    },
+    {
+      "kind": "university_source",
+      "title": "Universidad de Chile — Valentín Letelier",
+      "url": "https://uchile.cl/presentacion/rectoria/luis-riveros-cornejo/discursos/charla-sobre-valentin-letelier"
+    }
+  ],
+  "research_notes": [
+    "No se cuentan los 20 tomos de recopilación de sesiones legislativas como obras originales independientes de Letelier.",
+    "La evolución de la historia se trata como una obra en dos tomos."
+  ]
+}
