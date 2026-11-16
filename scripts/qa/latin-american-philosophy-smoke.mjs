@@ -14,6 +14,12 @@ const browser = await chromium.launch({
   args: ["--no-sandbox"]
 });
 
+async function settlePaint(page) {
+  await page.evaluate(() => new Promise(resolve => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  }));
+}
+
 try {
   for (const width of WIDTHS) {
     const context = await browser.newContext({
@@ -106,11 +112,56 @@ try {
     await page.waitForFunction(() =>
       document.querySelector("#author-dialog-title")?.textContent?.includes("Anténor Firmin")
     );
-    assert.ok(await page.locator("#author-dialog .author-work-list li").count() >= 1,
-      "Author dialog should render documented works");
-    assert.ok(await page.locator("#author-dialog .author-source-list a").count() >= 1,
-      "Author dialog should render source links");
+
+    assert.equal(new URL(page.url()).hash, "#autor-0380",
+      "Opening a philosopher dossier must expose a shareable author hash");
+    assert.ok(await page.locator("#author-dialog .author-dossier-identity").count() === 1,
+      "Dossier must render an identity panel");
+    assert.ok(await page.locator("#author-dialog #author-dossier-overview").count() === 1,
+      "Dossier must render an archival overview");
+    assert.ok(await page.locator("#author-dialog .author-work-card").count() >= 1,
+      "Dossier must render complete work cards");
+    assert.ok(await page.locator("#author-dialog .author-source-card").count() >= 1,
+      "Dossier must render source cards");
+    assert.ok(await page.locator("#author-dialog .author-dossier-nav button").count() === 4,
+      "Dossier must expose its four reading sections");
+    assert.equal(
+      await page.locator("#author-dialog .author-dossier-timeline-item").count(),
+      await page.locator("#author-dialog .author-work-card").count(),
+      "Dossier chronology must represent every documented work"
+    );
+    assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
+      "Dossier must retain the canonical author identifier");
+
+    await settlePaint(page);
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-light.png",
+      animations: "disabled"
+    });
+
+    await page.locator('[data-dossier-target="author-dossier-works-section"]').click();
+    await page.locator("#author-dossier-works-section").waitFor({ state: "visible" });
+    await settlePaint(page);
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-works-light.png",
+      animations: "disabled"
+    });
+
+    await page.locator("#author-dialog-next").click();
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dossier-index")?.textContent?.includes("#0381")
+    );
+    assert.equal(new URL(page.url()).hash, "#autor-0381",
+      "Next-author navigation must update the shareable hash");
+
+    await page.locator("#author-dialog-prev").click();
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dossier-index")?.textContent?.includes("#0380")
+    );
+
     await page.locator("#author-dialog-close").click();
+    assert.ok(!new URL(page.url()).hash.startsWith("#autor-"),
+      "Closing the dossier must restore the previous page hash");
 
     const seededTotal = Number(
       (await page.locator("#stat-seeded").textContent()).replace(/[^0-9]/g, "")
@@ -183,7 +234,26 @@ try {
       await page.locator(".site-menu-close").click();
     }
 
+    await page.locator("#author-search").fill("Firmin");
+    await page.waitForFunction(() =>
+      document.querySelector("#author-directory")?.textContent?.includes("Anténor Firmin")
+    );
+    await page.locator("#author-directory .author-card").first().click();
+    await page.locator("#author-dialog[open]").waitFor({ state: "visible" });
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dossier-index")?.textContent?.includes("#0380")
+    );
+
     assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
+
+    await settlePaint(page);
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-dark.png",
+      animations: "disabled"
+    });
+
+    await page.locator("#author-dialog-close").click();
+    await page.locator("#author-search").fill("");
 
     await page.screenshot({
       path: ARTIFACTS + "/archive-" + width + "-dark.png",

@@ -20,6 +20,19 @@ const authorDialogClose = document.querySelector("#author-dialog-close");
 const authorDialogTitle = document.querySelector("#author-dialog-title");
 const authorDialogLife = document.querySelector("#author-dialog-life");
 const authorDialogBody = document.querySelector("#author-dialog-body");
+const authorDialogPrev = document.querySelector("#author-dialog-prev");
+const authorDialogNext = document.querySelector("#author-dialog-next");
+const authorDialogShare = document.querySelector("#author-dialog-share");
+const authorDossierIndex = document.querySelector("#author-dossier-index");
+const authorDossierStatus = document.querySelector("#author-dossier-status");
+const authorDossierPeriodRoman = document.querySelector("#author-dossier-period-roman");
+const authorDossierPeriodLabel = document.querySelector("#author-dossier-period-label");
+const authorDossierMonogram = document.querySelector("#author-dossier-monogram");
+const authorDossierAliases = document.querySelector("#author-dossier-aliases");
+const authorDossierWorks = document.querySelector("#author-dossier-works");
+const authorDossierContributions = document.querySelector("#author-dossier-contributions");
+const authorDossierSources = document.querySelector("#author-dossier-sources");
+const authorDossierCoverage = document.querySelector("#author-dossier-coverage");
 
 let authors = [];
 let seededCount = 0;
@@ -29,6 +42,8 @@ let hydratedAuthors = [];
 let periodCursor = 0;
 let periodLoading = false;
 let periodHydrationStarted = false;
+let currentAuthorId = null;
+let dialogReturnHash = "";
 
 const authorCache = new Map();
 
@@ -334,152 +349,490 @@ function lifeText(record) {
   return "Fechas no fijadas en esta ficha";
 }
 
+function periodMetaFor(record) {
+  const id = inferPeriod(record);
+  return PERIODS.find(period => period.id === id) || PERIODS.at(-1);
+}
+
+function dossierMonogram(name) {
+  const parts = String(name || "Φ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter(part => !["de", "del", "la", "las", "los", "y", "e"].includes(part.toLowerCase()));
+  if (!parts.length) return "Φ";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts.at(-1)[0]).toUpperCase();
+}
+
+function coverageText(record) {
+  const status = record.coverage?.works_status;
+  if (status === "selected_originals_and_contributions_not_exhaustive") {
+    return "Selección bibliográfica en expansión · no exhaustiva";
+  }
+  if (status) return humanize(status);
+  return "Cobertura bibliográfica en construcción";
+}
+
+function workYear(work) {
+  return work?.original_date?.year ?? work?.first_publication_year ?? null;
+}
+
+function aggregateKeywords(record) {
+  const terms = [];
+  const seen = new Set();
+  for (const work of record.works || []) {
+    for (const keyword of work.keywords || []) {
+      const term = String(keyword?.term || "").trim();
+      const key = normalizeText(term);
+      if (!term || seen.has(key)) continue;
+      seen.add(key);
+      terms.push(term);
+    }
+  }
+  return terms.slice(0, 14);
+}
+
+function aggregateLanguages(record) {
+  const languages = [];
+  const seen = new Set();
+  for (const work of record.works || []) {
+    const language = String(work?.original_language || "").trim();
+    const key = normalizeText(language);
+    if (!language || seen.has(key)) continue;
+    seen.add(key);
+    languages.push(language);
+  }
+  return languages;
+}
+
+function createChip(text, className = "author-dossier-chip") {
+  const chip = document.createElement("span");
+  chip.className = className;
+  chip.textContent = text;
+  return chip;
+}
+
+function appendOverview(record, container) {
+  const section = document.createElement("section");
+  section.id = "author-dossier-overview";
+  section.className = "author-dossier-section author-dossier-overview";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "author-dossier-section-index";
+  eyebrow.textContent = "I / PANORAMA DEL ARCHIVO";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Una ficha para leer, no sólo para contar.";
+
+  const works = Array.isArray(record.works) ? record.works : [];
+  const contributions = Array.isArray(record.non_bibliographic_contributions)
+    ? record.non_bibliographic_contributions
+    : [];
+  const years = works.map(workYear).filter(Number.isFinite).sort((a,b) => a-b);
+  const languages = aggregateLanguages(record);
+  const keywords = aggregateKeywords(record);
+
+  const intro = document.createElement("p");
+  intro.className = "author-dossier-lede";
+  const pieces = [
+    `${works.length} ${works.length === 1 ? "obra documentada" : "obras documentadas"}`,
+    `${contributions.length} ${contributions.length === 1 ? "contribución intelectual" : "contribuciones intelectuales"}`
+  ];
+  if (years.length) pieces.push(`arco documental ${years[0]}–${years.at(-1)}`);
+  intro.textContent = pieces.join(" · ") + ".";
+
+  const facts = document.createElement("div");
+  facts.className = "author-dossier-facts";
+
+  const factData = [
+    ["Cronología", years.length ? `${years[0]}–${years.at(-1)}` : "Sin fecha suficiente"],
+    ["Lenguas", languages.length ? languages.join(" · ") : "No fijadas"],
+    ["Cobertura", coverageText(record)]
+  ];
+
+  for (const [label, value] of factData) {
+    const fact = document.createElement("div");
+    const dt = document.createElement("span");
+    dt.textContent = label;
+    const dd = document.createElement("strong");
+    dd.textContent = value;
+    fact.append(dt, dd);
+    facts.append(fact);
+  }
+
+  section.append(eyebrow, heading, intro, facts);
+
+  if (works.length) {
+    const timelineBlock = document.createElement("div");
+    timelineBlock.className = "author-dossier-timeline-block";
+
+    const timelineLabel = document.createElement("p");
+    timelineLabel.className = "author-dossier-block-label";
+    timelineLabel.textContent = "CARTOGRAFÍA TEMPORAL DE LAS OBRAS";
+
+    const timeline = document.createElement("div");
+    timeline.className = "author-dossier-timeline";
+    timeline.setAttribute("aria-label", "Cronología de las obras documentadas");
+
+    const sortedWorks = [...works].sort((a,b) => (workYear(a) ?? 9999) - (workYear(b) ?? 9999));
+    sortedWorks.forEach((work, index) => {
+      const item = document.createElement("article");
+      item.className = "author-dossier-timeline-item";
+
+      const node = document.createElement("span");
+      node.className = "author-dossier-timeline-node";
+      node.textContent = String(index + 1).padStart(2, "0");
+
+      const year = document.createElement("strong");
+      year.textContent = workYear(work) ?? "s. f.";
+
+      const title = document.createElement("p");
+      title.textContent = work.title || "Título no disponible";
+
+      item.append(node, year, title);
+      timeline.append(item);
+    });
+
+    timelineBlock.append(timelineLabel, timeline);
+    section.append(timelineBlock);
+  }
+
+  if (keywords.length) {
+    const keywordBlock = document.createElement("div");
+    keywordBlock.className = "author-dossier-keyword-block";
+    const label = document.createElement("p");
+    label.textContent = "VOCABULARIO DE LA FICHA";
+    const chips = document.createElement("div");
+    chips.className = "author-dossier-chips";
+    chips.replaceChildren(...keywords.map(term => createChip(term)));
+    keywordBlock.append(label, chips);
+    section.append(keywordBlock);
+  }
+
+  if (contributions.length) {
+    const contributionBlock = document.createElement("div");
+    contributionBlock.className = "author-dossier-contribution-block";
+    const label = document.createElement("p");
+    label.className = "author-dossier-block-label";
+    label.textContent = "EJES DOCUMENTADOS";
+
+    const list = document.createElement("div");
+    list.className = "author-dossier-contribution-grid";
+
+    for (const contribution of contributions) {
+      const card = document.createElement("article");
+      const mark = document.createElement("span");
+      mark.textContent = "✦";
+      const title = document.createElement("strong");
+      title.textContent = contribution.title || "Contribución documentada";
+      const meta = document.createElement("small");
+      meta.textContent = humanize(contribution.kind);
+      card.append(mark, title);
+      if (contribution.kind) card.append(meta);
+      list.append(card);
+    }
+
+    contributionBlock.append(label, list);
+    section.append(contributionBlock);
+  }
+
+  container.append(section);
+}
+
+function createEvidenceLink(url, label) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = label;
+  return link;
+}
+
 function appendWorkList(record, container) {
   const section = document.createElement("section");
-  section.className = "author-dialog-section";
+  section.id = "author-dossier-works-section";
+  section.className = "author-dossier-section author-dossier-works";
 
-  const heading = document.createElement("div");
-  heading.className = "author-dialog-section-heading";
-  const h3 = document.createElement("h3");
-  h3.textContent = "Obras documentadas";
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "author-dossier-section-index";
+  eyebrow.textContent = "II / OBRAS DOCUMENTADAS";
+
+  const headingRow = document.createElement("div");
+  headingRow.className = "author-dossier-section-heading";
+  const heading = document.createElement("h3");
+  heading.textContent = "Obras, manuscritos y documentos.";
+  const works = Array.isArray(record.works) ? [...record.works] : [];
   const count = document.createElement("span");
-  const works = Array.isArray(record.works) ? record.works : [];
   count.textContent = works.length.toLocaleString("es-MX");
-  heading.append(h3, count);
-  section.append(heading);
+  headingRow.append(heading, count);
+
+  section.append(eyebrow, headingRow);
 
   if (!works.length) {
     const empty = document.createElement("p");
     empty.className = "author-dialog-empty";
     empty.textContent = "Esta ficha conserva contribuciones o actividad intelectual, pero todavía no tiene una obra bibliográfica suficientemente documentada.";
     section.append(empty);
+    container.append(section);
+    return;
+  }
+
+  works.sort((a,b) => (workYear(a) ?? 9999) - (workYear(b) ?? 9999));
+
+  const list = document.createElement("div");
+  list.className = "author-dossier-work-grid";
+
+  works.forEach((work, index) => {
+    const card = document.createElement("article");
+    card.className = "author-work-card";
+
+    const rail = document.createElement("div");
+    rail.className = "author-work-rail";
+    const number = document.createElement("span");
+    number.textContent = String(index + 1).padStart(2, "0");
+    const year = document.createElement("strong");
+    year.textContent = workYear(work) ?? "s. f.";
+    rail.append(number, year);
+
+    const copy = document.createElement("div");
+    copy.className = "author-work-copy";
+
+    const typeLine = document.createElement("p");
+    typeLine.className = "author-work-type";
+    const descriptors = [
+      humanize(work.work_type),
+      work.original_language,
+      humanize(work.authorship_status)
+    ].filter(Boolean);
+    typeLine.textContent = descriptors.join(" · ");
+
+    const title = document.createElement("h4");
+    title.textContent = work.title || "Título no disponible";
+
+    copy.append(typeLine, title);
+
+    if (Array.isArray(work.coauthors) && work.coauthors.length) {
+      const coauthors = document.createElement("p");
+      coauthors.className = "author-work-coauthors";
+      coauthors.textContent = "Con: " + work.coauthors.join(" · ");
+      copy.append(coauthors);
+    }
+
+    if (Array.isArray(work.keywords) && work.keywords.length) {
+      const chips = document.createElement("div");
+      chips.className = "author-dossier-chips author-work-keywords";
+      for (const keyword of work.keywords.slice(0, 8)) {
+        if (keyword?.term) chips.append(createChip(keyword.term));
+      }
+      if (chips.childElementCount) copy.append(chips);
+    }
+
+    if (work.notes) {
+      const note = document.createElement("p");
+      note.className = "author-work-note";
+      note.textContent = work.notes;
+      copy.append(note);
+    }
+
+    const links = document.createElement("div");
+    links.className = "author-work-links";
+
+    if (work.identifiers?.doi) {
+      links.append(createEvidenceLink(
+        "https://doi.org/" + String(work.identifiers.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, ""),
+        "DOI ↗"
+      ));
+    }
+
+    const evidence = (work.evidence_urls || []).filter(url => /^https?:\/\//.test(url));
+    evidence.slice(0, 4).forEach((url, evidenceIndex) => {
+      links.append(createEvidenceLink(url, `Evidencia ${evidenceIndex + 1} ↗`));
+    });
+
+    if (Array.isArray(work.identifiers?.isbn) && work.identifiers.isbn.length) {
+      const isbn = document.createElement("span");
+      isbn.textContent = "ISBN " + work.identifiers.isbn.join(" · ");
+      links.append(isbn);
+    }
+
+    if (links.childElementCount) copy.append(links);
+
+    card.append(rail, copy);
+    list.append(card);
+  });
+
+  section.append(list);
+  container.append(section);
+}
+
+function appendSources(record, container) {
+  const section = document.createElement("section");
+  section.id = "author-dossier-sources-section";
+  section.className = "author-dossier-section author-dossier-sources";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "author-dossier-section-index";
+  eyebrow.textContent = "III / FUENTES";
+
+  const headingRow = document.createElement("div");
+  headingRow.className = "author-dossier-section-heading";
+  const heading = document.createElement("h3");
+  heading.textContent = "De dónde sale esta ficha.";
+  const sources = (record.sources || []).filter(source => /^https?:\/\//.test(source?.url || ""));
+  const count = document.createElement("span");
+  count.textContent = sources.length.toLocaleString("es-MX");
+  headingRow.append(heading, count);
+  section.append(eyebrow, headingRow);
+
+  if (!sources.length) {
+    const empty = document.createElement("p");
+    empty.className = "author-dialog-empty";
+    empty.textContent = "Todavía no hay fuentes enlazables registradas en esta ficha.";
+    section.append(empty);
+    container.append(section);
+    return;
+  }
+
+  const list = document.createElement("div");
+  list.className = "author-source-grid";
+
+  sources.forEach((source, index) => {
+    const link = document.createElement("a");
+    link.className = "author-source-card";
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    const number = document.createElement("span");
+    number.textContent = String(index + 1).padStart(2, "0");
+    const kind = document.createElement("small");
+    kind.textContent = humanize(source.kind) || "fuente";
+    const title = document.createElement("strong");
+    title.textContent = source.title || "Fuente";
+    const action = document.createElement("em");
+    action.textContent = "Abrir fuente ↗";
+
+    link.append(number, kind, title, action);
+    list.append(link);
+  });
+
+  section.append(list);
+  container.append(section);
+}
+
+function appendNotes(record, container) {
+  const section = document.createElement("section");
+  section.id = "author-dossier-notes-section";
+  section.className = "author-dossier-section author-dossier-notes";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "author-dossier-section-index";
+  eyebrow.textContent = "IV / NOTAS DE INVESTIGACIÓN";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Lo que todavía exige cuidado.";
+  section.append(eyebrow, heading);
+
+  const notes = Array.isArray(record.research_notes)
+    ? record.research_notes.filter(Boolean)
+    : [];
+
+  if (!notes.length) {
+    const empty = document.createElement("p");
+    empty.className = "author-dialog-empty";
+    empty.textContent = "Esta ficha no contiene notas editoriales adicionales por ahora.";
+    section.append(empty);
   } else {
     const list = document.createElement("ol");
-    list.className = "author-work-list";
-
-    for (const work of works) {
+    list.className = "author-note-list";
+    notes.forEach((note, index) => {
       const item = document.createElement("li");
-      const title = document.createElement("strong");
-      title.textContent = work.title || "Título no disponible";
-
-      const meta = document.createElement("small");
-      const year = work?.original_date?.year ?? work?.first_publication_year ?? "s. f.";
-      const type = humanize(work.work_type);
-      meta.textContent = [year, type].filter(Boolean).join(" · ");
-
-      const note = document.createElement("p");
-      note.textContent = work.notes || "";
-
-      item.append(title, meta);
-      if (work.notes) item.append(note);
+      const number = document.createElement("span");
+      number.textContent = String(index + 1).padStart(2, "0");
+      const text = document.createElement("p");
+      text.textContent = note;
+      item.append(number, text);
       list.append(item);
-    }
+    });
     section.append(list);
   }
 
   container.append(section);
 }
 
-function appendContributions(record, container) {
+function renderDossierIdentity(record) {
+  const works = Array.isArray(record.works) ? record.works : [];
   const contributions = Array.isArray(record.non_bibliographic_contributions)
     ? record.non_bibliographic_contributions
     : [];
-  if (!contributions.length) return;
+  const sources = Array.isArray(record.sources) ? record.sources : [];
+  const period = periodMetaFor(record);
 
-  const section = document.createElement("section");
-  section.className = "author-dialog-section";
+  authorDialog.className = `author-dialog author-dossier period-${period.id}`;
+  authorDialogTitle.textContent = record.canonical_name || "Autor";
+  authorDialogLife.textContent = lifeText(record);
+  authorDossierIndex.textContent = `ARCHIVO / #${canonicalId(record.author_id)}`;
+  authorDossierStatus.textContent = "FICHA BIBLIOGRÁFICA · ARCHIVO VIVO";
+  authorDossierPeriodRoman.textContent = period.roman;
+  authorDossierPeriodLabel.textContent = period.title;
+  authorDossierMonogram.textContent = dossierMonogram(record.canonical_name);
+  authorDossierWorks.textContent = works.length.toLocaleString("es-MX");
+  authorDossierContributions.textContent = contributions.length.toLocaleString("es-MX");
+  authorDossierSources.textContent = sources.length.toLocaleString("es-MX");
+  authorDossierCoverage.textContent = coverageText(record);
 
-  const heading = document.createElement("div");
-  heading.className = "author-dialog-section-heading";
-  const h3 = document.createElement("h3");
-  h3.textContent = "Contribuciones intelectuales";
-  const count = document.createElement("span");
-  count.textContent = contributions.length.toLocaleString("es-MX");
-  heading.append(h3, count);
+  const aliases = (record.alternate_names || [])
+    .filter(Boolean)
+    .filter(name => normalizeText(name) !== normalizeText(record.canonical_name));
 
-  const list = document.createElement("ul");
-  list.className = "author-contribution-list";
-
-  for (const contribution of contributions) {
-    const item = document.createElement("li");
-    const title = document.createElement("strong");
-    title.textContent = contribution.title || "Contribución documentada";
-    const meta = document.createElement("small");
-    meta.textContent = humanize(contribution.kind);
-    item.append(title);
-    if (contribution.kind) item.append(meta);
-    list.append(item);
+  authorDossierAliases.replaceChildren();
+  if (aliases.length) {
+    const label = document.createElement("span");
+    label.textContent = "También aparece como";
+    const text = document.createElement("strong");
+    text.textContent = aliases.join(" · ");
+    authorDossierAliases.append(label, text);
+    authorDossierAliases.hidden = false;
+  } else {
+    authorDossierAliases.hidden = true;
   }
 
-  section.append(heading, list);
-  container.append(section);
-}
-
-function appendSources(record, container) {
-  const sources = (record.sources || []).filter(source => /^https?:\/\//.test(source?.url || ""));
-  if (!sources.length) return;
-
-  const section = document.createElement("section");
-  section.className = "author-dialog-section";
-
-  const heading = document.createElement("div");
-  heading.className = "author-dialog-section-heading";
-  const h3 = document.createElement("h3");
-  h3.textContent = "Fuentes de la ficha";
-  const count = document.createElement("span");
-  count.textContent = sources.length.toLocaleString("es-MX");
-  heading.append(h3, count);
-
-  const list = document.createElement("ul");
-  list.className = "author-source-list";
-
-  for (const source of sources) {
-    const item = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = source.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = source.title || source.kind || "Fuente";
-    item.append(link);
-    list.append(item);
-  }
-
-  section.append(heading, list);
-  container.append(section);
+  authorDialogPrev.disabled = record.author_id <= 1;
+  authorDialogNext.disabled = record.author_id >= seededCount;
 }
 
 function renderAuthorDialog(record) {
-  authorDialogTitle.textContent = record.canonical_name || "Autor";
-  authorDialogLife.textContent = lifeText(record);
+  currentAuthorId = Number(record.author_id);
+  renderDossierIdentity(record);
   authorDialogBody.replaceChildren();
 
+  appendOverview(record, authorDialogBody);
   appendWorkList(record, authorDialogBody);
-  appendContributions(record, authorDialogBody);
   appendSources(record, authorDialogBody);
+  appendNotes(record, authorDialogBody);
 
-  const notes = Array.isArray(record.research_notes) ? record.research_notes.filter(Boolean) : [];
-  if (notes.length) {
-    const section = document.createElement("section");
-    section.className = "author-dialog-section author-dialog-notes";
-    const heading = document.createElement("h3");
-    heading.textContent = "Notas de investigación";
-    const list = document.createElement("ul");
-    for (const note of notes.slice(0, 4)) {
-      const item = document.createElement("li");
-      item.textContent = note;
-      list.append(item);
-    }
-    section.append(heading, list);
-    authorDialogBody.append(section);
-  }
+  authorDialog.querySelector(".author-dialog-shell")?.scrollTo({ top: 0, behavior: "auto" });
 }
 
-async function openAuthorDialog(id) {
-  const inventoryAuthor = authors.find(author => Number(author.id) === Number(id));
+function authorHash(id) {
+  return `#autor-${canonicalId(id)}`;
+}
+
+async function openAuthorDialog(id, { updateHistory = true } = {}) {
+  const numericId = Number(id);
+  if (!Number.isInteger(numericId) || numericId < 1 || numericId > seededCount) return;
+
+  if (!authorDialog.open) {
+    dialogReturnHash = location.hash.startsWith("#autor-") ? "" : location.hash;
+  }
+
+  currentAuthorId = numericId;
+  const inventoryAuthor = authors.find(author => Number(author.id) === numericId);
   authorDialogTitle.textContent = inventoryAuthor?.name || "Cargando…";
   authorDialogLife.textContent = "";
+  authorDossierIndex.textContent = `ARCHIVO / #${canonicalId(numericId)}`;
   authorDialogBody.innerHTML =
-    '<p class="author-dialog-loading">Cargando ficha bibliográfica…</p>';
+    '<p class="author-dialog-loading">Abriendo dossier bibliográfico…</p>';
 
   if (typeof authorDialog.showModal === "function") {
     if (!authorDialog.open) authorDialog.showModal();
@@ -487,22 +840,55 @@ async function openAuthorDialog(id) {
     authorDialog.setAttribute("open", "");
   }
 
+  if (updateHistory && location.hash !== authorHash(numericId)) {
+    history.replaceState(null, "", authorHash(numericId));
+  }
+
   try {
-    const record = await fetchAuthorRecord(id);
+    const record = await fetchAuthorRecord(numericId);
     renderAuthorDialog(record);
   } catch (error) {
     console.error(error);
     authorDialogBody.innerHTML =
-      '<p class="author-dialog-empty">No fue posible cargar esta ficha en este momento.</p>';
+      '<p class="author-dialog-empty">No fue posible cargar este dossier en este momento.</p>';
   }
 }
 
-function closeAuthorDialog() {
+function closeAuthorDialog({ restoreHistory = true } = {}) {
   if (typeof authorDialog.close === "function" && authorDialog.open) {
     authorDialog.close();
   } else {
     authorDialog.removeAttribute("open");
   }
+
+  currentAuthorId = null;
+  if (restoreHistory && location.hash.startsWith("#autor-")) {
+    history.replaceState(null, "", dialogReturnHash || location.pathname + location.search);
+  }
+}
+
+async function navigateAuthor(offset) {
+  if (!Number.isInteger(currentAuthorId)) return;
+  const nextId = currentAuthorId + offset;
+  if (nextId < 1 || nextId > seededCount) return;
+  await openAuthorDialog(nextId);
+}
+
+async function shareCurrentAuthor() {
+  if (!Number.isInteger(currentAuthorId)) return;
+  const url = new URL(location.href);
+  url.hash = authorHash(currentAuthorId);
+
+  const original = authorDialogShare.textContent;
+  try {
+    await navigator.clipboard.writeText(url.href);
+    authorDialogShare.textContent = "Enlace copiado";
+  } catch {
+    authorDialogShare.textContent = "Copie la URL";
+  }
+  setTimeout(() => {
+    authorDialogShare.textContent = original;
+  }, 1600);
 }
 
 async function init() {
@@ -530,6 +916,14 @@ async function init() {
       Number(manifest?.progress?.works_or_contributions_seeded || 0).toLocaleString("es-MX");
 
     renderDirectory({ reset: true });
+
+    const deepLink = location.hash.match(/^#autor-(\d{4})$/);
+    if (deepLink) {
+      const deepLinkId = Number(deepLink[1]);
+      if (deepLinkId >= 1 && deepLinkId <= seededCount) {
+        openAuthorDialog(deepLinkId, { updateHistory: false });
+      }
+    }
 
     periodizationStatus.textContent =
       `${seededCount.toLocaleString("es-MX")} fichas disponibles. Se cargarán en bloques de ${PERIOD_BATCH_SIZE} al llegar a esta sección.`;
@@ -581,9 +975,30 @@ for (const button of document.querySelectorAll("[data-period-jump]")) {
   });
 }
 
-authorDialogClose?.addEventListener("click", closeAuthorDialog);
+authorDialogClose?.addEventListener("click", () => closeAuthorDialog());
+authorDialogPrev?.addEventListener("click", () => navigateAuthor(-1));
+authorDialogNext?.addEventListener("click", () => navigateAuthor(1));
+authorDialogShare?.addEventListener("click", shareCurrentAuthor);
+for (const button of document.querySelectorAll("[data-dossier-target]")) {
+  button.addEventListener("click", () => {
+    const target = document.getElementById(button.dataset.dossierTarget);
+    target?.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start"
+    });
+  });
+}
 authorDialog?.addEventListener("click", event => {
   if (event.target === authorDialog) closeAuthorDialog();
+});
+authorDialog?.addEventListener("cancel", event => {
+  event.preventDefault();
+  closeAuthorDialog();
+});
+addEventListener("popstate", () => {
+  if (!location.hash.startsWith("#autor-") && authorDialog.open) {
+    closeAuthorDialog({ restoreHistory: false });
+  }
 });
 
 init();
