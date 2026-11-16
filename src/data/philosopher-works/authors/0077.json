@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "author_id": 77,
+  "canonical_name": "Raimundo de Farias Brito",
+  "alternate_names": [
+    "Raimundo Farias Brito",
+    "Farias Brito"
+  ],
+  "life": {
+    "born": {
+      "year": 1862,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1917,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "complete_core_six_volume_philosophical_series_plus_early_poetry_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0077-w001",
+      "title": "Cantos modernos",
+      "work_type": "poetry_collection",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1889,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesia",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0077-w002",
+      "title": "A filosofia como atividade permanente do espírito humano",
+      "parent_work_id": "0077-series-finalidade",
+      "work_type": "philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1894,
+        "end": 1895,
+        "certainty": "first_edition_date_conflict"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espírito humano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teleologia",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Primera parte de Finalidade do mundo. El propio prefacio de 1905 declara primera edición en 1894; el libro-base del proyecto y otros repertorios usan 1895. Se conserva el conflicto."
+    },
+    {
+      "work_id": "0077-w003",
+      "title": "A filosofia moderna",
+      "parent_work_id": "0077-series-finalidade",
+      "work_type": "philosophy_history_critique",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1899,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1899,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia moderna",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "materialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0077-w004",
+      "title": "O mundo como atividade intelectual / Evolução e relatividade",
+      "parent_work_id": "0077-series-finalidade",
+      "work_type": "philosophy_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1905,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "evolução",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "relatividade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mundo",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Tercera parte de la serie Finalidade do mundo; la transmisión del título presenta variantes entre repertorios."
+    },
+    {
+      "work_id": "0077-w005",
+      "title": "A verdade como regra das ações",
+      "parent_work_id": "0077-series-espirito",
+      "work_type": "moral_philosophy_law_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1905,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "verdade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ações",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofia moral",
+          "provenance": "authorial"
+        },
+        {
+          "term": "direito",
+          "provenance": "authorial"
+        }
+      ]
+    },
+    {
+      "work_id": "0077-w006",
+      "title": "A base física do espírito",
+      "parent_work_id": "0077-series-espirito",
+      "work_type": "philosophy_of_mind_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1912,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espírito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "consciência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0077-w007",
+      "title": "O mundo interior",
+      "parent_work_id": "0077-series-espirito",
+      "work_type": "philosophy_of_consciousness_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1914,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mundo interior",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "consciência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0077-series-finalidade",
+      "title": "Finalidade do mundo",
+      "work_type": "philosophical_series",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1894,
+        "end": 1905,
+        "certainty": "three_volume_series_range"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "verified_series_container",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "finalidade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teleologia naturalista",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Contenedor de tres volúmenes; no sumar como obra independiente al contabilizar producción original si se cuentan sus tres partes."
+    },
+    {
+      "work_id": "0077-series-espirito",
+      "title": "Ensaios sobre a filosofia do espírito",
+      "work_type": "philosophical_series",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1905,
+        "end": 1914,
+        "certainty": "series_range"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified_series_container",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia do espírito",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "espiritualismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Contenedor conceptual de A verdade como regra das ações, A base física do espírito y O mundo interior."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "government_digital_book",
+      "title": "O Mundo Interior",
+      "url": "https://www2.senado.leg.br/bdsf/bitstream/handle/id/519118/MundoInterior.pdf",
+      "publisher": "Senado Federal do Brasil"
+    },
+    {
+      "kind": "primary_text_preface",
+      "title": "A Verdade Como Regra das Ações",
+      "url": "https://www.carloscardosoaveline.com/a-verdade-como-regra-das-acoes/",
+      "publisher": "digital transcription of 1905 text"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Farias Brito (1862-1917)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente añadir Pequena História, Inéditos e dispersos y artículos sin confundir recopilaciones póstumas con libros de vida.",
+    "La primera parte de Finalidade do mundo conserva conflicto 1894/1895."
+  ]
+}
