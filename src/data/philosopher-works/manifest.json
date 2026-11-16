@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 270,
-    "authors_remaining": 1234,
-    "works_or_contributions_seeded": 2129,
-    "current_batch": "027",
+    "authors_seeded": 280,
+    "authors_remaining": 1224,
+    "works_or_contributions_seeded": 2152,
+    "current_batch": "028",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1435,6 +1435,58 @@
       "author_id": 270,
       "canonical_name": "Alonso de Covarrubias",
       "path": "authors/0270.json"
+    }
+  ],
+  "batch_028": [
+    {
+      "author_id": 271,
+      "canonical_name": "Francisco Bello",
+      "path": "authors/0271.json"
+    },
+    {
+      "author_id": 272,
+      "canonical_name": "Diego de Avendaño",
+      "path": "authors/0272.json"
+    },
+    {
+      "author_id": 273,
+      "canonical_name": "Matías Blanco",
+      "path": "authors/0273.json"
+    },
+    {
+      "author_id": 274,
+      "canonical_name": "Antonio Peralta",
+      "path": "authors/0274.json"
+    },
+    {
+      "author_id": 275,
+      "canonical_name": "Antonio Sánchez Valverde",
+      "path": "authors/0275.json"
+    },
+    {
+      "author_id": 276,
+      "canonical_name": "Andrés López de Medrano",
+      "path": "authors/0276.json"
+    },
+    {
+      "author_id": 277,
+      "canonical_name": "Ottobah Cugoano",
+      "path": "authors/0277.json"
+    },
+    {
+      "author_id": 278,
+      "canonical_name": "Olaudah Equiano",
+      "path": "authors/0278.json"
+    },
+    {
+      "author_id": 279,
+      "canonical_name": "Gonçalo Leite",
+      "path": "authors/0279.json"
+    },
+    {
+      "author_id": 280,
+      "canonical_name": "Miguel García",
+      "path": "authors/0280.json"
     }
   ]
 }

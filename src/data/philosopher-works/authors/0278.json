@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 278,
+  "canonical_name": "Olaudah Equiano",
+  "alternate_names": [
+    "Gustavus Vassa",
+    "Olaudah Equiano / Gustavus Vassa"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "original_1789_two_volume_publication_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0278-w001",
+      "title": "The Interesting Narrative of the Life of Olaudah Equiano, or Gustavus Vassa, the African. Written by Himself",
+      "work_type": "autobiographical_abolitionist_political_ethics_book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1789,
+        "certainty": "first_london_edition_in_two_volumes"
+      },
+      "first_publication_year": 1789,
+      "authorship_status": "original_autobiographical_author_first_print_witness",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abolicionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autobiografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://equianosworld.org/publications.php",
+        "https://www.english.ox.ac.uk/ten-minute-book-club/equiano-the-interesting-narrative"
+      ],
+      "notes": "Londres, 1789, dos tomos publicados y vendidos por el propio autor. En el mismo 1789 hubo segunda edición; 1790 tuvo tercera. Distintas ediciones y tomos no equivalen a varias obras.",
+      "edition": {
+        "year": 1789,
+        "region": "Londres",
+        "publisher": "Printed for and sold by the author"
+      },
+      "volume_count": 2,
+      "later_editions": [
+        {
+          "year": 1789,
+          "edition": "second_same_year"
+        },
+        {
+          "year": 1790,
+          "edition": "third"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Testimonio autobiográfico, crítica de la esclavitud y participación en el abolicionismo atlántico",
+      "kind": "atlantic_abolitionist_intellectual_contribution",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "university_history_digital_editions",
+      "title": "Equiano's World, primera edición de 1789 y bibliografía de ediciones",
+      "url": "https://equianosworld.org/publications.php"
+    },
+    {
+      "kind": "university_literary_study",
+      "title": "Oxford University, «The Interesting Narrative»",
+      "url": "https://www.english.ox.ac.uk/ten-minute-book-club/equiano-the-interesting-narrative"
+    }
+  ],
+  "research_notes": [
+    "Los dos volúmenes de la primera edición londinense de 1789 se registran como UNA obra.",
+    "La procedencia de nacimiento de Equiano es debatida en historiografía; no forzar lugar natal como hecho comprobado."
+  ]
+}

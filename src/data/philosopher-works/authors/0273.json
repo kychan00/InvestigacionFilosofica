@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "author_id": 273,
+  "canonical_name": "Matías Blanco",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_posthumous_print_confirmed_one_attested_1711_manuscript_needs_collation",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0273-w001",
+      "title": "Funiculus triplex, Divi Thomae praemotione, Scotico comitante decreto, et scientia media contextus: sive tractatus de libertate creata sub divina scientia, voluntate et omnipotentia",
+      "work_type": "latin_scholastic_free_will_printed_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "written_before_author_death_1734"
+      },
+      "first_publication_year": 1746,
+      "authorship_status": "posthumous_printed_work_author_verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libre albedrío",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia media",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "disyunción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "providencia divina",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.up.edu.mx/topicos/es/article/view/172",
+        "https://www.fondazioneintorcetta.info/pdf/biblioteca-virtuale/documento1025/diccionario15.pdf",
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Obra publicada póstumamente en Ciudad de México en 1746 por la viuda de José Bernardo de Hogal. La fecha 1746 es publicación, no fecha de escritura.",
+      "edition": {
+        "year": 1746,
+        "publisher": "Viuda de José Bernardo de Hogal",
+        "region": "Ciudad de México"
+      }
+    },
+    {
+      "work_id": "0273-w002",
+      "title": "De Deo et attributis tractatus",
+      "work_type": "theological_scholastic_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1711,
+        "certainty": "bibliographic_manuscript_date"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_jesuit_biobibliography_attribution_no_first_print_identified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "atributos divinos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escolástica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.fondazioneintorcetta.info/pdf/biblioteca-virtuale/documento1025/diccionario15.pdf"
+      ],
+      "notes": "Diccionario bio-bibliográfico jesuita cita manuscrito de 1711 en una biblioteca de Guadalajara, Jalisco, n.º 102; signatura vigente y ejemplar sin cotejo directo.",
+      "manuscript_location": "Biblioteca de Guadalajara (referencia histórica n.º 102, por verificar)",
+      "manuscript_status": "historical_bibliography_no_direct_collation"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Discusión escolástica novohispana de libertad humana, conocimiento divino y determinismo",
+      "kind": "historical_intellectual_contribution",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "peer_reviewed_philosophy",
+      "title": "Walter Redmond, «The three-stranded cord», Tópicos 32 (2007), 77–117",
+      "url": "https://revistas.up.edu.mx/topicos/es/article/view/172"
+    },
+    {
+      "kind": "jesuit_historical_bibliography",
+      "title": "Diccionario bio-bibliográfico de la Compañía de Jesús en México, entrada Matías Blanco",
+      "url": "https://www.fondazioneintorcetta.info/pdf/biblioteca-virtuale/documento1025/diccionario15.pdf"
+    }
+  ],
+  "research_notes": [
+    "No contar «Tractatus de libertate creata» y «Funiculus triplex» como dos obras: son títulos componentes del mismo impreso de 1746.",
+    "El manuscrito 1711 queda provisional hasta cotejo de copia y signatura actual."
+  ]
+}

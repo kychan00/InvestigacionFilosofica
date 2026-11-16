@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "author_id": 271,
+  "canonical_name": "Francisco Bello",
+  "alternate_names": [
+    "Francisco Bello O. de M."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "one_scholastic_manuscript_historical_attribution_copyist_distinguished",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0271-w001",
+      "title": "Philosophia Scholastica",
+      "work_type": "colonial_mercedarian_philosophy_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_course_date_from_historical_catalog",
+        "period": {
+          "start": 1753,
+          "end": 1755
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "historical_attribution_to_francisco_bello_copied_by_juan_jose_humeres",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía escolástica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "manuscritos coloniales",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/",
+        "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0069344.pdf",
+        "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Manuscrito escolástico de 1753–1755 atribuido a Francisco Bello; copiado por Juan José Humeres, quien NO es autor por el solo hecho de ser copista. No se documenta primera impresión.",
+      "manuscript_copyist": "Juan José Humeres",
+      "manuscript_status": "attested_by_historical_study_precise_shelfmark_pending"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia y composición de materiales de filosofía escolástica mercedaria en Chile colonial",
+      "kind": "historical_intellectual_contribution",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "specialist_educational_history",
+      "title": "Mauricio Beuchot, «La enseñanza de la filosofía»",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+    },
+    {
+      "kind": "chilean_philosophy_manuscript_inventory",
+      "title": "Catálogo histórico de manuscritos filosóficos chilenos, entrada Francisco Bello, Philosophia Scholastica 1753–1755",
+      "url": "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0069344.pdf"
+    }
+  ],
+  "research_notes": [
+    "Preservar en campos distintos autor atribuido y copista; falta cotejar signatura manuscrita y colofón."
+  ]
+}

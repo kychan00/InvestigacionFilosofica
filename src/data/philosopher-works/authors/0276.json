@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 276,
+  "canonical_name": "Andrés López de Medrano",
+  "alternate_names": [
+    "Andrés López Medrano"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "modern_logic_1814_and_political_manifesto_1820_attested",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0276-w001",
+      "title": "Lógica: elementos de filosofía moderna destinados al uso de la juventud dominicana",
+      "work_type": "modern_philosophy_logic_educational_printed_book",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1813,
+        "certainty": "composition_year_confirmed_by_university_historical_source"
+      },
+      "first_publication_year": 1814,
+      "authorship_status": "historically_documented_author_publication_1814",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.intec.edu.do/notas-de-prensa/item/conmemoran-200-anos-del-primer-libro-de-filosofia-dominicano-2",
+        "https://agn.gob.do/index.php/publicaciones/libros2?download=54%3Apensadores-criollos-roberto-cassa&start=20"
+      ],
+      "notes": "Escrita en latín en 1813 y publicada en agosto de 1814 en la Imprenta de la Capitanía General de Santo Domingo. No confundir año de redacción 1813 con primera impresión 1814.",
+      "edition": {
+        "year": 1814,
+        "publisher": "Imprenta de la Capitanía General",
+        "region": "Santo Domingo"
+      }
+    },
+    {
+      "work_id": "0276-w002",
+      "title": "Manifiesto del ciudadano Andrés López de Medrano al pueblo dominicano en defensa de sus derechos, sobre las elecciones parroquiales que se tuvieron en esta Capital el 11 y 18 de junio de este año de 1820",
+      "work_type": "political_philosophy_public_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1820,
+        "certainty": "manifesto_dated_june_25"
+      },
+      "first_publication_year": 1820,
+      "authorship_status": "historical_print_testimony_and_critical_reproduction",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "elecciones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derechos políticos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad de imprenta",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://agn.gob.do/index.php/publicaciones/libros2?download=54%3Apensadores-criollos-roberto-cassa&start=20",
+        "https://catalogo.academiadominicanahistoria.org.do/opac-tmpl/files/ppcodice/Clio-1943-011-060-098-109.pdf"
+      ],
+      "notes": "Folleto político de Santo Domingo fechado el 25 de junio de 1820, 12 páginas según la reproducción y la historiografía; catalogarlo como manifiesto político original, no tratado de lógica.",
+      "edition": {
+        "year": 1820,
+        "region": "Santo Domingo",
+        "publisher": null
+      },
+      "later_reproduction": "Documentos procedentes del Archivo de Indias, Secretaría de Estado de Relaciones Exteriores, Santo Domingo 1928, tomo II"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción de lógica y filosofía moderna en la enseñanza dominicana y defensa del constitucionalismo liberal",
+      "kind": "caribbean_modern_and_political_philosophy",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "university_historical_report",
+      "title": "INTEC, bicentenario del primer libro de filosofía dominicano",
+      "url": "https://www.intec.edu.do/notas-de-prensa/item/conmemoran-200-anos-del-primer-libro-de-filosofia-dominicano-2"
+    },
+    {
+      "kind": "national_archives_intellectual_history",
+      "title": "Archivo General de la Nación (República Dominicana), Roberto Cassá, Pensadores criollos",
+      "url": "https://agn.gob.do/index.php/publicaciones/libros2?download=54%3Apensadores-criollos-roberto-cassa&start=20"
+    }
+  ],
+  "research_notes": [
+    "La fuente general puede describir 1813 como año de «Tratado de lógica»; la bibliografía sobre ejemplares distingue composición 1813 e impresión 1814.",
+    "No adjudicarle el libro barcelonés de Bouvier de 1842: autor distinto.",
+    "«Apodícticos de regocijo» requiere cotejo independiente de material de 1831 y no se incorpora aquí."
+  ]
+}

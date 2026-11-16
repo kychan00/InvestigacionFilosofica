@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "author_id": 280,
+  "canonical_name": "Miguel García",
+  "alternate_names": [
+    "Miguel Garcia S. J.",
+    "Miguel Garcia"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "1583_anti_slavery_archival_letter_with_shelfmark",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0280-w001",
+      "title": "Carta de Miguel García al padre general Claudio Acquaviva sobre la esclavización en Bahía (título archivístico descriptivo)",
+      "work_type": "jesuit_anti_slavery_archival_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1583,
+        "certainty": "archival_letter_january_26"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_letter_attributed_in_archival_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esclavitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justicia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad indígena",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://brasilhis.usal.es/en/referencias-documentales?field_referencia_archivo_value=&field_referencia_asunto_tid_op=or&field_referencia_trancripcion_value=All&items_per_page=25&nid=&order=field_num_referencia&page=138&sort=asc",
+        "https://www.tandfonline.com/doi/full/10.1080/10609164.2024.2429254"
+      ],
+      "notes": "Carta de Bahía fechada 26 de enero de 1583, Archivo Romano de la Compañía de Jesús, Lusitania 68, ff. 335–336v. Critica la tenencia de esclavos indígenas y africanos, incluidos los de la propia institución jesuita. No inventar libro impreso.",
+      "title_status": "archival_descriptive_label",
+      "archive": "Archivum Romanum Societatis Iesu",
+      "archive_shelfmark": "Lusitania 68, ff. 335–336v"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia jesuita de filosofía y teología en Bahía y crítica moral de la esclavización indígena y africana",
+      "kind": "early_brazil_anti_slavery_and_philosophy",
+      "authorship_status": "scholarly_or_archivally_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección de filosofía académica, lógica e Ilustración",
+      "url": "https://cdn.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "locator": "capítulos de Mauricio Beuchot y Walter Redmond, y secciones de filosofía caribeña y Brasil, pp. 83–110 del libro"
+    },
+    {
+      "kind": "academic_archival_catalog",
+      "title": "BRASILHIS, Miguel García, carta al general, ARSI Lusitania 68 ff. 335–336v, 1583",
+      "url": "https://brasilhis.usal.es/en/referencias-documentales?field_referencia_archivo_value=&field_referencia_asunto_tid_op=or&field_referencia_trancripcion_value=All&items_per_page=25&nid=&order=field_num_referencia&page=138&sort=asc"
+    },
+    {
+      "kind": "peer_reviewed_historical_study",
+      "title": "Mistranslating dissent in sixteenth-century Bahia (2024)",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/10609164.2024.2429254"
+    }
+  ],
+  "research_notes": [
+    "Carta del 26 de enero de 1583: atribución archivística específica, frente a generalizaciones sobre escritos no conservados.",
+    "No confundir la docencia de García con la enseñanza de Gonçalo Leite, ni asumir coautoría de las dos cartas."
+  ]
+}
