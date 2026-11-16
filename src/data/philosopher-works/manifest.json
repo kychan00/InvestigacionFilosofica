@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 220,
-    "authors_remaining": 1284,
-    "works_or_contributions_seeded": 1987,
-    "current_batch": "022",
+    "authors_seeded": 230,
+    "authors_remaining": 1274,
+    "works_or_contributions_seeded": 2040,
+    "current_batch": "023",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1175,6 +1175,58 @@
       "author_id": 220,
       "canonical_name": "Narciso R. Colmán",
       "path": "authors/0220.json"
+    }
+  ],
+  "batch_023": [
+    {
+      "author_id": 221,
+      "canonical_name": "Eloy Fariña Núñez",
+      "path": "authors/0221.json"
+    },
+    {
+      "author_id": 222,
+      "canonical_name": "Natalicio González",
+      "path": "authors/0222.json"
+    },
+    {
+      "author_id": 223,
+      "canonical_name": "Efraim Cardozo",
+      "path": "authors/0223.json"
+    },
+    {
+      "author_id": 224,
+      "canonical_name": "José Gaspar Rodríguez de Francia",
+      "path": "authors/0224.json"
+    },
+    {
+      "author_id": 225,
+      "canonical_name": "Antonio Quiñones",
+      "path": "authors/0225.json"
+    },
+    {
+      "author_id": 226,
+      "canonical_name": "Pedro de Oronsoro",
+      "path": "authors/0226.json"
+    },
+    {
+      "author_id": 227,
+      "canonical_name": "Manuel del Camino",
+      "path": "authors/0227.json"
+    },
+    {
+      "author_id": 228,
+      "canonical_name": "Antonio Mancilla",
+      "path": "authors/0228.json"
+    },
+    {
+      "author_id": 229,
+      "canonical_name": "Vicente Aragón",
+      "path": "authors/0229.json"
+    },
+    {
+      "author_id": 230,
+      "canonical_name": "José Ignacio Cuéllar",
+      "path": "authors/0230.json"
     }
   ]
 }
