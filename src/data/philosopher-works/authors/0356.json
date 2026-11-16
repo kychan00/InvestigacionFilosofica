@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "author_id": 356,
+  "canonical_name": "Víctor J. Martínez",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1829,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1891,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "historical_presence_no_original_work_identified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participación histórica en la recepción mexicana del krausismo de la filosofía del derecho, mencionada por investigación de historia intelectual",
+      "kind": "nineteenth_century_philosophical_or_educational_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), El krausismo y El positivismo, pp. 209–210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_scholarly_source",
+      "title": "Capítulo El krausismo en el libro base, p. 210",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "La fuente base identifica a Víctor J. Martínez, 1829–1891, pero no acredita un título individual de libro o manuscrito.",
+    "No inventar obra de filosofía del derecho. works=[] hasta localizar un impreso o archivo atribuible.",
+    "No confundir con Francisco O'Reilly ni Longinos Cadena, autores próximos con bibliografía comprobada."
+  ]
+}

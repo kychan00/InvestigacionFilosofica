@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 350,
-    "authors_remaining": 1154,
-    "works_or_contributions_seeded": 2381,
-    "current_batch": "035",
+    "authors_seeded": 360,
+    "authors_remaining": 1144,
+    "works_or_contributions_seeded": 2408,
+    "current_batch": "036",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1851,6 +1851,58 @@
       "author_id": 350,
       "canonical_name": "José Santiesteban",
       "path": "authors/0350.json"
+    }
+  ],
+  "batch_036": [
+    {
+      "author_id": 351,
+      "canonical_name": "José R. Mas",
+      "path": "authors/0351.json"
+    },
+    {
+      "author_id": 352,
+      "canonical_name": "Laureano Paredes",
+      "path": "authors/0352.json"
+    },
+    {
+      "author_id": 353,
+      "canonical_name": "Pablo Rodríguez Machicao",
+      "path": "authors/0353.json"
+    },
+    {
+      "author_id": 354,
+      "canonical_name": "Telmo Ichazo",
+      "path": "authors/0354.json"
+    },
+    {
+      "author_id": 355,
+      "canonical_name": "Agustín de la Rosa",
+      "path": "authors/0355.json"
+    },
+    {
+      "author_id": 356,
+      "canonical_name": "Víctor J. Martínez",
+      "path": "authors/0356.json"
+    },
+    {
+      "author_id": 357,
+      "canonical_name": "Longinos Cadena",
+      "path": "authors/0357.json"
+    },
+    {
+      "author_id": 358,
+      "canonical_name": "Pedro Scalabrini",
+      "path": "authors/0358.json"
+    },
+    {
+      "author_id": 359,
+      "canonical_name": "Alfredo J. Ferreira",
+      "path": "authors/0359.json"
+    },
+    {
+      "author_id": 360,
+      "canonical_name": "Juan Agustín García",
+      "path": "authors/0360.json"
     }
   ]
 }
