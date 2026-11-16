@@ -106,11 +106,42 @@ try {
     await page.waitForFunction(() =>
       document.querySelector("#author-dialog-title")?.textContent?.includes("Anténor Firmin")
     );
-    assert.ok(await page.locator("#author-dialog .author-work-list li").count() >= 1,
-      "Author dialog should render documented works");
-    assert.ok(await page.locator("#author-dialog .author-source-list a").count() >= 1,
-      "Author dialog should render source links");
+
+    assert.equal(new URL(page.url()).hash, "#autor-0380",
+      "Opening a philosopher dossier must expose a shareable author hash");
+    assert.ok(await page.locator("#author-dialog .author-dossier-identity").count() === 1,
+      "Dossier must render an identity panel");
+    assert.ok(await page.locator("#author-dialog #author-dossier-overview").count() === 1,
+      "Dossier must render an archival overview");
+    assert.ok(await page.locator("#author-dialog .author-work-card").count() >= 1,
+      "Dossier must render complete work cards");
+    assert.ok(await page.locator("#author-dialog .author-source-card").count() >= 1,
+      "Dossier must render source cards");
+    assert.ok(await page.locator("#author-dialog .author-dossier-nav a").count() === 4,
+      "Dossier must expose its four reading sections");
+    assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
+      "Dossier must retain the canonical author identifier");
+
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-light.png",
+      animations: "disabled"
+    });
+
+    await page.locator("#author-dialog-next").click();
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dossier-index")?.textContent?.includes("#0381")
+    );
+    assert.equal(new URL(page.url()).hash, "#autor-0381",
+      "Next-author navigation must update the shareable hash");
+
+    await page.locator("#author-dialog-prev").click();
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dossier-index")?.textContent?.includes("#0380")
+    );
+
     await page.locator("#author-dialog-close").click();
+    assert.ok(!new URL(page.url()).hash.startsWith("#autor-"),
+      "Closing the dossier must restore the previous page hash");
 
     const seededTotal = Number(
       (await page.locator("#stat-seeded").textContent()).replace(/[^0-9]/g, "")
@@ -183,7 +214,25 @@ try {
       await page.locator(".site-menu-close").click();
     }
 
+    await page.locator("#author-search").fill("Firmin");
+    await page.waitForFunction(() =>
+      document.querySelector("#author-directory")?.textContent?.includes("Anténor Firmin")
+    );
+    await page.locator("#author-directory .author-card").first().click();
+    await page.locator("#author-dialog[open]").waitFor({ state: "visible" });
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dossier-index")?.textContent?.includes("#0380")
+    );
+
     assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
+
+    await page.screenshot({
+      path: ARTIFACTS + "/dossier-" + width + "-dark.png",
+      animations: "disabled"
+    });
+
+    await page.locator("#author-dialog-close").click();
+    await page.locator("#author-search").fill("");
 
     await page.screenshot({
       path: ARTIFACTS + "/archive-" + width + "-dark.png",
