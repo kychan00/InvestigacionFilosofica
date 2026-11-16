@@ -471,7 +471,10 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
 }
 
 .period-card button {
+  display: inline-flex;
   width: fit-content;
+  min-height: 44px;
+  align-items: center;
   margin-top: auto;
   padding: 16px 0 0;
   border: 0;
