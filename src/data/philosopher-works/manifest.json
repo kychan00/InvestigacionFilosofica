@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 390,
-    "authors_remaining": 1114,
-    "works_or_contributions_seeded": 2513,
-    "current_batch": "039",
+    "authors_seeded": 400,
+    "authors_remaining": 1104,
+    "works_or_contributions_seeded": 2536,
+    "current_batch": "040",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2059,6 +2059,58 @@
       "author_id": 390,
       "canonical_name": "João Quirino Gomes",
       "path": "authors/0390.json"
+    }
+  ],
+  "batch_040": [
+    {
+      "author_id": 391,
+      "canonical_name": "Salustiano José Pedroza",
+      "path": "authors/0391.json"
+    },
+    {
+      "author_id": 392,
+      "canonical_name": "Antônio Ildefonso Ferreira",
+      "path": "authors/0392.json"
+    },
+    {
+      "author_id": 393,
+      "canonical_name": "Francisco de Paula e Oliveira",
+      "path": "authors/0393.json"
+    },
+    {
+      "author_id": 394,
+      "canonical_name": "Joaquim do Amor Divino Caneca",
+      "path": "authors/0394.json"
+    },
+    {
+      "author_id": 395,
+      "canonical_name": "João Ribeiro Pessoa de Melo Montenegro",
+      "path": "authors/0395.json"
+    },
+    {
+      "author_id": 396,
+      "canonical_name": "José Inácio de Abreu e Lima",
+      "path": "authors/0396.json"
+    },
+    {
+      "author_id": 397,
+      "canonical_name": "Monte Alverne",
+      "path": "authors/0397.json"
+    },
+    {
+      "author_id": 398,
+      "canonical_name": "Rodrigo José Silva Pereira",
+      "path": "authors/0398.json"
+    },
+    {
+      "author_id": 399,
+      "canonical_name": "Antônio Joaquim das Mercês",
+      "path": "authors/0399.json"
+    },
+    {
+      "author_id": 400,
+      "canonical_name": "Luiz Vieira da Silva",
+      "path": "authors/0400.json"
     }
   ]
 }
