@@ -782,7 +782,9 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
   background:
     linear-gradient(135deg, rgba(163,59,47,.08), transparent 38%),
     color-mix(in srgb, #f0dfbb 92%, var(--period-accent));
+  color: #32281e;
 }
+.period-author-group.period-originarios .mini-author small { color: #665846; }
 .period-author-group.period-originarios .mini-author::after {
   background:
     linear-gradient(45deg, transparent 40%, rgba(163,59,47,.16) 41% 48%, transparent 49%);
@@ -1216,6 +1218,9 @@ button.mini-author:hover { transform: translateY(-2px); }
 }
 .author-state.seeded { color: var(--latam-green-2); }
 .author-state.pending { color: var(--latam-muted); }
+html[data-theme="dark"] .author-state.seeded { color: #91d4b7; }
+html[data-theme="dark"] .load-more-periods { color: #e68a70; }
+html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
 .load-more {
   display: block;
   min-width: 220px;
