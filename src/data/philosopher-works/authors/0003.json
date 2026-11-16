@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "author_id": 3,
+  "canonical_name": "Vasco de Quiroga",
+  "alternate_names": [
+    "Vasco Vázquez de Quiroga"
+  ],
+  "life": {
+    "born": {
+      "year": 1470,
+      "certainty": "approximate"
+    },
+    "died": {
+      "year": 1565,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0003-w001",
+      "title": "Información en Derecho",
+      "work_type": "juridical_political_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1535,
+        "certainty": "exact",
+        "date": "1535-07-04"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "esclavitud indígena",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evangelización",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho indiano",
+          "provenance": "inferred"
+        },
+        {
+          "term": "naturaleza humana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0003-w002",
+      "title": "Reglas y Ordenanzas para el gobierno de los Hospitales de Santa Fe de México y Michoacán",
+      "work_type": "rules_ordinances",
+      "original_language": "español",
+      "original_date": {
+        "year": 1535,
+        "certainty": "circa"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hospitales-pueblo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "gobierno comunitario",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trabajo común",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0003-w003",
+      "title": "De debellandis indis",
+      "work_type": "juridical_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "century": 16,
+        "certainty": "exact_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guerra justa",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conquista",
+          "provenance": "inferred"
+        },
+        {
+          "term": "dominio",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0003-w004",
+      "title": "Testamento",
+      "work_type": "legal_document",
+      "original_language": "español",
+      "original_date": {
+        "year": 1565,
+        "certainty": "exact"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "testamento",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "catalog_secondary",
+      "title": "Obras de Vasco de Quiroga",
+      "url": "https://www.catedrahch.org/obra/obras-de-vasco-vazquez-de-quiroga/"
+    },
+    {
+      "kind": "scholarly",
+      "title": "La Información en Derecho: características e importancia",
+      "url": "https://tesiunamdocumentos.dgb.unam.mx/pmig2018/0011381/0011381.pdf",
+      "publisher": "UNAM"
+    }
+  ],
+  "research_notes": [
+    "Pendiente verificar fecha exacta de De debellandis indis y registrar cartas/documentos uno por uno."
+  ]
+}
