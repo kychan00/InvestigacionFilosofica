@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "author_id": 30,
+  "canonical_name": "Servando Teresa de Mier",
+  "alternate_names": [
+    "José Servando Teresa de Mier Noriega y Guerra",
+    "Fray Servando Teresa de Mier",
+    "José Guerra"
+  ],
+  "life": {
+    "born": {
+      "year": 1763,
+      "certainty": "project_canonical"
+    },
+    "died": {
+      "year": 1827,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_historical_autobiographical_and_constitutional_writings_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0030-w001",
+      "title": "Sermón guadalupano del 12 de diciembre de 1794",
+      "work_type": "sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1794,
+        "certainty": "exact",
+        "date": "1794-12-12"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_historical_event_textual_transmission_complex",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Virgen de Guadalupe",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Tepeyac",
+          "provenance": "inferred"
+        },
+        {
+          "term": "tradición guadalupana",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "El sermón originó el proceso y destierro del autor; su transmisión textual debe verificarse contra expedientes y ediciones críticas."
+    },
+    {
+      "work_id": "0030-w002",
+      "title": "Cartas de un americano",
+      "work_type": "political_letters",
+      "original_language": "español",
+      "original_date": {
+        "start": 1811,
+        "end": 1812,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1811,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9682910145"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Independencia de México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Cortes de Cádiz",
+          "provenance": "inferred"
+        },
+        {
+          "term": "representación americana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "soberanía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0030-w003",
+      "title": "Historia de la revolución de Nueva España antiguamente Anáhuac",
+      "work_type": "history_political_argument",
+      "original_language": "español",
+      "original_date": {
+        "year": 1813,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified_pseudonymous",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guerra de Independencia de México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Nueva España",
+          "provenance": "catalog"
+        },
+        {
+          "term": "autonomía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "política y gobierno",
+          "provenance": "catalog"
+        },
+        {
+          "term": "criollismo",
+          "provenance": "editorial"
+        }
+      ],
+      "notes": "Publicada en Londres bajo el seudónimo José Guerra."
+    },
+    {
+      "work_id": "0030-w004",
+      "title": "Apología del Dr. Mier",
+      "work_type": "autobiographical_self_defense",
+      "original_language": "español",
+      "original_date": {
+        "start": 1817,
+        "end": 1820,
+        "certainty": "prison_composition_range"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "autobiografía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persecución",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sermón de Guadalupe",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0030-w005",
+      "title": "Relación de lo que sucedió en Europa al Dr. D. Servando Teresa de Mier de julio de 1795 a octubre de 1805",
+      "work_type": "autobiographical_memoir",
+      "original_language": "español",
+      "original_date": {
+        "start": 1817,
+        "end": 1820,
+        "certainty": "prison_composition_range"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "memorias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "exilio",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Europa",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "prisión",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0030-w006",
+      "title": "Manifiesto apologético",
+      "work_type": "autobiographical_political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1820,
+        "certainty": "composition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "apología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autobiografía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0030-w007",
+      "title": "Carta de despedida a los mexicanos",
+      "work_type": "political_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1821,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1821,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "patria",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0030-w008",
+      "title": "Memoria Política Instructiva",
+      "work_type": "political_memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1821,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1821,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Anáhuac",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "organización política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0030-w009",
+      "title": "Discurso sobre el artículo 5º del Acta Constitutiva",
+      "alternate_titles": [
+        "Profecía política del sabio Dr. D. Servando Teresa de Mier"
+      ],
+      "work_type": "constitutional_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1823,
+        "certainty": "exact",
+        "date": "1823-12-13"
+      },
+      "first_publication_year": 1823,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "federalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Acta Constitutiva",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "República mexicana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "constitución",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "primary_digital_book",
+      "title": "Historia de la Revolución de Nueva España",
+      "url": "https://www.loc.gov/item/2021666793",
+      "publisher": "Library of Congress"
+    },
+    {
+      "kind": "government_study",
+      "title": "Estudios sobre la Independencia de México: Teresa de Mier",
+      "url": "https://www.inehrm.gob.mx/work/models/inehrm/Resource/439/1/images/Estudios_independencia_Mexico_Teres_de_Mier.pdf",
+      "publisher": "INEHRM"
+    },
+    {
+      "kind": "digital_primary_text",
+      "title": "Memorias de Fray Servando Teresa de Mier",
+      "url": "https://www.filosofia.org/aut/001/1917mi02.htm"
+    },
+    {
+      "kind": "digital_catalog",
+      "title": "Escritos inéditos",
+      "url": "https://www.cervantesvirtual.com/obra/escritos-ineditos-de-jose-servando-teresa-de-mier/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente añadir Voto particular de 1823, correspondencia completa, discursos parlamentarios y escritos polémicos menores.",
+    "Existe variación bibliográfica sobre el año de nacimiento (1763/1765); se conserva 1763 por coherencia con el inventario canónico hasta auditoría de autoridad."
+  ]
+}
