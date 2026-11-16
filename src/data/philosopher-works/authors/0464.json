@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "author_id": 464,
+  "canonical_name": "Agustín de la Riega",
+  "alternate_names": [
+    "Agustín Tobías de la Riega",
+    "Agustín T. de la Riega"
+  ],
+  "life": {
+    "born": {
+      "year": 1943,
+      "certainty": "library_authority_and_scholarly_source"
+    },
+    "died": {
+      "year": 1983,
+      "certainty": "library_authority_and_scholarly_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_posthumous_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0464-w001",
+      "title": "Razón y encarnación",
+      "work_type": "epistemology_and_latin_american_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "contemporary_bibliographic_review"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "encarnación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida en acto",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://p3.usal.edu.ar/index.php/signos/article/download/1724/2181/6148",
+        "https://dialnet.unirioja.es/descarga/articulo/4714281.pdf"
+      ],
+      "notes": "Buenos Aires, Ediciones Universidad del Salvador, 1978. El libro tematiza el conocimiento como vivir y obrar humano."
+    },
+    {
+      "work_id": "0464-w002",
+      "title": "Conocimiento, violencia y culpa: después de Heidegger",
+      "work_type": "post_heideggerian_ontology_and_epistemology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "library_catalog_and_copyright_record"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "haber",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "violencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "culpa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "facticidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.unsam.edu.ar/Search/Results?filter%5B%5D=topic_facet%3A%22Pensamiento%22&lookfor=Paid%C3%B3s%2C&type=Publisher",
+        "https://tile.loc.gov/storage-services/service/ll/llflg/ar/19/79/10/18/a/ar19791018a/ar19791018a.pdf"
+      ],
+      "notes": "Buenos Aires, Paidós, 1979. Un estudio secundario posterior cita una supuesta primera edición de 1973, pero el catálogo UNSAM y la cesión de derechos a Paidós de 1979 sostienen la edición de 1979; se conserva la discrepancia en notas."
+    },
+    {
+      "work_id": "0464-w003",
+      "title": "Identidad y universalidad: Cultura, Ética y Política",
+      "work_type": "posthumous_latin_american_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author_posthumous_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cedinpe.unsam.edu.ar/content/de-la-riega-agustin-identidad-y-universalidad-cultura-etica-y-politica",
+        "https://biblioeco.unsa.edu.ar/pmb/opac_css/index.php?id=56310&lvl=notice_display"
+      ],
+      "notes": "Buenos Aires, Docencia, 1987, edición póstuma. Prólogo de María Gabriela Rebok y Josefina Semillán de Dartiguelongue."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación de la categoría filosófica del 'haber' como punto de partida situado, pre-jurídico y vital para una filosofía latinoamericana de la liberación",
+      "kind": "argentine_philosophy_of_liberation_and_haber_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UNSAM — Conocimiento, violencia y culpa",
+      "url": "https://buscador.unsam.edu.ar/Search/Results?filter%5B%5D=topic_facet%3A%22Pensamiento%22&lookfor=Paid%C3%B3s%2C&type=Publisher"
+    },
+    {
+      "kind": "archive_source",
+      "title": "CEDINPE — Identidad y universalidad",
+      "url": "https://cedinpe.unsam.edu.ar/content/de-la-riega-agustin-identidad-y-universalidad-cultura-etica-y-politica"
+    },
+    {
+      "kind": "scholarly_reconstruction_source",
+      "title": "Sobre el estar-siendo y la situacionalidad del en-co-haber",
+      "url": "https://p3.usal.edu.ar/index.php/nuevopensamiento/article/view/6197"
+    }
+  ],
+  "research_notes": [
+    "Conocimiento, violencia y culpa se fija en 1979 por catálogo y evidencia de cesión editorial; se conserva nota de una referencia secundaria que lo fecha 1973.",
+    "Identidad y universalidad se publicó cuatro años después de su muerte y se marca explícitamente como edición póstuma."
+  ]
+}

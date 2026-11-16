@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 460,
-    "authors_remaining": 1044,
-    "works_or_contributions_seeded": 2798,
-    "current_batch": "046",
+    "authors_seeded": 470,
+    "authors_remaining": 1034,
+    "works_or_contributions_seeded": 2856,
+    "current_batch": "047",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2423,6 +2423,58 @@
       "author_id": 460,
       "canonical_name": "Carmen Balzer",
       "path": "authors/0460.json"
+    }
+  ],
+  "batch_047": [
+    {
+      "author_id": 461,
+      "canonical_name": "María Luisa Pfeiffer",
+      "path": "authors/0461.json"
+    },
+    {
+      "author_id": 462,
+      "canonical_name": "Blanca Parfait",
+      "path": "authors/0462.json"
+    },
+    {
+      "author_id": 463,
+      "canonical_name": "José Alberto Mainetti",
+      "path": "authors/0463.json"
+    },
+    {
+      "author_id": 464,
+      "canonical_name": "Agustín de la Riega",
+      "path": "authors/0464.json"
+    },
+    {
+      "author_id": 465,
+      "canonical_name": "Alcira Bonilla",
+      "path": "authors/0465.json"
+    },
+    {
+      "author_id": 466,
+      "canonical_name": "María Gabriela Rebok",
+      "path": "authors/0466.json"
+    },
+    {
+      "author_id": 467,
+      "canonical_name": "Mónica Cragnolini",
+      "path": "authors/0467.json"
+    },
+    {
+      "author_id": 468,
+      "canonical_name": "Mario Casalla",
+      "path": "authors/0468.json"
+    },
+    {
+      "author_id": 469,
+      "canonical_name": "Jorge E. Saltor",
+      "path": "authors/0469.json"
+    },
+    {
+      "author_id": 470,
+      "canonical_name": "Diego Tatián",
+      "path": "authors/0470.json"
     }
   ]
 }

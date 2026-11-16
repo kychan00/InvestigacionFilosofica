@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "author_id": 463,
+  "canonical_name": "José Alberto Mainetti",
+  "alternate_names": [
+    "José A. Mainetti"
+  ],
+  "life": {
+    "born": {
+      "year": 1938,
+      "certainty": "foundation_biographical_source"
+    },
+    "died": {
+      "year": 2022,
+      "certainty": "foundation_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0463-w001",
+      "title": "Realidad, fenómeno y misterio del cuerpo humano",
+      "work_type": "philosophical_anthropology_and_body_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "contemporary_review"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuerpo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Merleau-Ponty",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/handle/123456789/16021"
+      ],
+      "notes": "La Plata, Ediciones Quirón, 1972, 162 p. La reseña contemporánea distingue ontofanía, fenomenología y metafísica del cuerpo."
+    },
+    {
+      "work_id": "0463-w002",
+      "title": "La muerte en medicina",
+      "work_type": "edited_volume_on_death_and_medicine",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "medical_library_catalog"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "muerte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "medicina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanidades médicas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cm-mdp.gower.com.ar/Archivos/Biblioteca/CatalogoBiblioteca/CatalogoBibliotecaCEM032025.pdf"
+      ],
+      "notes": "La Plata, Quirón, 1978. Se registra como volumen editado por Mainetti."
+    },
+    {
+      "work_id": "0463-w003",
+      "title": "La crisis de la razón médica. Introducción a la filosofía de la medicina",
+      "work_type": "philosophy_of_medicine_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "medical_library_catalog"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la medicina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón médica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crisis",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanidades médicas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cm-mdp.gower.com.ar/Archivos/Biblioteca/CatalogoBiblioteca/CatalogoBibliotecaCEM032025.pdf"
+      ],
+      "notes": "La Plata, Quirón, 1988. No se confunde con el artículo homónimo/relacionado publicado en Cuadernos Hispanoamericanos en 1987."
+    },
+    {
+      "work_id": "0463-w004",
+      "title": "Ética médica. Introducción histórica",
+      "work_type": "medical_ethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "medical_library_catalog"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética médica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "deontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "medicina",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cm-mdp.gower.com.ar/Archivos/Biblioteca/CatalogoBiblioteca/CatalogoBibliotecaCEM032025.pdf"
+      ],
+      "notes": "La Plata, Quirón, 1989. Algunas ediciones incluyen apéndice de deontología médica de Juan Carlos Tealdi."
+    },
+    {
+      "work_id": "0463-w005",
+      "title": "Bioética fundamental. La crisis bioética",
+      "work_type": "bioethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "medical_library_catalog"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bioética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crisis bioética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética médica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cm-mdp.gower.com.ar/Archivos/Biblioteca/CatalogoBiblioteca/CatalogoBibliotecaCEM032025.pdf"
+      ],
+      "notes": "La Plata, Quirón, 1990."
+    },
+    {
+      "work_id": "0463-w006",
+      "title": "Bioética sistemática",
+      "work_type": "systematic_bioethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "medical_library_catalog"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bioética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética aplicada",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "medicina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sistema",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cm-mdp.gower.com.ar/Archivos/Biblioteca/CatalogoBiblioteca/CatalogoBibliotecaCEM032025.pdf"
+      ],
+      "notes": "La Plata, Quirón, 1991."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación de las humanidades médicas y liderazgo temprano de la bioética argentina y latinoamericana desde una antropología filosófica del cuerpo",
+      "kind": "argentine_medical_humanities_and_bioethics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "foundation_biographical_source",
+      "title": "Fundación Konex — José Alberto Mainetti",
+      "url": "https://www.fundacionkonex.org/b1177-jose-alberto-mainetti"
+    },
+    {
+      "kind": "contemporary_review_source",
+      "title": "Sapientia — Realidad, fenómeno y misterio del cuerpo humano",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/16021"
+    },
+    {
+      "kind": "medical_library_catalog",
+      "title": "Centro Médico Mar del Plata — catálogo bibliográfico",
+      "url": "https://cm-mdp.gower.com.ar/Archivos/Biblioteca/CatalogoBiblioteca/CatalogoBibliotecaCEM032025.pdf"
+    }
+  ],
+  "research_notes": [
+    "La crisis de la razón médica se registra como libro de 1988; el artículo de 1987 reproducido por Cervantes Virtual no se duplica como obra independiente en este seed.",
+    "Se distinguen claramente volúmenes editados de monografías de autor."
+  ]
+}
