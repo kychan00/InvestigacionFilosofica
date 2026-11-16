@@ -1,0 +1,736 @@
+{
+  "schema_version": 1,
+  "author_id": 170,
+  "canonical_name": "Fernando González Ochoa",
+  "alternate_names": [
+    "Fernando González",
+    "Fernando González Otraparte"
+  ],
+  "life": {
+    "born": {
+      "year": 1895,
+      "certainty": "national_cultural_biography"
+    },
+    "died": {
+      "year": 1964,
+      "date": "1964-02-16",
+      "certainty": "national_cultural_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_publications_not_full_oeuvre",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0170-w001",
+      "title": "Pensamientos de un viejo",
+      "work_type": "philosophical_aphorisms_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamientos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "viejo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 1970,
+          "edition": "segunda edición Bedout"
+        },
+        {
+          "year": 2016,
+          "notes": "Edición centenaria EAFIT"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w002",
+      "title": "Una tesis: el derecho a no obedecer",
+      "work_type": "law_philosophy_thesis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1919,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "derecho",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "obedecer",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "title_variants": [
+        "El derecho a no obedecer"
+      ],
+      "notes": "Tesis jurídica inicialmente titulada El derecho a no obedecer; censurada y presentada como Una tesis; un mismo texto con variantes."
+    },
+    {
+      "work_id": "0170-w003",
+      "title": "Viaje a pie",
+      "work_type": "philosophical_travel_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "viaje",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "camino",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 1969,
+          "edition": "tercera edición Bedout"
+        },
+        {
+          "year": 2010,
+          "publisher": "Editorial EAFIT",
+          "notes": "Edición moderna"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w004",
+      "title": "Mi Simón Bolívar",
+      "work_type": "philosophical_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1930,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Simón Bolívar",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "related_people": [
+        {
+          "name": "Simón Bolívar",
+          "role": "subject"
+        }
+      ],
+      "edition_history": [
+        {
+          "year": 1993,
+          "edition": "quinta edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w005",
+      "title": "Don Mirócletes",
+      "work_type": "philosophical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Don Mirócletes",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 1973,
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w006",
+      "title": "El hermafrodita dormido",
+      "work_type": "philosophical_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hermafrodita",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 1971,
+          "edition": "segunda edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w007",
+      "title": "Mi compadre",
+      "work_type": "philosophical_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mi compadre",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ]
+    },
+    {
+      "work_id": "0170-w008",
+      "title": "Cartas a Estanislao",
+      "work_type": "philosophical_correspondence_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cartas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Estanislao",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ]
+    },
+    {
+      "work_id": "0170-w009",
+      "title": "El remordimiento: problemas de teología moral",
+      "work_type": "ethics_religious_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "remordimiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "teología moral",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ]
+    },
+    {
+      "work_id": "0170-w010",
+      "title": "Los negroides: ensayo sobre la Gran Colombia",
+      "work_type": "political_cultural_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Gran Colombia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 1970,
+          "edition": "segunda edición"
+        }
+      ],
+      "notes": "Término histórico del título conservado sin avalar sus connotaciones actuales."
+    },
+    {
+      "work_id": "0170-w011",
+      "title": "Antioquia",
+      "work_type": "literary_philosophical_periodical",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "founder_editor_contributor_not_sole_author_of_periodical",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Antioquia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "publication_year_range": [
+        1936,
+        1945
+      ],
+      "notes": "Revista 17 números hasta 1945; no atribuir todos los textos de la publicación a González. Edición recopilatoria 1997."
+    },
+    {
+      "work_id": "0170-w012",
+      "title": "Don Benjamín, jesuita predicador",
+      "work_type": "serialized_philosophical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "serialized_start"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "jesuita",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Don Benjamín",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "publication_year_range": [
+        1936,
+        1945
+      ],
+      "edition_history": [
+        {
+          "year": 1995,
+          "edition": "primera edición independiente en libro"
+        }
+      ],
+      "notes": "Serial en revista Antioquia 1936–45, libro autónomo 1995; no atribuir 1995 a composición."
+    },
+    {
+      "work_id": "0170-w013",
+      "title": "Salomé",
+      "work_type": "serialized_philosophical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Salomé",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "publication_year_range": [
+        1936,
+        1945
+      ],
+      "edition_history": [
+        {
+          "year": 1984,
+          "notes": "Primera edición en volumen independiente después de muerte de autor"
+        }
+      ],
+      "notes": "Serial o partes en revista Antioquia, libro autónomo póstumo 1984. Se conserva distinción entre circulación y volumen."
+    },
+    {
+      "work_id": "0170-w014",
+      "title": "Nociones de izquierdismo",
+      "work_type": "political_essays_serial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "izquierdismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "notes": "22 artículos en El Diario Nacional entre 23 abril y 2 junio de 1937; libros de 2015 son ediciones editoriales, no origen.",
+      "edition_history": [
+        {
+          "year": 2015,
+          "publisher": "Editorial EAFIT",
+          "notes": "Edición moderna"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w015",
+      "title": "Santander",
+      "work_type": "political_philosophy_biographical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Santander",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "related_people": [
+        {
+          "name": "Francisco de Paula Santander",
+          "role": "subject"
+        }
+      ],
+      "edition_history": [
+        {
+          "year": 2021,
+          "notes": "Reedición EAFIT"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w016",
+      "title": "El maestro de escuela",
+      "work_type": "philosophical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "maestro de escuela",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 2012,
+          "publisher": "Editorial EAFIT",
+          "notes": "Reedición"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w017",
+      "title": "Libro de los viajes o de las presencias",
+      "work_type": "philosophical_essay_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "viajes",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "presencias",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "edition_history": [
+        {
+          "year": 2018,
+          "publisher": "Editorial EAFIT",
+          "notes": "Reedición"
+        }
+      ]
+    },
+    {
+      "work_id": "0170-w018",
+      "title": "La tragicomedia del padre Elías y Martina la velera",
+      "work_type": "philosophical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "padre Elías",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Martina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "notes": "Original marzo 1962; catálogo EAFIT de 2026 refleja reedición, no publicación original."
+    },
+    {
+      "work_id": "0170-w019",
+      "title": "Cartas a Simón",
+      "work_type": "philosophical_correspondence_series",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cartas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Simón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+      ],
+      "composition_year_range": [
+        1950,
+        1959
+      ],
+      "edition_history": [
+        {
+          "year": 2017,
+          "notes": "Edición EAFIT de cartas 1950–1959"
+        }
+      ],
+      "notes": "Correspondencia de 1950–1959; publicación en libro 2017, no fecha de escritura."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0170-c001",
+      "title": "Creación y dirección de la revista Antioquia (1936–1945) y obra de crítica cultural y moral desde Envigado",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0170-c002",
+      "title": "Filosofía de la autenticidad y exploración autobiográfica de la cultura latinoamericana",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_legacy_archive",
+      "title": "Corporación Otraparte: bibliografía primaria de Fernando González",
+      "url": "https://www.otraparte.org/fernando-gonzalez/vida/el-filosofo-de-otraparte-bajo-el-prisma-de-maria-helena-uribe/"
+    },
+    {
+      "kind": "national_cultural_biography",
+      "title": "Banrepcultural: Fernando González Ochoa obras y cronología",
+      "url": "https://enciclopedia.banrepcultural.org/Fernando_Gonz%C3%A1lez_Ochoa"
+    },
+    {
+      "kind": "university_publisher_catalog",
+      "title": "Editorial EAFIT: Biblioteca Fernando González ediciones modernas",
+      "url": "https://editorial.eafit.edu.co/index.php/editorial/catalog/series/colfernandogonzalez"
+    },
+    {
+      "kind": "university_publisher_edition_history",
+      "title": "Editorial EAFIT: Viaje a pie, año original 1929",
+      "url": "https://editorial.eafit.edu.co/index.php/editorial/catalog/book/502"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, Perú, Ecuador y Colombia, pp. 932–940"
+    }
+  ],
+  "research_notes": [
+    "Fuentes editoriales especializadas Otraparte/EAFIT distinguen fechas originales de reediciones contemporáneas.",
+    "La novela Salomé publicada en libro póstumamente 1984 circuló antes en Antioquia; conservar doble cronología.",
+    "Mi Simón Bolívar no se originó en 1969: primera edición 1930."
+  ]
+}
