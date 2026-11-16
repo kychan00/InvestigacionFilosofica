@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "author_id": 408,
+  "canonical_name": "Júlio de Castilhos",
+  "alternate_names": [
+    "Júlio Prates de Castilhos"
+  ],
+  "life": {
+    "born": {
+      "year": 1860,
+      "certainty": "government_source_with_1859_variant_in_chamber_archive"
+    },
+    "died": {
+      "year": 1903,
+      "certainty": "government_and_archive_sources"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0408-w001",
+      "title": "A Federação",
+      "work_type": "republican_political_periodical_directed_by_author",
+      "original_language": "português",
+      "original_date": {
+        "year": 1884,
+        "certainty": "periodical_and_historical_source"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "director_editor_not_author_of_all_contents",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "republicanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Partido Republicano Rio-Grandense",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "imprensa política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://hemeroteca-pdf.bn.gov.br/388653/per388653_1884_00231.pdf",
+        "https://cpdoc.fgv.br/sites/default/files/verbetes/primeira-republica/CASTILHOS%2C%20J%C3%BAlio%20de.pdf"
+      ],
+      "notes": "Órgão do Partido Republicano Rio-Grandense. Castilhos assumiu formalmente a direção em 16 de maio de 1884, com períodos posteriores de afastamento e retorno. O periódico é registrado como responsabilidade editorial; não se atribuem a ele todos os artigos."
+    },
+    {
+      "work_id": "0408-w002",
+      "title": "Constituição Política do Estado do Rio Grande do Sul",
+      "work_type": "state_constitutional_text_principal_drafter",
+      "original_language": "português",
+      "original_date": {
+        "year": 1891,
+        "certainty": "constitutional_promulgation_date"
+      },
+      "first_publication_year": 1891,
+      "authorship_status": "principal_drafter_and_political_author_with_constituent_institutional_responsibility",
+      "coauthors": [
+        "Assembleia Constituinte do Estado do Rio Grande do Sul"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Rio Grande do Sul",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Poder Executivo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://palaciopiratini.rs.gov.br/julio-de-castilhos",
+        "https://rbep.direito.ufmg.br/index.php/rbep/es/article/view/589"
+      ],
+      "notes": "Constituição estadual de 14 de julho de 1891, redigida sob liderança de Júlio de Castilhos e promulgada em processo constituinte. Registra-se sua responsabilidade intelectual decisiva sem apagar a natureza institucional do texto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulação do castilhismo como positivismo político estadual, combinando republicanismo, Executivo forte e organização constitucional rio-grandense",
+      "kind": "castilhist_positivist_constitutional_contribution",
+      "authorship_status": "documented_in_government_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "government_source",
+      "title": "Palácio Piratini — Júlio Prates de Castilhos",
+      "url": "https://palaciopiratini.rs.gov.br/julio-de-castilhos"
+    },
+    {
+      "kind": "scholarly_legal_source",
+      "title": "Revista Brasileira de Estudos Políticos — Constituição castilhista de 1891",
+      "url": "https://rbep.direito.ufmg.br/index.php/rbep/es/article/view/589"
+    },
+    {
+      "kind": "archival_periodical_source",
+      "title": "Hemeroteca Digital BN — A Federação, 7 out. 1884",
+      "url": "https://hemeroteca-pdf.bn.gov.br/388653/per388653_1884_00231.pdf"
+    }
+  ],
+  "research_notes": [
+    "As fontes divergem entre 1859 e 1860 para o nascimento; o Palácio Piratini e biografias políticas usam 1860, enquanto o arquivo da Câmara exibe 1859.",
+    "A Constituição é tratada como texto institucional com liderança autoral de Castilhos, não como livro privado."
+  ]
+}
