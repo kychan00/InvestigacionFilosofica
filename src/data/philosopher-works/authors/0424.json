@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "author_id": 424,
+  "canonical_name": "Francisco García Calderón",
+  "alternate_names": [
+    "Francisco García Calderón Rey",
+    "Francisco García-Calderón Rey"
+  ],
+  "life": {
+    "born": {
+      "year": 1883,
+      "certainty": "project_primary_and_congress_source"
+    },
+    "died": {
+      "year": 1953,
+      "certainty": "project_primary_and_congress_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0424-w001",
+      "title": "De Litteris",
+      "work_type": "literary_and_philosophical_criticism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "congress_biographical_bibliography"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.congreso.gob.pe/Docs/participacion/museo/congreso/files/files/francisco_calderon_a.pdf"
+      ],
+      "notes": "Obra temprana de 1904 citada en la bibliografía del Congreso del Perú."
+    },
+    {
+      "work_id": "0424-w002",
+      "title": "Le Pérou contemporain",
+      "work_type": "sociological_and_political_interpretation_book",
+      "original_language": "français",
+      "original_date": {
+        "year": 1907,
+        "certainty": "first_edition_documented"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Perú",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernización",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://thelos.utem.cl/articulos/la-ciencia-politica-en-el-peru/",
+        "https://sociologia-alas.org/wp-content/uploads/2021/08/libro_sociologia_descarga_19-08-2021.pdf"
+      ],
+      "notes": "Publicado en París en 1907. La traducción íntegra al español fue muy posterior y no se trata como primera edición."
+    },
+    {
+      "work_id": "0424-w003",
+      "title": "Les démocraties latines de l'Amérique",
+      "work_type": "latin_american_political_and_sociological_book",
+      "original_language": "français",
+      "original_date": {
+        "year": 1912,
+        "certainty": "project_and_biographical_sources"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Latina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "civilización",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.congreso.gob.pe/Docs/participacion/museo/congreso/files/files/francisco_calderon_a.pdf",
+        "https://biblioteca.clacso.edu.ar/clacso/se/20190905113310/Las_democracias_latinas_de_America_Francisco_Garcia_Calderon.pdf"
+      ],
+      "notes": "Obra francesa de 1912; traducciones completas al español circularon mucho después. No debe confundirse con trabajos de su padre Francisco García Calderón Landa."
+    },
+    {
+      "work_id": "0424-w004",
+      "title": "La creación de un continente",
+      "work_type": "latin_american_political_and_cultural_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1912,
+        "certainty": "library_catalog_and_congress_source"
+      },
+      "first_publication_year": 1912,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Latina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "continentalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política internacional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.academiahistoria.org.co/pmb/opac_css/index.php?dcote=&id=27&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=200&nbr_lignes=12980&nc=0&page=38&plettreaut=&ssub=0",
+        "https://www.congreso.gob.pe/Docs/participacion/museo/congreso/files/files/francisco_calderon_a.pdf"
+      ],
+      "notes": "Catálogo de la Academia Colombiana de Historia registra París, Garnier Hermanos, 1912. Algunas bibliografías posteriores dan 1913/1914; se preserva 1912 como edición catalogada y se documenta la variación en notas de investigación."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Superación espiritualista del positivismo y formulación sociológica, cultural y continentalista de los problemas del Perú y América Latina",
+      "kind": "peruvian_generation_1905_spiritualist_and_continental_contribution",
+      "authorship_status": "documented_in_project_primary_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "project_primary_excerpt_source",
+      "title": "Dussel et al. — generación peruana de 1905: Francisco García Calderón (1883-1953)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "government_biographical_source",
+      "title": "Congreso del Perú — Francisco García-Calderón Rey, biografía y obras",
+      "url": "https://www.congreso.gob.pe/Docs/participacion/museo/congreso/files/files/francisco_calderon_a.pdf"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "CLACSO — Las democracias latinas de América, edición crítica",
+      "url": "https://biblioteca.clacso.edu.ar/clacso/se/20190905113310/Las_democracias_latinas_de_America_Francisco_Garcia_Calderon.pdf"
+    }
+  ],
+  "research_notes": [
+    "Identidad resuelta expresamente contra el libro base: el ID 0424 corresponde a Francisco García Calderón Rey (1883-1953), miembro de la generación peruana de 1905, no a su padre Francisco García Calderón Landa (1834-1905).",
+    "El Diccionario de la legislación peruana pertenece al padre y NO se atribuye a esta ficha.",
+    "La creación de un continente presenta variantes 1912/1913/1914 en fuentes; se usa 1912 por catálogo institucional y bibliografía del Congreso."
+  ]
+}
