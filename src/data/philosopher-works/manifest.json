@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 410,
-    "authors_remaining": 1094,
-    "works_or_contributions_seeded": 2568,
-    "current_batch": "041",
+    "authors_seeded": 420,
+    "authors_remaining": 1084,
+    "works_or_contributions_seeded": 2614,
+    "current_batch": "042",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2163,6 +2163,58 @@
       "author_id": 410,
       "canonical_name": "Otto de Alencar",
       "path": "authors/0410.json"
+    }
+  ],
+  "batch_042": [
+    {
+      "author_id": 411,
+      "canonical_name": "Amoroso Costa",
+      "path": "authors/0411.json"
+    },
+    {
+      "author_id": 412,
+      "canonical_name": "Sílvio Romero",
+      "path": "authors/0412.json"
+    },
+    {
+      "author_id": 413,
+      "canonical_name": "Clóvis Beviláqua",
+      "path": "authors/0413.json"
+    },
+    {
+      "author_id": 414,
+      "canonical_name": "Artur Orlando",
+      "path": "authors/0414.json"
+    },
+    {
+      "author_id": 415,
+      "canonical_name": "Martins Júnior",
+      "path": "authors/0415.json"
+    },
+    {
+      "author_id": 416,
+      "canonical_name": "Faelante da Câmara",
+      "path": "authors/0416.json"
+    },
+    {
+      "author_id": 417,
+      "canonical_name": "Fausto Cardoso",
+      "path": "authors/0417.json"
+    },
+    {
+      "author_id": 418,
+      "canonical_name": "Tito Livio de Castro",
+      "path": "authors/0418.json"
+    },
+    {
+      "author_id": 419,
+      "canonical_name": "Graça Aranha",
+      "path": "authors/0419.json"
+    },
+    {
+      "author_id": 420,
+      "canonical_name": "Pontes de Miranda",
+      "path": "authors/0420.json"
     }
   ]
 }
