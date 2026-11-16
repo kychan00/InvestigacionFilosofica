@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 239,
+  "canonical_name": "Juan de Almanza",
+  "alternate_names": [
+    "Fray Juan de Almanza"
+  ],
+  "coverage": {
+    "status": "seeded",
+    "works_status": "attested_unprinted_franciscan_Aristotelian_manuscript",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0239-w001",
+      "title": "Disputationes una cum sectionibus in universam Aristotelis philosophiam, octo libris comprehensam",
+      "work_type": "franciscan_scholastic_aristotelian_disputations_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_dated",
+        "period": {
+          "start": 1660,
+          "end": 1660
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "historically_documented_manuscript_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "philosophia Aristotelis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "disputationes",
+          "provenance": "primary_title"
+        }
+      ],
+      "manuscript": {
+        "date_year": 1660,
+        "extent_or_structure": "ocho libros",
+        "historical_location": "Convento franciscano de Querétaro",
+        "historical_sighting_year": 1848,
+        "current_repository": "not_verified"
+      },
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190403.htm",
+        "https://dialnet.unirioja.es/descarga/articulo/8037703.pdf"
+      ],
+      "notes": "La obra manuscrita se fecha en 1660; un bibliógrafo indicó haberla visto en el convento franciscano de Querétaro en 1848. No se conoce aquí su localización actual y no existe primera edición impresa verificada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza de filosofía aristotélica y escolástica franciscana en Nueva España en el siglo XVII",
+      "kind": "colonial_philosophical_teaching",
+      "authorship_status": "historically_attributed",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "historical_primary_bibliographic_reference",
+      "title": "Emeterio Valverde Téllez, referencia al manuscrito filosófico de Juan de Almanza en el convento franciscano de Querétaro",
+      "url": "https://www.filosofia.org/aut/001/ev190403.htm"
+    },
+    {
+      "kind": "academic_history_article",
+      "title": "Estudio histórico de la enseñanza filosófica franciscana en Querétaro",
+      "url": "https://dialnet.unirioja.es/descarga/articulo/8037703.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "locator": "Juan de Almanza (1660), comentario aristotélico"
+    }
+  ],
+  "research_notes": [
+    "La noticia histórica de avistamiento del manuscrito en 1848 no demuestra que continúe depositado en el convento.",
+    "No fijar first_publication_year=1660: ese es el año de referencia manuscrita."
+  ]
+}
