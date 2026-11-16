@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 477,
+  "canonical_name": "María Emma Ivanovich",
+  "alternate_names": [
+    "María Emma Ivanovic de Flores",
+    "Emma Ivanovic"
+  ],
+  "life": {
+    "born": {
+      "year": 1944,
+      "certainty": "educational_biographical_source"
+    },
+    "died": {
+      "year": 2007,
+      "certainty": "university_memorial_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0477-w001",
+      "title": "Lenguajes e interculturalidad: una propuesta teórica de comunicación",
+      "work_type": "intercultural_communication_and_semiotics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "first_edition_book_catalog"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9990545014",
+          "9789990545012"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "interculturalidad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "comunicación",
+          "provenance": "catalog"
+        },
+        {
+          "term": "semiótica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books?id=EQYwAAAAYAAJ",
+        "https://openlibrary.org/books/OL6810117M/Lenguajes_e_interculturalidad"
+      ],
+      "notes": "Primera edición, Universidad Mayor de San Andrés / Los Amigos del Libro, 1999, 106 p. El catálogo usa la forma de autora María Emma Ivanovic de Flores."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Interpretación semiótica e intercultural de la diversidad boliviana mediante lenguaje, diálogo, códigos culturales y formas de vida",
+      "kind": "bolivian_intercultural_semiotics_and_communication_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "Google Books — Lenguajes e interculturalidad",
+      "url": "https://books.google.com/books?id=EQYwAAAAYAAJ"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "Open Library — Lenguajes e interculturalidad",
+      "url": "https://openlibrary.org/books/OL6810117M/Lenguajes_e_interculturalidad"
+    },
+    {
+      "kind": "university_memorial_source",
+      "title": "Entre Luces — memoria de María Emma Ivanovich",
+      "url": "https://filosofiaentreluces.blogspot.com/2007/"
+    }
+  ],
+  "research_notes": [
+    "El inventario usa Ivanovich; los catálogos de la obra usan Ivanovic de Flores. Ambas formas se preservan.",
+    "No se añaden otros textos sin registro bibliográfico estable."
+  ]
+}

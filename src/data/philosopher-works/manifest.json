@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 470,
-    "authors_remaining": 1034,
-    "works_or_contributions_seeded": 2856,
-    "current_batch": "047",
+    "authors_seeded": 480,
+    "authors_remaining": 1024,
+    "works_or_contributions_seeded": 2908,
+    "current_batch": "048",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2475,6 +2475,58 @@
       "author_id": 470,
       "canonical_name": "Diego Tatián",
       "path": "authors/0470.json"
+    }
+  ],
+  "batch_048": [
+    {
+      "author_id": 471,
+      "canonical_name": "Aníbal Fornari",
+      "path": "authors/0471.json"
+    },
+    {
+      "author_id": 472,
+      "canonical_name": "Roberto Prudencio",
+      "path": "authors/0472.json"
+    },
+    {
+      "author_id": 473,
+      "canonical_name": "Augusto Pescador",
+      "path": "authors/0473.json"
+    },
+    {
+      "author_id": 474,
+      "canonical_name": "Mariano Morales Dávila",
+      "path": "authors/0474.json"
+    },
+    {
+      "author_id": 475,
+      "canonical_name": "Rubén Carrasco de la Vega",
+      "path": "authors/0475.json"
+    },
+    {
+      "author_id": 476,
+      "canonical_name": "René Mayorga",
+      "path": "authors/0476.json"
+    },
+    {
+      "author_id": 477,
+      "canonical_name": "María Emma Ivanovich",
+      "path": "authors/0477.json"
+    },
+    {
+      "author_id": 478,
+      "canonical_name": "Víctor Quelca",
+      "path": "authors/0478.json"
+    },
+    {
+      "author_id": 479,
+      "canonical_name": "Arturo Orías Median",
+      "path": "authors/0479.json"
+    },
+    {
+      "author_id": 480,
+      "canonical_name": "Marvin Sandi",
+      "path": "authors/0480.json"
     }
   ]
 }

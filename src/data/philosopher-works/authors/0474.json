@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "author_id": 474,
+  "canonical_name": "Mariano Morales Dávila",
+  "alternate_names": [
+    "Mariano Morales Davila"
+  ],
+  "life": {
+    "born": {
+      "year": 1924,
+      "certainty": "cultural_biographical_source"
+    },
+    "died": {
+      "year": 1996,
+      "certainty": "cultural_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0474-w001",
+      "title": "El existencialismo y la creación de la personalidad",
+      "work_type": "existentialism_and_personality_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "biobibliographical_source"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "personalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "creación de sí",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://elias-blanco.blogspot.com/2012/02/mariano-morales-davila.html"
+      ],
+      "notes": "Ensayo de 1953 listado en el Diccionario Cultural Boliviano."
+    },
+    {
+      "work_id": "0474-w002",
+      "title": "Ven, sígueme",
+      "work_type": "literary_short_story_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "biobibliographical_source"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persona",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://elias-blanco.blogspot.com/2012/02/mariano-morales-davila.html"
+      ],
+      "notes": "Libro de cuentos de 1961; se incluye por su relación con la producción ensayística y moral del autor."
+    },
+    {
+      "work_id": "0474-w003",
+      "title": "Yo acuso a los militares",
+      "work_type": "political_essay_and_testimony",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "book_catalog"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "militarismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bolivia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "violencia política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "responsabilidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Yo_acuso_a_los_militares.html?id=-wZOAAAAMAAJ",
+        "https://elias-blanco.blogspot.com/2012/02/mariano-morales-davila.html"
+      ],
+      "notes": "Frente Revolucionario de Izquierda, 1983, 56 p. La fuente biobibliográfica también registra un ensayo de 1983 bajo el título Proceso a los militares; se conserva la discrepancia sin duplicar automáticamente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensayística boliviana sobre existencialismo, formación de la personalidad, moral y crítica del militarismo",
+      "kind": "bolivian_existentialism_personality_and_political_ethics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "cultural_biographical_source",
+      "title": "Diccionario Cultural Boliviano — Mariano Morales Dávila",
+      "url": "https://elias-blanco.blogspot.com/2012/02/mariano-morales-davila.html"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "Google Books — Yo acuso a los militares",
+      "url": "https://books.google.com/books/about/Yo_acuso_a_los_militares.html?id=-wZOAAAAMAAJ"
+    }
+  ],
+  "research_notes": [
+    "La relación entre los títulos Proceso a los militares y Yo acuso a los militares requiere cotejo físico adicional; no se crean dos registros sin prueba de que sean obras distintas."
+  ]
+}

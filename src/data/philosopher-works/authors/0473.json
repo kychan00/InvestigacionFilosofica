@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "author_id": 473,
+  "canonical_name": "Augusto Pescador",
+  "alternate_names": [
+    "Augusto Pescador Sarget"
+  ],
+  "life": {
+    "born": {
+      "year": 1910,
+      "certainty": "scholarly_biographical_source"
+    },
+    "died": {
+      "year": 1987,
+      "certainty": "scholarly_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0473-w001",
+      "title": "Lógica: texto de enseñanza para el 3er. curso de secundaria",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "book_catalog"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "silogismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "método",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/L%C3%B3gica.html?id=WjGpKzDLy8kC"
+      ],
+      "notes": "Imprenta López, 1944, 209 p.; aprobado por resolución suprema de 20 de marzo de 1944."
+    },
+    {
+      "work_id": "0473-w002",
+      "title": "Los objetos ideales",
+      "work_type": "ontology_and_ideal_objects_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "scholarly_reference"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "objetos ideales",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Nicolai Hartmann",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cambridge.org/core/journals/journal-of-inter-american-studies/article/abs/el-pensamiento-filosofico-de-augusto-pescador-sarget/0910DBEC01E18D85E46BB4E1F5666965"
+      ],
+      "notes": "Revista Nóesis, núm. 3, UMSA, 1964, citado en estudio contemporáneo de su pensamiento."
+    },
+    {
+      "work_id": "0473-w003",
+      "title": "Ontología",
+      "work_type": "ontology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "first_edition_scholarly_reference"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "categorías ónticas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "objetos ideales",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cambridge.org/core/journals/journal-of-inter-american-studies/article/abs/el-pensamiento-filosofico-de-augusto-pescador-sarget/0910DBEC01E18D85E46BB4E1F5666965",
+        "https://www.uniliber.com/ficha/ontologia_112839110/"
+      ],
+      "notes": "Buenos Aires, Losada, primera edición 1966, 206 p."
+    },
+    {
+      "work_id": "0473-w004",
+      "title": "El problema de la modalidad: los fundamentos ónticos de la lógica",
+      "work_type": "logic_and_modality_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "journal_issue_original_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.29393/CF3-4-1PMAP10001",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "categorías",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.udec.cl/cuadernos_de_filosofia/article/view/25073"
+      ],
+      "notes": "Cuadernos de Filosofía, núms. 3-4, correspondiente a 1974. El portal registra carga/publicación técnica posterior; se conserva 1974 como año del número."
+    },
+    {
+      "work_id": "0473-w005",
+      "title": "Categorías e implicaciones modales",
+      "work_type": "logic_and_modality_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "journal_record"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.29393/CF5-1CIAP101001",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "categorías",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.udec.cl/cuadernos_de_filosofia/article/view/25090"
+      ],
+      "notes": "Cuadernos de Filosofía, núm. 5, 1976."
+    },
+    {
+      "work_id": "0473-w006",
+      "title": "La filosofía en Bolivia en el siglo XX",
+      "work_type": "history_of_bolivian_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "journal_record"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.29393/CF6-7FBAP101007",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía boliviana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "siglo XX",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.udec.cl/cuadernos_de_filosofia/article/view/25233"
+      ],
+      "notes": "Cuadernos de Filosofía, núm. 6, 1977."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Sistematización de ontología y lógica en Bolivia y Chile, con influencia de Nicolai Hartmann y atención a la tradición filosófica boliviana",
+      "kind": "bolivian_ontology_logic_and_history_of_philosophy_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_biographical_source",
+      "title": "Cambridge — El pensamiento filosófico de Augusto Pescador Sarget",
+      "url": "https://www.cambridge.org/core/journals/journal-of-inter-american-studies/article/abs/el-pensamiento-filosofico-de-augusto-pescador-sarget/0910DBEC01E18D85E46BB4E1F5666965"
+    },
+    {
+      "kind": "journal_source",
+      "title": "Universidad de Concepción — Cuadernos de Filosofía",
+      "url": "https://revistas.udec.cl/cuadernos_de_filosofia"
+    },
+    {
+      "kind": "book_catalog_source",
+      "title": "Google Books — Lógica",
+      "url": "https://books.google.com/books/about/L%C3%B3gica.html?id=WjGpKzDLy8kC"
+    }
+  ],
+  "research_notes": [
+    "La biografía institucional fija 1910-1987 y documenta su trayectoria España-Bolivia-Chile.",
+    "Los años de los artículos se toman del volumen/número original, no de fechas de migración digital."
+  ]
+}

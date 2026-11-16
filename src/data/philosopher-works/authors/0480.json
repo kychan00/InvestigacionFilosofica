@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "author_id": 480,
+  "canonical_name": "Marvin Sandi",
+  "alternate_names": [
+    "Marvin Sandi Espinoza",
+    "Marvin Sandy"
+  ],
+  "life": {
+    "born": {
+      "year": 1938,
+      "certainty": "scholarly_biographical_source"
+    },
+    "died": {
+      "year": 1968,
+      "certainty": "scholarly_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_posthumous_editions_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0480-w001",
+      "title": "La finitud y otros ensayos",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "finitud",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Schopenhauer",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Dilthey",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Francisco Romero",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://buscador.unsam.edu.ar/Record/33637/Details"
+      ],
+      "notes": "Potosí, Universidad Tomás Frías, 1963, 285 p. Incluye ensayos sobre finitud, estética, Hegel, Schopenhauer, Weininger, Dilthey, Romero y Tamayo."
+    },
+    {
+      "work_id": "0480-w002",
+      "title": "El ser y trascender en el pensamiento de Francisco Romero",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Francisco Romero",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/rec/SANESY-2",
+        "https://buscador.unsam.edu.ar/Record/33637/Details"
+      ],
+      "notes": "Potosí, Colegio Libre de Estudios Superiores, 1963. El mismo ensayo aparece también recogido en La finitud y otros ensayos; se registra por existir emisión bibliográfica separada."
+    },
+    {
+      "work_id": "0480-w003",
+      "title": "Meditación del enigma: sendas para el diálogo entre América y Europa",
+      "work_type": "latin_american_philosophy_and_culture_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "bibliographic_reference"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Europa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "misterio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "diálogo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://rieoei.org/RIE/article/view/1138",
+        "https://www.cervantesvirtual.com/descargaPdf/bibliografia-de-pedro-lain-entralgo/"
+      ],
+      "notes": "Madrid, Seminario de Estudios Hispanoamericanos, 1966; prólogo de Pedro Laín Entralgo."
+    },
+    {
+      "work_id": "0480-w004",
+      "title": "La primera piedra",
+      "work_type": "posthumous_music_and_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "biobibliographical_source"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author_posthumous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "música",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "creación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://elias-blanco.blogspot.com/2012/03/marvin-sandi-espinoza.html"
+      ],
+      "notes": "Publicación póstuma de 1979 sobre música y filosofía; el autor murió en 1968."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reflexión boliviana sobre finitud, misterio, poesía, estética y el diálogo América-Europa, articulada con actividad musical y compositiva",
+      "kind": "bolivian_finitude_aesthetics_and_america_europe_dialogue_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UNSAM — La finitud y otros ensayos",
+      "url": "https://buscador.unsam.edu.ar/Record/33637/Details"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "PhilPapers — El ser y trascender en el pensamiento de Francisco Romero",
+      "url": "https://philpapers.org/rec/SANESY-2"
+    },
+    {
+      "kind": "cultural_biographical_source",
+      "title": "Diccionario Cultural Boliviano — Marvin Sandi Espinoza",
+      "url": "https://elias-blanco.blogspot.com/2012/03/marvin-sandi-espinoza.html"
+    }
+  ],
+  "research_notes": [
+    "El ser y trascender en el pensamiento de Francisco Romero fue emitido separadamente y también incluido en La finitud y otros ensayos; se explicita la relación para evitar una falsa independencia conceptual.",
+    "La primera piedra es póstuma y se marca como tal."
+  ]
+}
