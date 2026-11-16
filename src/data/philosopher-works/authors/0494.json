@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "author_id": 494,
+  "canonical_name": "João de Sousa Ferraz",
+  "alternate_names": [
+    "João de Souza Ferraz"
+  ],
+  "life": {
+    "born": {
+      "year": 1903,
+      "certainty": "municipal_library_authority"
+    },
+    "died": {
+      "year": 1988,
+      "certainty": "municipal_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0494-w001",
+      "title": "Psicologia Humana",
+      "work_type": "psychology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1945,
+        "certainty": "scholarly_history_source_over_secondary_variant"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicologia humana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brentano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.br/j/estpsi/a/fWx9mB4D9SBrFsDh74sFbKj/?format=html"
+      ],
+      "notes": "Estudo historiográfico especializado fixa 1945; referências secundárias também apresentam 1942, variante conservada em nota."
+    },
+    {
+      "work_id": "0494-w002",
+      "title": "Os fundamentos da psicologia",
+      "work_type": "foundations_of_psychology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1949,
+        "certainty": "secondary_bibliographic_source"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fundamentos da psicologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "método",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Jo%C3%A3o_de_Sousa_Ferraz"
+      ],
+      "notes": "Obra de 1949 listada em repertórios biobibliográficos; requer cotejo futuro de exemplar físico."
+    },
+    {
+      "work_id": "0494-w003",
+      "title": "Compreensão fenomenológica das emoções (Aspectos psicológicos da filosofia existencial)",
+      "work_type": "phenomenological_psychology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1950,
+        "certainty": "scholarly_history_source"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "emoções",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia existencial",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Merleau-Ponty",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.br/j/estpsi/a/fWx9mB4D9SBrFsDh74sFbKj/?format=html"
+      ],
+      "notes": "Publicação de 1950 destacada pela historiografia da fenomenologia e psicologia no Brasil."
+    },
+    {
+      "work_id": "0494-w004",
+      "title": "Noções de psicologia da criança",
+      "work_type": "child_psychology_textbook",
+      "original_language": "português",
+      "original_date": {
+        "year": 1955,
+        "certainty": "catalog_record"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicologia da criança",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "desenvolvimento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/joao-de-sousa-ferraz",
+        "https://sophia.limeira.sp.gov.br/TerminalWeb/Acervo/Detalhe/38512"
+      ],
+      "notes": "Edição de 1955 registrada em catálogo comercial; biblioteca municipal conserva a 6ª edição revista e atualizada de 1962. Não se contam as reedições como novas obras."
+    },
+    {
+      "work_id": "0494-w005",
+      "title": "Noções de psicologia educacional",
+      "work_type": "educational_psychology_textbook",
+      "original_language": "português",
+      "original_date": {
+        "year": 1957,
+        "certainty": "history_of_education_source"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicologia educacional",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "personalidade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "aprendizagem",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://livrosabertos.fae.ufmg.br/wp-content/uploads/2022/03/Classicos_da_Educacao_Brasileira_v3...MESQUITA_CARVALHO_2013.pdf"
+      ],
+      "notes": "Primeira edição, São Paulo, 1957, citada em estudo histórico de manuais de psicologia educacional."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepção fenomenológica na psicologia brasileira, especialmente na análise das emoções e na formação de professores por manuais de psicologia infantil e educacional",
+      "kind": "brazilian_phenomenological_and_educational_psychology_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_history_source",
+      "title": "SciELO — Fenomenologia e Psicologia no Brasil",
+      "url": "https://www.scielo.br/j/estpsi/a/fWx9mB4D9SBrFsDh74sFbKj/?format=html"
+    },
+    {
+      "kind": "municipal_library_authority",
+      "title": "Biblioteca Municipal de Limeira — João de Sousa Ferraz",
+      "url": "https://sophia.limeira.sp.gov.br/TerminalWeb/Acervo/Detalhe/38512"
+    }
+  ],
+  "research_notes": [
+    "Psicologia Humana fica em 1945 por estudo historiográfico especializado, embora repertórios secundários tragam 1942.",
+    "Os fundamentos da psicologia permanece como registro seeded de menor certeza e deverá ser cotejado em catálogo institucional numa revisão exaustiva."
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "author_id": 495,
+  "canonical_name": "Eudoro de Souza",
+  "alternate_names": [
+    "Eudoro de Sousa"
+  ],
+  "life": {
+    "born": {
+      "year": 1911,
+      "certainty": "university_source"
+    },
+    "died": {
+      "year": 1987,
+      "certainty": "university_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0495-w001",
+      "title": "Poética, de Aristóteles",
+      "work_type": "aristotle_translation_and_commentary",
+      "original_language": "português",
+      "original_date": {
+        "year": 1966,
+        "certainty": "scholarly_translation_history"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "translator_and_commentator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristóteles",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Poética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tragédia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.unb.br/index.php/archai/article/view/8309"
+      ],
+      "notes": "Tradução portuguesa acompanhada de extensos comentários, publicada em 1966. O texto de Aristóteles não é atribuído a Eudoro."
+    },
+    {
+      "work_id": "0495-w002",
+      "title": "Dioniso em Creta e outros ensaios",
+      "work_type": "mythology_and_greek_religion_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1973,
+        "certainty": "publisher_first_edition_record"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dioniso",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mitologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religião grega",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filomitia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://imprensanacional.pt/edicoes/dioniso-em-creta-e-outros-ensaios/"
+      ],
+      "notes": "São Paulo, Duas Cidades, 1973. Reúne trabalhos anteriores; não se duplicam individualmente neste seed."
+    },
+    {
+      "work_id": "0495-w003",
+      "title": "As Bacantes, de Eurípides",
+      "work_type": "euripides_translation_commentary",
+      "original_language": "português",
+      "original_date": {
+        "year": 1974,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "translator_editor_and_commentator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Eurípides",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bacantes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Dioniso",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tragédia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.redalyc.org/pdf/5861/586161969008.pdf"
+      ],
+      "notes": "São Paulo, Duas Cidades, 1974; tradução, introdução e comentário de Eudoro de Sousa."
+    },
+    {
+      "work_id": "0495-w004",
+      "title": "Horizonte e complementariedade: ensaio sobre a relação entre mito e metafísica, nos primeiros filósofos gregos",
+      "work_type": "myth_and_metaphysics_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1975,
+        "certainty": "first_edition_bibliography"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filósofos gregos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "complementariedade",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cvc.instituto-camoes.pt/conhecer/biblioteca-digital-camoes/explorar-por-autor/2219-2219/file.html"
+      ],
+      "notes": "São Paulo/Brasília, 1975, conforme bibliografia de primeiras edições."
+    },
+    {
+      "work_id": "0495-w005",
+      "title": "Sempre o mesmo acerca do mesmo",
+      "work_type": "myth_and_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1978,
+        "certainty": "first_edition_bibliography"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mesmo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "origem",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cvc.instituto-camoes.pt/conhecer/biblioteca-digital-camoes/explorar-por-autor/2219-2219/file.html"
+      ],
+      "notes": "Brasília, 1978."
+    },
+    {
+      "work_id": "0495-w006",
+      "title": "Filosofia Grega",
+      "work_type": "greek_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1978,
+        "certainty": "first_edition_bibliography"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia grega",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pré-socráticos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "logos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cvc.instituto-camoes.pt/conhecer/biblioteca-digital-camoes/explorar-por-autor/2219-2219/file.html"
+      ],
+      "notes": "Brasília, 1978."
+    },
+    {
+      "work_id": "0495-w007",
+      "title": "Mitologia",
+      "work_type": "mythology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1980,
+        "certainty": "first_edition_bibliography"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mitologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mistério",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "surgimento do mundo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sagrado",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cvc.instituto-camoes.pt/conhecer/biblioteca-digital-camoes/explorar-por-autor/2219-2219/file.html"
+      ],
+      "notes": "Brasília, Editora Universidade de Brasília, 1980. A edição de 1988 recebeu o título Mitologia I — Mistério e Surgimento do Mundo; não é nova obra."
+    },
+    {
+      "work_id": "0495-w008",
+      "title": "História e Mito",
+      "work_type": "myth_and_history_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1981,
+        "certainty": "first_edition_bibliography"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mitologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cvc.instituto-camoes.pt/conhecer/biblioteca-digital-camoes/explorar-por-autor/2219-2219/file.html"
+      ],
+      "notes": "Brasília, Editora Universidade de Brasília, 1981. A edição de 1988 foi apresentada como Mitologia II — História e Mito."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Renovação dos estudos brasileiros de mito, religião e filosofia grega por meio de filologia, tradução e uma filosofia da complementariedade entre mythos e logos",
+      "kind": "brazilian_greek_philosophy_myth_and_translation_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_scholarly_source",
+      "title": "UnB — Eudoro de Sousa e a Poética de Aristóteles",
+      "url": "https://periodicos.unb.br/index.php/archai/article/view/8309"
+    },
+    {
+      "kind": "national_cultural_bibliography",
+      "title": "Camões — O essencial sobre Eudoro de Sousa",
+      "url": "https://cvc.instituto-camoes.pt/conhecer/biblioteca-digital-camoes/explorar-por-autor/2219-2219/file.html"
+    }
+  ],
+  "research_notes": [
+    "A forma de autoridade portuguesa é Eudoro de Sousa; o inventário usa Eudoro de Souza e esta forma é mantida como canônica.",
+    "Mitologia (1980) e História e Mito (1981) não são duplicadas pelas reedições renomeadas de 1988."
+  ]
+}

@@ -29,11 +29,11 @@ El PR #336 quedó **mergeado a `main`** y constituye la base cerrada de la prime
 Estado absorbido en `main`:
 
 - **1,504 autores** en el inventario maestro.
-- **490 autores con ficha bibliográfica**, IDs **0001–0490**.
-- **2,978 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
-- Lotes completados: **001–049**.
+- **500 autores con ficha bibliográfica**, IDs **0001–0500**.
+- **3,056 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
+- Lotes completados: **001–050**.
 - Último archivo de autor mergeado: `authors/0480.json`.
-- Último lote completado en el PR actual: **049**.
+- Último lote completado en el PR actual: **050**.
 - PR histórico consolidado: **#336**.
 - El PR #336 ya no debe reutilizarse para nuevos lotes.
 
@@ -41,24 +41,24 @@ Estado absorbido en `main`:
 
 Quedan:
 
-- **1,014 autores**.
-- IDs pendientes: **0491–1504**.
-- Próximo lote: **050**, IDs **0491–0500**.
+- **1,004 autores**.
+- IDs pendientes: **0501–1504**.
+- Próximo lote: **051**, IDs **0501–0510**.
 
-Autores del lote 050:
+Autores del lote 051:
 
-1. 0491 — Evaldo Pauli
-2. 0492 — Adolpho Crippa
-3. 0493 — Nilton Campos
-4. 0494 — João de Sousa Ferraz
-5. 0495 — Eudoro de Souza
-6. 0496 — José Herculano Pires
-7. 0497 — Lourival Vilanova
-8. 0498 — Beneval de Oliveira
-9. 0499 — Benedito Nunes
-10. 0500 — Ubiratan de Macedo
+1. 0501 — Urbano Zilles
+2. 0502 — Vicente Barreto
+3. 0503 — Wilson de Souza Campos Batalha
+4. 0504 — María Carmelita de Freitas
+5. 0505 — Otavio Mello Alvarenga
+6. 0506 — Wilson Chagas
+7. 0507 — Eduardo Portella
+8. 0508 — J. Silveira da Costa
+9. 0509 — Norma Collares Werneck
+10. 0510 — Mario Guerreiro
 
-Depois se continúa estrictamente por IDs consecutivos hasta **1504**.
+Después se continúa estrictamente por IDs consecutivos hasta **1504**.
 
 ## 4. Regla operativa del nuevo PR
 
@@ -219,10 +219,10 @@ Estado de arranque del nuevo PR:
 ```json
 {
   "authors_total": 1504,
-  "authors_seeded": 490,
-  "authors_remaining": 1014,
-  "works_or_contributions_seeded": 2978,
-  "current_batch": "049",
+  "authors_seeded": 500,
+  "authors_remaining": 1004,
+  "works_or_contributions_seeded": 3056,
+  "current_batch": "050",
   "last_updated": "2026-11-16"
 }
 ```
@@ -298,3 +298,18 @@ Lote **049** completado en este PR:
 - Cobertura: **490 / 1,504 autores**
 - Pendientes: **1,014**
 - Próximo lote: **050**, IDs **0491–0500**
+
+
+## 15. Estado vivo del PR #340 — lote 050
+
+Lote **050** completado en este PR:
+
+- IDs: **0491–0500**
+- Autores añadidos: **10**
+- Obras/documentos: **68**
+- Contribuciones: **10**
+- Registros nuevos: **78**
+- Total acumulado: **3,056**
+- Cobertura: **500 / 1,504 autores**
+- Pendientes: **1,004**
+- Próximo lote: **051**, IDs **0501–0510**

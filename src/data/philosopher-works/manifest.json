@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 490,
-    "authors_remaining": 1014,
-    "works_or_contributions_seeded": 2978,
-    "current_batch": "049",
+    "authors_seeded": 500,
+    "authors_remaining": 1004,
+    "works_or_contributions_seeded": 3056,
+    "current_batch": "050",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2579,6 +2579,58 @@
       "author_id": 490,
       "canonical_name": "Euryalo Cannabrava",
       "path": "authors/0490.json"
+    }
+  ],
+  "batch_050": [
+    {
+      "author_id": 491,
+      "canonical_name": "Evaldo Pauli",
+      "path": "authors/0491.json"
+    },
+    {
+      "author_id": 492,
+      "canonical_name": "Adolpho Crippa",
+      "path": "authors/0492.json"
+    },
+    {
+      "author_id": 493,
+      "canonical_name": "Nilton Campos",
+      "path": "authors/0493.json"
+    },
+    {
+      "author_id": 494,
+      "canonical_name": "João de Sousa Ferraz",
+      "path": "authors/0494.json"
+    },
+    {
+      "author_id": 495,
+      "canonical_name": "Eudoro de Souza",
+      "path": "authors/0495.json"
+    },
+    {
+      "author_id": 496,
+      "canonical_name": "José Herculano Pires",
+      "path": "authors/0496.json"
+    },
+    {
+      "author_id": 497,
+      "canonical_name": "Lourival Vilanova",
+      "path": "authors/0497.json"
+    },
+    {
+      "author_id": 498,
+      "canonical_name": "Beneval de Oliveira",
+      "path": "authors/0498.json"
+    },
+    {
+      "author_id": 499,
+      "canonical_name": "Benedito Nunes",
+      "path": "authors/0499.json"
+    },
+    {
+      "author_id": 500,
+      "canonical_name": "Ubiratan de Macedo",
+      "path": "authors/0500.json"
     }
   ]
 }
