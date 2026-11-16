@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "author_id": 41,
+  "canonical_name": "José María Luis Mora",
+  "alternate_names": [
+    "José María Luis Mora Lamadrid",
+    "José María Luis Mora"
+  ],
+  "life": {
+    "born": {
+      "year": 1794,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1850,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_historical_political_and_reformist_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0041-w001",
+      "title": "Catecismo político de la federación mexicana",
+      "work_type": "political_catechism",
+      "original_language": "español",
+      "original_date": {
+        "year": 1831,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1831,
+      "authorship_status": "attributed_contemporary_anonymous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "federación mexicana",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "voluntad general",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "representación",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Primera edición anónima, Imprenta Galván, México, 1831; la atribución a Mora es tradicional y contemporánea."
+    },
+    {
+      "work_id": "0041-w002",
+      "title": "Discursos sobre la naturaleza y aplicación de las rentas y bienes eclesiásticos",
+      "work_type": "political_economic_religious_essay",
+      "original_language": "español",
+      "original_date": {
+        "century": 19,
+        "certainty": "exact_year_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_date_pending",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "bienes eclesiásticos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "rentas eclesiásticas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "reforma liberal",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0041-w003",
+      "title": "Méjico y sus revoluciones",
+      "work_type": "national_history_political_analysis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1836,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1836,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "historia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "revoluciones",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "instituciones",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicado en París por la Librería de Rosa; el proyecto editorial quedó incompleto y la numeración de tomos es bibliográficamente compleja."
+    },
+    {
+      "work_id": "0041-w004",
+      "title": "Obras sueltas",
+      "work_type": "author_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1837,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1837,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideas políticas",
+          "provenance": "authorial"
+        },
+        {
+          "term": "administración",
+          "provenance": "authorial"
+        },
+        {
+          "term": "reforma",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Colección en dos tomos publicada en París; reúne textos previos y contemporáneos, por lo que no debe contarse cada reedición como obra nueva."
+    },
+    {
+      "work_id": "0041-w005",
+      "title": "Revista política de las diversas administraciones que ha tenido la República hasta 1837",
+      "work_type": "political_history_essay",
+      "parent_work_id": "0041-w004",
+      "original_language": "español",
+      "original_date": {
+        "year": 1837,
+        "certainty": "publication_in_collection"
+      },
+      "first_publication_year": 1837,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México",
+          "provenance": "catalog"
+        },
+        {
+          "term": "política y gobierno",
+          "provenance": "catalog"
+        },
+        {
+          "term": "administración pública",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0041-w006",
+      "title": "Artículos de El Observador y El Indicador",
+      "work_type": "journalistic_political_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1820,
+        "end": 1834,
+        "certainty": "approximate_corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "liberalismo mexicano",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "clero",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "milicia",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Pendiente desglosar artículo por artículo; muchos fueron reimpresos en Obras sueltas."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "José María Luis Mora — obras",
+      "url": "https://www.cervantesvirtual.com/obras/autor/mora-jose-maria-luis-1794-1850-2489/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "primary_digital_text",
+      "title": "Revista política de las diversas administraciones que ha tenido la República hasta 1837",
+      "url": "https://www.cervantesvirtual.com/obra/revista-politica-de-las-diversas-administraciones-que-ha-tenido-la-republica-hasta-1837--0/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "government_study",
+      "title": "Catecismo político de la federación mexicana — contexto y primera edición",
+      "url": "https://www.diputados.gob.mx/sedia/biblio/virtual/conocer/pode_pol_religI/02_pode_pol_religI.pdf",
+      "publisher": "Cámara de Diputados de México"
+    }
+  ],
+  "research_notes": [
+    "Pendiente fijar año y primera impresión de los Discursos sobre rentas eclesiásticas y desglosar los artículos periodísticos.",
+    "No usar la fecha errónea 1936 que aparece en el libro-base para Méjico y sus revoluciones: la edición original verificada es París, 1836."
+  ]
+}
