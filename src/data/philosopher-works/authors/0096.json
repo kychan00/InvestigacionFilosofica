@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "author_id": 96,
+  "canonical_name": "Justo Sierra",
+  "alternate_names": [
+    "Justo Sierra Méndez"
+  ],
+  "life": {
+    "born": {
+      "year": 1848,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1912,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_historical_educational_travel_and_university_discourse_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0096-w001",
+      "title": "México social y político",
+      "alternate_titles": [
+        "México social y político. Apuntes para un libro"
+      ],
+      "work_type": "social_political_essay_series",
+      "original_language": "español",
+      "original_date": {
+        "year": 1889,
+        "certainty": "serial_publication"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0096-w002",
+      "title": "En tierra yankee: notas á todo vapor",
+      "work_type": "travel_writing",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "travel_and_notes"
+      },
+      "first_publication_year": 1898,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Estados Unidos",
+          "provenance": "catalog"
+        },
+        {
+          "term": "viajes",
+          "provenance": "catalog"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0096-w003",
+      "title": "México: su evolución social",
+      "work_type": "collective_national_synthesis",
+      "original_language": "español",
+      "original_date": {
+        "start": 1900,
+        "end": 1902,
+        "certainty": "multi_volume_publication"
+      },
+      "first_publication_year": 1900,
+      "authorship_status": "director_editor_and_contributing_author",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "grupo de intelectuales y científicos mexicanos",
+          "role": "collective_contributors"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "evolución social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Sierra coordinó la obra colectiva y escribió secciones históricas/políticas. No se atribuye el conjunto como monografía de autor único."
+    },
+    {
+      "work_id": "0096-w004",
+      "title": "Juárez: su obra y su tiempo",
+      "work_type": "historical_biography",
+      "original_language": "español",
+      "original_date": {
+        "start": 1905,
+        "end": 1906,
+        "certainty": "publication_range"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Benito Juárez",
+          "role": "biographical_subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Benito Juárez",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Reforma",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia de México",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0096-w005",
+      "title": "Discurso inaugural de la Universidad Nacional de México",
+      "work_type": "university_inaugural_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "exact",
+        "date": "1910-09-22"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Universidad Nacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación superior",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0096-w006",
+      "title": "Evolución política del pueblo mexicano",
+      "work_type": "posthumous_historical_synthesis",
+      "original_language": "español",
+      "original_date": {
+        "start": 1889,
+        "end": 1902,
+        "certainty": "component_texts_composition_range"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified_posthumous_reconstructed_book",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Casa de España en México",
+          "role": "first_standalone_publisher"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "evolución política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pueblo mexicano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia de México",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "El volumen autónomo reúne materiales escritos originalmente para México: su evolución social y antecedentes como México social y político."
+    },
+    {
+      "work_id": "0096-w007",
+      "title": "La educación nacional: artículos, actuaciones y documentos",
+      "work_type": "posthumous_education_document_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1870,
+        "end": 1911,
+        "certainty": "approximate_document_range"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "verified_posthumous_collection",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Agustín Yáñez",
+          "role": "editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación nacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "enseñanza pública",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Universidad Nacional",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Tomo VIII de Obras completas; colección editorial póstuma, no obra unitaria redactada en 1948."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Proyecto y fundación de la Universidad Nacional de México",
+      "kind": "educational_institutional_contribution",
+      "period": {
+        "start": 1881,
+        "end": 1910,
+        "certainty": "documented_project_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Universidad Nacional de México",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación superior",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "government_library_record",
+      "title": "En tierra yankee",
+      "url": "https://bibliotecamexico-fondoreservado.cultura.gob.mx/fondo-reservado/en-tierra-yankee/",
+      "publisher": "Biblioteca de México"
+    },
+    {
+      "kind": "historical_library_record",
+      "title": "Juárez: su obra y su tiempo",
+      "url": "https://www.adabi.org.mx/vufind/Record/1120564",
+      "publisher": "ADABI de México"
+    },
+    {
+      "kind": "university_history",
+      "title": "Universidad Nacional: aniversario de su inauguración",
+      "url": "https://www.gaceta.unam.mx/universidad-nacional-109-anos-de-su-inauguracion/",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "university_historical_study",
+      "title": "México social y político y Evolución política del pueblo mexicano",
+      "url": "https://tesiunamdocumentos.dgb.unam.mx/ptd2014/noviembre/0722667/0722667.pdf",
+      "publisher": "UNAM"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar periodismo, discursos parlamentarios, poesía, crítica literaria y epistolario.",
+    "Las Obras completas de 1948-1957 se usan como testimonios editoriales, no como fechas de composición."
+  ]
+}
