@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 544,
+  "canonical_name": "José Rafael Echevarría",
+  "alternate_names": [
+    "José Rafael Echeverría Yáñez",
+    "José R. Echeverría Yáñez",
+    "José Echeverría"
+  ],
+  "life": {
+    "born": {
+      "year": 1913,
+      "certainty": "university_archive_source"
+    },
+    "died": {
+      "year": 1996,
+      "certainty": "university_archive_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0544-w001",
+      "title": "Réflexions métaphysiques sur la mort et le problème du sujet",
+      "work_type": "metaphysics_of_death_book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1957,
+        "certainty": "publisher_and_contemporary_review"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9782711602285"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "muerte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sujeto",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.vrin.fr/livre/9782711602285/reflexions-metaphysiques-sur-la-mort-et-le-probleme-du-sujet",
+        "https://revistafilosofia.uchile.cl/index.php/RDF/article/download/44981/47063/158660"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0544-w002",
+      "title": "De l'Aperception immédiate (Mémoire de Berlin 1807)",
+      "work_type": "critical_edition_of_maine_de_biran",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1963,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "scientific_editor_with_introduction_notes_and_index",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Maine de Biran",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "apercepción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "edición crítica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb330869680",
+        "https://www.persee.fr/doc/phlou_0035-3841_1964_num_62_74_5258_t1_0380_0000_2"
+      ],
+      "notes": "Obra de Maine de Biran; Echeverría es editor científico, autor de la introducción, notas e índices, no autor del texto de 1807."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filosofía de la muerte y del sujeto, junto con docencia de filosofía del derecho entre Chile y Puerto Rico",
+      "kind": "metaphysics_of_death_subject_and_philosophy_of_law_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_archive_source",
+      "title": "Archivo UC — José Rafael Echeverría Yáñez (1913–1996), por Carla Cordua",
+      "url": "https://archivospatrimoniales.uc.cl/bitstream/handle/123456789/60910/Carp%2076%20doc%201.pdf?isAllowed=y&sequence=1"
+    },
+    {
+      "kind": "publisher_source",
+      "title": "Librairie Philosophique J. Vrin — Réflexions métaphysiques sur la mort et le problème du sujet",
+      "url": "https://www.vrin.fr/livre/9782711602285/reflexions-metaphysiques-sur-la-mort-et-le-probleme-du-sujet"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Bibliothèque nationale de France — De l'Aperception immédiate",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb330869680"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico escribe «José Rafael Echevarría»; las fuentes de autoridad consultadas registran «José Rafael Echeverría Yáñez». Se conserva la forma del inventario en canonical_name y la forma documentada en alternate_names.",
+    "Se evita confundir a este filósofo (1913–1996) con Rafael Echeverría, autor contemporáneo vinculado a la ontología del lenguaje."
+  ]
+}

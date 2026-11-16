@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "author_id": 542,
+  "canonical_name": "Francisco Soler Grima",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1924,
+      "certainty": "university_memorial_source"
+    },
+    "died": {
+      "year": 1982,
+      "certainty": "university_memorial_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0542-w001",
+      "title": "Hacia Ortega. I. El mito del origen del hombre",
+      "work_type": "ortega_and_philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "contemporary_university_record"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ortega y Gasset",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "origen del hombre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón vital",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://anales.uchile.cl/index.php/ANUC/article/view/22446",
+        "https://revistas.udec.cl/atenea/article/view/24715"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0542-w002",
+      "title": "Apuntes acerca del pensar de Heidegger",
+      "work_type": "heidegger_studies_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "posthumous_bibliographic_record"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.sabereseducativos.uchile.cl/index.php/RDF/article/view/77162"
+      ],
+      "notes": "Publicado póstumamente, un año después de la muerte de Soler Grima."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción y transmisión chilena de Ortega y Gasset y Heidegger desde la docencia universitaria",
+      "kind": "chilean_ortega_and_heidegger_reception_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_memorial_source",
+      "title": "Universidad de Chile — Francisco Soler Grima",
+      "url": "https://www.sabereseducativos.uchile.cl/index.php/RDF/article/view/77162"
+    },
+    {
+      "kind": "contemporary_review_source",
+      "title": "Atenea — Hacia Ortega",
+      "url": "https://revistas.udec.cl/atenea/article/view/24715"
+    }
+  ],
+  "research_notes": [
+    "No se contabiliza como obra propia la traducción de Walter Bröcker cuando la evidencia consultada no permite confundir traducción con autoría original."
+  ]
+}

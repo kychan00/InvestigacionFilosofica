@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "author_id": 550,
+  "canonical_name": "Jorge Eduardo Rivera",
+  "alternate_names": [
+    "Jorge Eduardo Rivera Cruchaga"
+  ],
+  "life": {
+    "born": {
+      "year": 1927,
+      "certainty": "academic_society_source"
+    },
+    "died": {
+      "year": 2017,
+      "certainty": "university_obituary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0550-w001",
+      "title": "La filosofía en la Universidad",
+      "work_type": "university_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographic_and_retrospective_source"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación superior",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Chile",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.uchile.cl/index.php/ANUC/article/download/2013/1864"
+      ],
+      "notes": "Obra temprana cuya problemática Rivera retomó posteriormente; la fecha de 1970 corresponde al libro original."
+    },
+    {
+      "work_id": "0550-w002",
+      "title": "Ser y tiempo",
+      "work_type": "heidegger_translation_with_prologue_and_notes",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "translation_bibliography"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "translator_with_prologue_and_notes",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ser y tiempo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://herdereditorial.com/media/product-attachment/9788425434402/Heidegger-Apendice-para-la-web-con-hipervinculos.pdf"
+      ],
+      "notes": "Traducción de Martin Heidegger, Editorial Universitaria, Santiago de Chile, 1997; la revisión posterior de 2003 no se cuenta como obra nueva."
+    },
+    {
+      "work_id": "0550-w003",
+      "title": "Heidegger y Zubiri",
+      "work_type": "heidegger_and_zubiri_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "contemporary_review"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Zubiri",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ser",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "realidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecanacionaldigital.gob.cl/colecciones/BND/00/RC/RC0050047.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0550-w004",
+      "title": "Sobre mi traducción de «Ser y Tiempo»",
+      "work_type": "translation_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "journal_record"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.7764/onomazein.12.07",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ser y tiempo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ojs.uc.cl/index.php/onom/article/view/31727"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción chilena de Heidegger y Zubiri y elaboración de una traducción castellana de referencia de Ser y tiempo",
+      "kind": "chilean_heidegger_zubiri_reception_and_translation_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_society_source",
+      "title": "Sociedad Iberoamericana de Estudios Heideggerianos — Jorge Eduardo Rivera",
+      "url": "https://www.sociedadheidegger.org/rivera"
+    },
+    {
+      "kind": "university_obituary_source",
+      "title": "Pontificia Universidad Católica de Valparaíso — Jorge Rivera Cruchaga",
+      "url": "https://www.pucv.cl/uuaa/pucv-lamenta-fallecimiento-del-ex-profesor-jorge-rivera-cruchaga"
+    },
+    {
+      "kind": "contemporary_review_source",
+      "title": "Biblioteca Nacional Digital de Chile — Heidegger y Zubiri",
+      "url": "https://www.bibliotecanacionaldigital.gob.cl/colecciones/BND/00/RC/RC0050047.pdf"
+    }
+  ],
+  "research_notes": [
+    "La edición revisada de la traducción de Ser y tiempo publicada por Trotta en 2003 se trata como revisión de la traducción de 1997, no como obra nueva."
+  ]
+}

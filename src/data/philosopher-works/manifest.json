@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 540,
-    "authors_remaining": 964,
-    "works_or_contributions_seeded": 3353,
-    "current_batch": "054",
+    "authors_seeded": 550,
+    "authors_remaining": 954,
+    "works_or_contributions_seeded": 3413,
+    "current_batch": "055",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2839,6 +2839,58 @@
       "author_id": 540,
       "canonical_name": "Clarence Finlayson Elliott",
       "path": "authors/0540.json"
+    }
+  ],
+  "batch_055": [
+    {
+      "author_id": 541,
+      "canonical_name": "Armando Roa",
+      "path": "authors/0541.json"
+    },
+    {
+      "author_id": 542,
+      "canonical_name": "Francisco Soler Grima",
+      "path": "authors/0542.json"
+    },
+    {
+      "author_id": 543,
+      "canonical_name": "Jorge Acevedo",
+      "path": "authors/0543.json"
+    },
+    {
+      "author_id": 544,
+      "canonical_name": "José Rafael Echevarría",
+      "path": "authors/0544.json"
+    },
+    {
+      "author_id": 545,
+      "canonical_name": "Juan de Dios Vial Larraín",
+      "path": "authors/0545.json"
+    },
+    {
+      "author_id": 546,
+      "canonical_name": "Félix Martínez Bonati",
+      "path": "authors/0546.json"
+    },
+    {
+      "author_id": 547,
+      "canonical_name": "Luis Flores",
+      "path": "authors/0547.json"
+    },
+    {
+      "author_id": 548,
+      "canonical_name": "Alfonso Gómez-Lobo",
+      "path": "authors/0548.json"
+    },
+    {
+      "author_id": 549,
+      "canonical_name": "Marcos García de la Huerta",
+      "path": "authors/0549.json"
+    },
+    {
+      "author_id": 550,
+      "canonical_name": "Jorge Eduardo Rivera",
+      "path": "authors/0550.json"
     }
   ]
 }

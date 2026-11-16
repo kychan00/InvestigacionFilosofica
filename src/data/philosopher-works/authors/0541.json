@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "author_id": 541,
+  "canonical_name": "Armando Roa",
+  "alternate_names": [
+    "Armando Roa Rebolledo"
+  ],
+  "life": {
+    "born": {
+      "year": 1915,
+      "certainty": "university_historical_source"
+    },
+    "died": {
+      "year": 1997,
+      "certainty": "national_library_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0541-w001",
+      "title": "Formas del pensar psiquiátrico",
+      "work_type": "psychiatry_and_philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psiquiatría",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento médico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Formas_del_pensar_psiqui%C3%A1trico.html?id=pSxgAAAAMAAJ"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0541-w002",
+      "title": "Modernidad y posmodernidad: coincidencias y diferencias fundamentales",
+      "work_type": "modernity_and_postmodernity_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "publisher_bibliographic_record"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9561313073"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "modernidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "posmodernidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books?hl=es&id=TJMNngboj7cC"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0541-w003",
+      "title": "Ética y bioética",
+      "work_type": "ethics_and_bioethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "posthumous_publication_record"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "bioética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "medicina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persona",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bibliotecanacionaldigital.gob.cl/colecciones/BND/00/RC/RC0051343.pdf"
+      ],
+      "notes": "Publicación póstuma; Roa falleció en septiembre de 1997."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación chilena de psiquiatría fenomenológica, antropología médica, humanismo y bioética",
+      "kind": "chilean_phenomenological_psychiatry_medical_humanism_and_bioethics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_historical_source",
+      "title": "Universidad de Chile — Huella y presencia, Armando Roa Rebolledo",
+      "url": "https://libros.uchile.cl/files/presses/1/monographs/1346/submission/proof/177/"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "Biblioteca Nacional Digital de Chile — Ética y bioética",
+      "url": "https://www.bibliotecanacionaldigital.gob.cl/colecciones/BND/00/RC/RC0051343.pdf"
+    }
+  ],
+  "research_notes": [
+    "Se conserva Armando Roa como nombre canónico del inventario y Armando Roa Rebolledo como forma de autoridad."
+  ]
+}
