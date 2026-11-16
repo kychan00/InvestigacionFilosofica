@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 20,
-    "authors_remaining": 1484,
-    "works_or_contributions_seeded": 80,
-    "current_batch": "002",
+    "authors_seeded": 30,
+    "authors_remaining": 1474,
+    "works_or_contributions_seeded": 133,
+    "current_batch": "003",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -135,6 +135,58 @@
       "author_id": 20,
       "canonical_name": "Benito Jerónimo Feijóo",
       "path": "authors/0020.json"
+    }
+  ],
+  "batch_003": [
+    {
+      "author_id": 21,
+      "canonical_name": "José Rafael Campoy",
+      "path": "authors/0021.json"
+    },
+    {
+      "author_id": 22,
+      "canonical_name": "Francisco Xavier Alegre",
+      "path": "authors/0022.json"
+    },
+    {
+      "author_id": 23,
+      "canonical_name": "Francisco Xavier Clavijero",
+      "path": "authors/0023.json"
+    },
+    {
+      "author_id": 24,
+      "canonical_name": "Francisco Javier Espejo",
+      "path": "authors/0024.json"
+    },
+    {
+      "author_id": 25,
+      "canonical_name": "José Agustín Caballero",
+      "path": "authors/0025.json"
+    },
+    {
+      "author_id": 26,
+      "canonical_name": "Toussaint L’Ouverture",
+      "path": "authors/0026.json"
+    },
+    {
+      "author_id": 27,
+      "canonical_name": "Juan Pablo Viscardo y Guzmán",
+      "path": "authors/0027.json"
+    },
+    {
+      "author_id": 28,
+      "canonical_name": "Francisco de Miranda",
+      "path": "authors/0028.json"
+    },
+    {
+      "author_id": 29,
+      "canonical_name": "Miguel Hidalgo y Costilla",
+      "path": "authors/0029.json"
+    },
+    {
+      "author_id": 30,
+      "canonical_name": "Servando Teresa de Mier",
+      "path": "authors/0030.json"
     }
   ]
 }
