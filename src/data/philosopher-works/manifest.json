@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 450,
-    "authors_remaining": 1054,
-    "works_or_contributions_seeded": 2744,
-    "current_batch": "045",
+    "authors_seeded": 460,
+    "authors_remaining": 1044,
+    "works_or_contributions_seeded": 2798,
+    "current_batch": "046",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2371,6 +2371,58 @@
       "author_id": 450,
       "canonical_name": "Julia Valentina Iribarne",
       "path": "authors/0450.json"
+    }
+  ],
+  "batch_046": [
+    {
+      "author_id": 451,
+      "canonical_name": "Dorando Michelini",
+      "path": "authors/0451.json"
+    },
+    {
+      "author_id": 452,
+      "canonical_name": "Dina Picotti",
+      "path": "authors/0452.json"
+    },
+    {
+      "author_id": 453,
+      "canonical_name": "Marcelo Bórmida",
+      "path": "authors/0453.json"
+    },
+    {
+      "author_id": 454,
+      "canonical_name": "María Lucrecia Rovaletti",
+      "path": "authors/0454.json"
+    },
+    {
+      "author_id": 455,
+      "canonical_name": "Bruno Piccione",
+      "path": "authors/0455.json"
+    },
+    {
+      "author_id": 456,
+      "canonical_name": "Eduardo García Belsunce",
+      "path": "authors/0456.json"
+    },
+    {
+      "author_id": 457,
+      "canonical_name": "Luis Noussan Lettry",
+      "path": "authors/0457.json"
+    },
+    {
+      "author_id": 458,
+      "canonical_name": "Oward Ferrari",
+      "path": "authors/0458.json"
+    },
+    {
+      "author_id": 459,
+      "canonical_name": "Oscar del Barco",
+      "path": "authors/0459.json"
+    },
+    {
+      "author_id": 460,
+      "canonical_name": "Carmen Balzer",
+      "path": "authors/0460.json"
     }
   ]
 }
