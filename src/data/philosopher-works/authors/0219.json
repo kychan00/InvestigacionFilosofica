@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "author_id": 219,
+  "canonical_name": "Moisés Santiago Bertoni",
+  "alternate_names": [
+    "Moisés S. Bertoni"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_tradition_or_bibliographic_evidence_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0219-w001",
+      "title": "La civilización guaraní",
+      "work_type": "ethnology_multivolume_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "first_documented_publication"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "bibliographically_attributed",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "civilización guaraní",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "etnología",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bfa.fcnym.unlp.edu.ar/id/2750",
+        "https://catalogo.bacn.gov.py/opac_css/index.php?id=1842&lvl=publisher_see"
+      ],
+      "publication_year_range": [
+        1922,
+        1927
+      ],
+      "volumes": 3,
+      "edition_history": [
+        {
+          "year": 1922,
+          "description": "Tomo I, Etnología (origen, extensión y cultura karaí-guaraní)"
+        },
+        {
+          "year": 1927,
+          "description": "Tomo III, Etnografía: conocimientos, higiene y medicina; fecha respaldada por museo brasileño"
+        }
+      ],
+      "notes": "Catálogo UNLP registra tres volúmenes 1922–1927; no inventar año exacto para el tomo II."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación naturalista y etnográfica de tradiciones guaraníes vinculada al positivismo de la época",
+      "kind": "historical_intellectual_or_ritual_contribution",
+      "contribution_id": "0219-c001",
+      "authorship_status": "traditionally_attributed_or_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_library_catalog",
+      "title": "UNLP, La civilización guaraní, tres volúmenes, 1922–1927",
+      "url": "https://www.bfa.fcnym.unlp.edu.ar/id/2750"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Congreso Nacional Paraguay, La civilización guaraní, tomo I",
+      "url": "https://catalogo.bacn.gov.py/opac_css/index.php?id=1842&lvl=publisher_see"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "Libro-base, Bartomeu Melià, La filosofía guaraní",
+      "locator": "pp. 46–48"
+    }
+  ],
+  "research_notes": [
+    "Bartomeu Melià cuestiona la noción de 'civilización guaraní' en Bertoni como construcción positivista y evolucionista; presentar sus categorías históricas críticamente.",
+    "Hay conferencias de 1913 con edición en 1914 mencionadas en libro-base, pendientes de reconstrucción por título y fuente, sin fichas inventadas."
+  ]
+}
