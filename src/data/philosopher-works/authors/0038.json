@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "author_id": 38,
+  "canonical_name": "Diego Portales y Palazuelos",
+  "alternate_names": [
+    "Diego Portales",
+    "Diego José Pedro Víctor Portales y Palazuelos"
+  ],
+  "life": {
+    "born": {
+      "year": 1793,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1837,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "epistolary_political_corpus_seeded_no_treatise_inflation",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0038-w001",
+      "title": "Carta a José Manuel Cea",
+      "work_type": "political_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1822,
+        "certainty": "exact",
+        "date": "1822-03"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "José Manuel Cea",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno fuerte",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "centralización",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "república",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0038-w002",
+      "title": "Carta a Joaquín Tocornal del 16 de julio de 1832",
+      "alternate_titles": [
+        "El peso de la noche"
+      ],
+      "work_type": "political_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1832,
+        "certainty": "exact",
+        "date": "1832-07-16"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Joaquín Tocornal",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "peso de la noche",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "orden social",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "administración",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0038-w003",
+      "title": "Carta a Fernando Urízar Garfias del 1 de abril de 1837",
+      "alternate_titles": [
+        "Palo y bizcochuelo"
+      ],
+      "work_type": "political_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1837,
+        "certainty": "exact",
+        "date": "1837-04-01"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Fernando Urízar Garfias",
+          "role": "recipient"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "disciplina",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autoridad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0038-w004",
+      "title": "Epistolario de Diego Portales, 1821-1837",
+      "work_type": "correspondence_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1821,
+        "end": 1837,
+        "certainty": "corpus_range"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "verified_posthumously_collected_corpus",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Ernesto de la Cruz",
+          "role": "compiler_and_editor"
+        },
+        {
+          "name": "Guillermo Feliú Cruz",
+          "role": "editor_and_annotator"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento político",
+          "provenance": "catalog"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        },
+        {
+          "term": "orden",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "El corpus publicado supera las cuatrocientas cartas; debe desglosarse carta por carta."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_author_portal",
+      "title": "Portales, Diego, 1793-1837",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-30884.html",
+      "publisher": "Memoria Chilena, Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_theme",
+      "title": "Epistolario y reflexiones",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-96904.html",
+      "publisher": "Memoria Chilena"
+    },
+    {
+      "kind": "primary_letter",
+      "title": "Carta de Diego Portales a Manuel Blanco Encalada, 10 septiembre 1836",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-98330.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    }
+  ],
+  "research_notes": [
+    "No crear falsos tratados portalianos: su pensamiento político se reconstruye principalmente del epistolario y documentos oficiales.",
+    "Pendiente desglosar las más de 400 cartas por destinatario, fecha y tema."
+  ]
+}
