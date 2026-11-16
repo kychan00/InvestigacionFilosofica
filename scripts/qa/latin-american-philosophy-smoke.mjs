@@ -125,6 +125,11 @@ try {
       "Dossier must render source cards");
     assert.ok(await page.locator("#author-dialog .author-dossier-nav button").count() === 4,
       "Dossier must expose its four reading sections");
+    assert.equal(
+      await page.locator("#author-dialog .author-dossier-timeline-item").count(),
+      await page.locator("#author-dialog .author-work-card").count(),
+      "Dossier chronology must represent every documented work"
+    );
     assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
       "Dossier must retain the canonical author identifier");
 
