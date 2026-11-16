@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "author_id": 394,
+  "canonical_name": "Joaquim do Amor Divino Caneca",
+  "alternate_names": [
+    "Frei Caneca",
+    "Frei Joaquim do Amor Divino Caneca"
+  ],
+  "life": {
+    "born": {
+      "year": 1779,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1825,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0394-w001",
+      "title": "Cartas de Pítia a Damão",
+      "work_type": "political_polemical_letter_series",
+      "original_language": "português",
+      "original_date": {
+        "year": 1823,
+        "certainty": "contemporary_publication_date"
+      },
+      "first_publication_year": 1823,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "soberania popular",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.ufpb.br/index.php/caos/article/download/46927/28215/121878",
+        "https://revistaserrote.com.br/2013/07/o-ensaio-literario-no-brasil/"
+      ],
+      "notes": "Série de dez cartas políticas; a primeira foi publicada em 17 de março de 1823. Trata-se de ensaio polêmico em forma epistolar, não de correspondência privada real."
+    },
+    {
+      "work_id": "0394-w002",
+      "title": "O Tífis Pernambucano",
+      "work_type": "political_periodical_written_and_directed_by_author",
+      "original_language": "português",
+      "original_date": {
+        "year": 1823,
+        "certainty": "first_issue_documented"
+      },
+      "first_publication_year": 1823,
+      "authorship_status": "editor_and_principal_writer_not_separate_author_of_each_issue",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Confederação do Equador",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "imprensa política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://objdigital.bn.br/objdigital2/acervo_digital/div_obrasraras/or404270/or404270.pdf",
+        "https://pjbr.eca.usp.br/arquivos/monografia1_d.htm"
+      ],
+      "notes": "Periódico iniciado em 25 de dezembro de 1823 e mantido até julho de 1824. Registra-se a cabecera como uma unidade editorial, não cada número como obra independente."
+    },
+    {
+      "work_id": "0394-w003",
+      "title": "Itinerário que se fez saindo de Pernambuco a 16 de setembro de 1824 para a província do Ceará",
+      "work_type": "campaign_and_escape_itinerary_manuscript_later_published",
+      "original_language": "português",
+      "original_date": {
+        "year": 1824,
+        "certainty": "dated_narrative"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Confederação do Equador",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memória política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Pernambuco",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ceará",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=216537&locale=es"
+      ],
+      "notes": "Narrativa dos acontecimentos após a Confederação do Equador. A Biblioteca Digital de Literatura informa que foi publicada em 1875 a partir de manuscrito apresentado ao Instituto Histórico em 1848 e que não consta publicação anterior."
+    },
+    {
+      "work_id": "0394-w004",
+      "title": "Breve compêndio de gramática portuguesa, organizado em forma sistemática, com adaptação à capacidade dos alunos",
+      "work_type": "grammar_textbook_manuscript_published_posthumously",
+      "original_language": "português",
+      "original_date": {
+        "year": 1818,
+        "certainty": "estimated_composition_1817_1819"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "gramática portuguesa",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "gramática filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.hgel.com.br/glp-seculo-19/breve-compendio-de-grammatica-portugueza-%281876%29",
+        "https://livrosabertos.abcd.usp.br/portaldelivrosUSP/pt_BR/catalog/book/304"
+      ],
+      "notes": "A investigação filológica estima redação entre 1817 e 1819; primeira edição póstuma em 1876, integrada às Obras políticas e literárias."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulação entre soberania popular, constitucionalismo radical, republicanismo e crítica ao centralismo imperial na Revolução Pernambucana e na Confederação do Equador",
+      "kind": "republican_constitutional_and_revolutionary_contribution",
+      "authorship_status": "documented_in_library_and_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), sección sobre pensamiento filosófico brasileño del siglo XIX",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "Biblioteca Nacional / PLANOR — Obras políticas e literárias de Frei Caneca, 1875",
+      "url": "https://cpbn.bn.gov.br/planor/handle/20.500.12156.6/2575"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — Frei Caneca, dados biobibliográficos",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=3552&locale=pt_BR"
+    },
+    {
+      "kind": "scholarly_source",
+      "title": "UFPB — estudo sobre as Cartas de Pítia a Damão",
+      "url": "https://periodicos.ufpb.br/index.php/caos/article/download/46927/28215/121878"
+    }
+  ],
+  "research_notes": [
+    "A compilação Obras políticas e literárias de 1875-1876 é edição póstuma e não substitui as datas originais de cada texto.",
+    "O Itinerário e a gramática distinguem claramente data de redação e primeira publicação."
+  ]
+}
