@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "author_id": 60,
+  "canonical_name": "Luis Lagarrigue",
+  "alternate_names": [
+    "Luis Lagarrigue Alessandri"
+  ],
+  "life": {
+    "born": {
+      "year": 1864,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1949,
+      "certainty": "national_library_authority",
+      "source_conflict_candidates": [
+        1956
+      ]
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_social_religious_positivist_pamphlets_and_late_synthesis_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0060-w001",
+      "title": "La poesía positivista: carta dirigida al señor don Guillermo Puelma Tupper",
+      "work_type": "aesthetic_positivist_open_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1890,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1890,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Guillermo Puelma Tupper",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía positivista",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w002",
+      "title": "Programa de la Sociedad Positivista de Chile",
+      "work_type": "institutional_program",
+      "original_language": "español",
+      "original_date": {
+        "year": 1894,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "verified_associated_author",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Sociedad Positivista de Chile",
+          "role": "institutional_body"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sociedad Positivista de Chile",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w003",
+      "title": "37o. aniversario de la muerte de Augusto Comte",
+      "work_type": "commemorative_positivist_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1894,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1894,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Auguste Comte",
+          "role": "honored_subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Auguste Comte",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "catalog"
+        },
+        {
+          "term": "orden y progreso",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w004",
+      "title": "Celebración de la patria",
+      "work_type": "civic_religious_positivist_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "patria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "sociocracia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w005",
+      "title": "Celebración de la Humanidad",
+      "work_type": "religious_positivist_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Humanidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w006",
+      "title": "La cuestión social",
+      "work_type": "social_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuestión social",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "trabajo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w007",
+      "title": "La propiedad: positivismo y comunismo",
+      "work_type": "social_economic_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "propiedad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "comunismo",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w008",
+      "title": "Cuestiones sociales",
+      "alternate_titles": [
+        "Cuestiones sociales: capitalismo y comunismo; la legislación del trabajo; el electorado en el régimen republicano; la institución; lo que la ciencia social entiende por régimen parlamentario; el divorcio"
+      ],
+      "work_type": "social_political_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "capitalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "comunismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "legislación del trabajo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "régimen parlamentario",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "divorcio",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0060-w009",
+      "title": "Síntesis subjetiva, o, Sistema universal de las concepciones propias al estado normal de la humanidad. Industria",
+      "work_type": "positivist_systematic_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Auguste Comte",
+          "role": "intellectual_source_and_project_model"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "industria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión universal",
+          "provenance": "catalog"
+        },
+        {
+          "term": "orden y progreso",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_author_catalog",
+      "title": "Lagarrigue, Luis",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-127617.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_digital_record",
+      "title": "37o. aniversario de la muerte de Augusto Comte",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9637.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_digital_record",
+      "title": "Síntesis subjetiva",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9644.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_digital_record",
+      "title": "Celebración de la Humanidad",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9647.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    }
+  ],
+  "research_notes": [
+    "Memoria Chilena registra 1864-1949; una mención del libro-base del proyecto da 1864-1956. Se conserva el conflicto.",
+    "Pendiente desglosar conferencias, cartas y artículos posteriores a 1895 y anteriores a 1946."
+  ]
+}
