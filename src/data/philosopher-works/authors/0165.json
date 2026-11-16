@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "author_id": 165,
+  "canonical_name": "Mario Mejía Huamán",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1946,
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_with_sources_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0165-w001",
+      "title": "Teqse: la cosmovisión andina y las categorías quechuas como fundamentos para una filosofía peruana y de América Andina",
+      "work_type": "intercultural_andean_philosophy_monograph",
+      "original_language": "quechua y español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786124059506"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "cosmovisión andina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "categorías quechuas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía peruana",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=128790"
+      ],
+      "notes": "Editorial URP documenta edición bilingüe quechua-castellano de 2011, 329 pp."
+    },
+    {
+      "work_id": "0165-w002",
+      "title": "Hacia una filosofía andina",
+      "work_type": "andean_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía andina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=128790"
+      ],
+      "notes": "Referencia en estudio académico de su bibliografía; original de Editorial Académica Española."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0165-c001",
+      "title": "Investigación de la ontología andina y el uso de categorías del runasimi en interpretación de la cosmovisión andina",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0165-c002",
+      "title": "Docencia e investigación en la Universidad Ricardo Palma y participación en la Academia Mayor de Quechua y en la Sociedad Peruana de Filosofía",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "government_researcher_profile",
+      "title": "CONCYTEC Perú, perfil oficial investigador Mario Mejía Huamán",
+      "url": "https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=128790"
+    },
+    {
+      "kind": "university_publisher_catalog",
+      "title": "Universidad Ricardo Palma, editorial Teqse (2011), catálogo",
+      "url": "https://file.urp.edu.pe/file-urp-20251002-022827-211-72968ded25b32dcf.pdf"
+    },
+    {
+      "kind": "book_catalog",
+      "title": "Catálogo editorial: Teqse, Mario Mejía Huamán",
+      "url": "https://www.librosperuanos.com/libros/detalle/12403/Teqse.-La-cosmovision-andina-y-las-categorias-quechuas-como-fundamentos-para-una-filosofia-peruana-y-de-America-Andina"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: Perú, Ecuador y Colombia, pp. 924–940"
+    }
+  ],
+  "research_notes": [
+    "Se mantiene una semilla de dos monografías concretas verificadas; no inventar libros adicionales desde temas de CV.",
+    "El perfil CONCYTEC identifica ORCID 0000-0002-0543-1390, que corresponde a la persona y no es DOI de obra.",
+    "Otros artículos o folletos pendientes de cotejo hemerográfico."
+  ]
+}
