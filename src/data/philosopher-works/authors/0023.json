@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "author_id": 23,
+  "canonical_name": "Francisco Xavier Clavijero",
+  "alternate_names": [
+    "Francisco Javier Clavijero",
+    "Francesco Saverio Clavigero"
+  ],
+  "life": {
+    "born": {
+      "year": 1731,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1787,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "principal_historical_and_apologetic_works_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0023-w001",
+      "title": "Historia antigua de México",
+      "alternate_titles": [
+        "Storia antica del Messico"
+      ],
+      "work_type": "history_apologetic_intellectual_history",
+      "original_language": "español",
+      "original_date": {
+        "start": 1780,
+        "end": 1781,
+        "certainty": "first_italian_publication_range"
+      },
+      "first_publication_year": 1780,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "México antiguo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "pueblos indígenas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Ilustración",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "apología de América",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Clavijero la redactó originalmente en español y la publicó primero en italiano durante el exilio."
+    },
+    {
+      "work_id": "0023-w002",
+      "title": "Disertaciones sobre la tierra, animales y habitantes de México",
+      "work_type": "apologetic_essays",
+      "original_language": "italiano",
+      "original_date": {
+        "start": 1780,
+        "end": 1781,
+        "certainty": "published_with_historia_antigua"
+      },
+      "first_publication_year": 1780,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Georges-Louis Leclerc de Buffon",
+          "role": "author_refuted"
+        },
+        {
+          "name": "Cornelius de Pauw",
+          "role": "author_refuted"
+        },
+        {
+          "name": "William Robertson",
+          "role": "author_refuted"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "naturaleza americana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "indígenas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "inferioridad americana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica de autores europeos",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Publicadas como parte complementaria de la Historia antigua de México."
+    },
+    {
+      "work_id": "0023-w003",
+      "title": "Historia de la Antigua o Baja California",
+      "work_type": "mission_history",
+      "original_language": "español",
+      "original_date": {
+        "century": 18,
+        "certainty": "completed_before_death"
+      },
+      "first_publication_year": 1789,
+      "authorship_status": "verified_posthumous",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Nicolás García de San Vicente",
+          "role": "Spanish_translator_of_later_edition"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Baja California",
+          "provenance": "catalog"
+        },
+        {
+          "term": "California",
+          "provenance": "catalog"
+        },
+        {
+          "term": "misiones jesuitas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "Editada póstumamente en italiano en 1789; versión española impresa en México en 1852."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "institutional_biography",
+      "title": "Francisco Javier Clavijero",
+      "url": "https://historicas.unam.mx/publicaciones/publicadigital/libros/lecturas/T1/LHMT1_072.pdf",
+      "publisher": "UNAM, Instituto de Investigaciones Históricas"
+    },
+    {
+      "kind": "author_catalog",
+      "title": "Clavijero, Francisco Xavier",
+      "url": "https://www.cervantesvirtual.com/obras/autor/clavijero-francisco-xavier-si-1731-1787-2474/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "scholarly_article",
+      "title": "Lealtad en el exilio: afiliaciones concéntricas y enunciación hispanista en la Historia antigua de México",
+      "url": "https://revistas.pucp.edu.pe/index.php/lexis/es/article/view/14605",
+      "doi": "10.18800/lexis.201502.004"
+    }
+  ],
+  "research_notes": [
+    "Pendiente localizar cursos filosóficos, cartas y escritos menores para completar la producción previa al exilio.",
+    "Las Disertaciones se modelan como unidad analítica separada aunque circularon unidas a la Historia antigua."
+  ]
+}
