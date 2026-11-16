@@ -19,17 +19,6 @@ const MENU_ICONS = {
     '<circle cx="12" cy="18" r="2"></circle>',
     '<path d="M7.8 7.8 10.5 16M16.2 7.4 13.3 16.2M8 7h8"></path>'
   ],
-  results: [
-    '<path d="M8 6h11M8 12h11M8 18h11"></path>',
-    '<circle cx="4.5" cy="6" r="1"></circle>',
-    '<circle cx="4.5" cy="12" r="1"></circle>',
-    '<circle cx="4.5" cy="18" r="1"></circle>'
-  ],
-  sources: [
-    '<ellipse cx="12" cy="5.5" rx="7" ry="3"></ellipse>',
-    '<path d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path>',
-    '<path d="M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path>'
-  ],
   articles: [
     '<path d="M4.5 5.5h6.5c1.7 0 3 1.3 3 3v11H7.5c-1.7 0-3-1.3-3-3z"></path>',
     '<path d="M19.5 5.5H14c-1.7 0-3 1.3-3 3v11h5.5c1.7 0 3-1.3 3-3z"></path>'
@@ -84,38 +73,30 @@ const menuItems = [
     label: "Tesis",
     icon: "thesis",
     detail: "Archivo universitario",
-    href: siteHref("tesis.html")
+    children: [
+      {
+        label: "Archivo de tesis",
+        icon: "thesis",
+        detail: "Explorar tesis universitarias",
+        href: siteHref("tesis.html")
+      },
+      {
+        label: "Atlas de tesis",
+        icon: "atlas",
+        detail: "Cartografía de investigaciones",
+        href: siteHref("atlas.html")
+      }
+    ]
   },
   {
     index: "03",
-    label: "Atlas",
-    icon: "atlas",
-    detail: "Cartografía de investigaciones",
-    href: siteHref("atlas.html")
-  },
-  {
-    index: "04",
-    label: "Resultados",
-    icon: "results",
-    detail: "Lista de la búsqueda actual",
-    href: siteHref("#results")
-  },
-  {
-    index: "05",
-    label: "Fuentes",
-    icon: "sources",
-    detail: "Procedencia y cobertura",
-    href: siteHref("#fuentes")
-  },
-  {
-    index: "06",
-    label: "Filosofía latinoamericana",
+    label: "Filósofos latinoamericanos",
     icon: "archive",
-    detail: "1,504 autores · archivo continental",
+    detail: "Archivo continental · 1,504 autores",
     href: siteHref("filosofia-latinoamericana.html")
   },
   {
-    index: "07",
+    index: "04",
     label: "Artículos",
     icon: "articles",
     detail: "Revistas por universidad",
@@ -160,7 +141,7 @@ const menuItems = [
     ]
   },
   {
-    index: "08",
+    index: "05",
     label: "Acerca de",
     icon: "info",
     detail: "Proyecto, método y cifras",
