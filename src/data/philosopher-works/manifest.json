@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 250,
-    "authors_remaining": 1254,
-    "works_or_contributions_seeded": 2092,
-    "current_batch": "025",
+    "authors_seeded": 260,
+    "authors_remaining": 1244,
+    "works_or_contributions_seeded": 2114,
+    "current_batch": "026",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -1331,6 +1331,58 @@
       "author_id": 250,
       "canonical_name": "Agustín Sierra",
       "path": "authors/0250.json"
+    }
+  ],
+  "batch_026": [
+    {
+      "author_id": 251,
+      "canonical_name": "Alonso de Sandoval",
+      "path": "authors/0251.json"
+    },
+    {
+      "author_id": 252,
+      "canonical_name": "Francisco José de Jaca",
+      "path": "authors/0252.json"
+    },
+    {
+      "author_id": 253,
+      "canonical_name": "Jerónimo de Valera",
+      "path": "authors/0253.json"
+    },
+    {
+      "author_id": 254,
+      "canonical_name": "Nicolás de Olea",
+      "path": "authors/0254.json"
+    },
+    {
+      "author_id": 255,
+      "canonical_name": "José de Aguilar",
+      "path": "authors/0255.json"
+    },
+    {
+      "author_id": 256,
+      "canonical_name": "Francisco Ruiz Lozano",
+      "path": "authors/0256.json"
+    },
+    {
+      "author_id": 257,
+      "canonical_name": "Nicolás Plantich",
+      "path": "authors/0257.json"
+    },
+    {
+      "author_id": 258,
+      "canonical_name": "José Riva",
+      "path": "authors/0258.json"
+    },
+    {
+      "author_id": 259,
+      "canonical_name": "José Rufo",
+      "path": "authors/0259.json"
+    },
+    {
+      "author_id": 260,
+      "canonical_name": "Carlos Suero",
+      "path": "authors/0260.json"
     }
   ]
 }
