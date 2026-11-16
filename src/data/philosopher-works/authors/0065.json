@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "author_id": 65,
+  "canonical_name": "Félix Varela",
+  "alternate_names": [
+    "Félix Varela y Morales",
+    "Félix Francisco José María de la Concepción Varela y Morales"
+  ],
+  "life": {
+    "born": {
+      "year": 1788,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1853,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_philosophical_constitutional_journalistic_religious_and_translation_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0065-w001",
+      "title": "Institutiones Philosophiae eclecticae ad usum studiosae juventutis",
+      "alternate_titles": [
+        "Instituciones de Filosofía ecléctica para el uso de la juventud"
+      ],
+      "work_type": "philosophy_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "start": 1812,
+        "end": 1814,
+        "certainty": "multi_volume_publication"
+      },
+      "first_publication_year": 1812,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía ecléctica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0065-w002",
+      "title": "Apuntes filosóficos para la dirección del espíritu humano",
+      "work_type": "philosophy_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1818,
+        "certainty": "reported_composition_or_early_edition"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_with_edition_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espíritu humano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1818,
+          1822
+        ],
+        "certainty": "source_conflict"
+      },
+      "notes": "Fuentes bibliográficas difieren: repertorios señalan 1818 y la Biblioteca Nacional de Cuba conserva edición de 1822."
+    },
+    {
+      "work_id": "0065-w003",
+      "title": "Lecciones de Filosofía",
+      "work_type": "philosophy_textbook",
+      "original_language": "español",
+      "original_date": {
+        "start": 1818,
+        "end": 1820,
+        "certainty": "first_multi_volume_publication"
+      },
+      "first_publication_year": 1818,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0065-w004",
+      "title": "Miscelánea filosófica",
+      "work_type": "philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1819,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1819,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "escolasticismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "patriotismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0065-w005",
+      "title": "Observaciones sobre la Constitución política de la Monarquía Española",
+      "work_type": "constitutional_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1821,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1821,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitución española",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "constitucionalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "representación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0065-w006",
+      "title": "El Habanero",
+      "work_type": "political_periodical_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1824,
+        "end": 1826,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1824,
+      "authorship_status": "verified_author_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "libertad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "periodismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0065-w007",
+      "title": "Manual de práctica parlamentaria para el uso del Senado de los Estados Unidos",
+      "work_type": "annotated_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1826,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1826,
+      "authorship_status": "verified_translation_and_annotation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Thomas Jefferson",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "práctica parlamentaria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Senado de los Estados Unidos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "derecho parlamentario",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0065-w008",
+      "title": "Cartas a Elpidio sobre la impiedad, la superstición y el fanatismo en sus relaciones con la sociedad",
+      "work_type": "religious_social_philosophy_letters",
+      "original_language": "español",
+      "original_date": {
+        "start": 1835,
+        "end": 1838,
+        "certainty": "volume_publication_range"
+      },
+      "first_publication_year": 1835,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "impiedad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "superstición",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "fanatismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_bibliography",
+      "title": "Relación de obras del Pbro. Don Félix Varela y Morales existentes en la Biblioteca Nacional",
+      "url": "https://ufdcimages.uflib.ufl.edu/AA/00/06/82/07/00022/Revista%20BNJM_1953_julio-septiembre.pdf",
+      "publisher": "Biblioteca Nacional José Martí"
+    },
+    {
+      "kind": "academic_reference",
+      "title": "Varela y Morales, Félix Francisco",
+      "url": "https://academic.oup.com/american-national-biography/reference/63042/reference-article-abstract/570596109",
+      "publisher": "Oxford University Press"
+    },
+    {
+      "kind": "library_of_congress_record",
+      "title": "El pensamiento de Félix Varela",
+      "url": "https://www.loc.gov/item/hlas-bi89013870/",
+      "publisher": "Library of Congress"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar todos los números de El Habanero, escritos antiesclavistas, sermones y periodismo católico en Estados Unidos.",
+    "El conflicto 1818/1822 de Apuntes filosóficos se conserva expresamente."
+  ]
+}
