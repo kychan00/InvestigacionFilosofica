@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 500,
-    "authors_remaining": 1004,
-    "works_or_contributions_seeded": 3056,
-    "current_batch": "050",
+    "authors_seeded": 510,
+    "authors_remaining": 994,
+    "works_or_contributions_seeded": 3126,
+    "current_batch": "051",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2631,6 +2631,58 @@
       "author_id": 500,
       "canonical_name": "Ubiratan de Macedo",
       "path": "authors/0500.json"
+    }
+  ],
+  "batch_051": [
+    {
+      "author_id": 501,
+      "canonical_name": "Urbano Zilles",
+      "path": "authors/0501.json"
+    },
+    {
+      "author_id": 502,
+      "canonical_name": "Vicente Barreto",
+      "path": "authors/0502.json"
+    },
+    {
+      "author_id": 503,
+      "canonical_name": "Wilson de Souza Campos Batalha",
+      "path": "authors/0503.json"
+    },
+    {
+      "author_id": 504,
+      "canonical_name": "María Carmelita de Freitas",
+      "path": "authors/0504.json"
+    },
+    {
+      "author_id": 505,
+      "canonical_name": "Otavio Mello Alvarenga",
+      "path": "authors/0505.json"
+    },
+    {
+      "author_id": 506,
+      "canonical_name": "Wilson Chagas",
+      "path": "authors/0506.json"
+    },
+    {
+      "author_id": 507,
+      "canonical_name": "Eduardo Portella",
+      "path": "authors/0507.json"
+    },
+    {
+      "author_id": 508,
+      "canonical_name": "J. Silveira da Costa",
+      "path": "authors/0508.json"
+    },
+    {
+      "author_id": 509,
+      "canonical_name": "Norma Collares Werneck",
+      "path": "authors/0509.json"
+    },
+    {
+      "author_id": 510,
+      "canonical_name": "Mario Guerreiro",
+      "path": "authors/0510.json"
     }
   ]
 }
