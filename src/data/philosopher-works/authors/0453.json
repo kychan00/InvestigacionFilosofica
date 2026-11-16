@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 453,
+  "canonical_name": "Marcelo Bórmida",
+  "alternate_names": [
+    "Marcelo Bormida"
+  ],
+  "life": {
+    "born": {
+      "year": 1925,
+      "certainty": "scholarly_history_source"
+    },
+    "died": {
+      "year": 1978,
+      "certainty": "scholarly_history_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0453-w001",
+      "title": "Etnología y fenomenología: ideas acerca de una hermenéutica del extrañamiento",
+      "work_type": "phenomenological_ethnology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "library_catalog_and_project_bibliography"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "etnología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "extrañamiento",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.bfa.fcnym.unlp.edu.ar/catalogo/index.php?dcote=&id=26&lcote=0&location=2&lvl=section_see&main=&nbr_lignes=2708&nc=0&page=63&plettreaut=&ssub=0",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Buenos Aires, Ediciones Cervantes, 1976, 103 p. El catálogo explicita como contenidos la objetividad del dato etnográfico, la epojé cultural, la intuición del hecho vivido y la fenomenología del extrañamiento."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulación de la llamada etnología tautegórica, una apropiación fenomenológica para el estudio del mito y de los mundos culturales indígenas",
+      "kind": "argentine_tautegorical_ethnology_and_phenomenology_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "UNLP — Etnología y fenomenología",
+      "url": "https://www.bfa.fcnym.unlp.edu.ar/id/2666"
+    },
+    {
+      "kind": "scholarly_history_source",
+      "title": "Las influencias de Ernesto de Martino en la antropología argentina",
+      "url": "https://www.archivioantropologicomediterraneo.it/riviste/annoXIX_2016_18-1.pdf"
+    }
+  ],
+  "research_notes": [
+    "Los capítulos internos de Etnología y fenomenología no se contabilizan como obras independientes en este seed.",
+    "Se registra su relevancia filosófica sin borrar las controversias historiográficas sobre su posición institucional y política en la antropología argentina."
+  ]
+}
