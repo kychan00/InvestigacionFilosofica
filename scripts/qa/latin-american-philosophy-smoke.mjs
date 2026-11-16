@@ -124,8 +124,8 @@ try {
       return status.replace(/[^0-9]/g, "").startsWith(String(expected));
     }, seededTotal);
 
-    await page.locator("#con-obra").scrollIntoViewIfNeeded();
-    await page.locator(".period-author-group").first().waitFor({ state: "visible" });
+    await page.locator('[data-period-jump="originarios"]').click();
+    await page.locator("#coleccion-originarios").waitFor({ state: "visible" });
     const firstLoaded = await page.locator(".mini-author").count();
     assert.ok(firstLoaded > 0 && firstLoaded <= 40,
       "First period hydration must be bounded to one 40-author batch");
