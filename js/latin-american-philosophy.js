@@ -298,6 +298,33 @@ async function loadNextPeriodBatch() {
   periodLoading = false;
 }
 
+async function waitForPeriodIdle() {
+  if (!periodLoading) return;
+  await new Promise(resolve => {
+    const check = () => {
+      if (!periodLoading) resolve();
+      else setTimeout(check, 40);
+    };
+    check();
+  });
+}
+
+async function ensurePeriodAvailable(periodId) {
+  await waitForPeriodIdle();
+
+  let target = document.querySelector(`#coleccion-${periodId}`);
+  let attempts = 0;
+
+  while (!target && periodCursor < seededCount && attempts < 4) {
+    await loadNextPeriodBatch();
+    await waitForPeriodIdle();
+    target = document.querySelector(`#coleccion-${periodId}`);
+    attempts += 1;
+  }
+
+  return target || worksSection;
+}
+
 function lifeText(record) {
   const born = record.life?.born?.year;
   const died = record.life?.died?.year;
@@ -543,9 +570,10 @@ loadMorePeriodAuthors?.addEventListener("click", loadNextPeriodBatch);
 
 for (const button of document.querySelectorAll("[data-period-jump]")) {
   button.addEventListener("click", async () => {
-    if (!periodHydrationStarted && seededCount) await loadNextPeriodBatch();
+    const target = seededCount
+      ? await ensurePeriodAvailable(button.dataset.periodJump)
+      : worksSection;
 
-    const target = document.querySelector(`#coleccion-${button.dataset.periodJump}`) || worksSection;
     target?.scrollIntoView({
       behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start"
