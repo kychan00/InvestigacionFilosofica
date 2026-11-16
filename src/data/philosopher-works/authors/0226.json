@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "author_id": 226,
+  "canonical_name": "Pedro de Oronsoro",
+  "alternate_names": [
+    "Fray Pedro de Oronsoro"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "manuscript_course_attested_no_independent_printed_book_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0226-w001",
+      "title": "Philosophia scholastica tentata ad mentem Duns Scoti (curso: Logica minor et magna; Physica et Metaphysica)",
+      "work_type": "scholastic_philosophical_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_and_lectures_dated_without_confirmed_print_publication",
+        "period": {
+          "start": 1742,
+          "end": 1745
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "manuscript_attribution_documented_in_scholarly_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "philosophia scholastica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Duns Scotus",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://fundacionorotava.org/media/web/publication_files/publication20__Lertora_Fondo_manuscrito_franciscano_BNM.pdf",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "manuscript_evidence": [
+        {
+          "repository": "Biblioteca Nacional de México",
+          "manuscript_identifier": "Ms. 278",
+          "part": "Logica Minor et Magna",
+          "dates": {
+            "start": 1742,
+            "end": 1743
+          },
+          "extent": "136 folios (ficha de fondo franciscano)"
+        },
+        {
+          "repository": "Biblioteca Nacional de México",
+          "part": "Physica et Metaphysica",
+          "dates": {
+            "start": 1743,
+            "end": 1745
+          },
+          "note": "El estudio histórico indica conservación de otro volumen del mismo curso, sin verificar aquí su signatura completa"
+        }
+      ],
+      "scholastic_order": "Orden Franciscana (OFM)",
+      "teaching_institution": "Convento de Santa Bárbara, Puebla; Convento de Santa María de los Ángeles, Ocholoposco, Nueva España",
+      "notes": "La lógica se enseñó y redactó entre 1742–1743, en tanto que física/metafísica aparecen en material de 1743–1745; el conjunto es un curso multicomponente, no dos obras independientes confirmadas. Los manuscritos documentados no equivalen a una publicación impresa de 1742 o 1745. En el inventario canónico la grafía «Pedro de Oronsoro» es autoritativa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0226-c001",
+      "title": "Enseñanza franciscana de lógica, filosofía natural y metafísica escotista en conventos de Puebla y Ocholoposco",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_academic_history",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_manuscript_catalog",
+      "title": "Celina A. Lértora Mendoza, El fondo manuscrito franciscano de la Biblioteca Nacional de México",
+      "url": "https://fundacionorotava.org/media/web/publication_files/publication20__Lertora_Fondo_manuscrito_franciscano_BNM.pdf"
+    },
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La enseñanza de la filosofía», periodo colonial; cursos novohispanos del siglo XVIII"
+    }
+  ],
+  "research_notes": [
+    "Revisar signatura del segundo manuscrito y título de sus tratados antes de desagregar en obras autónomas."
+  ]
+}
