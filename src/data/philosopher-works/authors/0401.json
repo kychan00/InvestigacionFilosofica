@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "author_id": 401,
+  "canonical_name": "Domingos José Gonçalves de Magalhães",
+  "alternate_names": [
+    "Gonçalves de Magalhães",
+    "Visconde de Araguaia"
+  ],
+  "life": {
+    "born": {
+      "year": 1811,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1882,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0401-w001",
+      "title": "Suspiros poéticos e saudades",
+      "work_type": "romantic_poetry_book_with_philosophical_manifest_dimension",
+      "original_language": "português",
+      "original_date": {
+        "year": 1836,
+        "certainty": "first_edition_catalog"
+      },
+      "first_publication_year": 1836,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "romantismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poesia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia da história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nação",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://digital.bbm.usp.br/handle/bbm/4165",
+        "https://bndigital.bn.gov.br/goncalves-de-magalhaes/"
+      ],
+      "notes": "Primeira edição de 1836. A obra é central para a reforma romântica brasileira, mas é registrada como livro poético, não como tratado filosófico."
+    },
+    {
+      "work_id": "0401-w002",
+      "title": "Discurso sobre o objeto e importância da filosofia",
+      "work_type": "philosophical_public_address",
+      "original_language": "português",
+      "original_date": {
+        "year": 1842,
+        "certainty": "government_biographical_bibliography"
+      },
+      "first_publication_year": 1842,
+      "authorship_status": "original_author_and_speaker",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensino filosófico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ecletismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.camara.leg.br/deputados/506/biografia"
+      ],
+      "notes": "Discurso recitado perante D. Pedro II no Rio de Janeiro em 1842; consta da bibliografia oficial da Câmara dos Deputados."
+    },
+    {
+      "work_id": "0401-w003",
+      "title": "Factos do espirito humano: philosophia",
+      "work_type": "philosophical_treatise",
+      "original_language": "português",
+      "original_date": {
+        "year": 1858,
+        "certainty": "first_edition_rare_book_catalog"
+      },
+      "first_publication_year": 1858,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "espírito humano",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ecletismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bd.camara.leg.br/bd/items/fb3b0939-e05a-4a65-b07e-0a751f88425c"
+      ],
+      "notes": "Primeira edição: Paris, Livraria d'Auguste Fontaine, 1858. A Câmara dos Deputados registra segunda edição em 1865; não se duplica."
+    },
+    {
+      "work_id": "0401-w004",
+      "title": "A alma e o cérebro: estudos de psicologia e fisiologia",
+      "work_type": "philosophical_psychology_essay_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1876,
+        "certainty": "government_bibliographical_source"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fisiologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "alma",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.camara.leg.br/deputados/506/biografia",
+        "https://bndigital.bn.gov.br/goncalves-de-magalhaes/"
+      ],
+      "notes": "Publicado em Roma em 1876 segundo a bibliografia da Câmara. Mantém-se separado de Factos do espírito humano."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulação do romantismo brasileiro com ecletismo filosófico, psicologia e reflexão sobre a missão cultural da literatura",
+      "kind": "brazilian_romantic_and_eclectic_philosophical_contribution",
+      "authorship_status": "documented_in_library_and_government_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "rare_book_library_source",
+      "title": "Brasiliana USP — Suspiros poéticos e saudades, 1836",
+      "url": "https://digital.bbm.usp.br/handle/bbm/4165"
+    },
+    {
+      "kind": "government_rare_book_source",
+      "title": "Câmara dos Deputados — Factos do espirito humano, 1858",
+      "url": "https://bd.camara.leg.br/bd/items/fb3b0939-e05a-4a65-b07e-0a751f88425c"
+    },
+    {
+      "kind": "government_biographical_source",
+      "title": "Câmara dos Deputados — Gonçalves de Magalhães, biografia e bibliografia",
+      "url": "https://www.camara.leg.br/deputados/506/biografia"
+    }
+  ],
+  "research_notes": [
+    "A primeira edição de Factos do espírito humano é 1858; uma página da Biblioteca Nacional menciona 1865 ao listar obras, mas esse ano corresponde à segunda edição documentada pela Câmara.",
+    "Niterói (1836) foi projeto coletivo com Araújo Porto-Alegre e Torres Homem e não é contado como obra exclusivamente autoral."
+  ]
+}
