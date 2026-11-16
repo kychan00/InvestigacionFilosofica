@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "author_id": 419,
+  "canonical_name": "Graça Aranha",
+  "alternate_names": [
+    "José Pereira da Graça Aranha"
+  ],
+  "life": {
+    "born": {
+      "year": 1868,
+      "certainty": "academy_authority"
+    },
+    "died": {
+      "year": 1931,
+      "certainty": "academy_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0419-w001",
+      "title": "Canaã",
+      "work_type": "philosophical_and_social_novel",
+      "original_language": "português",
+      "original_date": {
+        "year": 1902,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "imigração",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalidade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "civilização",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www2.academia.org.br/academicos/graca-aranha/bibliografia",
+        "https://www.academia.org.br/academicos/graca-aranha/biografia"
+      ],
+      "notes": "Romance de 1902 com forte dimensão filosófica e social, vinculado à reflexão sobre imigração, nacionalidade e formação brasileira."
+    },
+    {
+      "work_id": "0419-w002",
+      "title": "A estética da vida",
+      "work_type": "philosophical_aesthetics_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1921,
+        "certainty": "digital_library_first_edition"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "universo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "consciência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturamaranhense.ufsc.br/documentos?id=138238",
+        "https://sgpa.webhostusp.sti.usp.br/modernismo/obra.php?cod=64145"
+      ],
+      "notes": "Rio de Janeiro, Livraria Garnier, 1921. A ABL e algumas biografias secundárias exibem variações de data, mas a edição digital e a plataforma USP registram 1921."
+    },
+    {
+      "work_id": "0419-w003",
+      "title": "A emoção estética na arte moderna",
+      "work_type": "modernist_aesthetics_conference",
+      "original_language": "português",
+      "original_date": {
+        "year": 1922,
+        "certainty": "dated_public_conference"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author_and_speaker",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "arte moderna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Semana de Arte Moderna",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.org.br/academicos/graca-aranha/biografia",
+        "https://objdigital.bn.br/objdigital2/acervo_digital/div_iconografia/icon1285810/icon1285810.pdf"
+      ],
+      "notes": "Conferência de abertura da Semana de Arte Moderna, em 13 de fevereiro de 1922. Foi posteriormente incluída em Espírito Moderno; não se força uma primeira edição avulsa sem cotejo."
+    },
+    {
+      "work_id": "0419-w004",
+      "title": "O Espírito Moderno",
+      "work_type": "modernist_philosophical_and_aesthetic_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1924,
+        "certainty": "academy_bibliography_with_1925_variant"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "original_author_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "modernismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "renovação cultural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www2.academia.org.br/academicos/graca-aranha/bibliografia",
+        "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/graca-aranha/"
+      ],
+      "notes": "A ABL registra 1924; Fundaj informa 1925. A coleção reúne conferências e artigos do ciclo modernista, inclusive textos de circulação anterior."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Formulação de uma estética filosófica e de uma metafísica cultural brasileira articulada ao modernismo",
+      "kind": "modernist_aesthetic_and_metaphysical_contribution",
+      "authorship_status": "documented_in_academy_and_reference_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_source",
+      "title": "Academia Brasileira de Letras — Graça Aranha, bibliografia",
+      "url": "https://www2.academia.org.br/academicos/graca-aranha/bibliografia"
+    },
+    {
+      "kind": "digital_literary_library_source",
+      "title": "UFSC — A estética da vida, 1921",
+      "url": "https://literaturamaranhense.ufsc.br/documentos?id=138238"
+    },
+    {
+      "kind": "reference_source",
+      "title": "Fundaj — Graça Aranha",
+      "url": "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/graca-aranha/"
+    }
+  ],
+  "research_notes": [
+    "O Espírito Moderno apresenta discrepância 1924/1925; a ABL é usada para a data principal e a Fundaj documenta a variante.",
+    "A emoção estética na arte moderna é mantida como conferência de 1922, sem duplicar artificialmente sua inclusão posterior em Espírito Moderno."
+  ]
+}
