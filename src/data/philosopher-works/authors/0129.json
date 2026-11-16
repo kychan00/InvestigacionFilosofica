@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "author_id": 129,
+  "canonical_name": "Risieri Frondizi",
+  "alternate_names": [
+    "Risieri Frondizi"
+  ],
+  "life": {
+    "born": {
+      "year": 1910,
+      "certainty": "standard",
+      "date": "1910-11-20"
+    },
+    "died": {
+      "year": 1985,
+      "certainty": "project_canonical"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_total_empiricism_self_axiology_university_and_philosophical_anthropology_corpus_verified_death_year_requires_authority_audit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0129-w001",
+      "title": "El punto de partida del filosofar",
+      "work_type": "epistemology_metaphilosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofar",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "empirismo total",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "experiencia",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0129-w002",
+      "title": "Substancia y función en el problema del yo",
+      "alternate_titles": [
+        "Sustancia y función en el problema del yo"
+      ],
+      "work_type": "philosophical_psychology_ontology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "yo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "substancia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "función",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0129-w003",
+      "title": "¿Qué son los valores? Introducción a la axiología",
+      "work_type": "axiology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789681656317"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "valores",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "axiología",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "cualidad estructural",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0129-w004",
+      "title": "El yo como estructura dinámica",
+      "work_type": "philosophical_psychology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "verified_reworked_material",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "yo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estructura dinámica",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Reelabora materiales del problema del yo ya tratados en 1952; se conserva como edición/libro autónomo por su historia editorial."
+    },
+    {
+      "work_id": "0129-w005",
+      "title": "La universidad en un mundo de tensiones: misión de las universidades en América Latina",
+      "work_type": "philosophy_of_education_university_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9502313852"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "cambio social",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0129-w006",
+      "title": "Introducción a los problemas fundamentales del hombre",
+      "work_type": "philosophical_anthropology_introductory_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9788437501260"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "hombre",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "ética",
+          "provenance": "catalog"
+        },
+        {
+          "term": "libertad",
+          "provenance": "catalog"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reforma universitaria y defensa de la autonomía académica en América Latina",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1937,
+        "end": 1985,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autonomía universitaria",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_study",
+      "title": "La filosofía de Risieri Frondizi en El punto de partida del filosofar",
+      "url": "https://bdigital.uncuyo.edu.ar/ficha/1164",
+      "publisher": "Universidad Nacional de Cuyo"
+    },
+    {
+      "kind": "library_catalog",
+      "title": "Substancia y función en el problema del yo",
+      "url": "https://biblioteca.seminario.edu.uy/index.php?id=1146&lvl=author_see",
+      "publisher": "Biblioteca Padre Juan Alberto Sancho"
+    },
+    {
+      "kind": "publisher_record",
+      "title": "¿Qué son los valores?",
+      "url": "https://books.google.com/books/about/Qu%C3%A9_son_los_valores.html?hl=es&id=1Ef2swEACAAJ",
+      "publisher": "Fondo de Cultura Económica"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "La universidad en un mundo de tensiones",
+      "url": "https://buscador.unsam.edu.ar/Record/15696/Details",
+      "publisher": "Universidad Nacional de San Martín"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Risieri Frondizi (1910-1985)"
+    }
+  ],
+  "research_notes": [
+    "El inventario maestro usa 1985 para su muerte; algunos catálogos externos consignan 1983. El conflicto requiere auditoría de autoridad antes de cambiar el dato canónico.",
+    "Pendiente recuperar Hacia la universidad nueva y textos menores con primera edición firmemente verificada."
+  ]
+}
