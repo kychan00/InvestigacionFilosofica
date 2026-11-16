@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 100,
-    "authors_remaining": 1404,
-    "works_or_contributions_seeded": 788,
-    "current_batch": "010",
+    "authors_seeded": 110,
+    "authors_remaining": 1394,
+    "works_or_contributions_seeded": 898,
+    "current_batch": "011",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -551,6 +551,58 @@
       "author_id": 100,
       "canonical_name": "José Gaos",
       "path": "authors/0100.json"
+    }
+  ],
+  "batch_011": [
+    {
+      "author_id": 101,
+      "canonical_name": "Eduardo Nicol",
+      "path": "authors/0101.json"
+    },
+    {
+      "author_id": 102,
+      "canonical_name": "Antonio Gómez Robledo",
+      "path": "authors/0102.json"
+    },
+    {
+      "author_id": 103,
+      "canonical_name": "Leopoldo Zea",
+      "path": "authors/0103.json"
+    },
+    {
+      "author_id": 104,
+      "canonical_name": "Emilio Uranga",
+      "path": "authors/0104.json"
+    },
+    {
+      "author_id": 105,
+      "canonical_name": "Luis Villoro",
+      "path": "authors/0105.json"
+    },
+    {
+      "author_id": 106,
+      "canonical_name": "Ramón Xirau",
+      "path": "authors/0106.json"
+    },
+    {
+      "author_id": 107,
+      "canonical_name": "Graciela Hierro",
+      "path": "authors/0107.json"
+    },
+    {
+      "author_id": 108,
+      "canonical_name": "Alejandro Rossi",
+      "path": "authors/0108.json"
+    },
+    {
+      "author_id": 109,
+      "canonical_name": "Abelardo Villegas",
+      "path": "authors/0109.json"
+    },
+    {
+      "author_id": 110,
+      "canonical_name": "Enrique Dussel",
+      "path": "authors/0110.json"
     }
   ]
 }
