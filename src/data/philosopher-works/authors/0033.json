@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "author_id": 33,
+  "canonical_name": "Simón Bolívar",
+  "alternate_names": [
+    "Simón José Antonio de la Santísima Trinidad Bolívar Palacios Ponte y Blanco",
+    "El Libertador"
+  ],
+  "life": {
+    "born": {
+      "year": 1783,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1830,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_political_documents_speeches_and_correspondence_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0033-w001",
+      "title": "Memoria dirigida a los ciudadanos de la Nueva Granada por un caraqueño",
+      "alternate_titles": [
+        "Manifiesto de Cartagena"
+      ],
+      "work_type": "political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1812,
+        "certainty": "exact",
+        "date": "1812-12-15"
+      },
+      "first_publication_year": 1812,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Primera República de Venezuela",
+          "provenance": "editorial"
+        },
+        {
+          "term": "centralismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w002",
+      "title": "Decreto de Guerra a Muerte",
+      "work_type": "war_decree",
+      "original_language": "español",
+      "original_date": {
+        "year": 1813,
+        "certainty": "exact",
+        "date": "1813-06-15"
+      },
+      "first_publication_year": 1813,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "guerra de independencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "americanos y españoles",
+          "provenance": "primary_text"
+        },
+        {
+          "term": "violencia política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w003",
+      "title": "Contestación de un Americano Meridional a un caballero de esta isla",
+      "alternate_titles": [
+        "Carta de Jamaica"
+      ],
+      "work_type": "political_letter_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1815,
+        "certainty": "exact",
+        "date": "1815-09-06"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hispanoamérica",
+          "provenance": "editorial"
+        },
+        {
+          "term": "independencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "futuro político",
+          "provenance": "editorial"
+        },
+        {
+          "term": "unidad americana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w004",
+      "title": "Discurso de Angostura",
+      "work_type": "constitutional_political_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1819,
+        "certainty": "exact",
+        "date": "1819-02-15"
+      },
+      "first_publication_year": 1819,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "república",
+          "provenance": "inferred"
+        },
+        {
+          "term": "virtudes políticas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "división de poderes",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación cívica",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w005",
+      "title": "Proyecto de Constitución para Venezuela",
+      "work_type": "constitutional_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1819,
+        "certainty": "exact"
+      },
+      "first_publication_year": 1819,
+      "authorship_status": "verified_project_presented_by_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitución",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Senado hereditario",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Poder Moral",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w006",
+      "title": "Mi delirio sobre el Chimborazo",
+      "work_type": "prose_poem_philosophical_vision",
+      "original_language": "español",
+      "original_date": {
+        "year": 1822,
+        "certainty": "probable",
+        "date": "1822-10-13"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_traditional_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Chimborazo",
+          "provenance": "editorial"
+        },
+        {
+          "term": "tiempo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "naturaleza",
+          "provenance": "inferred"
+        },
+        {
+          "term": "destino",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w007",
+      "title": "Proyecto de Constitución para la República de Bolivia",
+      "work_type": "constitutional_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1826,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1826,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Antonio José de Sucre",
+          "role": "annotator_and_reviser_of_known_copy"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bolivia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "presidencia vitalicia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "constitución",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0033-w008",
+      "title": "Correspondencia política y militar",
+      "work_type": "correspondence_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1799,
+        "end": 1830,
+        "certainty": "corpus_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_corpus",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "correspondencia",
+          "provenance": "catalog"
+        },
+        {
+          "term": "independencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Debe desglosarse carta por carta en lotes posteriores; no se trata como una sola obra final."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "digital_primary_anthology",
+      "title": "Doctrina del Libertador",
+      "url": "https://www.cervantesvirtual.com/obra-visor/doctrina-del-libertador--0/html/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "digital_primary_collection",
+      "title": "Discursos y proclamas",
+      "url": "https://www.cervantesvirtual.com/portales/simon_bolivar/obra/discursos-y-proclamas-878976/",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes / Banco de la República"
+    },
+    {
+      "kind": "digital_study",
+      "title": "Escritos selectos — Constitución de Bolivia",
+      "url": "https://www.cervantesvirtual.com/obra-visor/escritos-selectos--0/html/ff713986-82b1-11df-acc7-002185ce6064_20.html",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar centenares de cartas, decretos, proclamas y mensajes.",
+    "Mantener separados discurso, proyecto constitucional y texto constitucional adoptado por cada asamblea."
+  ]
+}
