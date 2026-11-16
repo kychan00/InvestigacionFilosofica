@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "author_id": 200,
+  "canonical_name": "Raúl Fornet-Betancourt",
+  "life": {
+    "born": {
+      "year": 1946,
+      "certainty": "book_biographical_index_2009"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0200-w001",
+      "title": "Transformación intercultural de la filosofía: ejercicios teóricos y prácticos de filosofía intercultural desde Latinoamérica en el contexto de la globalización",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "bibliographic_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9788433015679"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://latam.casadellibro.com/libro-transformacion-intercultural-de-la-filosofia-ejercicios-teoricos-y-practicos-de-filosofia-intercultural-desde-latinoamerica-en-el-contexto-de-la-globalizacion/9788433015679/754681"
+      ],
+      "notes": "Desclée de Brouwer 2001, ISBN 9788433015679; atribución de autoría de catálogo minorista, cotejo editorial pendiente."
+    }
+  ],
+  "editorial_notes": [
+    "Nombre cotejado con inventario canónico; fechas biográficas cotejadas con índice del libro base de 2009.",
+    "Bibliografía selectiva: fechas de composición no inferidas; roles editoriales diferenciados en notas."
+  ]
+}
