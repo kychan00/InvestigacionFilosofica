@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "author_id": 418,
+  "canonical_name": "Tito Livio de Castro",
+  "alternate_names": [
+    "Tito Lívio de Castro"
+  ],
+  "life": {
+    "born": {
+      "year": 1864,
+      "certainty": "scholarly_biographical_source"
+    },
+    "died": {
+      "year": 1890,
+      "certainty": "scholarly_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0418-w001",
+      "title": "Das allucinações e ilusões",
+      "work_type": "medical_psychiatric_doctoral_thesis",
+      "original_language": "português",
+      "original_date": {
+        "year": 1889,
+        "certainty": "doctoral_thesis_date"
+      },
+      "first_publication_year": 1889,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psiquiatria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "alucinações",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ilusões",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://abpn.emnuvens.com.br/site/article/view/606"
+      ],
+      "notes": "Tese de doutorado apresentada à Faculdade de Medicina do Rio de Janeiro em dezembro de 1889."
+    },
+    {
+      "work_id": "0418-w002",
+      "title": "A mulher e a sociogenia",
+      "work_type": "social_evolution_and_women_studies_book_published_posthumously",
+      "original_language": "português",
+      "original_date": {
+        "year": 1893,
+        "certainty": "catalog_1893_with_1894_variant_in_scholarship"
+      },
+      "first_publication_year": 1893,
+      "authorship_status": "original_author_posthumous_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mulher",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociogenia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolução",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação feminina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "darwinismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.com/books/about/A_mulher_e_a_sociogenia.html?id=XwLKAAAAMAAJ",
+        "https://abpn.emnuvens.com.br/site/article/view/606"
+      ],
+      "notes": "Google Books cataloga edição Francisco Alves de 1893; estudos acadêmicos frequentemente citam 1894. A obra é póstuma. Suas categorias craniométricas/racialistas são contextualizadas historicamente e não adotadas como ciência atual."
+    },
+    {
+      "work_id": "0418-w003",
+      "title": "Questões e problemas",
+      "work_type": "posthumous_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1913,
+        "certainty": "scholarly_bibliographical_source"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "original_author_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "problemas sociais",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "evolucionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica intelectual",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://abpn.emnuvens.com.br/site/article/view/606"
+      ],
+      "notes": "Segundo estudo biográfico acadêmico, foi o segundo livro póstumo de Tito Lívio, publicado em 1913. A data editorial não é confundida com a redação anterior à morte em 1890."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Crítica darwinista e sociogênica às explicações deterministas da inferioridade feminina, defendendo papel transformador da educação",
+      "kind": "darwinist_womens_education_and_social_thought_contribution",
+      "authorship_status": "documented_in_scholarly_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_biographical_source",
+      "title": "Revista ABPN — Tito Livio de Castro: trajetória e produção intelectual",
+      "url": "https://abpn.emnuvens.com.br/site/article/view/606"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "Google Books — A mulher e a sociogenia, 1893",
+      "url": "https://books.google.com/books/about/A_mulher_e_a_sociogenia.html?id=XwLKAAAAMAAJ"
+    }
+  ],
+  "research_notes": [
+    "A mulher e a sociogenia apresenta discrepância 1893/1894 entre catálogo e citações acadêmicas; 1893 é usado como primeira edição catalogada e 1894 fica em nota.",
+    "Os conceitos biológicos e raciais do século XIX são registrados como história intelectual, não como categorias científicas válidas."
+  ]
+}
