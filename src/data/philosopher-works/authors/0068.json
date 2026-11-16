@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "author_id": 68,
+  "canonical_name": "Juan Bautista Justo",
+  "alternate_names": [
+    "Juan B. Justo"
+  ],
+  "life": {
+    "born": {
+      "year": 1865,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1928,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_socialist_historical_parliamentary_and_translation_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0068-w001",
+      "title": "El Capital, de Karl Marx — traducción castellana",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1898,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1898,
+      "authorship_status": "verified_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Karl Marx",
+          "role": "original_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "capital",
+          "provenance": "inferred"
+        },
+        {
+          "term": "economía política",
+          "provenance": "inferred"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Traducción del primer tomo de Das Kapital, una de las primeras traducciones castellanas directas del alemán."
+    },
+    {
+      "work_id": "0068-w002",
+      "title": "La teoría científica de la historia y la política argentina",
+      "work_type": "socialist_historical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1898,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1898,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría científica de la historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política argentina",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "materialismo histórico",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0068-w003",
+      "title": "Teoría y práctica de la historia",
+      "work_type": "philosophy_of_history_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1909,
+        "certainty": "first_publication"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "materialismo histórico",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justicia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "solidaridad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0068-w004",
+      "title": "La obra parlamentaria: mayo 1912 - abril 1913",
+      "work_type": "parliamentary_document_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1912,
+        "end": 1913,
+        "certainty": "document_range"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "verified_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "parlamento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "legislación social",
+          "provenance": "inferred"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0068-w005",
+      "title": "Ideas sobre la historia",
+      "work_type": "philosophy_of_history_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0068-w006",
+      "title": "Socialismo",
+      "work_type": "socialist_political_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "socialismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "clase trabajadora",
+          "provenance": "inferred"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0068-w007",
+      "title": "Internacionalismo y patria",
+      "work_type": "political_internationalist_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "internacionalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "patria",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0068-w008",
+      "title": "La moneda",
+      "work_type": "political_economy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moneda",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "economía",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación y dirección política de La Vanguardia y del Partido Socialista Argentino",
+      "kind": "political_editorial_institutional_contribution",
+      "period": {
+        "start": 1894,
+        "end": 1928,
+        "certainty": "institutional_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "Partido Socialista Argentino",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "La Vanguardia",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_archive",
+      "title": "Archivo Juan B. Justo",
+      "url": "https://www.marxists.org/espanol/justo-juanb/index.htm",
+      "publisher": "Marxists Internet Archive"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Juan Bautista Justo (1865-1928)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente verificar ejemplares de primera edición en catálogo argentino y desglosar proyectos de ley, discursos y periodismo.",
+    "La traducción de El Capital se modela como traducción, no como obra original."
+  ]
+}
