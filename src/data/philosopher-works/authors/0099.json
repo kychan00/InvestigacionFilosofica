@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "author_id": 99,
+  "canonical_name": "Samuel Ramos",
+  "alternate_names": [
+    "Samuel Ramos Magaña"
+  ],
+  "life": {
+    "born": {
+      "year": 1897,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1959,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_mexican_philosophical_anthropology_aesthetics_history_and_education_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0099-w001",
+      "title": "Hipótesis",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w002",
+      "title": "El caso Stravinsky",
+      "work_type": "music_aesthetics_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Igor Stravinsky",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Stravinsky",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética musical",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w003",
+      "title": "El perfil del hombre y la cultura en México",
+      "work_type": "philosophical_anthropology_cultural_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre mexicano",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura en México",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "complejo de inferioridad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "autognosis",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w004",
+      "title": "Ensayo sobre Diego Rivera",
+      "work_type": "aesthetic_art_criticism",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Diego Rivera",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Diego Rivera",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "arte mexicano",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w005",
+      "title": "Más allá de la moral de Kant",
+      "work_type": "ethics_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Immanuel Kant",
+          "role": "subject_criticized"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kant",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "moral",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w006",
+      "title": "Hacia un nuevo humanismo. Programa de una antropología filosófica",
+      "work_type": "philosophical_anthropology_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w007",
+      "title": "Historia de la filosofía en México",
+      "work_type": "history_of_philosophy",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w008",
+      "title": "Veinte años de educación en México",
+      "work_type": "education_history_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "México",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0099-w009",
+      "title": "Filosofía de la vida artística",
+      "work_type": "aesthetics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 1950,
+        "end": 1955,
+        "certainty": "first_publication_date_conflict"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida artística",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1950,
+          1955
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0099-w010",
+      "title": "Nuevo ensayo sobre Diego Rivera",
+      "work_type": "aesthetic_art_criticism",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Diego Rivera",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Diego Rivera",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "arte mexicano",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Impulso de la filosofía del mexicano y formación del grupo Hiperión",
+      "kind": "academic_intellectual_contribution",
+      "period": {
+        "start": 1930,
+        "end": 1959,
+        "certainty": "career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofía del mexicano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Hiperión",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_archive",
+      "title": "Archivo Samuel Ramos",
+      "url": "https://www.filosoficas.unam.mx/~bib/ramos.html",
+      "publisher": "Instituto de Investigaciones Filosóficas, UNAM"
+    },
+    {
+      "kind": "university_catalog",
+      "title": "Publicaciones de Samuel Ramos",
+      "url": "https://www.filosoficas.unam.mx/catalogo/?autores=ramos-samuel",
+      "publisher": "Instituto de Investigaciones Filosóficas, UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Samuel Ramos (1897-1959)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar Estudios de estética, artículos y correspondencia.",
+    "Filosofía de la vida artística conserva la discrepancia 1950/1955 entre repertorios."
+  ]
+}
