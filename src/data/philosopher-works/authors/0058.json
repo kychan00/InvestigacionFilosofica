@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "author_id": 58,
+  "canonical_name": "Jorge Lagarrigue",
+  "alternate_names": [
+    "Jorje Lagarrigue"
+  ],
+  "life": {
+    "born": {
+      "year": 1854,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1894,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "core_translation_articles_religious_positivist_polemics_and_manuscript_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0058-w001",
+      "title": "Principios de filosofía positiva",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "verified_translation",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Auguste Comte",
+          "role": "original_author"
+        },
+        {
+          "name": "Émile Littré",
+          "role": "preface_author"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía positiva",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0058-w002",
+      "title": "La filosofía positiva",
+      "work_type": "philosophical_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "publication_in_Revista_Chilena"
+      },
+      "first_publication_year": 1875,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía positiva",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0058-w003",
+      "title": "El sentimiento según la filosofía positiva",
+      "work_type": "open_letter_philosophical_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "exact",
+        "date": "1879-02-26"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Eduardo de la Barra",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sentimiento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía positiva",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0058-w004",
+      "title": "Una conversión a la religión de la Humanidad",
+      "work_type": "religious_positivist_article",
+      "original_language": "francés_y_español",
+      "original_date": {
+        "year": 1879,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Auguste Comte",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicado primero en francés en Revue Occidentale y posteriormente en Revista Chilena."
+    },
+    {
+      "work_id": "0058-w005",
+      "title": "Positivismo y Catolicismo",
+      "work_type": "religious_philosophical_polemic",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0058-w006",
+      "title": "La Asamblea Católica ante la verdadera religión: carta a don Joaquín Larraín Gandarillas",
+      "work_type": "religious_political_open_letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1884,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Joaquín Larraín Gandarillas",
+          "role": "addressee"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0058-w007",
+      "title": "Diario íntimo, 1875-1884",
+      "work_type": "private_diary_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "start": 1875,
+        "end": 1884,
+        "certainty": "manuscript_range"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_unpublished_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conversión positivista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida intelectual",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0058-w008",
+      "title": "Trozos de la correspondencia entre Jorge y Juan Enrique Lagarrigue",
+      "work_type": "correspondence_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1876,
+        "end": 1881,
+        "certainty": "exact_corpus_range"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "verified_coauthored_correspondence",
+      "coauthors": [
+        {
+          "name": "Juan Enrique Lagarrigue",
+          "role": "correspondent_coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "positivismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "religión de la Humanidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "correspondencia",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library_author_theme",
+      "title": "Hermanos Lagarrigue",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-93968.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "national_library_digital_record",
+      "title": "Principios de filosofía positiva",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9639.html",
+      "publisher": "Biblioteca Nacional de Chile"
+    },
+    {
+      "kind": "scholarly_study",
+      "title": "Jorge Lagarrigue entre 1876 y 1883",
+      "url": "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0069384.pdf",
+      "publisher": "Revista Mapocho / Biblioteca Nacional de Chile"
+    }
+  ],
+  "research_notes": [
+    "Pendiente inventariar publicaciones francesas y chilenas completas de 1879-1894.",
+    "La correspondencia con Juan Enrique se registra en ambas fichas como corpus compartido, con coautoría explícita."
+  ]
+}
