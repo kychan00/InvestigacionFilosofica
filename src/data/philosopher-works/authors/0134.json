@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "author_id": 134,
+  "canonical_name": "Ricardo Maliandi",
+  "alternate_names": [
+    "Ricardo Guillermo Maliandi"
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "verified_institutional",
+      "date_candidates": [
+        "1930-01-10",
+        "1930-01-11"
+      ]
+    },
+    "died": {
+      "year": 2015,
+      "date": "2015-02-12",
+      "certainty": "verified_obituary"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_and_editorial_distinctions_source_checked_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0134-w001",
+      "title": "Hartmann",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hartmann",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ],
+      "related_people": [
+        {
+          "name": "Nicolai Hartmann",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0134-w002",
+      "title": "Cultura y conflicto: investigaciones éticas y antropológicas",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conflicto",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w003",
+      "title": "Ética: conceptos y problemas",
+      "work_type": "ethics_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conceptos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "problemas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ],
+      "edition_history": [
+        {
+          "year": 2004,
+          "edition": "tercera edición corregida y aumentada"
+        },
+        {
+          "year": 2009,
+          "edition": "cuarta edición"
+        }
+      ]
+    },
+    {
+      "work_id": "0134-w004",
+      "title": "Transformación y síntesis: reflexiones sobre la filosofía de Karl-Otto Apel",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "transformación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "síntesis",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Karl-Otto Apel",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ],
+      "related_people": [
+        {
+          "name": "Karl-Otto Apel",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0134-w005",
+      "title": "Dejar la posmodernidad: la ética frente al irracionalismo actual",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "posmodernidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "irracionalismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w006",
+      "title": "Volver a la razón",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w007",
+      "title": "La ética cuestionada: prolegómenos para una ética convergente",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética convergente",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w008",
+      "title": "Ética: dilemas y convergencias. Cuestiones éticas de la identidad, la globalización y la tecnología",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "identidad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ],
+      "notes": "La fuente Konex consigna además un año 1996, en conflicto con la edición 2006 de la UNLa.",
+      "first_publication_year_candidates": [
+        1996,
+        2006
+      ],
+      "source_conflict": true
+    },
+    {
+      "work_id": "0134-w009",
+      "title": "Teoría y praxis de los principios bioéticos",
+      "work_type": "bioethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Oscar Thüer",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "principios bioéticos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w010",
+      "title": "Discurso y convergencia: la ética discursiva de Karl-Otto Apel y el laberinto de los conflictos",
+      "work_type": "ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "discurso",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "convergencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética discursiva",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w011",
+      "title": "Ética convergente. Tomo I: Fenomenología de la conflictividad",
+      "work_type": "ethics_systematic_treatise_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética convergente",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conflictividad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w012",
+      "title": "Ética convergente. Tomo II: Aporética de la conflictividad",
+      "work_type": "ethics_systematic_treatise_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética convergente",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conflictividad",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    },
+    {
+      "work_id": "0134-w013",
+      "title": "Ética convergente. Tomo III: Teoría y praxis de la convergencia",
+      "work_type": "ethics_systematic_treatise_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2013,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2013,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "convergencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ],
+      "notes": "Otra bibliografía consigna 'Teoría y práctica'; cotejar título de portada."
+    },
+    {
+      "work_id": "0134-w014",
+      "title": "Ética y conflicto: un diálogo filosófico sobre la ética convergente",
+      "work_type": "coauthored_philosophical_dialogue",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Alberto Damiani",
+          "role": "coauthor"
+        },
+        {
+          "name": "Guillermo Lariguet",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "conflicto",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0134-c001",
+      "title": "Fundación y dirección del Centro de Investigaciones Éticas de la Universidad de Buenos Aires",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0134-c002",
+      "title": "Desarrollo de la ética convergente y su aplicación a la bioética",
+      "kind": "academic_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_publisher",
+      "title": "UNLa: catálogo de Ricardo Maliandi",
+      "url": "https://www.unla.edu.ar/centros/centro-de-estudios-sobre-filosofia-etica-y-cultura/publicaciones/libros/etica-dilemas-y-convergencias-cuestiones-eticas-de-la-identidad-la-globalizacion-y-la-tecnologia"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "Bibliotecas UNSAM: Ricardo Maliandi",
+      "url": "https://buscador.unsam.edu.ar/Author/Home?author=Maliandi%2C+Ricardo"
+    },
+    {
+      "kind": "academic_bibliography",
+      "title": "Revista académica: referencias bibliográficas Maliandi",
+      "url": "https://observatorio-cientifico.ua.es/documentos/63d479bb5222787c7aabaa4a"
+    },
+    {
+      "kind": "academic_foundation_profile",
+      "title": "Fundación Konex: Ricardo Maliandi",
+      "url": "https://www.fundacionkonex.org/b412-ricardo-maliandi"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: filósofos de Argentina, páginas impresas 879–893"
+    }
+  ],
+  "research_notes": [
+    "No homogeneizar los tres tomos de Ética convergente en una fecha única.",
+    "Diferencia documentada de día de nacimiento: 10 de enero (obituario especializado) frente a 11 de enero (Konex).",
+    "La cronología de Ética: dilemas y convergencias requiere confrontar primera edición 1996 con edición UNLa 2006."
+  ]
+}
