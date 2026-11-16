@@ -24,7 +24,7 @@
     })();
   </script>
   <title>Filósofos latinoamericanos · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261116-production-v3">
+  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261116-author-dossier-v4">
   <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body>
@@ -254,22 +254,61 @@
     <div class="ornament-frame ornament-frame-bottom" aria-hidden="true"><span>✦</span><span>❦</span><span>✦</span></div>
   </div>
 
-  <dialog id="author-dialog" class="author-dialog" aria-labelledby="author-dialog-title">
+  <dialog id="author-dialog" class="author-dialog author-dossier" aria-labelledby="author-dialog-title">
     <div class="author-dialog-shell">
-      <div class="author-dialog-head">
+      <header class="author-dossier-toolbar">
         <div>
-          <p class="section-kicker">FICHA BIBLIOGRÁFICA</p>
+          <span id="author-dossier-index">ARCHIVO / #0000</span>
+          <small id="author-dossier-status">FICHA BIBLIOGRÁFICA</small>
+        </div>
+        <div class="author-dossier-actions" role="group" aria-label="Navegación de la ficha">
+          <button id="author-dialog-prev" type="button" aria-label="Filósofo anterior">← <span>Anterior</span></button>
+          <button id="author-dialog-share" type="button" aria-label="Copiar enlace de esta ficha">Compartir</button>
+          <button id="author-dialog-next" type="button" aria-label="Filósofo siguiente"><span>Siguiente</span> →</button>
+          <button id="author-dialog-close" class="author-dialog-close" type="button" aria-label="Cerrar ficha">×</button>
+        </div>
+      </header>
+
+      <div class="author-dossier-layout">
+        <aside class="author-dossier-identity" aria-label="Identidad del filósofo">
+          <div class="author-dossier-period">
+            <span id="author-dossier-period-roman">I</span>
+            <small id="author-dossier-period-label">ÉPOCA</small>
+          </div>
+          <div id="author-dossier-monogram" class="author-dossier-monogram" aria-hidden="true">Φ</div>
+
+          <p class="author-dossier-kicker">FILÓSOFOS LATINOAMERICANOS</p>
           <h2 id="author-dialog-title">Autor</h2>
           <p id="author-dialog-life" class="author-dialog-life"></p>
-        </div>
-        <button id="author-dialog-close" class="author-dialog-close" type="button" aria-label="Cerrar ficha">×</button>
+          <div id="author-dossier-aliases" class="author-dossier-aliases" hidden></div>
+
+          <dl class="author-dossier-metrics">
+            <div><dt>Obras</dt><dd id="author-dossier-works">0</dd></div>
+            <div><dt>Contribuciones</dt><dd id="author-dossier-contributions">0</dd></div>
+            <div><dt>Fuentes</dt><dd id="author-dossier-sources">0</dd></div>
+          </dl>
+
+          <p id="author-dossier-coverage" class="author-dossier-coverage"></p>
+        </aside>
+
+        <article class="author-dossier-reader">
+          <nav class="author-dossier-nav" aria-label="Secciones de la ficha">
+            <a href="#author-dossier-overview">Panorama</a>
+            <a href="#author-dossier-works-section">Obras</a>
+            <a href="#author-dossier-sources-section">Fuentes</a>
+            <a href="#author-dossier-notes-section">Notas</a>
+          </nav>
+
+          <div id="author-dialog-body" class="author-dialog-body">
+            <p class="author-dialog-loading">Seleccione un autor para abrir su dossier.</p>
+          </div>
+        </article>
       </div>
-      <div id="author-dialog-body" class="author-dialog-body"></div>
     </div>
   </dialog>
 
   <script type="module" src="./js/theme.js?v=20261031-day-night-v2"></script>
-  <script type="module" src="./js/latin-american-philosophy.js?v=20261116-production-v3"></script>
+  <script type="module" src="./js/latin-american-philosophy.js?v=20261116-author-dossier-v4"></script>
   <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
 </body>
 </html>
