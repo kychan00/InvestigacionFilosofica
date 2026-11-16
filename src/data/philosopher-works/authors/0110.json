@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "author_id": 110,
+  "canonical_name": "Enrique Dussel",
+  "alternate_names": [
+    "Enrique Domingo Dussel Ambrosini"
+  ],
+  "life": {
+    "born": {
+      "year": 1934,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 2023,
+      "certainty": "verified",
+      "date": "2023-11-05"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_history_anthropology_ethics_liberation_marx_politics_and_economics_corpus_verified_multivolume_chronology_preserved",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0110-w001",
+      "title": "Hipótesis para el estudio de Latinoamérica en la historia universal",
+      "work_type": "philosophy_of_history_manuscript_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "rotaprint_publication"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Latinoamérica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia universal",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w002",
+      "title": "El humanismo semita",
+      "work_type": "philosophical_anthropology_history_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo semita",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "antropología",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w003",
+      "title": "Para una de-strucción de la historia de la ética",
+      "work_type": "history_of_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "first_version"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia de la ética",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "de-strucción",
+          "provenance": "primary_title"
+        }
+      ],
+      "notes": "Repertorios del propio Dussel registran reediciones/variantes fechadas 1973; se mantiene 1972 como primera versión."
+    },
+    {
+      "work_id": "0110-w004",
+      "title": "Para una ética de la liberación latinoamericana I-II",
+      "work_type": "liberation_ethics_multivolume_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "first_two_volumes"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Latinoamérica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "exterioridad",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Los tomos I y II aparecieron en 1973; los tomos posteriores se registran separadamente por sus distintas fechas."
+    },
+    {
+      "work_id": "0110-w005",
+      "title": "América Latina, dependencia y liberación",
+      "work_type": "liberation_theory_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dependencia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w006",
+      "title": "Método para una filosofía de la liberación: superación analéctica de la dialéctica hegeliana",
+      "work_type": "liberation_method_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "expanded_reedition"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "método analéctico",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "filosofía de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "primary_subtitle"
+        }
+      ],
+      "notes": "Reelabora y amplía La dialéctica hegeliana (1972); se conserva la relación entre ambas versiones."
+    },
+    {
+      "work_id": "0110-w007",
+      "title": "Filosofía ética latinoamericana III: de la erótica a la pedagógica de la liberación",
+      "work_type": "liberation_ethics_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "erótica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "pedagógica",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "liberación",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w008",
+      "title": "Filosofía de la liberación",
+      "work_type": "systematic_liberation_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "start": 1976,
+        "end": 1977,
+        "certainty": "first_edition_date_conflict"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "verified_with_date_conflict",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "exterioridad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "analéctica",
+          "provenance": "scholarly"
+        }
+      ],
+      "publication_history": {
+        "first_publication_year_candidates": [
+          1976,
+          1977
+        ],
+        "certainty": "source_conflict"
+      }
+    },
+    {
+      "work_id": "0110-w009",
+      "title": "Filosofía ética latinoamericana IV: la política latinoamericana",
+      "work_type": "liberation_ethics_politics_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política latinoamericana",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "ética de la liberación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w010",
+      "title": "Filosofía ética latinoamericana V: una filosofía de la religión antifetichista",
+      "work_type": "liberation_philosophy_of_religion_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "religión",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "antifetichismo",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "liberación",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w011",
+      "title": "La producción teórica de Marx: un comentario a los Grundrisse",
+      "work_type": "marx_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "related_people": [
+        {
+          "name": "Karl Marx",
+          "role": "subject"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Marx",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Grundrisse",
+          "provenance": "primary_subtitle"
+        },
+        {
+          "term": "economía política",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w012",
+      "title": "1492: el encubrimiento del Otro",
+      "work_type": "decolonial_modernity_lectures_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "1492",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Otro",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "eurocentrismo",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w013",
+      "title": "Ética de la liberación en la edad de la globalización y de la exclusión",
+      "work_type": "systematic_liberation_ethics_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética de la liberación",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "globalización",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "exclusión",
+          "provenance": "primary_title"
+        }
+      ]
+    },
+    {
+      "work_id": "0110-w014",
+      "title": "20 tesis de política",
+      "work_type": "political_philosophy_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "poder",
+          "provenance": "inferred"
+        },
+        {
+          "term": "democracia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "liberación",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación y desarrollo de la Filosofía de la Liberación latinoamericana",
+      "kind": "philosophical_movement_contribution",
+      "period": {
+        "start": 1969,
+        "end": 2023,
+        "certainty": "intellectual_career_range"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "filosofía de la liberación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "decolonialidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "transmodernidad",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "author_bibliography",
+      "title": "Libros — Enrique Dussel",
+      "url": "https://enriquedussel.com/novedades/libros/",
+      "publisher": "Archivo Enrique Dussel"
+    },
+    {
+      "kind": "author_curriculum",
+      "title": "Curriculum 2023 — Enrique Dussel",
+      "url": "https://cdn.enriquedussel.com/wp-content/uploads/2023/09/CURRICULUM_2023-1.pdf",
+      "publisher": "Enrique Dussel"
+    },
+    {
+      "kind": "university_obituary",
+      "title": "Falleció Enrique Dussel, pensador fundamental de Latinoamérica",
+      "url": "https://puec.unam.mx/index.php/component/content/article/2382-fallecio-enrique-dussel-pensador-fundamental-de-latinoamerica.html?Itemid=101&catid=104",
+      "publisher": "UNAM"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Enrique Dussel (1934-)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente ampliar Hacia un Marx desconocido, El último Marx, Hacia una filosofía política crítica, Política de la liberación y 16 tesis de economía política.",
+    "La ficha actualiza su muerte a 2023, posterior al libro-base; se preserva conflicto 1976/1977 para Filosofía de la liberación."
+  ]
+}
