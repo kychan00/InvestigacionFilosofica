@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "author_id": 69,
+  "canonical_name": "José Carlos Mariátegui",
+  "alternate_names": [
+    "José Carlos Mariátegui La Chira",
+    "Juan Croniqueur"
+  ],
+  "life": {
+    "born": {
+      "year": 1894,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1930,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "two_lifetime_books_plus_periodicals_courses_and_posthumous_projects_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0069-w001",
+      "title": "La escena contemporánea",
+      "work_type": "political_cultural_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "verified_lifetime_book",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Europa",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fascismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "crisis mundial",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0069-w002",
+      "title": "Amauta",
+      "work_type": "cultural_political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "start": 1926,
+        "end": 1930,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "founder_director_primary_contributor",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "red de colaboradores peruanos y latinoamericanos",
+          "role": "contributors"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "indigenismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vanguardia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "catalog"
+        },
+        {
+          "term": "movimiento obrero",
+          "provenance": "catalog"
+        }
+      ],
+      "notes": "La BNP registra 32 números/unidades hemerográficas de la revista."
+    },
+    {
+      "work_id": "0069-w003",
+      "title": "7 ensayos de interpretación de la realidad peruana",
+      "alternate_titles": [
+        "Siete ensayos de interpretación de la realidad peruana"
+      ],
+      "work_type": "marxist_social_analysis_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "first_edition"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "verified_lifetime_book",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "problema del indio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "problema de la tierra",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "religión",
+          "provenance": "inferred"
+        },
+        {
+          "term": "regionalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura peruana",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Uno de sólo dos libros publicados por Mariátegui en vida."
+    },
+    {
+      "work_id": "0069-w004",
+      "title": "Labor",
+      "work_type": "labor_political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "start": 1928,
+        "end": 1929,
+        "certainty": "serial_publication_range"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "founder_director_primary_contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "trabajadores",
+          "provenance": "inferred"
+        },
+        {
+          "term": "movimiento obrero",
+          "provenance": "inferred"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0069-w005",
+      "title": "Defensa del marxismo",
+      "work_type": "marxist_polemic_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1928,
+        "end": 1929,
+        "certainty": "articles_and_book_project"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified_posthumous_book_project",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "marxismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revisionismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "socialismo",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Texto preparado para libro en vida, pero publicado como volumen póstumo."
+    },
+    {
+      "work_id": "0069-w006",
+      "title": "El alma matinal y otras estaciones del hombre de hoy",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1920,
+        "end": 1930,
+        "certainty": "articles_and_book_project"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "verified_posthumous_book_project",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hombre contemporáneo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "mito",
+          "provenance": "inferred"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0069-w007",
+      "title": "La novela y la vida: Siegfried y el profesor Canella",
+      "work_type": "literary_essay_narrative",
+      "original_language": "español",
+      "original_date": {
+        "century": 20,
+        "certainty": "prepared_before_death"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "verified_posthumous_book_project",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "novela",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "vida",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "identidad",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0069-w008",
+      "title": "Historia de la crisis mundial",
+      "work_type": "lecture_course_posthumous_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1923,
+        "end": 1924,
+        "certainty": "lecture_course_range"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "verified_posthumous_course_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crisis mundial",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Europa",
+          "provenance": "inferred"
+        },
+        {
+          "term": "revolución",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0069-w009",
+      "title": "Ideología y política",
+      "work_type": "posthumous_political_document_collection",
+      "original_language": "español",
+      "original_date": {
+        "start": 1923,
+        "end": 1930,
+        "certainty": "document_range"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "posthumous_reconstructed_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "política",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "socialismo peruano",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Mariátegui proyectó un libro de este título que se considera perdido; el volumen posterior reúne textos políticos y no equivale necesariamente al manuscrito perdido."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "national_library",
+      "title": "7 ensayos de interpretación de la realidad peruana — primera edición",
+      "url": "https://www.bnp.gob.pe/bnp-7-ensayos-de-interpretacion-de-la-realidad-peruana-es-declarada-patrimonio-cultural-de-la-nacion/",
+      "publisher": "Biblioteca Nacional del Perú"
+    },
+    {
+      "kind": "national_library",
+      "title": "José Carlos Mariátegui — Amauta y 7 ensayos",
+      "url": "https://www.bnp.gob.pe/bnp-se-cumplen-130-anos-del-nacimiento-de-jose-carlos-mariategui/",
+      "publisher": "Biblioteca Nacional del Perú"
+    },
+    {
+      "kind": "specialized_archive",
+      "title": "Defensa del marxismo: avatares de un libro y una edición",
+      "url": "https://publicaciones.mariategui.org/defensa-marxismo-avatares-libro-edicion/_assets/downloads/defensa-marxismo-RP-2025.pdf",
+      "publisher": "Archivo José Carlos Mariátegui"
+    },
+    {
+      "kind": "bibliographic_catalog",
+      "title": "Bibliografía Mariateguiana",
+      "url": "https://bibliografia.mariategui.org/cgi-bin/koha/opac-shelves.pl?direction=asc&op=view&shelfnumber=7&sortfield=title",
+      "publisher": "Archivo José Carlos Mariátegui"
+    }
+  ],
+  "research_notes": [
+    "En vida publicó sólo dos libros: La escena contemporánea y 7 ensayos; los demás proyectos se distinguen como póstumos o reconstruidos.",
+    "Pendiente desglosar artículos de Mundial, Variedades, Amauta, Labor y correspondencia."
+  ]
+}
