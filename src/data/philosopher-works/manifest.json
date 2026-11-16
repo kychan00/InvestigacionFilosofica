@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 30,
-    "authors_remaining": 1474,
-    "works_or_contributions_seeded": 133,
-    "current_batch": "003",
+    "authors_seeded": 40,
+    "authors_remaining": 1464,
+    "works_or_contributions_seeded": 203,
+    "current_batch": "004",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -187,6 +187,58 @@
       "author_id": 30,
       "canonical_name": "Servando Teresa de Mier",
       "path": "authors/0030.json"
+    }
+  ],
+  "batch_004": [
+    {
+      "author_id": 31,
+      "canonical_name": "José María Morelos y Pavón",
+      "path": "authors/0031.json"
+    },
+    {
+      "author_id": 32,
+      "canonical_name": "Simón Rodríguez",
+      "path": "authors/0032.json"
+    },
+    {
+      "author_id": 33,
+      "canonical_name": "Simón Bolívar",
+      "path": "authors/0033.json"
+    },
+    {
+      "author_id": 34,
+      "canonical_name": "José de la Luz y Caballero",
+      "path": "authors/0034.json"
+    },
+    {
+      "author_id": 35,
+      "canonical_name": "Silvestre Pinheiro Ferreira",
+      "path": "authors/0035.json"
+    },
+    {
+      "author_id": 36,
+      "canonical_name": "Andrés Bello",
+      "path": "authors/0036.json"
+    },
+    {
+      "author_id": 37,
+      "canonical_name": "Lucas Alamán",
+      "path": "authors/0037.json"
+    },
+    {
+      "author_id": 38,
+      "canonical_name": "Diego Portales y Palazuelos",
+      "path": "authors/0038.json"
+    },
+    {
+      "author_id": 39,
+      "canonical_name": "Gabriel García Moreno",
+      "path": "authors/0039.json"
+    },
+    {
+      "author_id": 40,
+      "canonical_name": "Juan León Mera",
+      "path": "authors/0040.json"
     }
   ]
 }
