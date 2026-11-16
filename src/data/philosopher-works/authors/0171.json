@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "author_id": 171,
+  "canonical_name": "Luis Eduardo Nieto Arteta",
+  "alternate_names": [
+    "Luis E. Nieto Arteta"
+  ],
+  "life": {
+    "born": {
+      "year": 1913,
+      "certainty": "national_library_authority"
+    },
+    "died": {
+      "year": 1956,
+      "certainty": "national_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_publications_not_complete_oeuvre",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0171-w001",
+      "title": "Economía y cultura en la historia de Colombia",
+      "work_type": "historical_economic_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "bibliographic_date_conflict"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia económica colombiana",
+          "provenance": "catalog"
+        }
+      ],
+      "evidence_urls": [
+        "https://siise.bibliotecanacional.gov.co/BBCC/Documents/View/354",
+        "https://dialnet.unirioja.es/descarga/articulo/2180662.pdf"
+      ],
+      "edition_history": [
+        {
+          "year": 1983,
+          "edition": "séptima edición",
+          "publisher": "Áncora Editores",
+          "evidence_url": "https://ci.nii.ac.jp/ncid/BC16060451"
+        },
+        {
+          "year": 2016,
+          "publisher": "Biblioteca Nacional de Colombia",
+          "isbn": "978-958-8959-61-0"
+        }
+      ],
+      "notes": "Redacción finalizada en agosto de 1941; circulación a comienzos de 1942 documentada en estudio de Gonzalo Cataño. Fecha de primera edición 1941/1942 requiere cotejo del ejemplar original."
+    },
+    {
+      "work_id": "0171-w002",
+      "title": "El café en la sociedad colombiana",
+      "work_type": "economic_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "posthumous": true,
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sired.udenar.edu.co/11997/1/77551.pdf"
+      ],
+      "notes": "Publicación póstuma; año de composición no confirmado."
+    },
+    {
+      "work_id": "0171-w003",
+      "title": "Lógica y ontología",
+      "work_type": "philosophical_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "secondary_source_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sired.udenar.edu.co/11997/1/77551.pdf"
+      ],
+      "notes": "Fuente universitaria confirma escritura de la obra, pero no verifica fecha ni edición original; requiere catálogo específico."
+    }
+  ],
+  "editorial_notes": [
+    "No asignar el DOI 10.7440/HISTCRIT15.1997.01 al libro: pertenece al estudio de Gonzalo Cataño."
+  ]
+}
