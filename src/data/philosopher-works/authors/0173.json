@@ -1,0 +1,90 @@
+{
+  "author_id": 173,
+  "canonical_name": "Estanislao Zuleta",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1935,
+      "certainty": "national_library_catalog"
+    },
+    "died": {
+      "year": 1990,
+      "certainty": "national_library_catalog"
+    }
+  },
+  "coverage": {
+    "status": "partial_source_checked",
+    "works_status": "selected_essays_and_collections_not_complete_oeuvre",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0173-w001",
+      "title": "Sobre la idealización en la vida personal y colectiva y otros ensayos",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_not_verified"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Sobre_la_idealizaci%C3%B3n_en_la_vida_person.html?id=BWRYAAAAMAAJ"
+      ],
+      "notes": "Edición Procultura/Presidencia de la República (1985); colección, no fecha de composición de cada ensayo."
+    },
+    {
+      "work_id": "0173-w002",
+      "title": "Elogio de la dificultad",
+      "work_type": "philosophical_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://siise.bibliotecanacional.gov.co/BBCC/Documents/View/232"
+      ],
+      "notes": "Ensayo individual incorporado en varias compilaciones; no atribuirle como primera publicación los años 1994, 2015 o 2017 de sus recopilaciones."
+    },
+    {
+      "work_id": "0173-w003",
+      "title": "Elogio de la dificultad y otros ensayos",
+      "work_type": "posthumous_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "composition_not_verified"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Elogio_de_la_dificultad_y_otros_ensayos.html?id=TK0wAAAAYAAJ"
+      ],
+      "posthumous": true,
+      "notes": "Fundación Estanislao Zuleta, 1994, 324 páginas; recopilación póstuma, no obra inédita íntegramente compuesta en 1994. Edición Biblioteca Nacional 2017 ISBN 978-958-5419-18-6."
+    }
+  ],
+  "schema_version": 1
+}
