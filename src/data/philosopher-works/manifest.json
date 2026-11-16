@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 520,
-    "authors_remaining": 984,
-    "works_or_contributions_seeded": 3179,
-    "current_batch": "052",
+    "authors_seeded": 530,
+    "authors_remaining": 974,
+    "works_or_contributions_seeded": 3267,
+    "current_batch": "053",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -2735,6 +2735,58 @@
       "author_id": 520,
       "canonical_name": "Jaime Vélez Sáenz",
       "path": "authors/0520.json"
+    }
+  ],
+  "batch_053": [
+    {
+      "author_id": 521,
+      "canonical_name": "Fideligno Niño Mesa",
+      "path": "authors/0521.json"
+    },
+    {
+      "author_id": 522,
+      "canonical_name": "Daniel Herrera Restrepo",
+      "path": "authors/0522.json"
+    },
+    {
+      "author_id": 523,
+      "canonical_name": "Rafael Gutiérrez Girardot",
+      "path": "authors/0523.json"
+    },
+    {
+      "author_id": 524,
+      "canonical_name": "Gerardo Remolina Vargas",
+      "path": "authors/0524.json"
+    },
+    {
+      "author_id": 525,
+      "canonical_name": "Diana María Muñoz",
+      "path": "authors/0525.json"
+    },
+    {
+      "author_id": 526,
+      "canonical_name": "Margarita Cepeda",
+      "path": "authors/0526.json"
+    },
+    {
+      "author_id": 527,
+      "canonical_name": "Jaime Rubio Angulo",
+      "path": "authors/0527.json"
+    },
+    {
+      "author_id": 528,
+      "canonical_name": "Germán Marquínez Argote",
+      "path": "authors/0528.json"
+    },
+    {
+      "author_id": 529,
+      "canonical_name": "Oscar Gerardo Ramos",
+      "path": "authors/0529.json"
+    },
+    {
+      "author_id": 530,
+      "canonical_name": "Rosa Helena Santos-Ihlau",
+      "path": "authors/0530.json"
     }
   ]
 }
