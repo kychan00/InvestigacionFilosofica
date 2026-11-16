@@ -1,0 +1,630 @@
+{
+  "schema_version": 1,
+  "author_id": 143,
+  "canonical_name": "Arturo Ardao",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1912,
+      "certainty": "university_archive"
+    },
+    "died": {
+      "year": 2003,
+      "certainty": "university_archive"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_works_not_exhaustive_pending_bibliographic_audit",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0143-w001",
+      "title": "Vida de Basilio Muñoz: hombre de ayer, de hoy y de mañana",
+      "work_type": "coauthored_political_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "documented_coauthorship",
+      "coauthors": [
+        {
+          "name": "Julio Castro",
+          "role": "coauthor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Basilio Muñoz",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ],
+      "notes": "Fuentes conservan además reedición como 'Sesenta años de revolución: vida de Basilio Muñoz' (1971). Comprobar relación editorial exacta."
+    },
+    {
+      "work_id": "0143-w002",
+      "title": "Filosofía pre-universitaria en el Uruguay",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Uruguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w003",
+      "title": "La Universidad de Montevideo: su evolución histórica",
+      "work_type": "history_of_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Universidad de Montevideo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w004",
+      "title": "Batlle y Ordóñez y el positivismo filosófico",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Batlle y Ordóñez",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo filosófico",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w005",
+      "title": "Orígenes de la influencia de Renán en el Uruguay",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Renán",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Uruguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w006",
+      "title": "La filosofía en el Uruguay en el siglo XX",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía en el Uruguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w007",
+      "title": "Introducción a Vaz Ferreira",
+      "work_type": "history_of_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Vaz Ferreira",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ],
+      "related_people": [
+        {
+          "name": "Carlos Vaz Ferreira",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0143-w008",
+      "title": "Primer documento de la filosofía en el Uruguay: 1787",
+      "work_type": "historical_source_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Uruguay",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ],
+      "notes": "1787 identifica fecha del documento estudiado, no primera edición del estudio en 1961."
+    },
+    {
+      "work_id": "0143-w009",
+      "title": "Racionalismo y liberalismo en el Uruguay",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "racionalismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "liberalismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w010",
+      "title": "La voluntad de conciencia en Reyles",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Reyles",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ],
+      "related_people": [
+        {
+          "name": "Carlos Reyles",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0143-w011",
+      "title": "Filosofía de lengua española",
+      "work_type": "history_of_ideas_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lengua española",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ],
+      "title_variants": [
+        "Filosofía de lenguas españolas: ensayos"
+      ],
+      "notes": "Historias Universitarias registra la variante plural; bibliografía de autor singular."
+    },
+    {
+      "work_id": "0143-w012",
+      "title": "Espiritualismo y positivismo en el Uruguay",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "espiritualismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "positivismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w013",
+      "title": "Rodó, su americanismo",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Rodó",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "americanismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ],
+      "related_people": [
+        {
+          "name": "José Enrique Rodó",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0143-w014",
+      "title": "Etapas de la inteligencia uruguaya",
+      "work_type": "history_of_ideas_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "inteligencia uruguaya",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w015",
+      "title": "Estudios latinoamericanos de historia de las ideas",
+      "work_type": "history_of_ideas_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estudios latinoamericanos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w016",
+      "title": "Génesis de la idea y el nombre de América Latina",
+      "work_type": "history_of_concepts_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w017",
+      "title": "Nuestra América Latina",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w018",
+      "title": "Romania y América Latina",
+      "work_type": "history_of_concepts_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Romania",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    },
+    {
+      "work_id": "0143-w019",
+      "title": "España en el origen del nombre América Latina",
+      "work_type": "history_of_concepts_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "España",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "América Latina",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0143-c001",
+      "title": "Decanato de la Facultad de Humanidades y Ciencias de la Universidad de la República (1968–1972) y dirección de institutos de filosofía",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0143-c002",
+      "title": "Historiografía de las ideas uruguayas y de la génesis conceptual de América Latina",
+      "kind": "institutional_or_intellectual_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "university_catalog",
+      "title": "Historias Universitarias: Arturo Ardao y publicaciones",
+      "url": "https://historiasuniversitarias.edu.uy/biografia/ardao-arturo/"
+    },
+    {
+      "kind": "specialist_digital_library",
+      "title": "Bibliografía exhaustiva de Arturo Ardao, Autores del Uruguay",
+      "url": "https://autoresdeluruguay.uy/biblioteca/Arturo_Ardao/doku.php?id=bibliografia"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, perfiles de Uruguay, páginas impresas 894–901"
+    }
+  ],
+  "research_notes": [
+    "Coautoría con Julio Castro registrada expresamente, distinta de dirección o edición.",
+    "Historia Universitaria menciona más títulos y series, semilla no exhaustiva.",
+    "Las recopilaciones de artículos periodísticos posteriores no se confunden con composición original de cada artículo."
+  ]
+}
