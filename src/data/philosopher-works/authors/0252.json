@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "author_id": 252,
+  "canonical_name": "Francisco José de Jaca",
+  "alternate_names": [
+    "Fray Francisco José de Jaca"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_colonial_originals_or_manuscript_records_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0252-w001",
+      "title": "Resolución sobre la libertad de los negros y sus originarios, en estado de paganos y después ya cristianos",
+      "work_type": "seventeenth_century_antislavery_moral_theology_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1682,
+        "certainty": "document_composed_or_circulated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "documented_historical_attribution",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "negros",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cristianos",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=40650",
+        "https://www.dhial.org/diccionario/index.php?title=CAPUCHINOS_EN_VENEZUELA%3B_Impugnadores_de_la_Trata"
+      ],
+      "archive": {
+        "repository": "Archivo General de Indias, Sevilla",
+        "section": "Audiencia de Santo Domingo",
+        "legajo": "527",
+        "extent": "27 folios escritos por ambas caras"
+      },
+      "edition_history": [
+        {
+          "year": 2002,
+          "publisher": "Consejo Superior de Investigaciones Científicas",
+          "editor": "Miguel Anxo González",
+          "type": "critical_edition",
+          "notes": "Edición crítica moderna; no confundir con composición del texto en 1682"
+        }
+      ],
+      "first_publication_status": "earliest_print_publication_not_verified",
+      "notes": "Manuscrito de ca. 1682 dirigido al rey Carlos II. No se atribuye 2002 como composición del tratado ni se afirma que fuese la primera publicación en absoluto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Argumentación sobre libertad natural de las personas africanas esclavizadas y crítica ética de la trata en Cartagena de Indias",
+      "kind": "colonial_historical_theological_philosophical_contribution",
+      "authorship_status": "scholarly_documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "national_library_critical_edition_catalog",
+      "title": "Biblioteca Nacional Pedro Henríquez Ureña, Resolución sobre la libertad de los negros, edición crítica CSIC 2002",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=40650"
+    },
+    {
+      "kind": "historical_archive_study",
+      "title": "Capuchinos en Venezuela: impugnadores de la trata; Archivo General de Indias, Santo Domingo, legajo 527",
+      "url": "https://www.dhial.org/diccionario/index.php?title=CAPUCHINOS_EN_VENEZUELA%3B_Impugnadores_de_la_Trata"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, La filosofía académica, pp. 82–84"
+    }
+  ],
+  "research_notes": [
+    "El manuscrito de Jaca y Servi liberi de Epifanio de Moirans son dos obras distintas de autores diferentes conservadas en el mismo fondo archivístico.",
+    "No asociar automáticamente la publicación moderna con primera circulación del manuscrito."
+  ]
+}
