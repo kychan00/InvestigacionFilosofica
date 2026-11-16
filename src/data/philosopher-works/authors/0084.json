@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "author_id": 84,
+  "canonical_name": "Álvaro Vieira Pinto",
+  "alternate_names": [
+    "Álvaro Borges Vieira Pinto"
+  ],
+  "life": {
+    "born": {
+      "year": 1909,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1987,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_national_consciousness_science_demography_education_technology_and_posthumous_philosophy_corpus_verified",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0084-w001",
+      "title": "Ideologia e desenvolvimento nacional",
+      "work_type": "development_philosophy_lecture_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1956,
+        "certainty": "publication_context"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "verified_bibliographic",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "desenvolvimento nacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ISEB",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0084-w002",
+      "title": "Consciência e realidade nacional",
+      "work_type": "philosophy_of_national_consciousness_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1960,
+        "end": 1961,
+        "certainty": "two_volume_publication_range"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "consciência ingênua",
+          "provenance": "volume_title"
+        },
+        {
+          "term": "consciência crítica",
+          "provenance": "volume_title"
+        },
+        {
+          "term": "realidade nacional",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "subdesenvolvimento",
+          "provenance": "scholarly"
+        }
+      ],
+      "notes": "Dois volumes; o primeiro saiu em setembro de 1960 e o segundo em junho de 1961."
+    },
+    {
+      "work_id": "0084-w003",
+      "title": "A questão da universidade",
+      "work_type": "higher_education_political_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 20,
+        "certainty": "published_before_exile"
+      },
+      "first_publication_year": null,
+      "authorship_status": "verified_title_year_pending",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "União Nacional dos Estudantes",
+          "role": "publisher"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidade",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educação superior",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0084-w004",
+      "title": "Ciência e existência: problemas filosóficos da pesquisa científica",
+      "work_type": "philosophy_of_science_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1969,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "verified_from_project_primary_source",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "existência",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pesquisa científica",
+          "provenance": "primary_subtitle"
+        }
+      ]
+    },
+    {
+      "work_id": "0084-w005",
+      "title": "El pensamiento crítico en demografía",
+      "work_type": "critical_demography_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "publication_history_needs_exact_UN_edition_check"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "verified_exile_work",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "demografía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pensamiento crítico",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "población",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "El libro-base señala producción en el exilio chileno y edición por Naciones Unidas; algunas referencias sitúan materiales previos desde 1969."
+    },
+    {
+      "work_id": "0084-w006",
+      "title": "Sete lições sobre educação de adultos",
+      "work_type": "adult_education_lecture_course",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1966,
+        "certainty": "lectures_in_chile"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "verified_posthumous_to_exile_course_publication",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educação de adultos",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "consciência",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trabalho",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0084-w007",
+      "title": "O conceito de tecnologia",
+      "work_type": "philosophy_of_technology_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "start": 1970,
+        "end": 1973,
+        "certainty": "manuscript_composition_range"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "verified_posthumous_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tecnologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "trabalho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "técnica",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Manuscrito de dois volumes publicado postumamente."
+    },
+    {
+      "work_id": "0084-w008",
+      "title": "A sociologia dos países subdesenvolvidos",
+      "work_type": "critical_sociology_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 20,
+        "certainty": "manuscript_composed_before_1987"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "verified_posthumous_manuscript",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "subdesenvolvimento",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "sociologia",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "periferia",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0084-w009",
+      "title": "A educação para um país oprimido",
+      "work_type": "philosophy_of_education_manuscript",
+      "original_language": "portugués",
+      "original_date": {
+        "century": 20,
+        "certainty": "manuscript"
+      },
+      "first_publication_year": null,
+      "authorship_status": "reported_posthumous_manuscript_title",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educação",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "país oprimido",
+          "provenance": "primary_title"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Chefia do Departamento de Filosofia do ISEB e formulação da consciência nacional crítica",
+      "kind": "academic_institutional_contribution",
+      "period": {
+        "start": 1956,
+        "end": 1964,
+        "certainty": "ISEB_period"
+      },
+      "authorship_status": "historically_verified",
+      "coauthors": [],
+      "keywords": [
+        {
+          "term": "ISEB",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "consciência nacional",
+          "provenance": "scholarly"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "kind": "specialized_author_archive",
+      "title": "Consciência e Realidade Nacional",
+      "url": "https://alvarovieirapinto.org/consciencia-e-realidade-nacional/",
+      "publisher": "Rede Álvaro Vieira Pinto"
+    },
+    {
+      "kind": "specialized_author_archive",
+      "title": "Livros de Álvaro Vieira Pinto",
+      "url": "https://alvarovieirapinto.org/assunto/livros-de-alvaro-vieira-pinto/",
+      "publisher": "Rede Álvaro Vieira Pinto"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Álvaro Vieira Pinto (1909-1987)"
+    }
+  ],
+  "research_notes": [
+    "Pendiente fijar la edición exacta de A questão da universidade y la cronología editorial de El pensamiento crítico en demografía.",
+    "Separar manuscritos póstumos de livros efetivamente publicados em vida."
+  ]
+}
