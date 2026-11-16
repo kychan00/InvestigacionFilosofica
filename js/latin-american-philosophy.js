@@ -944,8 +944,21 @@ authorDialogClose?.addEventListener("click", () => closeAuthorDialog());
 authorDialogPrev?.addEventListener("click", () => navigateAuthor(-1));
 authorDialogNext?.addEventListener("click", () => navigateAuthor(1));
 authorDialogShare?.addEventListener("click", shareCurrentAuthor);
+for (const button of document.querySelectorAll("[data-dossier-target]")) {
+  button.addEventListener("click", () => {
+    const target = document.getElementById(button.dataset.dossierTarget);
+    target?.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start"
+    });
+  });
+}
 authorDialog?.addEventListener("click", event => {
   if (event.target === authorDialog) closeAuthorDialog();
+});
+authorDialog?.addEventListener("cancel", event => {
+  event.preventDefault();
+  closeAuthorDialog();
 });
 addEventListener("popstate", () => {
   if (!location.hash.startsWith("#autor-") && authorDialog.open) {
