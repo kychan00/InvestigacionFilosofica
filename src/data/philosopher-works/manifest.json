@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 80,
-    "authors_remaining": 1424,
-    "works_or_contributions_seeded": 564,
-    "current_batch": "008",
+    "authors_seeded": 90,
+    "authors_remaining": 1414,
+    "works_or_contributions_seeded": 679,
+    "current_batch": "009",
     "last_updated": "2026-11-15"
   },
   "batch_001": [
@@ -447,6 +447,58 @@
       "author_id": 80,
       "canonical_name": "Alceu Amoroso Lima",
       "path": "authors/0080.json"
+    }
+  ],
+  "batch_009": [
+    {
+      "author_id": 81,
+      "canonical_name": "Leonardo van Acker",
+      "path": "authors/0081.json"
+    },
+    {
+      "author_id": 82,
+      "canonical_name": "João Cruz Costa",
+      "path": "authors/0082.json"
+    },
+    {
+      "author_id": 83,
+      "canonical_name": "Caio Prado Jr.",
+      "path": "authors/0083.json"
+    },
+    {
+      "author_id": 84,
+      "canonical_name": "Álvaro Vieira Pinto",
+      "path": "authors/0084.json"
+    },
+    {
+      "author_id": 85,
+      "canonical_name": "Miguel Reale",
+      "path": "authors/0085.json"
+    },
+    {
+      "author_id": 86,
+      "canonical_name": "Florestan Fernandes",
+      "path": "authors/0086.json"
+    },
+    {
+      "author_id": 87,
+      "canonical_name": "Luís Washington Vita",
+      "path": "authors/0087.json"
+    },
+    {
+      "author_id": 88,
+      "canonical_name": "Paulo Freire",
+      "path": "authors/0088.json"
+    },
+    {
+      "author_id": 89,
+      "canonical_name": "Henrique Cláudio de Lima Vaz",
+      "path": "authors/0089.json"
+    },
+    {
+      "author_id": 90,
+      "canonical_name": "Hilton Ferreira Japiassu",
+      "path": "authors/0090.json"
     }
   ]
 }
