@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "author_id": 8,
+  "canonical_name": "Antonio Rubio",
+  "alternate_names": [
+    "Antonius Rubius"
+  ],
+  "life": {
+    "born": {
+      "year": 1548,
+      "certainty": "source_conflict"
+    },
+    "died": {
+      "year": 1615,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "catalog_seeded_identity_conflict_noted",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0008-w001",
+      "title": "Commentarii in universam Aristotelis Dialecticam",
+      "work_type": "logic_commentary",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1603,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1603,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Aristóteles",
+          "provenance": "catalog"
+        },
+        {
+          "term": "lógica mexicana",
+          "provenance": "scholarly"
+        }
+      ]
+    },
+    {
+      "work_id": "0008-w002",
+      "title": "Poeticarum institutionum liber",
+      "work_type": "poetics_rhetoric_textbook",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1605,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1605,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poética",
+          "provenance": "catalog"
+        },
+        {
+          "term": "lengua latina",
+          "provenance": "catalog"
+        },
+        {
+          "term": "enseñanza",
+          "provenance": "catalog"
+        }
+      ]
+    },
+    {
+      "work_id": "0008-w003",
+      "title": "Commentarii in libros Aristotelis De caelo et mundo",
+      "work_type": "natural_philosophy_commentary",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1615,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1615,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Aristóteles",
+          "provenance": "catalog"
+        },
+        {
+          "term": "filosofía natural",
+          "provenance": "inferred"
+        },
+        {
+          "term": "cosmología",
+          "provenance": "inferred"
+        }
+      ]
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "author_catalog",
+      "title": "Obras de Rubio, Antonio",
+      "url": "https://www.cervantesvirtual.com/portales/real_academia_espanola/obras/autor/rubio-antonio-si-1568-1615-23058",
+      "publisher": "Biblioteca Virtual Miguel de Cervantes"
+    },
+    {
+      "kind": "institutional_bibliography",
+      "title": "Antonio Rubio en la filosofía novohispana",
+      "url": "https://www.iifilologicas.unam.mx/chiifl9/doku.php/antonio_rubio_en_la_filosof%C3%ADa_novohispana",
+      "publisher": "UNAM, Instituto de Investigaciones Filológicas"
+    }
+  ],
+  "research_notes": [
+    "Conflicto de autoridad: UNAM usa 1548-1615; el registro mostrado por Cervantes usa 1568?-1615. No resolver silenciosamente."
+  ]
+}
