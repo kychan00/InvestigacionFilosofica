@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "author_id": 169,
+  "canonical_name": "Julio Enrique Blanco de La Rosa",
+  "alternate_names": [
+    "Julio Enrique Blanco"
+  ],
+  "life": {
+    "born": {
+      "year": 1890,
+      "date": "1890-05-17",
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 1986,
+      "date": "1986-07-18",
+      "certainty": "project_primary_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "source_checked_major_publications_not_full_oeuvre",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0169-w001",
+      "title": "De la causalidad biológica",
+      "work_type": "philosophy_of_biology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1917,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1917,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "causalidad biológica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "notes": "Estudio crítico reproduce ensayo original fechado 1917 dentro de Obra en Blanco; edición moderna no fecha composición a año del volumen recopilatorio."
+    },
+    {
+      "work_id": "0169-w002",
+      "title": "Sobre el origen y desarrollo de las ideas teleológicas en Kant",
+      "work_type": "history_of_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teleología",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Kant",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "related_people": [
+        {
+          "name": "Immanuel Kant",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0169-w003",
+      "title": "La contingencia de la vida ¿conduce al vitalismo psíquico de Bergson?",
+      "work_type": "philosophy_of_biology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Bergson",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "contingencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "related_people": [
+        {
+          "name": "Henri Bergson",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0169-w004",
+      "title": "La utilidad pedagógica de la filosofía",
+      "work_type": "philosophy_of_education_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ]
+    },
+    {
+      "work_id": "0169-w005",
+      "title": "Progreso material y progreso espiritual",
+      "work_type": "cultural_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "progreso material",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "progreso espiritual",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ]
+    },
+    {
+      "work_id": "0169-w006",
+      "title": "Newton, valor inglés de la cultura universal",
+      "work_type": "history_of_science_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Newton",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "cultura",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "related_people": [
+        {
+          "name": "Isaac Newton",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0169-w007",
+      "title": "Razonamiento sobre el panamericanismo",
+      "work_type": "political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "panamericanismo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ]
+    },
+    {
+      "work_id": "0169-w008",
+      "title": "Tres mentalidades, tres pueblos, tres novelas",
+      "work_type": "literary_philosophical_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mentalidades",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "novelas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ]
+    },
+    {
+      "work_id": "0169-w009",
+      "title": "Sistema nuevo de la metafísica",
+      "work_type": "unpublished_metaphysical_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "attributed_unpublished_work",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "notes": "Bibliografía de 1988 menciona manuscrito inédito sin fecha, no inventar publicación."
+    },
+    {
+      "work_id": "0169-w010",
+      "title": "Spengler y Toynbee: en torno de una filosofía de la historia",
+      "work_type": "unpublished_history_of_philosophy_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "attributed_unpublished_work",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Spengler",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Toynbee",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "filosofía de la historia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "notes": "Manuscrito inédito según bibliografía histórica, primera publicación desconocida."
+    },
+    {
+      "work_id": "0169-w011",
+      "title": "Concepto rectificado de la poesía en Colombia",
+      "work_type": "unpublished_literary_philosophy_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "attributed_unpublished_work",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "poesía",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "Colombia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/j.ctv1tqcwhm"
+      ],
+      "notes": "Texto reportado como inédito, no equiparar a edición impresa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0169-c001",
+      "title": "Fundación y promoción de instituciones museísticas y educativas vinculadas al Museo del Atlántico y a la Universidad del Atlántico",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0169-c002",
+      "title": "Desarrollo de un amplio corpus de metafísica, filosofía de la cultura y estudios de Kant y Hegel, parte del cual permanece inédito",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_research_text_anthology",
+      "title": "Editorial académica: Obra en Blanco, estudios y textos originales 1909–1920",
+      "url": "https://www.jstor.org/stable/j.ctv1tqcwhm"
+    },
+    {
+      "kind": "historical_research_bibliography",
+      "title": "Estudio biobibliográfico sobre Julio Enrique Blanco de La Rosa",
+      "url": "https://biblioarchivo.bogota.gov.co/opac-tmpl/IMG_CINEP1/DA01-1988-2S-1.pdf"
+    },
+    {
+      "kind": "university_journal",
+      "title": "Universidad del Norte / Revista Huellas: estudios sobre Blanco",
+      "url": "https://www.uninorte.edu.co/web/huellas"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte, Perú, Ecuador y Colombia, pp. 932–940"
+    }
+  ],
+  "research_notes": [
+    "Obra en Blanco es un libro de edición e investigación sobre Blanco, NO obra escrita íntegramente por él; se recuperan sus textos antiguos sin atribuir autoría del volumen moderno.",
+    "La bibliografía de 1988 señala que los inéditos superan en número los impresos; la ficha es necesariamente parcial.",
+    "Algunas referencias atribuyen títulos a manuscritos, se conservan con `first_publication_year=null`."
+  ]
+}
