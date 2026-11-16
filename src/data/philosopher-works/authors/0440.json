@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "author_id": 440,
+  "canonical_name": "Adolfo Carpio",
+  "alternate_names": [
+    "Adolfo P. Carpio"
+  ],
+  "life": {
+    "born": {
+      "year": 1923,
+      "certainty": "foundation_biographical_source"
+    },
+    "died": {
+      "year": 1996,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0440-w001",
+      "title": "Principios de filosofía: una introducción a su problemática",
+      "work_type": "philosophy_textbook_and_systematic_introduction",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "edition_history_reproduced_in_bibliographic_source"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9509115010"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "introducción a la filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "catalog"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogo.umet.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=1803",
+        "https://studylib.es/doc/7546387/principios-de-filosof%C3%ADa-%E2%80%93-adolfo-carpio"
+      ],
+      "notes": "La historia editorial reproducida en la edición posterior indica primera edición en 1974. El catálogo UMET confirma autor, título, edición moderna e ISBN de la segunda edición/reimpresión; el ISBN no se presenta como identificador de la primera edición de 1974, sino de la edición consultada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza sistemática de metafísica, historia de la filosofía y problemática filosófica en la universidad argentina",
+      "kind": "argentine_metaphysics_and_philosophy_teaching_contribution",
+      "authorship_status": "documented_in_foundation_and_library_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "foundation_biographical_source",
+      "title": "Fundación Konex — Adolfo Carpio",
+      "url": "https://www.fundacionkonex.org/b48-adolfo-carpio"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "UMET — Principios de filosofía",
+      "url": "https://catalogo.umet.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=1803"
+    }
+  ],
+  "research_notes": [
+    "La primera edición se fecha 1974 según historia editorial reproducida en una edición posterior; el catálogo UMET disponible corresponde a una segunda edición/reimpresión de 2004.",
+    "Páginas de Filosofía y El filósofo en el mundo de hoy son mencionados por Fundación Konex, pero se dejan fuera hasta fijar sus primeras ediciones."
+  ]
+}
