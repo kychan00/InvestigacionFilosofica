@@ -42,6 +42,24 @@ body {
 }
 button, input { font: inherit; }
 a { color: inherit; }
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  left: 16px;
+  top: 12px;
+  padding: 10px 14px;
+  border: 2px solid var(--latam-gold);
+  background: var(--latam-green);
+  color: #fff3d6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 120ms ease;
+}
+.skip-link:focus { transform: translateY(0); }
 .latam-page {
   min-height: 100vh;
   overflow: hidden;
@@ -1027,6 +1045,35 @@ button.mini-author:hover { transform: translateY(-2px); }
   font-size: 12px;
   line-height: 1.65;
 }
+.author-contribution-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.author-contribution-list li {
+  padding: 15px 16px;
+  border-left: 4px solid var(--latam-gold);
+  background: color-mix(in srgb, var(--latam-card) 88%, var(--latam-gold));
+}
+.author-contribution-list strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+.author-contribution-list small {
+  display: block;
+  margin-top: 7px;
+  color: var(--latam-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
 .author-source-list {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
