@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 227,
+  "canonical_name": "Manuel del Camino",
+  "alternate_names": [
+    "Fray Manuel del Camino"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "manuscript_course_attested_no_independent_printed_book_verified",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0227-w001",
+      "title": "Curso de filosofía (manuscrito), con tratado de Física",
+      "work_type": "scholastic_philosophical_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_and_lectures_dated_without_confirmed_print_publication",
+        "period": {
+          "start": 1750,
+          "end": 1752
+        }
+      },
+      "first_publication_year": null,
+      "authorship_status": "manuscript_attribution_documented_in_scholarly_catalog",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "curso de filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "física",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.colmex.mx/downloads/0k225f90c?locale=es",
+        "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+      ],
+      "manuscript_evidence": [
+        {
+          "repository": "Biblioteca Nacional de México",
+          "catalog": "Bernabé Navarro, La introducción de la filosofía moderna en México",
+          "reference": "MS xi.3.19",
+          "documented_course_year": 1750,
+          "physics_section_year": 1752
+        }
+      ],
+      "scholastic_order": "Orden Franciscana (OFM)",
+      "teaching_institution": "Convento de las Santas Llagas de San Francisco, Puebla, Nueva España",
+      "notes": "Navarro registra enseñanza del curso en 1750 y fecha interna de Física en 1752. La fecha de redacción de la sección no permite fijar la primera publicación impresa. No se ha corroborado un incipit latino propio del curso; el título castellano es descriptivo, no transcripción literal de portada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0227-c001",
+      "title": "Docencia de filosofía natural y escolástica en el Convento de las Santas Llagas de Puebla",
+      "kind": "colonial_philosophical_teaching_contribution",
+      "authorship_status": "documented_in_academic_history",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "academic_historical_monograph",
+      "title": "Bernabé Navarro, La introducción de la filosofía moderna en México (El Colegio de México, 1948), apartado «Fr. Manuel del Camino»",
+      "url": "https://repositorio.colmex.mx/downloads/0k225f90c?locale=es"
+    },
+    {
+      "kind": "scholarly_history_of_philosophy",
+      "title": "Mauricio Beuchot, Historia de la filosofía en el México colonial",
+      "url": "https://dokumen.pub/historia-de-la-filosofia-en-el-mexico-colonial.html"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "locator": "Mauricio Beuchot, «La enseñanza de la filosofía», periodo colonial; cursos novohispanos del siglo XVIII"
+    }
+  ],
+  "research_notes": [
+    "Título latino original no confirmado; registrar el rótulo en español como descriptivo sin presentarlo como título histórico literal."
+  ]
+}
