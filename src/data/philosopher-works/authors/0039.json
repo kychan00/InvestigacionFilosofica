@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "author_id": 39,
+  "canonical_name": "Gabriel García Moreno",
+  "alternate_names": [
+    "Gabriel Gregorio Fernando José María García y Moreno y Morán de Butrón"
+  ],
+  "life": {
+    "born": {
+      "year": 1821,
+      "certainty": "standard"
+    },
+    "died": {
+      "year": 1875,
+      "certainty": "standard"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "major_doctrinal_pamphlet_periodical_projects_correspondence_and_presidential_documents_seeded",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0039-w001",
+      "title": "El Zurriago",
+      "work_type": "political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1846,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1846,
+      "authorship_status": "founder_editor_contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sátira política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "oposición",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0039-w002",
+      "title": "El Vengador",
+      "work_type": "political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1846,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1846,
+      "authorship_status": "founder_editor_contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "crítica política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "periodismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0039-w003",
+      "title": "El Diablo",
+      "work_type": "political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1847,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1847,
+      "authorship_status": "founder_editor_contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oposición política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Juan José Flores",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0039-w004",
+      "title": "Defensa de los Jesuitas",
+      "work_type": "political_religious_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1851,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1851,
+      "authorship_status": "verified",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "jesuitas",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "educación pública",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "democracia",
+          "provenance": "primary_text"
+        }
+      ]
+    },
+    {
+      "work_id": "0039-w005",
+      "title": "La Nación",
+      "work_type": "political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "founder_editor_contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oposición a Urbina",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conservadurismo",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0039-w006",
+      "title": "La Unión Nacional",
+      "work_type": "political_periodical_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1857,
+        "certainty": "publication"
+      },
+      "first_publication_year": 1857,
+      "authorship_status": "founder_editor_contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "oposición conservadora",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política ecuatoriana",
+          "provenance": "inferred"
+        }
+      ]
+    },
+    {
+      "work_id": "0039-w007",
+      "title": "Cartas de Gabriel García Moreno",
+      "work_type": "correspondence_corpus",
+      "original_language": "español",
+      "original_date": {
+        "start": 1846,
+        "end": 1875,
+        "certainty": "corpus_range"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "verified_posthumously_collected_corpus",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Wilfrido Loor",
+          "role": "compiler_editor"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "correspondencia política",
+          "provenance": "catalog"
+        },
+        {
+          "term": "Ecuador",
+          "provenance": "catalog"
+        },
+        {
+          "term": "gobierno",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Publicada en varios tomos que cubren distintos periodos; debe desglosarse carta por carta."
+    },
+    {
+      "work_id": "0039-w008",
+      "title": "Constitución de la República del Ecuador de 1869",
+      "work_type": "constitution",
+      "original_language": "español",
+      "original_date": {
+        "year": 1869,
+        "certainty": "promulgation"
+      },
+      "first_publication_year": 1869,
+      "authorship_status": "institutional_not_personal_author",
+      "coauthors": [],
+      "contributors": [
+        {
+          "name": "Convención Nacional del Ecuador de 1869",
+          "role": "constitutional_body"
+        }
+      ],
+      "related_people": [
+        {
+          "name": "Gabriel García Moreno",
+          "role": "president_and_political_promoter"
+        }
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Constitución de 1869",
+          "provenance": "catalog"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "presidencialismo",
+          "provenance": "inferred"
+        }
+      ],
+      "notes": "Se conserva como documento relacionado con su proyecto político, sin atribuirle redacción individual."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "library_catalog",
+      "title": "Cartas de Gabriel García Moreno (1868-1875)",
+      "url": "https://biblioteca.casadelacultura.gob.ec/bib/23091",
+      "publisher": "Casa de la Cultura Ecuatoriana"
+    },
+    {
+      "kind": "bibliographic_portal",
+      "title": "Gabriel García Moreno — books",
+      "url": "https://onlinebooks.library.upenn.edu/webbin/who/Garc%26iacute%3Ba%20Moreno%2C%20Gabriel%2C%201821-1875",
+      "publisher": "University of Pennsylvania"
+    },
+    {
+      "kind": "government_archive",
+      "title": "Convención Nacional 1869",
+      "url": "https://archivo.asambleanacional.gob.ec/index.php/convencion-nacional-1994",
+      "publisher": "Asamblea Nacional del Ecuador"
+    }
+  ],
+  "research_notes": [
+    "Pendiente desglosar artículos periodísticos, mensajes presidenciales, discursos, decretos y correspondencia.",
+    "Los periódicos se registran como proyectos editoriales con contribución de García Moreno, no como libros de autor único."
+  ]
+}
