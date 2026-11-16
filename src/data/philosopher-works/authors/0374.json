@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "author_id": 374,
+  "canonical_name": "Máximo Gómez",
+  "alternate_names": [
+    "Máximo Gómez Báez"
+  ],
+  "life": {
+    "born": {
+      "year": 1836,
+      "certainty": "library_authority"
+    },
+    "died": {
+      "year": 1905,
+      "certainty": "library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0374-w001",
+      "title": "Manifiesto de Montecristi",
+      "work_type": "collective_independence_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "dated_archival_document"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "coauthor_and_signatory",
+      "coauthors": [
+        "José Martí"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "independencia de Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Partido Revolucionario Cubano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "república",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "guerra de independencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OPPUB&idpag=0909273460&informatico=00040544PI&suposi=13"
+      ],
+      "notes": "Documento fechado y firmado en Montecristi el 25 de marzo de 1895 por José Martí y Máximo Gómez. Se registra obligatoriamente como coautoría; no se atribuye el manifiesto en exclusiva a Gómez."
+    },
+    {
+      "work_id": "0374-w002",
+      "title": "Diario de campaña, 1868-1899",
+      "work_type": "campaign_diary_manuscript_later_published",
+      "original_language": "español",
+      "original_date": {
+        "year": 1868,
+        "certainty": "diary_begins_in_1868_and_continues_to_1899"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_diary_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Guerra de los Diez Años",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Guerra de Independencia de Cuba",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memorias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "campaña militar",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/36b32f1f-2665-4e93-89fc-eff953b80f16",
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=26590&query_desc="
+      ],
+      "notes": "Diario escrito a lo largo de las campañas entre 1868 y 1899; la primera edición comprobada en la Biblioteca Nacional Pedro Henríquez Ureña es La Habana, 1940, preparada por la Comisión del Archivo de Máximo Gómez. La fecha editorial no se confunde con las fechas de redacción."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirección militar y formulación política de la guerra independentista cubana, con articulación antillana desde Montecristi",
+      "kind": "cuban_independence_military_and_political_contribution",
+      "authorship_status": "documented_in_archival_and_library_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "archival_primary_source",
+      "title": "Archivo General de la Nación RD — Manifiesto de José Martí y Máximo Gómez, 25 marzo 1895",
+      "url": "https://colecciones.agn.gob.do/opac/ficha.php?codopac=OPPUB&idpag=0909273460&informatico=00040544PI&suposi=13"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "BNPHU — Diario de campaña del mayor general Máximo Gómez, edición 1940",
+      "url": "https://bd.bnphu.gob.do/items/36b32f1f-2665-4e93-89fc-eff953b80f16"
+    }
+  ],
+  "research_notes": [
+    "El Manifiesto de Montecristi es una coautoría Martí-Gómez.",
+    "El Diario se trata como un único corpus manuscrito de larga duración, no como múltiples obras por año."
+  ]
+}
