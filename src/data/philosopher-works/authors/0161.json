@@ -1,0 +1,611 @@
+{
+  "schema_version": 1,
+  "author_id": 161,
+  "canonical_name": "Francisco Miró Quesada",
+  "alternate_names": [
+    "José Francisco Miró-Quesada Cantuarias",
+    "Francisco Miró Quesada Cantuarias"
+  ],
+  "life": {
+    "born": {
+      "year": 1918,
+      "certainty": "project_primary_source"
+    },
+    "died": {
+      "year": 2019,
+      "certainty": "Peru_Ministry_of_Culture"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_works_with_sources_not_exhaustive",
+    "last_reviewed": "2026-11-15"
+  },
+  "works": [
+    {
+      "work_id": "0161-w001",
+      "title": "Sentido del movimiento fenomenológico",
+      "work_type": "phenomenology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_pending"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "movimiento fenomenológico",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "first_publication_year_candidates": [
+        1940,
+        1941
+      ],
+      "source_conflict": true,
+      "notes": "Repertorios divergen sobre 1940/1941; fecha de volumen y artículo inicial requiere ejemplar."
+    },
+    {
+      "work_id": "0161-w002",
+      "title": "El problema de la libertad y la ciencia",
+      "work_type": "philosophical_essay_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w003",
+      "title": "Lógica",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w004",
+      "title": "La lógica del deber ser y su eliminabilidad",
+      "work_type": "conference_paper",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "conference"
+      },
+      "first_publication_year": null,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "deber ser",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "notes": "Ponencia de 1951; primera edición impresa por verificar."
+    },
+    {
+      "work_id": "0161-w005",
+      "title": "Teoría de la deducción jurídica",
+      "work_type": "legal_logic_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "deducción jurídica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "publication_context": "Diánoia, primer volumen (1955)"
+    },
+    {
+      "work_id": "0161-w006",
+      "title": "Sobre una definición de la lógica",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.21.54-55.8",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "definición",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1828"
+      ],
+      "publication_context": "Letras, vol. 21, núms. 54–55, pp. 159–163; publicado 23 dic. 1955."
+    },
+    {
+      "work_id": "0161-w007",
+      "title": "Problemas fundamentales de la lógica jurídica",
+      "work_type": "legal_logic_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica jurídica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "notes": "Tesis jurídica previa a la edición de 1956; la primera versión académica circuló antes. No duplicar tesis y libro sin cotejo."
+    },
+    {
+      "work_id": "0161-w008",
+      "title": "Iniciación lógica",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w009",
+      "title": "La otra mitad del mundo. Volumen I",
+      "work_type": "philosophical_travel_essay_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mitad del mundo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "notes": "Primero de dos tomos; títulos internos pendientes."
+    },
+    {
+      "work_id": "0161-w010",
+      "title": "La otra mitad del mundo. Volumen II",
+      "work_type": "philosophical_travel_essay_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mitad del mundo",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w011",
+      "title": "Apuntes para una teoría de la razón",
+      "work_type": "epistemology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría de la razón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w012",
+      "title": "Humanismo y revolución",
+      "work_type": "political_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "revolución",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w013",
+      "title": "Despertar y proyecto del filosofar latinoamericano",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofar latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w014",
+      "title": "Filosofía de las matemáticas",
+      "work_type": "philosophy_of_mathematics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "matemáticas",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w015",
+      "title": "Proyecto y realización del filosofar latinoamericano",
+      "work_type": "latin_american_philosophy_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofar latinoamericano",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w016",
+      "title": "Ensayos de filosofía del derecho",
+      "work_type": "legal_philosophy_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w017",
+      "title": "Razón e historia en Ortega y Gasset",
+      "work_type": "history_of_philosophy_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ortega y Gasset",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        },
+        {
+          "term": "historia",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "related_people": [
+        {
+          "name": "José Ortega y Gasset",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "work_id": "0161-w018",
+      "title": "Para iniciarse en la filosofía",
+      "work_type": "philosophy_introductory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ]
+    },
+    {
+      "work_id": "0161-w019",
+      "title": "Esquema de una teoría de la razón",
+      "work_type": "epistemology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2013,
+        "certainty": "bibliographically_documented_publication"
+      },
+      "first_publication_year": 2013,
+      "authorship_status": "bibliographically_documented",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "razón",
+          "provenance": "primary_title"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/archive/ALEFMQ.pdf"
+      ],
+      "notes": "Título distinto de Apuntes para una teoría de la razón (1963); determinar posteriormente relación textual o revisión."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "contribution_id": "0161-c001",
+      "title": "Investigación, enseñanza y difusión de la lógica matemática moderna y sus aplicaciones en el Perú",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    },
+    {
+      "contribution_id": "0161-c002",
+      "title": "Presidencia de la Federación Internacional de Sociedades de Filosofía y organización de debates sobre filosofar latinoamericano",
+      "kind": "historical_or_institutional_contribution",
+      "authorship_status": "documented",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "scholarly_author_bibliography",
+      "title": "South American Journal of Logic: Francisco Miró Quesada Cantuarias’ Bibliography (2020)",
+      "url": "https://philpapers.org/archive/ALEFMQ.pdf"
+    },
+    {
+      "kind": "government_biography",
+      "title": "Ministerio de Cultura Perú: Francisco Miró Quesada Cantuarias (1918–2019)",
+      "url": "https://lum.cultura.pe/cdi/fotografia/pensadores-peruanos-francisco-miro-quesada"
+    },
+    {
+      "kind": "university_journal_primary_source",
+      "title": "Universidad Nacional Mayor de San Marcos, Revista Letras, Sobre una definición de la lógica",
+      "url": "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1828"
+    },
+    {
+      "kind": "university_scholarly_study",
+      "title": "PUCP: Francisco Miró Quesada y la difusión de la lógica",
+      "url": "https://repositorio.pucp.edu.pe/items/a5684324-55a9-4bb2-99c7-8ad2cb47d2c0"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000)",
+      "locator": "Cuarta parte: Perú, Ecuador y Colombia, pp. 924–940"
+    }
+  ],
+  "research_notes": [
+    "Casi 200 entradas académicas registradas por bibliografía crítica de Bartolo Alegre y Cárdenas Maldonado (2020); esta semilla es selectiva, NO exhaustiva.",
+    "El DOI 10.30920/letras.21.54-55.8 se aplica al artículo específico, no al libro."
+  ]
+}
