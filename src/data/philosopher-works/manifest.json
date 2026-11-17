@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 680,
-    "authors_remaining": 824,
-    "works_or_contributions_seeded": 4755,
-    "current_batch": "068",
+    "authors_seeded": 690,
+    "authors_remaining": 814,
+    "works_or_contributions_seeded": 4901,
+    "current_batch": "069",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3567,6 +3567,58 @@
       "author_id": 680,
       "canonical_name": "Gustavo Corção",
       "path": "authors/0680.json"
+    }
+  ],
+  "batch_069": [
+    {
+      "author_id": 681,
+      "canonical_name": "Armando Câmara",
+      "path": "authors/0681.json"
+    },
+    {
+      "author_id": 682,
+      "canonical_name": "Godofredo da Silva Teles",
+      "path": "authors/0682.json"
+    },
+    {
+      "author_id": 683,
+      "canonical_name": "Vieira Melo",
+      "path": "authors/0683.json"
+    },
+    {
+      "author_id": 684,
+      "canonical_name": "Ubaldo Puppi",
+      "path": "authors/0684.json"
+    },
+    {
+      "author_id": 685,
+      "canonical_name": "Cândido Méndez",
+      "path": "authors/0685.json"
+    },
+    {
+      "author_id": 686,
+      "canonical_name": "Mario Alzamora Valdez",
+      "path": "authors/0686.json"
+    },
+    {
+      "author_id": 687,
+      "canonical_name": "Gerardo Alarco",
+      "path": "authors/0687.json"
+    },
+    {
+      "author_id": 688,
+      "canonical_name": "Felipe MacGregor",
+      "path": "authors/0688.json"
+    },
+    {
+      "author_id": 689,
+      "canonical_name": "Antonio San Cristóbal",
+      "path": "authors/0689.json"
+    },
+    {
+      "author_id": 690,
+      "canonical_name": "Jesús de Guiza y Acevedo",
+      "path": "authors/0690.json"
     }
   ]
 }
