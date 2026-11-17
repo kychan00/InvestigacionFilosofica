@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 650,
-    "authors_remaining": 854,
-    "works_or_contributions_seeded": 4332,
-    "current_batch": "065",
+    "authors_seeded": 660,
+    "authors_remaining": 844,
+    "works_or_contributions_seeded": 4487,
+    "current_batch": "066",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3411,6 +3411,58 @@
       "author_id": 650,
       "canonical_name": "Eugenio Imaz",
       "path": "authors/0650.json"
+    }
+  ],
+  "batch_066": [
+    {
+      "author_id": 651,
+      "canonical_name": "Jaime Serra Hunter",
+      "path": "authors/0651.json"
+    },
+    {
+      "author_id": 652,
+      "canonical_name": "Jorge Mañach",
+      "path": "authors/0652.json"
+    },
+    {
+      "author_id": 653,
+      "canonical_name": "Humberto Piñera Llera",
+      "path": "authors/0653.json"
+    },
+    {
+      "author_id": 654,
+      "canonical_name": "Rafael García Bárcena",
+      "path": "authors/0654.json"
+    },
+    {
+      "author_id": 655,
+      "canonical_name": "Máximo Castro Turbiano",
+      "path": "authors/0655.json"
+    },
+    {
+      "author_id": 656,
+      "canonical_name": "José Ignacio Lasaga",
+      "path": "authors/0656.json"
+    },
+    {
+      "author_id": 657,
+      "canonical_name": "Mercedes García Tudurí",
+      "path": "authors/0657.json"
+    },
+    {
+      "author_id": 658,
+      "canonical_name": "Rosaura García Tudurí",
+      "path": "authors/0658.json"
+    },
+    {
+      "author_id": 659,
+      "canonical_name": "José Antonio Fránquiz",
+      "path": "authors/0659.json"
+    },
+    {
+      "author_id": 660,
+      "canonical_name": "Domingo Marrero",
+      "path": "authors/0660.json"
     }
   ]
 }

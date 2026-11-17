@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "author_id": 656,
+  "canonical_name": "José Ignacio Lasaga",
+  "alternate_names": [
+    "José Ignacio Lasaga Travieso",
+    "José I. Lasaga"
+  ],
+  "life": {
+    "born": {
+      "year": 1916,
+      "certainty": "Piñera_1960_historical_account"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_primary_works_and_editions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "656-w001",
+      "title": "Lógica I",
+      "work_type": "logic_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "primary_journal_or_library_bibliography"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://filosofia.org/aut/001/1960hpi.htm"
+      ],
+      "notes": "Acreditado en Dussel et al.; comprobar edición material y posible continuidad de volúmenes posteriores."
+    },
+    {
+      "work_id": "656-w002",
+      "title": "Manual de introducción a la filosofía",
+      "work_type": "philosophy_introductory_manual",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "primary_journal_or_library_bibliography"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://filosofia.org/aut/001/1960hpi.htm"
+      ],
+      "notes": "Dussel et al. documentan edición 1944; revisar si edición antecedente de Introducción a la filosofía de 1953."
+    },
+    {
+      "work_id": "656-w003",
+      "title": "Curso sintético de religión: el dogma",
+      "work_type": "Catholic_religion_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "primary_journal_or_library_bibliography"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ensayistas.org/critica/cuba/fornet/delgado2.htm"
+      ],
+      "notes": "Acreditado por historia del pensamiento cubano y libro base."
+    },
+    {
+      "work_id": "656-w004",
+      "title": "Espíritu e ideales de la Escuela Profesional de Psicología",
+      "work_type": "institutional_philosophy_lecture",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "primary_journal_or_library_bibliography"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/hem/dep/rcf/n06p067.htm"
+      ],
+      "notes": "Discurso pronunciado al inaugurar la Escuela Profesional de Psicología en octubre de 1950; publicación autónoma no acreditada."
+    },
+    {
+      "work_id": "656-w005",
+      "title": "Introducción a la filosofía",
+      "work_type": "philosophy_introductory_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "primary_journal_or_library_bibliography"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ensayistas.org/critica/cuba/fornet/delgado2.htm"
+      ],
+      "notes": "Librería Selecta La Habana, tercera edición 1953 según estudio historiográfico; primera edición del título queda por establecer."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Director de la Escuela Profesional de Psicología de la Universidad Católica de Santo Tomás de Villanueva y transmisor de un enfoque neotomista de antropología y axiología.",
+      "kind": "documented_institutional_and_philosophical_contribution",
+      "authorship_status": "documented_in_scholarly_or_primary_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_historiography",
+      "title": "Ignacio Delgado González, pensamiento filosófico en Cuba",
+      "url": "https://www.ensayistas.org/critica/cuba/fornet/delgado2.htm"
+    },
+    {
+      "kind": "specialized_edited_primary_source",
+      "title": "Humberto Piñera, Panorama de la filosofía cubana, filosofía actual (1960)",
+      "url": "https://filosofia.org/aut/001/1960hpi.htm"
+    },
+    {
+      "kind": "primary_historical_journal",
+      "title": "RCF, Recuento de actividades filosóficas (1950), José Ignacio Lasaga Travieso",
+      "url": "https://www.filosofia.org/hem/dep/rcf/n06p067.htm"
+    }
+  ],
+  "research_notes": [
+    "Identificación ampliada: José Ignacio Lasaga Travieso, distinta de otros Lasaga actuales.",
+    "Introducción a la filosofía (1953) es tercera edición; se conserva fecha de composición o edición como nota y no se afirma primera edición.",
+    "Manual de introducción a la filosofía (1944) podría ser antecedente/reformulación del de 1953. Se registran ambos títulos para futura revisión de portada.",
+    "Discurso de 1950 no se cuenta como primera publicación comprobada: first_publication_year null."
+  ]
+}
