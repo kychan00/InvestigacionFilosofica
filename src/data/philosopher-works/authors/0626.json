@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "author_id": 626,
+  "canonical_name": "Ricardo Pasos",
+  "alternate_names": [
+    "Ricardo Pasos Marciacq",
+    "Ricardo Pasos Marciaq"
+  ],
+  "life": {
+    "born": {
+      "year": 1939,
+      "certainty": "Nicaraguan_literary_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0626-w001",
+      "title": "De la mujer, la belleza y el arte (Prosemas)",
+      "work_type": "aesthetic_prose_poem_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "secondary_author_biography"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mujer",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "belleza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://escritores-nicaragenses.blogspot.com/"
+      ],
+      "notes": "Bibliografía de autores nicaragüenses refiere colección de prosemas de 1992; La Prensa indica prosemas difundidos en periódicos y revistas. La comprobación de edición física autónoma queda pendiente."
+    },
+    {
+      "work_id": "0626-w002",
+      "title": "Nicarao Calli Teote Güegüense (Prosemas históricos)",
+      "work_type": "Nicaraguan_historical_poetics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nicarao",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Güegüense",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria cultural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://escritores-nicaragenses.blogspot.com/"
+      ],
+      "notes": "Título con variantes ortográficas Nicaraocalli / Nicarao Calli según fuentes; se registra forma del repertorio y variante en notas."
+    },
+    {
+      "work_id": "0626-w003",
+      "title": "El burdel de las Pedrarias",
+      "work_type": "Nicaraguan_historical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "historia nicaragüense",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conquista",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://escritores-nicaragenses.blogspot.com/",
+        "https://www.laprensani.com/2001/11/29/nacionales/779154-en-m-est-la-indagacin-sobre-el-alma-de-la-mujer"
+      ],
+      "notes": "Novela histórica con primera aparición en 1995. Catálogo URACCAN muestra séptima edición en 2004, no obra nueva."
+    },
+    {
+      "work_id": "0626-w004",
+      "title": "María Manuela Piel de Luna",
+      "work_type": "Nicaraguan_historical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura nicaragüense",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.laprensani.com/2001/11/29/nacionales/779154-en-m-est-la-indagacin-sobre-el-alma-de-la-mujer",
+        "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-search.pl?count=20&limit=au%3APasos+Marciacq%2CRicardo&q=ccl%3DProvider%3AHISPAMER+and+%28+%28allrecords%2CAlwaysMatches%3D%27%27%29+and+%28not-onloan-count%2Cst-numeric+%3E%3D+1%29+and+%28lost%2Cst-numeric%3D0%29+%29&sort_by=relevance_dsc"
+      ],
+      "notes": "La Prensa y perfil del autor fechan novela hacia 1996; catálogo URACCAN registra ejemplares 1999 y 2000. No contar distintas ediciones."
+    },
+    {
+      "work_id": "0626-w005",
+      "title": "Julia y los recuerdos del silencio",
+      "work_type": "Nicaraguan_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "recuerdo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "silencio",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "memoria",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.laprensani.com/2001/11/29/nacionales/779154-en-m-est-la-indagacin-sobre-el-alma-de-la-mujer",
+        "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-search.pl?count=20&limit=au%3APasos+Marciacq%2CRicardo&q=ccl%3DProvider%3AHISPAMER+and+%28+%28allrecords%2CAlwaysMatches%3D%27%27%29+and+%28not-onloan-count%2Cst-numeric+%3E%3D+1%29+and+%28lost%2Cst-numeric%3D0%29+%29&sort_by=relevance_dsc"
+      ],
+      "notes": "Primera edición del 2000; URACCAN cataloga segunda edición del 2002."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filosofía y estética en docencia nicaragüense, articuladas con la literatura histórica y los prosemas sobre belleza",
+      "kind": "Nicaraguan_aesthetics_historical_poetics_and_education",
+      "authorship_status": "documented_intellectual_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "Nicaraguan_author_biography",
+      "title": "Escritores nicaragüenses — Ricardo Pasos Marciacq",
+      "url": "https://escritores-nicaragenses.blogspot.com/"
+    },
+    {
+      "kind": "contemporary_author_interview",
+      "title": "La Prensa Nicaragua — entrevista y bibliografía (2001)",
+      "url": "https://www.laprensani.com/2001/11/29/nacionales/779154-en-m-est-la-indagacin-sobre-el-alma-de-la-mujer"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "URACCAN — registros por Ricardo Pasos Marciacq",
+      "url": "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-search.pl?count=20&limit=au%3APasos+Marciacq%2CRicardo&q=ccl%3DProvider%3AHISPAMER+and+%28+%28allrecords%2CAlwaysMatches%3D%27%27%29+and+%28not-onloan-count%2Cst-numeric+%3E%3D+1%29+and+%28lost%2Cst-numeric%3D0%29+%29&sort_by=relevance_dsc"
+    }
+  ],
+  "research_notes": [
+    "El nombre documentado es Ricardo Pasos Marciacq. El canónico abreviado Ricardo Pasos se preserva.",
+    "La producción consta sobre todo de textos literarios, ensayos estéticos y docencia filosófica; se clasifican las novelas como novelas, no monografías filosóficas.",
+    "La fecha de 1992 de los prosemas proviene de biografía secundaria; publicación como volumen autónomo requiere prueba material."
+  ]
+}

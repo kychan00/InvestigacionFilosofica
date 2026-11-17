@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "author_id": 628,
+  "canonical_name": "Isaías García",
+  "alternate_names": [
+    "Isaías García Aponte"
+  ],
+  "life": {
+    "born": {
+      "year": 1927,
+      "certainty": "Panamanian_National_Library_biography"
+    },
+    "died": {
+      "year": 1968,
+      "certainty": "contemporary_obituary"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0628-w001",
+      "title": "Naturaleza y forma de lo panameño",
+      "work_type": "Panamanian_identity_philosophical_thesis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1954,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "identidad panameña",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nacionalidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://binal.ac.pa/recursos-digitales/coleccion-biblioteca-de-la-nacionalidad/",
+        "https://repositorio.asamblea.gob.pa/bitstream/handle/001/497/1972_203_LNB.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "Tesis de licenciatura presentada en 1954 en la Universidad de Panamá; primera publicación 1956 por Ministerio de Educación. Reimpresión de Biblioteca de la Nacionalidad (1999) no es original nuevo."
+    },
+    {
+      "work_id": "0628-w002",
+      "title": "Andrés Bello: contribución al estudio de la historia de las ideas en América",
+      "work_type": "Andres_Bello_philosophy_doctoral_thesis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Andrés Bello",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía americana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.prensa.com/vivir/huellas-de-andres-bello-en-panama/"
+      ],
+      "notes": "Doctorado defendido en la Universidad de París en 1959; publicado por Imprenta de Universidad de Panamá en 1964. Se distinguen fecha de tesis y primera edición."
+    },
+    {
+      "work_id": "0628-w003",
+      "title": "Andrés Bello, filósofo americano",
+      "work_type": "Andres_Bello_philosophical_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Andrés Bello",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía americana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.asamblea.gob.pa/bitstream/handle/001/325/1966_133_LNB.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "Revista Lotería n.º 127 (1966), pp. 50–53, según índice de Lotería n.º 133; puede ser condensación de libro doctoral de 1964, registrado como artículo autónomo, pendiente cotejo textual."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudios ontológicos sobre la identidad panameña y recuperación de la filosofía de Andrés Bello desde la historia de las ideas",
+      "kind": "Panamanian_national_identity_ontology_and_Bello_philosophy",
+      "authorship_status": "documented_intellectual_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_primary_edition",
+      "title": "Biblioteca Nacional de Panamá — Naturaleza y forma de lo panameño",
+      "url": "https://binal.ac.pa/recursos-digitales/coleccion-biblioteca-de-la-nacionalidad/"
+    },
+    {
+      "kind": "national_library_historical_collection",
+      "title": "Biblioteca Nacional de Panamá — edición de 1999 con biografía",
+      "url": "https://bdigital.binal.ac.pa/bdp/tomoX.pdf"
+    },
+    {
+      "kind": "national_academic_history",
+      "title": "Academia Panameña de la Lengua — tesis doctoral sobre Andrés Bello",
+      "url": "https://www.prensa.com/vivir/huellas-de-andres-bello-en-panama/"
+    },
+    {
+      "kind": "contemporary_scholarly_reception",
+      "title": "Revista Lotería — artículo con fecha de primera edición de 1956",
+      "url": "https://repositorio.asamblea.gob.pa/bitstream/handle/001/497/1972_203_LNB.pdf?isAllowed=y&sequence=1"
+    }
+  ],
+  "research_notes": [
+    "Autor panameño (1927–1968), nacido en El Guarumal, Soná; no identificarlo como nicaragüense.",
+    "El libro Naturaleza y forma de lo panameño (1956) fue reeditado en 1999 en una colección con Panameñismos de Baltazar Isaza Calderón y Cuentos folklóricos de Mario Riera Pinilla: no atribuir esos otros libros a Isaías García."
+  ]
+}

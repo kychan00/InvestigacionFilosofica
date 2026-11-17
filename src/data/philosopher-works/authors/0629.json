@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "author_id": 629,
+  "canonical_name": "José Romano Muñoz",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1890,
+      "certainty": "UNAM_1968_obituary_inferred_from_age_77_discrepancy"
+    },
+    "died": {
+      "year": 1967,
+      "certainty": "UNAM_contemporary_obituary"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0629-w001",
+      "title": "Ni irracionalismo ni racionalismo, sino filosofía crítica",
+      "work_type": "critical_philosophy_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "racionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "irracionalismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "criticismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/44781891/_Samuel_Ramos_y_Jos%C3%A9_Romano_Mu%C3%B1oz_embajadores_de_Ortega_y_Gasset_en_Mexico_XXXVI_Congresso_ILI_dal_26_giugno_al_1_luglio_2006_Palazzo_Ducale_Genova_Italia_Editori_Riuniti_2008_pp_1_8_ISBN_9788835959977"
+      ],
+      "notes": "Revista Ulises, n.º 4, 1927, pp. 4–10, identificada en estudio historiográfico especializado."
+    },
+    {
+      "work_id": "0629-w002",
+      "title": "El secreto del bien y del mal: ética valorativa",
+      "work_type": "value_ethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Max Scheler",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Nicolai Hartmann",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/download/1144/1103"
+      ],
+      "notes": "Primera edición 1938. Segunda edición corregida y ampliada de 1943; quinta de 1961 no se cuenta como una obra nueva."
+    },
+    {
+      "work_id": "0629-w003",
+      "title": "El existencialismo a la luz del buen sentido filosófico",
+      "work_type": "existentialism_criticism_book_or_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/pdf/biblio/v6n1/2594-178X-biblio-6-01-255.pdf"
+      ],
+      "notes": "Fuente académica reciente registra libro o ensayo de 1951; formato editorial exacto pendiente de catálogo primario."
+    },
+    {
+      "work_id": "0629-w004",
+      "title": "Hacia una filosofía existencial: al margen de la nada, de la muerte y de la náusea metafísica",
+      "work_type": "existentialist_humanism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sentido de la vida",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/download/1144/1103"
+      ],
+      "notes": "Primera edición 1953; reseña en Diánoia 1955 es de Adolfo García Díaz, no obra de Romano Muñoz."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción mexicana de la ética fenomenológica de los valores y elaboración de un existencialismo humanista crítico",
+      "kind": "Mexican_Scheler_Hartmann_value_ethics_and_existentialism",
+      "authorship_status": "documented_intellectual_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "UNAM_contemporary_memorial",
+      "title": "Rosa Krauze — En memoria de José Romano Muñoz, Diánoia UNAM (1968)",
+      "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/download/1144/1103"
+    },
+    {
+      "kind": "peer_reviewed_history",
+      "title": "Estudio histórico de filosofía mexicana — El existencialismo a la luz del buen sentido filosófico",
+      "url": "https://www.scielo.org.mx/pdf/biblio/v6n1/2594-178X-biblio-6-01-255.pdf"
+    },
+    {
+      "kind": "specialized_scholarly_study",
+      "title": "Estudio de la recepción de Ortega y Gasset en Romano Muñoz",
+      "url": "https://www.academia.edu/44781891/_Samuel_Ramos_y_Jos%C3%A9_Romano_Mu%C3%B1oz_embajadores_de_Ortega_y_Gasset_en_Mexico_XXXVI_Congresso_ILI_dal_26_giugno_al_1_luglio_2006_Palazzo_Ducale_Genova_Italia_Editori_Riuniti_2008_pp_1_8_ISBN_9788835959977"
+    }
+  ],
+  "research_notes": [
+    "El nacimiento varía entre 1890 (Open Library y obituario de 1968: 77 años) y 1893 (libro-base Dussel); se anota la discrepancia. El año 1890 se consigna provisionalmente por obituario contemporáneo.",
+    "No sumar la reseña de 1955 sobre Hacia una filosofía existencial a la producción del autor, pues pertenece a Adolfo García Díaz."
+  ]
+}

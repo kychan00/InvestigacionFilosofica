@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 620,
-    "authors_remaining": 884,
-    "works_or_contributions_seeded": 3951,
-    "current_batch": "062",
+    "authors_seeded": 630,
+    "authors_remaining": 874,
+    "works_or_contributions_seeded": 4026,
+    "current_batch": "063",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3255,6 +3255,58 @@
       "author_id": 620,
       "canonical_name": "Enrique Muñoz Meany",
       "path": "authors/0620.json"
+    }
+  ],
+  "batch_063": [
+    {
+      "author_id": 621,
+      "canonical_name": "Vicente Díaz Samayoa",
+      "path": "authors/0621.json"
+    },
+    {
+      "author_id": 622,
+      "canonical_name": "José de Jesús Martínez",
+      "path": "authors/0622.json"
+    },
+    {
+      "author_id": 623,
+      "canonical_name": "Pablo Kraudi",
+      "path": "authors/0623.json"
+    },
+    {
+      "author_id": 624,
+      "canonical_name": "Erwin Silva",
+      "path": "authors/0624.json"
+    },
+    {
+      "author_id": 625,
+      "canonical_name": "Aura Violeta Aldana",
+      "path": "authors/0625.json"
+    },
+    {
+      "author_id": 626,
+      "canonical_name": "Ricardo Pasos",
+      "path": "authors/0626.json"
+    },
+    {
+      "author_id": 627,
+      "canonical_name": "Juan Bosco Cuadra",
+      "path": "authors/0627.json"
+    },
+    {
+      "author_id": 628,
+      "canonical_name": "Isaías García",
+      "path": "authors/0628.json"
+    },
+    {
+      "author_id": 629,
+      "canonical_name": "José Romano Muñoz",
+      "path": "authors/0629.json"
+    },
+    {
+      "author_id": 630,
+      "canonical_name": "Adalberto García de Mendoza",
+      "path": "authors/0630.json"
     }
   ]
 }

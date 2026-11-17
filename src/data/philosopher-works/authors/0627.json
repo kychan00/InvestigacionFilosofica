@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "author_id": 627,
+  "canonical_name": "Juan Bosco Cuadra",
+  "alternate_names": [
+    "Juan Bosco Cuadra G.",
+    "Juan Bosco Cuadra Gutiérrez"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0627-w001",
+      "title": "Ética",
+      "work_type": "ethics_educational_book_or_manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "copyright_application_1996_publication_not_established"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "virtudes",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://sajurin.enriquebolanos.org/docs/G-1996-06-11.pdf"
+      ],
+      "notes": "Gaceta oficial de Nicaragua n.º 108, 11-06-1996, registra solicitud de derecho de autor de obra titulada Ética. No se afirma que sea la misma edición que Ética aplicada."
+    },
+    {
+      "work_id": "0627-w002",
+      "title": "Ética aplicada",
+      "work_type": "applied_ethics_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "physical_library_catalog_undated"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vicios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "virtudes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-detail.pl?biblionumber=20421&shelfbrowse_itemnumber=18710"
+      ],
+      "notes": "Catálogo URACCAN: edición sin fecha de impresión, 255 páginas. No se infiere 1996 de la solicitud de Ética; relación textual entre ambas pendientes de colación."
+    },
+    {
+      "work_id": "0627-w003",
+      "title": "Educere: una metodología para el estudio, la enseñanza y el aprendizaje",
+      "work_type": "philosophy_of_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "enseñanza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "aprendizaje",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metodología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-detail.pl?biblionumber=28399&shelfbrowse_itemnumber=23153"
+      ],
+      "notes": "Fondo Editorial CIRA, Managua, 2003, 125 páginas, registro bibliotecario URACCAN."
+    },
+    {
+      "work_id": "0627-w004",
+      "title": "La sabiduría de Sócrates",
+      "work_type": "Socratic_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2023,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 2023,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sócrates",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sabiduría",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.caratula.net/la-sabiduria-de-socrates/"
+      ],
+      "notes": "Ensayo publicado en Revista Carátula; la semblanza menciona Principios universales para una filosofía de la humanidad y La filosofía del no-saber como futuros, pero no se consideran obras ya publicadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de ética, filosofía antigua y metodología educativa en universidades y educación pública nicaragüenses",
+      "kind": "Nicaraguan_ethics_Socrates_and_philosophy_education",
+      "authorship_status": "documented_intellectual_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "URACCAN — Ética aplicada de Juan Bosco Cuadra",
+      "url": "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-detail.pl?biblionumber=20421&shelfbrowse_itemnumber=18710"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "URACCAN — Educere de Juan Bosco Cuadra (2003)",
+      "url": "https://cbiblioteca.uraccan.edu.ni/cgi-bin/koha/opac-detail.pl?biblionumber=28399&shelfbrowse_itemnumber=23153"
+    },
+    {
+      "kind": "author_primary_essay",
+      "title": "Revista Carátula — La sabiduría de Sócrates (2023)",
+      "url": "https://www.caratula.net/la-sabiduria-de-socrates/"
+    },
+    {
+      "kind": "national_copyright_record",
+      "title": "Gaceta de Nicaragua — solicitud de registro de Ética (1996)",
+      "url": "https://sajurin.enriquebolanos.org/docs/G-1996-06-11.pdf"
+    }
+  ],
+  "research_notes": [
+    "No se cuentan como publicadas Principios universales para una filosofía de la humanidad ni La filosofía del no-saber: la fuente de 2023 indica publicación futura.",
+    "Ética (registro de 1996) y Ética aplicada (biblioteca, sin fecha) se mantienen diferenciadas provisionalmente, con advertencia explícita de posible identidad textual."
+  ]
+}
