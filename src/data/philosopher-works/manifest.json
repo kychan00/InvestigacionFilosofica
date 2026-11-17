@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 700,
-    "authors_remaining": 804,
-    "works_or_contributions_seeded": 5000,
-    "current_batch": "070",
+    "authors_seeded": 710,
+    "authors_remaining": 794,
+    "works_or_contributions_seeded": 5097,
+    "current_batch": "071",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3671,6 +3671,58 @@
       "author_id": 700,
       "canonical_name": "Salvador Abascal Carranza",
       "path": "authors/0700.json"
+    }
+  ],
+  "batch_071": [
+    {
+      "author_id": 701,
+      "canonical_name": "Virgilio Ruiz Rodríguez",
+      "path": "authors/0701.json"
+    },
+    {
+      "author_id": 702,
+      "canonical_name": "Alfonso Zahar Vergara",
+      "path": "authors/0702.json"
+    },
+    {
+      "author_id": 703,
+      "canonical_name": "Evagrio López Parra",
+      "path": "authors/0703.json"
+    },
+    {
+      "author_id": 704,
+      "canonical_name": "José Alberto Serrano Moreno",
+      "path": "authors/0704.json"
+    },
+    {
+      "author_id": 705,
+      "canonical_name": "José Ramón Benito Alzaga",
+      "path": "authors/0705.json"
+    },
+    {
+      "author_id": 706,
+      "canonical_name": "Rodolfo Vázquez",
+      "path": "authors/0706.json"
+    },
+    {
+      "author_id": 707,
+      "canonical_name": "Luz García Alonso",
+      "path": "authors/0707.json"
+    },
+    {
+      "author_id": 708,
+      "canonical_name": "Enrique Aguayo",
+      "path": "authors/0708.json"
+    },
+    {
+      "author_id": 709,
+      "canonical_name": "Jorge Adame",
+      "path": "authors/0709.json"
+    },
+    {
+      "author_id": 710,
+      "canonical_name": "Demetrio Pizarro",
+      "path": "authors/0710.json"
     }
   ]
 }
