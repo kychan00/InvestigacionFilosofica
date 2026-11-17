@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "author_id": 632,
+  "canonical_name": "Joaquín Xirau",
+  "alternate_names": [
+    "Joaquim Xirau i Palau",
+    "Joaquín Xirau Palau"
+  ],
+  "life": {
+    "born": {
+      "year": 1895,
+      "certainty": "UCM_biographical_authority"
+    },
+    "died": {
+      "year": 1946,
+      "certainty": "UCM_biographical_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_first_editions_originals_chapters_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0632-w001",
+      "title": "Las condiciones de la verdad eterna en Leibniz",
+      "work_type": "Leibniz_early_modern_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Leibniz",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "verdad eterna",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w002",
+      "title": "Rousseau y las ideas políticas modernas",
+      "work_type": "Rousseau_political_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1923,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1923,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Rousseau",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "política",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "modernidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w003",
+      "title": "El sentido de la verdad",
+      "work_type": "epistemology_and_truth_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "verdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w004",
+      "title": "Descartes y el idealismo subjetivista moderno",
+      "work_type": "Descartes_and_modern_idealism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Descartes",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "subjetividad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w005",
+      "title": "Filosofía y biología",
+      "work_type": "philosophy_of_biology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "biología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w006",
+      "title": "La filosofía de los valores y el Derecho",
+      "work_type": "axiology_and_jurisprudence_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "axiología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w007",
+      "title": "El sentido de la vida y el problema de los valores",
+      "work_type": "philosophy_of_life_and_values_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1930,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "vida",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sentido",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w008",
+      "title": "Fichte: estudios y textos",
+      "work_type": "Fichte_scholarship_and_edited_texts_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1931,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "study_author_and_text_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Fichte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "idealismo alemán",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": "Incluye textos del filósofo Fichte; la edición y estudios son de Xirau, no autoría de los pasajes originales."
+    },
+    {
+      "work_id": "0632-w009",
+      "title": "Amor y mundo",
+      "work_type": "philosophy_of_love_and_personalism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "amor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mundo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persona",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w010",
+      "title": "La filosofía de Husserl: una introducción a la fenomenología",
+      "work_type": "Husserl_phenomenology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w011",
+      "title": "Lo fugaz y lo eterno",
+      "work_type": "ontology_of_time_and_eternity_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "eternidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tiempo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w012",
+      "title": "Vida, pensamiento y obra de Bergson",
+      "work_type": "Bergson_philosophical_biography_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Bergson",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "duración",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la vida",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w013",
+      "title": "Manuel B. Cossío y la educación en España",
+      "work_type": "philosophy_of_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cossío",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "institucionismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w014",
+      "title": "El pensamiento de Luis Vives",
+      "work_type": "humanist_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Luis Vives",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía española",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0632-w015",
+      "title": "Vida y obra de Ramón Lull: filosofía y mística",
+      "work_type": "Ramon_Llull_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Ramón Llull",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mística",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "medievalismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Metafísica fenomenológica del amor, personalismo y filosofía de la educación desarrollados en el exilio mexicano",
+      "kind": "Mexican_Catalan_exile_phenomenology_love_and_education",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico de filósofos latinoamericanos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_bibliographical_authority",
+      "title": "Biblioteca UCM — Joaquim Xirau i Palau, catálogo cronológico de sus 15 obras",
+      "url": "https://biblioteca.ucm.es/fsl/edm-joaquim-xirau"
+    }
+  ],
+  "research_notes": [
+    "Joaquín Xirau nació en Figueres y desarrolló actividad filosófica en México tras el exilio de 1939.",
+    "Obras de Joaquín Xirau (1963), Obra selecta (1996) y otras antologías póstumas no se cuentan como títulos originales nuevos."
+  ]
+}

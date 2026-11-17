@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 630,
-    "authors_remaining": 874,
-    "works_or_contributions_seeded": 4026,
-    "current_batch": "063",
+    "authors_seeded": 640,
+    "authors_remaining": 864,
+    "works_or_contributions_seeded": 4156,
+    "current_batch": "064",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3307,6 +3307,58 @@
       "author_id": 630,
       "canonical_name": "Adalberto García de Mendoza",
       "path": "authors/0630.json"
+    }
+  ],
+  "batch_064": [
+    {
+      "author_id": 631,
+      "canonical_name": "Eduardo García Máynez",
+      "path": "authors/0631.json"
+    },
+    {
+      "author_id": 632,
+      "canonical_name": "Joaquín Xirau",
+      "path": "authors/0632.json"
+    },
+    {
+      "author_id": 633,
+      "canonical_name": "Juan Roura-Parella",
+      "path": "authors/0633.json"
+    },
+    {
+      "author_id": 634,
+      "canonical_name": "Luis Recaséns Siches",
+      "path": "authors/0634.json"
+    },
+    {
+      "author_id": 635,
+      "canonical_name": "Manuel Cabrera",
+      "path": "authors/0635.json"
+    },
+    {
+      "author_id": 636,
+      "canonical_name": "Adolfo Menéndez y Samará",
+      "path": "authors/0636.json"
+    },
+    {
+      "author_id": 637,
+      "canonical_name": "Jorge Portilla",
+      "path": "authors/0637.json"
+    },
+    {
+      "author_id": 638,
+      "canonical_name": "Fernando Salmerón",
+      "path": "authors/0638.json"
+    },
+    {
+      "author_id": 639,
+      "canonical_name": "Ricardo Guerra",
+      "path": "authors/0639.json"
+    },
+    {
+      "author_id": 640,
+      "canonical_name": "Antonio Zirión Quijano",
+      "path": "authors/0640.json"
     }
   ]
 }

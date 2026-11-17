@@ -1,0 +1,589 @@
+{
+  "schema_version": 1,
+  "author_id": 639,
+  "canonical_name": "Ricardo Guerra",
+  "alternate_names": [
+    "Ricardo Guerra Tejada"
+  ],
+  "life": {
+    "born": {
+      "year": 1927,
+      "certainty": "Mexican_Humanists_biography"
+    },
+    "died": {
+      "year": 2007,
+      "certainty": "Mexican_Humanists_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_first_editions_originals_chapters_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0639-w001",
+      "title": "Crítica de las teorías del mexicano",
+      "work_type": "Mexican_character_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mexicano",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Hiperión",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w002",
+      "title": "Le problème du corps dans la tradition philosophique française",
+      "work_type": "phenomenology_of_body_doctoral_book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1958,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cuerpo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía francesa",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": "Investigación doctoral de 1958. El título figura sin acentos en semblanza; forma francesa restaurada con reserva bibliográfica."
+    },
+    {
+      "work_id": "0639-w003",
+      "title": "La obra de Samuel Ramos",
+      "work_type": "Samuel_Ramos_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Samuel Ramos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía mexicana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w004",
+      "title": "La evolución del pensamiento kantiano, de Herman Jean de Vleeschauwer",
+      "work_type": "Kant_thought_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kant",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía crítica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": "Guerra tradujo un estudio escrito por H. J. de Vleeschauwer, no es autor del libro original."
+    },
+    {
+      "work_id": "0639-w005",
+      "title": "La idea de la fenomenología, de André de Muralt",
+      "work_type": "phenomenology_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": "Traducción de obra original de André de Muralt, no autoría filosófica del libro."
+    },
+    {
+      "work_id": "0639-w006",
+      "title": "Fenomenología del espíritu, de G. W. F. Hegel",
+      "work_type": "Hegel_phenomenology_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "co_translator",
+      "coauthors": [
+        "Wenceslao Roces"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hegel",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología del espíritu",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "traducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm",
+        "https://www.siia.unam.mx/siia-publico/c/busqueda_individual.php?id=64451"
+      ],
+      "notes": "Traducción de Hegel por Wenceslao Roces y Ricardo Guerra. ISBN 2016 registra nueva edición de esta traducción; Hegel es autor original del texto."
+    },
+    {
+      "work_id": "0639-w007",
+      "title": "Jean-Paul Sartre, filósofo de la libertad",
+      "work_type": "Sartre_and_freedom_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sartre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w008",
+      "title": "Begriff und Zeit (Concepto y tiempo)",
+      "work_type": "German_idealist_ontology_essay",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1977,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "tiempo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "concepto",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": "Título bilingüe de la bibliografía de Guerra; edición académica precisa pendiente."
+    },
+    {
+      "work_id": "0639-w009",
+      "title": "Identität und Negation (Identidad y negación)",
+      "work_type": "dialectical_ontology_essay",
+      "original_language": "alemán",
+      "original_date": {
+        "year": 1979,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "identidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "negación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w010",
+      "title": "Nietzsche y el nihilismo",
+      "work_type": "Nietzsche_nihilism_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nihilismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w011",
+      "title": "El fracaso de Marcuse",
+      "work_type": "Marcuse_critical_theory_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Herbert Marcuse",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w012",
+      "title": "Filosofía y fin de siglo",
+      "work_type": "contemporary_philosophy_essays_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía contemporánea",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nihilismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm",
+        "https://repositorio.unam.mx/contenidos/ficha/filosofia-y-fin-de-siglo-5061720"
+      ],
+      "notes": "Primera edición 1996, reedición digital UNAM 2024. El registro UNAM de 2024 no se toma como primera edición."
+    },
+    {
+      "work_id": "0639-w013",
+      "title": "Heidegger y la historia de la metafísica",
+      "work_type": "Heidegger_metaphysics_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w014",
+      "title": "Heurística, verdad y ontología",
+      "work_type": "truth_ontology_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "verdad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "heurística",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0639-w015",
+      "title": "Actualidad de Nietzsche",
+      "work_type": "Nietzsche_reception_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "actualidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "nihilismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://humanistas.org.mx/GuerraRicardo.htm"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación mexicana sobre ontología, fenomenología, Heidegger, Kant, Hegel y crítica del ser mexicano dentro del grupo Hiperión",
+      "kind": "mexican_Hiperion_phenomenology_ontology_and_German_philosophy_translation",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico de filósofos latinoamericanos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "specialized_academic_biobibliography",
+      "title": "Humanistas mexicanos — Ricardo Guerra Tejada (1927–2007), libros, ensayos y traducciones",
+      "url": "https://humanistas.org.mx/GuerraRicardo.htm"
+    },
+    {
+      "kind": "university_authority",
+      "title": "SIIA UNAM — registros de Guerra Tejada, co-traducción de Hegel",
+      "url": "https://www.siia.unam.mx/siia-publico/c/busqueda_individual.php?id=64451"
+    },
+    {
+      "kind": "university_reprint_catalog",
+      "title": "Repositorio UNAM — Filosofía y fin de siglo, reedición 2024",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/filosofia-y-fin-de-siglo-5061720"
+    }
+  ],
+  "research_notes": [
+    "No atribuirle Fenomenología del espíritu de Hegel como obra original: traductor junto con Wenceslao Roces.",
+    "Metafísica y ontología. Homenaje a Ricardo Guerra (2005) es un volumen escrito por terceros sobre el autor, no obra suya."
+  ]
+}
