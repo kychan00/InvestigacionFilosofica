@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "author_id": 672,
+  "canonical_name": "José Soriano de Souza",
+  "alternate_names": [
+    "José Soriano de Sousa",
+    "José Soriano de Souza"
+  ],
+  "life": {
+    "born": {
+      "year": 1833,
+      "certainty": "UFPE_biography"
+    },
+    "died": {
+      "year": 1895,
+      "certainty": "UFPE_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_authentic_works_and_roles_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0672-w001",
+      "title": "Carta de um médico a um amigo sobre o materialismo médico e a confissão dos doentes",
+      "work_type": "medical_philosophical_correspondence",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1861,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1861,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=14800"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0672-w002",
+      "title": "Ensaio médico-legal sobre ferimentos e outras ofensas físicas e infanticídio",
+      "work_type": "medical_legal_monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1862,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1862,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/ilustre-dr-jose-soriano-de-souza/590249"
+      ],
+      "notes": "Segunda edição de 1870 no contada por separado."
+    },
+    {
+      "work_id": "0672-w003",
+      "title": "A Esperança",
+      "work_type": "Catholic_periodical_founder_editor",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1865,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "founding_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=14800"
+      ],
+      "notes": "Periódico fundado y redactado por Soriano; registrarlo como responsabilidad editorial de la cabecera, no como autoría de todos sus artículos."
+    },
+    {
+      "work_id": "0672-w004",
+      "title": "Princípios sociais e políticos de Santo Agostinho",
+      "work_type": "scholastic_political_philosophy",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1866,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/ilustre-dr-jose-soriano-de-souza/590249"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0672-w005",
+      "title": "Princípios sociais e políticos de São Tomás de Aquino",
+      "work_type": "Thomistic_political_philosophy",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1866,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/ilustre-dr-jose-soriano-de-souza/590249"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0672-w006",
+      "title": "A religião do Estado e a liberdade dos cultos",
+      "work_type": "philosophy_of_religious_liberty",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1867,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1867,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=14800"
+      ],
+      "notes": "Título también citado por UFPE como A Religião do Estado e a Pluralidade dos Cultos (1867); verificar identidad de edición."
+    },
+    {
+      "work_id": "0672-w007",
+      "title": "Compêndio de filosofia, ordenado segundo os princípios e método do Dr. Angélico S. Tomás de Aquino",
+      "work_type": "Thomistic_philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1867,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1867,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=202299"
+      ],
+      "notes": "Edición Recife 1867, constatada por catálogo UFSC; diferentes grafías modernizadas del título no implican obras distintas."
+    },
+    {
+      "work_id": "0672-w008",
+      "title": "Lições de filosofia elementar, racional e moral",
+      "work_type": "Thomistic_philosophy_school_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1871,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/memoriafdr/biografias"
+      ],
+      "notes": "Manual Recife 1871; estudio especializado confirma utilización en Ginásio Pernambucano."
+    },
+    {
+      "work_id": "0672-w009",
+      "title": "A União",
+      "work_type": "political_religious_periodical",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1872,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1872,
+      "authorship_status": "periodical_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=14800"
+      ],
+      "notes": "Periódico editado; no adjudicar artículos sin firma individual."
+    },
+    {
+      "work_id": "0672-w010",
+      "title": "Carta ao Conselheiro Zacarias de Góes e Vasconcellos sobre a necessidade de organizar-se um partido católico",
+      "work_type": "Catholic_political_letter",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1874,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=14800"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0672-w011",
+      "title": "Elementos de filosofia do direito",
+      "work_type": "natural_law_philosophy_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1880,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/memoriafdr/biografias"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0672-w012",
+      "title": "Apontamentos de direito constitucional por um professor",
+      "work_type": "constitutional_law_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1883,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=14800"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0672-w013",
+      "title": "Pontos de direito romano",
+      "work_type": "Roman_law_textbook",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1884,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1884,
+      "authorship_status": "original_author_under_pseudonym",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/memoriafdr/biografias"
+      ],
+      "notes": "Publicación bajo el seudónimo Vico, según memoria histórica de UFPE."
+    },
+    {
+      "work_id": "0672-w014",
+      "title": "Princípios gerais de direito público e constitucional",
+      "work_type": "political_and_constitutional_law_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1893,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 1893,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ufpe.br/memoriafdr/biografias"
+      ],
+      "notes": "Publicación identificada en fuente histórica; reediciones no duplicadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de Filosofía en el Ginásio Pernambucano y de derecho en la Faculdade de Direito do Recife, con difusión del tomismo en manuales filosóficos y jurídicos.",
+      "kind": "documented_intellectual_philosophical_or_institutional_activity",
+      "authorship_status": "documented_in_historical_academic_or_primary_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "url": "https://www.ufpe.br/memoriafdr/biografias",
+      "title": "UFPE, memoria de la Facultad de Derecho de Recife, José Soriano de Souza",
+      "kind": "university_biobibliography"
+    },
+    {
+      "url": "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/ilustre-dr-jose-soriano-de-souza/590249",
+      "title": "UFPE, ficha histórica detallada de José Soriano de Souza",
+      "kind": "university_primary_archival_biography"
+    },
+    {
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=14800",
+      "title": "UFSC, catálogo de la literatura en lengua portuguesa: José Soriano",
+      "kind": "university_bibliographic_catalogue"
+    },
+    {
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=202299",
+      "title": "UFSC, Compêndio de filosofia (1867)",
+      "kind": "university_book_catalogue"
+    }
+  ],
+  "research_notes": [
+    "La UFPE documenta 1866 para dos estudios escolásticos; el catálogo UFSC documenta 1867 para Compêndio.",
+    "A religião do Estado: título alternativo con Pluralidade dos cultos; un solo registro para evitar duplicar por variantes.",
+    "Periódicos Esperança y União son responsabilidades editoriales; sus entregas no se cuentan como monografías originales."
+  ]
+}

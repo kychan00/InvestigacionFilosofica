@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 670,
-    "authors_remaining": 834,
-    "works_or_contributions_seeded": 4598,
-    "current_batch": "067",
+    "authors_seeded": 680,
+    "authors_remaining": 824,
+    "works_or_contributions_seeded": 4755,
+    "current_batch": "068",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3515,6 +3515,58 @@
       "author_id": 670,
       "canonical_name": "Andrés Avelino García",
       "path": "authors/0670.json"
+    }
+  ],
+  "batch_068": [
+    {
+      "author_id": 671,
+      "canonical_name": "Edikson Minaya",
+      "path": "authors/0671.json"
+    },
+    {
+      "author_id": 672,
+      "canonical_name": "José Soriano de Souza",
+      "path": "authors/0672.json"
+    },
+    {
+      "author_id": 673,
+      "canonical_name": "Mamerto Esquiú",
+      "path": "authors/0673.json"
+    },
+    {
+      "author_id": 674,
+      "canonical_name": "Jacinto Ríos",
+      "path": "authors/0674.json"
+    },
+    {
+      "author_id": 675,
+      "canonical_name": "Mariano Soler",
+      "path": "authors/0675.json"
+    },
+    {
+      "author_id": 676,
+      "canonical_name": "Rafael María Carrasquilla",
+      "path": "authors/0676.json"
+    },
+    {
+      "author_id": 677,
+      "canonical_name": "Alberto Caturelli",
+      "path": "authors/0677.json"
+    },
+    {
+      "author_id": 678,
+      "canonical_name": "Stanislaus Ladusans",
+      "path": "authors/0678.json"
+    },
+    {
+      "author_id": 679,
+      "canonical_name": "Octavio Nicolás Derisi",
+      "path": "authors/0679.json"
+    },
+    {
+      "author_id": 680,
+      "canonical_name": "Gustavo Corção",
+      "path": "authors/0680.json"
     }
   ]
 }

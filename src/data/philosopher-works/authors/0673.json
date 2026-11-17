@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "author_id": 673,
+  "canonical_name": "Mamerto Esquiú",
+  "alternate_names": [
+    "Fray Mamerto Esquiú",
+    "Fray Mamerto Esquiú y Medina",
+    "Mamerto Esquiú Medina"
+  ],
+  "life": {
+    "born": {
+      "year": 1826,
+      "certainty": "episcopal_historical_biography"
+    },
+    "died": {
+      "year": 1883,
+      "certainty": "episcopal_historical_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_authentic_works_and_roles_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0673-w001",
+      "title": "Sermón de la Constitución (Laetamur de gloria vestra)",
+      "work_type": "constitutional_political_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://episcopado.org/assetsweb/cont/2981/Dossier-Beatificacion-Fray-Mamerto-Esquiu.-040921.pdf"
+      ],
+      "notes": "Pronunciado en Catamarca el 9 de julio de 1853. Fecha de una primera impresión específica no confirmada; edición recopilatoria de Ortiz en 1883."
+    },
+    {
+      "work_id": "0673-w002",
+      "title": "Sermón por la instalación de las autoridades federales",
+      "work_type": "political_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1854,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jhea.org.ar/archivum/Archivum.33.pdf"
+      ],
+      "notes": "Pronunciado 28 de marzo de 1854; primera publicación individual sin fecha contrastada."
+    },
+    {
+      "work_id": "0673-w003",
+      "title": "Sermón por la instalación del gobernador constitucional de Catamarca (Dicite justo quoniam bene)",
+      "work_type": "political_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1856,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jhea.org.ar/archivum/Archivum.33.pdf"
+      ],
+      "notes": "Pronunciado 25 de mayo de 1856; edición individual no acreditada."
+    },
+    {
+      "work_id": "0673-w004",
+      "title": "Sermón de súplica por la República Argentina (Secundum magnitudinem brachii tui)",
+      "work_type": "political_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1861,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jhea.org.ar/archivum/Archivum.33.pdf"
+      ],
+      "notes": "Pronunciado 27 de octubre de 1861; edición individual no acreditada."
+    },
+    {
+      "work_id": "0673-w005",
+      "title": "Sermón por la reforma de la Constitución provincial (Omnia in ipso constant)",
+      "work_type": "constitutional_political_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1875,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jhea.org.ar/archivum/Archivum.33.pdf"
+      ],
+      "notes": "Sermón de 1875; fuentes discrepan entre 24 de septiembre y 24 de octubre sobre la fecha exacta de pronunciación; se conserva solo el año."
+    },
+    {
+      "work_id": "0673-w006",
+      "title": "Discurso con motivo de la capitalización de Buenos Aires",
+      "work_type": "political_discourse",
+      "original_language": "español",
+      "original_date": {
+        "year": 1880,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jhea.org.ar/archivum/Archivum.33.pdf"
+      ],
+      "notes": "Pronunciado en la catedral de Buenos Aires el 8 de diciembre de 1880; no se infiere primera edición autónoma."
+    },
+    {
+      "work_id": "0673-w007",
+      "title": "Discurso conmemorativo de Fernando Trejo y Sanabria",
+      "work_type": "historical_university_discourse",
+      "original_language": "español",
+      "original_date": {
+        "year": 1881,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jhea.org.ar/archivum/Archivum.33.pdf"
+      ],
+      "notes": "Discurso de 23 de diciembre de 1881; edición individual no localizada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Defensa de la Constitución de 1853 mediante sermones políticos y promoción de una cultura constitucional católica argentina; docencia filosófica en el seminario de Catamarca.",
+      "kind": "documented_intellectual_philosophical_or_institutional_activity",
+      "authorship_status": "documented_in_historical_academic_or_primary_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "url": "https://episcopado.org/assetsweb/cont/2981/Dossier-Beatificacion-Fray-Mamerto-Esquiu.-040921.pdf",
+      "title": "Conferencia Episcopal Argentina, dossier Mamerto Esquiú",
+      "kind": "church_historical_dossier"
+    },
+    {
+      "url": "https://profesoradodonbosco.opac.com.ar/pergamo/documento.php?id=PROFESORADODONBOSCO.1.12216&recno=12216&ui=1",
+      "title": "Biblioteca Central Salesiana, El Padre Esquiú, edición Alberto Ortiz (1883)",
+      "kind": "library_physical_catalogue"
+    },
+    {
+      "url": "https://www.jhea.org.ar/archivum/Archivum.33.pdf",
+      "title": "Junta de Historia Eclesiástica Argentina, estudio sobre los sermones patrióticos",
+      "kind": "scholarly_historiography"
+    },
+    {
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/4140",
+      "title": "UCA, El pensamiento político de fray Mamerto Esquiú",
+      "kind": "university_philosophical_study"
+    }
+  ],
+  "research_notes": [
+    "Los siete documentos se registran por fecha de pronunciación, NO como libros impresos en ese mismo año.",
+    "Alberto Ortiz compiló El Padre Esquiú: sus sermones, discursos, cartas pastorales... (1883, dos tomos): volumen de edición póstuma y no séptima-octava obra filosófica original distinta de sus sermones.",
+    "Discrepancia histórica sobre día/mes del sermón de 1875: mantener año 1875 sin más precisión hasta cotejar fuente primaria."
+  ]
+}

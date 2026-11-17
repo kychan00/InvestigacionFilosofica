@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "author_id": 676,
+  "canonical_name": "Rafael María Carrasquilla",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1857,
+      "certainty": "Banrepcultural_biography"
+    },
+    "died": {
+      "year": 1930,
+      "certainty": "Banrepcultural_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_first_editions_research_contributions_and_editorial_roles_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0676-w001",
+      "title": "La vida de Pío IX",
+      "work_type": "papal_biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "library_or_scholarly_bibliography"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopedia.banrepcultural.org/Rafael_Mar%C3%ADa_Carrasquilla"
+      ],
+      "notes": "Primera publicación consignada en bibliografía especializada; reediciones no duplicadas."
+    },
+    {
+      "work_id": "0676-w002",
+      "title": "Sermones y discursos escogidos",
+      "work_type": "collected_original_sermons_and_discourses",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "library_or_scholarly_bibliography"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopedia.banrepcultural.org/Rafael_Mar%C3%ADa_Carrasquilla"
+      ],
+      "notes": "Selección de sermones ya pronunciados, recopilación editorial, no atribuir cada texto reunido como original inédito."
+    },
+    {
+      "work_id": "0676-w003",
+      "title": "Lecciones de metafísica y ética",
+      "work_type": "metaphysics_and_ethics_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1914,
+        "certainty": "library_or_scholarly_bibliography"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopedia.banrepcultural.org/Rafael_Mar%C3%ADa_Carrasquilla"
+      ],
+      "notes": "Publicación documentada en cronología de Banrepcultural."
+    },
+    {
+      "work_id": "0676-w004",
+      "title": "Cartas de Lima",
+      "work_type": "letters_travel_and_cultural_reflection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "unverified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopedia.banrepcultural.org/Rafael_Mar%C3%ADa_Carrasquilla"
+      ],
+      "notes": "La misma fuente da 1921 en bibliografía y 1925 en cronología; primer año sin fijar hasta comprobar portada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Rectorado del Colegio Mayor de Nuestra Señora del Rosario, reactivación de estudios de filosofía y letras y enseñanza de metafísica/ética colombiana de inspiración católica.",
+      "kind": "documented_philosophical_teaching_or_institutional_contribution",
+      "authorship_status": "documented_in_specialized_academic_or_primary_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "url": "https://enciclopedia.banrepcultural.org/Rafael_Mar%C3%ADa_Carrasquilla",
+      "title": "Banrepcultural, Rafael María Carrasquilla, cronología y bibliografía",
+      "kind": "national_biographical_encyclopedia"
+    }
+  ],
+  "research_notes": [
+    "Cronología de Banrepcultural incluye error evidente de 1926 en encabezado esquemático, pero narración y ficha biográfica coinciden en fallecimiento 1930.",
+    "Cartas de Lima: 1921 en lista de obras frente a 1925 en relato cronológico; primera publicación null.",
+    "Obras completas (1956), recopilación por José Eusebio Ricaurte, no sumada como libro original adicional."
+  ]
+}
