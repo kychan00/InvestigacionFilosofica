@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 640,
-    "authors_remaining": 864,
-    "works_or_contributions_seeded": 4156,
-    "current_batch": "064",
+    "authors_seeded": 650,
+    "authors_remaining": 854,
+    "works_or_contributions_seeded": 4332,
+    "current_batch": "065",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3359,6 +3359,58 @@
       "author_id": 640,
       "canonical_name": "Antonio Zirión Quijano",
       "path": "authors/0640.json"
+    }
+  ],
+  "batch_065": [
+    {
+      "author_id": 641,
+      "canonical_name": "Miguel Ángel Cevallos",
+      "path": "authors/0641.json"
+    },
+    {
+      "author_id": 642,
+      "canonical_name": "Francisco Larroyo",
+      "path": "authors/0642.json"
+    },
+    {
+      "author_id": 643,
+      "canonical_name": "José Sánchez Villaseñor",
+      "path": "authors/0643.json"
+    },
+    {
+      "author_id": 644,
+      "canonical_name": "Agustín Basave Fernández del Valle",
+      "path": "authors/0644.json"
+    },
+    {
+      "author_id": 645,
+      "canonical_name": "Joaquín Sánchez Macgregor",
+      "path": "authors/0645.json"
+    },
+    {
+      "author_id": 646,
+      "canonical_name": "Wonfilio Trejo",
+      "path": "authors/0646.json"
+    },
+    {
+      "author_id": 647,
+      "canonical_name": "Arturo Rico Bovio",
+      "path": "authors/0647.json"
+    },
+    {
+      "author_id": 648,
+      "canonical_name": "María Zambrano",
+      "path": "authors/0648.json"
+    },
+    {
+      "author_id": 649,
+      "canonical_name": "José Manuel Gallegos Rocafull",
+      "path": "authors/0649.json"
+    },
+    {
+      "author_id": 650,
+      "canonical_name": "Eugenio Imaz",
+      "path": "authors/0650.json"
     }
   ]
 }

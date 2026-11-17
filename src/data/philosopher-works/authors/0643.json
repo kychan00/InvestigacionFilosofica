@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "author_id": 643,
+  "canonical_name": "José Sánchez Villaseñor",
+  "alternate_names": [
+    "José Sánchez-Villaseñor",
+    "José Sánchez Villaseñor, S.J."
+  ],
+  "life": {
+    "born": {
+      "year": 1911,
+      "certainty": "ITESO_biography"
+    },
+    "died": {
+      "year": 1961,
+      "certainty": "ITESO_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selection_not_exhaustive; undated_titles_explicitly_flagged",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "643-w001",
+      "title": "El sistema filosófico de Vasconcelos: ensayo de crítica filosófica",
+      "work_type": "philosophical_critique",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "academic_or_library_bibliography"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://rei.iteso.mx/items/de6c850d-aa4c-4988-aeb0-71da000de3af"
+      ],
+      "notes": "Edición original documentada en la bibliografía indicada."
+    },
+    {
+      "work_id": "643-w002",
+      "title": "Pensamiento y trayectoria de José Ortega y Gasset",
+      "work_type": "Ortega_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "academic_or_library_bibliography"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://rei.iteso.mx/items/de6c850d-aa4c-4988-aeb0-71da000de3af"
+      ],
+      "notes": "La biografía ITESO consigna 1943; una historia editorial de la Iberoamericana refiere publicación Jus 1944, discrepancia conservada."
+    },
+    {
+      "work_id": "643-w003",
+      "title": "¿Es idealista Ortega y Gasset?",
+      "work_type": "Ortega_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "academic_or_library_bibliography"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ri.ibero.mx/bitstream/handle/ibero/3616/LBPF_Art_14.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "Edición original documentada en la bibliografía indicada."
+    },
+    {
+      "work_id": "643-w004",
+      "title": "La crisis del historicismo y otros ensayos (Gaos en Mascarones)",
+      "work_type": "historicism_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "academic_or_library_bibliography"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ri.ibero.mx/bitstream/handle/ibero/3616/LBPF_Art_14.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "Edición original documentada en la bibliografía indicada."
+    },
+    {
+      "work_id": "643-w005",
+      "title": "Introducción al pensamiento de Jean-Paul Sartre",
+      "work_type": "existentialism_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "academic_or_library_bibliography"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ri.ibero.mx/bitstream/handle/ibero/3616/LBPF_Art_14.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "ITESO confirma una presentación de 1950; título completo de la edición consignado por historia editorial iberoamericana."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participación en la consolidación de la Universidad Iberoamericana y fundación de programas de Relaciones Industriales, Administración de Empresas y Ciencias de la Comunicación.",
+      "kind": "documented_intellectual_and_institutional_contribution",
+      "authorship_status": "documented_in_bibliographic_and_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_repository",
+      "title": "ITESO, notas biográficas sobre José Sánchez Villaseñor",
+      "url": "https://rei.iteso.mx/items/de6c850d-aa4c-4988-aeb0-71da000de3af"
+    },
+    {
+      "kind": "academic_essay",
+      "title": "Revista de Filosofía UIA, historia editorial de la filosofía jesuita",
+      "url": "https://ri.ibero.mx/bitstream/handle/ibero/3616/LBPF_Art_14.pdf?isAllowed=y&sequence=1"
+    }
+  ],
+  "research_notes": [
+    "No atribuir a José las Notas biográficas (1997), escritas por su hermano Luis Sánchez Villaseñor.",
+    "Año de Pensamiento y trayectoria de José Ortega y Gasset: 1943 en ITESO y 1944 en historia editorial UIA; pendiente confirmar portada.",
+    "No convertir las tres carreras fundadas en obras bibliográficas."
+  ]
+}
