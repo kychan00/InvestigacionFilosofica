@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 660,
-    "authors_remaining": 844,
-    "works_or_contributions_seeded": 4487,
-    "current_batch": "066",
+    "authors_seeded": 670,
+    "authors_remaining": 834,
+    "works_or_contributions_seeded": 4598,
+    "current_batch": "067",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3463,6 +3463,58 @@
       "author_id": 660,
       "canonical_name": "Domingo Marrero",
       "path": "authors/0660.json"
+    }
+  ],
+  "batch_067": [
+    {
+      "author_id": 661,
+      "canonical_name": "Monelisa Pérez Marchand",
+      "path": "authors/0661.json"
+    },
+    {
+      "author_id": 662,
+      "canonical_name": "Elena Lugo",
+      "path": "authors/0662.json"
+    },
+    {
+      "author_id": 663,
+      "canonical_name": "Carlos Ramos Mattei",
+      "path": "authors/0663.json"
+    },
+    {
+      "author_id": 664,
+      "canonical_name": "Rubén Soto Rivera",
+      "path": "authors/0664.json"
+    },
+    {
+      "author_id": 665,
+      "canonical_name": "Eliseo Cruz Vergara",
+      "path": "authors/0665.json"
+    },
+    {
+      "author_id": 666,
+      "canonical_name": "Carlos Gil",
+      "path": "authors/0666.json"
+    },
+    {
+      "author_id": 667,
+      "canonical_name": "Eduardo Forastieri",
+      "path": "authors/0667.json"
+    },
+    {
+      "author_id": 668,
+      "canonical_name": "Guillermo Rosado Haddock",
+      "path": "authors/0668.json"
+    },
+    {
+      "author_id": 669,
+      "canonical_name": "Raúl Iturrino",
+      "path": "authors/0669.json"
+    },
+    {
+      "author_id": 670,
+      "canonical_name": "Andrés Avelino García",
+      "path": "authors/0670.json"
     }
   ]
 }

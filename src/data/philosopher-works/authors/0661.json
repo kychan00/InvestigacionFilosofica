@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "author_id": 661,
+  "canonical_name": "Monelisa Pérez Marchand",
+  "alternate_names": [
+    "Monelisa Lina Pérez-Marchand",
+    "Monelisa Lina Pérez Marchand"
+  ],
+  "life": {
+    "born": {
+      "year": 1926,
+      "certainty": "Cervantes_Virtual_authority_record"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_originals_chapters_and_editorial_work_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "661-w001",
+      "title": "Dos etapas ideológicas del siglo XVIII en México a través de los papeles de la Inquisición",
+      "work_type": "Mexican_intellectual_history_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "scholarly_bibliography_or_primary_catalog"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra/dos-etapas-ideologicas-del-siglo-xviii-en-mexico-924639/"
+      ],
+      "notes": "El Colegio de México, 1945; digitalización de Cervantes Virtual de 2018 no se cuenta como obra nueva."
+    },
+    {
+      "work_id": "661-w002",
+      "title": "¿Hacia una filosofía de la historia interamericana? Tesis de Víctor Raúl Haya de la Torre y su confrontación con la tesis de Toynbee",
+      "work_type": "InterAmerican_philosophy_of_history_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "scholarly_bibliography_or_primary_catalog"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://humanitas.uanl.mx/index.php/ah/es/issue/view/31"
+      ],
+      "notes": "Humanitas, vol. 3, 1962, pp. 531–550; sobretiro del mismo texto no duplicado."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación histórica de la circulación de ideas ilustradas en México y participación en el seminario sobre pensamiento hispanoamericano de José Gaos.",
+      "kind": "documented_academic_philosophical_and_institutional_contribution",
+      "authorship_status": "documented_in_academic_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog",
+      "title": "Biblioteca Virtual Miguel de Cervantes, Monelisa Lina Pérez-Marchand",
+      "url": "https://www.cervantesvirtual.com/obra/dos-etapas-ideologicas-del-siglo-xviii-en-mexico-924639/"
+    },
+    {
+      "kind": "original_university_journal_index",
+      "title": "Humanitas, volumen 3 (1962), Pérez-Marchand pp. 531–550",
+      "url": "https://humanitas.uanl.mx/index.php/ah/es/issue/view/31"
+    },
+    {
+      "kind": "institutional_library_catalog",
+      "title": "El Colegio de México, Dos etapas ideológicas",
+      "url": "https://repositorio.colmex.mx/catalog?f%5Bbased_near_label_sim%5D%5B%5D=Mexico%2C+%2C+Mexico&f%5Bplace_of_publication_sim%5D%5B%5D=M%C3%A9xico%2C+D.F.&f%5Bsubject_sim%5D%5B%5D=Historia&f%5Bthematic_collection_sim%5D%5B%5D=Producci%C3%B3n+Institucional&locale=en&per_page=20&sort=date_created_sim+asc"
+    },
+    {
+      "kind": "institutional_archive",
+      "title": "El Colegio de México, expediente personal de Pérez Marchand",
+      "url": "https://repositorio.colmex.mx/catalog?f%5Bhas_creator_sim%5D%5B%5D=Nacional+%28M%C3%A9xico%29&locale=es"
+    }
+  ],
+  "research_notes": [
+    "La forma de autoridad expandida es Monelisa Lina Pérez-Marchand (1926–, sin año de muerte verificado).",
+    "Se registra solo dos trabajos cuya autoría y edición han sido identificadas con suficiente respaldo."
+  ]
+}

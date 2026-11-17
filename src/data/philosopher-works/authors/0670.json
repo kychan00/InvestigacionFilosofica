@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "author_id": 670,
+  "canonical_name": "Andrés Avelino García",
+  "alternate_names": [
+    "Andrés Avelino",
+    "Andrés Avelino García Solano"
+  ],
+  "life": {
+    "born": {
+      "year": 1900,
+      "certainty": "national_library_authority"
+    },
+    "died": {
+      "year": 1974,
+      "certainty": "national_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_primary_publications_translations_theses_and_edited_books_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "670-w001",
+      "title": "Metafísica categorial",
+      "work_type": "metaphysics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/005/1952ac.htm"
+      ],
+      "notes": "Listado de Armando Cordero 1952 como primera edición de 1940."
+    },
+    {
+      "work_id": "670-w002",
+      "title": "Prolegómenos a la única metafísica posible",
+      "work_type": "metaphysics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1941,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/005/1952ac.htm"
+      ],
+      "notes": "Título y fecha documentados en la fuente indicada; reediciones no duplicadas."
+    },
+    {
+      "work_id": "670-w003",
+      "title": "Esencia y existencia del Ser y de la Nada",
+      "work_type": "ontology_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/005/1952ac.htm"
+      ],
+      "notes": "Ensayo histórico primario 1952 fecha el texto en 1942; repertorios posteriores señalan 1944, discrepancia por resolver."
+    },
+    {
+      "work_id": "670-w004",
+      "title": "El problema de la fundamentación del problema del cambio y la identidad: el supuesto del pre-onto",
+      "work_type": "metaphysical_change_and_identity_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_unconfirmed"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-search.pl?q=an%3A31875"
+      ],
+      "notes": "Biblioteca Nacional registra una segunda edición de 1944 (Montalvo), no confirma primera; se preserva null para first_publication_year."
+    },
+    {
+      "work_id": "670-w005",
+      "title": "Une lettre à Maritain",
+      "work_type": "philosophical_letter_booklet",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1944,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/005/1952ac.htm"
+      ],
+      "notes": "Armando Cordero 1952 documenta carta escrita/publicada en francés en 1944; edición ampliada de Archivo General de la Nación 2007 se registra como reedición con traducción ajena, no obra nueva."
+    },
+    {
+      "work_id": "670-w006",
+      "title": "Filosofía del conocimiento",
+      "work_type": "epistemology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=248"
+      ],
+      "notes": "Edición U. de Santo Domingo 1950 (63 pp.), seguida de 1952 (97 pp., serie 82); se agrupan por título y se anota ampliación, fuente indica serialización en Anales 1947–1950."
+    },
+    {
+      "work_id": "670-w007",
+      "title": "El problema antinómico de la fundamentación de una lógica pura",
+      "work_type": "mathematical_logic_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-search.pl?q=an%3A31875"
+      ],
+      "notes": "Biblioteca Nacional Pedro Henríquez Ureña acredita edición Montalvo 1951."
+    },
+    {
+      "work_id": "670-w008",
+      "title": "Los problemas antinómicos de la esencia de lo ético: filosofía de lo ético",
+      "work_type": "axiological_ethics_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-search.pl?q=an%3A31875"
+      ],
+      "notes": "UASD 1971, Obras completas Andrés Avelino vol. 2; obra original aun si publicada en colección."
+    },
+    {
+      "work_id": "670-w009",
+      "title": "Prólogo a Poemas primeros, de Nemén Michel Terc",
+      "work_type": "literary_edition_prologue",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "prologue_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-search.pl?q=an%3A31875"
+      ],
+      "notes": "Ediciones Universal, Miami 1972; solo prólogo de Avelino, no autoría de poemas de Nemén Michel Terc."
+    },
+    {
+      "work_id": "670-w010",
+      "title": "Lógica formal",
+      "work_type": "posthumous_formal_logic_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "academic_library_or_original_publication"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-search.pl?q=an%3A31875"
+      ],
+      "notes": "Edición póstuma de UASD 2001, serie Filosofía y sociedad n.º 9; fecha de composición del texto no comprobada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de metafísica categorial y lógica, vinculación del pensamiento ético dominicano con la enseñanza universitaria y el movimiento literario postumista.",
+      "kind": "documented_philosophical_academic_institutional_contribution",
+      "authorship_status": "documented_from_primary_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "historical_primary_biobibliography",
+      "title": "Armando Cordero, Aportaciones para un estudio de la filosofía dominicana (1952)",
+      "url": "https://www.filosofia.org/aut/005/1952ac.htm"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "Biblioteca Nacional Pedro Henríquez Ureña, obras de Andrés Avelino García",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-search.pl?q=an%3A31875"
+    },
+    {
+      "kind": "national_library_edition",
+      "title": "BNPHU, Filosofía del conocimiento (1950)",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=248"
+    },
+    {
+      "kind": "national_library_edition",
+      "title": "BNPHU, Filosofía del conocimiento (1952)",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=249"
+    }
+  ],
+  "research_notes": [
+    "Biblioteca Nacional identifica al autor como Andrés Avelino (1900–1974), y su nombre ampliado Andrés Avelino García.",
+    "Edición 1944 de El problema de la fundamentación... es 2.ª; primera edición no confirmada.",
+    "Filosofía del conocimiento 1950 y 1952 son ediciones de un mismo proyecto (distinta extensión), sin doble conteo.",
+    "No se atribuyen a Avelino los textos de traducción y comentarios de la edición 2007 de Una carta a Maritain."
+  ]
+}

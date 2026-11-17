@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 663,
+  "canonical_name": "Carlos Ramos Mattei",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_originals_chapters_and_editorial_work_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "663-w001",
+      "title": "Ethical Self-Determination in Don José Ortega y Gasset",
+      "work_type": "Ortega_and_Gasset_ethics_monograph",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1987,
+        "certainty": "scholarly_bibliography_or_primary_catalog"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "082040473X"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ci.nii.ac.jp/ncid/BA03933226"
+      ],
+      "notes": "Peter Lang, American University Studies Series V, vol. 38, New York, 1987; ISBN 082040473X acreditado por biblioteca japonesa."
+    },
+    {
+      "work_id": "663-w002",
+      "title": "Apuntes sobre el tema de los valores",
+      "work_type": "axiology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_edition_year_not_confirmed"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.eltestigofiel.org/index.php?idu=pb_11189"
+      ],
+      "notes": "Publicaciones Puertorriqueñas, sin año verificable en fuente biobibliográfica."
+    },
+    {
+      "work_id": "663-w003",
+      "title": "Annotations on the Philosophy of Values",
+      "work_type": "axiology_book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": null,
+        "certainty": "first_edition_year_not_confirmed"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.eltestigofiel.org/index.php?idu=pb_11189"
+      ],
+      "notes": "Peter Lang, título distinto del estudio sobre Ortega; fecha de primera edición pendiente."
+    },
+    {
+      "work_id": "663-w004",
+      "title": "Vaticano II: conceptos y supuestos",
+      "work_type": "Vatican_II_philosophical_and_theological_history_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_edition_year_not_confirmed"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.eltestigofiel.org/index.php?idu=pb_11190"
+      ],
+      "notes": "CreateSpace, documentado ya en 2012; no se usa 2012 como primera publicación sin ficha editorial. Los fragmentos publicados en El Testigo Fiel no se duplican."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía y ética en la Universidad de Puerto Rico y estudio de Ortega, valores, autonomía moral y Vaticano II.",
+      "kind": "documented_academic_philosophical_and_institutional_contribution",
+      "authorship_status": "documented_in_academic_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "author_bibliography",
+      "title": "Carlos Ramos Mattei, ficha de autor y libros",
+      "url": "https://www.eltestigofiel.org/index.php?idu=pb_11189"
+    },
+    {
+      "kind": "international_library_catalog",
+      "title": "CiNii Japan Libraries, Ethical Self-Determination (1987)",
+      "url": "https://ci.nii.ac.jp/ncid/BA03933226"
+    },
+    {
+      "kind": "primary_publisher_article_series",
+      "title": "El Testigo Fiel, índice de textos Vaticano II de Ramos Mattei",
+      "url": "https://www.eltestigofiel.org/index.php?idu=pb_11190"
+    }
+  ],
+  "research_notes": [
+    "Los cuatro títulos están confirmados en biografía del propio autor publicada por El Testigo Fiel.",
+    "Solo Ethical Self-Determination dispone de fecha e ISBN bibliotecarios; los demás conservan año original null."
+  ]
+}
