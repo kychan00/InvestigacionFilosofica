@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 610,
-    "authors_remaining": 894,
-    "works_or_contributions_seeded": 3849,
-    "current_batch": "061",
+    "authors_seeded": 620,
+    "authors_remaining": 884,
+    "works_or_contributions_seeded": 3951,
+    "current_batch": "062",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3203,6 +3203,58 @@
       "author_id": 610,
       "canonical_name": "María de los Ángeles Giralt",
       "path": "authors/0610.json"
+    }
+  ],
+  "batch_062": [
+    {
+      "author_id": 611,
+      "canonical_name": "Marta Jiménez",
+      "path": "authors/0611.json"
+    },
+    {
+      "author_id": 612,
+      "canonical_name": "Celedonio Ramírez",
+      "path": "authors/0612.json"
+    },
+    {
+      "author_id": 613,
+      "canonical_name": "Luis Camacho Naranjo",
+      "path": "authors/0613.json"
+    },
+    {
+      "author_id": 614,
+      "canonical_name": "Álvaro Zamora",
+      "path": "authors/0614.json"
+    },
+    {
+      "author_id": 615,
+      "canonical_name": "Helio Gallardo",
+      "path": "authors/0615.json"
+    },
+    {
+      "author_id": 616,
+      "canonical_name": "Constantino Láscaris",
+      "path": "authors/0616.json"
+    },
+    {
+      "author_id": 617,
+      "canonical_name": "Francisco Peccorini",
+      "path": "authors/0617.json"
+    },
+    {
+      "author_id": 618,
+      "canonical_name": "José Mata Gavidia",
+      "path": "authors/0618.json"
+    },
+    {
+      "author_id": 619,
+      "canonical_name": "José Rölz Bennett",
+      "path": "authors/0619.json"
+    },
+    {
+      "author_id": 620,
+      "canonical_name": "Enrique Muñoz Meany",
+      "path": "authors/0620.json"
     }
   ]
 }
