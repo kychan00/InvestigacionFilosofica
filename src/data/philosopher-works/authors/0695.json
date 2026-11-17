@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "author_id": 695,
+  "canonical_name": "Fernando Sodi Pallares",
+  "alternate_names": [
+    "Fernando Sodi Pallares"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_original_works_edited_texts_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0695-w001",
+      "title": "Ejercicios de lógica",
+      "work_type": "logic_teaching_exercise_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ri.ibero.mx/bitstream/handle/ibero/3616/LBPF_Art_14.pdf?isAllowed=y&sequence=1"
+      ],
+      "notes": "Publicación editorial Progreso 1966, documentada por estudio de historia del Departamento de Filosofía de la Universidad Iberoamericana."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia y diseño de ejercicios de lógica para la enseñanza de la filosofía en la Universidad Iberoamericana.",
+      "kind": "historically_documented_philosophical_teaching_or_institutional_activity",
+      "authorship_status": "documented_in_scholarly_or_primary_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_historiography",
+      "title": "Revista de Filosofía UIA, historia de publicaciones del Departamento de Filosofía",
+      "url": "https://ri.ibero.mx/bitstream/handle/ibero/3616/LBPF_Art_14.pdf?isAllowed=y&sequence=1"
+    }
+  ],
+  "research_notes": [
+    "Único título individual comprobado en historia editorial universitaria: Ejercicios de lógica (1966).",
+    "No confundir con publicaciones de autores Sodi Pallares de medicina o cardiología; homonimia no acredita atribución."
+  ]
+}

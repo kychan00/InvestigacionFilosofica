@@ -27,11 +27,11 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 690,
-    "authors_remaining": 814,
-    "works_or_contributions_seeded": 4901,
-    "current_batch": "069",
-    "last_updated": "2026-11-16"
+    "authors_seeded": 700,
+    "authors_remaining": 804,
+    "works_or_contributions_seeded": 5000,
+    "current_batch": "070",
+    "last_updated": "2026-11-17"
   },
   "batch_001": [
     {
@@ -3619,6 +3619,58 @@
       "author_id": 690,
       "canonical_name": "Jesús de Guiza y Acevedo",
       "path": "authors/0690.json"
+    }
+  ],
+  "batch_070": [
+    {
+      "author_id": 691,
+      "canonical_name": "Oswaldo Robles",
+      "path": "authors/0691.json"
+    },
+    {
+      "author_id": 692,
+      "canonical_name": "José de Jesús Díez de Sollano y Dávalos",
+      "path": "authors/0692.json"
+    },
+    {
+      "author_id": 693,
+      "canonical_name": "Agustín Abarca y Cabrera",
+      "path": "authors/0693.json"
+    },
+    {
+      "author_id": 694,
+      "canonical_name": "Isaac Guzmán Valdivia",
+      "path": "authors/0694.json"
+    },
+    {
+      "author_id": 695,
+      "canonical_name": "Fernando Sodi Pallares",
+      "path": "authors/0695.json"
+    },
+    {
+      "author_id": 696,
+      "canonical_name": "José Rubén Sanabria Tapia",
+      "path": "authors/0696.json"
+    },
+    {
+      "author_id": 697,
+      "canonical_name": "Antonio Ibargüengoitia Chico",
+      "path": "authors/0697.json"
+    },
+    {
+      "author_id": 698,
+      "canonical_name": "Miguel Villoro Toranzo",
+      "path": "authors/0698.json"
+    },
+    {
+      "author_id": 699,
+      "canonical_name": "Medardo Plascencia Castellanos",
+      "path": "authors/0699.json"
+    },
+    {
+      "author_id": 700,
+      "canonical_name": "Salvador Abascal Carranza",
+      "path": "authors/0700.json"
     }
   ]
 }
