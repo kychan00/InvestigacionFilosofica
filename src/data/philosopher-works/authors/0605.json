@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "author_id": 605,
+  "canonical_name": "Claudio Gutiérrez Carranza",
+  "alternate_names": [
+    "Claudio Gutiérrez"
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "UCR_official_obituary"
+    },
+    "died": {
+      "year": 2023,
+      "certainty": "UCR_official_obituary"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0605-w001",
+      "title": "Elementos de lógica",
+      "work_type": "logic_university_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "contemporary_UCR_course_syllabus"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "deducción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.ucr.ac.cr/index.php/rfilosofia/article/download/1812/2281?inline=1",
+        "https://editorial.ucr.ac.cr/images/documentos/Catalogo_EUCR2018.pdf"
+      ],
+      "notes": "Programa UCR de 1969 indica texto Elementos de Lógica de C. Gutiérrez; publicación anterior a ese programa, se usa año 1968 según bibliografía histórica del departamento."
+    },
+    {
+      "work_id": "0605-w002",
+      "title": "Ejercicios de lógica elemental",
+      "work_type": "formal_logic_exercise_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "UCR_retrospective_bibliography_without_original_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Luis Guillermo Coronado Céspedes"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica elemental",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ejercicios",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "deducción",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.ucr.ac.cr/index.php/rfilosofia/article/download/1812/2281?inline=1",
+        "https://editorial.ucr.ac.cr/images/documentos/Catalogo_EUCR2018.pdf"
+      ],
+      "notes": "La reseña académica identifica coautoría con Luis Guillermo Coronado y reproducción en Obras completas vol. II; la fecha de primera edición no queda establecida y se conserva nula."
+    },
+    {
+      "work_id": "0605-w003",
+      "title": "La sociedad computarizada",
+      "work_type": "computerization_and_society_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "UCR_publisher_reprint_catalog_without_first_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "informática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.ucr.ac.cr/images/documentos/Catalogo_EUCR2018.pdf"
+      ],
+      "notes": "El catálogo editorial UCR 2018 registra su inclusión en Obras completas. La edición original no está fechada en la fuente consultada; se deja fecha nula."
+    },
+    {
+      "work_id": "0605-w004",
+      "title": "De la gente universitaria",
+      "work_type": "university_speeches_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "UCR_publisher_reprint_catalog_without_first_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía institucional",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.ucr.ac.cr/images/documentos/Catalogo_EUCR2018.pdf"
+      ],
+      "notes": "Publicación anterior a la antología Obras completas (2011), que reproduce mayormente estos discursos. No se cuenta la antología como nueva obra original."
+    },
+    {
+      "work_id": "0605-w005",
+      "title": "Ensayos sobre un nuevo humanismo",
+      "work_type": "humanism_and_technology_essays_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "UNED_publisher_catalog"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tecnología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://editorial.uned.ac.cr/nuestros-libros/impresos.html?cat=89&products_format=20"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo costarricense de lógica, filosofía de la ciencia, computación, inteligencia artificial y humanismo universitario",
+      "kind": "Costa_Rican_logic_philosophy_of_computation_and_AI",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico de filósofos latinoamericanos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "official_university_biography",
+      "title": "UCR — Claudio Gutiérrez Carranza (1930–2023)",
+      "url": "https://www.ucr.ac.cr/noticias/2023/3/03/fallecio-el-dr-claudio-gutierrez-carranza-exrector-de-la-universidad-de-costa-rica-un-visionario-e-impulsor-de-grandes-gestas/imprimir.html?empotrar=true&ruta=https%3A%2F%2Fwww.ucr.ac.cr%2Fnoticias%2F2023%2F3%2F03%2Ffallecio-el-dr-claudio-gutierrez-carranza-exrector-de-la-universidad-de-costa-rica-un-visionario-e-impulsor-de-grandes-gestas.html"
+    },
+    {
+      "kind": "publisher_catalog",
+      "title": "Editorial UCR — Obras completas y títulos originales",
+      "url": "https://editorial.ucr.ac.cr/images/documentos/Catalogo_EUCR2018.pdf"
+    },
+    {
+      "kind": "UNED_publisher_catalog",
+      "title": "EUNED — Ensayos sobre un nuevo humanismo",
+      "url": "https://editorial.uned.ac.cr/nuestros-libros/impresos.html?cat=89&products_format=20"
+    }
+  ],
+  "research_notes": [
+    "No se cuentan los seis tomos de Obras completas (2011, 2020) como seis títulos originales adicionales; se usaron para identificar obras subyacentes.",
+    "En elementos y ejercicios de lógica se separan el texto conceptual de los ejercicios con coautor Coronado.",
+    "La ficha del registro ISBN proyectada a 2031 corresponde a una edición futura y no se toma como primera publicación."
+  ]
+}

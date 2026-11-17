@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 600,
-    "authors_remaining": 904,
-    "works_or_contributions_seeded": 3779,
-    "current_batch": "060",
+    "authors_seeded": 610,
+    "authors_remaining": 894,
+    "works_or_contributions_seeded": 3849,
+    "current_batch": "061",
     "last_updated": "2026-11-16"
   },
   "batch_001": [
@@ -3151,6 +3151,58 @@
       "author_id": 600,
       "canonical_name": "Alberto Rosales",
       "path": "authors/0600.json"
+    }
+  ],
+  "batch_061": [
+    {
+      "author_id": 601,
+      "canonical_name": "Juan F. Porras Rangel",
+      "path": "authors/0601.json"
+    },
+    {
+      "author_id": 602,
+      "canonical_name": "Antonio Pérez Estévez",
+      "path": "authors/0602.json"
+    },
+    {
+      "author_id": 603,
+      "canonical_name": "Abelardo Bonilla",
+      "path": "authors/0603.json"
+    },
+    {
+      "author_id": 604,
+      "canonical_name": "Teodoro Olarte",
+      "path": "authors/0604.json"
+    },
+    {
+      "author_id": 605,
+      "canonical_name": "Claudio Gutiérrez Carranza",
+      "path": "authors/0605.json"
+    },
+    {
+      "author_id": 606,
+      "canonical_name": "Rafael Ángel Herra",
+      "path": "authors/0606.json"
+    },
+    {
+      "author_id": 607,
+      "canonical_name": "Rodrigo Facio",
+      "path": "authors/0607.json"
+    },
+    {
+      "author_id": 608,
+      "canonical_name": "Carlos José Gutiérrez",
+      "path": "authors/0608.json"
+    },
+    {
+      "author_id": 609,
+      "canonical_name": "Luis Lara",
+      "path": "authors/0609.json"
+    },
+    {
+      "author_id": 610,
+      "canonical_name": "María de los Ángeles Giralt",
+      "path": "authors/0610.json"
     }
   ]
 }
