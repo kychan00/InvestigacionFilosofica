@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "author_id": 823,
+  "canonical_name": "Diana Maffía",
+  "alternate_names": [
+    "Diana Helena Maffía",
+    "Diana Helena Maffia"
+  ],
+  "life": {
+    "born": {
+      "year": 1953,
+      "certainty": "UNAM_academic_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0823-w001",
+      "title": "Búsquedas de sentido para una nueva política",
+      "work_type": "edited_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Elisa Carrió"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://opac.unla.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=87500"
+      ],
+      "notes": "Colaboración con Elisa Carrió; registro UNLA indica 'compiladora' para Maffía."
+    },
+    {
+      "work_id": "0823-w002",
+      "title": "Sexualidades migrantes: género y transgénero",
+      "work_type": "edited_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "compiler",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.ugr.edu.ar/opacmarc/cgi-bin/wxis.exe?IsisScript=%2Fxis%2Fopac.xis&cn=006145&db=iugr&task=BIB-RECORD"
+      ],
+      "notes": "Segunda edición 2008; fecha de primera edición por verificar."
+    },
+    {
+      "work_id": "0823-w003",
+      "title": "Los sexos ¿son o se hacen?",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Mauro Cabral"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.ugr.edu.ar/opacmarc/cgi-bin/wxis.exe?IsisScript=%2Fxis%2Fopac.xis&cn=006145&db=iugr&task=BIB-RECORD"
+      ],
+      "notes": "Capítulo en Sexualidades migrantes; referencia de segunda edición 2008, primera aparición por verificar."
+    },
+    {
+      "work_id": "0823-w004",
+      "title": "Contra las dicotomías: feminismo y epistemología crítica",
+      "work_type": "scholarly_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://vindictas.unam.mx/diana-maffia"
+      ],
+      "notes": "Circula en versiones docentes y antologías; fecha de publicación inicial no confirmada."
+    },
+    {
+      "work_id": "0823-w005",
+      "title": "Aborto no punible: ¿Qué dice la ley argentina?",
+      "work_type": "booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "coauthor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://vindictas.unam.mx/diana-maffia"
+      ],
+      "notes": "Obra identificada en reseña bibliográfica UNAM; precisar editorial, año y coautoría."
+    },
+    {
+      "work_id": "0823-w006",
+      "title": "El sexo oculto de la ciencia: historia de la ciencia y política sexual",
+      "work_type": "scholarly_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/autor?codigo=1811626"
+      ],
+      "notes": "Registrado en bibliografía de artículos; primera fecha por cotejar."
+    },
+    {
+      "work_id": "0823-w007",
+      "title": "Epistemología feminista: la subversión semiótica de las mujeres en la ciencia",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/autor?codigo=1811626"
+      ],
+      "notes": "Artículo catalogado, publicación original por comprobar."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Epistemología feminista, ética pública, filosofía de las ciencias, ciudadanía, identidades trans e intersexualidad y crítica a las dicotomías de género.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM Vindictas, semblanza bibliográfica de Diana Helena Maffía",
+      "url": "https://vindictas.unam.mx/diana-maffia"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Dialnet, catálogo de artículos de Diana Helena Maffía",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=1811626"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca Rodolfo Puiggrós UNLa, Búsquedas de sentido",
+      "url": "https://opac.unla.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=87500"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Universidad del Gran Rosario, catálogo Sexualidades migrantes",
+      "url": "https://catalogo.ugr.edu.ar/opacmarc/cgi-bin/wxis.exe?IsisScript=%2Fxis%2Fopac.xis&cn=006145&db=iugr&task=BIB-RECORD"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Universidad Nacional de Rosario, biografía y libros",
+      "url": "https://fcpolit.unr.edu.ar/maxima-distincion-a-la-dra-diana-maffia/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Isegoría, producción de Diana Maffía en Dialnet",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=1811626"
+    }
+  ],
+  "research_notes": [
+    "La UNLA registra Búsquedas de sentido para una nueva política con Elisa Carrió; la responsabilidad de Maffía aparece como compiladora, aunque otras fuentes citan coautoría. Se registra el rol editorial documentado.",
+    "Sexualidades migrantes se registra como compilación; el catálogo de la Universidad del Gran Rosario identifica segunda edición 2008, por lo que no se inventa año de primera edición.",
+    "Contra las dicotomías circula como texto/ensayo reimpreso; año de primera publicación por precisar (no tomar año de material docente como origen).",
+    "La monografía UNAM Vindictas Diana Maffía (2021) es de Danila Suárez Tomé y NO es obra de Diana Maffía."
+  ]
+}

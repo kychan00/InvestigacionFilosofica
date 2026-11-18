@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 820,
-    "authors_remaining": 684,
-    "works_or_contributions_seeded": 6619,
-    "current_batch": "082",
+    "authors_seeded": 830,
+    "authors_remaining": 674,
+    "works_or_contributions_seeded": 6755,
+    "current_batch": "083",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4295,6 +4295,58 @@
       "author_id": 820,
       "canonical_name": "Eli Bartra Muriá",
       "path": "authors/0820.json"
+    }
+  ],
+  "batch_083": [
+    {
+      "author_id": 821,
+      "canonical_name": "Vera Yamuni",
+      "path": "authors/0821.json"
+    },
+    {
+      "author_id": 822,
+      "canonical_name": "Rosario Castellanos",
+      "path": "authors/0822.json"
+    },
+    {
+      "author_id": 823,
+      "canonical_name": "Diana Maffía",
+      "path": "authors/0823.json"
+    },
+    {
+      "author_id": 824,
+      "canonical_name": "María Luisa Femenías",
+      "path": "authors/0824.json"
+    },
+    {
+      "author_id": 825,
+      "canonical_name": "Sueli Carneiro",
+      "path": "authors/0825.json"
+    },
+    {
+      "author_id": 826,
+      "canonical_name": "Ochy Curiel",
+      "path": "authors/0826.json"
+    },
+    {
+      "author_id": 827,
+      "canonical_name": "Jurema Werneck",
+      "path": "authors/0827.json"
+    },
+    {
+      "author_id": 828,
+      "canonical_name": "Rita Laura Segato",
+      "path": "authors/0828.json"
+    },
+    {
+      "author_id": 829,
+      "canonical_name": "María del Rayo Ramírez Fierro",
+      "path": "authors/0829.json"
+    },
+    {
+      "author_id": 830,
+      "canonical_name": "Silvia Rivera Cusicanqui",
+      "path": "authors/0830.json"
     }
   ]
 }
