@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 810,
-    "authors_remaining": 694,
-    "works_or_contributions_seeded": 6498,
-    "current_batch": "081",
+    "authors_seeded": 820,
+    "authors_remaining": 684,
+    "works_or_contributions_seeded": 6619,
+    "current_batch": "082",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4243,6 +4243,58 @@
       "author_id": 810,
       "canonical_name": "Alipio Dias Casalis",
       "path": "authors/0810.json"
+    }
+  ],
+  "batch_082": [
+    {
+      "author_id": 811,
+      "canonical_name": "Sírio López Velasco",
+      "path": "authors/0811.json"
+    },
+    {
+      "author_id": 812,
+      "canonical_name": "Jandir Zanotelli",
+      "path": "authors/0812.json"
+    },
+    {
+      "author_id": 813,
+      "canonical_name": "Jesus Eurico Miranda Regina",
+      "path": "authors/0813.json"
+    },
+    {
+      "author_id": 814,
+      "canonical_name": "Aníbal Quijano",
+      "path": "authors/0814.json"
+    },
+    {
+      "author_id": 815,
+      "canonical_name": "Teresa Margarida da Silva e Orta",
+      "path": "authors/0815.json"
+    },
+    {
+      "author_id": 816,
+      "canonical_name": "Flora Tristán",
+      "path": "authors/0816.json"
+    },
+    {
+      "author_id": 817,
+      "canonical_name": "Juana Manso",
+      "path": "authors/0817.json"
+    },
+    {
+      "author_id": 818,
+      "canonical_name": "Rita Cetina Gutiérrez",
+      "path": "authors/0818.json"
+    },
+    {
+      "author_id": 819,
+      "canonical_name": "Visitación Padilla",
+      "path": "authors/0819.json"
+    },
+    {
+      "author_id": 820,
+      "canonical_name": "Eli Bartra Muriá",
+      "path": "authors/0820.json"
     }
   ]
 }
