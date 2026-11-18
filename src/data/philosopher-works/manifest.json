@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 990,
-    "authors_remaining": 514,
-    "works_or_contributions_seeded": 8366,
-    "current_batch": "099",
+    "authors_seeded": 1000,
+    "authors_remaining": 504,
+    "works_or_contributions_seeded": 8444,
+    "current_batch": "100",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5179,6 +5179,58 @@
       "author_id": 990,
       "canonical_name": "Rafael Aragunde",
       "path": "authors/0990.json"
+    }
+  ],
+  "batch_100": [
+    {
+      "author_id": 991,
+      "canonical_name": "José Lezama Lima",
+      "path": "authors/0991.json"
+    },
+    {
+      "author_id": 992,
+      "canonical_name": "Alejo Carpentier",
+      "path": "authors/0992.json"
+    },
+    {
+      "author_id": 993,
+      "canonical_name": "Pedro Mir",
+      "path": "authors/0993.json"
+    },
+    {
+      "author_id": 994,
+      "canonical_name": "León David",
+      "path": "authors/0994.json"
+    },
+    {
+      "author_id": 995,
+      "canonical_name": "Francisco José Ramos",
+      "path": "authors/0995.json"
+    },
+    {
+      "author_id": 996,
+      "canonical_name": "Jorge Luis Acanda",
+      "path": "authors/0996.json"
+    },
+    {
+      "author_id": 997,
+      "canonical_name": "Ángel Villarini",
+      "path": "authors/0997.json"
+    },
+    {
+      "author_id": 998,
+      "canonical_name": "Miguel Badía",
+      "path": "authors/0998.json"
+    },
+    {
+      "author_id": 999,
+      "canonical_name": "Álvaro López Fernández",
+      "path": "authors/0999.json"
+    },
+    {
+      "author_id": 1000,
+      "canonical_name": "Luis O. Brea",
+      "path": "authors/1000.json"
     }
   ]
 }

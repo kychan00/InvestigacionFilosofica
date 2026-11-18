@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "author_id": 1000,
+  "canonical_name": "Luis O. Brea",
+  "alternate_names": [
+    "Luis O. Brea Franco"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1000-w001",
+      "title": "La modernidad como problema",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/Luis_O._Brea_Franco"
+      ],
+      "notes": "Identidad provisionalmente sustentada en semblanza secundaria; año y título necesitan cotejo en catálogo editorial o biblioteca nacional. No añadir otras obras sin fuente."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Referencia bibliográfica 1",
+      "url": "https://es.wikipedia.org/wiki/Luis_O._Brea_Franco"
+    }
+  ],
+  "research_notes": [
+    "Identidad provisionalmente sustentada en semblanza secundaria; año y título necesitan cotejo en catálogo editorial o biblioteca nacional. No añadir otras obras sin fuente."
+  ]
+}

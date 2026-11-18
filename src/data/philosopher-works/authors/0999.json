@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "author_id": 999,
+  "canonical_name": "Álvaro López Fernández",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "999-w001",
+      "title": "Conciencia y juicio en Kant",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.primerahora.com/noticias/puerto-rico/notas/fallece-profesor-lopez-fernandez-ex-director-de-la-revista-dialogos-y-del-seminario-de-filosofia/amp/",
+        "https://dialnet.unirioja.es/ejemplar/631371"
+      ],
+      "notes": "Identidad: profesor de filosofía UPR fallecido en 2010, no el investigador de literatura española homónimo activo en 2026. La fuente confirma dos libros pero solo nombra uno; el otro queda pendiente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Director de Diálogos y Seminario de Filosofía UPR; estudios de Kant y razón práctica.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Referencia bibliográfica 1",
+      "url": "https://www.primerahora.com/noticias/puerto-rico/notas/fallece-profesor-lopez-fernandez-ex-director-de-la-revista-dialogos-y-del-seminario-de-filosofia/amp/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Referencia bibliográfica 2",
+      "url": "https://dialnet.unirioja.es/ejemplar/631371"
+    }
+  ],
+  "research_notes": [
+    "Identidad: profesor de filosofía UPR fallecido en 2010, no el investigador de literatura española homónimo activo en 2026. La fuente confirma dos libros pero solo nombra uno; el otro queda pendiente."
+  ]
+}
