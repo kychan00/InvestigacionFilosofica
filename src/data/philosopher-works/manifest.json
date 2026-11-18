@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 890,
-    "authors_remaining": 614,
-    "works_or_contributions_seeded": 7255,
-    "current_batch": "089",
+    "authors_seeded": 900,
+    "authors_remaining": 604,
+    "works_or_contributions_seeded": 7316,
+    "current_batch": "090",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4659,6 +4659,58 @@
       "author_id": 890,
       "canonical_name": "Leo Pessini",
       "path": "authors/0890.json"
+    }
+  ],
+  "batch_090": [
+    {
+      "author_id": 891,
+      "canonical_name": "Luciano Pereira",
+      "path": "authors/0891.json"
+    },
+    {
+      "author_id": 892,
+      "canonical_name": "Mario Fabri dos Anjos",
+      "path": "authors/0892.json"
+    },
+    {
+      "author_id": 893,
+      "canonical_name": "Marcos Segre",
+      "path": "authors/0893.json"
+    },
+    {
+      "author_id": 894,
+      "canonical_name": "Marcos de Almeida",
+      "path": "authors/0894.json"
+    },
+    {
+      "author_id": 895,
+      "canonical_name": "Vera Saher",
+      "path": "authors/0895.json"
+    },
+    {
+      "author_id": 896,
+      "canonical_name": "Alfonso Llano Escobar",
+      "path": "authors/0896.json"
+    },
+    {
+      "author_id": 897,
+      "canonical_name": "Jaime Escobar Triana",
+      "path": "authors/0897.json"
+    },
+    {
+      "author_id": 898,
+      "canonical_name": "Gustavo García Cardona",
+      "path": "authors/0898.json"
+    },
+    {
+      "author_id": 899,
+      "canonical_name": "Flavio Garzón",
+      "path": "authors/0899.json"
+    },
+    {
+      "author_id": 900,
+      "canonical_name": "Emilse Cancino",
+      "path": "authors/0900.json"
     }
   ]
 }
