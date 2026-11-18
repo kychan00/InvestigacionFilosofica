@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1050,
-    "authors_remaining": 454,
-    "works_or_contributions_seeded": 9020,
-    "current_batch": "105",
+    "authors_seeded": 1060,
+    "authors_remaining": 444,
+    "works_or_contributions_seeded": 9070,
+    "current_batch": "106",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5491,6 +5491,58 @@
       "author_id": 1050,
       "canonical_name": "Aquilles Côrtes Guimarães",
       "path": "authors/1050.json"
+    }
+  ],
+  "batch_106": [
+    {
+      "author_id": 1051,
+      "canonical_name": "João Carlos Nogueira",
+      "path": "authors/1051.json"
+    },
+    {
+      "author_id": 1052,
+      "canonical_name": "José de Anchieta Correa",
+      "path": "authors/1052.json"
+    },
+    {
+      "author_id": 1053,
+      "canonical_name": "Salma Tannus Muchail",
+      "path": "authors/1053.json"
+    },
+    {
+      "author_id": 1054,
+      "canonical_name": "Newton Aquiles von Zuben",
+      "path": "authors/1054.json"
+    },
+    {
+      "author_id": 1055,
+      "canonical_name": "Telma A. Donzelli",
+      "path": "authors/1055.json"
+    },
+    {
+      "author_id": 1056,
+      "canonical_name": "José Ozanan de Castro",
+      "path": "authors/1056.json"
+    },
+    {
+      "author_id": 1057,
+      "canonical_name": "Miguel Schaeffer",
+      "path": "authors/1057.json"
+    },
+    {
+      "author_id": 1058,
+      "canonical_name": "Maria Fernanda Dichtchekenian",
+      "path": "authors/1058.json"
+    },
+    {
+      "author_id": 1059,
+      "canonical_name": "Antônio Muniz de Rezende",
+      "path": "authors/1059.json"
+    },
+    {
+      "author_id": 1060,
+      "canonical_name": "Augusto João Crema Novaski",
+      "path": "authors/1060.json"
     }
   ]
 }
