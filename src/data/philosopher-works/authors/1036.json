@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "author_id": 1036,
+  "canonical_name": "Paulo Bonavides",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1036-w001",
+      "title": "Ciência política",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www12.senado.leg.br/institucional/escoladegoverno/ed-superior-1/pastacursos-pos-graduacao/cursos-encerrados/projeto-pedagogico_pp_dlrevisado.pdf"
+      ],
+      "notes": "Bibliografía inicial selectiva: cotejar fechas de primeras ediciones, especialmente en fuentes secundarias."
+    },
+    {
+      "work_id": "1036-w002",
+      "title": "Curso de direito constitucional",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www12.senado.leg.br/institucional/escoladegoverno/ed-superior-1/pastacursos-pos-graduacao/cursos-encerrados/projeto-pedagogico_pp_dlrevisado.pdf"
+      ],
+      "notes": "Bibliografía inicial selectiva: cotejar fechas de primeras ediciones, especialmente en fuentes secundarias."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente de identificación y bibliografía inicial",
+      "url": "https://www12.senado.leg.br/institucional/escoladegoverno/ed-superior-1/pastacursos-pos-graduacao/cursos-encerrados/projeto-pedagogico_pp_dlrevisado.pdf"
+    }
+  ],
+  "research_notes": [
+    "Senado cita ediciones de 2010 y 2002; primeras publicaciones no comprobadas."
+  ]
+}

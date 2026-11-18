@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1030,
-    "authors_remaining": 474,
-    "works_or_contributions_seeded": 8842,
-    "current_batch": "103",
+    "authors_seeded": 1040,
+    "authors_remaining": 464,
+    "works_or_contributions_seeded": 8906,
+    "current_batch": "104",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5387,6 +5387,58 @@
       "author_id": 1030,
       "canonical_name": "José Honório Rodrigues",
       "path": "authors/1030.json"
+    }
+  ],
+  "batch_104": [
+    {
+      "author_id": 1031,
+      "canonical_name": "Domingos Crippa",
+      "path": "authors/1031.json"
+    },
+    {
+      "author_id": 1032,
+      "canonical_name": "Heraldo Barbuy",
+      "path": "authors/1032.json"
+    },
+    {
+      "author_id": 1033,
+      "canonical_name": "Gilberto de Melo Kujawski",
+      "path": "authors/1033.json"
+    },
+    {
+      "author_id": 1034,
+      "canonical_name": "Hamilton Nogueira",
+      "path": "authors/1034.json"
+    },
+    {
+      "author_id": 1035,
+      "canonical_name": "Tasso Silveira",
+      "path": "authors/1035.json"
+    },
+    {
+      "author_id": 1036,
+      "canonical_name": "Paulo Bonavides",
+      "path": "authors/1036.json"
+    },
+    {
+      "author_id": 1037,
+      "canonical_name": "Djacir Menezes",
+      "path": "authors/1037.json"
+    },
+    {
+      "author_id": 1038,
+      "canonical_name": "Romano Galeffi",
+      "path": "authors/1038.json"
+    },
+    {
+      "author_id": 1039,
+      "canonical_name": "Berto Condé",
+      "path": "authors/1039.json"
+    },
+    {
+      "author_id": 1040,
+      "canonical_name": "Astrogildo Pereira",
+      "path": "authors/1040.json"
     }
   ]
 }
