@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "author_id": 983,
+  "canonical_name": "José Manuel Lázaro",
+  "alternate_names": [
+    "José M. Lázaro García",
+    "José Manuel Lázaro García"
+  ],
+  "life": {
+    "birth_year": 1909,
+    "death_year": 1968
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "983-w001",
+      "title": "El pensar lógico",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/jose-m-lazaro-garcia/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "983-w002",
+      "title": "Iniciación al estudio del conocimiento",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/jose-m-lazaro-garcia/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "983-w003",
+      "title": "La confección de tesis en las humanidades",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/jose-m-lazaro-garcia/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "983-w004",
+      "title": "La filosofía y el mundo contemporáneo",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Ludwig Schajowicz"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopediapr.org/content/jose-m-lazaro-garcia/"
+      ],
+      "notes": "Coedición, no autoría exclusiva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia filosófica en la Universidad de Puerto Rico, investigación sobre lógica y conocimiento, y rectoría interina del Recinto de Río Piedras.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "EnciclopediaPR, perfil biográfico y bibliografía de José M. Lázaro García",
+      "url": "https://enciclopediapr.org/content/jose-m-lazaro-garcia/"
+    }
+  ],
+  "research_notes": [
+    "La EnciclopediaPR identifica el nombre completo José Manuel Lázaro García y documenta expresamente los cuatro títulos."
+  ]
+}

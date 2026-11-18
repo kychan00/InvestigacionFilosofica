@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 980,
-    "authors_remaining": 524,
-    "works_or_contributions_seeded": 8266,
-    "current_batch": "098",
+    "authors_seeded": 990,
+    "authors_remaining": 514,
+    "works_or_contributions_seeded": 8366,
+    "current_batch": "099",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5127,6 +5127,58 @@
       "author_id": 980,
       "canonical_name": "Samuel Silva Gotay",
       "path": "authors/0980.json"
+    }
+  ],
+  "batch_099": [
+    {
+      "author_id": 981,
+      "canonical_name": "Luis Rivera Pagán",
+      "path": "authors/0981.json"
+    },
+    {
+      "author_id": 982,
+      "canonical_name": "Cintio Vitier",
+      "path": "authors/0982.json"
+    },
+    {
+      "author_id": 983,
+      "canonical_name": "José Manuel Lázaro",
+      "path": "authors/0983.json"
+    },
+    {
+      "author_id": 984,
+      "canonical_name": "Enrique Ubieta",
+      "path": "authors/0984.json"
+    },
+    {
+      "author_id": 985,
+      "canonical_name": "Fernando Ortiz",
+      "path": "authors/0985.json"
+    },
+    {
+      "author_id": 986,
+      "canonical_name": "Miguel Pimentel",
+      "path": "authors/0986.json"
+    },
+    {
+      "author_id": 987,
+      "canonical_name": "Julio Minaya",
+      "path": "authors/0987.json"
+    },
+    {
+      "author_id": 988,
+      "canonical_name": "José Ferrer Canales",
+      "path": "authors/0988.json"
+    },
+    {
+      "author_id": 989,
+      "canonical_name": "José Emilio González",
+      "path": "authors/0989.json"
+    },
+    {
+      "author_id": 990,
+      "canonical_name": "Rafael Aragunde",
+      "path": "authors/0990.json"
     }
   ]
 }
