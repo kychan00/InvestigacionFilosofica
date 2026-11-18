@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "author_id": 913,
+  "canonical_name": "Javier Luna Orozco",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0913-w001",
+      "title": "Ética médica y bioética",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.imbiomed.com.mx/articulo.php?id=23770"
+      ],
+      "notes": "Revista del Instituto Médico Sucre, vol. 61, núm.109, julio-diciembre 1996, pp. 10–15. La fecha web de 2004 es indexación, no publicación original."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reflexión desde medicina boliviana sobre la diferencia entre deontología médica y bioética como disciplina más amplia.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "IMBIOMED, Ética médica y bioética, Revista del Instituto Médico Sucre 1996",
+      "url": "https://www.imbiomed.com.mx/articulo.php?id=23770"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "IMBIOMED, dossier autoral con cuatro artículos",
+      "url": "https://www.imbiomed.com.mx/autor.php?id=34779"
+    }
+  ],
+  "research_notes": [
+    "No se incluyen otros tres textos clínicos y conmemorativos detectados en el índice IMBIOMED porque no son contribuciones filosóficas centrales."
+  ]
+}

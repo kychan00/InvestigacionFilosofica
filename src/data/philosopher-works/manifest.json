@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 910,
-    "authors_remaining": 594,
-    "works_or_contributions_seeded": 7402,
-    "current_batch": "091",
+    "authors_seeded": 920,
+    "authors_remaining": 584,
+    "works_or_contributions_seeded": 7514,
+    "current_batch": "092",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4763,6 +4763,58 @@
       "author_id": 910,
       "canonical_name": "Héctor Gros Espiell",
       "path": "authors/0910.json"
+    }
+  ],
+  "batch_092": [
+    {
+      "author_id": 911,
+      "canonical_name": "Stella Cerrutti Basso",
+      "path": "authors/0911.json"
+    },
+    {
+      "author_id": 912,
+      "canonical_name": "Marta Ascurra",
+      "path": "authors/0912.json"
+    },
+    {
+      "author_id": 913,
+      "canonical_name": "Javier Luna Orozco",
+      "path": "authors/0913.json"
+    },
+    {
+      "author_id": 914,
+      "canonical_name": "Norbert Lechner",
+      "path": "authors/0914.json"
+    },
+    {
+      "author_id": 915,
+      "canonical_name": "Guillermo O’Donnell",
+      "path": "authors/0915.json"
+    },
+    {
+      "author_id": 916,
+      "canonical_name": "Manuel Antonio Garretón",
+      "path": "authors/0916.json"
+    },
+    {
+      "author_id": 917,
+      "canonical_name": "Marcelo Cavarozzi",
+      "path": "authors/0917.json"
+    },
+    {
+      "author_id": 918,
+      "canonical_name": "Dieter Nohlen",
+      "path": "authors/0918.json"
+    },
+    {
+      "author_id": 919,
+      "canonical_name": "Carlos Huneeus",
+      "path": "authors/0919.json"
+    },
+    {
+      "author_id": 920,
+      "canonical_name": "Enrique Baloyra",
+      "path": "authors/0920.json"
     }
   ]
 }
