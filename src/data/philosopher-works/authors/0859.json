@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "author_id": 859,
+  "canonical_name": "José María Cantú Garza",
+  "alternate_names": [
+    "José María Cantú",
+    "Jose Maria Cantu Garza"
+  ],
+  "life": {
+    "born": {
+      "year": 1938,
+      "certainty": "academy_memorial_year"
+    },
+    "died": {
+      "year": 2007,
+      "certainty": "academy_memorial_year"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0859-w001",
+      "title": "Bioética y genética: II Encuentro Latinoamericano de Bioética y Genética",
+      "work_type": "coedited_collective_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Salvador Darío Bergel"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "987-507-184-6"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/libro?codigo=10495"
+      ],
+      "notes": "Ciudad Argentina, ISBN 987-507-184-6; coordinación, no autoría de todos los capítulos."
+    },
+    {
+      "work_id": "0859-w002",
+      "title": "El genoma humano y la medicina del siglo XXI",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/libro?codigo=10495"
+      ],
+      "notes": "Capítulo en Bioética y genética, pp. 81–88."
+    },
+    {
+      "work_id": "0859-w003",
+      "title": "Clonación humana reproductiva, terapéutica y social",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Diana Reséndez Pérez"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/clonacion-humana-reproductiva-terapeutica-y-social-5031066"
+      ],
+      "notes": "Repositorio UNAM, 2005, ISBN del volumen 970-32-2120-3."
+    },
+    {
+      "work_id": "0859-w004",
+      "title": "Células troncales, clonación genética",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/celulas-troncales-clonacion-genetica-5005780"
+      ],
+      "notes": "Repositorio UNAM, 2005, ISBN del volumen 970-32-2909-3."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Genética humana, ética de investigaciones y tecnologías reproductivas, genoma, formación de genetistas y redes bioéticas latinoamericanas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Gaceta Médica de México, semblanza de José María Cantú Garza (1938–2007)",
+      "url": "https://www.anmm.org.mx/publicaciones/gaceta_medica_de_mexico/2009/vol_145_n5.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Dialnet: Bioética y genética (2000), coordinación con Bergel",
+      "url": "https://dialnet.unirioja.es/servlet/libro?codigo=10495"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Repositorio UNAM, Clonación humana reproductiva terapéutica y social (2005)",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/clonacion-humana-reproductiva-terapeutica-y-social-5031066"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Repositorio UNAM, Células troncales, clonación genética (2005)",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/celulas-troncales-clonacion-genetica-5005780"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Gaceta UdeG, semblanza bioética y genética humana",
+      "url": "https://www.gaceta.udg.mx/wp-content/uploads/2020/02/198.pdf"
+    }
+  ],
+  "research_notes": [
+    "José María Cantú Garza (1938–2007), investigador de genética en IMSS/UdeG y precursor de redes de genética y bioética en América Latina.",
+    "Bioética y genética, 2000 es coedición con Bergel; El genoma humano y la medicina del siglo XXI es capítulo autónomo firmado por Cantú dentro del volumen.",
+    "Clonación humana reproductiva, terapéutica y social es coautoría de Diana Reséndez Pérez, conforme a ficha UNAM.",
+    "No contar seminarios y cursos institucionales como obras bibliográficas."
+  ]
+}

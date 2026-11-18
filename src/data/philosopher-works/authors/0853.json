@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "author_id": 853,
+  "canonical_name": "Fernando Sánchez Torres",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "biography_year"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0853-w001",
+      "title": "Temas de ética médica",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "958-9396-02-X"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.usco.edu.co/cgi-bin/koha/opac-detail.pl?biblionumber=25790"
+      ],
+      "notes": "Bogotá: GIRO, ISBN 958-9396-02-X."
+    },
+    {
+      "work_id": "0853-w002",
+      "title": "Meditaciones de un octogenario",
+      "work_type": "essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://libros.ucentral.edu.co/index.php/editorialuc/catalog/book/485"
+      ],
+      "notes": "Edición previa a Meditaciones de un nonagenario; fecha exacta de primera edición sin cotejar."
+    },
+    {
+      "work_id": "0853-w003",
+      "title": "Meditaciones de un nonagenario",
+      "work_type": "essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://libros.ucentral.edu.co/index.php/editorialuc/catalog/book/485"
+      ],
+      "notes": "Ediciones Universidad Central, 2022."
+    },
+    {
+      "work_id": "0853-w004",
+      "title": "Meditaciones de un médico a través del tiempo",
+      "work_type": "collected_newspaper_columns",
+      "original_language": "español",
+      "original_date": {
+        "year": 2023,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2023,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://libros.ucentral.edu.co/index.php/editorialuc/catalog/book/492"
+      ],
+      "notes": "Compilación de columnas de El Tiempo desde 1957; catálogo editorial de Universidad Central, año editorial cercano a 2023."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ética médica colombiana, responsabilidad profesional, dignidad del paciente, derecho a morir dignamente y enseñanza bioética.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Universidad Surcolombiana, catálogo de Temas de ética médica, 1995",
+      "url": "https://biblioteca.usco.edu.co/cgi-bin/koha/opac-detail.pl?biblionumber=25790"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Ediciones Universidad Central, Meditaciones de un médico a través del tiempo",
+      "url": "https://libros.ucentral.edu.co/index.php/editorialuc/catalog/book/492"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Ediciones Universidad Central, Meditaciones de un nonagenario",
+      "url": "https://libros.ucentral.edu.co/index.php/editorialuc/catalog/book/485"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Academia Nacional de Medicina de Colombia, perfil Fernando Sánchez Torres",
+      "url": "https://anmdecolombia.org.co/los-medicos-escritores/"
+    }
+  ],
+  "research_notes": [
+    "Temas de ética médica es libro de 1995 con 19 capítulos de ética clínica, sin desglosar cada capítulo como obra independiente.",
+    "Meditaciones de un nonagenario (2022) continúa Meditaciones de un octogenario (aprox. 2012), obras diferentes. La recopilación Meditaciones de un médico a través del tiempo (2022/2023) agrega artículos periodísticos anteriores.",
+    "En fuentes oficiales sigue activo y entrevistado en 2026; no se infiere fecha de defunción."
+  ]
+}

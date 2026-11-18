@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "author_id": 854,
+  "canonical_name": "Juan Carlos Tealdi",
+  "alternate_names": [
+    "Juan Carlos Tealdi Rivarola"
+  ],
+  "life": {
+    "born": {
+      "year": 1951,
+      "certainty": "national_bioethics_commission_interview"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0854-w001",
+      "title": "Bioética de los derechos humanos: investigaciones biomédicas y dignidad humana",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/bioetica-de-los-derechos-humanos-5021645"
+      ],
+      "notes": "Instituto de Investigaciones Jurídicas UNAM, 2008; ISBN de ficha requiere revisión."
+    },
+    {
+      "work_id": "0854-w002",
+      "title": "Diccionario latinoamericano de bioética",
+      "work_type": "edited_reference_work",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "director_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=101624&lvl=notice_display"
+      ],
+      "notes": "Bogotá: UNESCO/Universidad Nacional de Colombia, 2008; múltiples voces de autoría colectiva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Bioética de los derechos humanos, dignidad, investigación biomédica y construcción de una agenda latinoamericana para una bioética social.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Repositorio UNAM, Bioética de los derechos humanos (2008)",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/bioetica-de-los-derechos-humanos-5021645"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca Parlamento Uruguay, Diccionario latinoamericano de bioética, edición 2008",
+      "url": "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=101624&lvl=notice_display"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "CONBIOÉTICA México, entrevista académica a Juan Carlos Tealdi",
+      "url": "https://conbioetica-mexico.salud.gob.mx/interior/gaceta_conbioetica/numero_5/Gaceta_5.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Repositorio UNAM, capítulos en Bioética de los derechos humanos",
+      "url": "https://repositorio.unam.mx/contenidos?as=0&c=rYg93z&d=false&f=883.%23.%23.a_lit%3ARepositorio+del+Instituto+de+Investigaciones+Jur%C3%ADdicas+..__..RU+Jur%C3%ADdicas..__..&i=78&q=%2A%3A%2A&t=search_0&v=1"
+    }
+  ],
+  "research_notes": [
+    "Diccionario latinoamericano de bioética (2008) bajo dirección de Tealdi: volumen colectivo con colaboraciones ajenas, no autoría exclusiva.",
+    "Bioética de los derechos humanos: investigaciones biomédicas y dignidad humana (2008) es monografía UNAM; sus capítulos digitalizados por separado no se duplican como obras nuevas.",
+    "Hay escritos y capítulos previos, aún pendientes de cotejo individual contra catálogo de autor; se mantiene una ficha inicial reducida y sólida."
+  ]
+}

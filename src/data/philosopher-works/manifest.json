@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 850,
-    "authors_remaining": 654,
-    "works_or_contributions_seeded": 6988,
-    "current_batch": "085",
+    "authors_seeded": 860,
+    "authors_remaining": 644,
+    "works_or_contributions_seeded": 7086,
+    "current_batch": "086",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4451,6 +4451,58 @@
       "author_id": 850,
       "canonical_name": "Graciela Evia",
       "path": "authors/0850.json"
+    }
+  ],
+  "batch_086": [
+    {
+      "author_id": 851,
+      "canonical_name": "José Luis Rebellato",
+      "path": "authors/0851.json"
+    },
+    {
+      "author_id": 852,
+      "canonical_name": "Salvador Bergel",
+      "path": "authors/0852.json"
+    },
+    {
+      "author_id": 853,
+      "canonical_name": "Fernando Sánchez Torres",
+      "path": "authors/0853.json"
+    },
+    {
+      "author_id": 854,
+      "canonical_name": "Juan Carlos Tealdi",
+      "path": "authors/0854.json"
+    },
+    {
+      "author_id": 855,
+      "canonical_name": "Volnei Garrafa",
+      "path": "authors/0855.json"
+    },
+    {
+      "author_id": 856,
+      "canonical_name": "Fermín Roland Schramm",
+      "path": "authors/0856.json"
+    },
+    {
+      "author_id": 857,
+      "canonical_name": "Víctor Penchaszadeh",
+      "path": "authors/0857.json"
+    },
+    {
+      "author_id": 858,
+      "canonical_name": "Miguel Kottow",
+      "path": "authors/0858.json"
+    },
+    {
+      "author_id": 859,
+      "canonical_name": "José María Cantú Garza",
+      "path": "authors/0859.json"
+    },
+    {
+      "author_id": 860,
+      "canonical_name": "Alya Saada",
+      "path": "authors/0860.json"
     }
   ]
 }
