@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 950,
-    "authors_remaining": 554,
-    "works_or_contributions_seeded": 7983,
-    "current_batch": "095",
+    "authors_seeded": 960,
+    "authors_remaining": 544,
+    "works_or_contributions_seeded": 8138,
+    "current_batch": "096",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4971,6 +4971,58 @@
       "author_id": 950,
       "canonical_name": "Ugo Pipitone",
       "path": "authors/0950.json"
+    }
+  ],
+  "batch_096": [
+    {
+      "author_id": 951,
+      "canonical_name": "André Franco Montoro",
+      "path": "authors/0951.json"
+    },
+    {
+      "author_id": 952,
+      "canonical_name": "R. Tamayo Salmorán",
+      "path": "authors/0952.json"
+    },
+    {
+      "author_id": 953,
+      "canonical_name": "Agustín Squella",
+      "path": "authors/0953.json"
+    },
+    {
+      "author_id": 954,
+      "canonical_name": "Luis Villar Borda",
+      "path": "authors/0954.json"
+    },
+    {
+      "author_id": 955,
+      "canonical_name": "J. Hübner Gallo",
+      "path": "authors/0955.json"
+    },
+    {
+      "author_id": 956,
+      "canonical_name": "Werner Goldschmidt",
+      "path": "authors/0956.json"
+    },
+    {
+      "author_id": 957,
+      "canonical_name": "Luis Alberto Warat",
+      "path": "authors/0957.json"
+    },
+    {
+      "author_id": 958,
+      "canonical_name": "Óscar Correas",
+      "path": "authors/0958.json"
+    },
+    {
+      "author_id": 959,
+      "canonical_name": "Julio Fernández Bulté",
+      "path": "authors/0959.json"
+    },
+    {
+      "author_id": 960,
+      "canonical_name": "Víctor Manuel Moncayo",
+      "path": "authors/0960.json"
     }
   ]
 }
