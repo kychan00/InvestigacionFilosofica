@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "author_id": 968,
+  "canonical_name": "José Geraldo de Souza Jr.",
+  "alternate_names": [
+    "José Geraldo de Sousa Junior",
+    "José Geraldo de Sousa Júnior"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "968-w001",
+      "title": "O direito achado na rua: concepção e prática",
+      "work_type": "edited_volume",
+      "original_language": "português",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.tst.jus.br/documents/1295387/32954004/5.sousa_junior_direito_achado_rua_001042878_sumario.pdf/654db94a-28bd-36da-f130-5a93053fcb5f?download=true&t=1709737402473"
+      ],
+      "notes": "Libro colectivo bajo coordinación de José Geraldo de Sousa Junior, Lumen Juris."
+    },
+    {
+      "work_id": "968-w002",
+      "title": "O direito achado na rua: introdução crítica ao direito como liberdade",
+      "work_type": "edited_volume",
+      "original_language": "português",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/O_direito_achado_na_rua.html?id=q68EzwEACAAJ"
+      ],
+      "notes": "Volumen 10 de serie colectiva, José Geraldo como editor, no autor de todos los capítulos."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo del movimiento académico y comunitario O Direito Achado na Rua y teoría jurídica emancipatoria.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Evidencia bibliográfica de José Geraldo de Souza Jr.",
+      "url": "https://www.tst.jus.br/documents/1295387/32954004/5.sousa_junior_direito_achado_rua_001042878_sumario.pdf/654db94a-28bd-36da-f130-5a93053fcb5f?download=true&t=1709737402473"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Evidencia bibliográfica de José Geraldo de Souza Jr.",
+      "url": "https://books.google.com/books/about/O_direito_achado_na_rua.html?id=q68EzwEACAAJ"
+    }
+  ],
+  "research_notes": [
+    "El inventario usa Souza Jr., pero las fuentes editoriales y universitarias prefieren Sousa Junior; se conserva la grafía canónica del inventario y se registran variantes."
+  ]
+}

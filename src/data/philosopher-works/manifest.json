@@ -27,11 +27,11 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 960,
-    "authors_remaining": 544,
-    "works_or_contributions_seeded": 8132,
-    "current_batch": "096",
-    "last_updated": "2026-11-17"
+    "authors_seeded": 970,
+    "authors_remaining": 534,
+    "works_or_contributions_seeded": 8162,
+    "current_batch": "097",
+    "last_updated": "2026-11-18"
   },
   "batch_001": [
     {
@@ -5023,6 +5023,58 @@
       "author_id": 960,
       "canonical_name": "Víctor Manuel Moncayo",
       "path": "authors/0960.json"
+    }
+  ],
+  "batch_097": [
+    {
+      "author_id": 961,
+      "canonical_name": "Eduardo Novoa Monreal",
+      "path": "authors/961.json"
+    },
+    {
+      "author_id": 962,
+      "canonical_name": "Roberto Lyra Filho",
+      "path": "authors/962.json"
+    },
+    {
+      "author_id": 963,
+      "canonical_name": "César A. Rodríguez",
+      "path": "authors/963.json"
+    },
+    {
+      "author_id": 964,
+      "canonical_name": "A. Botero Bernal",
+      "path": "authors/964.json"
+    },
+    {
+      "author_id": 965,
+      "canonical_name": "Carlos Cárcova",
+      "path": "authors/965.json"
+    },
+    {
+      "author_id": 966,
+      "canonical_name": "Alicia Ruiz",
+      "path": "authors/966.json"
+    },
+    {
+      "author_id": 967,
+      "canonical_name": "Ricardo Entelman",
+      "path": "authors/967.json"
+    },
+    {
+      "author_id": 968,
+      "canonical_name": "José Geraldo de Souza Jr.",
+      "path": "authors/968.json"
+    },
+    {
+      "author_id": 969,
+      "canonical_name": "Roberto A.R. de Aguiar",
+      "path": "authors/969.json"
+    },
+    {
+      "author_id": 970,
+      "canonical_name": "Jesús A. de la Torre Rangel",
+      "path": "authors/970.json"
     }
   ]
 }
