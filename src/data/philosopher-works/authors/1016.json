@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "author_id": 1016,
+  "canonical_name": "Baldoino Antônio Andreola",
+  "alternate_names": [
+    "Balduíno Antônio Andreola",
+    "Balduino A. Andreola"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1016-w001",
+      "title": "Andarilho da esperança: Paulo Freire no Conselho Mundial de Igrejas",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Mario Bueno Ribeiro"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "8587565141"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.touchelivros.com.br/andarilho-da-esperanca-paulo-freire-no-conselho-mundial-de-igrejas/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1016-w002",
+      "title": "Paulo Freire e a educação das crianças",
+      "work_type": "collective_volume_contribution",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2020,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.wook.pt/ebook/paulo-freire-e-a-educacao-das-criancas-eunice-macedo/24285740"
+      ],
+      "notes": "Catálogo acredita participación entre 16 autores, no monografía individual; capítulo exacto por verificar."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación en pedagogía freireana y educación popular.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Catálogo Andarilho da esperança (ASTE)",
+      "url": "https://www.touchelivros.com.br/andarilho-da-esperanca-paulo-freire-no-conselho-mundial-de-igrejas/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Catálogo editorial colectivo Paulo Freire e a educação das crianças",
+      "url": "https://www.wook.pt/ebook/paulo-freire-e-a-educacao-das-criancas-eunice-macedo/24285740"
+    }
+  ],
+  "research_notes": [
+    "El inventario escribe Baldoino; los catálogos utilizan Balduíno, que se conserva como variante."
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "author_id": 1014,
+  "canonical_name": "Antônio Sidekum",
+  "alternate_names": [
+    "Antonio Sidekum"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1014-w001",
+      "title": "A intersubjetividade em Martin Buber",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/antonio-sidekum"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1014-w002",
+      "title": "Ética do discurso e filosofia da libertação: modelos complementares",
+      "work_type": "edited_volume",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/antonio-sidekum"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1014-w003",
+      "title": "Ética e alteridade: a subjetividade ferida",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/2731204.pdf",
+        "https://www.estantevirtual.com.br/busca/antonio-sidekum"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1014-w004",
+      "title": "Alteridade e multiculturalismo",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.travessa.com.br/alteridade-e-multiculturalismo/artigo/efeab58d-7fc8-4bca-b5ff-95d6b65d3d76"
+      ],
+      "notes": "ISBN 9788574293462; fecha de primera edición pendiente."
+    },
+    {
+      "work_id": "1014-w005",
+      "title": "Emmanuel Levinas: educação e interpelação ética",
+      "work_type": "journal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2013,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2013,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.uneb.br/index.php/faeeba/article/view/328"
+      ],
+      "notes": "La URL del DOI publicada por la revista contiene el marcador p%25p, se deja DOI null."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filosofía de la alteridad, diálogo intercultural, ética levinasiana y educación.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Revista FAEEBA UNEB, artículo original",
+      "url": "https://revistas.uneb.br/index.php/faeeba/article/view/328"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Dialnet, reseña del libro Ética e alteridade",
+      "url": "https://dialnet.unirioja.es/descarga/articulo/2731204.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Estante Virtual, catálogo de ediciones de Sidekum",
+      "url": "https://www.estantevirtual.com.br/busca/antonio-sidekum"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Livraria Travessa, Alteridade e multiculturalismo",
+      "url": "https://www.travessa.com.br/alteridade-e-multiculturalismo/artigo/efeab58d-7fc8-4bca-b5ff-95d6b65d3d76"
+    }
+  ],
+  "research_notes": [
+    "No confundir un libro colectivo editado con monografía de autoría individual."
+  ]
+}
