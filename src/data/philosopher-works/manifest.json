@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1130,
-    "authors_remaining": 374,
-    "works_or_contributions_seeded": 9897,
-    "current_batch": "113",
+    "authors_seeded": 1140,
+    "authors_remaining": 364,
+    "works_or_contributions_seeded": 10067,
+    "current_batch": "114",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5907,6 +5907,58 @@
       "author_id": 1130,
       "canonical_name": "Ruben Alves",
       "path": "authors/1130.json"
+    }
+  ],
+  "batch_114": [
+    {
+      "author_id": 1131,
+      "canonical_name": "Mario Sáenz",
+      "path": "authors/1131.json"
+    },
+    {
+      "author_id": 1132,
+      "canonical_name": "Juan Adolfo Vázquez",
+      "path": "authors/1132.json"
+    },
+    {
+      "author_id": 1133,
+      "canonical_name": "Manuel Gonzalo Casas",
+      "path": "authors/1133.json"
+    },
+    {
+      "author_id": 1134,
+      "canonical_name": "Hernán Zucchi",
+      "path": "authors/1134.json"
+    },
+    {
+      "author_id": 1135,
+      "canonical_name": "Gustavo Adolfo Otero",
+      "path": "authors/1135.json"
+    },
+    {
+      "author_id": 1136,
+      "canonical_name": "Luis Oyarzún",
+      "path": "authors/1136.json"
+    },
+    {
+      "author_id": 1137,
+      "canonical_name": "Roberto Agramonte",
+      "path": "authors/1137.json"
+    },
+    {
+      "author_id": 1138,
+      "canonical_name": "Edmundo O’Gorman",
+      "path": "authors/1138.json"
+    },
+    {
+      "author_id": 1139,
+      "canonical_name": "Miguel Bueno",
+      "path": "authors/1139.json"
+    },
+    {
+      "author_id": 1140,
+      "canonical_name": "Alberto Zum Felde",
+      "path": "authors/1140.json"
     }
   ]
 }
