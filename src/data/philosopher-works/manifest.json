@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 920,
-    "authors_remaining": 584,
-    "works_or_contributions_seeded": 7514,
-    "current_batch": "092",
+    "authors_seeded": 930,
+    "authors_remaining": 574,
+    "works_or_contributions_seeded": 7690,
+    "current_batch": "093",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4815,6 +4815,58 @@
       "author_id": 920,
       "canonical_name": "Enrique Baloyra",
       "path": "authors/0920.json"
+    }
+  ],
+  "batch_093": [
+    {
+      "author_id": 921,
+      "canonical_name": "César Cansino",
+      "path": "authors/0921.json"
+    },
+    {
+      "author_id": 922,
+      "canonical_name": "Octavio Paz",
+      "path": "authors/0922.json"
+    },
+    {
+      "author_id": 923,
+      "canonical_name": "Enrique Krauze",
+      "path": "authors/0923.json"
+    },
+    {
+      "author_id": 924,
+      "canonical_name": "Mario Vargas Llosa",
+      "path": "authors/0924.json"
+    },
+    {
+      "author_id": 925,
+      "canonical_name": "José Guilherme Merquior",
+      "path": "authors/0925.json"
+    },
+    {
+      "author_id": 926,
+      "canonical_name": "Celso Lafer",
+      "path": "authors/0926.json"
+    },
+    {
+      "author_id": 927,
+      "canonical_name": "Roberto Mangabeira Unger",
+      "path": "authors/0927.json"
+    },
+    {
+      "author_id": 928,
+      "canonical_name": "Carlos Monsiváis",
+      "path": "authors/0928.json"
+    },
+    {
+      "author_id": 929,
+      "canonical_name": "Arturo Uslar Pietri",
+      "path": "authors/0929.json"
+    },
+    {
+      "author_id": 930,
+      "canonical_name": "Carlos Fuentes",
+      "path": "authors/0930.json"
     }
   ]
 }
