@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "author_id": 749,
+  "canonical_name": "Thomas Moro Simpson",
+  "alternate_names": [
+    "Thomas M. Simpson"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0749-w001",
+      "title": "Formas lógicas, realidad y significado",
+      "work_type": "book",
+      "original_language": "Primera edición 1964, segunda edición de EUDEBA 1975.",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://plato.stanford.edu/entries/latin-american-analytic/",
+        "https://biblioteca.seminario.edu.uy/index.php?dcote=&id=34&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=19449&nc=0&page=278&plettreaut=&ssub=0"
+      ],
+      "notes": "original_author"
+    },
+    {
+      "work_id": "0749-w002",
+      "title": "Semántica filosófica: problemas y discusiones",
+      "work_type": "edited_translated_anthology",
+      "original_language": "Textos originales de otros filósofos; Simpson es compilador y traductor, no autor de cada capítulo.",
+      "original_date": {
+        "year": 1973,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.seminario.edu.uy/index.php?id=116&lvl=indexint_see"
+      ],
+      "notes": "compiler_and_translator"
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción de filosofía analítica del lenguaje y semántica moderna en Argentina; formación y difusión de lógica filosófica en la UBA y SADAF.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_academic_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Proyecto, inventario de Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_library_or_institutional_bibliographic_source",
+      "title": "Stanford Encyclopedia of Philosophy, Analytic Philosophy in Latin America, Thomas Moro Simpson",
+      "url": "https://plato.stanford.edu/entries/latin-american-analytic/"
+    },
+    {
+      "kind": "scholarly_library_or_institutional_bibliographic_source",
+      "title": "Biblioteca Instituto Profesores Artigas Uruguay, Semántica filosófica: problemas y discusiones (1973)",
+      "url": "https://biblioteca.seminario.edu.uy/index.php?id=116&lvl=indexint_see"
+    },
+    {
+      "kind": "scholarly_library_or_institutional_bibliographic_source",
+      "title": "Biblioteca Uruguay, Formas lógicas, realidad y significado (segunda edición 1975)",
+      "url": "https://biblioteca.seminario.edu.uy/index.php?dcote=&id=34&lcote=0&location=1&lvl=section_see&main=&nb_per_page_custom=25&nbr_lignes=19449&nc=0&page=278&plettreaut=&ssub=0"
+    }
+  ],
+  "research_notes": [
+    "Formas lógicas, realidad y significado apareció en 1964; el ejemplar bibliotecario de 1975 es segunda edición ampliada y no primera.",
+    "Semántica filosófica: problemas y discusiones (1973) es compilación y traducción, no libro original monográfico ni textos de Simpson.",
+    "No se registran libros o artículos de «Thomas Simpson» homónimos sin atribución documental específica."
+  ]
+}

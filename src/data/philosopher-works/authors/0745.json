@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "author_id": 745,
+  "canonical_name": "Eduardo Bacqué",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Proyecto, inventario de Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_library_or_institutional_bibliographic_source",
+      "title": "Stanford Encyclopedia of Philosophy, Analytic Philosophy in Latin America (notas sobre primera generación)",
+      "url": "https://plato.stanford.edu/archives/win2018/entries/latin-american-analytic/notes.html"
+    },
+    {
+      "kind": "scholarly_library_or_institutional_bibliographic_source",
+      "title": "Biblioteca TSJ Río Negro, Derecho, filosofía y lenguaje: homenaje a Gioja, editor Jorge A. Bacqué",
+      "url": "https://tsjrn.opac.com.ar/pergamo/documento.php?id=TSJRN.1.2221&recno=2221&ui=1"
+    },
+    {
+      "kind": "scholarly_library_or_institutional_bibliographic_source",
+      "title": "Pablo Stafforini, Carlos Santiago Nino: bibliografía crítica con fecha de originales y traducciones",
+      "url": "https://stafforini.com/notes/carlos-santiago-nino-a-bibliography/"
+    }
+  ],
+  "research_notes": [
+    "ALERTA DE AUTORIDAD: el inventario canónico registra literalmente «Eduardo Bacqué», pero fuentes independientes del círculo de filosofía jurídica argentina identifican al integrante como «Jorge A. Bacqué» (Jorge Antonio Bacqué).",
+    "No se ha encontrado testimonio documental que demuestre que «Eduardo Bacqué» y «Jorge A. Bacqué» son la misma identidad; se preserva canonical_name y no se agregan alternate_names ni obras de Jorge.",
+    "El libro Derecho, filosofía y lenguaje (1976) figura bajo editoría de Jorge A. Bacqué y la bibliografía de Carlos S. Nino nombra a Jorge A. Bacqué como coautor; no se atribuyen estos documentos a Eduardo.",
+    "Registrar discrepancia para revisión curatorial posterior del inventario maestro, sin alterar los 1,504 nombres ahora."
+  ]
+}

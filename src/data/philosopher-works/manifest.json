@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 740,
-    "authors_remaining": 764,
-    "works_or_contributions_seeded": 5508,
-    "current_batch": "074",
+    "authors_seeded": 750,
+    "authors_remaining": 754,
+    "works_or_contributions_seeded": 5675,
+    "current_batch": "075",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3879,6 +3879,58 @@
       "author_id": 740,
       "canonical_name": "Genaro Carrió",
       "path": "authors/0740.json"
+    }
+  ],
+  "batch_075": [
+    {
+      "author_id": 741,
+      "canonical_name": "Carlos Alchourrón",
+      "path": "authors/0741.json"
+    },
+    {
+      "author_id": 742,
+      "canonical_name": "Roberto Vernengo",
+      "path": "authors/0742.json"
+    },
+    {
+      "author_id": 743,
+      "canonical_name": "Eugenio Bulygin",
+      "path": "authors/0743.json"
+    },
+    {
+      "author_id": 744,
+      "canonical_name": "Ernesto Garzón Valdés",
+      "path": "authors/0744.json"
+    },
+    {
+      "author_id": 745,
+      "canonical_name": "Eduardo Bacqué",
+      "path": "authors/0745.json"
+    },
+    {
+      "author_id": 746,
+      "canonical_name": "Eduardo Rabossi",
+      "path": "authors/0746.json"
+    },
+    {
+      "author_id": 747,
+      "canonical_name": "Martín Diego Farrell",
+      "path": "authors/0747.json"
+    },
+    {
+      "author_id": 748,
+      "canonical_name": "Carlos S. Nino",
+      "path": "authors/0748.json"
+    },
+    {
+      "author_id": 749,
+      "canonical_name": "Thomas Moro Simpson",
+      "path": "authors/0749.json"
+    },
+    {
+      "author_id": 750,
+      "canonical_name": "Raúl Orayen",
+      "path": "authors/0750.json"
     }
   ]
 }
