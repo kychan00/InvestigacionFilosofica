@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "author_id": 1113,
+  "canonical_name": "Flávio Benno Siebeneichler",
+  "alternate_names": [
+    "Flávio Beno Siebeneichler",
+    "Flavio Benno Siebeneichler"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1113-w001",
+      "title": "Jürgen Habermas: razão comunicativa e emancipação",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodicos.unb.br/index.php/resafe/article/view/21005"
+      ],
+      "notes": "Rio de Janeiro: Tempo Brasileiro; monografía autoral sobre razón comunicativa."
+    },
+    {
+      "work_id": "1113-w002",
+      "title": "Direito e democracia: entre facticidade e validade",
+      "work_type": "translated_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.br/scielo.php?lng=pt&nrm=iso&pid=S0103-40142015000300025&script=sci_arttext&tlng=pt"
+      ],
+      "notes": "Traducción brasileña de Faktizität und Geltung de Jürgen Habermas. La fuente de 2015 alude a edición Tempo Brasileiro de 1996; año editorial exacto 1996/1997 no comprobado con primera página, se usa 1997 como edición bibliográfica usual; no autoría original."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: sieb",
+      "url": "https://periodicos.unb.br/index.php/resafe/article/view/21005"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: siebtranslation",
+      "url": "https://www.scielo.br/scielo.php?lng=pt&nrm=iso&pid=S0103-40142015000300025&script=sci_arttext&tlng=pt"
+    }
+  ],
+  "research_notes": [
+    "El nombre alterna Benno/Beno en catálogos; la forma canónica mantiene Benno.",
+    "El libro Direito e democracia es obra de Habermas: Siebeneichler se acredita únicamente como traductor.",
+    "Traducciones múltiples del mismo texto alemán no se contabilizan como obras nuevas."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1110,
-    "authors_remaining": 394,
-    "works_or_contributions_seeded": 9674,
-    "current_batch": "111",
+    "authors_seeded": 1120,
+    "authors_remaining": 384,
+    "works_or_contributions_seeded": 9761,
+    "current_batch": "112",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5803,6 +5803,58 @@
       "author_id": 1110,
       "canonical_name": "Bárbara Freitag",
       "path": "authors/1110.json"
+    }
+  ],
+  "batch_112": [
+    {
+      "author_id": 1111,
+      "canonical_name": "Marina Vila Real",
+      "path": "authors/1111.json"
+    },
+    {
+      "author_id": 1112,
+      "canonical_name": "Suzette Motta Augusto",
+      "path": "authors/1112.json"
+    },
+    {
+      "author_id": 1113,
+      "canonical_name": "Flávio Benno Siebeneichler",
+      "path": "authors/1113.json"
+    },
+    {
+      "author_id": 1114,
+      "canonical_name": "Cecília Maria Pires",
+      "path": "authors/1114.json"
+    },
+    {
+      "author_id": 1115,
+      "canonical_name": "Gerard Lebrun",
+      "path": "authors/1115.json"
+    },
+    {
+      "author_id": 1116,
+      "canonical_name": "Teixeira Coelho",
+      "path": "authors/1116.json"
+    },
+    {
+      "author_id": 1117,
+      "canonical_name": "Caio Túlio Costa",
+      "path": "authors/1117.json"
+    },
+    {
+      "author_id": 1118,
+      "canonical_name": "Denis Rosenfield",
+      "path": "authors/1118.json"
+    },
+    {
+      "author_id": 1119,
+      "canonical_name": "Afrânio Catani",
+      "path": "authors/1119.json"
+    },
+    {
+      "author_id": 1120,
+      "canonical_name": "Herbert José de Souza",
+      "path": "authors/1120.json"
     }
   ]
 }

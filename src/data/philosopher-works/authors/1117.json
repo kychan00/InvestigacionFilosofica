@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "author_id": 1117,
+  "canonical_name": "Caio Túlio Costa",
+  "alternate_names": [
+    "Caio Tulio Costa"
+  ],
+  "life": {
+    "birth_year": 1954
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1117-w001",
+      "title": "O que é anarquismo",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://jornalismosp.espm.edu.br/cartas-na-mesa-caio-tulio-costa/",
+        "https://www.portaldosjornalistas.com.br/jornalista/caio-tulio-costa/"
+      ],
+      "notes": "Brasiliense; algunas fuentes citan 1980, queda discrepancia de primera edición; no dos libros."
+    },
+    {
+      "work_id": "1117-w002",
+      "title": "Ombudsman: o relógio de Pascal",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://jornalismosp.espm.edu.br/cartas-na-mesa-caio-tulio-costa/",
+        "https://www.portaldosjornalistas.com.br/jornalista/caio-tulio-costa/"
+      ],
+      "notes": "Siciliano 1990; Geração Editorial 2006 es reedición revisada."
+    },
+    {
+      "work_id": "1117-w003",
+      "title": "Cale-se",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://jornalismosp.espm.edu.br/cartas-na-mesa-caio-tulio-costa/",
+        "https://www.portaldosjornalistas.com.br/jornalista/caio-tulio-costa/"
+      ],
+      "notes": "A Girafa, 2003."
+    },
+    {
+      "work_id": "1117-w004",
+      "title": "Ética, jornalismo e nova mídia: uma moral provisória",
+      "work_type": "book_based_on_doctoral_thesis",
+      "original_language": "português",
+      "original_date": {
+        "year": 2009,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://jornalismosp.espm.edu.br/cartas-na-mesa-caio-tulio-costa/",
+        "https://www.companhiadasletras.com.br/9788537801246-etica--jornalismo-e-nova-midia/p"
+      ],
+      "notes": "Zahar, 2009 según editorial; algunos repertorios citan 2011 como reedición; tesis doctoral antecedente no duplicada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación y enseñanza de ética periodística y medios digitales, incluido trabajo docente en Faculdade Cásper Líbero.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: caioespm",
+      "url": "https://jornalismosp.espm.edu.br/cartas-na-mesa-caio-tulio-costa/"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: caioportal",
+      "url": "https://www.portaldosjornalistas.com.br/jornalista/caio-tulio-costa/"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: caioedit",
+      "url": "https://www.companhiadasletras.com.br/9788537801246-etica--jornalismo-e-nova-midia/p"
+    }
+  ],
+  "research_notes": [
+    "O que é anarquismo tiene fecha 1980 y 1981 según repertorios; preferencia 1981 para primera edición declarada en ESPM.",
+    "Ética, jornalismo e nova mídia puede figurar como 2009 o 2011; se toma la fecha editorial más temprana.",
+    "Obras colectivas donde participó sin capítulo claramente identificado no se agregan como autoría íntegra."
+  ]
+}
