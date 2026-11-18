@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 900,
-    "authors_remaining": 604,
-    "works_or_contributions_seeded": 7316,
-    "current_batch": "090",
+    "authors_seeded": 910,
+    "authors_remaining": 594,
+    "works_or_contributions_seeded": 7409,
+    "current_batch": "091",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4711,6 +4711,58 @@
       "author_id": 900,
       "canonical_name": "Emilse Cancino",
       "path": "authors/0900.json"
+    }
+  ],
+  "batch_091": [
+    {
+      "author_id": 901,
+      "canonical_name": "Fernando Lolas Stepke",
+      "path": "authors/0901.json"
+    },
+    {
+      "author_id": 902,
+      "canonical_name": "Gonzalo Figueroa Yáñez",
+      "path": "authors/0902.json"
+    },
+    {
+      "author_id": 903,
+      "canonical_name": "José Ramón Acosta Sariego",
+      "path": "authors/0903.json"
+    },
+    {
+      "author_id": 904,
+      "canonical_name": "Daniel Piedra Herrera",
+      "path": "authors/0904.json"
+    },
+    {
+      "author_id": 905,
+      "canonical_name": "Lizbeth Sagols Sales",
+      "path": "authors/0905.json"
+    },
+    {
+      "author_id": 906,
+      "canonical_name": "María Teresa de la Garza",
+      "path": "authors/0906.json"
+    },
+    {
+      "author_id": 907,
+      "canonical_name": "Jorge Enrique Linares",
+      "path": "authors/0907.json"
+    },
+    {
+      "author_id": 908,
+      "canonical_name": "Paulina Rivero Weber",
+      "path": "authors/0908.json"
+    },
+    {
+      "author_id": 909,
+      "canonical_name": "Cano Valle",
+      "path": "authors/0909.json"
+    },
+    {
+      "author_id": 910,
+      "canonical_name": "Héctor Gros Espiell",
+      "path": "authors/0910.json"
     }
   ]
 }
