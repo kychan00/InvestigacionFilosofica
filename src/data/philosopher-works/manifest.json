@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 940,
-    "authors_remaining": 564,
-    "works_or_contributions_seeded": 7809,
-    "current_batch": "094",
+    "authors_seeded": 950,
+    "authors_remaining": 554,
+    "works_or_contributions_seeded": 7984,
+    "current_batch": "095",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4919,6 +4919,58 @@
       "author_id": 940,
       "canonical_name": "Pablo González Casanova",
       "path": "authors/0940.json"
+    }
+  ],
+  "batch_095": [
+    {
+      "author_id": 941,
+      "canonical_name": "Atilio Borón",
+      "path": "authors/0941.json"
+    },
+    {
+      "author_id": 942,
+      "canonical_name": "Pedro Vuskovic",
+      "path": "authors/0942.json"
+    },
+    {
+      "author_id": 943,
+      "canonical_name": "Edelberto Torres Rivas",
+      "path": "authors/0943.json"
+    },
+    {
+      "author_id": 944,
+      "canonical_name": "Rigoberto Lanz",
+      "path": "authors/0944.json"
+    },
+    {
+      "author_id": 945,
+      "canonical_name": "Roberto Follari",
+      "path": "authors/0945.json"
+    },
+    {
+      "author_id": 946,
+      "canonical_name": "Hélio Jaguaribe de Matos",
+      "path": "authors/0946.json"
+    },
+    {
+      "author_id": 947,
+      "canonical_name": "Ángel Flisfisch",
+      "path": "authors/0947.json"
+    },
+    {
+      "author_id": 948,
+      "canonical_name": "Francisco Weffort",
+      "path": "authors/0948.json"
+    },
+    {
+      "author_id": 949,
+      "canonical_name": "Marcos Kaplan",
+      "path": "authors/0949.json"
+    },
+    {
+      "author_id": 950,
+      "canonical_name": "Ugo Pipitone",
+      "path": "authors/0950.json"
     }
   ]
 }
