@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 720,
-    "authors_remaining": 784,
-    "works_or_contributions_seeded": 5201,
-    "current_batch": "072",
+    "authors_seeded": 730,
+    "authors_remaining": 774,
+    "works_or_contributions_seeded": 5389,
+    "current_batch": "073",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3775,6 +3775,58 @@
       "author_id": 720,
       "canonical_name": "Eduardo H. Flichman",
       "path": "authors/0720.json"
+    }
+  ],
+  "batch_073": [
+    {
+      "author_id": 721,
+      "canonical_name": "Mario Otero",
+      "path": "authors/0721.json"
+    },
+    {
+      "author_id": 722,
+      "canonical_name": "Rolando García",
+      "path": "authors/0722.json"
+    },
+    {
+      "author_id": 723,
+      "canonical_name": "Víctor Rodríguez",
+      "path": "authors/0723.json"
+    },
+    {
+      "author_id": 724,
+      "canonical_name": "César Lorenzano",
+      "path": "authors/0724.json"
+    },
+    {
+      "author_id": 725,
+      "canonical_name": "Pablo Lorenzano",
+      "path": "authors/0725.json"
+    },
+    {
+      "author_id": 726,
+      "canonical_name": "León Olivé",
+      "path": "authors/0726.json"
+    },
+    {
+      "author_id": 727,
+      "canonical_name": "Ana Rosa Pérez Ransanz",
+      "path": "authors/0727.json"
+    },
+    {
+      "author_id": 728,
+      "canonical_name": "Eduardo Rubén Scarano",
+      "path": "authors/0728.json"
+    },
+    {
+      "author_id": 729,
+      "canonical_name": "Félix Schuster",
+      "path": "authors/0729.json"
+    },
+    {
+      "author_id": 730,
+      "canonical_name": "Juan Samaja",
+      "path": "authors/0730.json"
     }
   ]
 }
