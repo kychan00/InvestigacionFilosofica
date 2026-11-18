@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 840,
-    "authors_remaining": 664,
-    "works_or_contributions_seeded": 6865,
-    "current_batch": "084",
+    "authors_seeded": 850,
+    "authors_remaining": 654,
+    "works_or_contributions_seeded": 6988,
+    "current_batch": "085",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4399,6 +4399,58 @@
       "author_id": 840,
       "canonical_name": "Víctor Toledo",
       "path": "authors/0840.json"
+    }
+  ],
+  "batch_085": [
+    {
+      "author_id": 841,
+      "canonical_name": "Enrique Leff",
+      "path": "authors/0841.json"
+    },
+    {
+      "author_id": 842,
+      "canonical_name": "Augusto Ángel-Maya",
+      "path": "authors/0842.json"
+    },
+    {
+      "author_id": 843,
+      "canonical_name": "Teresa Kwiatkowska",
+      "path": "authors/0843.json"
+    },
+    {
+      "author_id": 844,
+      "canonical_name": "Alicia Bugallo",
+      "path": "authors/0844.json"
+    },
+    {
+      "author_id": 845,
+      "canonical_name": "Andrea Speranza",
+      "path": "authors/0845.json"
+    },
+    {
+      "author_id": 846,
+      "canonical_name": "Alejandro Herrera Ibáñez",
+      "path": "authors/0846.json"
+    },
+    {
+      "author_id": 847,
+      "canonical_name": "Leonora Esquivel",
+      "path": "authors/0847.json"
+    },
+    {
+      "author_id": 848,
+      "canonical_name": "Sonia Felipe",
+      "path": "authors/0848.json"
+    },
+    {
+      "author_id": 849,
+      "canonical_name": "Eduardo Gudynas",
+      "path": "authors/0849.json"
+    },
+    {
+      "author_id": 850,
+      "canonical_name": "Graciela Evia",
+      "path": "authors/0850.json"
     }
   ]
 }
