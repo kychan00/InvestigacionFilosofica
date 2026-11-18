@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1040,
-    "authors_remaining": 464,
-    "works_or_contributions_seeded": 8906,
-    "current_batch": "104",
+    "authors_seeded": 1050,
+    "authors_remaining": 454,
+    "works_or_contributions_seeded": 9020,
+    "current_batch": "105",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5439,6 +5439,58 @@
       "author_id": 1040,
       "canonical_name": "Astrogildo Pereira",
       "path": "authors/1040.json"
+    }
+  ],
+  "batch_105": [
+    {
+      "author_id": 1041,
+      "canonical_name": "Álvaro de Faria",
+      "path": "authors/1041.json"
+    },
+    {
+      "author_id": 1042,
+      "canonical_name": "Luís Pinto Ferreira",
+      "path": "authors/1042.json"
+    },
+    {
+      "author_id": 1043,
+      "canonical_name": "Gláucio Veiga",
+      "path": "authors/1043.json"
+    },
+    {
+      "author_id": 1044,
+      "canonical_name": "Jamil Almansur Haddad",
+      "path": "authors/1044.json"
+    },
+    {
+      "author_id": 1045,
+      "canonical_name": "Octávio Ianni",
+      "path": "authors/1045.json"
+    },
+    {
+      "author_id": 1046,
+      "canonical_name": "Renato Cirell Czerna",
+      "path": "authors/1046.json"
+    },
+    {
+      "author_id": 1047,
+      "canonical_name": "Michel Schooyans",
+      "path": "authors/1047.json"
+    },
+    {
+      "author_id": 1048,
+      "canonical_name": "Ernani Fiori",
+      "path": "authors/1048.json"
+    },
+    {
+      "author_id": 1049,
+      "canonical_name": "José Arthur Giannotti",
+      "path": "authors/1049.json"
+    },
+    {
+      "author_id": 1050,
+      "canonical_name": "Aquilles Côrtes Guimarães",
+      "path": "authors/1050.json"
     }
   ]
 }
