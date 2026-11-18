@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 800,
-    "authors_remaining": 704,
-    "works_or_contributions_seeded": 6386,
-    "current_batch": "080",
+    "authors_seeded": 810,
+    "authors_remaining": 694,
+    "works_or_contributions_seeded": 6498,
+    "current_batch": "081",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4191,6 +4191,58 @@
       "author_id": 800,
       "canonical_name": "Dante Ramaglia",
       "path": "authors/0800.json"
+    }
+  ],
+  "batch_081": [
+    {
+      "author_id": 801,
+      "canonical_name": "Hugo Assmann",
+      "path": "authors/0801.json"
+    },
+    {
+      "author_id": 802,
+      "canonical_name": "Osvaldo Ardiles",
+      "path": "authors/0802.json"
+    },
+    {
+      "author_id": 803,
+      "canonical_name": "Julio de Zan",
+      "path": "authors/0803.json"
+    },
+    {
+      "author_id": 804,
+      "canonical_name": "Enrique Guillot",
+      "path": "authors/0804.json"
+    },
+    {
+      "author_id": 805,
+      "canonical_name": "Mauricio A. López",
+      "path": "authors/0805.json"
+    },
+    {
+      "author_id": 806,
+      "canonical_name": "Alberto Parisí",
+      "path": "authors/0806.json"
+    },
+    {
+      "author_id": 807,
+      "canonical_name": "Carlos Bazán",
+      "path": "authors/0807.json"
+    },
+    {
+      "author_id": 808,
+      "canonical_name": "Antonio E. Kinen",
+      "path": "authors/0808.json"
+    },
+    {
+      "author_id": 809,
+      "canonical_name": "Víctor Martín",
+      "path": "authors/0809.json"
+    },
+    {
+      "author_id": 810,
+      "canonical_name": "Alipio Dias Casalis",
+      "path": "authors/0810.json"
     }
   ]
 }
