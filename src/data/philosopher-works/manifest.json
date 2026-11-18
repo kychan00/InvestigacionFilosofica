@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1080,
-    "authors_remaining": 424,
-    "works_or_contributions_seeded": 9252,
-    "current_batch": "108",
+    "authors_seeded": 1090,
+    "authors_remaining": 414,
+    "works_or_contributions_seeded": 9352,
+    "current_batch": "109",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5647,6 +5647,58 @@
       "author_id": 1080,
       "canonical_name": "Pedro Negre Rigol",
       "path": "authors/1080.json"
+    }
+  ],
+  "batch_109": [
+    {
+      "author_id": 1081,
+      "canonical_name": "Augusto Boal",
+      "path": "authors/1081.json"
+    },
+    {
+      "author_id": 1082,
+      "canonical_name": "José Sotero Caio",
+      "path": "authors/1082.json"
+    },
+    {
+      "author_id": 1083,
+      "canonical_name": "Helmut Thielen",
+      "path": "authors/1083.json"
+    },
+    {
+      "author_id": 1084,
+      "canonical_name": "José Luiz Ames",
+      "path": "authors/1084.json"
+    },
+    {
+      "author_id": 1085,
+      "canonical_name": "Márcio Costa",
+      "path": "authors/1085.json"
+    },
+    {
+      "author_id": 1086,
+      "canonical_name": "Antônio Rufino Vieira",
+      "path": "authors/1086.json"
+    },
+    {
+      "author_id": 1087,
+      "canonical_name": "Pedro Gambin",
+      "path": "authors/1087.json"
+    },
+    {
+      "author_id": 1088,
+      "canonical_name": "Domênico Costella",
+      "path": "authors/1088.json"
+    },
+    {
+      "author_id": 1089,
+      "canonical_name": "Dario Caberlon",
+      "path": "authors/1089.json"
+    },
+    {
+      "author_id": 1090,
+      "canonical_name": "Vanderlei Luiz Trindade",
+      "path": "authors/1090.json"
     }
   ]
 }

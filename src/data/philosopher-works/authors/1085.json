@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "author_id": 1085,
+  "canonical_name": "Márcio Costa",
+  "alternate_names": [
+    "Frei Márcio Costa"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1085-w001",
+      "title": "Educação e libertação na América Latina: ensaio introdutório à aproximação entre a Pedagogia de Paulo Freire e a Pedagógica de Enrique Dussel",
+      "work_type": "institutional_booklet",
+      "original_language": "português",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://www.ariadnatucma.com.ar/?p=6968"
+      ],
+      "notes": "Campo Grande: CEFIL, 1992; obra citada con subtítulo íntegro por fuente académica posterior."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 1: d",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 2: costa",
+      "url": "https://www.ariadnatucma.com.ar/?p=6968"
+    }
+  ],
+  "research_notes": [
+    "El nombre es altamente homónimo; la obra se identifica a través del contexto editorial preciso del CEFIL y de la atribución en Dussel.",
+    "No se atribuyen tesis, artículos ni libros de otros Márcio Costa sin prueba de correspondencia de identidad."
+  ]
+}

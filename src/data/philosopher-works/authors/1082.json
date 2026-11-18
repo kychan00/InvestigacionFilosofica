@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "author_id": 1082,
+  "canonical_name": "José Sotero Caio",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1082-w001",
+      "title": "Clero – Igreja – Mundo: ritmo de crise. Progressismo e integrismo ou A escolástica na berlinda",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/jose-sotero-caio",
+        "https://www.biblioteca.bib.br/Biblivre5/staquino/?action=list_bibliographic&letter=c"
+      ],
+      "notes": "Tomo I; ejemplares de 1969, 327 páginas. 'A escolástica na berlinda' corresponde al subtítulo, no es otra obra."
+    },
+    {
+      "work_id": "1082-w002",
+      "title": "Rumo à filosofia do futuro",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/jose-sotero-caio"
+      ],
+      "notes": "Ediciones/catálogo de ejemplares de 1981 y 1982; primera edición no probada, 119–120 páginas."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 1: caio",
+      "url": "https://www.estantevirtual.com.br/busca/jose-sotero-caio"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 2: caiocat",
+      "url": "https://www.biblioteca.bib.br/Biblivre5/staquino/?action=list_bibliographic&letter=c"
+    }
+  ],
+  "research_notes": [
+    "Diferentes fichas de vendedores abreviam como 'A escolástica na berlinda' o subtítulo de Clero–Igreja–Mundo (1969): trata-se de um livro, não dois.",
+    "Para Rumo à filosofia do futuro aparecen 1981 y 1982 en ejemplares de segunda mano; no se fija primera edición sin cotejo de colofón."
+  ]
+}
