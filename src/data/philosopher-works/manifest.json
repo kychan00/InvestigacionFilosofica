@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 880,
-    "authors_remaining": 624,
-    "works_or_contributions_seeded": 7183,
-    "current_batch": "088",
+    "authors_seeded": 890,
+    "authors_remaining": 614,
+    "works_or_contributions_seeded": 7255,
+    "current_batch": "089",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4607,6 +4607,58 @@
       "author_id": 880,
       "canonical_name": "Mauro Machado do Prado",
       "path": "authors/0880.json"
+    }
+  ],
+  "batch_089": [
+    {
+      "author_id": 881,
+      "canonical_name": "Ana Tapajoz",
+      "path": "authors/0881.json"
+    },
+    {
+      "author_id": 882,
+      "canonical_name": "Joaquín Clotet",
+      "path": "authors/0882.json"
+    },
+    {
+      "author_id": 883,
+      "canonical_name": "Delio Kipper",
+      "path": "authors/0883.json"
+    },
+    {
+      "author_id": 884,
+      "canonical_name": "Jussara de Azambuja Loch",
+      "path": "authors/0884.json"
+    },
+    {
+      "author_id": 885,
+      "canonical_name": "José Roberto Goldim",
+      "path": "authors/0885.json"
+    },
+    {
+      "author_id": 886,
+      "canonical_name": "William S. Hossne",
+      "path": "authors/0886.json"
+    },
+    {
+      "author_id": 887,
+      "canonical_name": "Cristian de Paul do Bachifontaine",
+      "path": "authors/0887.json"
+    },
+    {
+      "author_id": 888,
+      "canonical_name": "Dalmao Abreu Allari",
+      "path": "authors/0888.json"
+    },
+    {
+      "author_id": 889,
+      "canonical_name": "Daniel Romeo Muñoz",
+      "path": "authors/0889.json"
+    },
+    {
+      "author_id": 890,
+      "canonical_name": "Leo Pessini",
+      "path": "authors/0890.json"
     }
   ]
 }

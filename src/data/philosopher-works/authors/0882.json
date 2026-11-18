@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "author_id": 882,
+  "canonical_name": "Joaquín Clotet",
+  "alternate_names": [
+    "Joaquim Clotet",
+    "Joaquím Clotet"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0882-w001",
+      "title": "Bioética: uma aproximação",
+      "work_type": "monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com.br/books?id=OZdSHB-5vI4C"
+      ],
+      "notes": "EDIPUCRS: catálogo eletrônico lista edição 2006; outra referência governamental indica 2003. Ano da primeira edição pendente; não duplicar a mesma obra."
+    },
+    {
+      "work_id": "0882-w002",
+      "title": "Por que Bioética?",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/474"
+      ],
+      "notes": "Revista Bioética, primeiro fascículo; 2009 corresponde à migração digital, não é data original comprovada."
+    },
+    {
+      "work_id": "0882-w003",
+      "title": "Bioética como Ética Aplicada e Genética",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/381"
+      ],
+      "notes": "Revista Bioética, fascículo original a datar; a grafia Joaquím foi usada em metadados legados."
+    },
+    {
+      "work_id": "0882-w004",
+      "title": "Bioética Empírica e Moral Craft",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/2506"
+      ],
+      "notes": "Revista Bioética 29(1), publicado em 5 de abril de 2021; trabalho sobre empirismo em ética e Michael Parker."
+    },
+    {
+      "work_id": "0882-w005",
+      "title": "Filosofia experimental e bioética experimental: uma estimativa",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 2025,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2025,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1590/1983-803420253828PT",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/3828"
+      ],
+      "notes": "Revista Bioética 33, 24 de junho de 2025."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensino e investigação da ética e bioética na PUCRS, com reitoria e projetos de ensino em filosofia, medicina e odontologia.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "PUCRS: perfil e título de reitor emérito",
+      "url": "https://portal.pucrs.br/noticias/impacto/pucrs-concede-titulo-de-reitor-emerito-ao-ir-joaquim-clotet/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "EDIPUCRS/Google Books, Bioética: uma aproximação",
+      "url": "https://books.google.com.br/books?id=OZdSHB-5vI4C"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Bioética, Por que Bioética?",
+      "url": "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/474"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Bioética, Bioética como Ética Aplicada e Genética",
+      "url": "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/381"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Bioética, Bioética Empírica e Moral Craft",
+      "url": "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/2506"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Bioética, Filosofia experimental e bioética experimental (2025)",
+      "url": "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/3828"
+    }
+  ],
+  "research_notes": [
+    "Grafia canônica do inventário 'Joaquín' (espanhola); instituição brasileira registra 'Joaquim'.",
+    "A monografia Bioética: uma aproximação apresenta discrepância entre catálogo 2006 e citação 2003; conservada sem ano original definitivo."
+  ]
+}
