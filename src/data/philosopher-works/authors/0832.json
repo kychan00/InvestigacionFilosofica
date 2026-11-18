@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "author_id": 832,
+  "canonical_name": "Alaíde Foppa",
+  "alternate_names": [
+    "Alaide Foppa",
+    "Alaíde Foppa Falla"
+  ],
+  "life": {
+    "born": {
+      "year": 1914,
+      "certainty": "ELEM_biography"
+    },
+    "died": {
+      "year": 1980,
+      "certainty": "ELEM_biography_disappearance"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0832-w001",
+      "title": "Poesías",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.revistas.una.ac.cr/index.php/repertorio/article/view/11063"
+      ],
+      "notes": "Madrid 1945, documentado en repertorio académico."
+    },
+    {
+      "work_id": "0832-w002",
+      "title": "La sin ventura",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/109872"
+      ],
+      "notes": "Bibliografía documentada por la fuente citada; se registran las ediciones sin multiplicar reediciones."
+    },
+    {
+      "work_id": "0832-w003",
+      "title": "Los dedos de mi mano",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/109872"
+      ],
+      "notes": "Año de edición discrepante: 1955 ELEM, 1958 UNAM, 1960 repertorio académico; cotejar ejemplar."
+    },
+    {
+      "work_id": "0832-w004",
+      "title": "Aunque es de noche",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.revistas.una.ac.cr/index.php/repertorio/article/view/11063"
+      ],
+      "notes": "México, 1960."
+    },
+    {
+      "work_id": "0832-w005",
+      "title": "Guirnalda de primavera",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/109872"
+      ],
+      "notes": "Bibliografía documentada por la fuente citada; se registran las ediciones sin multiplicar reediciones."
+    },
+    {
+      "work_id": "0832-w006",
+      "title": "Elogio de mi cuerpo",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodicodepoesia.unam.mx/autor/alaide-foppa/"
+      ],
+      "notes": "Bibliografía documentada por la fuente citada; se registran las ediciones sin multiplicar reediciones."
+    },
+    {
+      "work_id": "0832-w007",
+      "title": "Las palabras y el tiempo",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/109872"
+      ],
+      "notes": "Bibliografía documentada por la fuente citada; se registran las ediciones sin multiplicar reediciones."
+    },
+    {
+      "work_id": "0832-w008",
+      "title": "Fem: publicación feminista trimestral",
+      "work_type": "periodical_foundation",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "date_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "cofounder_editor",
+      "coauthors": [
+        "Margarita García Flores"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/109872"
+      ],
+      "notes": "Proyecto de revista cofundado a mediados de los setenta. Su fecha inicial varía por fuente (1975/1976); la fundación no confiere autoría de los textos de las demás colaboradoras."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Poesía y crítica feminista, radio educativa para mujeres, historia del arte y cofundación de la revista Fem en México.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Enciclopedia de la Literatura en México, biografía de Alaíde Foppa",
+      "url": "https://www.elem.mx/autor/datos/109872"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Periódico de Poesía UNAM, Alaíde Foppa y bibliografía",
+      "url": "https://periodicodepoesia.unam.mx/autor/alaide-foppa/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Repertorio académico de poesía de Alaíde Foppa",
+      "url": "https://www.revistas.una.ac.cr/index.php/repertorio/article/view/11063"
+    }
+  ],
+  "research_notes": [
+    "Los dedos de mi mano tiene fechas bibliográficas discordantes: ELEM refiere 1955, Poesía UNAM 1958 y un repertorio 1960. Se registra 1955 provisional según ELEM, con discrepancia explícita.",
+    "La fundación de Fem (1975/1976 según la cronología de sus fuentes) es contribución editorial/institucional, no autoría de todos los textos de la revista.",
+    "La desaparición forzada ocurrió en diciembre de 1980 en Guatemala; el año de muerte es la convención de biografías institucionales y no sustituye reconstrucción forense."
+  ]
+}

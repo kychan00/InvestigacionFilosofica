@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "author_id": 831,
+  "canonical_name": "Domitila Barrios de Chungara",
+  "alternate_names": [
+    "Domitila Chungara",
+    "Domitila Barrios"
+  ],
+  "life": {
+    "born": {
+      "year": 1937,
+      "certainty": "library_authority_year"
+    },
+    "died": {
+      "year": 2012,
+      "certainty": "scholarly_biographical_year"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0831-w001",
+      "title": "Si me permiten hablar...: testimonio de Domitila, una mujer de las minas de Bolivia",
+      "work_type": "oral_testimony_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "testimony_narrator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Si_me_permiten_hablar.html?id=56xhAAAAIAAJ"
+      ],
+      "notes": "Testimonio de Domitila Barrios de Chungara; recogido y editado por Moema Viezzer. Se registra la voz testimonial sin atribuirle la edición."
+    },
+    {
+      "work_id": "0831-w002",
+      "title": "¡Aquí también, Domitila!",
+      "work_type": "oral_testimony_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "testimony_narrator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cofubace.bcu.gub.uy/opac_css/index.php?dcote=&id=27&lcote=0&location=7&lvl=section_see&main=&nb_per_page_custom=200&nbr_lignes=12330&nc=0&page=3&plettreaut=&ssub=0"
+      ],
+      "notes": "Segunda obra testimonial preparada por David Acebey, reconocido como autor/editor en catálogo COFUBACE; Domitila es la testimoniadora."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Testimonio minero, organización de amas de casa, feminismo popular y movilización obrera boliviana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Google Books: primera edición de Si me permiten hablar, Siglo XXI, 1977",
+      "url": "https://books.google.com/books/about/Si_me_permiten_hablar.html?id=56xhAAAAIAAJ"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo COFUBACE: Aquí también Domitila, David Acebey, 1985",
+      "url": "https://cofubace.bcu.gub.uy/opac_css/index.php?dcote=&id=27&lcote=0&location=7&lvl=section_see&main=&nb_per_page_custom=200&nbr_lignes=12330&nc=0&page=3&plettreaut=&ssub=0"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Bibliografía académica de testimonios de Domitila, Universidad Nacional de Costa Rica",
+      "url": "https://www.revistas.una.ac.cr/index.php/historia/article/view/8406"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "NYU Press, información editorial de Domitila y Moema Viezzer",
+      "url": "https://nyupress.org/author/domitila-barrios-de-chungara/"
+    }
+  ],
+  "research_notes": [
+    "Si me permiten hablar… es testimonio oral de Domitila recogido y editado por Moema Viezzer; conservar las responsabilidades distintas.",
+    "Aquí también, Domitila! (1985) fue preparado por David Acebey, quien figura como autor/editor en catálogos; no convertir el texto del editor en obra de autoría exclusiva de Chungara.",
+    "No confundir las fechas de reediciones 1978–1980 de Si me permiten hablar con la primera publicación de 1977."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 830,
-    "authors_remaining": 674,
-    "works_or_contributions_seeded": 6755,
-    "current_batch": "083",
+    "authors_seeded": 840,
+    "authors_remaining": 664,
+    "works_or_contributions_seeded": 6866,
+    "current_batch": "084",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4347,6 +4347,58 @@
       "author_id": 830,
       "canonical_name": "Silvia Rivera Cusicanqui",
       "path": "authors/0830.json"
+    }
+  ],
+  "batch_084": [
+    {
+      "author_id": 831,
+      "canonical_name": "Domitila Barrios de Chungara",
+      "path": "authors/0831.json"
+    },
+    {
+      "author_id": 832,
+      "canonical_name": "Alaíde Foppa",
+      "path": "authors/0832.json"
+    },
+    {
+      "author_id": 833,
+      "canonical_name": "Francesca Gargallo Celentani",
+      "path": "authors/0833.json"
+    },
+    {
+      "author_id": 834,
+      "canonical_name": "Arturo Escobar",
+      "path": "authors/0834.json"
+    },
+    {
+      "author_id": 835,
+      "canonical_name": "Ana Patricia Noguera de Echeverri",
+      "path": "authors/0835.json"
+    },
+    {
+      "author_id": 836,
+      "canonical_name": "Leonardo Boff",
+      "path": "authors/0836.json"
+    },
+    {
+      "author_id": 837,
+      "canonical_name": "Ivone Gebara",
+      "path": "authors/0837.json"
+    },
+    {
+      "author_id": 838,
+      "canonical_name": "Gladys Parentelli",
+      "path": "authors/0838.json"
+    },
+    {
+      "author_id": 839,
+      "canonical_name": "Ricardo Rozzi",
+      "path": "authors/0839.json"
+    },
+    {
+      "author_id": 840,
+      "canonical_name": "Víctor Toledo",
+      "path": "authors/0840.json"
     }
   ]
 }
