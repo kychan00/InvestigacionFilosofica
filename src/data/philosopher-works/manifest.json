@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 930,
-    "authors_remaining": 574,
-    "works_or_contributions_seeded": 7690,
-    "current_batch": "093",
+    "authors_seeded": 940,
+    "authors_remaining": 564,
+    "works_or_contributions_seeded": 7809,
+    "current_batch": "094",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4867,6 +4867,58 @@
       "author_id": 930,
       "canonical_name": "Carlos Fuentes",
       "path": "authors/0930.json"
+    }
+  ],
+  "batch_094": [
+    {
+      "author_id": 931,
+      "canonical_name": "J.M. Briceño Guerrero",
+      "path": "authors/0931.json"
+    },
+    {
+      "author_id": 932,
+      "canonical_name": "Néstor García Canclini",
+      "path": "authors/0932.json"
+    },
+    {
+      "author_id": 933,
+      "canonical_name": "Jesús Martín-Barbero",
+      "path": "authors/0933.json"
+    },
+    {
+      "author_id": 934,
+      "canonical_name": "Fernando Calderón",
+      "path": "authors/0934.json"
+    },
+    {
+      "author_id": 935,
+      "canonical_name": "Martín Hopenhayn",
+      "path": "authors/0935.json"
+    },
+    {
+      "author_id": 936,
+      "canonical_name": "Ernesto Ottone",
+      "path": "authors/0936.json"
+    },
+    {
+      "author_id": 937,
+      "canonical_name": "Sergio Zermeño",
+      "path": "authors/0937.json"
+    },
+    {
+      "author_id": 938,
+      "canonical_name": "Francisco Zapata",
+      "path": "authors/0938.json"
+    },
+    {
+      "author_id": 939,
+      "canonical_name": "Hugo Zemelman",
+      "path": "authors/0939.json"
+    },
+    {
+      "author_id": 940,
+      "canonical_name": "Pablo González Casanova",
+      "path": "authors/0940.json"
     }
   ]
 }
