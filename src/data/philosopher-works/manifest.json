@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1000,
-    "authors_remaining": 504,
-    "works_or_contributions_seeded": 8444,
-    "current_batch": "100",
+    "authors_seeded": 1010,
+    "authors_remaining": 494,
+    "works_or_contributions_seeded": 8552,
+    "current_batch": "101",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5231,6 +5231,58 @@
       "author_id": 1000,
       "canonical_name": "Luis O. Brea",
       "path": "authors/1000.json"
+    }
+  ],
+  "batch_101": [
+    {
+      "author_id": 1001,
+      "canonical_name": "C.L.R. James",
+      "path": "authors/1001.json"
+    },
+    {
+      "author_id": 1002,
+      "canonical_name": "Sylvia Wynter",
+      "path": "authors/1002.json"
+    },
+    {
+      "author_id": 1003,
+      "canonical_name": "Alberto Torres",
+      "path": "authors/1003.json"
+    },
+    {
+      "author_id": 1004,
+      "canonical_name": "Euclides Rodrigues da Cunha",
+      "path": "authors/1004.json"
+    },
+    {
+      "author_id": 1005,
+      "canonical_name": "Silvério Fontes",
+      "path": "authors/1005.json"
+    },
+    {
+      "author_id": 1006,
+      "canonical_name": "Oliveira Viana",
+      "path": "authors/1006.json"
+    },
+    {
+      "author_id": 1007,
+      "canonical_name": "Gilberto de Melo Freyre",
+      "path": "authors/1007.json"
+    },
+    {
+      "author_id": 1008,
+      "canonical_name": "Mário de Andrade",
+      "path": "authors/1008.json"
+    },
+    {
+      "author_id": 1009,
+      "canonical_name": "Plínio Salgado",
+      "path": "authors/1009.json"
+    },
+    {
+      "author_id": 1010,
+      "canonical_name": "Theodoro Ramos",
+      "path": "authors/1010.json"
     }
   ]
 }

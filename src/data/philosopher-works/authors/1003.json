@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "author_id": 1003,
+  "canonical_name": "Alberto Torres",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1003-w001",
+      "title": "Vers la paix",
+      "work_type": "monograph",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1909,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1909,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Alberto_Torres"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1003-w002",
+      "title": "Le problème mondial",
+      "work_type": "monograph",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1913,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Alberto_Torres"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1003-w003",
+      "title": "O problema nacional brasileiro",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1914,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://e-revista.unioeste.br/index.php/educereeteducare/en/article/view/18151"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1003-w004",
+      "title": "A organização nacional",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1914,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1914,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.org.br/abl/media/RB%2056-PROSA.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1003-w005",
+      "title": "As fontes da vida no Brasil",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1915,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://e-revista.unioeste.br/index.php/educereeteducare/en/article/view/18151"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensamiento sobre organización nacional brasileña y reforma estatal.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 1",
+      "url": "https://pt.wikipedia.org/wiki/Alberto_Torres"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 2",
+      "url": "https://e-revista.unioeste.br/index.php/educereeteducare/en/article/view/18151"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 3",
+      "url": "https://www.academia.org.br/abl/media/RB%2056-PROSA.pdf"
+    }
+  ],
+  "research_notes": [
+    "Pensamiento sobre organización nacional brasileña y reforma estatal."
+  ]
+}
