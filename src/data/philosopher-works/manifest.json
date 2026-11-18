@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1100,
-    "authors_remaining": 404,
-    "works_or_contributions_seeded": 9485,
-    "current_batch": "110",
+    "authors_seeded": 1110,
+    "authors_remaining": 394,
+    "works_or_contributions_seeded": 9674,
+    "current_batch": "111",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5751,6 +5751,58 @@
       "author_id": 1100,
       "canonical_name": "Carlos Nelson Coutinho",
       "path": "authors/1100.json"
+    }
+  ],
+  "batch_111": [
+    {
+      "author_id": 1101,
+      "canonical_name": "Luis Carlos Maciel",
+      "path": "authors/1101.json"
+    },
+    {
+      "author_id": 1102,
+      "canonical_name": "Vamireh Chacon",
+      "path": "authors/1102.json"
+    },
+    {
+      "author_id": 1103,
+      "canonical_name": "Flavio Kothe",
+      "path": "authors/1103.json"
+    },
+    {
+      "author_id": 1104,
+      "canonical_name": "Luis Costa Lima",
+      "path": "authors/1104.json"
+    },
+    {
+      "author_id": 1105,
+      "canonical_name": "Otto Maria Carpeaux",
+      "path": "authors/1105.json"
+    },
+    {
+      "author_id": 1106,
+      "canonical_name": "Gabriel Cohn",
+      "path": "authors/1106.json"
+    },
+    {
+      "author_id": 1107,
+      "canonical_name": "Renato Ortiz",
+      "path": "authors/1107.json"
+    },
+    {
+      "author_id": 1108,
+      "canonical_name": "Olgária Matos",
+      "path": "authors/1108.json"
+    },
+    {
+      "author_id": 1109,
+      "canonical_name": "Sérgio Paulo Rouanet",
+      "path": "authors/1109.json"
+    },
+    {
+      "author_id": 1110,
+      "canonical_name": "Bárbara Freitag",
+      "path": "authors/1110.json"
     }
   ]
 }
