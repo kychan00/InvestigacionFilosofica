@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 970,
-    "authors_remaining": 534,
-    "works_or_contributions_seeded": 8162,
-    "current_batch": "097",
+    "authors_seeded": 980,
+    "authors_remaining": 524,
+    "works_or_contributions_seeded": 8266,
+    "current_batch": "098",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5075,6 +5075,58 @@
       "author_id": 970,
       "canonical_name": "Jesús A. de la Torre Rangel",
       "path": "authors/0970.json"
+    }
+  ],
+  "batch_098": [
+    {
+      "author_id": 971,
+      "canonical_name": "Félix Matos Bernier",
+      "path": "authors/0971.json"
+    },
+    {
+      "author_id": 972,
+      "canonical_name": "Nemesio Canales",
+      "path": "authors/0972.json"
+    },
+    {
+      "author_id": 973,
+      "canonical_name": "Rafael Arrillaga Torréns",
+      "path": "authors/0973.json"
+    },
+    {
+      "author_id": 974,
+      "canonical_name": "Julio Antonio Mella",
+      "path": "authors/0974.json"
+    },
+    {
+      "author_id": 975,
+      "canonical_name": "Juan Marinello",
+      "path": "authors/0975.json"
+    },
+    {
+      "author_id": 976,
+      "canonical_name": "Juan Bosch",
+      "path": "authors/0976.json"
+    },
+    {
+      "author_id": 977,
+      "canonical_name": "César Andreu Iglesias",
+      "path": "authors/0977.json"
+    },
+    {
+      "author_id": 978,
+      "canonical_name": "George Fromm",
+      "path": "authors/0978.json"
+    },
+    {
+      "author_id": 979,
+      "canonical_name": "Eugenio Fernández Méndez",
+      "path": "authors/0979.json"
+    },
+    {
+      "author_id": 980,
+      "canonical_name": "Samuel Silva Gotay",
+      "path": "authors/0980.json"
     }
   ]
 }

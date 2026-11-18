@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "author_id": 972,
+  "canonical_name": "Nemesio Canales",
+  "alternate_names": [
+    "Nemesio R. Canales"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "972-w001",
+      "title": "Paliques",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1913,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1913,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+      ],
+      "notes": "Recopila columna periodística previa; 1952 es reedición, no primera publicación."
+    },
+    {
+      "work_id": "972-w002",
+      "title": "Mi voluntad se ha muerto",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "972-w003",
+      "title": "Hacia un lejano sol",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "972-w004",
+      "title": "La leyenda benaventina",
+      "work_type": "literary_criticism",
+      "original_language": "español",
+      "original_date": {
+        "year": 1922,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1922,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "972-w005",
+      "title": "El héroe galopante",
+      "work_type": "play",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+      ],
+      "notes": "Estrenada póstumamente en 1923; edición 1935. No fijar año de primera publicación impresa."
+    },
+    {
+      "work_id": "972-w006",
+      "title": "Feliz pareja",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Escritura satírica, crítica social y defensa de los derechos de las mujeres en Puerto Rico.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Biografías y Vidas, obras y primera publicación de Paliques",
+      "url": "https://www.biografiasyvidas.com/biografia/c/canales.htm"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "EBSCO, estudio académico de la obra de Canales",
+      "url": "https://openurl.ebsco.com/contentitem/gcd%3A13656677"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Biblioteca Cuenca, catálogo de Paliques, edición de 1952",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=71759"
+    }
+  ],
+  "research_notes": [
+    "La fuente secundaria registra el estreno de El héroe galopante en 1923 y edición 1935; se mantiene año de primera edición null.",
+    "No confundir Paliques original de 1913 con ejemplar catalogado de 1952."
+  ]
+}

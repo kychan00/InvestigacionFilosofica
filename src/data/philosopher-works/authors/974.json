@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "author_id": 974,
+  "canonical_name": "Julio Antonio Mella",
+  "alternate_names": [
+    "Julio Antonio Mella McPartland"
+  ],
+  "life": {
+    "birth_year": 1903,
+    "death_year": 1929
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "974-w001",
+      "title": "Glosas al pensamiento de José Martí: un libro que debe escribirse",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://lectambulos.com/julio-mella-y-sus-glosas-al-ideario-martiano/"
+      ],
+      "notes": "Escrito en 1926; edición El Machete 2024. Año de primera publicación del ensayo no corroborado."
+    },
+    {
+      "work_id": "974-w002",
+      "title": "Escritos",
+      "work_type": "posthumous_anthology",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cipec.lahaine.org/libro-entero-antologia-julio-antonio-mella-escritos/"
+      ],
+      "notes": "Antología póstuma de textos de Mella; no se presenta como libro concebido por el autor en vida."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Organización estudiantil y pensamiento marxista antiimperialista cubano; articulación de Martí con la crítica revolucionaria.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Nexos Cultura, estudio de Glosas al pensamiento de José Martí",
+      "url": "https://cultura.nexos.com.mx/julio-antonio-mella-de-lider-estudiantil-a-revolucionario-latinoamericano/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Lectámbulos, estudio de la edición de Glosas y su fecha de composición",
+      "url": "https://lectambulos.com/julio-mella-y-sus-glosas-al-ideario-martiano/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Cátedra UBA/CIPEC, antología Escritos",
+      "url": "https://cipec.lahaine.org/libro-entero-antologia-julio-antonio-mella-escritos/"
+    }
+  ],
+  "research_notes": [
+    "La edición 2024 de Glosas no es la primera fecha de composición; se evita atribuir al autor una monografía futura que el ensayo apenas propone."
+  ]
+}
