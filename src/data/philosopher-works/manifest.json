@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 790,
-    "authors_remaining": 714,
-    "works_or_contributions_seeded": 6264,
-    "current_batch": "079",
+    "authors_seeded": 800,
+    "authors_remaining": 704,
+    "works_or_contributions_seeded": 6386,
+    "current_batch": "080",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4139,6 +4139,58 @@
       "author_id": 790,
       "canonical_name": "Roberto Fernández Retamar",
       "path": "authors/0790.json"
+    }
+  ],
+  "batch_080": [
+    {
+      "author_id": 791,
+      "canonical_name": "José Antonio Portuondo",
+      "path": "authors/0791.json"
+    },
+    {
+      "author_id": 792,
+      "canonical_name": "María del Carmen Rovira Gaspar",
+      "path": "authors/0792.json"
+    },
+    {
+      "author_id": 793,
+      "canonical_name": "Santiago Castro-Gómez",
+      "path": "authors/0793.json"
+    },
+    {
+      "author_id": 794,
+      "canonical_name": "Adriana Arpini",
+      "path": "authors/0794.json"
+    },
+    {
+      "author_id": 795,
+      "canonical_name": "Fernanda Beigel",
+      "path": "authors/0795.json"
+    },
+    {
+      "author_id": 796,
+      "canonical_name": "Alejandra Ciriza",
+      "path": "authors/0796.json"
+    },
+    {
+      "author_id": 797,
+      "canonical_name": "Estela Fernández",
+      "path": "authors/0797.json"
+    },
+    {
+      "author_id": 798,
+      "canonical_name": "Liliana Giorgis",
+      "path": "authors/0798.json"
+    },
+    {
+      "author_id": 799,
+      "canonical_name": "Marisa Muñoz",
+      "path": "authors/0799.json"
+    },
+    {
+      "author_id": 800,
+      "canonical_name": "Dante Ramaglia",
+      "path": "authors/0800.json"
     }
   ]
 }
