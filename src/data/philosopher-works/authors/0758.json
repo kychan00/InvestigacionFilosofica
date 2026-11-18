@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "author_id": 758,
+  "canonical_name": "Armando Morones",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0758-w001",
+      "title": "Filosofía de las formas simbólicas (tomos I–III: El lenguaje; El pensamiento mítico; Fenomenología del conocimiento)",
+      "work_type": "multivolume_philosophical_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://fondodeculturaeconomica.com/Ficha/9786071636805/F",
+        "https://catalogo.upsa.es/cgi-bin/koha/opac-detail.pl?biblionumber=895391&shelfbrowse_itemnumber=356550",
+        "https://biblioteca.imced.edu.mx/opac_css/index.php?id=797&lvl=author_see"
+      ],
+      "notes": "Proyecto de traducción de la obra de Ernst Cassirer, volúmenes 1–3 impresos en 1971, 1972 y 1976; se cuenta una sola obra multivolumen."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Traducción filosófica de Ernst Cassirer al español para Fondo de Cultura Económica, facilitando acceso hispanohablante a la teoría de las formas simbólicas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Fondo de Cultura Económica, Ernst Cassirer, traductor Armando Morones",
+      "url": "https://fondodeculturaeconomica.com/Ficha/9786071636805/F"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Catálogo Pontificia Salamanca, Ernst Cassirer tomo II primera edición castellana 1972",
+      "url": "https://catalogo.upsa.es/cgi-bin/koha/opac-detail.pl?biblionumber=895391&shelfbrowse_itemnumber=356550"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Catálogo IMCED, Armando Morones, traducción Filosofía de las formas simbólicas",
+      "url": "https://biblioteca.imced.edu.mx/opac_css/index.php?id=797&lvl=author_see"
+    }
+  ],
+  "research_notes": [
+    "Traducción de Filosofía de las formas simbólicas I–III: los originales pertenecen a Ernst Cassirer.",
+    "Las primeras ediciones de los tomos I, II y III fueron 1971, 1972 y 1976; se documenta una sola empresa traductológica multivolumen, no tres títulos originales de Morones.",
+    "Se excluyen reediciones de 1998 y 2016 como traducciones nuevas sin cambio textual corroborado.",
+    "No se encontraron publicaciones originales personales de Morones en las fuentes consultadas."
+  ]
+}

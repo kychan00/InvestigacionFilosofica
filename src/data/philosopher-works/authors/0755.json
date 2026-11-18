@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 755,
+  "canonical_name": "Nicolás Molina Flores",
+  "alternate_names": [
+    "César Nicolás Molina Flores"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0755-w001",
+      "title": "Filosofía y matemáticas: reflexiones para la delimitación del territorio filosófico",
+      "work_type": "booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://isonomia.itam.mx/isonomia/15/363667029012/html/index.html"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0755-w002",
+      "title": "La superación de la metafísica por medio del análisis lógico del lenguaje",
+      "work_type": "philosophical_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosoficas.unam.mx/catalogo-old/cuadernos"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0755-w003",
+      "title": "Filosofía y sintaxis lógica",
+      "work_type": "philosophical_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosoficas.unam.mx/catalogo-old/cuadernos"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0755-w004",
+      "title": "El simbolismo: su significado y efecto",
+      "work_type": "philosophical_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosoficas.unam.mx/catalogo-old/cuadernos"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión inicial de la lógica y del empirismo lógico en México mediante reflexión sobre filosofía y matemáticas y traducciones de Rudolf Carnap y Alfred North Whitehead.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Guillermo Hurtado, Eduardo García Máynez y la filosofía científica en México, Isonomía",
+      "url": "https://isonomia.itam.mx/isonomia/15/363667029012/html/index.html"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "UNAM IIF, Cuadernos, traducciones de César Nicolás Molina Flores",
+      "url": "https://www.filosoficas.unam.mx/catalogo-old/cuadernos"
+    }
+  ],
+  "research_notes": [
+    "El ensayo introductorio Filosofía y matemáticas se editó en 1953.",
+    "El nombre completo César Nicolás Molina Flores aparece en catálogos UNAM.",
+    "Las obras de Carnap y Whitehead tienen autoría original de Carnap y Whitehead: Molina Flores figura como traductor.",
+    "La reimpresión de 2009 de La superación de la metafísica no constituye una traducción nueva."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "author_id": 752,
+  "canonical_name": "Roberto Caso",
+  "alternate_names": [
+    "Roberto Caso Bercht"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0752-w001",
+      "title": "Teoría de los conjuntos y lógica",
+      "work_type": "philosophical_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosoficas.unam.mx/catalogo/?temas=filosofia-de-las-matematicas"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Difusión de lógica matemática y teoría de conjuntos en México, con formación en universidades de Yale y Berkeley y traducción de textos especializados para UNAM.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Universidad Nacional de Puebla, semblanza Roberto Caso Bercht",
+      "url": "https://elementos.buap.mx/index.php/atrium/authors_single.php?id=33"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "UNAM IIF, Teoría de los conjuntos y lógica, traductor Roberto Caso Bercht",
+      "url": "https://www.filosoficas.unam.mx/catalogo/?temas=filosofia-de-las-matematicas"
+    }
+  ],
+  "research_notes": [
+    "Autoridad identificada como Roberto Caso Bercht (abreviado Roberto Caso en el inventario).",
+    "No se documentaron libros originales inequívocos: única publicación individual sustentada es traducción de Fraenkel.",
+    "La edición castellana de 1976 no convierte a Caso en autor de la teoría de Fraenkel."
+  ]
+}

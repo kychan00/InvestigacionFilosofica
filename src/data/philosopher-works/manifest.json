@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 750,
-    "authors_remaining": 754,
-    "works_or_contributions_seeded": 5675,
-    "current_batch": "075",
+    "authors_seeded": 760,
+    "authors_remaining": 744,
+    "works_or_contributions_seeded": 5784,
+    "current_batch": "076",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3931,6 +3931,58 @@
       "author_id": 750,
       "canonical_name": "Raúl Orayen",
       "path": "authors/0750.json"
+    }
+  ],
+  "batch_076": [
+    {
+      "author_id": 751,
+      "canonical_name": "Alberto Moretti",
+      "path": "authors/0751.json"
+    },
+    {
+      "author_id": 752,
+      "canonical_name": "Roberto Caso",
+      "path": "authors/0752.json"
+    },
+    {
+      "author_id": 753,
+      "canonical_name": "Hugo Padilla",
+      "path": "authors/0753.json"
+    },
+    {
+      "author_id": 754,
+      "canonical_name": "Adolfo García Díaz",
+      "path": "authors/0754.json"
+    },
+    {
+      "author_id": 755,
+      "canonical_name": "Nicolás Molina Flores",
+      "path": "authors/0755.json"
+    },
+    {
+      "author_id": 756,
+      "canonical_name": "Rafael Ruiz Harrell",
+      "path": "authors/0756.json"
+    },
+    {
+      "author_id": 757,
+      "canonical_name": "Javier Esquivel",
+      "path": "authors/0757.json"
+    },
+    {
+      "author_id": 758,
+      "canonical_name": "Armando Morones",
+      "path": "authors/0758.json"
+    },
+    {
+      "author_id": 759,
+      "canonical_name": "Enrique Villanueva",
+      "path": "authors/0759.json"
+    },
+    {
+      "author_id": 760,
+      "canonical_name": "Hugo Margáin",
+      "path": "authors/0760.json"
     }
   ]
 }

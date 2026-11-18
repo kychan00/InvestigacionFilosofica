@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "author_id": 756,
+  "canonical_name": "Rafael Ruiz Harrell",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1933,
+      "certainty": "institutional_biographical_reference"
+    },
+    "died": {
+      "year": 2007,
+      "certainty": "institutional_biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0756-w001",
+      "title": "Ocho cosas de papel",
+      "work_type": "poetry_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elsiglodetorreon.com.mx/noticia/2008/rafael-ruiz-harrell.html"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0756-w002",
+      "title": "Te cantaron la muerte",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elsiglodetorreon.com.mx/noticia/2008/rafael-ruiz-harrell.html"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0756-w003",
+      "title": "Exaltación de ineptitudes: una visión crítica del presidencialismo mexicano",
+      "work_type": "political_essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "undetermined"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elsiglodetorreon.com.mx/noticia/2008/rafael-ruiz-harrell.html",
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=43511"
+      ],
+      "notes": "Existe edición de 1986 designada 3a edición; fecha de primera edición no corroborada."
+    },
+    {
+      "work_id": "0756-w004",
+      "title": "El secuestro de William Jenkins",
+      "work_type": "historical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elsiglodetorreon.com.mx/noticia/2008/rafael-ruiz-harrell.html"
+      ],
+      "notes": "Novela histórica, se incorpora como obra contextual de la actividad intelectual, no como tratado filosófico."
+    },
+    {
+      "work_id": "0756-w005",
+      "title": "Criminalidad y mal gobierno",
+      "work_type": "criminology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elsiglodetorreon.com.mx/noticia/2008/rafael-ruiz-harrell.html"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0756-w006",
+      "title": "Estadísticas oficiales vs. percepción ciudadana de la inseguridad: el subregistro delictivo",
+      "work_type": "academic_symposium_paper",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.saludpublica.mx/index.php/spm/article/view/7475"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensamiento crítico acerca de institucionalidad política, criminalidad y seguridad pública en México; docente en filosofía, psicología y derecho y comentarista en prensa.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Enciclopedia de la Literatura en México, Rafael Ruiz Harrell, autoridad bibliográfica",
+      "url": "https://www.elem.mx/autor/datos/116341"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Miguel Ángel Granados Chapa, Rafael Ruiz Harrell, El Siglo de Torreón 2008",
+      "url": "https://www.elsiglodetorreon.com.mx/noticia/2008/rafael-ruiz-harrell.html"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Biblioteca Nacional Pedro Henríquez Ureña, Exaltación de ineptitudes (edición 1986)",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=43511"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Salud Pública de México, Rafael Ruiz Harrell, Estadísticas oficiales vs. percepción ciudadana 2007",
+      "url": "https://www.saludpublica.mx/index.php/spm/article/view/7475"
+    }
+  ],
+  "research_notes": [
+    "La Enciclopedia de la Literatura en México y la necrología periodística fijan 1933–2007; el encabezado de una efeméride del IMER dice erróneamente 1913 aunque el texto consigna fallecimiento a los 74 años.",
+    "Exaltación de ineptitudes: 1986 está documentado en ejemplar que figura como tercera edición, por lo que no se garantiza que sea primera; first_publication_year permanece null.",
+    "El secuestro de William Jenkins (1992) es una novela histórica y se clasifica como tal, no como tratado original de filosofía.",
+    "La ciudad y el crimen fue también columna periodística/radiofónica, no se registra como libro de primera edición sin ejemplar."
+  ]
+}

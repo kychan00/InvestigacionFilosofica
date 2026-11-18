@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "author_id": 753,
+  "canonical_name": "Hugo Padilla",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0753-w001",
+      "title": "Juan David García Bacca, Elementos de filosofía de las ciencias",
+      "work_type": "journal_book_review",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/juan-david-garcia-bacca-elementos-de-filosofia-de-las-ciencias-4143866"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0753-w002",
+      "title": "Conceptografía: los fundamentos de la aritmética y otros estudios filosóficos",
+      "work_type": "philosophical_translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.imced.edu.mx/opac_css/index.php?id=3484&lvl=author_see"
+      ],
+      "notes": "Obra seleccionada de bibliografía institucional o académica; no se multiplican reediciones."
+    },
+    {
+      "work_id": "0753-w003",
+      "title": "El pensamiento científico",
+      "work_type": "edited_anthology",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "undetermined"
+      },
+      "first_publication_year": null,
+      "authorship_status": "compiler_and_prologue_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.imced.edu.mx/opac_css/index.php?id=3484&lvl=author_see"
+      ],
+      "notes": "El catálogo acredita segunda edición de 1986; no se usa 1986 como primera publicación."
+    },
+    {
+      "work_id": "0753-w004",
+      "title": "Monterrey y la filosofía a mediados del siglo XX",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2018,
+        "certainty": "documented_bibliographic_source"
+      },
+      "first_publication_year": 2018,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://humanitas.uanl.mx/index.php/ah/article/view/107"
+      ],
+      "notes": "Revista Humanitas registra fascículo 42 correspondiente a 2015, con publicación digital 11 de mayo de 2018; se fija 2018 como año de publicación verificada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Trabajo de traducción y compilación de textos de lógica y pensamiento científico, además de participación académica y editorial filosófica mexicana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Biblioteca IMCED, autoridad de Hugo Padilla, traducciones y recopilaciones",
+      "url": "https://biblioteca.imced.edu.mx/opac_css/index.php?id=3484&lvl=author_see"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "Universidad Autónoma de Nuevo León, Hugo Padilla, Monterrey y la filosofía a mediados del siglo XX",
+      "url": "https://humanitas.uanl.mx/index.php/ah/article/view/107"
+    },
+    {
+      "kind": "academic_catalog_research_or_publisher_source",
+      "title": "UNAM Crítica, Hugo Padilla, recensión de Juan David García Bacca (1968)",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/juan-david-garcia-bacca-elementos-de-filosofia-de-las-ciencias-4143866"
+    }
+  ],
+  "research_notes": [
+    "La bibliografía de Hugo Padilla menciona textos traducidos de Gottlob Frege y la compilación El pensamiento científico; no se le asigna la autoría de Frege.",
+    "El pensamiento científico tiene ejemplar documentado en segunda edición de 1986; primera publicación no localizada.",
+    "La revista Humanitas documenta al profesor Hugo Padilla nacido en 1935 y un texto publicado en línea en 2018; la identidad respecto del traductor de Frege queda señalada como probable pero no demostrada unívocamente, por lo que no se usa fecha de nacimiento."
+  ]
+}
