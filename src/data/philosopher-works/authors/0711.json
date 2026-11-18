@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "author_id": 711,
+  "canonical_name": "Faustino de Arredondo",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_bibliographic_records_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Figura citada en la recepción temprana de la filosofía cristiana y neo-escolástica argentina decimonónica; su mención aparece vinculada al periódico católico El Ambato (1858–1862).",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_specialized_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano... (inventario fuente)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "El inventario identifica a Faustino de Arredondo, pero la fuente de origen no proporciona títulos individuales de sus artículos.",
+    "No atribuirle de manera automática todos los textos publicados en El Ambato ni publicaciones de homónimos; works queda vacío hasta hallar documentos firmados."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 710,
-    "authors_remaining": 794,
-    "works_or_contributions_seeded": 5097,
-    "current_batch": "071",
+    "authors_seeded": 720,
+    "authors_remaining": 784,
+    "works_or_contributions_seeded": 5201,
+    "current_batch": "072",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3723,6 +3723,58 @@
       "author_id": 710,
       "canonical_name": "Demetrio Pizarro",
       "path": "authors/0710.json"
+    }
+  ],
+  "batch_072": [
+    {
+      "author_id": 711,
+      "canonical_name": "Faustino de Arredondo",
+      "path": "authors/0711.json"
+    },
+    {
+      "author_id": 712,
+      "canonical_name": "Manuel Estrada",
+      "path": "authors/0712.json"
+    },
+    {
+      "author_id": 713,
+      "canonical_name": "Tomás D. Casares",
+      "path": "authors/0713.json"
+    },
+    {
+      "author_id": 714,
+      "canonical_name": "Manuel del Río",
+      "path": "authors/0714.json"
+    },
+    {
+      "author_id": 715,
+      "canonical_name": "Rodolfo Martínez Espinosa",
+      "path": "authors/0715.json"
+    },
+    {
+      "author_id": 716,
+      "canonical_name": "Guido Soaje Ramos",
+      "path": "authors/0716.json"
+    },
+    {
+      "author_id": 717,
+      "canonical_name": "Alfredo Fragueiro",
+      "path": "authors/0717.json"
+    },
+    {
+      "author_id": 718,
+      "canonical_name": "Gregorio Klimovsky",
+      "path": "authors/0718.json"
+    },
+    {
+      "author_id": 719,
+      "canonical_name": "J. Alberto Coffa",
+      "path": "authors/0719.json"
+    },
+    {
+      "author_id": 720,
+      "canonical_name": "Eduardo H. Flichman",
+      "path": "authors/0720.json"
     }
   ]
 }

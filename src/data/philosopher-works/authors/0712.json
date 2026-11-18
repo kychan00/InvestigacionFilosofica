@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "author_id": 712,
+  "canonical_name": "Manuel Estrada",
+  "alternate_names": [
+    "José Manuel Estrada",
+    "José M. Estrada"
+  ],
+  "life": {
+    "born": {
+      "year": 1842,
+      "certainty": "catalog_authority"
+    },
+    "died": {
+      "year": 1894,
+      "certainty": "catalog_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_bibliographic_records_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0712-w001",
+      "title": "Signum Foederis: efectos sociales y religiosos de la armonía",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1859,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1859,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada"
+      ],
+      "notes": "Título y año de repertorio de obras; verificar ejemplar histórico en ampliación posterior."
+    },
+    {
+      "work_id": "0712-w002",
+      "title": "El génesis de nuestra raza",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1861,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1861,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada",
+        "https://www.cervantesvirtual.com/obra/obras-completas-de-jose-manuel-estrada-tomo-i/"
+      ],
+      "notes": "Reeditado en Obras completas de 1899; no contar esa reedición por separado."
+    },
+    {
+      "work_id": "0712-w003",
+      "title": "El catolicismo y la democracia",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1862,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1862,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada",
+        "https://www.cervantesvirtual.com/obra/obras-completas-de-jose-manuel-estrada-tomo-i/"
+      ],
+      "notes": "Obra identificada bibliográficamente; ficha selectiva y no exhaustiva."
+    },
+    {
+      "work_id": "0712-w004",
+      "title": "Ensayo histórico sobre la revolución de los comuneros del Paraguay en el siglo XVIII",
+      "work_type": "historical_monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1865,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada",
+        "https://www.cervantesvirtual.com/obra/obras-completas-de-jose-manuel-estrada-tomo-i/"
+      ],
+      "notes": "La edición en Obras completas es posterior al escrito original."
+    },
+    {
+      "work_id": "0712-w005",
+      "title": "Lecciones sobre la historia de la República Argentina",
+      "work_type": "collected_lectures",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "undetermined"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada"
+      ],
+      "notes": "Recopilación de clases; no se presume fecha de primera impresión a partir de la fecha de conferencias."
+    },
+    {
+      "work_id": "0712-w006",
+      "title": "Curso de derecho constitucional, federal y administrativo",
+      "work_type": "posthumous_collected_lectures",
+      "original_language": "español",
+      "original_date": {
+        "year": 1895,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada"
+      ],
+      "notes": "Edición póstuma (1895); no se supone que fuera libro publicado en vida."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza, periodismo y pensamiento católico argentino del siglo XIX; defensa pública de posiciones religiosas y constitucionales.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_specialized_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano... (inventario fuente)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "Biblioteca Virtual Miguel de Cervantes: Obras completas de José Manuel Estrada, tomo I",
+      "url": "https://www.cervantesvirtual.com/obra/obras-completas-de-jose-manuel-estrada-tomo-i/"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "Wikisource: José Manuel Estrada, índice histórico de obras",
+      "url": "https://es.wikisource.org/wiki/Autor:Jos%C3%A9_Manuel_Estrada"
+    }
+  ],
+  "research_notes": [
+    "Manuel Estrada (1842–1894) coincide en fechas y ámbito con José Manuel Estrada (1842–1894), nombre de autoridad del catálogo Cervantes.",
+    "Las Obras completas de 1899 y reediciones posteriores no se cuentan como títulos originales adicionales."
+  ]
+}
