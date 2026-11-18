@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 870,
-    "authors_remaining": 634,
-    "works_or_contributions_seeded": 7125,
-    "current_batch": "087",
+    "authors_seeded": 880,
+    "authors_remaining": 624,
+    "works_or_contributions_seeded": 7183,
+    "current_batch": "088",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4555,6 +4555,58 @@
       "author_id": 870,
       "canonical_name": "Florencia Luna",
       "path": "authors/0870.json"
+    }
+  ],
+  "batch_088": [
+    {
+      "author_id": 871,
+      "canonical_name": "María Julia Bertomeu",
+      "path": "authors/0871.json"
+    },
+    {
+      "author_id": 872,
+      "canonical_name": "Gladys Macklison",
+      "path": "authors/0872.json"
+    },
+    {
+      "author_id": 873,
+      "canonical_name": "Susana Sommer",
+      "path": "authors/0873.json"
+    },
+    {
+      "author_id": 874,
+      "canonical_name": "M. Bochategui",
+      "path": "authors/0874.json"
+    },
+    {
+      "author_id": 875,
+      "canonical_name": "Margarita Bosch",
+      "path": "authors/0875.json"
+    },
+    {
+      "author_id": 876,
+      "canonical_name": "Dora Porto",
+      "path": "authors/0876.json"
+    },
+    {
+      "author_id": 877,
+      "canonical_name": "Gabriel Oseka",
+      "path": "authors/0877.json"
+    },
+    {
+      "author_id": 878,
+      "canonical_name": "José Roque Junges",
+      "path": "authors/0878.json"
+    },
+    {
+      "author_id": 879,
+      "canonical_name": "Mario Segre",
+      "path": "authors/0879.json"
+    },
+    {
+      "author_id": 880,
+      "canonical_name": "Mauro Machado do Prado",
+      "path": "authors/0880.json"
     }
   ]
 }

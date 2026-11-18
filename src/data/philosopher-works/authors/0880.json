@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "author_id": 880,
+  "canonical_name": "Mauro Machado do Prado",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0880-w001",
+      "title": "A bioética na formação em odontologia",
+      "work_type": "doctoral_thesis",
+      "original_language": "português",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unb.br/jspui/bitstream/10482/8222/1/2006_MauroMachadoPrado.pdf"
+      ],
+      "notes": "Tesis UnB de 2006, no contabilizar como libro publicado."
+    },
+    {
+      "work_id": "0880-w002",
+      "title": "Bioética, legislação e tecnologias reprodutivas",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Dirce Guilhem"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/249"
+      ],
+      "notes": "Revista Bioética 9(2), año del fascículo por corroborar; registro digital de 2009 no necesariamente edición original."
+    },
+    {
+      "work_id": "0880-w003",
+      "title": "Análise bioética do Código de Ética Odontológica brasileiro",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 2009,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Monique Teresinha Pyrrho de Souza Silva",
+        "Jorge Cordón",
+        "Volnei Garrafa"
+      ],
+      "identifiers": {
+        "doi": "10.1590/S1413-81232009000500033",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unb.br/handle/10482/12612?locale=es"
+      ],
+      "notes": "Ciência & Saúde Coletiva 14(5), 1911–1918 (2009). DOI confirmado en repositorio UnB."
+    },
+    {
+      "work_id": "0880-w004",
+      "title": "Análise bioética do diagnóstico de morte encefálica e da doação de órgãos em hospital público de referência do Distrito Federal",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Elienai de Alencar Meneses",
+        "Márcia Ferreira Brandão Souza",
+        "Regina Maura Baruzzi",
+        "Volnei Garrafa"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.revistabioetica.cfm.org.br/revista_bioetica/article/view/572"
+      ],
+      "notes": "Revista Bioética 18(2), 2010, coautoría de cinco investigadores."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia e investigación en ética odontológica, derecho sanitario, tecnologías reproductivas y bioética en la Universidade Federal de Goiás.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico de filósofos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "kind": "project_primary_source"
+    },
+    {
+      "title": "UnB, tesis de doctorado A bioética na formação em odontologia (2006)",
+      "url": "https://repositorio.unb.br/jspui/bitstream/10482/8222/1/2006_MauroMachadoPrado.pdf",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "Revista Bioética, Bioética, legislação e tecnologias reprodutivas",
+      "url": "https://revistabioetica.cfm.org.br/revista_bioetica/article/view/249",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "UnB, artículo Análise bioética do código de ética odontológica brasileiro",
+      "url": "https://repositorio.unb.br/handle/10482/12612?locale=es",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "Revista Bioética, diagnóstico de morte encefálica e doação de órgãos (2010)",
+      "url": "https://www.revistabioetica.cfm.org.br/revista_bioetica/article/view/572",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "UFG, perfil docente y docencia en bioética",
+      "url": "https://sigaa.sistemas.ufg.br/sigaa/public/docente/disciplinas.jsf?siape=1127599",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    }
+  ],
+  "research_notes": [
+    "Se separa tesis de doctorado (2006) de artículos de revista (2009/2010).",
+    "Coautorías obtenidas de las páginas institucionales y del repositorio UnB."
+  ]
+}
