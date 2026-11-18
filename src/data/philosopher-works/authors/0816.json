@@ -139,8 +139,8 @@
       "work_type": "posthumous_essay",
       "original_language": "francés",
       "original_date": {
-        "year": 1845,
-        "certainty": "bibliographic_source_year"
+        "year": null,
+        "certainty": "manuscript_precedes_author_death_1844"
       },
       "first_publication_year": 1845,
       "authorship_status": "original_author",
@@ -153,7 +153,7 @@
       "evidence_urls": [
         "https://diccionario.cedinci.org/tristan-flora/"
       ],
-      "notes": "Publicación póstuma en A. Constant; obra redactada antes de 1844."
+      "notes": "Redactado antes del fallecimiento de la autora en 1844 y publicado póstumamente en 1845 por A. Constant."
     },
     {
       "work_id": "0816-w007",
@@ -161,10 +161,10 @@
       "work_type": "posthumous_travel_diary",
       "original_language": "francés",
       "original_date": {
-        "year": 1980,
-        "certainty": "bibliographic_source_year"
+        "year": 1843,
+        "certainty": "manuscript_written_1843_to_1844"
       },
-      "first_publication_year": 1980,
+      "first_publication_year": 1973,
       "authorship_status": "original_author",
       "coauthors": [],
       "identifiers": {
@@ -175,7 +175,7 @@
       "evidence_urls": [
         "https://diccionario.cedinci.org/tristan-flora/"
       ],
-      "notes": "Diario escrito 1843–1844; edición de 1980 en dos volúmenes citada por CeDInCI, con noticia de publicación anterior en 1973: primera edición por precisar."
+      "notes": "Diario redactado entre 1843 y 1844, póstumo, primero publicado en 1973 (según CeDInCI), con edición ulterior de Maspero en 1980 en dos volúmenes; no duplicar ediciones."
     },
     {
       "work_id": "0816-w008",
@@ -234,6 +234,6 @@
   "research_notes": [
     "Pérégrinations d'une paria de 1838 narra un viaje realizado 1833–1834. No confundir fechas de viaje con primera edición.",
     "L'émancipation de la femme ou le testament de la paria apareció póstumamente en 1845; título español La emancipación de la mujer es traducción.",
-    "Le tour de France se compuso durante 1843–1844 y quedó inédito hasta edición póstuma del siglo XX; el año de primera publicación se distingue de composición."
+    "Le tour de France: manuscrito 1843–1844, primera publicación póstuma 1973 y edición de Maspero 1980; fecha de composición y publicación mantenidas separadas."
   ]
 }
