@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1070,
-    "authors_remaining": 434,
-    "works_or_contributions_seeded": 9153,
-    "current_batch": "107",
+    "authors_seeded": 1080,
+    "authors_remaining": 424,
+    "works_or_contributions_seeded": 9252,
+    "current_batch": "108",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5595,6 +5595,58 @@
       "author_id": 1070,
       "canonical_name": "Ayda Arruda",
       "path": "authors/1070.json"
+    }
+  ],
+  "batch_108": [
+    {
+      "author_id": 1071,
+      "canonical_name": "Laffayette de Moraes",
+      "path": "authors/1071.json"
+    },
+    {
+      "author_id": 1072,
+      "canonical_name": "Luís Paulo Alcântara",
+      "path": "authors/1072.json"
+    },
+    {
+      "author_id": 1073,
+      "canonical_name": "Elias Humberto",
+      "path": "authors/1073.json"
+    },
+    {
+      "author_id": 1074,
+      "canonical_name": "Jorge Barbosa",
+      "path": "authors/1074.json"
+    },
+    {
+      "author_id": 1075,
+      "canonical_name": "Milton Vargas",
+      "path": "authors/1075.json"
+    },
+    {
+      "author_id": 1076,
+      "canonical_name": "Marli Bulcão",
+      "path": "authors/1076.json"
+    },
+    {
+      "author_id": 1077,
+      "canonical_name": "Elyana Barbosa",
+      "path": "authors/1077.json"
+    },
+    {
+      "author_id": 1078,
+      "canonical_name": "Theotonio dos Santos",
+      "path": "authors/1078.json"
+    },
+    {
+      "author_id": 1079,
+      "canonical_name": "Fernando Henrique Cardoso",
+      "path": "authors/1079.json"
+    },
+    {
+      "author_id": 1080,
+      "canonical_name": "Pedro Negre Rigol",
+      "path": "authors/1080.json"
     }
   ]
 }
