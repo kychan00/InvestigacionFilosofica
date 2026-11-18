@@ -59,7 +59,7 @@
     },
     {
       "work_id": "1052-w003",
-      "title": "Testemunho sobre o Departamento de Filosofia da UFMG",
+      "title": "Presença e participação",
       "work_type": "memoir_article",
       "original_language": "português",
       "original_date": {
@@ -77,7 +77,32 @@
       "evidence_urls": [
         "https://periodicos.ufmg.br/index.php/kriterion/article/download/29112/22980"
       ],
-      "notes": "Ensayo autobiográfico de Kriterion, edición especial enero 2021 pp.41–61; título normalizado descriptivo del testimonio; cotejar título exacto de portada antes de tratarlo como título definitivo."
+      "notes": "Kriterion: Revista de Filosofia, UFMG, edição especial Memória Dois em Um, janeiro de 2021, pp.41–61. Título exacto cotejado con el índice oficial de UFMG; se trata de testimonio autobiográfico y memoria del departamento."
+    },
+    {
+      "work_id": "1052-w004",
+      "title": "A estrutura do comportamento",
+      "work_type": "translation",
+      "original_language": "português",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Maurice Merleau-Ponty"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ucs.br/educs/arquivo/ebook/corpo-disciplina-e-educacao-fisica/",
+        "https://repositorio.ufmg.br/items/48e45b60-e1be-4bdf-b273-f4e70b7de7da"
+      ],
+      "notes": "Traducción portuguesa de Maurice Merleau-Ponty editada en Belo Horizonte por Interlivros (1975); Corrêa es traductor, no autor del libro francés original. Dos referencias académicas atribuyen expresamente su traducción."
     }
   ],
   "non_bibliographic_contributions": [
@@ -114,10 +139,21 @@
       "kind": "institutional_academic_library_or_scholarly_bibliography",
       "title": "SciELO, trayectorias de sociedad de estudios filosóficos SEAF",
       "url": "https://www.scielo.br/j/pp/a/W8nH6Lp9SZVvqrLgSPwHGDt/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UFMG, memoria del Departamento de Filosofía, índice de publicaciones",
+      "url": "https://filosofia.fafich.ufmg.br/departamento/memoria/publicacoes/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UCS, referência bibliográfica da tradução de Merleau-Ponty",
+      "url": "https://www.ucs.br/educs/arquivo/ebook/corpo-disciplina-e-educacao-fisica/"
     }
   ],
   "research_notes": [
     "Inventario 'Correa' y revista institucional 'Corrêa'; misma trayectoria UFMG y estudios de filosofía en Lovaina.",
-    "El título del testimonio de 2021 requiere cotejo con portada; registrado provisionalmente con nota explícita."
+    "Auditoría lote 106: título exacto de Kriterion identificado como 'Presença e participação', no título editorial reconstruido.",
+    "La traducción de 1975 se incorpora como responsabilidad de traductor distinta de artículos originales."
   ]
 }
