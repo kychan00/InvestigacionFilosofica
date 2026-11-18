@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1020,
-    "authors_remaining": 484,
-    "works_or_contributions_seeded": 8687,
-    "current_batch": "102",
+    "authors_seeded": 1030,
+    "authors_remaining": 474,
+    "works_or_contributions_seeded": 8842,
+    "current_batch": "103",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5335,6 +5335,58 @@
       "author_id": 1020,
       "canonical_name": "Cândido Mendes de Almeida",
       "path": "authors/1020.json"
+    }
+  ],
+  "batch_103": [
+    {
+      "author_id": 1021,
+      "canonical_name": "Evaldo Correia Lima",
+      "path": "authors/1021.json"
+    },
+    {
+      "author_id": 1022,
+      "canonical_name": "Roland Corbisier",
+      "path": "authors/1022.json"
+    },
+    {
+      "author_id": 1023,
+      "canonical_name": "Rômulo de Almeida",
+      "path": "authors/1023.json"
+    },
+    {
+      "author_id": 1024,
+      "canonical_name": "Inácio Rangel",
+      "path": "authors/1024.json"
+    },
+    {
+      "author_id": 1025,
+      "canonical_name": "Nelson Werneck Sodré",
+      "path": "authors/1025.json"
+    },
+    {
+      "author_id": 1026,
+      "canonical_name": "Roberto de Oliveira Campos",
+      "path": "authors/1026.json"
+    },
+    {
+      "author_id": 1027,
+      "canonical_name": "Anísio Teixeira",
+      "path": "authors/1027.json"
+    },
+    {
+      "author_id": 1028,
+      "canonical_name": "Hermes Lima",
+      "path": "authors/1028.json"
+    },
+    {
+      "author_id": 1029,
+      "canonical_name": "Fernando Azevedo",
+      "path": "authors/1029.json"
+    },
+    {
+      "author_id": 1030,
+      "canonical_name": "José Honório Rodrigues",
+      "path": "authors/1030.json"
     }
   ]
 }
