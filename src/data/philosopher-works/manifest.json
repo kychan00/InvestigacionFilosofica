@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 760,
-    "authors_remaining": 744,
-    "works_or_contributions_seeded": 5784,
-    "current_batch": "076",
+    "authors_seeded": 770,
+    "authors_remaining": 734,
+    "works_or_contributions_seeded": 5885,
+    "current_batch": "077",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3983,6 +3983,58 @@
       "author_id": 760,
       "canonical_name": "Hugo Margáin",
       "path": "authors/0760.json"
+    }
+  ],
+  "batch_077": [
+    {
+      "author_id": 761,
+      "canonical_name": "Margarita Valdés",
+      "path": "authors/0761.json"
+    },
+    {
+      "author_id": 762,
+      "canonical_name": "José A. Robles",
+      "path": "authors/0762.json"
+    },
+    {
+      "author_id": 763,
+      "canonical_name": "Raúl Quesada",
+      "path": "authors/0763.json"
+    },
+    {
+      "author_id": 764,
+      "canonical_name": "Álvaro Rodríguez Tirado",
+      "path": "authors/0764.json"
+    },
+    {
+      "author_id": 765,
+      "canonical_name": "Susana Berestoboy",
+      "path": "authors/0765.json"
+    },
+    {
+      "author_id": 766,
+      "canonical_name": "Newton da Costa",
+      "path": "authors/0766.json"
+    },
+    {
+      "author_id": 767,
+      "canonical_name": "João Paulo Monteiro",
+      "path": "authors/0767.json"
+    },
+    {
+      "author_id": 768,
+      "canonical_name": "Oswaldo Porchat Pereira",
+      "path": "authors/0768.json"
+    },
+    {
+      "author_id": 769,
+      "canonical_name": "Baltasar Barbosa Filho",
+      "path": "authors/0769.json"
+    },
+    {
+      "author_id": 770,
+      "canonical_name": "Zeljko Loparić",
+      "path": "authors/0770.json"
     }
   ]
 }
