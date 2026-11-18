@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "author_id": 1095,
+  "canonical_name": "Juarez Gomes Sofiste",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1095-w001",
+      "title": "Sócrates e o ensino da filosofia: investigação dialógica, uma pedagogia para a docência de filosofia",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://orelhadelivro.com.br/socrates-e-o-ensino-da-filosofia-investigacao-dialogica-uma-pedagogia-para-a-docencia-de-filosofia-juarez-gomes-sofiste",
+        "https://www.escavador.com/sobre/1357611/juarez-gomes-sofiste"
+      ],
+      "notes": "Petrópolis: Vozes, 160p."
+    },
+    {
+      "work_id": "1095-w002",
+      "title": "Investigação dialógica: uma pedagogia para o aluno do século XXI",
+      "work_type": "institutional_educational_text",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www2.ufjf.br/pensandobem/arquivos-e-textos/"
+      ],
+      "notes": "Texto atribuido a Juarez Sofiste por el Núcleo Pensando Bem, UFJF; fecha no verificada."
+    },
+    {
+      "work_id": "1095-w003",
+      "title": "A filosofia para crianças como alternativa para o ensino da filosofia",
+      "work_type": "institutional_educational_text",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www2.ufjf.br/pensandobem/arquivos-e-textos/"
+      ],
+      "notes": "Texto autoral listado por el Núcleo Pensando Bem, UFJF; fecha no verificada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Propuso y desarrolló la metodología de investigação dialógica para la enseñanza de filosofía en la UFJF.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_catalog_or_bibliographic_authority",
+      "title": "Referencia académica o catálogo bibliográfico — sofistebook",
+      "url": "https://orelhadelivro.com.br/socrates-e-o-ensino-da-filosofia-investigacao-dialogica-uma-pedagogia-para-a-docencia-de-filosofia-juarez-gomes-sofiste"
+    },
+    {
+      "kind": "institutional_academic_catalog_or_bibliographic_authority",
+      "title": "Referencia académica o catálogo bibliográfico — sofiste",
+      "url": "https://www.escavador.com/sobre/1357611/juarez-gomes-sofiste"
+    },
+    {
+      "kind": "institutional_academic_catalog_or_bibliographic_authority",
+      "title": "Referencia académica o catálogo bibliográfico — sofisteufjf",
+      "url": "https://www2.ufjf.br/pensandobem/arquivos-e-textos/"
+    }
+  ],
+  "research_notes": [
+    "Sócrates e o ensino da filosofia tiene edición 2007; se confirma también en bibliografía docente UFJF.",
+    "Los materiales de UFJF se presentan sin año comprobable y no son automáticamente capítulos del libro original."
+  ]
+}

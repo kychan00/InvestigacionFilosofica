@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1090,
-    "authors_remaining": 414,
-    "works_or_contributions_seeded": 9352,
-    "current_batch": "109",
+    "authors_seeded": 1100,
+    "authors_remaining": 404,
+    "works_or_contributions_seeded": 9485,
+    "current_batch": "110",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5699,6 +5699,58 @@
       "author_id": 1090,
       "canonical_name": "Vanderlei Luiz Trindade",
       "path": "authors/1090.json"
+    }
+  ],
+  "batch_110": [
+    {
+      "author_id": 1091,
+      "canonical_name": "Ricardo Timm de Souza",
+      "path": "authors/1091.json"
+    },
+    {
+      "author_id": 1092,
+      "canonical_name": "Giselle Moura Schnorr",
+      "path": "authors/1092.json"
+    },
+    {
+      "author_id": 1093,
+      "canonical_name": "Alécio Donizete da Silva",
+      "path": "authors/1093.json"
+    },
+    {
+      "author_id": 1094,
+      "canonical_name": "Eduardo David de Oliveira",
+      "path": "authors/1094.json"
+    },
+    {
+      "author_id": 1095,
+      "canonical_name": "Juarez Gomes Sofiste",
+      "path": "authors/1095.json"
+    },
+    {
+      "author_id": 1096,
+      "canonical_name": "José André da Costa",
+      "path": "authors/1096.json"
+    },
+    {
+      "author_id": 1097,
+      "canonical_name": "Paulo Cesar Carbonari",
+      "path": "authors/1097.json"
+    },
+    {
+      "author_id": 1098,
+      "canonical_name": "Leônidas de Rezende",
+      "path": "authors/1098.json"
+    },
+    {
+      "author_id": 1099,
+      "canonical_name": "Edgardo de Castro Rebelo",
+      "path": "authors/1099.json"
+    },
+    {
+      "author_id": 1100,
+      "canonical_name": "Carlos Nelson Coutinho",
+      "path": "authors/1100.json"
     }
   ]
 }
