@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "author_id": 1068,
+  "canonical_name": "Odone José Quadros",
+  "alternate_names": [
+    "Odone José de Quadros"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1068-w001",
+      "title": "Filosofia: aprendendo a pensar",
+      "work_type": "educational_textbook",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Leopoldo Justino Girardi"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biblioteca.bib.br/Biblivre5/ced/?action=list_bibliographic&letter=f",
+        "https://biblioteca.campobom.rs.gov.br/Biblivre/biblioteca/?action=list_bibliographic&letter=f",
+        "https://www.estantevirtual.com.br/busca/leopoldo-justino-girardi---odone-jose-de-quadros"
+      ],
+      "notes": "Livro de ambos autores. Biblioteca CED indica edição de 1982 como Filosofia; outros catálogos nomeiam Filosofia: Aprendendo a Pensar e apresentam 10ª ed. em 1982. Primeira publicação não estabelecida, não duplicar variantes do título."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo de biblioteca CED, Filosofia de Leopoldo Girardi e Odone Quadros, edição 1982",
+      "url": "https://www.biblioteca.bib.br/Biblivre5/ced/?action=list_bibliographic&letter=f"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca Pública Municipal Campo Bom, Filosofia: aprendendo a pensar de Girardi e Quadros",
+      "url": "https://biblioteca.campobom.rs.gov.br/Biblivre/biblioteca/?action=list_bibliographic&letter=f"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogos de ejemplares de Filosofia: aprendendo a pensar, coautoria",
+      "url": "https://www.estantevirtual.com.br/busca/leopoldo-justino-girardi---odone-jose-de-quadros"
+    }
+  ],
+  "research_notes": [
+    "Forma de autoridade inclui 'de Quadros' nas bibliotecas, distinta da forma abreviada do inventário.",
+    "Uma edição de 1982 já indica 10.ª tiragem, portanto não tomar 1982 como primeira publicação."
+  ]
+}

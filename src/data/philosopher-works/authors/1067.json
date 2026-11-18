@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "author_id": 1067,
+  "canonical_name": "José Luiz de Souza Maranhão",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1067-w001",
+      "title": "O que é morte",
+      "work_type": "monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://livrariabrasiliense.com.br/catalogo.php?id=380",
+        "https://millarch.org/artigo/morte-sem-medo-no-livro-de-maranhao",
+        "https://www.escavador.com/sobre/1432065/jose-luiz-de-souza-maranhao"
+      ],
+      "notes": "São Paulo: Brasiliense, Coleção Primeiros Passos 150, lançado agosto 1985. Fontes confirmam primeira edição; edição 1986 ou 1987 não é obra adicional."
+    },
+    {
+      "work_id": "1067-w002",
+      "title": "O caráter absurdo da morte na filosofia de Jean-Paul Sartre",
+      "work_type": "research_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.escavador.com/sobre/1432065/jose-luiz-de-souza-maranhao"
+      ],
+      "notes": "Produção de título acadêmico identificada em currículo profissional; local, meio e ano da publicação não confirmados, possível ensaio ou comunicação não editada."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Editora Brasiliense, catálogo O que é morte y primera edición 1985",
+      "url": "https://livrariabrasiliense.com.br/catalogo.php?id=380"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Bibliografia histórica y reseña original O que é morte septiembre 1985",
+      "url": "https://millarch.org/artigo/morte-sem-medo-no-livro-de-maranhao"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Currículo Lattes compilado José Luiz de Souza Maranhão",
+      "url": "https://www.escavador.com/sobre/1432065/jose-luiz-de-souza-maranhao"
+    }
+  ],
+  "research_notes": [
+    "O que é morte foi lançado em 1985, conforme resenha jornalística contemporânea; catálogos posteriores mostram reimpresiones 1986 y 1987.",
+    "Não se identifica obra filosófica adicional a partir de nomes similares sem prova bibliográfica."
+  ]
+}

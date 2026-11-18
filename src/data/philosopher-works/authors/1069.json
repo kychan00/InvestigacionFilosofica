@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "author_id": 1069,
+  "canonical_name": "Irapuan Teixeira",
+  "alternate_names": [
+    "Professor Irapuan Teixeira"
+  ],
+  "life": {
+    "birth_year": 1948
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "provisional_identity_matching_requires_primary_source_confirmation",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1069-w001",
+      "title": "Falas ao infinito",
+      "work_type": "author_listed_book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://irapuanteixeira.blogspot.com/"
+      ],
+      "notes": "Título listado em seção Livros do blog que se identifica como Irapuan Teixeira. Não localizada ficha editorial, ISBN ou versão de texto; autoria provisional em relação à autoridade do livro-base."
+    },
+    {
+      "work_id": "1069-w002",
+      "title": "Metodologia da ciência",
+      "work_type": "author_listed_book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://irapuanteixeira.blogspot.com/"
+      ],
+      "notes": "Título registrado pelo próprio autor; edição, data e ISBN não verificados; correspondência ao filósofo do inventário ainda provisional."
+    },
+    {
+      "work_id": "1069-w003",
+      "title": "O problema da verdade",
+      "work_type": "author_listed_book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://irapuanteixeira.blogspot.com/"
+      ],
+      "notes": "Título listado pelo autor em blog próprio, sem dados de publicação física verificados."
+    },
+    {
+      "work_id": "1069-w004",
+      "title": "O sonho acabou?",
+      "work_type": "author_listed_book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://irapuanteixeira.blogspot.com/"
+      ],
+      "notes": "Livro listado pelo autor; data de escrita posterior a dezembro de 1980 segundo memória pessoal, ano editorial não confirmado."
+    },
+    {
+      "work_id": "1069-w005",
+      "title": "Manifesto político",
+      "work_type": "author_listed_book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://irapuanteixeira.blogspot.com/"
+      ],
+      "notes": "Título na lista de livros do blog, não confundir com artigos políticos do mesmo autor."
+    },
+    {
+      "work_id": "1069-w006",
+      "title": "Separatas políticas: vol. 4, Educação",
+      "work_type": "author_listed_book",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://irapuanteixeira.blogspot.com/"
+      ],
+      "notes": "Título de volume indicado no blog; se registra como una unidad seriada por volumen documentado."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Autobiografia/blog de Irapuan Teixeira: obras relacionadas por título",
+      "url": "https://irapuanteixeira.blogspot.com/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Dicionário Histórico-Biográfico Brasileiro, perfil do professor Irapuan Teixeira",
+      "url": "https://wiki-dhbb.netlify.app/11530"
+    }
+  ],
+  "research_notes": [
+    "IDENTIDADE PROVISIONAL: el Dicionário Histórico-Biográfico Brasileiro perfila a un Irapuan Teixeira con formación filosófica en Fafimc (1983), pero aún no hay prueba documental directa de que sea la entrada homónima de Dussel et al.",
+    "Los títulos provienen exclusivamente de su blog, por eso no se les atribuye fecha, ISBN ni editorial, y se exige auditoría antes de considerarlos bibliografía consolidada."
+  ]
+}

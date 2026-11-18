@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "author_id": 1062,
+  "canonical_name": "Thais Cury Beaini",
+  "alternate_names": [
+    "Thais Curi Beaini",
+    "Thaís Curi Beaini",
+    "Thaís Cury Beaini"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1062-w001",
+      "title": "À escuta do silêncio: um estudo sobre a linguagem no pensamento de Heidegger",
+      "work_type": "monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.bib.br/Biblivre5/bpmpls/?action=list_bibliographic&letter=a",
+        "https://www.escavador.com/sobre/733728/thais-curi-beaini",
+        "https://www.revista.ueg.br/index.php/buildingtheway/article/download/12932/9262"
+      ],
+      "notes": "Cortez/Autores Associados, edição de 1981 em catálogo; referências citam 1986 para outra tiragem. Lattes confirma autoria."
+    },
+    {
+      "work_id": "1062-w002",
+      "title": "Máscaras do tempo",
+      "work_type": "monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.scribd.com/document/837596654/00009fb0",
+        "https://www.revista.ueg.br/index.php/buildingtheway/article/download/12932/9262"
+      ],
+      "notes": "Petrópolis: Vozes, 1994; primera edición según referencias académicas."
+    },
+    {
+      "work_id": "1062-w003",
+      "title": "Linguagem e silêncio em Heidegger",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.escavador.com/sobre/733728/thais-curi-beaini"
+      ],
+      "notes": "Título identificado no currículo da autora; suporte e ano original ainda não aferidos; posible texto relacionado al libro de 1981, pendiente deduplicación textual."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca pública municipal, À escuta do silêncio: ficha catalográfica y año 1981",
+      "url": "https://biblioteca.bib.br/Biblivre5/bpmpls/?action=list_bibliographic&letter=a"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Currículo Lattes compilado de Thaís Curi Beaini",
+      "url": "https://www.escavador.com/sobre/733728/thais-curi-beaini"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Estudio académico: referencia a Máscaras do tempo, Petrópolis Vozes 1994",
+      "url": "https://pt.scribd.com/document/837596654/00009fb0"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Universidade Estadual de Goiás, bibliografía de À escuta do silêncio y Máscaras do tempo",
+      "url": "https://www.revista.ueg.br/index.php/buildingtheway/article/download/12932/9262"
+    }
+  ],
+  "research_notes": [
+    "La autora aparece como Thais Cury/Thaís Curi Beaini en catálogos; mantener forma canónica del inventario.",
+    "El artículo Linguagem e silêncio em Heidegger puede relacionarse con À escuta do silêncio, y requiere cotejo para resolver duplicación."
+  ]
+}
