@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 730,
-    "authors_remaining": 774,
-    "works_or_contributions_seeded": 5389,
-    "current_batch": "073",
+    "authors_seeded": 740,
+    "authors_remaining": 764,
+    "works_or_contributions_seeded": 5508,
+    "current_batch": "074",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -3827,6 +3827,58 @@
       "author_id": 730,
       "canonical_name": "Juan Samaja",
       "path": "authors/0730.json"
+    }
+  ],
+  "batch_074": [
+    {
+      "author_id": 731,
+      "canonical_name": "José Antonio Castorina",
+      "path": "authors/0731.json"
+    },
+    {
+      "author_id": 732,
+      "canonical_name": "Oscar Nudler",
+      "path": "authors/0732.json"
+    },
+    {
+      "author_id": 733,
+      "canonical_name": "Olimpia Lombardi",
+      "path": "authors/0733.json"
+    },
+    {
+      "author_id": 734,
+      "canonical_name": "Gustavo Marqués",
+      "path": "authors/0734.json"
+    },
+    {
+      "author_id": 735,
+      "canonical_name": "Lucía Lewowicz",
+      "path": "authors/0735.json"
+    },
+    {
+      "author_id": 736,
+      "canonical_name": "Adolfo García de la Sienra",
+      "path": "authors/0736.json"
+    },
+    {
+      "author_id": 737,
+      "canonical_name": "Adriana Gonzalo",
+      "path": "authors/0737.json"
+    },
+    {
+      "author_id": 738,
+      "canonical_name": "Julio Rey Pastor",
+      "path": "authors/0738.json"
+    },
+    {
+      "author_id": 739,
+      "canonical_name": "Ambrosio Gioja",
+      "path": "authors/0739.json"
+    },
+    {
+      "author_id": 740,
+      "canonical_name": "Genaro Carrió",
+      "path": "authors/0740.json"
     }
   ]
 }

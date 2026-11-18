@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 739,
+  "canonical_name": "Ambrosio Gioja",
+  "alternate_names": [
+    "Ambrosio Lucas Gioja",
+    "Ambrosio L. Gioja"
+  ],
+  "life": {
+    "born": {
+      "year": 1912,
+      "certainty": "institutional_biographical_reference"
+    },
+    "died": {
+      "year": 1971,
+      "certainty": "institutional_biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0739-w001",
+      "title": "El tema de la teoría pura del derecho",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/publicaciones/libros/pdf/2020_ideas-sobre-la-historia-de-la-facultad-de-derecho-y-sus-protagonistas.pdf"
+      ],
+      "notes": "Publicación identificada por catálogo académico o bibliografía especializada; ficha selectiva."
+    },
+    {
+      "work_id": "0739-w002",
+      "title": "Ideas para una filosofía del derecho, tomo II: escritos inéditos",
+      "work_type": "posthumous_collected_writings",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "original_author_posthumous_collection",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://tsjrn.opac.com.ar/pergamo/documento.php?id=TSJRN.1.19336&recno=19336&ui=1"
+      ],
+      "notes": "Publicación póstuma, compilación y prólogo de Ricardo Entelman; composición individual no datada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia y renovación de la filosofía jurídica analítica en la Universidad de Buenos Aires y debates sobre la teoría pura del derecho.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: GIO",
+      "url": "https://tsjrn.opac.com.ar/pergamo/documento.php?id=TSJRN.1.19336&recno=19336&ui=1"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: GIOB",
+      "url": "https://www.derecho.uba.ar/derechoaldia/notas/homenaje-a-ambrosio-l-gioja-a-50-aos-de-su-fallecimiento/%2B8538"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: GIO49",
+      "url": "https://www.derecho.uba.ar/publicaciones/libros/pdf/2020_ideas-sobre-la-historia-de-la-facultad-de-derecho-y-sus-protagonistas.pdf"
+    }
+  ],
+  "research_notes": [
+    "Ideas para una filosofía del derecho II fue editada póstumamente en 1973; Ricardo Entelman actúa como compilador/prologuista, no coautor.",
+    "El volumen de homenaje de 1976 a Gioja no se atribuye al homenajeado."
+  ]
+}

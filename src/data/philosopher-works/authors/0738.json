@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "author_id": 738,
+  "canonical_name": "Julio Rey Pastor",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1888,
+      "certainty": "institutional_biographical_reference"
+    },
+    "died": {
+      "year": 1962,
+      "certainty": "institutional_biographical_reference"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0738-w001",
+      "title": "Resumen de las lecciones de Análisis Matemático",
+      "work_type": "lithographed_lecture_notes",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://historia-hispanica.rah.es/biografias/38862-julio-rey-pastor"
+      ],
+      "notes": "Cursos de 1914–1916; fecha de primera impresión desconocida."
+    },
+    {
+      "work_id": "0738-w002",
+      "title": "Fundamentos de la geometría proyectiva superior",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://historia-hispanica.rah.es/biografias/38862-julio-rey-pastor"
+      ],
+      "notes": "Publicación identificada por catálogo académico o bibliografía especializada; ficha selectiva."
+    },
+    {
+      "work_id": "0738-w003",
+      "title": "Elementos de análisis algebraico",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1917,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1917,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.iessagasta.larioja.edu.es/index.php/es/instituto-historico/personas-y-personajes/51-julio-rey-pastor"
+      ],
+      "notes": "Publicación identificada por catálogo académico o bibliografía especializada; ficha selectiva."
+    },
+    {
+      "work_id": "0738-w004",
+      "title": "Teoría de las funciones reales",
+      "work_type": "mathematics_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://historia-hispanica.rah.es/biografias/38862-julio-rey-pastor"
+      ],
+      "notes": "Diversas ediciones entre 1918 y 1939; primera edición sin cotejo material."
+    },
+    {
+      "work_id": "0738-w005",
+      "title": "Lecciones de álgebra",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1924,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://historia-hispanica.rah.es/biografias/38862-julio-rey-pastor"
+      ],
+      "notes": "Publicación identificada por catálogo académico o bibliografía especializada; ficha selectiva."
+    },
+    {
+      "work_id": "0738-w006",
+      "title": "Curso cíclico de matemáticas",
+      "work_type": "multivolume_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1924,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1924,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://historia-hispanica.rah.es/biografias/38862-julio-rey-pastor"
+      ],
+      "notes": "Dos tomos pertenecen a una sola obra."
+    },
+    {
+      "work_id": "0738-w007",
+      "title": "Análisis matemático",
+      "work_type": "coauthored_multivolume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_coauthor",
+      "coauthors": [
+        "Pedro Pi Calleja",
+        "César Anselmo Trejo"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bam.inmabb-conicet.gob.ar/cgi-bin/koha/opac-detail.pl?biblionumber=2325&shelfbrowse_itemnumber=103608"
+      ],
+      "notes": "Publicación iniciada en 1952; tres volúmenes en un mismo proyecto."
+    },
+    {
+      "work_id": "0738-w008",
+      "title": "Historia de la matemática",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_coauthor",
+      "coauthors": [
+        "José Babini"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bam.inmabb-conicet.gob.ar/cgi-bin/koha/opac-detail.pl?biblionumber=599327&shelfbrowse_itemnumber=103660"
+      ],
+      "notes": "Catálogo registra edición de 1952, pero primera publicación aún incierta."
+    },
+    {
+      "work_id": "0738-w009",
+      "title": "Geometría analítica",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_coauthor",
+      "coauthors": [
+        "Luis A. Santaló",
+        "Manuel Balanzat"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliotecas.unne.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=267523"
+      ],
+      "notes": "Catálogo acredita edición de 1955, no necesariamente primera."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Modernización de investigación y enseñanza de matemáticas y su historia en España y Argentina; desarrollo de manuales y tratados fundamentales en castellano.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: R",
+      "url": "https://historia-hispanica.rah.es/biografias/38862-julio-rey-pastor"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: RE",
+      "url": "https://www.iessagasta.larioja.edu.es/index.php/es/instituto-historico/personas-y-personajes/51-julio-rey-pastor"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: RI",
+      "url": "https://bam.inmabb-conicet.gob.ar/cgi-bin/koha/opac-detail.pl?biblionumber=2325&shelfbrowse_itemnumber=103608"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: RH",
+      "url": "https://bam.inmabb-conicet.gob.ar/cgi-bin/koha/opac-detail.pl?biblionumber=599327&shelfbrowse_itemnumber=103660"
+    },
+    {
+      "kind": "institutional_scholarly_or_publisher_bibliography",
+      "title": "Fuente bibliográfica institucional: RG",
+      "url": "https://bibliotecas.unne.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=267523"
+    }
+  ],
+  "research_notes": [
+    "Autor nacido en España e incluido en inventario por trayectoria e impacto científico argentino.",
+    "Los tratados multi-volumen son una unidad bibliográfica; no se atribuyen a Rey Pastor los textos de sus coautores.",
+    "Los cursos y obras de fecha de primera impresión no verificada conservan null."
+  ]
+}
