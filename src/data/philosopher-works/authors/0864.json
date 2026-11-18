@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "author_id": 864,
+  "canonical_name": "Susana Vidal",
+  "alternate_names": [
+    "Susana María Vidal"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0864-w001",
+      "title": "La educación en bioética en América Latina y el Caribe: experiencias realizadas y desafíos futuros",
+      "work_type": "edited_collective_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "978-92-9089-186-4"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://unesdoc.unesco.org/ark:/48223/pf0000225533"
+      ],
+      "notes": "UNESCO Montevideo, 2012, ISBN 978-92-9089-186-4; volumen colectivo."
+    },
+    {
+      "work_id": "0864-w002",
+      "title": "La educación permanente en bioética: una reflexión sobre el currículum oculto",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2018,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2018,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://redbioetica.com.ar/revista-redbioetica-unesco-no-17/"
+      ],
+      "notes": "Revista Redbioética/UNESCO núm. 17; año del número por cotejar contra portada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ética de investigación y educación bioética en América Latina; bioética vinculada a derechos humanos e iniciativas UNESCO.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNESCO, catálogo La educación en Bioética en América Latina y el Caribe",
+      "url": "https://unesdoc.unesco.org/ark:/48223/pf0000225533"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca Virtual de Bioética: atribución Susana Vidal",
+      "url": "https://bioetica.ar/cursos/mod/data/view.php?forceview=1&id=6"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Redbioética UNESCO: La educación permanente en bioética: una reflexión sobre el currículum oculto",
+      "url": "https://redbioetica.com.ar/revista-redbioetica-unesco-no-17/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Redbioética UNESCO: trayectoria institucional y participación de Susana Vidal",
+      "url": "https://redbioetica.com.ar/historia-de-la-redbioetica/"
+    }
+  ],
+  "research_notes": [
+    "La educación en bioética en América Latina y el Caribe (UNESCO 2012) está editada por Susana Vidal; contiene ponencias de diversas personas, no un libro monográfico propio.",
+    "La educación permanente en bioética es artículo individual del número 17 de Redbioética (publicación 2018 según página del número).",
+    "La participación en Redbioética/UNESCO se registra como contribución no bibliográfica."
+  ]
+}

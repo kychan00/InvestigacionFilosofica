@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 867,
+  "canonical_name": "Agustín Estévez",
+  "alternate_names": [
+    "Agustin Estevez"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0867-w001",
+      "title": "Bioética: de la cuestión nominal a la caracterización de su concepto",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/4638386.pdf"
+      ],
+      "notes": "Bahía Blanca: EdiUNS, 2002; citado en nota 2 del propio artículo de 2011."
+    },
+    {
+      "work_id": "0867-w002",
+      "title": "Bioética y derecho",
+      "work_type": "collective_book_contribution",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "contributor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://opac.um.edu.uy/index.php?id=19795&lvl=author_see"
+      ],
+      "notes": "Buenos Aires: Rubinzal-Culzoni, 2003; editores Bergel y Minyersky, incluye una contribución de Estévez sin título identificado."
+    },
+    {
+      "work_id": "0867-w003",
+      "title": "Comités de Ética, Comités de Bioética y Comités de Ética de Investigación independiente: una cierta confusión",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ambb.org.ar/ojs/index.php/RCAMBB/article/view/133"
+      ],
+      "notes": "Revista de la Asociación Médica de Bahía Blanca, 17(1), 18–23."
+    },
+    {
+      "work_id": "0867-w004",
+      "title": "Bioética: radiografía de una crisis. De la cuestión nominal a una figura de la racionalidad práctica",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/descarga/articulo/4638386.pdf"
+      ],
+      "notes": "Praxis, revista del Departamento de Filosofía, núm. 67, julio–diciembre 2011."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundamentación filosófica de la bioética y su papel como racionalidad práctica, comités clínicos e independencia de evaluación de investigación.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Praxis, artículo de Agustín Estévez 2011, texto completo en Dialnet",
+      "url": "https://dialnet.unirioja.es/descarga/articulo/4638386.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista de la Asociación Médica de Bahía Blanca, Comités de Ética 2007",
+      "url": "https://www.ambb.org.ar/ojs/index.php/RCAMBB/article/view/133"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo Universidad de Montevideo: participación en Bioética y derecho 2003",
+      "url": "https://opac.um.edu.uy/index.php?id=19795&lvl=author_see"
+    }
+  ],
+  "research_notes": [
+    "Bioética: de la cuestión nominal a la caracterización de su concepto es monografía EdiUNS 2002, mencionada por el propio Estévez en Praxis 2011.",
+    "Bioética y derecho (2003) es volumen editado por Salvador Darío Bergel y Nelly Minyersky; Estévez figura colaborador, no director del libro.",
+    "El artículo Bioética: radiografía de una crisis se publicó en Praxis núm. 67, julio–diciembre 2011, pese a fechas de indexación posteriores."
+  ]
+}

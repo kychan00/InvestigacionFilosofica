@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 860,
-    "authors_remaining": 644,
-    "works_or_contributions_seeded": 7085,
-    "current_batch": "086",
+    "authors_seeded": 870,
+    "authors_remaining": 634,
+    "works_or_contributions_seeded": 7125,
+    "current_batch": "087",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4503,6 +4503,58 @@
       "author_id": 860,
       "canonical_name": "Alya Saada",
       "path": "authors/0860.json"
+    }
+  ],
+  "batch_087": [
+    {
+      "author_id": 861,
+      "canonical_name": "Genoveva Keyeux",
+      "path": "authors/0861.json"
+    },
+    {
+      "author_id": 862,
+      "canonical_name": "Pedro Luis Sotolongo",
+      "path": "authors/0862.json"
+    },
+    {
+      "author_id": 863,
+      "canonical_name": "Patricia Sorokin",
+      "path": "authors/0863.json"
+    },
+    {
+      "author_id": 864,
+      "canonical_name": "Susana Vidal",
+      "path": "authors/0864.json"
+    },
+    {
+      "author_id": 865,
+      "canonical_name": "Francisco Parenti",
+      "path": "authors/0865.json"
+    },
+    {
+      "author_id": 866,
+      "canonical_name": "Marta Fracappani",
+      "path": "authors/0866.json"
+    },
+    {
+      "author_id": 867,
+      "canonical_name": "Agustín Estévez",
+      "path": "authors/0867.json"
+    },
+    {
+      "author_id": 868,
+      "canonical_name": "Gladys Estévez",
+      "path": "authors/0868.json"
+    },
+    {
+      "author_id": 869,
+      "canonical_name": "Rosa Di Pace",
+      "path": "authors/0869.json"
+    },
+    {
+      "author_id": 870,
+      "canonical_name": "Florencia Luna",
+      "path": "authors/0870.json"
     }
   ]
 }
