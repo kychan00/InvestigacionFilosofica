@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1120,
-    "authors_remaining": 384,
-    "works_or_contributions_seeded": 9761,
-    "current_batch": "112",
+    "authors_seeded": 1130,
+    "authors_remaining": 374,
+    "works_or_contributions_seeded": 9897,
+    "current_batch": "113",
     "last_updated": "2026-11-18"
   },
   "batch_001": [
@@ -5855,6 +5855,58 @@
       "author_id": 1120,
       "canonical_name": "Herbert José de Souza",
       "path": "authors/1120.json"
+    }
+  ],
+  "batch_113": [
+    {
+      "author_id": 1121,
+      "canonical_name": "Paul Singer",
+      "path": "authors/1121.json"
+    },
+    {
+      "author_id": 1122,
+      "canonical_name": "Marcos Arruda",
+      "path": "authors/1122.json"
+    },
+    {
+      "author_id": 1123,
+      "canonical_name": "Luís Inácio Gaiger",
+      "path": "authors/1123.json"
+    },
+    {
+      "author_id": 1124,
+      "canonical_name": "Suely Rolnik",
+      "path": "authors/1124.json"
+    },
+    {
+      "author_id": 1125,
+      "canonical_name": "Roberto Correia Freire",
+      "path": "authors/1125.json"
+    },
+    {
+      "author_id": 1126,
+      "canonical_name": "Fausto Reynaldo Alves de Brito",
+      "path": "authors/1126.json"
+    },
+    {
+      "author_id": 1127,
+      "canonical_name": "Renato Mezan",
+      "path": "authors/1127.json"
+    },
+    {
+      "author_id": 1128,
+      "canonical_name": "José Carlos de Paula Carvalho",
+      "path": "authors/1128.json"
+    },
+    {
+      "author_id": 1129,
+      "canonical_name": "Renato Janine Ribeiro",
+      "path": "authors/1129.json"
+    },
+    {
+      "author_id": 1130,
+      "canonical_name": "Ruben Alves",
+      "path": "authors/1130.json"
     }
   ]
 }
