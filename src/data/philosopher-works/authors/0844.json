@@ -80,16 +80,19 @@
     },
     {
       "work_id": "0844-w004",
-      "title": "Filosofía ambiental en la Argentina: recepción, asimilación y desarrollo",
+      "title": "La filosofía ambiental en el ámbito académico de la Argentina: algunos desarrollos y lineamientos problemáticos",
       "work_type": "journal_article",
       "original_language": "español",
       "original_date": {
-        "year": 2017,
-        "certainty": "bibliographic_source_year"
+        "year": 2018,
+        "certainty": "journal_citation_year"
       },
-      "first_publication_year": 2017,
-      "authorship_status": "original_author",
-      "coauthors": [],
+      "first_publication_year": 2018,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Daniel Gutiérrez",
+        "Oriana Cosso"
+      ],
       "identifiers": {
         "doi": null,
         "isbn": []
@@ -98,7 +101,7 @@
       "evidence_urls": [
         "https://revistas.uns.edu.ar/csf/article/view/1317"
       ],
-      "notes": "Título estandarizado por tema del artículo; revisar título editorial exacto."
+      "notes": "Cuadernos del Sur Filosofía, vol. 1, núm. 46 (fascículo 2017), pp. 33–52; cita editorial recomienda 2018. Trabajo con Daniel Gutiérrez y Oriana Cosso."
     },
     {
       "work_id": "0844-w005",
@@ -167,11 +170,17 @@
       "kind": "institutional_academic_library_or_scholarly_bibliography",
       "title": "La filosofía ambiental en el ámbito académico de la Argentina: algunos desarrollos y lineamientos problemáticos",
       "url": "https://revistas.uns.edu.ar/csf/article/view/1317"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Cuadernos del Sur Filosofía: registro de autoría y cita 2018",
+      "url": "https://revistas.uns.edu.ar/csf/article/view/1317"
     }
   ],
   "research_notes": [
     "La tesis doctoral 2010 La filosofía ambiental en Arne Naess... y el libro de 2011 sobre Naess, Spinoza y James son la misma investigación adaptada, no dos unidades bibliográficas.",
     "Filosofía ambiental y ecosofías (2015) es una publicación distinta, referida como tal en UBA y reseña UNS.",
-    "Se documenta muy selectivamente, pues varios registros en PhilPeople son descripciones sin fecha o libro verificable."
+    "Se documenta muy selectivamente, pues varios registros en PhilPeople son descripciones sin fecha o libro verificable.",
+    "El artículo La filosofía ambiental en el ámbito académico de la Argentina figura en número 46 (2017), pero la referencia editorial fija 2018; se preserva la discrepancia en la ficha."
   ]
 }

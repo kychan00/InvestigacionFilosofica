@@ -419,21 +419,23 @@
       "work_type": "collected_essays",
       "original_language": "español",
       "original_date": {
-        "year": 2022,
-        "certainty": "bibliographic_source_year"
+        "year": 2023,
+        "certainty": "publisher_first_edition_year"
       },
-      "first_publication_year": 2022,
+      "first_publication_year": 2023,
       "authorship_status": "original_author",
       "coauthors": [],
       "identifiers": {
         "doi": null,
-        "isbn": []
+        "isbn": [
+          "9786073083805"
+        ]
       },
       "keywords": [],
       "evidence_urls": [
         "https://www.bioetica.unam.mx/?p=5193"
       ],
-      "notes": "Colección de 21 escritos 1990–2021; año de publicación bibliográfica según web UNAM 2022/2023, cotejar ejemplar exacto."
+      "notes": "UNAM, Programa Universitario de Bioética, primera edición 2023, ISBN 978-607-30-8380-5. Recopila 21 textos de 1990 a 2021; no son todos nuevos."
     }
   ],
   "non_bibliographic_contributions": [
@@ -468,7 +470,7 @@
     }
   ],
   "research_notes": [
-    "Bioética animal, humana y ambiental (2022/2023 catalogación) reúne 21 artículos de 1990–2021: colección no equivale a inéditos y puede contener títulos individuales que ya aparecen en la ficha.",
+    "Bioética animal, humana y ambiental es primera edición UNAM 2023 según ficha editorial; 21 artículos escritos 1990–2021.",
     "Falacias es coautoría con José Alfredo Torres, edición inicial 1994, edición aumentada 2007.",
     "La traducción de Leibniz se registra solo por rol de traductor y anotador con Mauricio Beuchot, nunca como autor del texto de Leibniz."
   ]
