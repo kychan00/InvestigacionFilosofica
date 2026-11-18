@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 780,
-    "authors_remaining": 724,
-    "works_or_contributions_seeded": 6057,
-    "current_batch": "078",
+    "authors_seeded": 790,
+    "authors_remaining": 714,
+    "works_or_contributions_seeded": 6264,
+    "current_batch": "079",
     "last_updated": "2026-11-17"
   },
   "batch_001": [
@@ -4087,6 +4087,58 @@
       "author_id": 780,
       "canonical_name": "Guido de Almeida",
       "path": "authors/0780.json"
+    }
+  ],
+  "batch_079": [
+    {
+      "author_id": 781,
+      "canonical_name": "Paulo Farias",
+      "path": "authors/0781.json"
+    },
+    {
+      "author_id": 782,
+      "canonical_name": "Alberto Cordero",
+      "path": "authors/0782.json"
+    },
+    {
+      "author_id": 783,
+      "canonical_name": "Jorge Secada",
+      "path": "authors/0783.json"
+    },
+    {
+      "author_id": 784,
+      "canonical_name": "Juan Rivano",
+      "path": "authors/0784.json"
+    },
+    {
+      "author_id": 785,
+      "canonical_name": "Rubén Sierra Mejía",
+      "path": "authors/0785.json"
+    },
+    {
+      "author_id": 786,
+      "canonical_name": "Silvio Frondizi",
+      "path": "authors/0786.json"
+    },
+    {
+      "author_id": 787,
+      "canonical_name": "Leôncio Basbaum",
+      "path": "authors/0787.json"
+    },
+    {
+      "author_id": 788,
+      "canonical_name": "Luis Vitale",
+      "path": "authors/0788.json"
+    },
+    {
+      "author_id": 789,
+      "canonical_name": "Elí de Gortari",
+      "path": "authors/0789.json"
+    },
+    {
+      "author_id": 790,
+      "canonical_name": "Roberto Fernández Retamar",
+      "path": "authors/0790.json"
     }
   ]
 }
