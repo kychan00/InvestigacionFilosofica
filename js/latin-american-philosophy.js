@@ -16,6 +16,12 @@ const loadMorePeriodAuthors = document.querySelector("#load-more-period-authors"
 const periodizedAuthors = document.querySelector("#periodized-authors");
 const periodizationStatus = document.querySelector("#periodization-status");
 const worksSection = document.querySelector("#con-obra");
+const explorerSearch = document.querySelector("#period-author-search");
+const explorerStatus = document.querySelector("#author-explorer-status");
+const explorerResults = document.querySelector("#author-explorer-results");
+const explorerPeriodButtons = [...document.querySelectorAll("[data-explorer-period]")];
+const collapsePeriodsButton = document.querySelector("#collapse-periods");
+const expandPeriodsButton = document.querySelector("#expand-periods");
 
 const authorDialog = document.querySelector("#author-dialog");
 const authorDialogClose = document.querySelector("#author-dialog-close");
@@ -48,6 +54,10 @@ let currentAuthorId = null;
 let dialogReturnHash = "";
 let liveResearchController = null;
 let philosophyMapPromise = null;
+let explorerPeriod = "all";
+let explorerSearchTimer = null;
+let explorerSearchToken = 0;
+const collapsedPeriods = new Set(["colonial", "madura", "sigloxx", "por-ubicar"]);
 
 const authorCache = new Map();
 const liveResearchCache = new Map();
@@ -134,13 +144,21 @@ function makeAuthorCard(author) {
   }
 
   card.innerHTML = `
-    <span class="author-id">#${canonicalId(author.id)}</span>
+    <div class="author-card-topline">
+      <span class="author-id">#${canonicalId(author.id)}</span>
+      <span class="author-card-kind">FICHA</span>
+    </div>
+    <span class="author-card-monogram" aria-hidden="true"></span>
     <h3></h3>
-    <span class="author-state ${seeded ? "seeded" : "pending"}">
-      ${seeded ? "● ficha bibliográfica" : "○ sin ficha"}
-    </span>
+    <div class="author-card-footer">
+      <span class="author-state ${seeded ? "seeded" : "pending"}">
+        ${seeded ? "ficha bibliográfica" : "Sin ficha"}
+      </span>
+      <span class="author-card-open" aria-hidden="true">Abrir →</span>
+    </div>
   `;
   card.querySelector("h3").textContent = author.name;
+  card.querySelector(".author-card-monogram").textContent = dossierMonogram(author.name);
 
   if (seeded) {
     card.addEventListener("click", () => openAuthorDialog(author.id));
@@ -175,7 +193,7 @@ function earliestYear(record) {
     .filter(Number.isFinite);
   if (workYears.length) return Math.min(...workYears);
 
-  const born = record.life?.born?.year;
+  const born = record.life?.born?.year ?? record.life?.birth_year;
   return Number.isFinite(born) ? born : null;
 }
 
@@ -199,43 +217,149 @@ function inferPeriod(record) {
   return "sigloxx";
 }
 
+function recordKeywords(record, limit = 3) {
+  const terms = [];
+  const seen = new Set();
+
+  const add = keyword => {
+    if (keyword?.provenance === "inferred") return;
+    const term = String(keyword?.term || "").trim();
+    const key = normalizeText(term);
+    if (!term || seen.has(key)) return;
+    seen.add(key);
+    terms.push(term);
+  };
+
+  for (const work of record.works || []) {
+    for (const keyword of work.keywords || []) add(keyword);
+  }
+  for (const contribution of record.non_bibliographic_contributions || []) {
+    for (const keyword of contribution.keywords || []) add(keyword);
+  }
+
+  return terms.slice(0, limit);
+}
+
+function recordLife(record) {
+  const born = record.life?.born?.year ?? record.life?.birth_year;
+  const died = record.life?.died?.year ?? record.life?.death_year;
+  if (Number.isFinite(born) && Number.isFinite(died)) return `${born}–${died}`;
+  if (Number.isFinite(born)) return `n. ${born}`;
+  if (Number.isFinite(died)) return `† ${died}`;
+  return "Fechas no fijadas";
+}
+
+function explorerCardMetrics(record) {
+  return {
+    works: Array.isArray(record.works) ? record.works.length : 0,
+    contributions: Array.isArray(record.non_bibliographic_contributions)
+      ? record.non_bibliographic_contributions.length
+      : 0,
+    sources: Array.isArray(record.sources) ? record.sources.length : 0
+  };
+}
+
 function makeMiniAuthor(record) {
+  const period = periodMetaFor(record);
+  const metrics = explorerCardMetrics(record);
+  const keywords = recordKeywords(record);
+
   const card = document.createElement("button");
   card.type = "button";
-  card.className = "mini-author";
+  card.className = `mini-author author-profile-card period-${period.id}`;
   card.dataset.authorId = String(record.author_id);
   card.setAttribute("aria-label", `Abrir ficha de ${record.canonical_name}`);
 
-  const worksCount = Array.isArray(record.works) ? record.works.length : 0;
-  card.innerHTML = "<strong></strong><small></small>";
+  card.innerHTML = `
+    <div class="author-profile-topline">
+      <span class="author-profile-index">#${canonicalId(record.author_id)}</span>
+      <span class="author-profile-era">${period.roman}</span>
+    </div>
+    <span class="author-profile-monogram" aria-hidden="true"></span>
+    <div class="author-profile-copy">
+      <strong></strong>
+      <small class="author-profile-life"></small>
+    </div>
+    <div class="author-profile-metrics" aria-label="Resumen bibliográfico">
+      <span><b>${metrics.works}</b> obras</span>
+      <span><b>${metrics.contributions}</b> contrib.</span>
+      <span><b>${metrics.sources}</b> fuentes</span>
+    </div>
+    <div class="author-profile-chips" aria-label="Temas documentados"></div>
+    <span class="author-profile-open">Abrir dossier <i aria-hidden="true">→</i></span>
+  `;
+
+  card.querySelector(".author-profile-monogram").textContent =
+    dossierMonogram(record.canonical_name);
   card.querySelector("strong").textContent = record.canonical_name;
-  card.querySelector("small").textContent =
-    `#${canonicalId(record.author_id)} · ${worksCount} ${worksCount === 1 ? "obra documentada" : "obras documentadas"}`;
+  card.querySelector(".author-profile-life").textContent = recordLife(record);
+
+  const chipBox = card.querySelector(".author-profile-chips");
+  if (keywords.length) {
+    for (const keyword of keywords) {
+      const chip = document.createElement("span");
+      chip.textContent = keyword;
+      chipBox.append(chip);
+    }
+  } else {
+    const chip = document.createElement("span");
+    chip.textContent = metrics.works
+      ? "bibliografía documentada"
+      : "contribución documentada";
+    chipBox.append(chip);
+  }
+
   card.addEventListener("click", () => openAuthorDialog(record.author_id));
   return card;
 }
 
 function periodGroup(period, records) {
   const section = document.createElement("section");
-  section.className = `period-author-group period-${period.id}`;
+  const collapsed = collapsedPeriods.has(period.id);
+  section.className =
+    `period-author-group period-${period.id}${collapsed ? " is-collapsed" : ""}`;
   section.id = `coleccion-${period.id}`;
 
   const header = document.createElement("header");
-  header.innerHTML = `
-    <span>${period.roman}</span>
-    <div><h3></h3><small></small></div>
+  const bodyId = `period-body-${period.id}`;
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "period-group-toggle";
+  toggle.setAttribute("aria-expanded", String(!collapsed));
+  toggle.setAttribute("aria-controls", bodyId);
+  toggle.innerHTML = `
+    <span class="period-group-roman">${period.roman}</span>
+    <div class="period-group-copy"><h3></h3><small></small></div>
     <small class="period-count"></small>
+    <span class="period-group-chevron" aria-hidden="true">⌄</span>
   `;
-  header.querySelector("h3").textContent = period.title;
-  header.querySelector("div small").textContent = period.note;
-  header.querySelector(".period-count").textContent =
-    `${records.length.toLocaleString("es-MX")} cargadas`;
+  toggle.querySelector("h3").textContent = period.title;
+  toggle.querySelector(".period-group-copy small").textContent = period.note;
+  toggle.querySelector(".period-count").textContent =
+    `${records.length.toLocaleString("es-MX")} ${records.length === 1 ? "ficha" : "fichas"} cargadas`;
+
+  const body = document.createElement("div");
+  body.id = bodyId;
+  body.className = "period-group-body";
+  body.hidden = collapsed;
 
   const list = document.createElement("div");
   list.className = "period-author-list";
   list.replaceChildren(...records.map(makeMiniAuthor));
+  body.append(list);
 
-  section.append(header, list);
+  toggle.addEventListener("click", () => {
+    const nextCollapsed = !collapsedPeriods.has(period.id);
+    if (nextCollapsed) collapsedPeriods.add(period.id);
+    else collapsedPeriods.delete(period.id);
+
+    section.classList.toggle("is-collapsed", nextCollapsed);
+    body.hidden = nextCollapsed;
+    toggle.setAttribute("aria-expanded", String(!nextCollapsed));
+  });
+
+  header.append(toggle);
+  section.append(header, body);
   return section;
 }
 
@@ -247,10 +371,69 @@ function renderPeriodized() {
   }
 
   const groups = PERIODS
+    .filter(period => explorerPeriod === "all" || period.id === explorerPeriod)
     .filter(period => period.id !== "por-ubicar" || byPeriod[period.id].length)
+    .filter(period => byPeriod[period.id].length)
     .map(period => periodGroup(period, byPeriod[period.id]));
 
   periodizedAuthors.replaceChildren(...groups);
+}
+
+function setExplorerPeriod(value, { render = true } = {}) {
+  explorerPeriod = value;
+  for (const button of explorerPeriodButtons) {
+    const active = button.dataset.explorerPeriod === value;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  }
+
+  if (!render) return;
+  if (normalizeText(explorerSearch?.value).trim()) renderExplorerSearch();
+  else renderPeriodized();
+}
+
+async function renderExplorerSearch() {
+  const query = normalizeText(explorerSearch?.value).trim();
+  const token = ++explorerSearchToken;
+
+  if (query.length < 2) {
+    explorerResults.hidden = true;
+    explorerResults.replaceChildren();
+    periodizedAuthors.hidden = false;
+    renderPeriodized();
+    explorerStatus.textContent =
+      "Explore las épocas o escriba al menos dos letras para buscar cualquier ficha del inventario.";
+    return;
+  }
+
+  const inventoryMatches = authors
+    .filter(author => normalizeText(author.name).includes(query))
+    .slice(0, 48);
+
+  periodizedAuthors.hidden = true;
+  explorerResults.hidden = false;
+  explorerResults.innerHTML = '<p class="explorer-loading">Buscando fichas bibliográficas…</p>';
+  explorerStatus.textContent =
+    `${inventoryMatches.length.toLocaleString("es-MX")} coincidencias por nombre · cargando metadatos…`;
+
+  const records = await fetchBatch(inventoryMatches.map(author => Number(author.id)));
+  if (token !== explorerSearchToken) return;
+
+  const filtered = explorerPeriod === "all"
+    ? records
+    : records.filter(record => inferPeriod(record) === explorerPeriod);
+
+  explorerResults.replaceChildren(...filtered.map(makeMiniAuthor));
+  explorerStatus.textContent = filtered.length
+    ? `${filtered.length.toLocaleString("es-MX")} fichas encontradas${explorerPeriod === "all" ? "" : " en esta época"}.`
+    : "No hay coincidencias documentadas con este filtro.";
+
+  if (!filtered.length) {
+    const empty = document.createElement("p");
+    empty.className = "explorer-empty";
+    empty.textContent = "Pruebe otro nombre o cambie la época seleccionada.";
+    explorerResults.append(empty);
+  }
 }
 
 async function fetchAuthorRecord(id) {
@@ -346,12 +529,9 @@ async function ensurePeriodAvailable(periodId) {
 }
 
 function lifeText(record) {
-  const born = record.life?.born?.year;
-  const died = record.life?.died?.year;
-  if (Number.isFinite(born) && Number.isFinite(died)) return `${born}–${died}`;
-  if (Number.isFinite(born)) return `n. ${born}`;
-  if (Number.isFinite(died)) return `† ${died}`;
-  return "Fechas no fijadas en esta ficha";
+  return recordLife(record) === "Fechas no fijadas"
+    ? "Fechas no fijadas en esta ficha"
+    : recordLife(record);
 }
 
 function periodMetaFor(record) {
@@ -375,7 +555,7 @@ function coverageText(record) {
     return "Selección bibliográfica en expansión · no exhaustiva";
   }
   if (status) return humanize(status);
-  return "Cobertura bibliográfica en construcción";
+  return "Cobertura bibliográfica documentada en esta ficha";
 }
 
 function workYear(work) {
@@ -1228,6 +1408,26 @@ async function init() {
 
 searchInput?.addEventListener("input", () => renderDirectory({ reset: true }));
 
+explorerSearch?.addEventListener("input", () => {
+  clearTimeout(explorerSearchTimer);
+  explorerSearchTimer = setTimeout(renderExplorerSearch, 180);
+});
+
+for (const button of explorerPeriodButtons) {
+  button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
+  button.addEventListener("click", () => setExplorerPeriod(button.dataset.explorerPeriod));
+}
+
+collapsePeriodsButton?.addEventListener("click", () => {
+  for (const period of PERIODS) collapsedPeriods.add(period.id);
+  renderPeriodized();
+});
+
+expandPeriodsButton?.addEventListener("click", () => {
+  collapsedPeriods.clear();
+  renderPeriodized();
+});
+
 for (const button of filterButtons) {
   button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
   button.addEventListener("click", () => setFilter(button.dataset.statusFilter));
@@ -1242,11 +1442,17 @@ loadMorePeriodAuthors?.addEventListener("click", loadNextPeriodBatch);
 
 for (const button of document.querySelectorAll("[data-period-jump]")) {
   button.addEventListener("click", async () => {
+    const periodId = button.dataset.periodJump;
+    collapsedPeriods.delete(periodId);
+
     const target = seededCount
-      ? await ensurePeriodAvailable(button.dataset.periodJump)
+      ? await ensurePeriodAvailable(periodId)
       : worksSection;
 
-    target?.scrollIntoView({
+    renderPeriodized();
+    const resolvedTarget = document.querySelector(`#coleccion-${periodId}`) || target;
+
+    resolvedTarget?.scrollIntoView({
       behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start"
     });

@@ -24,7 +24,7 @@
     })();
   </script>
   <title>Filósofos latinoamericanos · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261119-scroll-stability-v9">
+  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261119-author-explorer-v10">
   <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body class="latam-body">
@@ -200,13 +200,44 @@
       </section>
 
       <section id="con-obra" class="works-section">
-        <div class="section-heading">
+        <div class="section-heading explorer-heading">
           <div>
-            <p class="section-kicker">02 / AUTORES CON FICHA</p>
-            <h2>Una biblioteca de 1,504 fichas conectadas.</h2>
+            <p class="section-kicker">02 / EXPLORADOR DE AUTORES</p>
+            <h2>Una biblioteca de 1,504 fichas para recorrer, filtrar y abrir.</h2>
           </div>
           <p id="periodization-status">Preparando periodización desde las fichas bibliográficas…</p>
         </div>
+
+        <div class="author-explorer" aria-label="Explorador de filósofos latinoamericanos">
+          <div class="author-explorer-primary">
+            <label class="explorer-search">
+              <span>Buscar en las 1,504 fichas</span>
+              <input id="period-author-search" type="search" autocomplete="off"
+                placeholder="Escriba un nombre: Firmin, Zea, Sor Juana…">
+            </label>
+
+            <div class="explorer-actions" role="group" aria-label="Controlar las épocas">
+              <button id="collapse-periods" type="button">Minimizar épocas</button>
+              <button id="expand-periods" type="button">Expandir cargadas</button>
+            </div>
+          </div>
+
+          <div class="explorer-period-filter" role="group" aria-label="Filtrar por época">
+            <button type="button" class="is-active" data-explorer-period="all">Todas</button>
+            <button type="button" data-explorer-period="originarios"><span>I</span> Originarios</button>
+            <button type="button" data-explorer-period="colonial"><span>II</span> Colonial</button>
+            <button type="button" data-explorer-period="madura"><span>III</span> Modernidad madura</button>
+            <button type="button" data-explorer-period="sigloxx"><span>IV</span> Siglo XX</button>
+            <button type="button" data-explorer-period="por-ubicar"><span>·</span> Por ubicar</button>
+          </div>
+
+          <p id="author-explorer-status" class="author-explorer-status" role="status" aria-live="polite">
+            Explore las épocas o busque directamente cualquier nombre del inventario canónico.
+          </p>
+
+          <div id="author-explorer-results" class="author-explorer-results" hidden></div>
+        </div>
+
         <div id="periodized-authors" class="periodized-authors" aria-live="polite"></div>
         <button id="load-more-period-authors" class="load-more load-more-periods" type="button" hidden>Cargar 40 fichas más</button>
       </section>
@@ -222,12 +253,12 @@
       <section id="directorio" class="directory-section">
         <div class="section-heading directory-heading">
           <div>
-            <p class="section-kicker">03 / DIRECTORIO COMPLETO</p>
-            <h2>Los 1,504 autores, con su ficha bibliográfica.</h2>
+            <p class="section-kicker">03 / ÍNDICE GENERAL</p>
+            <h2>Buscar directamente entre los 1,504 autores.</h2>
           </div>
           <p>
-            Busque por nombre y abra cualquier ficha del inventario. El número canónico se mantiene
-            para que cada persona siga siendo rastreable dentro de la matriz bibliográfica.
+            Una búsqueda rápida por nombre para saltar directamente a cualquier dossier. El número
+            canónico se conserva como referencia estable dentro de la matriz bibliográfica.
           </p>
         </div>
 
