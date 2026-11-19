@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 1193,
+  "canonical_name": "Alberto Damiani",
+  "alternate_names": [
+    "Alberto Mario Damiani"
+  ],
+  "life": {
+    "birth_year": 1965
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1193-w001",
+      "title": "Ética del discurso",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Andrés Crelier",
+        "Gustavo Salerno",
+        "Ricardo Maliandi"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://posgrado.filo.uba.ar/damiani-alberto-mario",
+        "https://www.filosofia.net/ddf/phm/amd.htm"
+      ],
+      "notes": "Fecha y atribución sustentadas en los catálogos y perfiles bibliográficos enlazados. "
+    },
+    {
+      "work_id": "1193-w002",
+      "title": "Ética, política y discurso",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Julio De Zan",
+        "Dorando Michelini"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://posgrado.filo.uba.ar/damiani-alberto-mario",
+        "https://www.filosofia.net/ddf/phm/amd.htm"
+      ],
+      "notes": "Fecha y atribución sustentadas en los catálogos y perfiles bibliográficos enlazados. "
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor e investigador argentino especializado en filosofía moderna, Vico y ética del discurso.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1193-1",
+      "url": "https://posgrado.filo.uba.ar/damiani-alberto-mario"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1193-2",
+      "url": "https://www.filosofia.net/ddf/phm/amd.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1193-3",
+      "url": "https://isbn.cloud/ar/autor/alberto-mario-damiani/"
+    }
+  ],
+  "research_notes": [
+    "La Universidad de Buenos Aires confirma su autoría de libros y compilaciones; esta primera ficha limita los títulos a publicaciones con atribución y fecha identificables, sin extrapolar la bibliografía entera."
+  ]
+}

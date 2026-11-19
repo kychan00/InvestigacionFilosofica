@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1190,
-    "authors_remaining": 314,
-    "works_or_contributions_seeded": 10550,
-    "current_batch": "119",
+    "authors_seeded": 1200,
+    "authors_remaining": 304,
+    "works_or_contributions_seeded": 10615,
+    "current_batch": "120",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6219,6 +6219,58 @@
       "author_id": 1190,
       "canonical_name": "Alfredo Llanos",
       "path": "authors/1190.json"
+    }
+  ],
+  "batch_120": [
+    {
+      "author_id": 1191,
+      "canonical_name": "Juan Carlos Portantiero",
+      "path": "authors/1191.json"
+    },
+    {
+      "author_id": 1192,
+      "canonical_name": "John Holloway",
+      "path": "authors/1192.json"
+    },
+    {
+      "author_id": 1193,
+      "canonical_name": "Alberto Damiani",
+      "path": "authors/1193.json"
+    },
+    {
+      "author_id": 1194,
+      "canonical_name": "Daniel Kalpokas",
+      "path": "authors/1194.json"
+    },
+    {
+      "author_id": 1195,
+      "canonical_name": "Andrés Crelier",
+      "path": "authors/1195.json"
+    },
+    {
+      "author_id": 1196,
+      "canonical_name": "Gustavo Salerno",
+      "path": "authors/1196.json"
+    },
+    {
+      "author_id": 1197,
+      "canonical_name": "Bernardo Kliksberg",
+      "path": "authors/1197.json"
+    },
+    {
+      "author_id": 1198,
+      "canonical_name": "José Luis Balcárcel",
+      "path": "authors/1198.json"
+    },
+    {
+      "author_id": 1199,
+      "canonical_name": "Alberto Híjar",
+      "path": "authors/1199.json"
+    },
+    {
+      "author_id": 1200,
+      "canonical_name": "María Rosa Palazón Mayoral",
+      "path": "authors/1200.json"
     }
   ]
 }
