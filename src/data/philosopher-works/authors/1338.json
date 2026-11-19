@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 1338,
+  "canonical_name": "Aníbal Colón Rosado",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1338-w001",
+      "title": "La filosofía de la técnica",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "0847728323"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=24234"
+      ],
+      "notes": "Editorial de la Universidad de Puerto Rico, 162 pp., ISBN 0847728323."
+    },
+    {
+      "work_id": "1338-w002",
+      "title": "Historia de una pasión",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://confesiones1.blogspot.com/2024/02/en-las-letras-desde-puerto-rico-dar-con.html"
+      ],
+      "notes": "Libro mencionado por el propio autor como antecedente de Filosofía e imaginación."
+    },
+    {
+      "work_id": "1338-w003",
+      "title": "Filosofía e imaginación",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2013,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2013,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://confesiones1.blogspot.com/2024/02/en-las-letras-desde-puerto-rico-dar-con.html"
+      ],
+      "notes": "Segundo libro filosófico del autor, 561 pp.; reconocido por el Instituto de Literatura Puertorriqueña."
+    },
+    {
+      "work_id": "1338-w004",
+      "title": "Periscopio",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2017,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2017,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Periscopio.html?hl=en&id=_JXNAQAACAAJ&output=html_text"
+      ],
+      "notes": "Editorial Poemar, 290 pp."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor puertorriqueño de filosofía y humanidades, con trabajos sobre filosofía de la técnica, imaginación, fenomenología, ética y cultura.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Pedro Henríquez Ureña — La filosofía de la técnica",
+      "url": "https://catalogo.bnphu.gob.do/cgi-bin/koha/opac-detail.pl?biblionumber=24234"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Entrevista a Aníbal Colón Rosado",
+      "url": "https://confesiones1.blogspot.com/2024/02/en-las-letras-desde-puerto-rico-dar-con.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Google Books — Periscopio",
+      "url": "https://books.google.com/books/about/Periscopio.html?hl=en&id=_JXNAQAACAAJ&output=html_text"
+    }
+  ],
+  "research_notes": [
+    "Una carta profética (2022) se registra en fuentes como libro conmemorativo editado por Colón Rosado; se reserva para una ampliación posterior para distinguir edición de contribuciones propias.",
+    "Se conservan cuatro títulos de autoría claramente identificada."
+  ]
+}

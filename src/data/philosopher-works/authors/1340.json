@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "author_id": 1340,
+  "canonical_name": "Augusto Teixeira de Freitas",
+  "alternate_names": [
+    "Augusto Teixeira de Freitas Senior"
+  ],
+  "life": {
+    "birth_year": 1816,
+    "death_year": 1883
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1340-w001",
+      "title": "Consolidação das Leis Civis",
+      "work_type": "legal_code_consolidation",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1857,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1857,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://web.novalaw.unl.pt/Anexos/Investigacao/1947.pdf",
+        "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/augusto-teixeira-de-freitas-o-grande-jurisconsulto-brasileiro/590249"
+      ],
+      "notes": "Primera edición de 1857; segunda edición ampliada posterior no duplicada."
+    },
+    {
+      "work_id": "1340-w002",
+      "title": "Código Civil: Esboço",
+      "work_type": "draft_civil_code",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1860,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1860,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://web.novalaw.unl.pt/Anexos/Investigacao/1947.pdf",
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=52453&lvl=author_see",
+        "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/augusto-teixeira-de-freitas-o-grande-jurisconsulto-brasileiro/590249"
+      ],
+      "notes": "Publicado por entregas entre 1860 y 1865; se registra como una sola obra."
+    },
+    {
+      "work_id": "1340-w003",
+      "title": "Promptuario das leis civis",
+      "work_type": "legal_reference_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1876,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://web.novalaw.unl.pt/Anexos/Investigacao/1947.pdf",
+        "https://emerj.tjrj.jus.br/pagina/3/26/66"
+      ],
+      "notes": "Instituto Typographico do Direito, 1876."
+    },
+    {
+      "work_id": "1340-w004",
+      "title": "Additamentos à Consolidação das leis civis",
+      "work_type": "legal_reference_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1877,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1877,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://web.novalaw.unl.pt/Anexos/Investigacao/1947.pdf"
+      ],
+      "notes": "Revista annual, anno I, Instituto Typographico do Direito."
+    },
+    {
+      "work_id": "1340-w005",
+      "title": "Primeiras linhas sobre o processo civil",
+      "work_type": "adapted_legal_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1879,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1879,
+      "authorship_status": "adapter_and_editor",
+      "coauthors": [
+        "Joaquim José Caetano Pereira e Sousa"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://web.novalaw.unl.pt/Anexos/Investigacao/1947.pdf"
+      ],
+      "notes": "Obra de Joaquim José Caetano Pereira e Sousa acomodada ao foro do Brasil por Teixeira de Freitas."
+    },
+    {
+      "work_id": "1340-w006",
+      "title": "Regras de direito",
+      "work_type": "legal_reference_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1882,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://emerj.tjrj.jus.br/pagina/3/26/66"
+      ],
+      "notes": "Garnier, 1882."
+    },
+    {
+      "work_id": "1340-w007",
+      "title": "Terras e colonisação",
+      "work_type": "legal_treatise",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1882,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1882,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=52453&lvl=author_see"
+      ],
+      "notes": "Catálogo del Parlamento uruguayo registra edición Garnier de 1882."
+    },
+    {
+      "work_id": "1340-w008",
+      "title": "Vocabulário jurídico",
+      "work_type": "legal_reference_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1883,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1883,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://emerj.tjrj.jus.br/pagina/3/26/66"
+      ],
+      "notes": "Garnier, 1883."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jurista brasileño cuya sistematización del derecho civil influyó decisivamente en la codificación de Brasil y en los códigos civiles de Argentina y otros países latinoamericanos.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Universidade Nova de Lisboa — edición de Consolidação das Leis Civis",
+      "url": "https://web.novalaw.unl.pt/Anexos/Investigacao/1947.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca del Poder Legislativo de Uruguay — Augusto Teixeira de Freitas",
+      "url": "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=52453&lvl=author_see"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UFPE — Augusto Teixeira de Freitas",
+      "url": "https://www.ufpe.br/arquivoccj/curiosidades/-/asset_publisher/x1R6vFfGRYss/content/augusto-teixeira-de-freitas-o-grande-jurisconsulto-brasileiro/590249"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "EMERJ — obras raras de Teixeira de Freitas",
+      "url": "https://emerj.tjrj.jus.br/pagina/3/26/66"
+    }
+  ],
+  "research_notes": [
+    "Consolidação das Leis Civis se fecha por la primera edición de 1857; reediciones ampliadas de 1865, 1867 y 1876 no se duplican.",
+    "Código Civil: Esboço se cuenta como una sola obra aunque apareció por entregas entre 1860 y 1865.",
+    "Primeiras linhas sobre o processo civil se registra como adaptación/editorial de una obra previa de Pereira e Sousa, no como autoría originaria absoluta."
+  ]
+}

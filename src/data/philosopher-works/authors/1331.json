@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "author_id": 1331,
+  "canonical_name": "José Antero Peralta",
+  "alternate_names": [
+    "Antero Peralta",
+    "Antero Peralta Vásquez"
+  ],
+  "life": {
+    "birth_year": 1900,
+    "death_year": 1980
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1331-w001",
+      "title": "El indio no es panteísta",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://gestionrepo.unmsm.edu.pe/items/34ad2a86-9b0b-4a34-941a-886926a45bae"
+      ],
+      "notes": "Publicado en Amauta n.º 15; estudio crítico sobre la interpretación religiosa y filosófica del mundo andino."
+    },
+    {
+      "work_id": "1331-w002",
+      "title": "La filosofía fenomenológica de Edmund Husserl",
+      "work_type": "doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1934,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1934,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Tesis mencionada por Dussel como antecedente temprano de la recepción de la fenomenología en Perú; no se ha localizado edición impresa independiente."
+    },
+    {
+      "work_id": "1331-w003",
+      "title": "Programa razonado del curso de historia de la filosofía moderna",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.12.33.3",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1179"
+      ],
+      "notes": "Letras 12(33), pp.94–106."
+    },
+    {
+      "work_id": "1331-w004",
+      "title": "Veta filosófica en el pensamiento inca",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.librosperuanos.com/autores/articulo/00000000480/Trayectoria-de-la-Filosofia-Andina-Peruana"
+      ],
+      "notes": "Humanitas, n.º 2, julio-diciembre de 1964."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo y profesor peruano vinculado a la recepción temprana de Husserl y al debate sobre pensamiento andino e incaico.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNMSM Letras — Programa razonado del curso de historia de la filosofía moderna",
+      "url": "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1179"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Repositorio UNMSM — estudio sobre Antero Peralta",
+      "url": "https://gestionrepo.unmsm.edu.pe/items/34ad2a86-9b0b-4a34-941a-886926a45bae"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Diario Correo — perfil biográfico de Antero Peralta Vásquez",
+      "url": "https://diariocorreo.pe/edicion/arequipa/las-facetas-de-antero-peralta-en-tiempos-de-mariategui-y-haya-de-la-torre-noticia/?outputType=amp"
+    }
+  ],
+  "research_notes": [
+    "Dussel registra literalmente a José Antero Peralta y su tesis fenomenológica de 1934; fuentes peruanas posteriores lo identifican como Antero Peralta Vásquez.",
+    "Se conservan ambas formas como variantes de autoridad y no se atribuyen títulos no verificados."
+  ]
+}
