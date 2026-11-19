@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "author_id": 1387,
+  "canonical_name": "Francisco Olicieri",
+  "alternate_names": [
+    "Francisco José Olivieri",
+    "Francisco Olivieri"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1387-w001",
+      "title": "Lógica e introducción a la filosofía",
+      "work_type": "revised_edition",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "editor_reviser",
+      "coauthors": [
+        "Vicente Fatone"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://buscador.unsam.edu.ar/Record/167/Details"
+      ],
+      "notes": "Edición revisada y ampliada por Francisco José Olivieri de la obra de Vicente Fatone; no se registra como autoría original de Olivieri."
+    },
+    {
+      "work_id": "1387-w002",
+      "title": "El Sócrates platónico y la vigencia del filosofar",
+      "work_type": "conference_paper",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ojs.politicasdelamemoria.cedinci.org/public/PM22html/PM22_Un_gallo_para_Asclepio.html"
+      ],
+      "notes": "Ponencia presentada en el III Congreso Nacional de Filosofía de Buenos Aires en octubre de 1980."
+    },
+    {
+      "work_id": "1387-w003",
+      "title": "Eutidemo",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Platón"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://phte.upf.edu/dhte/griego-clasico/platon/"
+      ],
+      "notes": "Traducción e introducción/notas de Francisco José Olivieri en el volumen II de los Diálogos de Platón, Gredos, 1983."
+    },
+    {
+      "work_id": "1387-w004",
+      "title": "Menón",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Platón"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://phte.upf.edu/dhte/griego-clasico/platon/"
+      ],
+      "notes": "Traducción e introducción/notas de Francisco José Olivieri en el volumen II de los Diálogos de Platón, Gredos, 1983."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor argentino de historia de la filosofía antigua, traductor de Platón y participante destacado de la comunidad filosófica de la UBA.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1387-1",
+      "url": "https://congresos.fahce.unlp.edu.ar/jornadasfilo/xi-jornadas-2022/actas/ponencia-231026125617732217/%40%40display-file/file/Kubaseck%2C%20M.%20-%20Filosof%C3%ADas%20de%20Oriente%20en%20Cuadernos%20de%20Filosof%C3%ADa%20.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1387-2",
+      "url": "https://buscador.unsam.edu.ar/Record/167/Details"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1387-3",
+      "url": "https://ojs.politicasdelamemoria.cedinci.org/public/PM22html/PM22_Un_gallo_para_Asclepio.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1387-4",
+      "url": "https://phte.upf.edu/dhte/griego-clasico/platon/"
+    }
+  ],
+  "research_notes": [
+    "Lote 139 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–138 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y recopilaciones póstumas no se convierten automáticamente en obras nuevas.",
+    "El inventario canónico presenta el apellido como “Olicieri”; la evidencia académica converge en la forma de autoridad “Francisco José Olivieri (1932-2003)”. Se preserva el canónico y se añade la variante, sin modificar el inventario maestro."
+  ]
+}
