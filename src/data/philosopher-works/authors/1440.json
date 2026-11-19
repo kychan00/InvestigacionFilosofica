@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "author_id": 1440,
+  "canonical_name": "Carlos González Peña",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1885,
+    "death_year": 1955
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1440-w001",
+      "title": "Manual de gramática castellana",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://academia.org.mx/relacion-historica/1940-1959/item/carlos-gonzalez-pena-2?category_id=2313"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1440-w002",
+      "title": "Historia de la literatura mexicana: desde los orígenes hasta nuestros días",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1125491"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1440-w003",
+      "title": "Luis G. Inclán en la novela mexicana",
+      "work_type": "lecture",
+      "original_language": "español",
+      "original_date": {
+        "year": 1931,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://academia.org.mx/relacion-historica/1940-1959/item/carlos-gonzalez-pena-2?category_id=2313"
+      ],
+      "notes": "Discurso de recepción en la Academia Mexicana."
+    },
+    {
+      "work_id": "1440-w004",
+      "title": "Gente mía",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/469"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1440-w005",
+      "title": "Claridad en la lejanía",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/469"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Crítico, historiador literario, profesor y miembro del Ateneo de la Juventud; su obra contribuyó a la construcción historiográfica del canon literario mexicano.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Academia Mexicana de la Lengua — Carlos González Peña",
+      "url": "https://academia.org.mx/relacion-historica/1940-1959/item/carlos-gonzalez-pena-2?category_id=2313"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Enciclopedia de la Literatura en México — Carlos González Peña",
+      "url": "https://www.elem.mx/autor/datos/469"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "ADABI — Historia de la literatura mexicana",
+      "url": "https://www.adabi.org.mx/vufind/Record/1125491"
+    }
+  ],
+  "research_notes": [
+    "Historia de la literatura mexicana se fecha en 1928 según el ejemplar catalogado por ADABI; algunas referencias secundarias citan 1929 por el copyright.",
+    "Se privilegian obras historiográficas, críticas y didácticas; la narrativa de ficción no se incorpora en esta selección filosófico-intelectual."
+  ]
+}
