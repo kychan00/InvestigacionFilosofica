@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "author_id": 1150,
+  "canonical_name": "Manuel Comesaña",
+  "alternate_names": [
+    "Manuel E. Comesaña"
+  ],
+  "life": {
+    "birth_year": 1943
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1150-w001",
+      "title": "Enunciados básicos e hipótesis falsificadora en Popper",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://analisisfilosofico.org/index.php/af/article/view/781"
+      ],
+      "notes": "Análisis Filosófico 7(1), 1987."
+    },
+    {
+      "work_id": "1150-w002",
+      "title": "Popper: experiencia y enunciados básicos",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://analisisfilosofico.org/index.php/af/article/view/708"
+      ],
+      "notes": "Análisis Filosófico 11(2), 1991."
+    },
+    {
+      "work_id": "1150-w003",
+      "title": "Razón, verdad y experiencia: un análisis de sus vínculos en la epistemología contemporánea, con especial referencia a Popper",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.fundacionkonex.org/b802-manuel-comesana",
+        "https://www.analisisfilosofico.org/index.php/af/article/view/635"
+      ],
+      "notes": "Universidad Nacional de Mar del Plata, 1996, 172 páginas; ediciones posteriores no duplicadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Especialista en epistemología y filosofía de la ciencia, colaboró con la creación de la carrera de Filosofía en la Universidad Nacional de Mar del Plata.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: comesana1987",
+      "url": "https://analisisfilosofico.org/index.php/af/article/view/781"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: comesana1991",
+      "url": "https://analisisfilosofico.org/index.php/af/article/view/708"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: comesanaKonex",
+      "url": "https://www.fundacionkonex.org/b802-manuel-comesana"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: comesanaReview",
+      "url": "https://www.analisisfilosofico.org/index.php/af/article/view/635"
+    }
+  ],
+  "research_notes": [
+    "Manuel E. Comesaña es la persona reconocida por Fundación Konex y autor de Razón, verdad y experiencia (1996).",
+    "NO atribuir el libro Lógica informal: falacias y argumentos filosóficos, del autor distinto Juan Manuel Comesaña (1943-), a este Manuel Comesaña sin prueba de identidad.",
+    "Los artículos de 1987 y 1991 son publicaciones diferenciadas identificadas en la revista Análisis Filosófico."
+  ]
+}

@@ -27,11 +27,11 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1140,
-    "authors_remaining": 364,
-    "works_or_contributions_seeded": 10067,
-    "current_batch": "114",
-    "last_updated": "2026-11-18"
+    "authors_seeded": 1150,
+    "authors_remaining": 354,
+    "works_or_contributions_seeded": 10193,
+    "current_batch": "115",
+    "last_updated": "2026-11-19"
   },
   "batch_001": [
     {
@@ -5959,6 +5959,58 @@
       "author_id": 1140,
       "canonical_name": "Alberto Zum Felde",
       "path": "authors/1140.json"
+    }
+  ],
+  "batch_115": [
+    {
+      "author_id": 1141,
+      "canonical_name": "Carlos Benvenuto",
+      "path": "authors/1141.json"
+    },
+    {
+      "author_id": 1142,
+      "canonical_name": "Emilio Oribe",
+      "path": "authors/1142.json"
+    },
+    {
+      "author_id": 1143,
+      "canonical_name": "Ángel Vassallo",
+      "path": "authors/1143.json"
+    },
+    {
+      "author_id": 1144,
+      "canonical_name": "Juan Rodríguez Larreta",
+      "path": "authors/1144.json"
+    },
+    {
+      "author_id": 1145,
+      "canonical_name": "Horacio Spector",
+      "path": "authors/1145.json"
+    },
+    {
+      "author_id": 1146,
+      "canonical_name": "Gladys Palau",
+      "path": "authors/1146.json"
+    },
+    {
+      "author_id": 1147,
+      "canonical_name": "María Cristina González",
+      "path": "authors/1147.json"
+    },
+    {
+      "author_id": 1148,
+      "canonical_name": "Eduardo Rivera López",
+      "path": "authors/1148.json"
+    },
+    {
+      "author_id": 1149,
+      "canonical_name": "Marcelo Sabatés",
+      "path": "authors/1149.json"
+    },
+    {
+      "author_id": 1150,
+      "canonical_name": "Manuel Comesaña",
+      "path": "authors/1150.json"
     }
   ]
 }

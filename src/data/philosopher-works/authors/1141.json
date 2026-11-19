@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "author_id": 1141,
+  "canonical_name": "Carlos Benvenuto",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1900,
+    "death_year": 1976
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1141-w001",
+      "title": "Concreciones",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cfe.edu.uy/pmbIPA/opac_css/index.php?id=7946&lvl=categ_see",
+        "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/57268/1/lafilosofiaeneluruguayenelsigloxx_ardaoarturo_1956.pdf"
+      ],
+      "notes": "Montevideo: La Cruz del Sur, 1929, 162 páginas; Arturo Ardao lo reconoce como único libro del autor publicado hasta la fecha de su estudio de 1956."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participó en la reflexión filosófica uruguaya surgida del entorno de Carlos Vaz Ferreira y desarrolló un pensamiento ensayístico crítico.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: benvenuto",
+      "url": "https://biblioteca.cfe.edu.uy/pmbIPA/opac_css/index.php?id=7946&lvl=categ_see"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: benvenuto2",
+      "url": "https://anaforas.fic.edu.uy/jspui/bitstream/123456789/57268/1/lafilosofiaeneluruguayenelsigloxx_ardaoarturo_1956.pdf"
+    }
+  ],
+  "research_notes": [
+    "El texto histórico de Arturo Ardao señala Concreciones (1929) como el único volumen de ensayos de Benvenuto; otros artículos dispersos no están individualizados por título.",
+    "No se atribuyen obras a personas homónimas sin evidencia de identidad."
+  ]
+}
