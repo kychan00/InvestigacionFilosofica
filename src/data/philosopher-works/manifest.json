@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1170,
-    "authors_remaining": 334,
-    "works_or_contributions_seeded": 10403,
-    "current_batch": "117",
+    "authors_seeded": 1180,
+    "authors_remaining": 324,
+    "works_or_contributions_seeded": 10466,
+    "current_batch": "118",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6115,6 +6115,58 @@
       "author_id": 1170,
       "canonical_name": "Bernabé Navarro",
       "path": "authors/1170.json"
+    }
+  ],
+  "batch_118": [
+    {
+      "author_id": 1171,
+      "canonical_name": "Marysol Aguilar",
+      "path": "authors/1171.json"
+    },
+    {
+      "author_id": 1172,
+      "canonical_name": "Eliam Campos",
+      "path": "authors/1172.json"
+    },
+    {
+      "author_id": 1173,
+      "canonical_name": "Luis Guillermo Coronado",
+      "path": "authors/1173.json"
+    },
+    {
+      "author_id": 1174,
+      "canonical_name": "Roberto de Andrade Martins",
+      "path": "authors/1174.json"
+    },
+    {
+      "author_id": 1175,
+      "canonical_name": "Valerio Rohden",
+      "path": "authors/1175.json"
+    },
+    {
+      "author_id": 1176,
+      "canonical_name": "Julio C. Terán Dutari",
+      "path": "authors/1176.json"
+    },
+    {
+      "author_id": 1177,
+      "canonical_name": "José Vega Delgado",
+      "path": "authors/1177.json"
+    },
+    {
+      "author_id": 1178,
+      "canonical_name": "Sergio Rojas",
+      "path": "authors/1178.json"
+    },
+    {
+      "author_id": 1179,
+      "canonical_name": "Carla Cordua",
+      "path": "authors/1179.json"
+    },
+    {
+      "author_id": 1180,
+      "canonical_name": "Esther Díaz",
+      "path": "authors/1180.json"
     }
   ]
 }
