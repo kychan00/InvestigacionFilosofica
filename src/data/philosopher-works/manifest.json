@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1420,
-    "authors_remaining": 84,
-    "works_or_contributions_seeded": 12200,
-    "current_batch": "142",
+    "authors_seeded": 1430,
+    "authors_remaining": 74,
+    "works_or_contributions_seeded": 12295,
+    "current_batch": "143",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7415,6 +7415,58 @@
       "author_id": 1420,
       "canonical_name": "Luís Carlos Menezes",
       "path": "authors/1420.json"
+    }
+  ],
+  "batch_143": [
+    {
+      "author_id": 1421,
+      "canonical_name": "Roque Zimmerman",
+      "path": "authors/1421.json"
+    },
+    {
+      "author_id": 1422,
+      "canonical_name": "Roberto Gomes",
+      "path": "authors/1422.json"
+    },
+    {
+      "author_id": 1423,
+      "canonical_name": "Franz Tamayo",
+      "path": "authors/1423.json"
+    },
+    {
+      "author_id": 1424,
+      "canonical_name": "Julio Cabrera",
+      "path": "authors/1424.json"
+    },
+    {
+      "author_id": 1425,
+      "canonical_name": "Ricardo Flores Magón",
+      "path": "authors/1425.json"
+    },
+    {
+      "author_id": 1426,
+      "canonical_name": "Alberto Edwards",
+      "path": "authors/1426.json"
+    },
+    {
+      "author_id": 1427,
+      "canonical_name": "Francisco Encina",
+      "path": "authors/1427.json"
+    },
+    {
+      "author_id": 1428,
+      "canonical_name": "Jaime Eyzaguirre",
+      "path": "authors/1428.json"
+    },
+    {
+      "author_id": 1429,
+      "canonical_name": "Juan Vicente González",
+      "path": "authors/1429.json"
+    },
+    {
+      "author_id": 1430,
+      "canonical_name": "Benjamín Vicuña Mackenna",
+      "path": "authors/1430.json"
     }
   ]
 }

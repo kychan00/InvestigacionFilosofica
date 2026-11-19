@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "author_id": 1426,
+  "canonical_name": "Alberto Edwards",
+  "alternate_names": [
+    "Luis Alberto Edwards Vives"
+  ],
+  "life": {
+    "birth_year": 1874,
+    "death_year": 1932
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1426-w001",
+      "title": "Bosquejo histórico de los partidos políticos chilenos",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1903,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bcn.cl/historiapolitica/partidos_politicos/wiki/Estanqueros",
+        "https://www.memoriachilena.gob.cl/602/w3-article-3516.html"
+      ],
+      "notes": "Primera publicación de 1903; ediciones posteriores no duplicadas."
+    },
+    {
+      "work_id": "1426-w002",
+      "title": "La fronda aristocrática en Chile",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-3516.html",
+        "https://www.memoriachilena.gob.cl/602/w3-article-8078.html"
+      ],
+      "notes": "Santiago: Imprenta Nacional, 1928."
+    },
+    {
+      "work_id": "1426-w003",
+      "title": "La Organización Política de Chile",
+      "work_type": "posthumous_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1943,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-3516.html"
+      ],
+      "notes": "Recopilación póstuma de artículos de Edwards; se marca como publicación póstuma."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensayista e historiador chileno de orientación conservadora, influyente en la interpretación del Estado portaliano, la aristocracia y el régimen parlamentario.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Memoria Chilena — Alberto Edwards y La Fronda Aristocrática",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-3516.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Memoria Chilena — La fronda aristocrática",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-8078.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca del Congreso Nacional — Bosquejo histórico",
+      "url": "https://www.bcn.cl/historiapolitica/partidos_politicos/wiki/Estanqueros"
+    }
+  ],
+  "research_notes": [
+    "Memoria Chilena resume su contribución en tres libros principales; la ficha conserva exactamente esas tres unidades.",
+    "La Organización Política de Chile apareció después de su muerte y se clasifica como publicación póstuma."
+  ]
+}
