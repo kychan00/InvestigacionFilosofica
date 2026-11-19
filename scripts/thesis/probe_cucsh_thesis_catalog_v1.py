@@ -8,6 +8,7 @@ import json
 import re
 import time
 import unicodedata
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -33,6 +34,9 @@ ALLOWED_HOSTS = {
 FORBIDDEN = (".pdf", "/bitstream", "/download")
 SIGNAL_TERMS = ("tesis", "filosof", "licenci", "maestr", "doctor", "posgrado")
 MAX_FILTER_PAGES = 120
+FETCH_ATTEMPTS_PER_URL = 3
+FETCH_RETRY_BACKOFF_SECONDS = (1.0, 3.0)
+RETRYABLE_HTTP_STATUS = {408, 425, 429, 500, 502, 503, 504}
 
 
 def normalize(value: str | None) -> str:
@@ -230,17 +234,38 @@ def alternate_scheme(url: str) -> str:
     )
 
 
-def fetch_with_fallback(urls: tuple[str, ...]) -> tuple[str, str, int, str, str, list[dict[str, str]]]:
-    failures: list[dict[str, str]] = []
+def transient_fetch_error(exc: Exception) -> bool:
+    if isinstance(exc, (TimeoutError, ConnectionError)):
+        return True
+    if isinstance(exc, urllib.error.HTTPError):
+        return exc.code in RETRYABLE_HTTP_STATUS
+    if isinstance(exc, urllib.error.URLError):
+        return True
+    return False
+
+
+def fetch_with_fallback(urls: tuple[str, ...]) -> tuple[str, str, int, str, str, list[dict[str, Any]]]:
+    failures: list[dict[str, Any]] = []
     for url in urls:
-        try:
-            html, final_url, status, content_type = fetch_once(url)
-            parsed_final = urllib.parse.urlparse(final_url)
-            if (parsed_final.hostname or "").casefold() not in ALLOWED_HOSTS:
-                raise ValueError(f"Redirect left CUCSH allowlist: {final_url}")
-            return html, final_url, status, content_type, url, failures
-        except Exception as exc:
-            failures.append({"url": url, "error": str(exc)})
+        for attempt in range(1, FETCH_ATTEMPTS_PER_URL + 1):
+            try:
+                html, final_url, status, content_type = fetch_once(url)
+                parsed_final = urllib.parse.urlparse(final_url)
+                if (parsed_final.hostname or "").casefold() not in ALLOWED_HOSTS:
+                    raise ValueError(f"Redirect left CUCSH allowlist: {final_url}")
+                return html, final_url, status, content_type, url, failures
+            except Exception as exc:
+                retryable = transient_fetch_error(exc)
+                failures.append({
+                    "url": url,
+                    "attempt": attempt,
+                    "retryable": retryable,
+                    "error": str(exc),
+                })
+                if not retryable or attempt >= FETCH_ATTEMPTS_PER_URL:
+                    break
+                backoff_index = min(attempt - 1, len(FETCH_RETRY_BACKOFF_SECONDS) - 1)
+                time.sleep(FETCH_RETRY_BACKOFF_SECONDS[backoff_index])
     raise RuntimeError("CUCSH request failed: " + json.dumps(failures, ensure_ascii=False))
 
 
