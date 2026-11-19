@@ -57,25 +57,25 @@ const PERIODS = [
     id: "originarios",
     roman: "I",
     title: "Filosofías de algunos pueblos originarios",
-    note: "Primera época del libro · clasificación automática provisional"
+    note: "Primera época del libro · ubicación cronológica orientativa"
   },
   {
     id: "colonial",
     roman: "II",
     title: "Filosofía colonial en la modernidad temprana",
-    note: "Segunda época del libro · clasificación automática provisional"
+    note: "Segunda época del libro · ubicación cronológica orientativa"
   },
   {
     id: "madura",
     roman: "III",
     title: "Filosofía ante la modernidad madura",
-    note: "Tercera época del libro · clasificación automática provisional"
+    note: "Tercera época del libro · ubicación cronológica orientativa"
   },
   {
     id: "sigloxx",
     roman: "IV",
     title: "Corrientes filosóficas del siglo XX",
-    note: "Segunda parte del libro · clasificación automática provisional"
+    note: "Segunda parte del libro · ubicación cronológica orientativa"
   },
   {
     id: "por-ubicar",
@@ -137,7 +137,7 @@ function makeAuthorCard(author) {
     <span class="author-id">#${canonicalId(author.id)}</span>
     <h3></h3>
     <span class="author-state ${seeded ? "seeded" : "pending"}">
-      ${seeded ? "● con obra documentada" : "○ pendiente"}
+      ${seeded ? "● ficha bibliográfica" : "○ sin ficha"}
     </span>
   `;
   card.querySelector("h3").textContent = author.name;
@@ -311,7 +311,7 @@ async function loadNextPeriodBatch() {
   renderPeriodized();
 
   periodizationStatus.textContent =
-    `${hydratedAuthors.length.toLocaleString("es-MX")} de ${seededCount.toLocaleString("es-MX")} fichas cargadas. Periodización cronológica provisional; la clasificación fina por capítulo y corriente se curará después.`;
+    `${hydratedAuthors.length.toLocaleString("es-MX")} de ${seededCount.toLocaleString("es-MX")} fichas cargadas. La ubicación cronológica es orientativa y la adscripción por corriente sólo se muestra cuando existe respaldo suficiente.`;
 
   loadMorePeriodAuthors.hidden = periodCursor >= seededCount;
   loadMorePeriodAuthors.disabled = false;

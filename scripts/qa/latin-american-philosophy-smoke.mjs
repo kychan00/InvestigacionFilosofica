@@ -329,30 +329,44 @@ try {
     );
     assert.ok(seededTotal >= 380, "Seeded corpus should include Anténor Firmin");
 
-    const pendingAuthor = await page.evaluate(async seeded => {
+    const inventoryState = await page.evaluate(async () => {
       const response = await fetch("./src/data/latin-american-philosophers-metadata.json");
       const payload = await response.json();
       const inventory = Array.isArray(payload)
         ? payload
         : payload.philosophers || payload.authors || payload.items || [];
-      return inventory.find(author => Number(author.id) === seeded + 1) || null;
-    }, seededTotal);
+      const last = inventory[inventory.length - 1] || null;
+      return {
+        total: inventory.length,
+        lastName: last?.name || null
+      };
+    });
 
-    assert.ok(pendingAuthor?.name, "There must be a next canonical author after the seeded corpus");
-    await page.locator("#author-search").fill(pendingAuthor.name);
+    assert.equal(
+      seededTotal,
+      inventoryState.total,
+      "Completed archive must have a bibliographic record for every canonical author"
+    );
+    assert.equal(
+      await page.locator('[data-status-filter="pending"]').count(),
+      0,
+      "Completed archive must not expose a pending-author filter"
+    );
+    assert.ok(inventoryState.lastName, "Canonical inventory must expose its last author");
+    await page.locator("#author-search").fill(inventoryState.lastName);
     await page.waitForFunction(name =>
       document.querySelector("#author-directory")?.textContent?.includes(name)
-    , pendingAuthor.name);
+    , inventoryState.lastName);
 
-    const pendingCard = page.locator("#author-directory .author-card").first();
+    const finalCard = page.locator("#author-directory .author-card").first();
     assert.equal(
-      await pendingCard.evaluate(element => element.tagName),
-      "ARTICLE",
-      "Authors without a bibliographic seed must remain visible but non-interactive"
+      await finalCard.evaluate(element => element.tagName),
+      "BUTTON",
+      "Every canonical author must open a bibliographic dossier after full coverage"
     );
     assert.ok(
-      (await pendingCard.locator(".author-state").textContent()).includes("pendiente"),
-      "Authors without works must be explicitly marked as pending"
+      (await finalCard.locator(".author-state").textContent()).includes("ficha bibliográfica"),
+      "Completed author cards must be marked as bibliographic dossiers"
     );
 
     await page.locator("#author-search").fill("");
@@ -373,7 +387,7 @@ try {
       await periodLoadMore.click();
       await page.waitForFunction(() => {
         const text = document.querySelector("#periodization-status")?.textContent || "";
-        return /80 de \d+ fichas cargadas/.test(text);
+        return /80 de [\d,.]+ fichas cargadas/.test(text);
       });
       assert.ok(await page.locator(".mini-author").count() > firstLoaded,
         "Loading the next period batch should add authors");
