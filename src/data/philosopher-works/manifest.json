@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1330,
-    "authors_remaining": 174,
-    "works_or_contributions_seeded": 11433,
-    "current_batch": "133",
+    "authors_seeded": 1340,
+    "authors_remaining": 164,
+    "works_or_contributions_seeded": 11509,
+    "current_batch": "134",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6947,6 +6947,58 @@
       "author_id": 1330,
       "canonical_name": "Lorenzo Livieres",
       "path": "authors/1330.json"
+    }
+  ],
+  "batch_134": [
+    {
+      "author_id": 1331,
+      "canonical_name": "José Antero Peralta",
+      "path": "authors/1331.json"
+    },
+    {
+      "author_id": 1332,
+      "canonical_name": "Mario Silva García",
+      "path": "authors/1332.json"
+    },
+    {
+      "author_id": 1333,
+      "canonical_name": "Jorge Martínez Contreras",
+      "path": "authors/1333.json"
+    },
+    {
+      "author_id": 1334,
+      "canonical_name": "Guillermo Hurtado",
+      "path": "authors/1334.json"
+    },
+    {
+      "author_id": 1335,
+      "canonical_name": "Rubén Dri",
+      "path": "authors/1335.json"
+    },
+    {
+      "author_id": 1336,
+      "canonical_name": "Héctor Samour",
+      "path": "authors/1336.json"
+    },
+    {
+      "author_id": 1337,
+      "canonical_name": "José María Borrero",
+      "path": "authors/1337.json"
+    },
+    {
+      "author_id": 1338,
+      "canonical_name": "Aníbal Colón Rosado",
+      "path": "authors/1338.json"
+    },
+    {
+      "author_id": 1339,
+      "canonical_name": "Pedro Albizu Campos",
+      "path": "authors/1339.json"
+    },
+    {
+      "author_id": 1340,
+      "canonical_name": "Augusto Teixeira de Freitas",
+      "path": "authors/1340.json"
     }
   ]
 }

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 1337,
+  "canonical_name": "José María Borrero",
+  "alternate_names": [
+    "José María Borrero Navia"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1337-w001",
+      "title": "Los derechos ambientales. Una visión desde el Sur",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.joseborrero.com/publicaciones-2/",
+        "https://apps.procuraduria.gov.co/cgi-bin/koha/opac-detail.pl?biblionumber=22986"
+      ],
+      "notes": "FIPMA-CELA, Cali, 284 pp.; primera edición."
+    },
+    {
+      "work_id": "1337-w002",
+      "title": "La deuda ecológica",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.joseborrero.com/publicaciones-2/"
+      ],
+      "notes": "Primera edición 1994; resultado de un proyecto iniciado en 1991."
+    },
+    {
+      "work_id": "1337-w003",
+      "title": "Estrategia de conservación y sostenibilidad",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.joseborrero.com/publicaciones-2/"
+      ],
+      "notes": "Estrategia para San Andrés, Old Providence y Santa Catalina; primera edición 1994."
+    },
+    {
+      "work_id": "1337-w004",
+      "title": "Fundamentos ético-jurídicos del Tribunal Latinoamericano del Agua",
+      "work_type": "book_or_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://tragua.org/biblioteca-virtual/publicaciones-del-tribunal/"
+      ],
+      "notes": "Documento preparado para el Tribunal Latinoamericano del Agua; la referencia bibliográfica institucional registra 1999."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jurista ambiental colombiano dedicado a derechos ambientales, justicia ecológica, política ambiental y defensa del patrimonio natural.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "José M. Borrero — Publicaciones",
+      "url": "https://www.joseborrero.com/publicaciones-2/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Procuraduría General de Colombia — Los derechos ambientales",
+      "url": "https://apps.procuraduria.gov.co/cgi-bin/koha/opac-detail.pl?biblionumber=22986"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Tribunal Latinoamericano del Agua — publicaciones",
+      "url": "https://tragua.org/biblioteca-virtual/publicaciones-del-tribunal/"
+    }
+  ],
+  "research_notes": [
+    "Control social y política criminal en medio ambiente se mantiene fuera de la cuenta principal porque la página consultada describe el encuentro de 1997 pero no fija con claridad la fecha editorial del volumen.",
+    "La ficha prioriza títulos con fecha de primera edición explícita."
+  ]
+}
