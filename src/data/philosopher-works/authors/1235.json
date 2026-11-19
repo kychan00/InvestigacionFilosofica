@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "author_id": 1235,
+  "canonical_name": "Walter Rodney",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1235-w001",
+      "title": "The Groundings with My Brothers",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/3997943?seq=2"
+      ],
+      "notes": "Las reimpresiones de 1970, 1971 y 1975 no se duplican."
+    },
+    {
+      "work_id": "1235-w002",
+      "title": "How Europe Underdeveloped Africa",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jstor.org/stable/3997943?seq=2"
+      ],
+      "notes": "No duplicar sus posteriores traducciones al español y otros idiomas."
+    },
+    {
+      "work_id": "1235-w003",
+      "title": "A History of the Upper Guinea Coast, 1545–1800",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliothecamarxista.org/authors/walter-rodney/"
+      ],
+      "notes": "La bibliografía consultada muestra una edición posterior de 1982; requiere cotejar la primera edición antes de fijar el año original."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1235-1",
+      "url": "https://www.jstor.org/stable/3997943?seq=2"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1235-2",
+      "url": "https://bibliothecamarxista.org/authors/walter-rodney/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1235-3",
+      "url": "https://openlibrary.org/authors/OL757755A/Walter_Rodney"
+    }
+  ],
+  "research_notes": [
+    "Lote 124 preparado de forma aislada: el manifiesto principal permanece en lote 120 hasta la integración previa de 121–123.",
+    "Bibliografía selectiva y sujeta a auditoría editorial fina. No inferir obras sin fuentes."
+  ]
+}

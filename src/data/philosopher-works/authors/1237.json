@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "author_id": 1237,
+  "canonical_name": "Rodolfo Stavenhagen",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1237-w001",
+      "title": "Siete tesis equivocadas sobre América Latina",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoriapoliticademexico.org/Textos/6Revolucion/1965-7TAL-RS.html"
+      ],
+      "notes": "Ensayo posteriormente reproducido dentro de libros: no contar dos veces."
+    },
+    {
+      "work_id": "1237-w002",
+      "title": "Clases, colonialismo y aculturación: ensayo sobre un sistema de relaciones interétnicas en Mesoamérica",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.persee.fr/authority/229139"
+      ],
+      "notes": "Atribución y título documentados en la fuente bibliográfica citada."
+    },
+    {
+      "work_id": "1237-w003",
+      "title": "Las clases sociales en las sociedades agrarias",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.persee.fr/authority/229139"
+      ],
+      "notes": "Catálogo confirma tercera edición de 1971, no fecha de primera edición."
+    },
+    {
+      "work_id": "1237-w004",
+      "title": "Conflictos étnicos y Estado nacional",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.persee.fr/authority/229139"
+      ],
+      "notes": "Catálogo documenta edición española de 2000; fecha de original pendiente."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1237-1",
+      "url": "https://www.memoriapoliticademexico.org/Textos/6Revolucion/1965-7TAL-RS.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1237-2",
+      "url": "https://www.persee.fr/authority/229139"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1237-3",
+      "url": "https://historiaoral.colmex.mx/rodolfo-stavenhagen/"
+    }
+  ],
+  "research_notes": [
+    "Lote 124 preparado de forma aislada: el manifiesto principal permanece en lote 120 hasta la integración previa de 121–123.",
+    "Bibliografía selectiva y sujeta a auditoría editorial fina. No inferir obras sin fuentes."
+  ]
+}

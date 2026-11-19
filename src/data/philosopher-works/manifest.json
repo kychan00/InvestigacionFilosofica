@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1230,
-    "authors_remaining": 274,
-    "works_or_contributions_seeded": 10766,
-    "current_batch": "123",
+    "authors_seeded": 1240,
+    "authors_remaining": 264,
+    "works_or_contributions_seeded": 10802,
+    "current_batch": "124",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6427,6 +6427,58 @@
       "author_id": 1230,
       "canonical_name": "Gérard Pierre-Charles",
       "path": "authors/1230.json"
+    }
+  ],
+  "batch_124": [
+    {
+      "author_id": 1231,
+      "canonical_name": "Mario Arrubla",
+      "path": "authors/1231.json"
+    },
+    {
+      "author_id": 1232,
+      "canonical_name": "Salomón Kalmanovitz",
+      "path": "authors/1232.json"
+    },
+    {
+      "author_id": 1233,
+      "canonical_name": "Jesús Antonio Bejarano",
+      "path": "authors/1233.json"
+    },
+    {
+      "author_id": 1234,
+      "canonical_name": "Carlos Tablada",
+      "path": "authors/1234.json"
+    },
+    {
+      "author_id": 1235,
+      "canonical_name": "Walter Rodney",
+      "path": "authors/1235.json"
+    },
+    {
+      "author_id": 1236,
+      "canonical_name": "Marcos Roitman",
+      "path": "authors/1236.json"
+    },
+    {
+      "author_id": 1237,
+      "canonical_name": "Rodolfo Stavenhagen",
+      "path": "authors/1237.json"
+    },
+    {
+      "author_id": 1238,
+      "canonical_name": "Josef Estermann",
+      "path": "authors/1238.json"
+    },
+    {
+      "author_id": 1239,
+      "canonical_name": "Luis Razeto Migliaro",
+      "path": "authors/1239.json"
+    },
+    {
+      "author_id": 1240,
+      "canonical_name": "Aquiles Montoya",
+      "path": "authors/1240.json"
     }
   ]
 }

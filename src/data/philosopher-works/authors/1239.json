@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "author_id": 1239,
+  "canonical_name": "Luis Razeto Migliaro",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1239-w001",
+      "title": "Economía de solidaridad y mercado democrático",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://socioeco.org/bdf_fiche-document-137_it.html"
+      ],
+      "notes": "Obra en varios libros o partes: el título de serie se registra una vez sin inventar fechas de cada tomo."
+    },
+    {
+      "work_id": "1239-w002",
+      "title": "De la economía popular a la economía de solidaridad en un proyecto de desarrollo alternativo",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www2.socioeco.org/bdf_motcle-geo-3_es.html"
+      ],
+      "notes": "Atribución y título documentados en la fuente bibliográfica citada."
+    },
+    {
+      "work_id": "1239-w003",
+      "title": "La economía de solidaridad: concepto, realidad y proyecto",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://socioeco.org/bdf_fiche-document-137_it.html"
+      ],
+      "notes": "Revista Persona y Sociedad, XIII(2)."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1239-1",
+      "url": "https://socioeco.org/bdf_fiche-document-137_it.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1239-2",
+      "url": "https://www2.socioeco.org/bdf_motcle-geo-3_es.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1239-3",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=2343111"
+    }
+  ],
+  "research_notes": [
+    "Lote 124 preparado de forma aislada: el manifiesto principal permanece en lote 120 hasta la integración previa de 121–123.",
+    "Bibliografía selectiva y sujeta a auditoría editorial fina. No inferir obras sin fuentes."
+  ]
+}

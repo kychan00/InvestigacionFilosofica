@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "author_id": 1238,
+  "canonical_name": "Josef Estermann",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1238-w001",
+      "title": "Filosofía andina: estudio intercultural de la sabiduría autóctona andina",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://koha.unl.edu.ec/bib/13166"
+      ],
+      "notes": "La edición de 2006 aparece como Filosofía andina: sabiduría indígena para un mundo nuevo; se trata como evolución editorial de la obra hasta cotejo de versiones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1238-1",
+      "url": "https://koha.unl.edu.ec/bib/13166"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1238-2",
+      "url": "https://biblioteca.casadelacultura.gob.ec/bib/70189"
+    }
+  ],
+  "research_notes": [
+    "Lote 124 preparado de forma aislada: el manifiesto principal permanece en lote 120 hasta la integración previa de 121–123.",
+    "Bibliografía selectiva y sujeta a auditoría editorial fina. No inferir obras sin fuentes."
+  ]
+}
