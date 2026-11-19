@@ -222,6 +222,7 @@ function recordKeywords(record, limit = 3) {
   const seen = new Set();
 
   const add = keyword => {
+    if (keyword?.provenance === "inferred") return;
     const term = String(keyword?.term || "").trim();
     const key = normalizeText(term);
     if (!term || seen.has(key)) return;
@@ -554,7 +555,7 @@ function coverageText(record) {
     return "Selección bibliográfica en expansión · no exhaustiva";
   }
   if (status) return humanize(status);
-  return "Cobertura bibliográfica en construcción";
+  return "Cobertura bibliográfica documentada en esta ficha";
 }
 
 function workYear(work) {
