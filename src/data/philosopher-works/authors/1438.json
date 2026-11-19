@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "author_id": 1438,
+  "canonical_name": "Jesús Acevedo",
+  "alternate_names": [
+    "Jesús T. Acevedo",
+    "Jesús Tito Acevedo"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1438-w001",
+      "title": "Apariencias arquitectónicas",
+      "work_type": "conference_lecture",
+      "original_language": "español",
+      "original_date": {
+        "year": 1907,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1907,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Conferencias_del_ateneo_de_la_juventud.html?id=XcC9qHH4S-EC"
+      ],
+      "notes": "Conferencia de la Sociedad de Conferencias, antecedente inmediato del Ateneo de la Juventud."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Arquitecto e intelectual mexicano del círculo que dio origen al Ateneo de la Juventud; promovió una reflexión humanística sobre arquitectura, arte y cultura nacional.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNAM — Conferencias del Ateneo de la Juventud",
+      "url": "https://books.google.com/books/about/Conferencias_del_ateneo_de_la_juventud.html?id=XcC9qHH4S-EC"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Historia del periodismo cultural — Sociedad de Conferencias y Jesús T. Acevedo",
+      "url": "https://www.academia.edu/144907806/Constancia_de_la_fugacidad_Contribuciones_a_la_historia_del_periodismo_cultural_en_M%C3%A9xico_siglo_XX"
+    }
+  ],
+  "research_notes": [
+    "La ficha se limita a la conferencia cuya autoría y pertenencia al ciclo intelectual de 1907 están claramente documentadas.",
+    "No se atribuyen a Acevedo textos arquitectónicos de otros miembros del Ateneo."
+  ]
+}
