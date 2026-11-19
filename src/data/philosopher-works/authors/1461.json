@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "author_id": 1461,
+  "canonical_name": "Germán Gutiérrez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1461-w001",
+      "title": "Itinerarios de la razón crítica: homenaje a Franz Hinkelammert en sus 70 años",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "José Duque"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9977831270",
+          "9789977831275"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books?id=4V1aAAAAMAAJ"
+      ],
+      "notes": "Volumen homenaje editado por José Duque y Germán Gutiérrez; no se atribuyen a Gutiérrez los capítulos de otros autores."
+    },
+    {
+      "work_id": "1461-w002",
+      "title": "Metafísica y ética en el pensamiento de Hegel",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.produccioncientificaluz.org/index.php/utopia/article/view/2635"
+      ],
+      "notes": "Utopía y Praxis Latinoamericana 8(21); estudio de sujeto, ley, historia, metafísica y ética hegeliana."
+    },
+    {
+      "work_id": "1461-w003",
+      "title": "Vulnerabilidad, corporalidad, sujeto y política popular",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://deicr.org/wp-content/uploads/2025/05/00121-Pasos-2005.pdf"
+      ],
+      "notes": "Pasos, segunda época, n.º 121, septiembre-octubre de 2005."
+    },
+    {
+      "work_id": "1461-w004",
+      "title": "Neurobiología y contenido material universal de la ética: reflexiones a partir del modelo neurobiológico de Antonio Damasio",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://produccioncientificaluz.org/index.php/utopia/article/view/2735"
+      ],
+      "notes": "Utopía y Praxis Latinoamericana 11(33); reflexión filosófica sobre ética material y neurobiología."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigador y miembro del consejo editorial del Departamento Ecuménico de Investigaciones (DEI), vinculado a teoría crítica, ética, sujeto, corporalidad y filosofía de la liberación.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "DEI — Pasos 121",
+      "url": "https://deicr.org/wp-content/uploads/2025/05/00121-Pasos-2005.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Utopía y Praxis Latinoamericana — Metafísica y ética en Hegel",
+      "url": "https://www.produccioncientificaluz.org/index.php/utopia/article/view/2635"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Utopía y Praxis Latinoamericana — Neurobiología y ética",
+      "url": "https://produccioncientificaluz.org/index.php/utopia/article/view/2735"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Google Books — Itinerarios de la razón crítica",
+      "url": "https://books.google.com/books?id=4V1aAAAAMAAJ"
+    }
+  ],
+  "research_notes": [
+    "La ficha se mantiene conservadora por la alta homonimia del nombre Germán Gutiérrez.",
+    "Solo se incorporan textos donde la afiliación al DEI o la relación editorial con Franz Hinkelammert permite identificar inequívocamente al autor."
+  ]
+}

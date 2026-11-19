@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 1465,
+  "canonical_name": "José Manuel Peramàs",
+  "alternate_names": [
+    "José Manuel Peramás"
+  ],
+  "life": {
+    "birth_year": 1732,
+    "death_year": 1793
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1465-w001",
+      "title": "De invento Novo orbe",
+      "work_type": "poem",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1777,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1777,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoria.fahce.unlp.edu.ar/libros/pm.4784/pm.4784.pdf"
+      ],
+      "notes": "Poema latino sobre el descubrimiento del Nuevo Mundo; citado entre sus obras principales."
+    },
+    {
+      "work_id": "1465-w002",
+      "title": "De vita et moribus sex sacerdotum paraguaycorum",
+      "work_type": "book",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1791,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1791,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1102979",
+        "https://www.memoria.fahce.unlp.edu.ar/libros/pm.4784/pm.4784.pdf"
+      ],
+      "notes": "Faenza: Ex Typographia Archii, 1791; seis biografías jesuíticas."
+    },
+    {
+      "work_id": "1465-w003",
+      "title": "De administratione guaranica comparata ad Rempublicam Platonis commentarius",
+      "work_type": "philosophical_political_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1793,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1793,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.filo.uba.ar/index.php/avatares/article/view/3153",
+        "https://www.memoria.fahce.unlp.edu.ar/libros/pm.4784/pm.4784.pdf"
+      ],
+      "notes": "Tratado comparativo entre la República/Leyes de Platón y la organización de las misiones guaraníes; publicado en 1793 dentro de De vita et moribus tredecim virorum paraguaycorum."
+    },
+    {
+      "work_id": "1465-w004",
+      "title": "De vita et moribus tredecim virorum paraguaycorum",
+      "work_type": "book",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1793,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1793,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoria.fahce.unlp.edu.ar/libros/pm.4784/pm.4784.pdf",
+        "https://revistas.filo.uba.ar/index.php/avatares/article/view/3153"
+      ],
+      "notes": "Faenza, 1793; contiene trece biografías y el tratado sobre la administración guaraní."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita catalán que vivió y enseñó en el Río de la Plata; autor de una temprana comparación filosófico-política entre las reducciones guaraníes y la República de Platón.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "ADABI — De vita et moribus sex sacerdotum paraguaycorum",
+      "url": "https://www.adabi.org.mx/vufind/Record/1102979"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNLP — estudio sobre el Diario del destierro y bibliografía de Peramás",
+      "url": "https://www.memoria.fahce.unlp.edu.ar/libros/pm.4784/pm.4784.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Universidad de Buenos Aires — estudio sobre De administratione guaranica",
+      "url": "https://revistas.filo.uba.ar/index.php/avatares/article/view/3153"
+    }
+  ],
+  "research_notes": [
+    "La República de Platón y los guaraníes (1946) es una traducción moderna de De administratione guaranica y no se cuenta como obra nueva.",
+    "El tratado de 1793 es textualmente independiente aunque aparezca editorialmente dentro del volumen de trece biografías; por eso se registra como unidad filosófica propia y se documenta su relación."
+  ]
+}
