@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 1432,
+  "canonical_name": "Porfirio Parra",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1854,
+    "death_year": 1912
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1432-w001",
+      "title": "Estudios filosóficos",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1896,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1896,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://academia.org.mx/academicos-1909/item/porfirio-parra-2?category_id=2269"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1432-w002",
+      "title": "La ciencia en México",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1902,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/2561"
+      ],
+      "notes": "Capítulo incorporado al segundo tomo de México. Su evolución social."
+    },
+    {
+      "work_id": "1432-w003",
+      "title": "Nuevo sistema de lógica inductiva y deductiva",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1903,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1903,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1121678"
+      ],
+      "notes": "Tratado en dos tomos publicado en 1903; se cuenta como una sola obra."
+    },
+    {
+      "work_id": "1432-w004",
+      "title": "Estudio histórico sociológico de la Reforma",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1906,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1906,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://academia.org.mx/academicos-1909/item/porfirio-parra-2?category_id=2269"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Médico, lógico y filósofo positivista mexicano; profesor de la Escuela Nacional Preparatoria y autor de un sistema de lógica adoptado como texto de enseñanza.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Academia Mexicana de la Lengua — Porfirio Parra",
+      "url": "https://academia.org.mx/academicos-1909/item/porfirio-parra-2?category_id=2269"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "ADABI — Nuevo sistema de lógica inductiva y deductiva",
+      "url": "https://www.adabi.org.mx/vufind/Record/1121678"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Enciclopedia de la Literatura en México — Porfirio Parra",
+      "url": "https://www.elem.mx/autor/datos/2561"
+    }
+  ],
+  "research_notes": [
+    "La traducción del Discurso sobre el espíritu positivo de Comte se documenta como actividad intelectual de Parra, pero no se incorpora aquí sin fijar con seguridad la edición original mexicana.",
+    "El tratado lógico de 1903 se cuenta una sola vez pese a estar dividido en dos tomos."
+  ]
+}

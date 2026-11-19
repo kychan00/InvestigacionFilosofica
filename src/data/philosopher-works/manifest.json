@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1430,
-    "authors_remaining": 74,
-    "works_or_contributions_seeded": 12295,
-    "current_batch": "143",
+    "authors_seeded": 1440,
+    "authors_remaining": 64,
+    "works_or_contributions_seeded": 12349,
+    "current_batch": "144",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7467,6 +7467,58 @@
       "author_id": 1430,
       "canonical_name": "Benjamín Vicuña Mackenna",
       "path": "authors/1430.json"
+    }
+  ],
+  "batch_144": [
+    {
+      "author_id": 1431,
+      "canonical_name": "Agustín Aragón",
+      "path": "authors/1431.json"
+    },
+    {
+      "author_id": 1432,
+      "canonical_name": "Porfirio Parra",
+      "path": "authors/1432.json"
+    },
+    {
+      "author_id": 1433,
+      "canonical_name": "Miguel Covarrubias",
+      "path": "authors/1433.json"
+    },
+    {
+      "author_id": 1434,
+      "canonical_name": "Protasio Tagle",
+      "path": "authors/1434.json"
+    },
+    {
+      "author_id": 1435,
+      "canonical_name": "Mario Casanueva López",
+      "path": "authors/1435.json"
+    },
+    {
+      "author_id": 1436,
+      "canonical_name": "José Luis Barrios",
+      "path": "authors/1436.json"
+    },
+    {
+      "author_id": 1437,
+      "canonical_name": "Osvaldo Lira",
+      "path": "authors/1437.json"
+    },
+    {
+      "author_id": 1438,
+      "canonical_name": "Jesús Acevedo",
+      "path": "authors/1438.json"
+    },
+    {
+      "author_id": 1439,
+      "canonical_name": "Diego Rivera",
+      "path": "authors/1439.json"
+    },
+    {
+      "author_id": 1440,
+      "canonical_name": "Carlos González Peña",
+      "path": "authors/1440.json"
     }
   ]
 }
