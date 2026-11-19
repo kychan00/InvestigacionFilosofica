@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "author_id": 1276,
+  "canonical_name": "Rigoberta Menchú",
+  "alternate_names": [
+    "Rigoberta Menchú Tum"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1276-w001",
+      "title": "Me llamo Rigoberta Menchú y así me nació la conciencia",
+      "work_type": "testimony",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enciclopedia.udg.mx/biografias/menchu-tum-rigoberta"
+      ],
+      "notes": "La Enciclopedia UdeG fecha la publicación en 1983; la obra tiene mediación editorial de Elisabeth Burgos, que no se confunde con autoría exclusiva de ésta."
+    },
+    {
+      "work_id": "1276-w002",
+      "title": "Rigoberta, la nieta de los mayas",
+      "work_type": "memoir",
+      "original_language": "español",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Gianni Minà",
+        "Dante Liano"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.loc.gov/item/hlas-bi98014319/"
+      ],
+      "notes": "La Library of Congress registra la colaboración de Gianni Minà y Dante Liano; la edición inglesa apareció como Crossing Borders."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Lideresa indígena maya k'iche' y referente internacional de los derechos de los pueblos indígenas, la memoria testimonial y la denuncia de la violencia en Guatemala.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1276-1",
+      "url": "https://enciclopedia.udg.mx/biografias/menchu-tum-rigoberta"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1276-2",
+      "url": "https://www.loc.gov/item/hlas-bi98014319/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1276-3",
+      "url": "https://www.penguinrandomhouse.com/books/232827/i-rigoberta-menchu-by-rigoberta-menchu/9781804296004/"
+    }
+  ],
+  "research_notes": [
+    "Lote 128 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–127 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y contenidos internos de volúmenes colectivos no se cuentan automáticamente como obras nuevas."
+  ]
+}

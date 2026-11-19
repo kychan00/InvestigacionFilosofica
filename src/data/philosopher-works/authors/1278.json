@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 1278,
+  "canonical_name": "Edward Glissant",
+  "alternate_names": [
+    "Édouard Glissant"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1278-w001",
+      "title": "Soleil de la conscience",
+      "work_type": "essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb37428511d"
+      ],
+      "notes": "Edición original documentada por BnF en 1956."
+    },
+    {
+      "work_id": "1278-w002",
+      "title": "L'intention poétique",
+      "work_type": "essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb376645348.public"
+      ],
+      "notes": "Edición de Seuil documentada por BnF en 1969."
+    },
+    {
+      "work_id": "1278-w003",
+      "title": "Le discours antillais",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb36599839b"
+      ],
+      "notes": "Edición de Seuil documentada por BnF en 1981."
+    },
+    {
+      "work_id": "1278-w004",
+      "title": "Poétique de la relation",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb366447317"
+      ],
+      "notes": "Edición de Gallimard documentada por BnF en 1990."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensador y escritor martiniqués de la relación, la créolisation y la opacidad, decisivo para el pensamiento antillano y poscolonial.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1278-1",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb37428511d"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1278-2",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb376645348.public"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1278-3",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb36599839b"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1278-4",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb366447317"
+    }
+  ],
+  "research_notes": [
+    "Lote 128 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–127 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y contenidos internos de volúmenes colectivos no se cuentan automáticamente como obras nuevas."
+  ]
+}
