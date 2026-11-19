@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 1325,
+  "canonical_name": "Mario Ciudad",
+  "alternate_names": [
+    "Mario Ciudad Vásquez"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1325-w001",
+      "title": "La relación hombre-mundo en Goethe",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.revistafilosofia.uchile.cl/index.php/RDF/article/view/41058"
+      ],
+      "notes": "DOI 10.5354/0718-4360.1949.41058."
+    },
+    {
+      "work_id": "1325-w002",
+      "title": "La certeza cartesiana y el problematismo contemporáneo",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.revistas.uchile.cl/index.php/RDF/article/view/46058"
+      ],
+      "notes": "Publicado en Revista de Filosofía, Universidad de Chile."
+    },
+    {
+      "work_id": "1325-w003",
+      "title": "Dialéctica de las imágenes",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0050429.pdf"
+      ],
+      "notes": "Publicado en Anales de la Universidad de Chile."
+    },
+    {
+      "work_id": "1325-w004",
+      "title": "Los mundos del hombre",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.udec.cl/atenea/article/view/20563"
+      ],
+      "notes": "Atenea nº 449; la relación con una eventual edición en libro requiere cotejo bibliográfico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo y profesor chileno vinculado a la Universidad de Chile y a la institucionalización de la Revista de Filosofía.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1325-1",
+      "url": "https://www.revistafilosofia.uchile.cl/index.php/RDF/article/view/41058"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1325-2",
+      "url": "https://www.revistas.uchile.cl/index.php/RDF/article/view/46058"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1325-3",
+      "url": "https://www.memoriachilena.gob.cl/archivos2/pdfs/MC0050429.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1325-4",
+      "url": "https://revistas.udec.cl/atenea/article/view/20563"
+    }
+  ],
+  "research_notes": [
+    "Se priorizan artículos confirmados en repositorios universitarios y no se agregan títulos solo citados por bibliografías secundarias.",
+    "Los mundos del hombre aparece como artículo de 1984; una eventual versión-libro debe auditarse por separado."
+  ]
+}
