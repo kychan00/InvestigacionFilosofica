@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "author_id": 1163,
+  "canonical_name": "Hipólito Rodríguez Piñeiro",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1932,
+    "death_year": 2020
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1163-w001",
+      "title": "“Crítica de la Razón Pura”, por Juan de Dios Vial Larraín",
+      "work_type": "book_review",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "review_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://philpapers.org/rec/PIECDL-2"
+      ],
+      "notes": "Cuadernos de Filosofía 16(24), p. 151; reseña, no obra de Vial Larraín atribuida a Rodríguez Piñeiro."
+    },
+    {
+      "work_id": "1163-w002",
+      "title": "Fenomenología, hermenéutica y diferencia",
+      "work_type": "doctoral_thesis_or_published_study",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliotecahum.unsa.edu.ar/fenomenologia-hermeneutica-y-diferencia/"
+      ],
+      "notes": "La Biblioteca de Humanidades de la UNSa indica que el texto corresponde a la introducción de la tesis doctoral presentada y aprobada en la UBA en febrero de 1989; también fue ponencia en el XII Congreso Interamericano de Filosofía."
+    },
+    {
+      "work_id": "1163-w003",
+      "title": "Lenguaje y mundo",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/ejemplar/150638"
+      ],
+      "notes": "Serta: Revista iberorrománica de poesía y pensamiento poético, n.º 6, p. 71."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor y dos veces decano de la Facultad de Humanidades de la Universidad Nacional de Salta; miembro fundador de la Asociación Filosófica Argentina.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNSa — Fenomenología, hermenéutica y diferencia",
+      "url": "https://bibliotecahum.unsa.edu.ar/fenomenologia-hermeneutica-y-diferencia/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "PhilPapers — reseña de 1976",
+      "url": "https://philpapers.org/rec/PIECDL-2"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dialnet — Serta n.º 6, 2001",
+      "url": "https://dialnet.unirioja.es/ejemplar/150638"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "El Tribuno — In memoriam Hipólito Rodríguez Piñeiro",
+      "url": "https://www.eltribuno.com/nota/2020-12-14-0-21-0-in-memoriam-del-filosofo-hipolito-rodriguez-pineiro/amp"
+    }
+  ],
+  "research_notes": [
+    "Fuentes bibliográficas registran la tesis también bajo la forma Fenomenología, hermenéutica y lenguaje. Se trata como una discrepancia de título y no como una segunda obra autónoma.",
+    "La reseña de 1976 se clasifica expresamente como reseña para no atribuirle el libro reseñado."
+  ]
+}

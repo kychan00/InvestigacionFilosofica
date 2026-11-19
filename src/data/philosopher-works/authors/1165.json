@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "author_id": 1165,
+  "canonical_name": "Alirio Rosales",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1165-w001",
+      "title": "The Narrative Structure of Scientific Theorizing",
+      "work_type": "doctoral_thesis",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.14288/1.0165929",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/BVAU/TC-BVAU-49982.pdf"
+      ],
+      "notes": "Tesis doctoral en Philosophy, University of British Columbia, agosto de 2014."
+    },
+    {
+      "work_id": "1165-w002",
+      "title": "Scientific Explanation and Trade-Offs Between Explanatory Virtues",
+      "work_type": "journal_article",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2019,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Adam Morton"
+      ],
+      "identifiers": {
+        "doi": "10.1007/s10699-019-09645-0",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://philpapers.org/rec/ROSSEA-7"
+      ],
+      "notes": "Foundations of Science 26(4), pp. 1075–1087; publicación en línea en 2019."
+    },
+    {
+      "work_id": "1165-w003",
+      "title": "The origins of the stochastic theory of population genetics: The Wright-Fisher model",
+      "work_type": "journal_article",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2020,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2020,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Yoichi Ishida"
+      ],
+      "identifiers": {
+        "doi": "10.1016/j.shpsc.2019.101226",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S1369848619300639"
+      ],
+      "notes": "Studies in History and Philosophy of Biological and Biomedical Sciences, vol. 79, art. 101226."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigador en filosofía de la ciencia, explicación científica e historia conceptual de la biología; obtuvo el doctorado en Filosofía en la University of British Columbia.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Theses Canada — The Narrative Structure of Scientific Theorizing",
+      "url": "https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/BVAU/TC-BVAU-49982.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "PhilPapers — Scientific Explanation and Trade-Offs Between Explanatory Virtues",
+      "url": "https://philpapers.org/rec/ROSSEA-7"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "ScienceDirect — The origins of the stochastic theory of population genetics",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1369848619300639"
+    }
+  ],
+  "research_notes": [
+    "Se incorporan únicamente trabajos con identidad, autoría y fecha inequívocas; se excluyen por ahora registros homónimos o artículos antiguos sin fecha suficientemente establecida.",
+    "El artículo de Foundations of Science se registra por su publicación en línea de 2019, aunque el volumen impreso 26(4) corresponde a una aparición posterior."
+  ]
+}

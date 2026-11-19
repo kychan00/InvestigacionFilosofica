@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 1161,
+  "canonical_name": "Margarita Costa",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1926
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1161-w001",
+      "title": "La filosofía británica en los siglos XVII y XVIII",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/phm/mco.htm"
+      ],
+      "notes": "Buenos Aires: Fundec, 253 pp."
+    },
+    {
+      "work_id": "1161-w002",
+      "title": "El empirismo coherente de Hume",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/phm/mco.htm"
+      ],
+      "notes": "Buenos Aires: Prometeo Libros, 220 pp."
+    },
+    {
+      "work_id": "1161-w003",
+      "title": "La benevolencia ilustrada en la moral social de Hume",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/ejemplar/393926"
+      ],
+      "notes": "Páginas de Filosofía 3(1), pp. 1–6."
+    },
+    {
+      "work_id": "1161-w004",
+      "title": "El utilitarismo de Hume",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/ejemplar/674732"
+      ],
+      "notes": "Telos: Revista iberoamericana de estudios utilitaristas 3(2), pp. 9–28."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesora de filosofía moderna en UNLP y UBA; miembro fundadora de la Asociación Filosófica Argentina y del Centro de Investigaciones Filosóficas, y presidenta de la Asociación de Estudios Hobbesianos.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Centro de Documentación de la Filosofía — Margarita Costa",
+      "url": "https://www.filosofia.net/ddf/phm/mco.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dialnet — Páginas de Filosofía 3(1), 1993",
+      "url": "https://dialnet.unirioja.es/ejemplar/393926"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dialnet — Telos 3(2), 1994",
+      "url": "https://dialnet.unirioja.es/ejemplar/674732"
+    }
+  ],
+  "research_notes": [
+    "La bibliografía se limita a obras y artículos con título, fecha y autoría verificables en las fuentes consultadas.",
+    "No se infiere año de fallecimiento a partir de homenajes posteriores."
+  ]
+}

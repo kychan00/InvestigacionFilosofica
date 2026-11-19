@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1160,
-    "authors_remaining": 344,
-    "works_or_contributions_seeded": 10311,
-    "current_batch": "116",
+    "authors_seeded": 1170,
+    "authors_remaining": 334,
+    "works_or_contributions_seeded": 10403,
+    "current_batch": "117",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6063,6 +6063,58 @@
       "author_id": 1160,
       "canonical_name": "Osvaldo Guariglia",
       "path": "authors/1160.json"
+    }
+  ],
+  "batch_117": [
+    {
+      "author_id": 1161,
+      "canonical_name": "Margarita Costa",
+      "path": "authors/1161.json"
+    },
+    {
+      "author_id": 1162,
+      "canonical_name": "Daniel Brauer",
+      "path": "authors/1162.json"
+    },
+    {
+      "author_id": 1163,
+      "canonical_name": "Hipólito Rodríguez Piñeiro",
+      "path": "authors/1163.json"
+    },
+    {
+      "author_id": 1164,
+      "canonical_name": "Graciela Fernández",
+      "path": "authors/1164.json"
+    },
+    {
+      "author_id": 1165,
+      "canonical_name": "Alirio Rosales",
+      "path": "authors/1165.json"
+    },
+    {
+      "author_id": 1166,
+      "canonical_name": "Rafael Tomás Caldera",
+      "path": "authors/1166.json"
+    },
+    {
+      "author_id": 1167,
+      "canonical_name": "Gustavo Sarmiento",
+      "path": "authors/1167.json"
+    },
+    {
+      "author_id": 1168,
+      "canonical_name": "Rubén Tani",
+      "path": "authors/1168.json"
+    },
+    {
+      "author_id": 1169,
+      "canonical_name": "Sandino Núñez",
+      "path": "authors/1169.json"
+    },
+    {
+      "author_id": 1170,
+      "canonical_name": "Bernabé Navarro",
+      "path": "authors/1170.json"
     }
   ]
 }
