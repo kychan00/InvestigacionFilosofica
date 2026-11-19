@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1240,
-    "authors_remaining": 264,
-    "works_or_contributions_seeded": 10802,
-    "current_batch": "124",
+    "authors_seeded": 1250,
+    "authors_remaining": 254,
+    "works_or_contributions_seeded": 10903,
+    "current_batch": "125",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6479,6 +6479,58 @@
       "author_id": 1240,
       "canonical_name": "Aquiles Montoya",
       "path": "authors/1240.json"
+    }
+  ],
+  "batch_125": [
+    {
+      "author_id": 1241,
+      "canonical_name": "Luis Coraggio",
+      "path": "authors/1241.json"
+    },
+    {
+      "author_id": 1242,
+      "canonical_name": "Marta Harnecker",
+      "path": "authors/1242.json"
+    },
+    {
+      "author_id": 1243,
+      "canonical_name": "Manfred Max-Neef",
+      "path": "authors/1243.json"
+    },
+    {
+      "author_id": 1244,
+      "canonical_name": "Carlos Lenkersdorf",
+      "path": "authors/1244.json"
+    },
+    {
+      "author_id": 1245,
+      "canonical_name": "Miguel León-Portilla",
+      "path": "authors/1245.json"
+    },
+    {
+      "author_id": 1246,
+      "canonical_name": "Mercedes de la Garza",
+      "path": "authors/1246.json"
+    },
+    {
+      "author_id": 1247,
+      "canonical_name": "Carlos Viteri",
+      "path": "authors/1247.json"
+    },
+    {
+      "author_id": 1248,
+      "canonical_name": "Félix Báez",
+      "path": "authors/1248.json"
+    },
+    {
+      "author_id": 1249,
+      "canonical_name": "Arturo Warman",
+      "path": "authors/1249.json"
+    },
+    {
+      "author_id": 1250,
+      "canonical_name": "Julio de Santa Ana",
+      "path": "authors/1250.json"
     }
   ]
 }

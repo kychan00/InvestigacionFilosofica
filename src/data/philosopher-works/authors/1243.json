@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "author_id": 1243,
+  "canonical_name": "Manfred Max-Neef",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1243-w001",
+      "title": "From the Outside Looking In: Experiences in ‘Barefoot Economics’",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.daghammarskjold.se/wp-content/uploads/1985/08/85_2.pdf"
+      ],
+      "notes": "Edición original de Dag Hammarskjöld Foundation; reediciones posteriores no se duplican."
+    },
+    {
+      "work_id": "1243-w002",
+      "title": "Desarrollo a escala humana: una opción para el futuro",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Antonio Elizalde",
+        "Martín Hopenhayn"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.academia.cl/cgi-bin/koha/opac-detail.pl?biblionumber=9804"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1243-w003",
+      "title": "Real-Life Economics: Understanding Wealth Creation",
+      "work_type": "edited_volume",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Paul Ekins"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ucc2.socioeco.org/bdf_auteur-907_es.html"
+      ],
+      "notes": "Volumen colectivo coeditado; no atribuir a Max-Neef todos sus capítulos."
+    },
+    {
+      "work_id": "1243-w004",
+      "title": "La dimensión perdida: la inmensidad de la medida humana",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ucc2.socioeco.org/bdf_auteur-907_es.html"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1243-w005",
+      "title": "Economics Unmasked: From Power and Greed to Compassion and the Common Good",
+      "work_type": "coauthored_book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Philip B. Smith"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bloomsbury.com/uk/economics-unmasked-9780857840318/"
+      ],
+      "notes": "La traducción española posterior no se cuenta como nueva obra."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Economista chileno-alemán asociado al desarrollo a escala humana y a la llamada economía descalza.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1243-1",
+      "url": "https://www.daghammarskjold.se/wp-content/uploads/1985/08/85_2.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1243-2",
+      "url": "https://catalogo.academia.cl/cgi-bin/koha/opac-detail.pl?biblionumber=9804"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1243-3",
+      "url": "https://ucc2.socioeco.org/bdf_auteur-907_es.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1243-4",
+      "url": "https://www.bloomsbury.com/uk/economics-unmasked-9780857840318/"
+    }
+  ],
+  "research_notes": [
+    "Human Scale Development (1991) amplía y traduce el núcleo publicado en 1986; se evita duplicarlo en esta fase.",
+    "La economía descalza (1986) es traducción/adaptación de From the Outside Looking In (1982) y no se duplica."
+  ]
+}
