@@ -225,3 +225,96 @@ test(
     }
   }
 );
+
+
+test(
+  "recupera ediciones de Internet Archive con creador abreviado si el título está corroborado",
+  async () => {
+    const archiveQueries = [];
+    const result = await resolveFederatedAuthor(
+      "Georg Wilhelm Friedrich Hegel",
+      {
+        disableCucsh: true,
+        crossrefSearchImpl: async expansion =>
+          expansion.query === "Georg Wilhelm Friedrich Hegel"
+            ? [{
+                id: "crossref:phenomenology",
+                title: "Fenomenología del Espíritu",
+                year: 2022,
+                authors: [{
+                  id: null,
+                  name: "Georg Wilhelm Friedrich Hegel"
+                }],
+                providers: ["Crossref"]
+              }]
+            : [],
+        archiveSearchImpl: async expansion => {
+          archiveQueries.push(expansion.query);
+          return expansion.query.toLowerCase() === "hegel"
+            ? [{
+                id: "internetarchive:hegel-fenomenologia-1989",
+                title: "Hegel, Fenomenología Del Espíritu",
+                year: 1989,
+                authors: [{id:null,name:"Hegel"}],
+                providers: ["Internet Archive"]
+              }]
+            : [];
+        }
+      }
+    );
+
+    assert.equal(result.status, "resolved");
+    assert.ok(archiveQueries.includes("hegel"));
+    assert.equal(result.works.length, 2);
+    const archive = result.works.find(work =>
+      work.id === "internetarchive:hegel-fenomenologia-1989"
+    );
+    assert.ok(archive);
+    assert.equal(
+      archive.authorIdentity.evidence,
+      "surname-title-corroborated"
+    );
+    assert.ok(
+      result.author.catalogSources.includes("Internet Archive")
+    );
+  }
+);
+
+
+test(
+  "no acepta un creador de solo apellido si el título no está corroborado",
+  async () => {
+    const result = await resolveFederatedAuthor(
+      "Georg Wilhelm Friedrich Hegel",
+      {
+        disableCucsh: true,
+        crossrefSearchImpl: async () => [{
+          id: "crossref:logic",
+          title: "Science of Logic",
+          year: 2010,
+          authors: [{
+            id: null,
+            name: "Georg Wilhelm Friedrich Hegel"
+          }],
+          providers: ["Crossref"]
+        }],
+        archiveSearchImpl: async expansion =>
+          expansion.query.toLowerCase() === "hegel"
+            ? [{
+                id: "internetarchive:noise",
+                title: "A Biography of Hegel",
+                year: 1990,
+                authors: [{id:null,name:"Hegel"}],
+                providers: ["Internet Archive"]
+              }]
+            : []
+      }
+    );
+
+    assert.equal(result.status, "resolved");
+    assert.equal(
+      result.works.some(work => work.id === "internetarchive:noise"),
+      false
+    );
+  }
+);
