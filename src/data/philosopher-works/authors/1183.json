@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 1183,
+  "canonical_name": "Mario Heler",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1183-w001",
+      "title": "El conocimiento científico: hacia una visión crítica de la ciencia",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Esther Díaz"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliotecafcyt.uader.edu.ar/cgi-bin/opacmarc/wxis?IsisScript=opac%2Fxis%2Fopac.xis&db=fcyt&index=NAME&query=%5EaHeler%2C+Mario."
+      ],
+      "notes": "Catalogado en dos volúmenes; una sola unidad bibliográfica en esta primera fase."
+    },
+    {
+      "work_id": "1183-w002",
+      "title": "Ética y ciencia: la responsabilidad del martillo",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.iunir.edu.ar/cgi-bin/koha/opac-ISBDdetail.pl?biblionumber=3198"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1183-w003",
+      "title": "Ciencia incierta: la producción social del conocimiento",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.colibri.udelar.edu.uy/jspui/handle/20.500.12008/40370"
+      ],
+      "notes": "El catálogo UADER data una edición 2004; repositorio Udelar y reseña CONICET 2005: discrepancia editorial pendiente."
+    },
+    {
+      "work_id": "1183-w004",
+      "title": "Entre la producción y la acreditación",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://philpapers.org/rec/HELELP"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de filosofía en la UBA e investigador sobre epistemología, ética y producción social del conocimiento.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia bibliográfica o de autoridad",
+      "url": "https://bibliotecafcyt.uader.edu.ar/cgi-bin/opacmarc/wxis?IsisScript=opac%2Fxis%2Fopac.xis&db=fcyt&index=NAME&query=%5EaHeler%2C+Mario."
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia bibliográfica o de autoridad",
+      "url": "https://biblioteca.iunir.edu.ar/cgi-bin/koha/opac-ISBDdetail.pl?biblionumber=3198"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia bibliográfica o de autoridad",
+      "url": "https://www.colibri.udelar.edu.uy/jspui/handle/20.500.12008/40370"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia bibliográfica o de autoridad",
+      "url": "https://philpapers.org/rec/HELELP"
+    }
+  ],
+  "research_notes": [
+    "Ética y ciencia tiene segunda edición (1998), no contada aparte.",
+    "Ciencia incierta presenta discrepancia documental entre primera edición indicada por UADER (2004) y edición Biblos 2005 en Udelar: conservar revisión pendiente."
+  ]
+}

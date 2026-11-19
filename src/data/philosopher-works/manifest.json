@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1180,
-    "authors_remaining": 324,
-    "works_or_contributions_seeded": 10466,
-    "current_batch": "118",
+    "authors_seeded": 1190,
+    "authors_remaining": 314,
+    "works_or_contributions_seeded": 10550,
+    "current_batch": "119",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6167,6 +6167,58 @@
       "author_id": 1180,
       "canonical_name": "Esther Díaz",
       "path": "authors/1180.json"
+    }
+  ],
+  "batch_119": [
+    {
+      "author_id": 1181,
+      "canonical_name": "Marta López Gil",
+      "path": "authors/1181.json"
+    },
+    {
+      "author_id": 1182,
+      "canonical_name": "Tomás Abraham",
+      "path": "authors/1182.json"
+    },
+    {
+      "author_id": 1183,
+      "canonical_name": "Mario Heler",
+      "path": "authors/1183.json"
+    },
+    {
+      "author_id": 1184,
+      "canonical_name": "Carlos Jesús Delgado Díaz",
+      "path": "authors/1184.json"
+    },
+    {
+      "author_id": 1185,
+      "canonical_name": "Olivia Miranda Francisco",
+      "path": "authors/1185.json"
+    },
+    {
+      "author_id": 1186,
+      "canonical_name": "Rigoberto Pupo Pupo",
+      "path": "authors/1186.json"
+    },
+    {
+      "author_id": 1187,
+      "canonical_name": "Jesús A. Díaz",
+      "path": "authors/1187.json"
+    },
+    {
+      "author_id": 1188,
+      "canonical_name": "Ignacio Delgado González",
+      "path": "authors/1188.json"
+    },
+    {
+      "author_id": 1189,
+      "canonical_name": "Lourdes Rensoli",
+      "path": "authors/1189.json"
+    },
+    {
+      "author_id": 1190,
+      "canonical_name": "Alfredo Llanos",
+      "path": "authors/1190.json"
     }
   ]
 }
