@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "author_id": 1274,
+  "canonical_name": "Aimé Césaire",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1274-w001",
+      "title": "Cahier d'un retour au pays natal",
+      "work_type": "poem",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1939,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb11935061w"
+      ],
+      "notes": "Primera versión aparecida en 1939; primera edición francesa en 1947 y edición definitiva en 1956, según BnF."
+    },
+    {
+      "work_id": "1274-w002",
+      "title": "Les armes miraculeuses",
+      "work_type": "poetry_collection",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/resultats-autorite-avancee.do?index=OEUV3&numNotice=11895780&pageRech=rat"
+      ],
+      "notes": "La autoridad BnF fecha la obra en 1946."
+    },
+    {
+      "work_id": "1274-w003",
+      "title": "Discours sur le colonialisme",
+      "work_type": "essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb319214762.public"
+      ],
+      "notes": "Edición original documentada por BnF en 1950."
+    },
+    {
+      "work_id": "1274-w004",
+      "title": "Une tempête",
+      "work_type": "play",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/ark:/12148/cb394617508.public"
+      ],
+      "notes": "Creación escénica documentada en Hammamet en 1969; adaptación de Shakespeare para un teatro negro."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Poeta, dramaturgo y pensador martiniqués central para la négritude y la crítica anticolonial del siglo XX.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1274-1",
+      "url": "https://www.bnf.fr/fr/centenaire-daime-cesaire-1913-2008-bibliographie"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1274-2",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb11935061w"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1274-3",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb319214762.public"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1274-4",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb394617508.public"
+    }
+  ],
+  "research_notes": [
+    "Lote 128 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–127 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y contenidos internos de volúmenes colectivos no se cuentan automáticamente como obras nuevas."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1270,
-    "authors_remaining": 234,
-    "works_or_contributions_seeded": 11098,
-    "current_batch": "127",
+    "authors_seeded": 1280,
+    "authors_remaining": 224,
+    "works_or_contributions_seeded": 11153,
+    "current_batch": "128",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6635,6 +6635,58 @@
       "author_id": 1270,
       "canonical_name": "Gonzalo Aguirre Beltrán",
       "path": "authors/1270.json"
+    }
+  ],
+  "batch_128": [
+    {
+      "author_id": 1271,
+      "canonical_name": "Guillermo Bonfil Batalla",
+      "path": "authors/1271.json"
+    },
+    {
+      "author_id": 1272,
+      "canonical_name": "Ramón Grosfoguel",
+      "path": "authors/1272.json"
+    },
+    {
+      "author_id": 1273,
+      "canonical_name": "Gloria Anzaldúa",
+      "path": "authors/1273.json"
+    },
+    {
+      "author_id": 1274,
+      "canonical_name": "Aimé Césaire",
+      "path": "authors/1274.json"
+    },
+    {
+      "author_id": 1275,
+      "canonical_name": "Anthony Bogues",
+      "path": "authors/1275.json"
+    },
+    {
+      "author_id": 1276,
+      "canonical_name": "Rigoberta Menchú",
+      "path": "authors/1276.json"
+    },
+    {
+      "author_id": 1277,
+      "canonical_name": "Catherine Walsh",
+      "path": "authors/1277.json"
+    },
+    {
+      "author_id": 1278,
+      "canonical_name": "Edward Glissant",
+      "path": "authors/1278.json"
+    },
+    {
+      "author_id": 1279,
+      "canonical_name": "Louis-Joseph Janvier",
+      "path": "authors/1279.json"
+    },
+    {
+      "author_id": 1280,
+      "canonical_name": "Sylvester Williams",
+      "path": "authors/1280.json"
     }
   ]
 }

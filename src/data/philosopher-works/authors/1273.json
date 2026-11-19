@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author_id": 1273,
+  "canonical_name": "Gloria Anzaldúa",
+  "alternate_names": [
+    "Gloria Evangelina Anzaldúa"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1273-w001",
+      "title": "This Bridge Called My Back: Writings by Radical Women of Color",
+      "work_type": "edited_volume",
+      "original_language": "inglés/español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Cherríe Moraga"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://news.ucsc.edu/2015/04/anzaldua-feminist-conference/"
+      ],
+      "notes": "Anzaldúa coeditó la antología; no se atribuyen como propios los textos de otras colaboradoras."
+    },
+    {
+      "work_id": "1273-w002",
+      "title": "Borderlands/La Frontera: The New Mestiza",
+      "work_type": "book",
+      "original_language": "inglés/español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://news.ucsc.edu/2015/04/anzaldua-feminist-conference/"
+      ],
+      "notes": "Obra mayor de Anzaldúa, publicada en 1987."
+    },
+    {
+      "work_id": "1273-w003",
+      "title": "Making Face, Making Soul/Haciendo Caras: Creative and Critical Perspectives by Feminists of Color",
+      "work_type": "edited_volume",
+      "original_language": "inglés/español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://archives.lib.utexas.edu/repositories/4/archival_objects/549234"
+      ],
+      "notes": "La colección de UT Austin incluye esta obra entre sus publicaciones mayores."
+    },
+    {
+      "work_id": "1273-w004",
+      "title": "This Bridge We Call Home: Radical Visions for Transformation",
+      "work_type": "edited_volume",
+      "original_language": "inglés/español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "AnaLouise Keating"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://news.ucsc.edu/2015/04/anzaldua-feminist-conference/"
+      ],
+      "notes": "Antología coeditada; no se duplican contribuciones internas como obras independientes en esta ficha."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Teórica feminista chicana cuya escritura articuló frontera, mestizaje, identidad, lengua y pensamiento de mujeres de color en Estados Unidos.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1273-1",
+      "url": "https://news.ucsc.edu/2015/04/anzaldua-feminist-conference/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1273-2",
+      "url": "https://archives.lib.utexas.edu/repositories/4/archival_objects/549234"
+    }
+  ],
+  "research_notes": [
+    "Lote 128 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–127 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y contenidos internos de volúmenes colectivos no se cuentan automáticamente como obras nuevas."
+  ]
+}
