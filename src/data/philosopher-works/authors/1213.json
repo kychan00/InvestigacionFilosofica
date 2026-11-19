@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "author_id": 1213,
+  "canonical_name": "César Zumeta",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1863,
+    "death_year": 1955
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1213-w001",
+      "title": "El continente enfermo",
+      "work_type": "political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1897,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1897,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S2663-371X2023000300191&script=sci_arttext"
+      ],
+      "notes": "Registro de political_essay; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1213-w002",
+      "title": "La ley del cabestro",
+      "work_type": "political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1902,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S2663-371X2023000300191&script=sci_arttext"
+      ],
+      "notes": "Registro de political_essay; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1213-w003",
+      "title": "Notas críticas",
+      "work_type": "posthumous_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S2663-371X2023000300191&script=sci_arttext"
+      ],
+      "notes": "Registro de posthumous_collection; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1213-w004",
+      "title": "Las potencias y la intervención en Hispanoamérica",
+      "work_type": "posthumous_edited_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalagobiblioteca.uma.edu.ve/cgi-bin/koha/opac-detail.pl?biblionumber=12389"
+      ],
+      "notes": "Registro de posthumous_edited_collection; año y atribución contrastados con fuente bibliográfica indicada. "
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Ensayista y periodista venezolano que abordó el imperialismo, la soberanía hispanoamericana y las relaciones internacionales.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1213-1",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S2663-371X2023000300191&script=sci_arttext"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1213-2",
+      "url": "https://catalagobiblioteca.uma.edu.ve/cgi-bin/koha/opac-detail.pl?biblionumber=12389"
+    }
+  ],
+  "research_notes": [
+    "Las potencias y la intervención en Hispanoamérica es compilación póstuma de 1963 editada por Rafael Ángel Insausti, no libro redactado íntegramente en 1963.",
+    "El continente enfermo se publicó originalmente a fines del siglo XIX y fue reeditado en 1960; se conserva la historia editorial sin duplicarlo."
+  ]
+}

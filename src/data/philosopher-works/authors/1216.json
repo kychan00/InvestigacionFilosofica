@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "author_id": 1216,
+  "canonical_name": "Luis Farré",
+  "alternate_names": [
+    "Luis Farré Magre"
+  ],
+  "life": {
+    "birth_year": 1902,
+    "death_year": 1997
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1216-w001",
+      "title": "Cincuenta años de filosofía en la Argentina",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/objetos_digitales/4559/217-cuyo-1979-tomo-12.pdf"
+      ],
+      "notes": "Registro de book; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1216-w002",
+      "title": "Filosofía de la religión: sus problemas fundamentales",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/objetos_digitales/4559/217-cuyo-1979-tomo-12.pdf"
+      ],
+      "notes": "Registro de book; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1216-w003",
+      "title": "Unamuno, William James y Kierkegaard",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/objetos_digitales/4559/217-cuyo-1979-tomo-12.pdf"
+      ],
+      "notes": "Año de primera publicación todavía no establecido en la fuente catalográfica consultada."
+    },
+    {
+      "work_id": "1216-w004",
+      "title": "Platón y los sofistas (Liberación en y de los mitos)",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/objetos_digitales/4559/217-cuyo-1979-tomo-12.pdf"
+      ],
+      "notes": "Año de primera publicación todavía no establecido en la fuente catalográfica consultada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor e investigador de filosofía antigua, medieval, estética y pensamiento filosófico argentino en las universidades de Tucumán y La Plata.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1216-1",
+      "url": "https://bdigital.uncu.edu.ar/objetos_digitales/4559/217-cuyo-1979-tomo-12.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1216-2",
+      "url": "https://bibliotecas.ucasal.edu.ar/opac_css/index.php?id=8386&lvl=author_see"
+    }
+  ],
+  "research_notes": [
+    "La autobiobibliografía de UNCUYO documenta conferencias y trayectoria académica; no se atribuyen como artículos publicados las ponencias sin edición comprobada.",
+    "Se mantiene selección conservadora de libros recogidos en catálogos y bibliografías universitarias."
+  ]
+}
