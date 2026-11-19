@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "author_id": 1376,
+  "canonical_name": "Don Beda Cruse",
+  "alternate_names": [
+    "Dom Beda Kruse",
+    "Beda Kruse",
+    "Paul Georg Kruse"
+  ],
+  "life": {
+    "birth_year": 1905,
+    "death_year": 2000
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1376-w001",
+      "title": "Desenvolvimento e importância das Faculdades de Filosofia no plano educacional brasileiro, de 1936 a 1950",
+      "work_type": "journal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1952,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://tede2.pucsp.br/bitstream/handle/2135/1/Wilson%20Santana%20Silva.pdf"
+      ],
+      "notes": "Publicado en Kriterion en entregas entre 1952 y 1953; se registra como un estudio único."
+    },
+    {
+      "work_id": "1376-w002",
+      "title": "Da formação intelectual à sabedoria",
+      "work_type": "philosophical_essay",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1954,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://tede2.pucsp.br/bitstream/handle/2135/1/Wilson%20Santana%20Silva.pdf"
+      ],
+      "notes": "Ensayo sobre integración de formación intelectual, moral y religiosa; citado en estudios históricos de la educación filosófica."
+    },
+    {
+      "work_id": "1376-w003",
+      "title": "O Ensinar e Aprender em o De Magistro de Santo Agostinho",
+      "work_type": "journal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodicos.uniso.br/paideia/article/view/4736"
+      ],
+      "notes": "Miscelânea Universitas - Atualidade de Santo Agostinho; publicación original de 1955, aunque digitalizada en 2021."
+    },
+    {
+      "work_id": "1376-w004",
+      "title": "A ciência da cruz. Estudo sobre São João da Cruz",
+      "work_type": "translation",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1988,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Edith Stein"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://benediktinerlexikon.de/wiki/Kruse%2C_Beda"
+      ],
+      "notes": "Traducción de Edith Stein, São Paulo: Loyola; reediciones de 1999 y 2004 no duplicadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Monje benedictino, doctor en Filosofía por Múnich y profesor de psicología educacional, pedagogía y filosofía en instituciones que confluyeron en la PUC-SP.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Abadia São Geraldo — D. Beda Kruse",
+      "url": "https://asg.org.br/Monges"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "PUC-SP — estudio sobre Beda Kruse",
+      "url": "https://tede2.pucsp.br/bitstream/handle/2135/1/Wilson%20Santana%20Silva.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Paideia — O Ensinar e Aprender em o De Magistro",
+      "url": "https://periodicos.uniso.br/paideia/article/view/4736"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biographia Benedictina — Beda Kruse",
+      "url": "https://benediktinerlexikon.de/wiki/Kruse%2C_Beda"
+    }
+  ],
+  "research_notes": [
+    "El inventario de Dussel usa Don Beda Cruse; las fuentes monásticas e institucionales confirman que se trata de Dom Beda Kruse, nombre civil Paul Georg Kruse.",
+    "La traducción de Edith Stein se registra con rol traductor."
+  ]
+}

@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1370,
-    "authors_remaining": 134,
-    "works_or_contributions_seeded": 11770,
-    "current_batch": "137",
+    "authors_seeded": 1380,
+    "authors_remaining": 124,
+    "works_or_contributions_seeded": 11864,
+    "current_batch": "138",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7155,6 +7155,58 @@
       "author_id": 1370,
       "canonical_name": "Geraldo Pinheiro Machado",
       "path": "authors/1370.json"
+    }
+  ],
+  "batch_138": [
+    {
+      "author_id": 1371,
+      "canonical_name": "Fernando de Arruda Campos",
+      "path": "authors/1371.json"
+    },
+    {
+      "author_id": 1372,
+      "canonical_name": "Alexandre Correa",
+      "path": "authors/1372.json"
+    },
+    {
+      "author_id": 1373,
+      "canonical_name": "Carlos Lopes de Matos",
+      "path": "authors/1373.json"
+    },
+    {
+      "author_id": 1374,
+      "canonical_name": "Iulo Brandão",
+      "path": "authors/1374.json"
+    },
+    {
+      "author_id": 1375,
+      "canonical_name": "José Geraldo Vidigal de Carvalho",
+      "path": "authors/1375.json"
+    },
+    {
+      "author_id": 1376,
+      "canonical_name": "Don Beda Cruse",
+      "path": "authors/1376.json"
+    },
+    {
+      "author_id": 1377,
+      "canonical_name": "Manoel Joaquim de Carvalho",
+      "path": "authors/1377.json"
+    },
+    {
+      "author_id": 1378,
+      "canonical_name": "João de Scantimburgo",
+      "path": "authors/1378.json"
+    },
+    {
+      "author_id": 1379,
+      "canonical_name": "Antônio Joaquim Severino",
+      "path": "authors/1379.json"
+    },
+    {
+      "author_id": 1380,
+      "canonical_name": "Dermeval Saviani",
+      "path": "authors/1380.json"
     }
   ]
 }
