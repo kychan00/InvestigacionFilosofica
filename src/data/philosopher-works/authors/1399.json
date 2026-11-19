@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 1399,
+  "canonical_name": "Diego Alcorta",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1801,
+    "death_year": 1842
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1399-w001",
+      "title": "Disertación sobre la manía aguda",
+      "work_type": "doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1827,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1827,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://fmv-uba.org.ar/galeria-de-profesores/profesores.asp"
+      ],
+      "notes": "Tesis doctoral de Medicina y Cirugía; fuente universitaria la identifica como trabajo de 1827."
+    },
+    {
+      "work_id": "1399-w002",
+      "title": "Curso de filosofía",
+      "work_type": "philosophy_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1835,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1902,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogobibliotecas.buenosaires.gob.ar/media/PDF/40-00912_D.pdf"
+      ],
+      "notes": "Curso manuscrito asociado a su cátedra de Ideología; publicado por Paul Groussac en 1902 a partir de apuntes y manuscritos."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Médico y filósofo argentino, profesor de Ideología en la Universidad de Buenos Aires entre 1828 y 1842; articuló sensualismo, medicina y enseñanza filosófica.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Facultad de Medicina UBA — Diego Alcorta",
+      "url": "https://fmv-uba.org.ar/galeria-de-profesores/profesores.asp"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Facultad de Derecho UBA — Diego Alcorta",
+      "url": "https://www.derecho.uba.ar/institucional/rinstitucionales/asuntos_institucionales_guia_visitantes_03.php"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Anales de la Biblioteca — Curso de filosofía de Diego Alcorta",
+      "url": "https://catalogobibliotecas.buenosaires.gob.ar/media/PDF/40-00912_D.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dynamis/SciELO — Diego Alcorta y la difusión de saberes médicos",
+      "url": "https://scielo.isciii.es/scielo.php?pid=S0211-95362014000100007&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "El Curso de filosofía se fecha por el curso de 1835 documentado en la historiografía; la publicación de 1902 es póstuma y no altera la fecha de composición/dictado.",
+    "La tesis médica se incluye por su relevancia filosófico-antropológica y por su papel en la recepción de Pinel y la Idéologie."
+  ]
+}
