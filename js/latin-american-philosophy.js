@@ -152,7 +152,7 @@ function makeAuthorCard(author) {
     <h3></h3>
     <div class="author-card-footer">
       <span class="author-state ${seeded ? "seeded" : "pending"}">
-        ${seeded ? "Ficha bibliográfica" : "Sin ficha"}
+        ${seeded ? "ficha bibliográfica" : "Sin ficha"}
       </span>
       <span class="author-card-open" aria-hidden="true">Abrir →</span>
     </div>
