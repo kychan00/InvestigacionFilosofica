@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "author_id": 1450,
+  "canonical_name": "Manuel Montt",
+  "alternate_names": [
+    "Manuel Montt Torres"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1450-w001",
+      "title": "Epistolario de Manuel Montt (1824-1880)",
+      "work_type": "epistolary_corpus",
+      "original_language": "español",
+      "original_date": {
+        "year": 1824,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bibliotecanacional.gob.cl/publicaciones/vol-xl-epistolario-de-manuel-montt-1824-1880-tomo-i"
+      ],
+      "notes": "Corpus de cartas escritas entre 1824 y 1880 y publicado críticamente en 2015; la edición moderna no convierte el corpus en obra compuesta en 2015."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jurista, educador, magistrado y presidente de Chile (1851-1861), figura central del orden republicano conservador y de la institucionalización educativa chilena del siglo XIX.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1450-1",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-95839.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1450-2",
+      "url": "https://www.bibliotecanacional.gob.cl/publicaciones/vol-xl-epistolario-de-manuel-montt-1824-1880-tomo-i"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1450-3",
+      "url": "https://www.bibliotecanacional.gob.cl/noticias/centro-de-investigaciones-diego-barros-arana-publico-epistolario-de-manuel-montt"
+    }
+  ],
+  "research_notes": [
+    "Lote 145 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–144 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones, recopilaciones y ediciones críticas póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}

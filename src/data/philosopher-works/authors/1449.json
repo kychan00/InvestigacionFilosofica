@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 1449,
+  "canonical_name": "Mariano Egaña",
+  "alternate_names": [
+    "Mariano Egaña Fabres"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1449-w001",
+      "title": "Cartas de don Mariano Egaña a su padre: 1824-1829",
+      "work_type": "epistolary_corpus",
+      "original_language": "español",
+      "original_date": {
+        "year": 1824,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-255070.html"
+      ],
+      "notes": "Correspondencia escrita entre 1824 y 1829; primera edición compilada en 1948. Se conserva 1824 como fecha inicial de composición y no como año de publicación."
+    },
+    {
+      "work_id": "1449-w002",
+      "title": "Voto particular de Mariano Egaña sobre la reforma constitucional",
+      "work_type": "constitutional_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1831,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1831,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.projurepucv.cl/index.php/rderecho/article/view/547"
+      ],
+      "notes": "Proyecto constitucional alternativo elaborado en la comisión de reforma de la Constitución de 1828 y decisivo para la Constitución chilena de 1833."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jurista, diplomático y político chileno, autor de un proyecto constitucional decisivo para la arquitectura institucional de la Constitución de 1833.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1449-1",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-614186.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1449-2",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-propertyvalue-255070.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1449-3",
+      "url": "https://www.projurepucv.cl/index.php/rderecho/article/view/547"
+    }
+  ],
+  "research_notes": [
+    "Lote 145 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–144 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones, recopilaciones y ediciones críticas póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}

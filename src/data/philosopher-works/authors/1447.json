@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "author_id": 1447,
+  "canonical_name": "Cristóbal Valdespín",
+  "alternate_names": [
+    "Fray Cristóbal Valdespín"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "identity_documented_bibliography_pending",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dominico español documentado como primer profesor de Teología en la tradición académica dominicana de Chile en 1587; no se atribuyen tratados concretos sin evidencia bibliográfica segura.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1447-1",
+      "url": "https://www.bibliotecadominica.gob.cl/sites/www.bibliotecadominica.gob.cl/files/2025-03/MHD-002dominicos%20en%20chile.pdf"
+    }
+  ],
+  "research_notes": [
+    "Lote 145 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–144 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones, recopilaciones y ediciones críticas póstumas no se convierten automáticamente en obras nuevas.",
+    "Identidad histórica documentada, pero bibliografía autoral no identificada con suficiente seguridad. Se evita inferir obras a partir de su docencia teológica."
+  ]
+}

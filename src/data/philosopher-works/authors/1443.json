@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "author_id": 1443,
+  "canonical_name": "Manuel M. Ponce",
+  "alternate_names": [
+    "Manuel María Ponce",
+    "Manuel María Ponce Cuéllar"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1443-w001",
+      "title": "Chapultepec",
+      "work_type": "symphonic_triptych",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "composer",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.gob.mx/sep/acciones-y-programas/manuel-m-ponce"
+      ],
+      "notes": "Tríptico sinfónico compuesto y publicado en 1921; se conserva como obra intelectual-musical relevante."
+    },
+    {
+      "work_id": "1443-w002",
+      "title": "Nuevos escritos musicales",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=9701"
+      ],
+      "notes": "Colección de artículos y ensayos musicales publicada por Stylo en 1948; no se desglosan sus capítulos como obras independientes."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Compositor, pedagogo y ensayista musical mexicano, miembro del ambiente ateneísta y figura decisiva en la reflexión sobre folclor, nacionalismo y música mexicana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1443-1",
+      "url": "https://www.gob.mx/sep/acciones-y-programas/manuel-m-ponce"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1443-2",
+      "url": "https://www.gob.mx/cultura/prensa/manuel-m-ponce-enriquecio-la-musica-de-concierto-con-la-expresion-popular-mexicana-y-el-romanticismo-europeo"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1443-3",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=9701"
+    }
+  ],
+  "research_notes": [
+    "Lote 145 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–144 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones, recopilaciones y ediciones críticas póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}
