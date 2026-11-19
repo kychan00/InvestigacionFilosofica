@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "author_id": 1444,
+  "canonical_name": "Alfonso Cravioto",
+  "alternate_names": [
+    "Alfonso Cravioto Mejorada"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1444-w001",
+      "title": "Eugenio Carrière",
+      "work_type": "art_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sic.gob.mx/ficha.php?table=artista&table_id=5477"
+      ],
+      "notes": "Ensayo sobre el pintor Eugène Carrière, publicado en 1916."
+    },
+    {
+      "work_id": "1444-w002",
+      "title": "Germán Gedovius",
+      "work_type": "art_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sic.gob.mx/ficha.php?table=artista&table_id=5477"
+      ],
+      "notes": "Ensayo sobre Germán Gedovius, publicado en 1916."
+    },
+    {
+      "work_id": "1444-w003",
+      "title": "El alma nueva de las cosas viejas",
+      "work_type": "poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1921,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1921,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/obra/datos/211177"
+      ],
+      "notes": "Primera edición en México, México Moderno, 1921."
+    },
+    {
+      "work_id": "1444-w004",
+      "title": "Aventuras intelectuales a través de los números",
+      "work_type": "essay_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sic.gob.mx/ficha.php?table=artista&table_id=5477"
+      ],
+      "notes": "Texto publicado en 1938; no se registra el Repertorio metódico del lenguaje porque quedó inconcluso."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Poeta, ensayista, crítico de arte y político mexicano, fundador de Savia Moderna y miembro del Ateneo de la Juventud.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1444-1",
+      "url": "https://sic.gob.mx/ficha.php?table=artista&table_id=5477"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1444-2",
+      "url": "https://www.elem.mx/autor/datos/4163"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1444-3",
+      "url": "https://www.elem.mx/obra/datos/211177"
+    }
+  ],
+  "research_notes": [
+    "Lote 145 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–144 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones, recopilaciones y ediciones críticas póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}

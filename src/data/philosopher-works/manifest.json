@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1440,
-    "authors_remaining": 64,
-    "works_or_contributions_seeded": 12349,
-    "current_batch": "144",
+    "authors_seeded": 1450,
+    "authors_remaining": 54,
+    "works_or_contributions_seeded": 12405,
+    "current_batch": "145",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7519,6 +7519,58 @@
       "author_id": 1440,
       "canonical_name": "Carlos González Peña",
       "path": "authors/1440.json"
+    }
+  ],
+  "batch_145": [
+    {
+      "author_id": 1441,
+      "canonical_name": "Martín Luis Guzmán",
+      "path": "authors/1441.json"
+    },
+    {
+      "author_id": 1442,
+      "canonical_name": "Mariano Silva y Aceves",
+      "path": "authors/1442.json"
+    },
+    {
+      "author_id": 1443,
+      "canonical_name": "Manuel M. Ponce",
+      "path": "authors/1443.json"
+    },
+    {
+      "author_id": 1444,
+      "canonical_name": "Alfonso Cravioto",
+      "path": "authors/1444.json"
+    },
+    {
+      "author_id": 1445,
+      "canonical_name": "Isidro Fabela",
+      "path": "authors/1445.json"
+    },
+    {
+      "author_id": 1446,
+      "canonical_name": "Enrique González Martínez",
+      "path": "authors/1446.json"
+    },
+    {
+      "author_id": 1447,
+      "canonical_name": "Cristóbal Valdespín",
+      "path": "authors/1447.json"
+    },
+    {
+      "author_id": 1448,
+      "canonical_name": "René Depestre",
+      "path": "authors/1448.json"
+    },
+    {
+      "author_id": 1449,
+      "canonical_name": "Mariano Egaña",
+      "path": "authors/1449.json"
+    },
+    {
+      "author_id": 1450,
+      "canonical_name": "Manuel Montt",
+      "path": "authors/1450.json"
     }
   ]
 }
