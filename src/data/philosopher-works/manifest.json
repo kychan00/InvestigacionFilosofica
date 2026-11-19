@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1320,
-    "authors_remaining": 184,
-    "works_or_contributions_seeded": 11340,
-    "current_batch": "132",
+    "authors_seeded": 1330,
+    "authors_remaining": 174,
+    "works_or_contributions_seeded": 11433,
+    "current_batch": "133",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6895,6 +6895,58 @@
       "author_id": 1320,
       "canonical_name": "Alcides Bezerra",
       "path": "authors/1320.json"
+    }
+  ],
+  "batch_133": [
+    {
+      "author_id": 1321,
+      "canonical_name": "Rubén Bareiro Saguier",
+      "path": "authors/1321.json"
+    },
+    {
+      "author_id": 1322,
+      "canonical_name": "Sérgio Buarque de Holanda",
+      "path": "authors/1322.json"
+    },
+    {
+      "author_id": 1323,
+      "canonical_name": "Leônidas Hegenberg",
+      "path": "authors/1323.json"
+    },
+    {
+      "author_id": 1324,
+      "canonical_name": "Víctor Farías",
+      "path": "authors/1324.json"
+    },
+    {
+      "author_id": 1325,
+      "canonical_name": "Mario Ciudad",
+      "path": "authors/1325.json"
+    },
+    {
+      "author_id": 1326,
+      "canonical_name": "Miguel Espinoza",
+      "path": "authors/1326.json"
+    },
+    {
+      "author_id": 1327,
+      "canonical_name": "Raúl Velozo Farías",
+      "path": "authors/1327.json"
+    },
+    {
+      "author_id": 1328,
+      "canonical_name": "Cristóbal Holzapfel",
+      "path": "authors/1328.json"
+    },
+    {
+      "author_id": 1329,
+      "canonical_name": "Claudio Parra Álvarez",
+      "path": "authors/1329.json"
+    },
+    {
+      "author_id": 1330,
+      "canonical_name": "Lorenzo Livieres",
+      "path": "authors/1330.json"
     }
   ]
 }
