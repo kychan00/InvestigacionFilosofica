@@ -387,7 +387,7 @@ try {
       await periodLoadMore.click();
       await page.waitForFunction(() => {
         const text = document.querySelector("#periodization-status")?.textContent || "";
-        return /80 de \d+ fichas cargadas/.test(text);
+        return /80 de [\d,.]+ fichas cargadas/.test(text);
       });
       assert.ok(await page.locator(".mini-author").count() > firstLoaded,
         "Loading the next period batch should add authors");
