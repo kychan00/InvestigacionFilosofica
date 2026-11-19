@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "author_id": 845,
+  "canonical_name": "Andrea Speranza",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0845-w001",
+      "title": "Ecología profunda y autorrealización: introducción a la filosofía ecológica de Arne Naess",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://latam.casadellibro.com/libro-ecologia-profunda-y-autorrealizacion-introduccion-a-la-filosofia-ecologica-de-arne-naess/9789507865268/1109669"
+      ],
+      "notes": "Obra selectiva documentada mediante la bibliografía citada; reediciones no duplicadas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción a la ecología profunda y el pensamiento de Arne Naess: autorrealización, ecosofía y no-antropocentrismo.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo editorial Biblos, Ecología profunda y autorrealización 2006",
+      "url": "https://latam.casadellibro.com/libro-ecologia-profunda-y-autorrealizacion-introduccion-a-la-filosofia-ecologica-de-arne-naess/9789507865268/1109669"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Bibliografía Dussel: edición digitalizada de Ecología profunda y autorrealización",
+      "url": "https://docs.enriquedussel.com/txt/Textos_200_Obras/Filosofia_ambiental/Ecologia_profunda-Andrea_Speranza.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo Universidad Autónoma de Entre Ríos, obra de Andrea Speranza",
+      "url": "https://bibliotecafcyt.uader.edu.ar/cgi-bin/opacmarc/wxis?IsisScript=opac%2Fxis%2Fopac.xis&browseMfn=4418&db=oroverde&task=BROWSE-CATALOG"
+    }
+  ],
+  "research_notes": [
+    "Sólo una monografía verificable con fecha y autor: no inventar artículos a partir de bibliografías que solo citan el libro.",
+    "La obra Ecología profunda y autorrealización fue publicada por Biblos en 2006; existe copia digital del mismo título en el archivo de Dussel."
+  ]
+}

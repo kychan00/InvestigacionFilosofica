@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "author_id": 1157,
+  "canonical_name": "José Julián Prado",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1934,
+    "death_year": 1993
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1157-w001",
+      "title": "Voluntad y naturaleza: la antropología filosófica de Máximo el Confesor",
+      "work_type": "book_based_on_doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/handle/123456789/15056?locale=es",
+        "https://ri.conicet.gov.ar/bitstream/handle/11336/204311/CONICET_Digital_Nro.13be1de4-0770-4c55-bb37-c997f5f3865c_B.pdf?isAllowed=y&sequence=2"
+      ],
+      "notes": "Universidad Nacional de Río Cuarto, 1974, 298 pp.; tesis doctoral de Lovaina publicada como libro, sin doble conteo."
+    },
+    {
+      "work_id": "1157-w002",
+      "title": "Problemas filosóficos de la inteligencia, del conocimiento y de la cultura: José Julián Prado, 1983–1993",
+      "work_type": "posthumous_collected_articles",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pmbhum.unsa.edu.ar/opac_css/index.php?id=970&lvl=publisher_see"
+      ],
+      "notes": "Universidad Nacional de Río Cuarto, 1993, 183 pp.; colección de artículos y comunicaciones editada en homenaje tras su fallecimiento. ISBN 9789506650087."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor fundador del Departamento de Filosofía de la Universidad Nacional de Río Cuarto e investigador de antropología filosófica.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental pradoReview",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/15056?locale=es"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental pradoCONICET",
+      "url": "https://ri.conicet.gov.ar/bitstream/handle/11336/204311/CONICET_Digital_Nro.13be1de4-0770-4c55-bb37-c997f5f3865c_B.pdf?isAllowed=y&sequence=2"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental pradoCatalog",
+      "url": "https://pmbhum.unsa.edu.ar/opac_css/index.php?id=970&lvl=publisher_see"
+    }
+  ],
+  "research_notes": [
+    "La reseña académica de 1978 confirma la monografía Voluntad y naturaleza editada en 1974 y que se originó como tesis.",
+    "El libro de 1993 es una recopilación póstuma de artículos antes dispersos; no se inventan títulos individuales ni se infiere que Prado haya organizado su homenaje.",
+    "Una investigación histórica de CONICET describe su trayectoria, pero no es una obra escrita por Prado."
+  ]
+}

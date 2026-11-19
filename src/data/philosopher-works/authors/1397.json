@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "author_id": 1397,
+  "canonical_name": "Juan Crisóstomo Lafinur",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1797,
+    "death_year": 1824
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1397-w001",
+      "title": "Cuaderno de lógica",
+      "work_type": "manuscript_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1812,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1812,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bcn.gob.ar/juan-crisostomo-lafinur"
+      ],
+      "notes": "El catálogo de la Biblioteca del Congreso registra el manuscrito como 'dictada por D. J. C. Lafinur'; la datación queda sujeta a revisión por la temprana edad del autor."
+    },
+    {
+      "work_id": "1397-w002",
+      "title": "Curso filosófico",
+      "work_type": "philosophy_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1819,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/documento.php?id=PERGAMO.1.83729&recno=83729&ui=1"
+      ],
+      "notes": "Curso dictado en el Colegio de la Unión del Sud en 1819; primera publicación moderna en 1938."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Primer profesor laico de filosofía en Buenos Aires, difusor de la Ideología, Condillac y Locke en la enseñanza rioplatense posrevolucionaria.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca del Congreso de la Nación — Juan Crisóstomo Lafinur",
+      "url": "https://bcn.gob.ar/juan-crisostomo-lafinur"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Catálogo Bibliotecas de Buenos Aires — Curso filosófico",
+      "url": "https://catalogobibliotecas.buenosaires.gob.ar/pergamo/documento.php?id=PERGAMO.1.83729&recno=83729&ui=1"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Perspectivas Metodológicas — Lafinur y el curso de 1819",
+      "url": "https://revistas.unla.edu.ar/epistemologia/article/view/5670"
+    }
+  ],
+  "research_notes": [
+    "El Curso filosófico se fecha por su dictado en 1819, distinguiendo su publicación póstuma de 1938.",
+    "La fecha 1812 del Cuaderno de lógica procede del catálogo patrimonial y se marca para futura auditoría cronológica."
+  ]
+}

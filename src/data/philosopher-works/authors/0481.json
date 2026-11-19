@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "author_id": 481,
+  "canonical_name": "Vicente Ferreira da Silva",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1916,
+      "certainty": "foundation_biographical_source"
+    },
+    "died": {
+      "year": 1963,
+      "certainty": "foundation_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0481-w001",
+      "title": "Elementos de lógica matemática",
+      "work_type": "mathematical_logic_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1940,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica matemática",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica simbólica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fundamentos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "São Paulo, Cruzeiro do Sul, 1940. Obra pioneira da lógica matemática no Brasil."
+    },
+    {
+      "work_id": "0481-w002",
+      "title": "Ensaios filosóficos",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1948,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Sartre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "São Paulo, Progresso, 1948."
+    },
+    {
+      "work_id": "0481-w003",
+      "title": "Exegese da ação",
+      "work_type": "philosophical_action_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1949,
+        "certainty": "critical_edition_history"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ação",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "liberdade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.inaeditora.com.br/produtos/dialetica-das-consciencias-obras-completas/",
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "Primeira emissão em São Paulo, Martins, 1949; edição ampliada em 1954. A bibliografia de 2008 cita a edição de 1954, enquanto a edição crítica das Obras Completas preserva 1949 e 1954."
+    },
+    {
+      "work_id": "0481-w004",
+      "title": "Dialética das consciências",
+      "work_type": "existential_and_phenomenological_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1950,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "consciência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "intersubjetividade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "dialética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "São Paulo, edição do autor, 1950; texto preparado como tese de concurso."
+    },
+    {
+      "work_id": "0481-w005",
+      "title": "Ideias para um novo conceito de homem",
+      "work_type": "philosophical_anthropology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1951,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "homem",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropologia filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "São Paulo, edição do autor, 1951."
+    },
+    {
+      "work_id": "0481-w006",
+      "title": "Teologia e anti-humanismo",
+      "work_type": "philosophy_of_religion_and_anti_humanism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1953,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "anti-humanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sagrado",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "São Paulo, Revista dos Tribunais, 1953, 40 p."
+    },
+    {
+      "work_id": "0481-w007",
+      "title": "Instrumentos, coisas e cultura",
+      "work_type": "philosophy_of_culture_booklet",
+      "original_language": "português",
+      "original_date": {
+        "year": 1958,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "técnica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "coisas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mitologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+      ],
+      "notes": "São Paulo, Instituto Brasileiro de Filosofia, 1958."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introdução brasileira da lógica matemática e desenvolvimento posterior de uma filosofia existencial, fenomenológica e mitológica influenciada por Heidegger e Schelling",
+      "kind": "brazilian_logic_existentialism_and_myth_philosophy_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "foundation_biographical_source",
+      "title": "Fundação Bunge — Vicente Ferreira da Silva",
+      "url": "https://fundacaobunge.org.br/premiado/vicente-ferreira-da-silva/"
+    },
+    {
+      "kind": "scholarly_biobibliography",
+      "title": "Reflexão — Vicente Ferreira da Silva (1916-1963)",
+      "url": "https://periodicos.puc-campinas.edu.br/reflexao/article/view/3050"
+    },
+    {
+      "kind": "critical_edition_source",
+      "title": "Obras Completas — Dialética das Consciências",
+      "url": "https://www.inaeditora.com.br/produtos/dialetica-das-consciencias-obras-completas/"
+    }
+  ],
+  "research_notes": [
+    "Exegese da ação distingue a primeira emissão de 1949 da edição ampliada de 1954; não são contadas como obras diferentes."
+  ]
+}

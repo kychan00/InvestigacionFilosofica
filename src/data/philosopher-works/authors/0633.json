@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "author_id": 633,
+  "canonical_name": "Juan Roura-Parella",
+  "alternate_names": [
+    "Joan Roura-Parella",
+    "Juan Roura Parella",
+    "Joan Roura Parella"
+  ],
+  "life": {
+    "born": {
+      "year": 1897,
+      "certainty": "Universitat_de_Barcelona_edited_biography"
+    },
+    "died": {
+      "year": 1983,
+      "certainty": "Universitat_de_Barcelona_edited_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_first_editions_originals_chapters_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0633-w001",
+      "title": "Contestaciones al cuestionario de Pedagogía de las oposiciones a Escuelas Normales",
+      "work_type": "pedagogy_test_and_measurement_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1923,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1923,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "F. Panizo Gambón"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación normal",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "psicometría",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": "La bibliografía de la Universidad de Barcelona consigna colaboración de F. Panizo Gambón, no publicación individual."
+    },
+    {
+      "work_id": "0633-w002",
+      "title": "La educación viva",
+      "work_type": "culturalist_pedagogy_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1935,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1935,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": "Revista de Pedagogía, XIV (157), pp. 1–11; 2020 reimpresa en antología editorial."
+    },
+    {
+      "work_id": "0633-w003",
+      "title": "Educación y ciencia",
+      "work_type": "philosophy_of_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": "La Casa de España en México, 1940; adaptación de tesis doctoral defendida en Barcelona en 1937; antología de El Colegio de México 2018 no es obra original distinta."
+    },
+    {
+      "work_id": "0633-w004",
+      "title": "Nueva concepción de la realidad psicológica",
+      "work_type": "psychology_and_sciences_of_spirit_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencias del espíritu",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "realidad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": "Educación y Cultura (México), número 3, 1940; también Nueva Era (Quito) no se duplica."
+    },
+    {
+      "work_id": "0633-w005",
+      "title": "El comprender como método de las ciencias del espíritu",
+      "work_type": "Dilthey_hermeneutics_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "comprensión",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Dilthey",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hermenéutica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": "Filosofía y Letras (México), IV(7), 1942, pp. 23–39."
+    },
+    {
+      "work_id": "0633-w006",
+      "title": "Spranger y las ciencias del espíritu",
+      "work_type": "Spranger_philosophy_of_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1944,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1944,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Spranger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ciencias del espíritu",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0633-w007",
+      "title": "El mundo histórico social: ensayo sobre la morfología de la cultura de Dilthey",
+      "work_type": "historical_social_world_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dilthey",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0633-w008",
+      "title": "Tema y variaciones de la personalidad",
+      "work_type": "psychological_personality_and_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "personalidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0633-w009",
+      "title": "El pedagogo",
+      "work_type": "philosophy_of_education_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1965,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pedagogo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "misión",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+      ],
+      "notes": "Cuadernos Americanos CXXXIX(2), 1965. Reimpresión en Educación y ciencia y otras páginas (2018) no es nuevo texto."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción de Dilthey y Spranger y pedagogía culturalista desarrollada en La Casa de España y en El Colegio de México",
+      "kind": "mexican_exile_cultural_pedagogy_geisteswissenschaften",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico de filósofos latinoamericanos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_scholarly_edited_bibliography",
+      "title": "Edicions de la Universitat de Barcelona — Joan Roura-Parella, Textos fundamentales en el exilio; bibliografía, pp. 195–201",
+      "url": "https://diposit.ub.edu/server/api/core/bitstreams/670ef8b8-0139-4389-80a3-9d9ef29313ef/content"
+    }
+  ],
+  "research_notes": [
+    "Las cuatro monografías 1940, 1944, 1947 y 1950 integran una tetralogía de pedagogía de las ciencias del espíritu según el estudio de la Universitat de Barcelona.",
+    "La antología de 2020 y la compilación mexicana de 2018 reproducen obras previas; se evita registrarlas como monografías originales adicionales."
+  ]
+}

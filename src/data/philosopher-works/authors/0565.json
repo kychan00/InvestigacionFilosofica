@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "author_id": 565,
+  "canonical_name": "Enrique Barboza",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1903,
+      "certainty": "university_obituary_relative_age"
+    },
+    "died": {
+      "year": 1967,
+      "certainty": "university_obituary"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0565-w001",
+      "title": "Sobre el problema de la realidad",
+      "work_type": "metaphysics_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.1.1.6",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "realidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1634"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0565-w002",
+      "title": "Ensayos de filosofía actualista",
+      "work_type": "actualism_and_neohegelianism_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1931,
+        "certainty": "university_library_catalog"
+      },
+      "first_publication_year": 1931,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "actualismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Hegel",
+          "provenance": "inferred"
+        },
+        {
+          "term": "idealismo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://studylib.es/doc/7031507/donativo-jos%C3%A9-de-la-riva-ag%C3%BCero-y-osma"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0565-w003",
+      "title": "Ética",
+      "work_type": "ethics_university_lecture_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1936,
+        "certainty": "contemporary_scholarly_review"
+      },
+      "first_publication_year": 1936,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "valores",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1004"
+      ],
+      "notes": "La revista Letras reseña el volumen de resúmenes de la primera parte del curso de moral de Barboza, publicado en 1936."
+    },
+    {
+      "work_id": "0565-w004",
+      "title": "Psicología",
+      "work_type": "psychology_university_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "university_library_catalog"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conciencia",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://studylib.es/doc/7031507/donativo-jos%C3%A9-de-la-riva-ag%C3%BCero-y-osma"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0565-w005",
+      "title": "La filosofía y el problema moral",
+      "work_type": "moral_philosophy_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "moral",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/en/article/view/1617"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0565-w006",
+      "title": "Metafísica",
+      "work_type": "metaphysics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "project_primary_bibliographic_history"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ser",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0565-w007",
+      "title": "Alejandro Deustua: filósofo y maestro",
+      "work_type": "philosophy_history_and_biography_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "university_library_catalog"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Alejandro Deustua",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historia de la filosofía peruana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://biblioteca.unap.edu.pe/opac_css/index.php?id=3505&lvl=author_see"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Transición peruana del actualismo neohegeliano a la fenomenología y la ética material de los valores",
+      "kind": "peruvian_actualism_phenomenology_and_values_ethics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "Biblioteca Riva Agüero — Ensayos de filosofía actualista y Psicología",
+      "url": "https://studylib.es/doc/7031507/donativo-jos%C3%A9-de-la-riva-ag%C3%BCero-y-osma"
+    },
+    {
+      "kind": "primary_journal_source",
+      "title": "Revista Letras UNMSM — Sobre el problema de la realidad",
+      "url": "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1634"
+    },
+    {
+      "kind": "contemporary_obituary_source",
+      "title": "Gaceta Sanmarquina — Obituario de Enrique Barboza",
+      "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/gaceta_sanmarquina/Nro38-sello.pdf"
+    }
+  ],
+  "research_notes": [
+    "La fuente base menciona 1901 y un obituario universitario describe 64 años al morir en 1967, compatible aproximadamente con 1903; se registra 1903 como aproximación y se documenta discrepancia.",
+    "No se confunde la reseña de Ética firmada por J. A. Ch. con un artículo escrito por Barboza."
+  ]
+}

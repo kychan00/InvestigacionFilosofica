@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "author_id": 965,
+  "canonical_name": "Carlos Cárcova",
+  "alternate_names": [
+    "Carlos María Cárcova"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "965-w001",
+      "title": "La opacidad del derecho",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.universilibros.com/libro/la-opacidad-del-derecho"
+      ],
+      "notes": "La ficha Astrea de 2019 corresponde a segunda edición; la edición Trotta de 2006 tampoco acredita la primera edición."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Teoría crítica del derecho y análisis de la opacidad de las instituciones jurídicas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Evidencia bibliográfica de Carlos Cárcova",
+      "url": "https://www.universilibros.com/libro/la-opacidad-del-derecho"
+    }
+  ],
+  "research_notes": [
+    "No fijar 2019 como año inaugural: es segunda edición, y existen ediciones anteriores en Trotta."
+  ]
+}

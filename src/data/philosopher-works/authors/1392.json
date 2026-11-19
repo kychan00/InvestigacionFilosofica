@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "author_id": 1392,
+  "canonical_name": "Carlos Pereyra",
+  "alternate_names": [
+    "Carlos Pereyra Boldrini"
+  ],
+  "life": {
+    "birth_year": 1940,
+    "death_year": 1988
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1392-w001",
+      "title": "Política y violencia",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-16162011000200010&script=sci_arttext"
+      ],
+      "notes": "La bibliografía secundaria especializada registra la edición de FCE en 1974; existen menciones a 1973, que quedan para auditoría editorial."
+    },
+    {
+      "work_id": "1392-w002",
+      "title": "Configuraciones: teoría e historia",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-16162011000200010&script=sci_arttext"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1392-w003",
+      "title": "Historia, ¿para qué?",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliouin.com.mx/cgi-bin/koha/opac-detail.pl?biblionumber=58797&shelfbrowse_itemnumber=145273"
+      ],
+      "notes": "Ensayo de Pereyra dentro del volumen colectivo homónimo; no se le atribuyen los capítulos de Villoro, González, Florescano y demás autores."
+    },
+    {
+      "work_id": "1392-w004",
+      "title": "El sujeto de la historia",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-16162011000200010&script=sci_arttext"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo marxista mexicano y teórico de la historia y de la democracia; profesor de la UNAM y figura destacada de la reflexión política de izquierda.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "SciELO México — Carlos Pereyra: una breve mirada a su vida y obra",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0185-16162011000200010&script=sci_arttext"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Andamios — Carlos Pereyra y la cuestión democrática",
+      "url": "https://www.scielo.org.mx/pdf/anda/v18n45/1870-0063-anda-18-45-343.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Catálogo BIBLIOUIN — Historia, ¿para qué?",
+      "url": "https://bibliouin.com.mx/cgi-bin/koha/opac-detail.pl?biblionumber=58797&shelfbrowse_itemnumber=145273"
+    }
+  ],
+  "research_notes": [
+    "La identidad se desambiguó contra el historiador mexicano Carlos Pereyra (1871-1942): esta ficha corresponde a Carlos Pereyra Boldrini, filósofo nacido en 1940.",
+    "Sobre la democracia (1990) y Filosofía, historia y política (2010) son recopilaciones póstumas y no se cuentan como obras originales independientes."
+  ]
+}

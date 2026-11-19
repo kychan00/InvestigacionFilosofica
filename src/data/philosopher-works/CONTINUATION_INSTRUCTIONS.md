@@ -1,0 +1,375 @@
+# Continuación de la matriz bibliográfica de filósofos latinoamericanos
+
+**Estado de corte:** 16 de noviembre de 2026
+**Repositorio:** `kychan00/InvestigacionFilosofica`
+**PR anterior:** #336 — mergeado a `main`
+**Merge commit de corte:** `b4563ee0dcc2e7bb0daae2e639a8db4d6ba402ab`
+**Nueva rama de trabajo:** `data/philosopher-works-matrix-continuation-049`
+
+## 1. Objetivo
+
+Continuar y completar la matriz bibliográfica y de metadatos para el inventario canónico de **1,504 filósofos, pensadores e intelectuales latinoamericanos, caribeños y latinos** del proyecto Investigación Filosófica.
+
+La fuente canónica del inventario es:
+
+> Enrique Dussel, Eduardo Mendieta y Carmen Bohórquez (eds.), *El pensamiento filosófico latinoamericano, del Caribe y “latino” (1300–2000): historia, corrientes, temas y filósofos*.
+
+Inventario de autoridad:
+
+`src/data/latin-american-philosophers-metadata.json`
+
+Matriz bibliográfica:
+
+`src/data/philosopher-works/`
+
+## 2. Estado ya mergeado
+
+El PR #336 quedó **mergeado a `main`** y constituye la base cerrada de la primera etapa.
+
+Estado absorbido en `main`:
+
+- **1,504 autores** en el inventario maestro.
+- **540 autores con ficha bibliográfica**, IDs **0001–0540**.
+- **3,353 obras, manuscritos, artículos, tesis, documentos, traducciones, ediciones y contribuciones** registradas.
+- Lotes completados: **001–054**.
+- Último archivo de autor mergeado: `authors/0480.json`.
+- Último lote completado en el PR actual: **054**.
+- PR histórico consolidado: **#336**.
+- El PR #336 ya no debe reutilizarse para nuevos lotes.
+
+## 3. Trabajo pendiente
+
+Quedan:
+
+- **964 autores**.
+- IDs pendientes: **0541–1504**.
+- Próximo lote: **055**, IDs **0541–0550**.
+
+Autores del lote 055:
+
+1. 0541 — Armando Roa
+2. 0542 — Francisco Soler Grima
+3. 0543 — Jorge Acevedo
+4. 0544 — José Rafael Echevarría
+5. 0545 — Juan de Dios Vial Larraín
+6. 0546 — Félix Martínez Bonati
+7. 0547 — Luis Flores
+8. 0548 — Alfonso Gómez-Lobo
+9. 0549 — Marcos García de la Huerta
+10. 0550 — Jorge Eduardo Rivera
+
+Después se continúa estrictamente por IDs consecutivos hasta **1504**.
+
+## 4. Regla operativa del nuevo PR
+
+Esta rama y su PR son el **nuevo PR consolidado** para la continuación de la matriz.
+
+- Añadir aquí los lotes **049 en adelante**.
+- Trabajar normalmente de **10 autores por lote**.
+- **No crear un PR nuevo por cada lote.**
+- Mantener este PR abierto durante la investigación.
+- **No hacer merge a `main` sin autorización explícita del usuario.**
+- Si el usuario dice “sigamos”, continuar con los siguientes 10 IDs.
+- Antes de cada escritura, comprobar el HEAD real de la rama porque puede haber cambios paralelos.
+- Si la rama se mueve, montar el siguiente lote sobre el HEAD más reciente y preservar los cambios ajenos.
+- No reescribir ni borrar fichas ya mergeadas salvo corrección documental explícita.
+
+## 5. Alcance de los cambios
+
+La continuación debe limitarse principalmente a:
+
+- `src/data/philosopher-works/authors/NNNN.json`
+- `src/data/philosopher-works/manifest.json`
+- este documento de continuidad, cuando haga falta actualizar el corte.
+
+No tocar frontend, CSS, navegación, atlas, runtime, workflows ni scripts de QA salvo que el usuario lo pida expresamente.
+
+## 6. Estructura por autor
+
+Cada autor tiene un archivo independiente:
+
+`src/data/philosopher-works/authors/NNNN.json`
+
+Debe mantener, cuando proceda:
+
+- `schema_version`
+- `author_id`
+- `canonical_name`
+- `alternate_names`
+- `life`
+- `coverage`
+- `works`
+- `non_bibliographic_contributions`
+- `sources`
+- `research_notes`
+
+Los `work_id` deben ser consecutivos dentro del autor:
+
+- `0481-w001`
+- `0481-w002`
+- etc.
+
+## 7. Criterios editoriales y bibliográficos
+
+### Identidad
+
+Antes de atribuir obras:
+
+- resolver homónimos;
+- conservar el nombre canónico del inventario;
+- añadir formas de autoridad correctas en `alternate_names`;
+- documentar discrepancias onomásticas en `research_notes`.
+
+### Fechas
+
+Distinguir siempre:
+
+- fecha de composición;
+- tesis o manuscrito;
+- primera publicación;
+- reedición;
+- traducción;
+- edición póstuma;
+- recopilación posterior.
+
+Nunca convertir una reedición en una obra nueva.
+
+### Autoría
+
+Distinguir expresamente:
+
+- autor;
+- coautor;
+- editor;
+- coordinador;
+- compilador;
+- traductor;
+- prologuista;
+- copista;
+- director de revista;
+- responsable institucional.
+
+No atribuir al editor o coordinador todos los textos de una obra colectiva.
+
+### Evidencia
+
+Prioridad aproximada:
+
+1. ejemplar/edición primaria o catálogo de biblioteca;
+2. repositorio universitario o archivo nacional;
+3. editorial;
+4. autoridad académica o biobibliografía;
+5. artículo académico especializado;
+6. fuente secundaria confiable.
+
+Cuando dos fuentes discrepen:
+
+- no ocultar la discrepancia;
+- seleccionar la fecha o forma mejor sustentada;
+- registrar la variante en `notes` o `research_notes`.
+
+Si una obra no puede verificarse con suficiente seguridad, es preferible **no incluirla** antes que inventar metadatos.
+
+### Palabras clave
+
+Usar procedencia explícita cuando sea posible:
+
+- `editorial`
+- `catalog`
+- `scholarly`
+- `inferred`
+
+Evitar inferencias innecesarias si existe vocabulario documental.
+
+## 8. Cobertura
+
+`coverage.status: "seeded"` significa:
+
+> ficha bibliográfica inicial, verificable y auditable; **no bibliografía exhaustiva**.
+
+No intentar completar absolutamente toda la producción de cada autor en esta primera pasada. Priorizar las obras filosóficamente centrales y documentalmente verificables.
+
+## 9. Contribuciones no bibliográficas
+
+Puede registrarse una contribución intelectual por autor cuando ayude a situar:
+
+- corriente;
+- problema;
+- escuela;
+- influencia;
+- institucionalización;
+- recepción filosófica;
+- docencia o proyecto intelectual.
+
+No sustituye obras que sí sean bibliográficamente verificables.
+
+## 10. Actualización de manifest
+
+Al cerrar cada lote:
+
+- incrementar `authors_seeded`;
+- reducir `authors_remaining`;
+- sumar obras + contribuciones a `works_or_contributions_seeded`;
+- actualizar `current_batch`;
+- actualizar `last_updated`;
+- añadir `batch_0XX` con los 10 autores y rutas correspondientes.
+
+Estado de arranque del nuevo PR:
+
+```json
+{
+  "authors_total": 1504,
+  "authors_seeded": 540,
+  "authors_remaining": 964,
+  "works_or_contributions_seeded": 3353,
+  "current_batch": "054",
+  "last_updated": "2026-11-16"
+}
+```
+
+## 11. Auditoría obligatoria por lote
+
+Después de cada commit comprobar:
+
+- 10 IDs correctos para el lote;
+- archivos consecutivos desde `0001.json` hasta el nuevo último ID;
+- cero faltantes;
+- JSON válido;
+- `work_id` consecutivos;
+- nombres canónicos correctos;
+- URLs de evidencia presentes;
+- roles de autoría explícitos;
+- manifiesto actualizado;
+- conteo exacto de obras + contribuciones;
+- ausencia de cambios inesperados fuera de la matriz.
+
+Informar siempre el nuevo:
+
+- HEAD;
+- total de autores cubiertos;
+- porcentaje de cobertura;
+- total de registros;
+- autores pendientes;
+- siguiente lote.
+
+## 12. Historial relevante
+
+El PR #336 consolidó y absorbió los lotes **001–048**.
+
+Último lote mergeado, **048 — IDs 0471–0480**:
+
+- Aníbal Fornari
+- Roberto Prudencio
+- Augusto Pescador
+- Mariano Morales Dávila
+- Rubén Carrasco de la Vega
+- René Mayorga
+- María Emma Ivanovich
+- Víctor Quelca
+- Arturo Orías Median
+- Marvin Sandi
+
+Ese lote añadió **42 obras/documentos + 10 contribuciones = 52 registros**, llevando el total a **2,908**.
+
+## 13. Meta de cierre
+
+La tarea termina cuando existan fichas consecutivas:
+
+`0001.json → 1504.json`
+
+y el manifiesto indique:
+
+- `authors_seeded: 1504`
+- `authors_remaining: 0`
+
+Antes del merge final se debe hacer una auditoría global de identidad, estructura, consecutividad y conteos.
+
+
+## 14. Estado vivo del PR #340 — lote 049
+
+Lote **049** completado en este PR:
+
+- IDs: **0481–0490**
+- Autores añadidos: **10**
+- Obras/documentos: **60**
+- Contribuciones: **10**
+- Registros nuevos: **70**
+- Total acumulado: **2,978**
+- Cobertura: **490 / 1,504 autores**
+- Pendientes: **1,014**
+- Próximo lote: **050**, IDs **0491–0500**
+
+
+## 15. Estado vivo del PR #340 — lote 050
+
+Lote **050** completado en este PR:
+
+- IDs: **0491–0500**
+- Autores añadidos: **10**
+- Obras/documentos: **68**
+- Contribuciones: **10**
+- Registros nuevos: **78**
+- Total acumulado: **3,056**
+- Cobertura: **500 / 1,504 autores**
+- Pendientes: **1,004**
+- Próximo lote: **051**, IDs **0501–0510**
+
+
+## 16. Estado vivo del PR #340 — lote 051
+
+Lote **051** completado en este PR:
+
+- IDs: **0501–0510**
+- Autores añadidos: **10**
+- Obras/documentos: **60**
+- Contribuciones: **10**
+- Registros nuevos: **70**
+- Total acumulado: **3,126**
+- Cobertura: **510 / 1,504 autores**
+- Pendientes: **994**
+- Próximo lote: **052**, IDs **0511–0520**
+
+
+## 17. Estado vivo del PR #340 — lote 052
+
+Lote **052** completado en este PR:
+
+- IDs: **0511–0520**
+- Autores añadidos: **10**
+- Obras/documentos: **43**
+- Contribuciones: **10**
+- Registros nuevos: **53**
+- Total acumulado: **3,179**
+- Cobertura: **520 / 1,504 autores**
+- Pendientes: **984**
+- Próximo lote: **053**, IDs **0521–0530**
+
+
+## 18. Estado vivo del PR #340 — lote 053
+
+Lote **053** completado en este PR:
+
+- IDs: **0521–0530**
+- Autores añadidos: **10**
+- Obras/documentos: **78**
+- Contribuciones: **10**
+- Registros nuevos: **88**
+- Total acumulado: **3,267**
+- Cobertura: **530 / 1,504 autores**
+- Pendientes: **974**
+- Próximo lote: **054**, IDs **0531–0540**
+
+
+## 19. Estado vivo del PR #340 — lote 054
+
+Lote **054** completado en este PR:
+
+- IDs: **0531–0540**
+- Autores añadidos: **10**
+- Obras/documentos: **76**
+- Contribuciones: **10**
+- Registros nuevos: **86**
+- Total acumulado: **3,353**
+- Cobertura: **540 / 1,504 autores**
+- Pendientes: **964**
+- Próximo lote: **055**, IDs **0541–0550**

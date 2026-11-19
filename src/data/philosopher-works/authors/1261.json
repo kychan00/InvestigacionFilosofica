@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "author_id": 1261,
+  "canonical_name": "Deodoro Roca",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1890,
+    "death_year": 1942
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1261-w001",
+      "title": "Monroe-Drago-A.B.C. (Reflexiones sobre política continental)",
+      "work_type": "doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1915,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1915,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bicyt.conicet.gov.ar/fichas/produccion/735929",
+        "https://editorial.unc.edu.ar/wp-content/uploads/sites/33/2023/05/catalogo-Editorial-mayo-2023-web.pdf"
+      ],
+      "notes": "Tesis doctoral defendida en diciembre de 1915. Permaneció inédita durante la vida de Roca y fue publicada póstumamente en el primer tomo de su Obra reunida; se conserva 1915 como fecha de composición y no se cuenta la edición de 2008 como obra nueva."
+    },
+    {
+      "work_id": "1261-w002",
+      "title": "La juventud argentina de Córdoba a los hombres libres de Sud América (Manifiesto Liminar)",
+      "work_type": "manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://comunicacion.psi.unc.edu.ar/unciencia/2017/reforma1918/timeline/index2.html",
+        "https://repositoriosdigitales.sicyt.gob.ar/vufind/Record/RDUUNC_54ee7aaf8f9ea5459a7f52ae47313be9"
+      ],
+      "notes": "Publicado el 21 de junio de 1918 y adoptado por la Federación Universitaria de Córdoba. Las fuentes universitarias reconocen a Deodoro Roca como redactor del texto; las firmas colectivas de estudiantes no se convierten aquí en coautorías bibliográficas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Figura intelectual central de la Reforma Universitaria de Córdoba de 1918 y reconocido redactor de su Manifiesto Liminar.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca de la Facultad de Filosofía y Humanidades, UNC — biografía de Deodoro Roca",
+      "url": "https://ffyh.unc.edu.ar/biblioteca/biografia-deodoro-roca/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "CONICET — Deodoro Roca. Obra reunida. I Cuestiones universitarias",
+      "url": "https://bicyt.conicet.gov.ar/fichas/produccion/735929"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNC — cronología de la Reforma Universitaria",
+      "url": "https://comunicacion.psi.unc.edu.ar/unciencia/2017/reforma1918/timeline/index2.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Repositorio UNC — Manifiesto Liminar",
+      "url": "https://repositoriosdigitales.sicyt.gob.ar/vufind/Record/RDUUNC_54ee7aaf8f9ea5459a7f52ae47313be9"
+    }
+  ],
+  "research_notes": [
+    "Los escritos de Roca circularon principalmente como discursos, artículos y documentos; la recopilación póstuma Obra reunida no se cuenta como obra original adicional.",
+    "La atribución del Manifiesto Liminar se registra como redacción intelectual de Roca, distinguiéndola de su adopción y firma colectiva por la Federación Universitaria."
+  ]
+}

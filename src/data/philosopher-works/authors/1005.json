@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 1005,
+  "canonical_name": "Silvério Fontes",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1005-w001",
+      "title": "A Questão Social",
+      "work_type": "periodical",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1895,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1895,
+      "authorship_status": "institutional_editorial_participation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://novomilenio.inf.br/santos/h0318z05.htm"
+      ],
+      "notes": "Fundación y edición colectiva del periódico con Sóter de Araújo y Carlos de Escobar; no se atribuye autoría individual de todos sus artículos."
+    },
+    {
+      "work_id": "1005-w002",
+      "title": "A Ação Social",
+      "work_type": "periodical",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1892,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1892,
+      "authorship_status": "institutional_editorial_participation",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/16835143/A_imprensa_na_cidade_de_Santos_1849_1930"
+      ],
+      "notes": "Publicación del Centro Socialista; participación institucional, no autoría exclusiva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Impulso del socialismo y la prensa obrera en Santos; no hay títulos de monografías individuales verificados.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 1",
+      "url": "https://novomilenio.inf.br/santos/h0318z05.htm"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 2",
+      "url": "https://www.academia.edu/16835143/A_imprensa_na_cidade_de_Santos_1849_1930"
+    }
+  ],
+  "research_notes": [
+    "Impulso del socialismo y la prensa obrera en Santos; no hay títulos de monografías individuales verificados.",
+    "Las publicaciones periódicas A Questão Social y A Ação Social son colaboraciones institucionales, no obras individuales verificadas."
+  ]
+}

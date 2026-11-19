@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "author_id": 1247,
+  "canonical_name": "Carlos Viteri",
+  "alternate_names": [
+    "Carlos Viteri Gualinga"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1247-w001",
+      "title": "Visión indígena del desarrollo en la Amazonía",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://polis.ulagos.cl/index.php/polis/es/article/view/649"
+      ],
+      "notes": "El portal de la revista muestra una migración/publicación técnica posterior; se conserva el año del número original de Polis (2002)."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Antropólogo kichwa amazónico ecuatoriano, autor de una formulación influyente sobre desarrollo, cosmovisión y bienestar desde perspectivas indígenas amazónicas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1247-1",
+      "url": "https://polis.ulagos.cl/index.php/polis/es/article/view/649"
+    }
+  ],
+  "research_notes": [
+    "La identidad se fija como Carlos Viteri Gualinga a partir de la ficha de autor de Polis.",
+    "No se agregan otros títulos sin una fuente bibliográfica suficientemente precisa."
+  ]
+}

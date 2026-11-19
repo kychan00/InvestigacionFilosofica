@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "author_id": 881,
+  "canonical_name": "Ana Tapajoz",
+  "alternate_names": [
+    "Ana Tapajós"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0881-w001",
+      "title": "The Lesser Evil: political ethics in an age of terror",
+      "work_type": "book_review",
+      "original_language": "português",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "reviewer",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.26512/rbb.v2i2.7976",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.periodicos.unb.br/index.php/rbb/article/view/7976"
+      ],
+      "notes": "Resenha do livro de Michael Ignatieff. Revista Brasileira de Bioética 2(2), 254–256, 2006; não confundir autor da resenha com autor do livro."
+    },
+    {
+      "work_id": "0881-w002",
+      "title": "Declaração Universal sobre Bioética e Direitos Humanos (tradução portuguesa)",
+      "work_type": "institutional_document_translation",
+      "original_language": "português",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Mauro Machado do Prado"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.tempusactas.unb.br/index.php/tempus/article/view/1362",
+        "https://bvsms.saude.gov.br/bvs/publicacoes/declaracao_univ_bioetica_dir_hum.pdf"
+      ],
+      "notes": "Tradução do documento da UNESCO atribuída a Ana Tapajós e Mauro Machado do Prado; revisão por Volnei Garrafa. A UNESCO é autora institucional da declaração, não os tradutores."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Revisão de traduções da Declaração Universal da UNESCO e participação documentada na assessoria internacional em bioética do Ministério da Saúde brasileiro.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Brasileira de Bioética (UnB), resenha de Tapajós",
+      "url": "https://www.periodicos.unb.br/index.php/rbb/article/view/7976"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Tempus/UnB: referencia a tradução da Declaração de Bioética da UNESCO",
+      "url": "https://www.tempusactas.unb.br/index.php/tempus/article/view/1362"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Ministério da Saúde, Declaração Universal sobre Bioética e Direitos Humanos",
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/declaracao_univ_bioetica_dir_hum.pdf"
+    }
+  ],
+  "research_notes": [
+    "Nome do inventário 'Ana Tapajoz', grafia da autora nas fontes 'Ana Tapajós'.",
+    "O título inglês The Lesser Evil refere-se a livro de Michael Ignatieff; registro é somente da resenha assinada por Tapajós."
+  ]
+}

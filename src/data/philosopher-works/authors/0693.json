@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "author_id": 693,
+  "canonical_name": "Agustín Abarca y Cabrera",
+  "alternate_names": [
+    "Agustín Abarca Cabrera"
+  ],
+  "life": {
+    "born": {
+      "year": 1844,
+      "certainty": "regional_historical_biography"
+    },
+    "died": {
+      "year": 1891,
+      "certainty": "regional_historical_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "no_individual_work_verified_keep_research_open",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Canónigo y profesor del Seminario Conciliar de Morelia que estableció la cátedra de Filosofía Escolástica (1879) y enseñó pensamiento de Santo Tomás de Aquino.",
+      "kind": "historically_documented_philosophical_teaching_or_institutional_activity",
+      "authorship_status": "documented_in_scholarly_or_primary_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "regional_historical_biography",
+      "title": "100 Patzcuarenses que han dejado huella, Agustín Abarca Cabrera",
+      "url": "https://www.academia.edu/34472202/100_Patzcuarenses_que_han_dejado_huella"
+    }
+  ],
+  "research_notes": [
+    "La biografía histórica registra fecha natal 28 de marzo de 1844 y muerte 1891; no se hallaron títulos de obras individuales claramente verificables.",
+    "No asignar a este autor manuales anónimos del Seminario de Morelia ni publicaciones de homónimos.",
+    "Conservar works: [] hasta obtener un catálogo primario."
+  ]
+}

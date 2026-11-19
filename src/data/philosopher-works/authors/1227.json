@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 1227,
+  "canonical_name": "Aníbal Pinto",
+  "alternate_names": [
+    "Aníbal Pinto Santa Cruz"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1227-w001",
+      "title": "Chile, un caso de desarrollo frustrado",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-9776.html"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1227-w002",
+      "title": "La heterogeneidad estructural: aspecto fundamental del desarrollo latinoamericano",
+      "work_type": "research_document",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.cepal.org/handle/11362/35031"
+      ],
+      "notes": "Fecha original no establecida en la fuente consultada."
+    },
+    {
+      "work_id": "1227-w003",
+      "title": "Heterogeneidad estructural y modelo de desarrollo reciente de la América Latina",
+      "work_type": "research_document",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.cepal.org/handle/11362/35058"
+      ],
+      "notes": "Fecha original no establecida en la fuente consultada."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1227-1",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-9776.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1227-2",
+      "url": "https://repositorio.cepal.org/handle/11362/35031"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1227-3",
+      "url": "https://repositorio.cepal.org/handle/11362/35058"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "author_id": 1374,
+  "canonical_name": "Iulo Brandão",
+  "alternate_names": [
+    "Julio Brandão",
+    "Iulo Brandao"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1374-w001",
+      "title": "Humanismo y humanismos",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/handle/123456789/13522"
+      ],
+      "notes": "Sapientia 43(167-168); estudio de humanismo, socialismo, humanismo cristiano y existencialismo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensador católico brasileño incluido por Dussel entre los autores neotomistas; autor de un estudio sistemático sobre humanismo y sus variantes.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Repositorio UCA — Humanismo y humanismos",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/13522"
+    }
+  ],
+  "research_notes": [
+    "El inventario impreso de Dussel presenta la forma Julio Brandão, mientras el registro bibliográfico de Sapientia usa Iulo Brandao; se conserva Iulo Brandão como nombre canónico del inventario digital y Julio como variante.",
+    "No se atribuyen otras obras sin evidencia bibliográfica inequívoca."
+  ]
+}

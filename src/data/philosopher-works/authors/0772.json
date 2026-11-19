@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "author_id": 772,
+  "canonical_name": "Luiz Henrique Lopes dos Santos",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1949,
+      "certainty": "specialized_biographical_source"
+    },
+    "died": {
+      "year": 2025,
+      "certainty": "specialized_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0772-w001",
+      "title": "Verdade e método: um ensaio sobre a lógica segundo Frege",
+      "work_type": "unpublished_doctoral_dissertation",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "original_thesis_defense_documented"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://teses.usp.br/teses/disponiveis/8/8133/tde-19062023-115653/pt-br.html"
+      ],
+      "notes": "Tesis doctoral defendida en 1981; digitalización 2023 no demuestra publicación impresa de 1981."
+    },
+    {
+      "work_id": "0772-w002",
+      "title": "Tractatus Logico-Philosophicus",
+      "work_type": "philosophical_translation",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1993,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "translator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://filosofia.fflch.usp.br/node/11954",
+        "https://agencia.fapesp.br/a-revolucao-da-logica/9873"
+      ],
+      "notes": "Traducción portuguesa de Ludwig Wittgenstein, no autoría original; publicación Edusp alrededor de 1993."
+    },
+    {
+      "work_id": "0772-w003",
+      "title": "A essência da proposição e a essência do mundo",
+      "work_type": "book_introduction",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1993,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://filosofia.fflch.usp.br/node/11954",
+        "https://agencia.fapesp.br/a-revolucao-da-logica/9873"
+      ],
+      "notes": "Ensayo original introductorio del traductor a la edición portuguesa del Tractatus; separado de la autoría de Wittgenstein."
+    },
+    {
+      "work_id": "0772-w004",
+      "title": "O olho e o microscópio: a gênese e os fundamentos da lógica segundo Frege",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2008,
+        "certainty": "specialized_bibliographic_source"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://agencia.fapesp.br/a-revolucao-da-logica/9873",
+        "https://filosofia.fflch.usp.br/node/11954"
+      ],
+      "notes": "Registro selectivo sustentado por bibliografía institucional o editorial. No se duplican traducciones y reediciones."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación y dirección académica de CLE de Unicamp, investigación de filosofía de la lógica y pensamiento de Frege y Wittgenstein, docencia USP y actividad científica FAPESP.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_publisher_bibliography",
+      "title": "USP: In memoriam Luiz Henrique Lopes dos Santos (1949-2025), textos y traducciones",
+      "url": "https://filosofia.fflch.usp.br/node/11954"
+    },
+    {
+      "kind": "institutional_academic_library_or_publisher_bibliography",
+      "title": "USP: tesis Verdade e método, de Luiz Henrique Lopes dos Santos",
+      "url": "https://teses.usp.br/teses/disponiveis/8/8133/tde-19062023-115653/pt-br.html"
+    },
+    {
+      "kind": "institutional_academic_library_or_publisher_bibliography",
+      "title": "FAPESP: O olho e o microscópio y traducción de Tractatus",
+      "url": "https://agencia.fapesp.br/a-revolucao-da-logica/9873"
+    }
+  ],
+  "research_notes": [
+    "La USP documenta vida 1949–2025, muerte 27 julio de 2025.",
+    "Tesis doctoral sobre Frege concluida 1981; repositorio tiene digitalización 2023: no confundir la fecha digital con primera impresión.",
+    "Tractatus es obra de Ludwig Wittgenstein: Luiz Henrique fue traductor y redactor del ensayo introductorio propio.",
+    "O Olho e o Microscópio se publicó como libro propio en 2008, no 1981 (tesis previa)."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "author_id": 1348,
+  "canonical_name": "Carlos Alberto Gomes dos Santos",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1348-w001",
+      "title": "O desenvolvimento do conhecimento científico: progresso ou mudança?",
+      "work_type": "doctoral_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.escavador.com/sobre/2008332/carlos-alberto-gomes-dos-santos"
+      ],
+      "notes": "Tese de doutorado em Filosofia pela PUC-Rio, concluída em 1995."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo brasileiro ligado à PUC-Rio, com atuação em epistemologia, racionalismo, relativismo, lógica do conhecimento e história das ciências.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1348-1",
+      "url": "https://www.escavador.com/sobre/2008332/carlos-alberto-gomes-dos-santos"
+    }
+  ],
+  "research_notes": [
+    "Lote 135 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–134 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, reimpresiones, prensa periódica y versiones posteriores no se convierten automáticamente en obras nuevas."
+  ]
+}

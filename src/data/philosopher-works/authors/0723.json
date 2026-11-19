@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "author_id": 723,
+  "canonical_name": "Víctor Rodríguez",
+  "alternate_names": [
+    "Víctor Rodríguez"
+  ],
+  "life": {
+    "born": {
+      "year": 1949,
+      "certainty": "fundacion_konex"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_bibliographic_records_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0723-w001",
+      "title": "Vínculos entre la enseñanza de la física y la epistemología: el caso de la probabilidad",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "specialized_bibliographic_record"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/autor?codigo=3754747"
+      ],
+      "notes": "Registro bibliográfico selectivo; no se duplican reimpresiones ni ediciones posteriores."
+    },
+    {
+      "work_id": "0723-w002",
+      "title": "Cosmología y filosofía de la ciencia: una extraña alianza",
+      "work_type": "conference_paper",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "specialized_bibliographic_record"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositoriosdigitales.sicyt.gob.ar/vufind/Record/RDUUNC_03265a03b1bbc3d5ff72d86b43f1e9ec"
+      ],
+      "notes": "Repositorio de la Universidad Nacional de Córdoba identifica ponencia publicada en noviembre de 1996."
+    },
+    {
+      "work_id": "0723-w003",
+      "title": "Los descubrimientos científicos y la filosofía de la ciencia",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_documented"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca-repositorio.clacso.edu.ar/bitstream/CLACSO/13031/1/schuster.pdf"
+      ],
+      "notes": "Capítulo XXI de Filosofía para la ciencia y la sociedad; primera fecha de edición no confirmada en la fuente consultada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de Epistemología de las Ciencias Naturales en la Universidad Nacional de Córdoba, expresidente de la Asociación Filosófica Argentina y premio Konex de Platino 2006 en Lógica y Filosofía de la Ciencia.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_university_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y «latino» (inventario canónico)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_scholarly_editorial_or_bibliographic_source",
+      "title": "Fundación Konex: Víctor Rodríguez, semblanza académica",
+      "url": "https://www.fundacionkonex.org/b2761-victor_rodriguez"
+    },
+    {
+      "kind": "institutional_scholarly_editorial_or_bibliographic_source",
+      "title": "Universidad Nacional de Córdoba: Cosmología y filosofía de la ciencia, repositorio institucional",
+      "url": "https://repositoriosdigitales.sicyt.gob.ar/vufind/Record/RDUUNC_03265a03b1bbc3d5ff72d86b43f1e9ec"
+    },
+    {
+      "kind": "institutional_scholarly_editorial_or_bibliographic_source",
+      "title": "Dialnet, Víctor Rodríguez (Universidad Nacional de Córdoba)",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=3754747"
+    },
+    {
+      "kind": "institutional_scholarly_editorial_or_bibliographic_source",
+      "title": "CLACSO: Filosofía para la ciencia y la sociedad (incluye capítulo de Víctor Rodríguez)",
+      "url": "https://biblioteca-repositorio.clacso.edu.ar/bitstream/CLACSO/13031/1/schuster.pdf"
+    }
+  ],
+  "research_notes": [
+    "Se utiliza la identidad institucional del epistemólogo cordobés nacido el 29 de enero de 1949, no la de sus homónimos.",
+    "No se asignan libros sin evidencia de la responsabilidad autoral propia.",
+    "Para el capítulo en CLACSO no se presupone primera edición sin constatación."
+  ]
+}

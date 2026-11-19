@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "author_id": 674,
+  "canonical_name": "Jacinto Ríos",
+  "alternate_names": [
+    "Padre Jacinto Ríos"
+  ],
+  "life": {
+    "born": {
+      "year": 1842,
+      "certainty": "UANL_historical_study"
+    },
+    "died": {
+      "year": 1892,
+      "certainty": "UANL_historical_study"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "no_individual_work_verified_keep_research_open",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor del seminario de Córdoba, Argentina, y defensor temprano de la restauración tomista frente a corrientes racionalistas y positivistas en el siglo XIX.",
+      "kind": "documented_intellectual_philosophical_or_institutional_activity",
+      "authorship_status": "documented_in_historical_academic_or_primary_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "url": "https://humanitas.uanl.mx/index.php/ah/es/article/download/1196/1099/2315",
+      "title": "UANL Humanitas, restauración tomista argentina: Jacinto Ríos (1842–1892)",
+      "kind": "academic_historical_study"
+    },
+    {
+      "url": "https://repositorio.uca.edu.ar/bitstream/123456789/14658/2/restauraci%C3%B3n-tomismo-fray-jos%C3%A9.pdf",
+      "title": "UCA, La restauración del tomismo en Fray José María Liqueno",
+      "kind": "university_historical_study"
+    }
+  ],
+  "research_notes": [
+    "Las fuentes académicas (Humanitas UANL; historia de José María Liqueno UCA) confirman identidad, cronología 1842–1892 y papel docente, pero NO listan títulos individuales verificables.",
+    "Se conserva works: [] y coverage.works_status=no_individual_work_verified_keep_research_open para evitar atribuirle obras de José María Liqueno o de otros apologetas cordobeses."
+  ]
+}

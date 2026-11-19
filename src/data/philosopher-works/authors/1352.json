@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "author_id": 1352,
+  "canonical_name": "Marta Pernambuco",
+  "alternate_names": [
+    "Marta Maria Castanho Almeida Pernambuco",
+    "Marta Maria Pernambuco"
+  ],
+  "life": {
+    "birth_year": 1952,
+    "death_year": 2018
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1352-w001",
+      "title": "Seca e Água: material de apoio",
+      "work_type": "edited_volume",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "editor",
+      "coauthors": [
+        "Maria Cristina Dal Pian"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.escavador.com/sobre/5292568/maria-cristina-dal-pian"
+      ],
+      "notes": "Material educativo organizado conjuntamente."
+    },
+    {
+      "work_id": "1352-w002",
+      "title": "Agricultura: material de apoio",
+      "work_type": "edited_volume",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "editor",
+      "coauthors": [
+        "Maria Cristina Dal Pian"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.escavador.com/sobre/5292568/maria-cristina-dal-pian"
+      ],
+      "notes": "Material educativo organizado conjuntamente."
+    },
+    {
+      "work_id": "1352-w003",
+      "title": "A formação social da mente - de L. S. Vygotsky",
+      "work_type": "book_review",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1992,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodicos.ufrn.br/educacaoemquestao/article/view/11309"
+      ],
+      "notes": "Reseña publicada en Revista Educação em Questão."
+    },
+    {
+      "work_id": "1352-w004",
+      "title": "Ensino de ciências: fundamentos e métodos",
+      "work_type": "coauthored_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Demétrio Delizoicov",
+        "José André Peres Angotti"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://acervo.bn.gov.br/sophia_web/acervo/detalhe/303304"
+      ],
+      "notes": "Primera edición de 2002; ediciones posteriores no se duplican."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Educadora y física vinculada a la UFRN; coordinó el GEPEM y desarrolló una praxis de formación docente inspirada en Paulo Freire, con énfasis en realidad local, diálogo y construcción social del conocimiento.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UFRN — biografía intelectual de Marta Pernambuco",
+      "url": "https://repositorio.ufrn.br/bitstream/123456789/32801/1/MartaPernambucocultivo_Romao_2021.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Revista Educação em Questão — GEPEM y praxis de Paulo Freire",
+      "url": "https://periodicos.ufrn.br/educacaoemquestao/article/view/15546"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Nacional do Brasil — Ensino de ciências",
+      "url": "https://acervo.bn.gov.br/sophia_web/acervo/detalhe/303304"
+    }
+  ],
+  "research_notes": [
+    "Se preserva la forma canónica Marta Pernambuco y se añade el nombre completo documentado.",
+    "Los materiales de 1985 se registran como labor editorial/educativa y no como autoría individual de todos sus contenidos."
+  ]
+}

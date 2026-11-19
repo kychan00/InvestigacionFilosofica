@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "author_id": 594,
+  "canonical_name": "Ismael San Miguel",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1915,
+      "certainty": "2011_scholarly_memorial"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_bibliographically_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0594-w001",
+      "title": "Poemas del abismo",
+      "work_type": "philosophically_inflected_poetry_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1940,
+        "certainty": "bibliographic_authority"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "abismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "poesía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "pensamiento uruguayo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://arielenlinea.wordpress.com/wp-content/uploads/2011/05/ariel7_master.pdf"
+      ],
+      "notes": "Montevideo, Nebli, 1940; la fuente señala que el humor filosófico posterior no aparece todavía en esta obra."
+    },
+    {
+      "work_id": "0594-w002",
+      "title": "La dialéctica existencial de Berdiaeff",
+      "work_type": "Berdyaev_existence_philosophy_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "bibliographic_authority"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nikolái Berdiáyev",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "dialéctica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecadigital.bibna.gub.uy/jspui/bitstream/123456789/28110/1/numero19a%C3%B1o4.pdf"
+      ],
+      "notes": "Revista Número, año 4 n.º 19 (abril-junio 1952), pp. 120 ss.; ejemplar original de Biblioteca Nacional uruguaya."
+    },
+    {
+      "work_id": "0594-w003",
+      "title": "Instituto Nacional de la Hora Puente: aproximaciones al Plan Vaz Sicco y otras adyacencias pascualinas",
+      "work_type": "satirical_philosophy_of_education_manuscript_posthumous_publication",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "archival_manuscript_composed_circa_1976"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Vaz Ferreira",
+          "provenance": "inferred"
+        },
+        {
+          "term": "dictadura uruguaya",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://arielenlinea.wordpress.com/wp-content/uploads/2011/05/ariel7_master.pdf"
+      ],
+      "notes": "Manuscrito de unas seis carillas escrito después del 16-06-1976, custodiado en Biblioteca Carlos Mato de la Asociación Filosófica del Uruguay; primera publicación en Ariel n.º 7, mayo 2011. No convertir 2011 en año de composición."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia filosófica uruguaya en enseñanza media y crítica satírica de la política educativa durante la dictadura",
+      "kind": "Uruguayan_secondary_school_philosophy_Berdyaev_and_education_criticism",
+      "authorship_status": "documented_academic_or_intellectual_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario original latinoamericano",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "Uruguay_national_library_primary_journal",
+      "title": "Número n.º 19 (1952) — La dialéctica existencial de Berdiaeff",
+      "url": "https://bibliotecadigital.bibna.gub.uy/jspui/bitstream/123456789/28110/1/numero19a%C3%B1o4.pdf"
+    },
+    {
+      "kind": "Uruguayan_philosophy_journal_and_manuscript_rescue",
+      "title": "Ariel n.º 7 (2011) — manuscrito de Ismael San Miguel",
+      "url": "https://arielenlinea.wordpress.com/wp-content/uploads/2011/05/ariel7_master.pdf"
+    }
+  ],
+  "research_notes": [
+    "La fuente de 2011 da nacimiento en 1915 pero desconoce el fallecimiento; no se inventa fecha de muerte.",
+    "La ponencia humorística se fecha aproximadamente 1976 por referencias internas y aparece por primera vez impresa en 2011."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "author_id": 1089,
+  "canonical_name": "Dario Caberlon",
+  "alternate_names": [
+    "Darío Caberlon"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1089-w001",
+      "title": "Elementos para uma antropologia filosófica no pensamento de Rodolfo Kusch",
+      "work_type": "masters_thesis",
+      "original_language": "português",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://periodicos.uefs.br/index.php/acordasletras/article/view/1455",
+        "https://www.escavador.com/sobre/632062/jayme-paviani"
+      ],
+      "notes": "Dissertação de mestrado em Antropologia Filosófica, PUCRS, Porto Alegre, 1989; citada por trabajos de recepción de Kusch."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 1: d",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 2: caberlon",
+      "url": "https://periodicos.uefs.br/index.php/acordasletras/article/view/1455"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 3: caberlon2",
+      "url": "https://www.escavador.com/sobre/632062/jayme-paviani"
+    }
+  ],
+  "research_notes": [
+    "El título de la disertación se conserva como lo cita la bibliografía académica; algunos catálogos alternan 'no pensamento' y 'en el pensamiento'.",
+    "Sin acceso al manuscrito, esta ficha no debe presentarse como bibliografía exhaustiva."
+  ]
+}

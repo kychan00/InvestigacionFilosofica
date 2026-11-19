@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "author_id": 1312,
+  "canonical_name": "Juan Bautista Aguirre",
+  "alternate_names": [
+    "Juan Bautista Aguirre S. J."
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1312-w001",
+      "title": "Física",
+      "work_type": "manuscript_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1756,
+        "certainty": "documented_or_composition_year"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/47914"
+      ],
+      "notes": "Curso de física dictado en la Universidad de San Gregorio entre 1756 y 1759; la edición completa castellana documentada por la Casa de la Cultura Ecuatoriana apareció en 1982."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita ecuatoriano, profesor de filosofía y teología moral en la Universidad de San Gregorio, con un curso de Física de notable interés para la historia de la ciencia colonial.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1312-1",
+      "url": "https://biblioteca.casadelacultura.gob.ec/bib/47914"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1312-2",
+      "url": "https://fundacionmuseosquito.gob.ec/MDC/Bibliograf%C3%ADa%20SIGLO%20XIX/Varios%20autores-Radiograf%C3%ADa%20de%20la%20piedra.pdf"
+    }
+  ],
+  "research_notes": [
+    "Lote 132 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–131 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva. En autores coloniales se distinguen manuscrito/composición, primera publicación y ediciones póstumas; cuando la fecha no está establecida se conserva null."
+  ]
+}

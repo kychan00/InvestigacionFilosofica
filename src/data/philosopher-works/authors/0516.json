@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "author_id": 516,
+  "canonical_name": "Carlos Jaramillo Borda",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0516-w001",
+      "title": "Los valores y una teoría sobre ellos",
+      "work_type": "axiology_serial_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "scholarly_historical_bibliography"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "valores",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "belleza",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "moral",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.uniandes.edu.co/server/api/core/bitstreams/4e8f712c-8147-40e7-9494-35ce7a7d3006/content"
+      ],
+      "notes": "Serie de cuatro piezas publicada en Revista de las Indias, primera época, núms. 6-9, entre julio de 1937 y abril de 1938. Se registra como una unidad ensayística."
+    },
+    {
+      "work_id": "0516-w002",
+      "title": "La fenomenología de Husserl y la era humanística inminente",
+      "work_type": "husserl_and_humanism_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "project_primary_source"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Trabajo de 1942 señalado por el libro-base como una de las expresiones tempranas de la recepción fenomenológica colombiana."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Introducción temprana de axiología y fenomenología en el debate intelectual colombiano anterior a la profesionalización filosófica de posguerra",
+      "kind": "early_colombian_axiology_and_phenomenology_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_historical_source",
+      "title": "Universidad de los Andes — La Revista de las Indias, 1936-1938",
+      "url": "https://repositorio.uniandes.edu.co/server/api/core/bitstreams/4e8f712c-8147-40e7-9494-35ce7a7d3006/content"
+    }
+  ],
+  "research_notes": [
+    "Los valores y una teoría sobre ellos se publicó por entregas 1937-1938; no se fragmenta en cuatro work_id."
+  ]
+}

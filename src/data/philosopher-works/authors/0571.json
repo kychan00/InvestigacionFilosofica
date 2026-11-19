@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "author_id": 571,
+  "canonical_name": "Nelly Festini",
+  "alternate_names": [
+    "Nelly Festini Illich"
+  ],
+  "life": {
+    "born": {
+      "year": 1921,
+      "certainty": "latin_american_philosophy_book_biographical_note"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0571-w001",
+      "title": "El significado de la imaginación en la fundamentación kantiana del conocimiento científico",
+      "work_type": "doctoral_philosophy_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "unmsm_thesis_catalog"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Kant",
+          "provenance": "inferred"
+        },
+        {
+          "term": "imaginación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conocimiento científico",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://unmsm-web-static-files.s3.sa-east-1.amazonaws.com/fondo-editorial/open-access-book/260C.pdf",
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1189"
+      ],
+      "notes": "Tesis doctoral presentada en 1945 (115 hojas), publicada como artículo en Revista Letras en 1946. La edición La imaginación en la teoría kantiana del conocimiento (1948) se considera derivada de la misma investigación y no se cuenta por separado."
+    },
+    {
+      "work_id": "0571-w002",
+      "title": "Las actividades educativas en Educación Secundaria",
+      "work_type": "educational_pedagogy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "unmsm_contemporary_faculty_profile"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación secundaria",
+          "provenance": "inferred"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "didáctica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/gaceta_sanmarquina/Nro55-sello.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0571-w003",
+      "title": "Estética y existencialismo filosófico",
+      "work_type": "philosophical_aesthetics_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1950,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.16.45.6",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1295"
+      ],
+      "notes": "Revista Letras 16(45), pp. 215–223, publicada el 31-12-1950. Una semblanza universitaria de la autora da 1951, probablemente año de difusión o edición posterior."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de la estética filosófica peruana y de la reflexión kantiana sobre la imaginación en la formación universitaria",
+      "kind": "peruvian_kantian_epistemology_and_philosophical_aesthetics",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_historical_source",
+      "title": "UNMSM — semblanza de Nelly Festini Illich",
+      "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/gaceta_sanmarquina/Nro55-sello.pdf"
+    },
+    {
+      "kind": "university_thesis_catalog",
+      "title": "UNMSM — tesis de Festini Illich (1945)",
+      "url": "https://unmsm-web-static-files.s3.sa-east-1.amazonaws.com/fondo-editorial/open-access-book/260C.pdf"
+    },
+    {
+      "kind": "primary_journal_source",
+      "title": "Letras — Estética y existencialismo filosófico",
+      "url": "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1295"
+    }
+  ],
+  "research_notes": [
+    "No confundir a Nelly Festini Illich con Esther Festini, cuya tesis sobre educación femenina data de 1904.",
+    "La tesis de 1945, el artículo de 1946 y el libro de 1948 sobre imaginación kantiana se registran como una investigación, sin contar tres obras independientes.",
+    "La edición de Letras confirma 1950 como fecha del ensayo sobre estética frente a la semblanza institucional que señala 1951."
+  ]
+}

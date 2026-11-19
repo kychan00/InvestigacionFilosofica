@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "author_id": 684,
+  "canonical_name": "Ubaldo Puppi",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_first_editions_articles_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0684-w001",
+      "title": "Itinerário para a verdade: uma introdução metafísica à filosofia",
+      "work_type": "Aristotelian_Thomist_metaphysics_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1955,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://hemeroteca-pdf.bn.gov.br/367729/per367729_1956_00001.pdf"
+      ],
+      "notes": "Agir, Rio de Janeiro, 1955, reseña contemporánea en A Ordem (1956)."
+    },
+    {
+      "work_id": "0684-w002",
+      "title": "Uma carta-prefácio de Jacques Maritain",
+      "work_type": "editorial_presentation_of_Maritain_letter",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_in_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "editorial_presentation_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.ufpr.br/letras/article/view/20048"
+      ],
+      "notes": "Publicación en Letras UFPR presenta carta escrita por Jacques Maritain para el libro de Puppi. NO atribuir la carta a Puppi, solo presentación/editorial; año de revista no confirmado."
+    },
+    {
+      "work_id": "0684-w003",
+      "title": "Uma teoria da cultura",
+      "work_type": "scholarly_book_review",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1974,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "review_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://doi.org/10.1590/s0101-31731974000100014"
+      ],
+      "notes": "Reseña del libro La violence et le sacré de René Girard; no obra original de Girard ni monografía propia. DOI 10.1590/S0101-31731974000100014."
+    },
+    {
+      "work_id": "0684-w004",
+      "title": "O trágico: experiência e conceito",
+      "work_type": "philosophical_journal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "scholarly_or_library_bibliography"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://doi.org/10.1590/s0101-31731981000100003"
+      ],
+      "notes": "Trans/Form/Ação v.4, pp. 41–50. DOI 10.1590/S0101-31731981000100003."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Enseñanza y producción filosófica desde la Universidade do Paraná, con abordajes tomistas y reflexión sobre el concepto de lo trágico.",
+      "kind": "documented_philosophical_or_institutional_contribution",
+      "authorship_status": "documented_in_bibliographic_and_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_periodical_review",
+      "title": "Biblioteca Nacional do Brasil — resenha Itinerário para a verdade (1955)",
+      "url": "https://hemeroteca-pdf.bn.gov.br/367729/per367729_1956_00001.pdf"
+    },
+    {
+      "kind": "journal_original_research",
+      "title": "Trans/Form/Ação — O trágico: experiência e conceito (1981)",
+      "url": "https://doi.org/10.1590/s0101-31731981000100003"
+    },
+    {
+      "kind": "journal_primary_critical_review",
+      "title": "Trans/Form/Ação — Uma teoria da cultura (1974), resenha de Puppi",
+      "url": "https://doi.org/10.1590/s0101-31731974000100014"
+    },
+    {
+      "kind": "university_primary_journal",
+      "title": "Revista Letras UFPR, Uma carta-prefácio de Jacques Maritain",
+      "url": "https://revistas.ufpr.br/letras/article/view/20048"
+    }
+  ],
+  "research_notes": [
+    "Artículo Uma carta-prefácio de Jacques Maritain aparece bajo firma de Ubaldo Puppi, pero el contenido principal es una carta de Jacques Maritain: se marca contribución editorial, no autoría de Maritain.",
+    "La obra de 1955 tiene respaldo en reseña contemporánea preservada por Biblioteca Nacional de Brasil."
+  ]
+}

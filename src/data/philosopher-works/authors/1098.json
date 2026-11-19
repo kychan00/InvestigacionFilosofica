@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "author_id": 1098,
+  "canonical_name": "Leônidas de Rezende",
+  "alternate_names": [
+    "Leônidas de Resende",
+    "Leônidas Rezende"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1098-w001",
+      "title": "A formação do capital e seu desenvolvimento",
+      "work_type": "academic_competition_thesis",
+      "original_language": "português",
+      "original_date": {
+        "year": 1932,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www2.senado.leg.br/bdsf/handle/id/574643",
+        "https://www.scielo.br/j/his/a/rC89H6NfCf3q3sLcBWFYLRR/?lang=pt"
+      ],
+      "notes": "Tese de concurso para cátedra da Faculdade Nacional de Direito em 1932; reeditada pelo Senado Federal em 2011, sin duplicación."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Contribuyó a la interpretación de marxismo y positivismo en Brasil y defendió su obra de 1932 en concurso académico.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_catalog_or_bibliographic_authority",
+      "title": "Referencia académica o catálogo bibliográfico — senado",
+      "url": "https://www2.senado.leg.br/bdsf/handle/id/574643"
+    },
+    {
+      "kind": "institutional_academic_catalog_or_bibliographic_authority",
+      "title": "Referencia académica o catálogo bibliográfico — rezendestudy",
+      "url": "https://www.scielo.br/j/his/a/rC89H6NfCf3q3sLcBWFYLRR/?lang=pt"
+    }
+  ],
+  "research_notes": [
+    "El Senado brasileño confirma la obra de 1932, recuperada editorialmente en 2011; se registra una sola unidad bibliográfica.",
+    "La grafía de su apellido varía entre Rezende y Resende según catálogos y la investigación historiográfica."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 621,
+  "canonical_name": "Vicente Díaz Samayoa",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1911,
+      "certainty": "regional_biographical_source"
+    },
+    "died": {
+      "year": 1977,
+      "certainty": "regional_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0621-w001",
+      "title": "Ariel sobre los Andes",
+      "work_type": "philosophical_cultural_study_of_Jose_Enrique_Rodo",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographic_or_academic_source"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "José Enrique Rodó",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arielismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento latinoamericano",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=35853&lvl=categ_see"
+      ],
+      "notes": "Obra publicada póstumamente: Ciudad de Guatemala, GARDISA, [1979]. Se estudian las ideas filosóficas y estéticas de Rodó; no se atribuye Ariel, la obra primaria de Rodó, a Díaz Samayoa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción guatemalteca del arielismo y docencia de filosofía del derecho, con formación en filosofía jurídica argentina y reflexión sobre Descartes",
+      "kind": "Guatemalan_Rodo_reception_and_legal_philosophy",
+      "authorship_status": "documented_intellectual_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_legislative_library_catalog",
+      "title": "Biblioteca del Poder Legislativo de Uruguay — Ariel sobre los Andes",
+      "url": "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=35853&lvl=categ_see"
+    },
+    {
+      "kind": "peer_reviewed_historical_study",
+      "title": "A. Soto, estudio histórico: biografía de Descartes escrita en 1937 por Díaz Samayoa",
+      "url": "https://portal.amelica.org/ameli/journal/769/7695608003/html/"
+    },
+    {
+      "kind": "international_primary_biography",
+      "title": "Naciones Unidas — currículum de Vicente Díaz Samayoa y estudios con Carlos Cossio",
+      "url": "https://digitallibrary.un.org/record/724687/files/E_CN.4_1171-ES.pdf"
+    }
+  ],
+  "research_notes": [
+    "La fuente histórica identifica artículos biográficos de Descartes de 1937, pero no fija título completo ni unidad editorial; no se inventa un registro bibliográfico autónomo.",
+    "Ariel sobre los Andes se publicó después de su muerte; distinguir 1979 como fecha de edición."
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "author_id": 513,
+  "canonical_name": "Julio Barata",
+  "alternate_names": [
+    "Júlio Barata",
+    "Júlio de Carvalho Barata"
+  ],
+  "life": {
+    "born": {
+      "year": 1905,
+      "certainty": "historical_biographical_dictionary"
+    },
+    "died": {
+      "year": 1991,
+      "certainty": "historical_biographical_dictionary"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0513-w001",
+      "title": "Contra o existencialismo de Sartre",
+      "work_type": "sartre_and_existentialism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1949,
+        "certainty": "project_primary_source_with_title_variant"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sartre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crítica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "catolicismo",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://wiki-dhbb.netlify.app/467"
+      ],
+      "notes": "O livro-base registra 'Contra o existencialismo de Sartre' (1949); o Dicionário Histórico-Biográfico Brasileiro lista a variante 'O existencialismo de J. P. Sartre'. A discrepância de título é preservada."
+    },
+    {
+      "work_id": "0513-w002",
+      "title": "O conceito de eqüidade",
+      "work_type": "philosophy_of_law_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1960,
+        "certainty": "historical_biographical_dictionary"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "equidade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "justiça",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://wiki-dhbb.netlify.app/467"
+      ],
+      "notes": "Obra de 1960 listada pelo Dicionário Histórico-Biográfico Brasileiro."
+    },
+    {
+      "work_id": "0513-w003",
+      "title": "A filosofia da angústia",
+      "work_type": "existential_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1961,
+        "certainty": "historical_biographical_dictionary"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "angústia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://wiki-dhbb.netlify.app/467"
+      ],
+      "notes": "Obra de 1961."
+    },
+    {
+      "work_id": "0513-w004",
+      "title": "A crise da lógica",
+      "work_type": "logic_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1963,
+        "certainty": "historical_biographical_dictionary"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "crise",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razão",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://wiki-dhbb.netlify.app/467"
+      ],
+      "notes": "Obra de 1963."
+    },
+    {
+      "work_id": "0513-w005",
+      "title": "Dante e Beatriz",
+      "work_type": "philosophical_literary_essay_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1967,
+        "certainty": "historical_biographical_dictionary"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Dante",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Beatriz",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://wiki-dhbb.netlify.app/467"
+      ],
+      "notes": "Obra de 1967."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Reflexão brasileira sobre existencialismo, angústia, lógica e equidade a partir de uma matriz católica e jurídico-filosófica",
+      "kind": "brazilian_existentialism_logic_and_philosophy_of_law_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "historical_biographical_dictionary",
+      "title": "CPDOC/FGV — Dicionário Histórico-Biográfico Brasileiro: Júlio Barata",
+      "url": "https://wiki-dhbb.netlify.app/467"
+    }
+  ],
+  "research_notes": [
+    "A obra de 1949 apresenta variante de título entre o livro-base e o DHBB; o título do inventário filosófico é mantido e a variante fica documentada."
+  ]
+}

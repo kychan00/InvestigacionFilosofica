@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "author_id": 1019,
+  "canonical_name": "Guerreiro Ramos",
+  "alternate_names": [
+    "Alberto Guerreiro Ramos"
+  ],
+  "life": {
+    "birth_year": 1915,
+    "death_year": 1982
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1019-w001",
+      "title": "Introdução crítica à sociologia brasileira",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1957,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Introdu%C3%A7%C3%A3o_Cr%C3%ADtica_%C3%A0_Sociologia_Brasileira"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1019-w002",
+      "title": "A redução sociológica",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.gov.br/bn/pt-br/central-de-conteudos/producao/publicacoes/colecoes/revista-do-livro-da-biblioteca-nacional/revista-do-livro-n-56-1/revilivro56_digital1-cleaned-2.pdf",
+        "https://ebape.fgv.br/noticias/convidado-internacional-palestra-sobre-legado-guerreiro-ramos-para-administracao-publica"
+      ],
+      "notes": "La fuente de Biblioteca Nacional cita la edición original de 1958; no confundir con reimpresión de 1965."
+    },
+    {
+      "work_id": "1019-w003",
+      "title": "Mito e verdade da revolução brasileira",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.gov.br/bn/pt-br/central-de-conteudos/producao/publicacoes/colecoes/revista-do-livro-da-biblioteca-nacional/revista-do-livro-n-56-1/revilivro56_digital1-cleaned-2.pdf"
+      ],
+      "notes": "Obra citada en estudios de su pensamiento; fecha de edición requiere cotejo catalográfico."
+    },
+    {
+      "work_id": "1019-w004",
+      "title": "A nova ciência das organizações: uma reconceituação da riqueza das nações",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://enunciado.com.br/produto/a-nova-ciencia-das-organizacoes/"
+      ],
+      "notes": "Original inglés The New Science of Organizations (University of Toronto Press, 1981); traducción portuguesa no es obra nueva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Método de reducción sociológica, crítica del colonialismo intelectual y racionalidad sustantiva de las organizaciones.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Biblioteca Nacional do Brasil, artículo histórico sobre reducción sociológica",
+      "url": "https://www.gov.br/bn/pt-br/central-de-conteudos/producao/publicacoes/colecoes/revista-do-livro-da-biblioteca-nacional/revista-do-livro-n-56-1/revilivro56_digital1-cleaned-2.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Editora Enunciado, edición de The New Science of Organizations",
+      "url": "https://enunciado.com.br/produto/a-nova-ciencia-das-organizacoes/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "FGV EBAPE, legado y reducción sociológica",
+      "url": "https://ebape.fgv.br/noticias/convidado-internacional-palestra-sobre-legado-guerreiro-ramos-para-administracao-publica"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Introdução crítica à sociologia brasileira, ficha editorial histórica",
+      "url": "https://pt.wikipedia.org/wiki/Introdu%C3%A7%C3%A3o_Cr%C3%ADtica_%C3%A0_Sociologia_Brasileira"
+    }
+  ],
+  "research_notes": [
+    "La edición portuguesa de The New Science of Organizations de 1981 y nueva traducción de 2022 no se duplican."
+  ]
+}

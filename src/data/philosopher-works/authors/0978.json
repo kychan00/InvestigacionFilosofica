@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "author_id": 978,
+  "canonical_name": "George Fromm",
+  "alternate_names": [
+    "Georg Fromm",
+    "Georg H. Fromm",
+    "George H. Fromm"
+  ],
+  "life": {
+    "death_year": 2025
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "978-w001",
+      "title": "Lecturas de filosofía: ensayos críticos",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://libreriaelcandil.com/products/lecturas-de-filosofia-ensayos-criticos"
+      ],
+      "notes": "Edición disponible sin año inaugural corroborado."
+    },
+    {
+      "work_id": "978-w002",
+      "title": "César Andreu Iglesias: aproximación a su vida y obra",
+      "work_type": "biography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.80grados.net/cesar-andreu-iglesias-la-esperanza-en-la-derrota/"
+      ],
+      "notes": "Ediciones Huracán, Río Piedras, 1977; biografía de Andreu Iglesias, no obra escrita por Andreu."
+    },
+    {
+      "work_id": "978-w003",
+      "title": "Hegel y el joven Marx: «El hombre como ser natural humano»",
+      "work_type": "academic_article",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://uprrp.academia.edu/GeorgeFromm"
+      ],
+      "notes": "Texto subido por autor a repositorio académico; fecha de primera publicación no establecida."
+    },
+    {
+      "work_id": "978-w004",
+      "title": "Hegel y el joven Marx: análisis del trabajo enajenado",
+      "work_type": "academic_article",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://uprrp.academia.edu/GeorgeFromm"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Cátedra de filosofía UPR Río Piedras, cofundación de La Escalera y participación en semanario La Hora.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Universidad de Puerto Rico, nota institucional de Georg Fromm",
+      "url": "https://humanidades.uprrp.edu/blog/2025/08/05/nota-de-duelo-dr-georg-fromm/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Librería El Candil, Lecturas de filosofía: ensayos críticos",
+      "url": "https://libreriaelcandil.com/products/lecturas-de-filosofia-ensayos-criticos"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "80grados, referencia bibliográfica a Georg H. Fromm 1977",
+      "url": "https://www.80grados.net/cesar-andreu-iglesias-la-esperanza-en-la-derrota/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Universidad de Puerto Rico, archivo académico de Georg H. Fromm",
+      "url": "https://uprrp.academia.edu/GeorgeFromm"
+    }
+  ],
+  "research_notes": [
+    "Identidad resuelta por la Universidad de Puerto Rico: George Fromm del inventario corresponde a Georg H. Fromm, fallecido 26 de julio de 2025.",
+    "No confundir con Erich Fromm."
+  ]
+}

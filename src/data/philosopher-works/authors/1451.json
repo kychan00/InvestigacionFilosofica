@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "author_id": 1451,
+  "canonical_name": "André Poey",
+  "alternate_names": [
+    "Andrés Poey",
+    "Andrés Poey Aguirre",
+    "André Pöey"
+  ],
+  "life": {
+    "birth_year": 1825,
+    "death_year": 1919
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1451-w001",
+      "title": "Le Positivisme",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1876,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1876,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/hem/dep/rcf/n02p004.htm"
+      ],
+      "notes": "Publicado en París en la Bibliothèque Positiviste; existe traducción española de 1960 que no se cuenta como obra nueva."
+    },
+    {
+      "work_id": "1451-w002",
+      "title": "M. Littré et Auguste Comte",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1880,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://filosofia.org/hem/dep/rcf/n03p004.htm"
+      ],
+      "notes": "Obra identificada por la historiografía filosófica cubana como segundo libro positivista de Poey."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Meteorólogo, geógrafo y filósofo cubano, uno de los primeros divulgadores del positivismo comtiano en Cuba y América Latina.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1451-1",
+      "url": "https://www.filosofia.org/hem/dep/rcf/n02p004.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1451-2",
+      "url": "https://filosofia.org/hem/dep/rcf/n03p004.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1451-3",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S0188-46112018000100010&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "La forma canónica del inventario es André Poey; las fuentes cubanas emplean Andrés Poey/Andrés Poey Aguirre.",
+    "La traducción El Positivismo (Universidad de La Habana, 1960) no se duplica frente al original francés de 1876."
+  ]
+}

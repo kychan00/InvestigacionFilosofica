@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "author_id": 581,
+  "canonical_name": "Luis Silva Santisteban",
+  "alternate_names": [
+    "Luis Silva-Santisteban G. S.",
+    "Luis Silva Santisteban G. S."
+  ],
+  "life": {
+    "born": {
+      "year": 1941,
+      "certainty": "project_primary_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0581-w001",
+      "title": "La estructura de la experiencia humana (ensayo preliminar)",
+      "work_type": "phenomenological_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "CONCYTEC_national_repository_index"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "experiencia humana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Husserl",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "inferred"
+        },
+        {
+          "term": "intersubjetividad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://alicia.concytec.gob.pe/vufind/index.php/Search/Results?filter%5B%5D=author_facet%3A%22Silva+Santisteban+G.+S.%2C+Luis%22&filter%5B%5D=topic_browse%3A%22Pendiente%22&lookfor=%22Lima%22&type=AllFields"
+      ],
+      "notes": "Registro en ALICIA/CONCYTEC identifica al autor Luis Silva Santisteban G. S. y fecha de 1981; una referencia de 2000 es reedición, no obra adicional."
+    },
+    {
+      "work_id": "0581-w002",
+      "title": "Ensayo sobre metodología de las ciencias sociales",
+      "work_type": "social_science_epistemology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1982,
+        "certainty": "institutional_repository_primary_record"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "objetividad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencias sociales",
+          "provenance": "inferred"
+        },
+        {
+          "term": "tipos ideales",
+          "provenance": "inferred"
+        },
+        {
+          "term": "metodología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://repositorio.ulima.edu.pe/item/8e63e69f-08e3-ce8d-e050-007f0100075d"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudio peruano de la experiencia humana y de la objetividad de las ciencias sociales con herramientas fenomenológicas",
+      "kind": "peruvian_phenomenological_anthropology_social_science_epistemology",
+      "authorship_status": "documented_academic_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_repository",
+      "title": "ALICIA CONCYTEC — Luis Silva Santisteban",
+      "url": "https://alicia.concytec.gob.pe/vufind/index.php/Search/Results?filter%5B%5D=author_facet%3A%22Silva+Santisteban+G.+S.%2C+Luis%22&filter%5B%5D=topic_browse%3A%22Pendiente%22&lookfor=%22Lima%22&type=AllFields"
+    },
+    {
+      "kind": "university_primary_repository",
+      "title": "Universidad de Lima — Ensayo sobre metodología de las ciencias sociales",
+      "url": "https://repositorio.ulima.edu.pe/item/8e63e69f-08e3-ce8d-e050-007f0100075d"
+    }
+  ],
+  "research_notes": [
+    "No se atribuyen a este filósofo escritos de homónimos Silva Santisteban dedicados a historia, arqueología o ciencias naturales."
+  ]
+}

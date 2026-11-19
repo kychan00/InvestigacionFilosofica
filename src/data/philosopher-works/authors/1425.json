@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "author_id": 1425,
+  "canonical_name": "Ricardo Flores Magón",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1873,
+    "death_year": 1922
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1425-w001",
+      "title": "Programa y Manifiesto del Partido Liberal Mexicano",
+      "work_type": "political_program",
+      "original_language": "español",
+      "original_date": {
+        "year": 1906,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1906,
+      "authorship_status": "collective_author",
+      "coauthors": [
+        "Junta Organizadora del Partido Liberal Mexicano"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.inehrm.gob.mx/es/inehrm/magon",
+        "https://www.inehrm.gob.mx/recursos/cursos/28102022/Bibliografia_Completa_CursoRRFM.pdf"
+      ],
+      "notes": "Documento colectivo de la Junta Organizadora del PLM. Flores Magón fue una figura central, pero no se registra como autor exclusivo."
+    },
+    {
+      "work_id": "1425-w002",
+      "title": "La revolución",
+      "work_type": "newspaper_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1910,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1910,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.inehrm.gob.mx/recursos/cursos/28102022/Bibliografia_Completa_CursoRRFM.pdf"
+      ],
+      "notes": "Publicado en Regeneración, 19 de noviembre de 1910."
+    },
+    {
+      "work_id": "1425-w003",
+      "title": "Manifiesto del 23 de septiembre de 1911",
+      "work_type": "political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Librado Rivera",
+        "Anselmo L. Figueroa",
+        "Enrique Flores Magón"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.inehrm.gob.mx/recursos/Libros/Iconografia_Ricardo_Flores_Magon.pdf",
+        "https://www.inehrm.gob.mx/es/inehrm/magon"
+      ],
+      "notes": "Manifiesto anarquista de la Junta Organizadora del PLM, publicado en Regeneración."
+    },
+    {
+      "work_id": "1425-w004",
+      "title": "Manifiesto a los miembros del Partido, a los anarquistas de todo el mundo y a los trabajadores en general",
+      "work_type": "political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Librado Rivera"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.inehrm.gob.mx/es/inehrm/magon",
+        "https://www.inehrm.gob.mx/recursos/cursos/28102022/Bibliografia_Completa_CursoRRFM.pdf"
+      ],
+      "notes": "Publicado en Regeneración el 16 de marzo de 1918; motivó la posterior condena federal."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Periodista, revolucionario y pensador anarquista mexicano; dirigente del Partido Liberal Mexicano y una de las voces radicales de la crítica al porfiriato, el capital y el Estado.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "INEHRM — Ricardo Flores Magón",
+      "url": "https://www.inehrm.gob.mx/es/inehrm/magon"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "INEHRM — Iconografía de Ricardo Flores Magón",
+      "url": "https://www.inehrm.gob.mx/recursos/Libros/Iconografia_Ricardo_Flores_Magon.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "INEHRM — Bibliografía del curso Las revoluciones de Ricardo Flores Magón",
+      "url": "https://www.inehrm.gob.mx/recursos/cursos/28102022/Bibliografia_Completa_CursoRRFM.pdf"
+    }
+  ],
+  "research_notes": [
+    "Los manifiestos del PLM se registran con autoría colectiva cuando corresponde, evitando atribuirlos exclusivamente a Flores Magón.",
+    "Regeneración no se cuenta como una sola obra monográfica; se seleccionan textos fechados y doctrinalmente relevantes."
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "author_id": 877,
+  "canonical_name": "Gabriel Oseka",
+  "alternate_names": [
+    "Gabriel Oselka"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0877-w001",
+      "title": "Saúde pública, bioética e equidade",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Volnei Garrafa",
+        "Debora Diniz"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.repositorio.unb.br/handle/10482/8772"
+      ],
+      "notes": "Revista Bioética 5(1), 27–35 (1997), comprobada en UnB."
+    },
+    {
+      "work_id": "0877-w002",
+      "title": "Iniciação à bioética",
+      "work_type": "edited_volume",
+      "original_language": "português",
+      "original_date": {
+        "year": 1998,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1998,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Sérgio Ibiapina Ferreira Costa",
+        "Volnei Garrafa"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://acervo.bn.gov.br/sophia_web/acervo/detalhe/577390"
+      ],
+      "notes": "Brasília, Conselho Federal de Medicina, 1998; rol de organizador, no autoría de capítulos ajenos."
+    },
+    {
+      "work_id": "0877-w003",
+      "title": "Conflito de interesses na pesquisa clínica",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Elma Zoboli"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.revistabioetica.cfm.org.br/revista_bioetica/article/view/31"
+      ],
+      "notes": "Revista Bioética 15(1); portal muestra 2009 como fecha web de carga, publicación original del fascículo sin fijar."
+    },
+    {
+      "work_id": "0877-w004",
+      "title": "O Código de Ética Médica",
+      "work_type": "book_chapter",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.edusp.com.br/wp-content/uploads/2018/04/9788531403040.pdf"
+      ],
+      "notes": "Capítulo firmado por Gabriel Oselka en Bioética, volumen editado por Marco Segre y Claudio Cohen; índice de la tercera edición Edusp."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Bioética clínica y ética médica; coordinación del Centro de Bioética del CREMESP y edición del volumen Iniciação à bioética.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico de filósofos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+      "kind": "project_primary_source"
+    },
+    {
+      "title": "Biblioteca Nacional do Brasil, Iniciação à bioética (1998)",
+      "url": "https://acervo.bn.gov.br/sophia_web/acervo/detalhe/577390",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "UnB, Saúde pública, bioética e equidade (1997)",
+      "url": "https://www.repositorio.unb.br/handle/10482/8772",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "Revista Bioética, Zoboli y Oselka, Conflito de interesses",
+      "url": "https://www.revistabioetica.cfm.org.br/revista_bioetica/article/view/31",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "Edusp, índice Bioética (Marco Segre y Claudio Cohen) con capítulo de Oselka",
+      "url": "https://www.edusp.com.br/wp-content/uploads/2018/04/9788531403040.pdf",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    },
+    {
+      "title": "CREMESP, homenaje e identificación de Gabriel Oselka",
+      "url": "https://www.cremesp.org.br/?id=2724&siteAcao=NoticiasC",
+      "kind": "institutional_academic_library_or_scholarly_bibliography"
+    }
+  ],
+  "research_notes": [
+    "El inventario emplea «Gabriel Oseka»; las instituciones brasileñas registran consistentemente «Gabriel Oselka». La equivalencia se sustenta en el contexto especializado, pero debe cotejarse con fuente primaria de inventario.",
+    "La fecha digital de 2009 para artículos antiguos de Revista Bioética no debe trasladarse sin revisar el fascículo."
+  ]
+}

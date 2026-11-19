@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "author_id": 1298,
+  "canonical_name": "Pedro de Córdoba",
+  "alternate_names": [
+    "Fray Pedro de Córdoba"
+  ],
+  "life": {
+    "birth_year": 1482,
+    "death_year": 1521
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1298-w001",
+      "title": "Doctrina cristiana para instrucción e información de los indios por manera de historia",
+      "work_type": "catechetical_treatise_posthumously_published",
+      "original_language": "español",
+      "original_date": {
+        "year": 1520,
+        "certainty": "approximate_composition_year"
+      },
+      "first_publication_year": 1544,
+      "authorship_status": "principal_author_with_dominican_collaboration",
+      "coauthors": [
+        "Otros religiosos doctos de la Orden de Predicadores"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bd.bnphu.gob.do/items/27cbf54e-5f33-452e-a1c7-7e6a536988c0",
+        "https://www.dominicos.org/500-sermon-montesino/montesino/biografia-pedro-cordoba/"
+      ],
+      "notes": "Redactada en Santo Domingo hacia 1520 y publicada por primera vez en México en 1544, después de la muerte de Pedro de Córdoba; la tradición editorial reconoce colaboración de otros dominicos."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Vicario y fundador de la primera comunidad dominicana estable en La Española; impulsó la defensa de los indígenas y la elaboración comunitaria del sermón predicado por Montesinos.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Nacional Pedro Henríquez Ureña — Doctrina cristiana",
+      "url": "https://bd.bnphu.gob.do/items/27cbf54e-5f33-452e-a1c7-7e6a536988c0"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dominicos — Biografía de Pedro de Córdoba",
+      "url": "https://www.dominicos.org/500-sermon-montesino/montesino/biografia-pedro-cordoba/"
+    }
+  ],
+  "research_notes": [
+    "Se distingue la composición hacia 1520 de la primera impresión de 1544.",
+    "La obra se registra con autoría principal de Pedro de Córdoba y colaboración dominicana, siguiendo la descripción de la edición moderna."
+  ]
+}

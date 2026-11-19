@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "author_id": 671,
+  "canonical_name": "Edikson Minaya",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_authentic_works_and_roles_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0671-w001",
+      "title": "Filosofía, tradición y cultura: una hermenéutica de la experiencia",
+      "work_type": "hermeneutics_of_culture_original_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "bibliographic_or_historical_documentation"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistaglobal.org/filosofia-tradicion-y-cultura-una-hermeneutica-de-la-experiencia/"
+      ],
+      "notes": "Ensayo firmado por Edikson Minaya y publicado en Revista Global el 1 de febrero de 2022. El artículo es anterior a la recopilación en PDF del n.º 98; no contar ambas como publicaciones originales distintas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia y estudio de fenomenología hermenéutica, fenomenología de la vida cotidiana y fenomenología del sentido en la Universidad Autónoma de Santo Domingo, documentados en el libro-base.",
+      "kind": "documented_intellectual_philosophical_or_institutional_activity",
+      "authorship_status": "documented_in_historical_academic_or_primary_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "url": "https://revistaglobal.org/filosofia-tradicion-y-cultura-una-hermeneutica-de-la-experiencia/",
+      "title": "Revista Global, Edikson Minaya, Filosofía, tradición y cultura (2022)",
+      "kind": "author_primary_article"
+    }
+  ],
+  "research_notes": [
+    "No se atribuyen a Minaya las obras de Andrés Merejo ni las entradas que solo mencionan su presencia en eventos. Una sola publicación individual confirmada en esta selección.",
+    "No confundir Edikson Minaya con Julio Minaya, otro profesor dominicano."
+  ]
+}

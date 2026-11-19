@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 705,
+  "canonical_name": "José Ramón Benito Alzaga",
+  "alternate_names": [
+    "José Ramón Benito",
+    "José Ramón Benito Alzaga"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selection_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0705-w001",
+      "title": "Estudios Generales en el ITAM",
+      "work_type": "university_education_conference",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "dated_conference_not_confirmed_publication"
+      },
+      "first_publication_year": null,
+      "authorship_status": "conference_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://estudios.itam.mx/sites/default/files/estudiositammx/files/106/000250583.pdf"
+      ],
+      "notes": "Ponencia de julio de 1973 en la Asamblea Nacional de ANFECA; se conoce fecha del acto, no edición individual comprobada."
+    },
+    {
+      "work_id": "0705-w002",
+      "title": "Universidad y Filosofía",
+      "work_type": "philosophy_of_university_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "library_or_institutional_bibliography"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://estudios.itam.mx/sites/default/files/estudiositammx/files/106/000250583.pdf"
+      ],
+      "notes": "Estudios: Filosofía-Historia-Letras, n.º 1, otoño 1984."
+    },
+    {
+      "work_id": "0705-w003",
+      "title": "Latinoamérica y la Universidad",
+      "work_type": "Latin_American_university_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "library_or_institutional_bibliography"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://estudios.itam.mx/es/numeros-anteriores"
+      ],
+      "notes": "Estudios 26, otoño 1991, ITAM; no confundir con ensayos del mismo título escritos por otros autores."
+    },
+    {
+      "work_id": "0705-w004",
+      "title": "Notas sobre el sentido social de la formación humanista en el ITAM",
+      "work_type": "humanistic_education_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://generales.itam.mx/es/1/paginas/documentos-y-multimedia"
+      ],
+      "notes": "Documento del Departamento de Estudios Generales ITAM, fecha de edición no confirmada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor y formador de Estudios Generales del ITAM, impulsor de educación humanista y articulación de filosofía y universidad.",
+      "kind": "documented_academic_or_intellectual_contribution",
+      "authorship_status": "documented_in_academic_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_profile",
+      "title": "ITAM, José Ramón Benito Alzaga, formación y docencia",
+      "url": "https://facultad.itam.mx/es/facultad/jose-ramon-benito-alzaga"
+    },
+    {
+      "kind": "university_journal",
+      "title": "ITAM, Estudios — Latinoamérica y la universidad (1991)",
+      "url": "https://estudios.itam.mx/es/numeros-anteriores"
+    },
+    {
+      "kind": "university_documentation",
+      "title": "ITAM, Documentos y multimedia de Estudios Generales",
+      "url": "https://generales.itam.mx/es/1/paginas/documentos-y-multimedia"
+    },
+    {
+      "kind": "university_journal_secondary_bibliography",
+      "title": "ITAM, referencias a ensayos de José Ramón Benito Alzaga",
+      "url": "https://estudios.itam.mx/sites/default/files/estudiositammx/files/106/000250583.pdf"
+    }
+  ],
+  "research_notes": [
+    "Estudios Generales en el ITAM es conferencia de 1973: no se confirma edición individual. Revisar su relación con publicación posterior si se recupera.",
+    "Se conoce un texto Filosofía y Educación Superior en memoria del congreso de 1981, pero no se incorpora por falta de edición precisa cotejada."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "author_id": 1177,
+  "canonical_name": "José Vega Delgado",
+  "alternate_names": [
+    "José Fabián Vega Delgado"
+  ],
+  "life": {
+    "birth_year": 1947
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1177-w001",
+      "title": "Ética: como filosofía de la acción humana y del valor moral",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?id=11615&lvl=author_see"
+      ],
+      "notes": "Cuenca: Universidad de Cuenca, 257 p."
+    },
+    {
+      "work_id": "1177-w002",
+      "title": "Cinco ensayos sobre el lenguaje",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "978-9978-965-01-6"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?id=11615&lvl=author_see"
+      ],
+      "notes": "Cuenca: Amazonas, 91 p.; ISBN 978-9978-965-01-6."
+    },
+    {
+      "work_id": "1177-w003",
+      "title": "Renán Voltaire y Eco: tres conferencias",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=22757"
+      ],
+      "notes": "Cuenca: Casa de la Cultura Ecuatoriana «Benjamín Carrión», Núcleo del Azuay, 180 p."
+    },
+    {
+      "work_id": "1177-w004",
+      "title": "Introducción a la filosofía de la religión",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "978-9942-13-921-4"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=34761"
+      ],
+      "notes": "1ª ed., Cuenca: Cristianas del Azuay, 220 p.; ISBN 978-9942-13-921-4."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo ecuatoriano documentado en ética, filosofía del lenguaje y filosofía de la religión; los catálogos de Cuenca identifican su forma completa como José Fabián Vega Delgado.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Red de Bibliotecas Municipales de Cuenca — autoridad José Fabián Vega Delgado",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?id=11615&lvl=author_see"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Catálogo de Cuenca — Introducción a la filosofía de la religión",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=34761"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Catálogo de Cuenca — Renán Voltaire y Eco",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=22757"
+    }
+  ],
+  "research_notes": [
+    "La coincidencia de nombre, campo filosófico y contexto ecuatoriano permite documentar la forma ampliada José Fabián Vega Delgado como autoridad del José Vega Delgado del inventario.",
+    "La ficha es selectiva: el catálogo de autoridad contiene más registros, pero sólo se incorporan aquí los de naturaleza filosófica claramente identificada."
+  ]
+}

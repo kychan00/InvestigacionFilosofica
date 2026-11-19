@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "author_id": 579,
+  "canonical_name": "Federico Camino Macedo",
+  "alternate_names": [
+    "Luis Federico Camino Macedo",
+    "Federico Camino"
+  ],
+  "life": {
+    "born": {
+      "year": 1939,
+      "certainty": "latin_american_philosophy_book_biographical_note"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0579-w001",
+      "title": "El mundo de la vida en Husserl y Merleau-Ponty",
+      "work_type": "phenomenology_doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "book_bibliography_and_university_biography"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Merleau-Ponty",
+          "provenance": "inferred"
+        },
+        {
+          "term": "mundo de la vida",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://cef.pucp.edu.pe/miembros/federico-camino/"
+      ],
+      "notes": "La obra-base la fecha en 1976; la PUCP confirma tesis filosóficas dedicadas a Husserl y Merleau-Ponty."
+    },
+    {
+      "work_id": "0579-w002",
+      "title": "La undécima tesis de Marx sobre Feuerbach",
+      "work_type": "marx_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/arete.199301-02.002",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Marx",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Feuerbach",
+          "provenance": "inferred"
+        },
+        {
+          "term": "praxis",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/5087"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0579-w003",
+      "title": "Nota sobre la tradición doxográfica de los términos \"filósofo\" y \"filosofía\"",
+      "work_type": "ancient_philosophy_and_doxography_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/arete.199901-02.001",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "doxografía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Pitágoras",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Platón",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/view/5699"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0579-w004",
+      "title": "¿Por qué leer a Descartes hoy?",
+      "work_type": "descartes_philosophy_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "crossref_orcid_authority"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/9789972428647.004",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Descartes",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía moderna",
+          "provenance": "inferred"
+        },
+        {
+          "term": "actualidad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://orcid.org/0000-0002-3073-9928"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0579-w005",
+      "title": "El Eros del preguntar",
+      "work_type": "philosophy_of_question_book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "crossref_orcid_authority"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/9786123171148.013",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Eros",
+          "provenance": "inferred"
+        },
+        {
+          "term": "pregunta filosófica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://orcid.org/0000-0002-3073-9928"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0579-w006",
+      "title": "La pregunta por la pregunta",
+      "work_type": "phenomenology_of_question_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/arete.202201.001",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pregunta",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Eros",
+          "provenance": "editorial"
+        },
+        {
+          "term": "respuesta",
+          "provenance": "editorial"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/25570"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia universitaria en filosofía moderna y antigua; estudio de Husserl, Merleau-Ponty, Heidegger y el sentido del preguntar",
+      "kind": "peruvian_phenomenology_heidegger_question_and_philosophy_education",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_biographical_authority",
+      "title": "Centro de Estudios Filosóficos PUCP — Federico Camino",
+      "url": "https://cef.pucp.edu.pe/miembros/federico-camino/"
+    },
+    {
+      "kind": "orcid_authority",
+      "title": "ORCID — Luis Federico Camino Macedo",
+      "url": "https://orcid.org/0000-0002-3073-9928"
+    },
+    {
+      "kind": "primary_journal",
+      "title": "Areté — La pregunta por la pregunta",
+      "url": "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/25570"
+    }
+  ],
+  "research_notes": [
+    "ORCID verificado: 0000-0002-3073-9928. La forma completa allí declarada es Luis Federico Camino Macedo.",
+    "Los capítulos de 2008 y 2015 tienen DOI individual y se atribuyen como contribuciones a obras colectivas, no como autoría de los libros enteros."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "author_id": 1306,
+  "canonical_name": "Rafael del Castillo y Sucre",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1741,
+    "death_year": 1783
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1306-w001",
+      "title": "Oración eucarística por el nacimiento del Infante de España Carlos Clemente celebrado en la ciudad de la Habana",
+      "work_type": "sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1765,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1765,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.letrasmexicanas.mx/obra-visor/diccionario-de-la-literatura-cubana--0/html/254c.htm"
+      ],
+      "notes": "La bibliografía activa del Diccionario de la literatura cubana registra la impresión en Madrid por Pérez Soto hacia 1765."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Teólogo y profesor escolástico; fue catedrático de Teología y Escolástica, director del Seminario de San Carlos y funcionario universitario en La Habana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Virtual Miguel de Cervantes — Diccionario de la literatura cubana",
+      "url": "https://www.letrasmexicanas.mx/obra-visor/diccionario-de-la-literatura-cubana--0/html/254c.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Humberto Piñera — Panorama de la filosofía cubana: la filosofía teológica",
+      "url": "https://www.filosofia.org/aut/001/1960hpc.htm"
+    }
+  ],
+  "research_notes": [
+    "La traducción inédita de la Memoria histórica de la vida de Fray Daniel Concino, realizada con Francisco Xavier Conde y Oquendo, se documenta biográficamente pero no se cuenta como obra publicada independiente."
+  ]
+}

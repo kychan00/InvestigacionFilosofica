@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "author_id": 483,
+  "canonical_name": "Gerd Alberto Bornheim",
+  "alternate_names": [
+    "Gerd A. Bornheim",
+    "Gerd Bornheim"
+  ],
+  "life": {
+    "born": {
+      "year": 1929,
+      "certainty": "municipal_archive_source"
+    },
+    "died": {
+      "year": 2002,
+      "certainty": "municipal_archive_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0483-w001",
+      "title": "Aspectos filosóficos do romantismo",
+      "work_type": "history_of_philosophy_and_romanticism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1959,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "romantismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "idealismo alemão",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história da filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.persee.fr/authority/1633473"
+      ],
+      "notes": "Porto Alegre, Instituto Estadual do Livro, 1959."
+    },
+    {
+      "work_id": "0483-w002",
+      "title": "Introdução ao filosofar: o pensamento filosófico em bases existenciais",
+      "work_type": "existential_introduction_to_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1961,
+        "certainty": "academic_origin_with_later_publication"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofar",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existência",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "atitude filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "finitude",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.digestivocultural.com/colunistas/coluna.asp?codigo=3136&titulo=Introducao+ao+filosofar%2C+de+Gerd+Bornheim",
+        "https://catalogue.bnf.fr/rechercher.do?index=AUT3&numNotice=12591717"
+      ],
+      "notes": "Origina-se da tese de livre-docência escrita em 1961; a BnF registra edição Globo de 1970. Mantém-se 1961 como data de redação acadêmica e 1970 como primeira publicação verificada."
+    },
+    {
+      "work_id": "0483-w003",
+      "title": "O sentido e a máscara",
+      "work_type": "aesthetics_and_theatre_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1965,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1965,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teatro",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "máscara",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existência",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/rechercher.do?index=AUT3&numNotice=12591717"
+      ],
+      "notes": "A BnF registra edição da UFRGS de 1965; edições Perspectiva posteriores não são duplicadas."
+    },
+    {
+      "work_id": "0483-w004",
+      "title": "Sartre: metafísica e existencialismo",
+      "work_type": "sartre_and_existentialism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1971,
+        "certainty": "national_library_catalog"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sartre",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existencialismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://catalogue.bnf.fr/rechercher.do?index=AUT3&numNotice=12591717"
+      ],
+      "notes": "São Paulo, Perspectiva, 1971."
+    },
+    {
+      "work_id": "0483-w005",
+      "title": "Metafísica e finitude",
+      "work_type": "metaphysics_and_finitude_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "852730239X",
+          "9788527302395"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "metafísica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "finitude",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "existência",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/rec/BORMEF"
+      ],
+      "notes": "Porto Alegre, Movimento/IPV, 1972; reedição posterior em 2001 não é nova obra."
+    },
+    {
+      "work_id": "0483-w006",
+      "title": "Dialética: teoria, práxis",
+      "work_type": "dialectics_and_marxism_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1977,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "práxis",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Marx",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.persee.fr/authority/1633473"
+      ],
+      "notes": "São Paulo/Porto Alegre, 1977; ensaio para uma crítica da fundamentação ontológica da dialética."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Renovação brasileira do existencialismo, da estética, do teatro e da dialética, articulando Heidegger, Sartre, romantismo alemão e marxismo",
+      "kind": "brazilian_existentialism_aesthetics_and_dialectics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "municipal_archive_source",
+      "title": "Arquivo Histórico Municipal João Spadari Adami — Gerd Alberto Bornheim",
+      "url": "https://arquivomunicipal.caxias.rs.gov.br/index.php/actor/browse?entityType=133&maintainingRepository=436&sort=lastUpdated&sortDir=asc"
+    },
+    {
+      "kind": "national_library_catalog",
+      "title": "BnF — Gerd A. Bornheim",
+      "url": "https://catalogue.bnf.fr/rechercher.do?index=AUT3&numNotice=12591717"
+    }
+  ],
+  "research_notes": [
+    "Introdução ao filosofar separa a redação de livre-docência de 1961 da edição comercial verificada em 1970."
+  ]
+}

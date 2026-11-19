@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "author_id": 1164,
+  "canonical_name": "Graciela Fernández",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1935,
+    "death_year": 2013
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1164-w001",
+      "title": "El otro puede tener razón",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://colectivodefilosofia.wordpress.com/wp-content/uploads/2010/05/cv-completo-crelier.pdf"
+      ],
+      "notes": "Mar del Plata: Suárez. Una reseña bibliográfica contemporánea identifica expresamente a Graciela Fernández como editora."
+    },
+    {
+      "work_id": "1164-w002",
+      "title": "Karl Popper y la filosofía crítica",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/phm/gfp.htm",
+        "https://colectivodefilosofia.wordpress.com/wp-content/uploads/2010/05/cv-completo-crelier.pdf"
+      ],
+      "notes": "Mar del Plata: Suárez, 194 pp."
+    },
+    {
+      "work_id": "1164-w003",
+      "title": "Utopía: contribución al estudio del concepto",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/phm/gfp.htm"
+      ],
+      "notes": "Mar del Plata: Suárez, 209 pp."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesora de historia de la filosofía moderna, investigadora del CONICET, fundadora del Centro de Investigaciones Éticas Dr. Risieri Frondizi y directora/editora de Agora Philosophica.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Centro de Documentación de la Filosofía — Graciela Fernández",
+      "url": "https://www.filosofia.net/ddf/phm/gfp.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "CV académico de Pablo Crelier — referencias a publicaciones de Graciela Fernández",
+      "url": "https://colectivodefilosofia.wordpress.com/wp-content/uploads/2010/05/cv-completo-crelier.pdf"
+    }
+  ],
+  "research_notes": [
+    "Se conserva la forma canónica Graciela Fernández del inventario y se evita confundirla con homónimas.",
+    "El volumen El otro puede tener razón se registra con función editorial, no como autoría exclusiva de todos los textos del libro."
+  ]
+}

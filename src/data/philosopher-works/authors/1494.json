@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "author_id": 1494,
+  "canonical_name": "Daniel E. Guillot",
+  "alternate_names": [
+    "Daniel Enrique Guillot",
+    "Enrique Guillot",
+    "Daniel Guillot"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1494-w001",
+      "title": "Humanismo del otro hombre",
+      "work_type": "translation_and_introduction",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "translator_and_introduction_author",
+      "coauthors": [
+        "Emmanuel Levinas"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.casadelacultura.gob.ec/bib/22685"
+      ],
+      "notes": "Obra original de Emmanuel Levinas; introducción y traducción de Daniel E. Guillot."
+    },
+    {
+      "work_id": "1494-w002",
+      "title": "Emmanuel Levinas: evolución de su pensamiento",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.teseopress.com/ardiles/back-matter/77-2/"
+      ],
+      "notes": "Obra documentada por la fuente bibliográfica indicada; sin multiplicar reediciones."
+    },
+    {
+      "work_id": "1494-w003",
+      "title": "Liberación latinoamericana y Emmanuel Levinas",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Enrique Dussel"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.teseopress.com/lafuncionemancipatoriadelacritica/chapter/la-nocion-de-critica-creadora-en-la-propuesta/"
+      ],
+      "notes": "Se respetan las contribuciones de ambos autores."
+    },
+    {
+      "work_id": "1494-w004",
+      "title": "Totalidad e infinito: ensayo sobre la exterioridad",
+      "work_type": "translation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1977,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1977,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Emmanuel Levinas"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.bono.edu.do/cgi-bin/koha/opac-detail.pl?biblionumber=83278&shelfbrowse_itemnumber=101725"
+      ],
+      "notes": "Levinas es el autor original; Guillot traduce y redacta introducción en la edición."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción de la filosofía de Emmanuel Levinas en América Latina; traducción y discusión de la alteridad en diálogo con Enrique Dussel.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Bibliografía especializada de Daniel E. Guillot, Militancia en la vigilia",
+      "url": "https://www.teseopress.com/ardiles/back-matter/77-2/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo biblioteca: Humanismo del otro hombre de Levinas, introducción por Guillot",
+      "url": "https://biblioteca.casadelacultura.gob.ec/bib/22685"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Catálogo biblioteca: Totalidad e infinito, traducción Daniel E. Guillot",
+      "url": "https://biblioteca.bono.edu.do/cgi-bin/koha/opac-detail.pl?biblionumber=83278&shelfbrowse_itemnumber=101725"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Artículo académico sobre Liberación latinoamericana y Emmanuel Levinas",
+      "url": "https://www.teseopress.com/lafuncionemancipatoriadelacritica/chapter/la-nocion-de-critica-creadora-en-la-propuesta/"
+    }
+  ],
+  "research_notes": [
+    "Duplicación de identidad en el inventario canónico: 1494 Daniel E. Guillot corresponde a la misma persona que 0804 Enrique Guillot / Daniel Enrique Guillot.",
+    "Advertencia de identidad: el nombre canónico Enrique Guillot designa a Daniel Enrique Guillot, citado como Daniel E. Guillot.",
+    "En traducciones de Levinas, el autor intelectual del contenido es Emmanuel Levinas; Guillot figura únicamente como traductor/introductor.",
+    "No atribuir a Guillot la autoría única de Liberación latinoamericana y Emmanuel Levinas (obra con Enrique Dussel)."
+  ]
+}

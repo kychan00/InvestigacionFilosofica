@@ -27,11 +27,11 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 480,
-    "authors_remaining": 1024,
-    "works_or_contributions_seeded": 2908,
-    "current_batch": "048",
-    "last_updated": "2026-11-16"
+    "authors_seeded": 1504,
+    "authors_remaining": 0,
+    "works_or_contributions_seeded": 12802,
+    "current_batch": "151",
+    "last_updated": "2026-11-19"
   },
   "batch_001": [
     {
@@ -921,52 +921,52 @@
     {
       "author_id": 171,
       "canonical_name": "Luis Eduardo Nieto Arteta",
-      "path": "authors/171.json"
+      "path": "authors/0171.json"
     },
     {
       "author_id": 172,
       "canonical_name": "Danilo Cruz Vélez",
-      "path": "authors/172.json"
+      "path": "authors/0172.json"
     },
     {
       "author_id": 173,
       "canonical_name": "Estanislao Zuleta",
-      "path": "authors/173.json"
+      "path": "authors/0173.json"
     },
     {
       "author_id": 174,
       "canonical_name": "Guillermo Hoyos Vásquez",
-      "path": "authors/174.json"
+      "path": "authors/0174.json"
     },
     {
       "author_id": 175,
       "canonical_name": "Carlos Bernardo Gutiérrez",
-      "path": "authors/175.json"
+      "path": "authors/0175.json"
     },
     {
       "author_id": 176,
       "canonical_name": "Juan David García Bacca",
-      "path": "authors/176.json"
+      "path": "authors/0176.json"
     },
     {
       "author_id": 177,
       "canonical_name": "Ernesto Mayz Vallenilla",
-      "path": "authors/177.json"
+      "path": "authors/0177.json"
     },
     {
       "author_id": 178,
       "canonical_name": "Juan Antonio Nuño Montes",
-      "path": "authors/178.json"
+      "path": "authors/0178.json"
     },
     {
       "author_id": 179,
       "canonical_name": "José Manuel Delgado Ocando",
-      "path": "authors/179.json"
+      "path": "authors/0179.json"
     },
     {
       "author_id": 180,
       "canonical_name": "José Rafael Núñez Tenorio",
-      "path": "authors/180.json"
+      "path": "authors/0180.json"
     }
   ],
   "batch_019": [
@@ -1025,52 +1025,52 @@
     {
       "author_id": 191,
       "canonical_name": "Ricaurte Soler",
-      "path": "authors/191.json"
+      "path": "authors/0191.json"
     },
     {
       "author_id": 192,
       "canonical_name": "Alejandro Serrano Caldera",
-      "path": "authors/192.json"
+      "path": "authors/0192.json"
     },
     {
       "author_id": 193,
       "canonical_name": "Urania Ungo",
-      "path": "authors/193.json"
+      "path": "authors/0193.json"
     },
     {
       "author_id": 194,
       "canonical_name": "Eugenio María de Hostos",
-      "path": "authors/194.json"
+      "path": "authors/0194.json"
     },
     {
       "author_id": 195,
       "canonical_name": "Pedro Henríquez Ureña",
-      "path": "authors/195.json"
+      "path": "authors/0195.json"
     },
     {
       "author_id": 196,
       "canonical_name": "Medardo Vitier",
-      "path": "authors/196.json"
+      "path": "authors/0196.json"
     },
     {
       "author_id": 197,
       "canonical_name": "Juan Isidro Jiménes-Grullón",
-      "path": "authors/197.json"
+      "path": "authors/0197.json"
     },
     {
       "author_id": 198,
       "canonical_name": "Frantz Fanon",
-      "path": "authors/198.json"
+      "path": "authors/0198.json"
     },
     {
       "author_id": 199,
       "canonical_name": "Esteban Tollinchi",
-      "path": "authors/199.json"
+      "path": "authors/0199.json"
     },
     {
       "author_id": 200,
       "canonical_name": "Raúl Fornet-Betancourt",
-      "path": "authors/200.json"
+      "path": "authors/0200.json"
     }
   ],
   "batch_021": [
@@ -2527,6 +2527,5332 @@
       "author_id": 480,
       "canonical_name": "Marvin Sandi",
       "path": "authors/0480.json"
+    }
+  ],
+  "batch_049": [
+    {
+      "author_id": 481,
+      "canonical_name": "Vicente Ferreira da Silva",
+      "path": "authors/0481.json"
+    },
+    {
+      "author_id": 482,
+      "canonical_name": "Moacir Teixeira de Aguiar",
+      "path": "authors/0482.json"
+    },
+    {
+      "author_id": 483,
+      "canonical_name": "Gerd Alberto Bornheim",
+      "path": "authors/0483.json"
+    },
+    {
+      "author_id": 484,
+      "canonical_name": "Emmanuel Carneiro Leão",
+      "path": "authors/0484.json"
+    },
+    {
+      "author_id": 485,
+      "canonical_name": "Antônio Luís Machado Neto",
+      "path": "authors/0485.json"
+    },
+    {
+      "author_id": 486,
+      "canonical_name": "Ernildo Stein",
+      "path": "authors/0486.json"
+    },
+    {
+      "author_id": 487,
+      "canonical_name": "Creusa Capalbo",
+      "path": "authors/0487.json"
+    },
+    {
+      "author_id": 488,
+      "canonical_name": "Maria do Carmo Tavares de Miranda",
+      "path": "authors/0488.json"
+    },
+    {
+      "author_id": 489,
+      "canonical_name": "Tarcísio Meirelles Padilla",
+      "path": "authors/0489.json"
+    },
+    {
+      "author_id": 490,
+      "canonical_name": "Euryalo Cannabrava",
+      "path": "authors/0490.json"
+    }
+  ],
+  "batch_050": [
+    {
+      "author_id": 491,
+      "canonical_name": "Evaldo Pauli",
+      "path": "authors/0491.json"
+    },
+    {
+      "author_id": 492,
+      "canonical_name": "Adolpho Crippa",
+      "path": "authors/0492.json"
+    },
+    {
+      "author_id": 493,
+      "canonical_name": "Nilton Campos",
+      "path": "authors/0493.json"
+    },
+    {
+      "author_id": 494,
+      "canonical_name": "João de Sousa Ferraz",
+      "path": "authors/0494.json"
+    },
+    {
+      "author_id": 495,
+      "canonical_name": "Eudoro de Souza",
+      "path": "authors/0495.json"
+    },
+    {
+      "author_id": 496,
+      "canonical_name": "José Herculano Pires",
+      "path": "authors/0496.json"
+    },
+    {
+      "author_id": 497,
+      "canonical_name": "Lourival Vilanova",
+      "path": "authors/0497.json"
+    },
+    {
+      "author_id": 498,
+      "canonical_name": "Beneval de Oliveira",
+      "path": "authors/0498.json"
+    },
+    {
+      "author_id": 499,
+      "canonical_name": "Benedito Nunes",
+      "path": "authors/0499.json"
+    },
+    {
+      "author_id": 500,
+      "canonical_name": "Ubiratan de Macedo",
+      "path": "authors/0500.json"
+    }
+  ],
+  "batch_051": [
+    {
+      "author_id": 501,
+      "canonical_name": "Urbano Zilles",
+      "path": "authors/0501.json"
+    },
+    {
+      "author_id": 502,
+      "canonical_name": "Vicente Barreto",
+      "path": "authors/0502.json"
+    },
+    {
+      "author_id": 503,
+      "canonical_name": "Wilson de Souza Campos Batalha",
+      "path": "authors/0503.json"
+    },
+    {
+      "author_id": 504,
+      "canonical_name": "María Carmelita de Freitas",
+      "path": "authors/0504.json"
+    },
+    {
+      "author_id": 505,
+      "canonical_name": "Otavio Mello Alvarenga",
+      "path": "authors/0505.json"
+    },
+    {
+      "author_id": 506,
+      "canonical_name": "Wilson Chagas",
+      "path": "authors/0506.json"
+    },
+    {
+      "author_id": 507,
+      "canonical_name": "Eduardo Portella",
+      "path": "authors/0507.json"
+    },
+    {
+      "author_id": 508,
+      "canonical_name": "J. Silveira da Costa",
+      "path": "authors/0508.json"
+    },
+    {
+      "author_id": 509,
+      "canonical_name": "Norma Collares Werneck",
+      "path": "authors/0509.json"
+    },
+    {
+      "author_id": 510,
+      "canonical_name": "Mario Guerreiro",
+      "path": "authors/0510.json"
+    }
+  ],
+  "batch_052": [
+    {
+      "author_id": 511,
+      "canonical_name": "Maria do Prado Reabra",
+      "path": "authors/0511.json"
+    },
+    {
+      "author_id": 512,
+      "canonical_name": "Zenilda Lopes Siqueira",
+      "path": "authors/0512.json"
+    },
+    {
+      "author_id": 513,
+      "canonical_name": "Julio Barata",
+      "path": "authors/0513.json"
+    },
+    {
+      "author_id": 514,
+      "canonical_name": "Marco Aurelio Correa Arango",
+      "path": "authors/0514.json"
+    },
+    {
+      "author_id": 515,
+      "canonical_name": "Rafael Carrillo",
+      "path": "authors/0515.json"
+    },
+    {
+      "author_id": 516,
+      "canonical_name": "Carlos Jaramillo Borda",
+      "path": "authors/0516.json"
+    },
+    {
+      "author_id": 517,
+      "canonical_name": "Adalberto Botero Escobar",
+      "path": "authors/0517.json"
+    },
+    {
+      "author_id": 518,
+      "canonical_name": "Abel Naranjo Villegas",
+      "path": "authors/0518.json"
+    },
+    {
+      "author_id": 519,
+      "canonical_name": "Cayetano Betancur",
+      "path": "authors/0519.json"
+    },
+    {
+      "author_id": 520,
+      "canonical_name": "Jaime Vélez Sáenz",
+      "path": "authors/0520.json"
+    }
+  ],
+  "batch_053": [
+    {
+      "author_id": 521,
+      "canonical_name": "Fideligno Niño Mesa",
+      "path": "authors/0521.json"
+    },
+    {
+      "author_id": 522,
+      "canonical_name": "Daniel Herrera Restrepo",
+      "path": "authors/0522.json"
+    },
+    {
+      "author_id": 523,
+      "canonical_name": "Rafael Gutiérrez Girardot",
+      "path": "authors/0523.json"
+    },
+    {
+      "author_id": 524,
+      "canonical_name": "Gerardo Remolina Vargas",
+      "path": "authors/0524.json"
+    },
+    {
+      "author_id": 525,
+      "canonical_name": "Diana María Muñoz",
+      "path": "authors/0525.json"
+    },
+    {
+      "author_id": 526,
+      "canonical_name": "Margarita Cepeda",
+      "path": "authors/0526.json"
+    },
+    {
+      "author_id": 527,
+      "canonical_name": "Jaime Rubio Angulo",
+      "path": "authors/0527.json"
+    },
+    {
+      "author_id": 528,
+      "canonical_name": "Germán Marquínez Argote",
+      "path": "authors/0528.json"
+    },
+    {
+      "author_id": 529,
+      "canonical_name": "Oscar Gerardo Ramos",
+      "path": "authors/0529.json"
+    },
+    {
+      "author_id": 530,
+      "canonical_name": "Rosa Helena Santos-Ihlau",
+      "path": "authors/0530.json"
+    }
+  ],
+  "batch_054": [
+    {
+      "author_id": 531,
+      "canonical_name": "Carlos Eduardo Maldonado",
+      "path": "authors/0531.json"
+    },
+    {
+      "author_id": 532,
+      "canonical_name": "Germán Vargas Guillén",
+      "path": "authors/0532.json"
+    },
+    {
+      "author_id": 533,
+      "canonical_name": "Rafael Castellanos",
+      "path": "authors/0533.json"
+    },
+    {
+      "author_id": 534,
+      "canonical_name": "Juan José Botero",
+      "path": "authors/0534.json"
+    },
+    {
+      "author_id": 535,
+      "canonical_name": "Julián Serna Arango",
+      "path": "authors/0535.json"
+    },
+    {
+      "author_id": 536,
+      "canonical_name": "Luz Gloria Cárdenas Mejía",
+      "path": "authors/0536.json"
+    },
+    {
+      "author_id": 537,
+      "canonical_name": "Leonardo Tovar González",
+      "path": "authors/0537.json"
+    },
+    {
+      "author_id": 538,
+      "canonical_name": "A. Cardona",
+      "path": "authors/0538.json"
+    },
+    {
+      "author_id": 539,
+      "canonical_name": "Pedro León Loyola",
+      "path": "authors/0539.json"
+    },
+    {
+      "author_id": 540,
+      "canonical_name": "Clarence Finlayson Elliott",
+      "path": "authors/0540.json"
+    }
+  ],
+  "batch_055": [
+    {
+      "author_id": 541,
+      "canonical_name": "Armando Roa",
+      "path": "authors/0541.json"
+    },
+    {
+      "author_id": 542,
+      "canonical_name": "Francisco Soler Grima",
+      "path": "authors/0542.json"
+    },
+    {
+      "author_id": 543,
+      "canonical_name": "Jorge Acevedo",
+      "path": "authors/0543.json"
+    },
+    {
+      "author_id": 544,
+      "canonical_name": "José Rafael Echevarría",
+      "path": "authors/0544.json"
+    },
+    {
+      "author_id": 545,
+      "canonical_name": "Juan de Dios Vial Larraín",
+      "path": "authors/0545.json"
+    },
+    {
+      "author_id": 546,
+      "canonical_name": "Félix Martínez Bonati",
+      "path": "authors/0546.json"
+    },
+    {
+      "author_id": 547,
+      "canonical_name": "Luis Flores",
+      "path": "authors/0547.json"
+    },
+    {
+      "author_id": 548,
+      "canonical_name": "Alfonso Gómez-Lobo",
+      "path": "authors/0548.json"
+    },
+    {
+      "author_id": 549,
+      "canonical_name": "Marcos García de la Huerta",
+      "path": "authors/0549.json"
+    },
+    {
+      "author_id": 550,
+      "canonical_name": "Jorge Eduardo Rivera",
+      "path": "authors/0550.json"
+    }
+  ],
+  "batch_056": [
+    {
+      "author_id": 551,
+      "canonical_name": "Renato Huerta",
+      "path": "authors/0551.json"
+    },
+    {
+      "author_id": 552,
+      "canonical_name": "Julio Enrique Moreno",
+      "path": "authors/0552.json"
+    },
+    {
+      "author_id": 553,
+      "canonical_name": "José Rafael Bustamante",
+      "path": "authors/0553.json"
+    },
+    {
+      "author_id": 554,
+      "canonical_name": "Aurelio García",
+      "path": "authors/0554.json"
+    },
+    {
+      "author_id": 555,
+      "canonical_name": "Ezequiel González Más",
+      "path": "authors/0555.json"
+    },
+    {
+      "author_id": 556,
+      "canonical_name": "Hernán Malo González",
+      "path": "authors/0556.json"
+    },
+    {
+      "author_id": 557,
+      "canonical_name": "Juan Santiago Dávalos",
+      "path": "authors/0557.json"
+    },
+    {
+      "author_id": 558,
+      "canonical_name": "Hugo Rodríguez Alcalá",
+      "path": "authors/0558.json"
+    },
+    {
+      "author_id": 559,
+      "canonical_name": "Carlos Cueto Fernandini",
+      "path": "authors/0559.json"
+    },
+    {
+      "author_id": 560,
+      "canonical_name": "Oscar Miró Quesada",
+      "path": "authors/0560.json"
+    }
+  ],
+  "batch_057": [
+    {
+      "author_id": 561,
+      "canonical_name": "Honorio Delgado",
+      "path": "authors/0561.json"
+    },
+    {
+      "author_id": 562,
+      "canonical_name": "Luis Felipe Alarco",
+      "path": "authors/0562.json"
+    },
+    {
+      "author_id": 563,
+      "canonical_name": "José Russo Delgado",
+      "path": "authors/0563.json"
+    },
+    {
+      "author_id": 564,
+      "canonical_name": "Víctor Li Carrillo",
+      "path": "authors/0564.json"
+    },
+    {
+      "author_id": 565,
+      "canonical_name": "Enrique Barboza",
+      "path": "authors/0565.json"
+    },
+    {
+      "author_id": 566,
+      "canonical_name": "César Góngora Perea",
+      "path": "authors/0566.json"
+    },
+    {
+      "author_id": 567,
+      "canonical_name": "Elvira Flórez Pérez",
+      "path": "authors/0567.json"
+    },
+    {
+      "author_id": 568,
+      "canonical_name": "Enrique Torres Llosa",
+      "path": "authors/0568.json"
+    },
+    {
+      "author_id": 569,
+      "canonical_name": "Walter Blumenfeld",
+      "path": "authors/0569.json"
+    },
+    {
+      "author_id": 570,
+      "canonical_name": "Beatriz Benoit de Velazco",
+      "path": "authors/0570.json"
+    }
+  ],
+  "batch_058": [
+    {
+      "author_id": 571,
+      "canonical_name": "Nelly Festini",
+      "path": "authors/0571.json"
+    },
+    {
+      "author_id": 572,
+      "canonical_name": "Juan Bautista Ferro",
+      "path": "authors/0572.json"
+    },
+    {
+      "author_id": 573,
+      "canonical_name": "J. Antonio López Cornejo",
+      "path": "authors/0573.json"
+    },
+    {
+      "author_id": 574,
+      "canonical_name": "Luis Felipe Guerra",
+      "path": "authors/0574.json"
+    },
+    {
+      "author_id": 575,
+      "canonical_name": "Alfonso Cobián",
+      "path": "authors/0575.json"
+    },
+    {
+      "author_id": 576,
+      "canonical_name": "Luis Herrera Zavaleta",
+      "path": "authors/0576.json"
+    },
+    {
+      "author_id": 577,
+      "canonical_name": "José Ignacio López Soria",
+      "path": "authors/0577.json"
+    },
+    {
+      "author_id": 578,
+      "canonical_name": "Fernando Elguegrén Reátegui",
+      "path": "authors/0578.json"
+    },
+    {
+      "author_id": 579,
+      "canonical_name": "Federico Camino Macedo",
+      "path": "authors/0579.json"
+    },
+    {
+      "author_id": 580,
+      "canonical_name": "Francisco Nicoli",
+      "path": "authors/0580.json"
+    }
+  ],
+  "batch_059": [
+    {
+      "author_id": 581,
+      "canonical_name": "Luis Silva Santisteban",
+      "path": "authors/0581.json"
+    },
+    {
+      "author_id": 582,
+      "canonical_name": "Teresa Arrieta de Guzmán",
+      "path": "authors/0582.json"
+    },
+    {
+      "author_id": 583,
+      "canonical_name": "Salomón Lerner",
+      "path": "authors/0583.json"
+    },
+    {
+      "author_id": 584,
+      "canonical_name": "Rosemary Rizo Patrón",
+      "path": "authors/0584.json"
+    },
+    {
+      "author_id": 585,
+      "canonical_name": "Pepi Patrón Costa",
+      "path": "authors/0585.json"
+    },
+    {
+      "author_id": 586,
+      "canonical_name": "Cecilia Monteagudo",
+      "path": "authors/0586.json"
+    },
+    {
+      "author_id": 587,
+      "canonical_name": "Juan Brito del Pino",
+      "path": "authors/0587.json"
+    },
+    {
+      "author_id": 588,
+      "canonical_name": "Juan Llambías de Azevedo",
+      "path": "authors/0588.json"
+    },
+    {
+      "author_id": 589,
+      "canonical_name": "José Carlos Montaner",
+      "path": "authors/0589.json"
+    },
+    {
+      "author_id": 590,
+      "canonical_name": "Aníbal del Campo",
+      "path": "authors/0590.json"
+    }
+  ],
+  "batch_060": [
+    {
+      "author_id": 591,
+      "canonical_name": "Manuel Arturo Claps",
+      "path": "authors/0591.json"
+    },
+    {
+      "author_id": 592,
+      "canonical_name": "Homero Altesor",
+      "path": "authors/0592.json"
+    },
+    {
+      "author_id": 593,
+      "canonical_name": "Julio Fausto Fernández",
+      "path": "authors/0593.json"
+    },
+    {
+      "author_id": 594,
+      "canonical_name": "Ismael San Miguel",
+      "path": "authors/0594.json"
+    },
+    {
+      "author_id": 595,
+      "canonical_name": "Javier Sasso",
+      "path": "authors/0595.json"
+    },
+    {
+      "author_id": 596,
+      "canonical_name": "Manuel Granell",
+      "path": "authors/0596.json"
+    },
+    {
+      "author_id": 597,
+      "canonical_name": "Mariano Picón Salas",
+      "path": "authors/0597.json"
+    },
+    {
+      "author_id": 598,
+      "canonical_name": "Federico Riu",
+      "path": "authors/0598.json"
+    },
+    {
+      "author_id": 599,
+      "canonical_name": "Eduardo Vásquez",
+      "path": "authors/0599.json"
+    },
+    {
+      "author_id": 600,
+      "canonical_name": "Alberto Rosales",
+      "path": "authors/0600.json"
+    }
+  ],
+  "batch_061": [
+    {
+      "author_id": 601,
+      "canonical_name": "Juan F. Porras Rangel",
+      "path": "authors/0601.json"
+    },
+    {
+      "author_id": 602,
+      "canonical_name": "Antonio Pérez Estévez",
+      "path": "authors/0602.json"
+    },
+    {
+      "author_id": 603,
+      "canonical_name": "Abelardo Bonilla",
+      "path": "authors/0603.json"
+    },
+    {
+      "author_id": 604,
+      "canonical_name": "Teodoro Olarte",
+      "path": "authors/0604.json"
+    },
+    {
+      "author_id": 605,
+      "canonical_name": "Claudio Gutiérrez Carranza",
+      "path": "authors/0605.json"
+    },
+    {
+      "author_id": 606,
+      "canonical_name": "Rafael Ángel Herra",
+      "path": "authors/0606.json"
+    },
+    {
+      "author_id": 607,
+      "canonical_name": "Rodrigo Facio",
+      "path": "authors/0607.json"
+    },
+    {
+      "author_id": 608,
+      "canonical_name": "Carlos José Gutiérrez",
+      "path": "authors/0608.json"
+    },
+    {
+      "author_id": 609,
+      "canonical_name": "Luis Lara",
+      "path": "authors/0609.json"
+    },
+    {
+      "author_id": 610,
+      "canonical_name": "María de los Ángeles Giralt",
+      "path": "authors/0610.json"
+    }
+  ],
+  "batch_062": [
+    {
+      "author_id": 611,
+      "canonical_name": "Marta Jiménez",
+      "path": "authors/0611.json"
+    },
+    {
+      "author_id": 612,
+      "canonical_name": "Celedonio Ramírez",
+      "path": "authors/0612.json"
+    },
+    {
+      "author_id": 613,
+      "canonical_name": "Luis Camacho Naranjo",
+      "path": "authors/0613.json"
+    },
+    {
+      "author_id": 614,
+      "canonical_name": "Álvaro Zamora",
+      "path": "authors/0614.json"
+    },
+    {
+      "author_id": 615,
+      "canonical_name": "Helio Gallardo",
+      "path": "authors/0615.json"
+    },
+    {
+      "author_id": 616,
+      "canonical_name": "Constantino Láscaris",
+      "path": "authors/0616.json"
+    },
+    {
+      "author_id": 617,
+      "canonical_name": "Francisco Peccorini",
+      "path": "authors/0617.json"
+    },
+    {
+      "author_id": 618,
+      "canonical_name": "José Mata Gavidia",
+      "path": "authors/0618.json"
+    },
+    {
+      "author_id": 619,
+      "canonical_name": "José Rölz Bennett",
+      "path": "authors/0619.json"
+    },
+    {
+      "author_id": 620,
+      "canonical_name": "Enrique Muñoz Meany",
+      "path": "authors/0620.json"
+    }
+  ],
+  "batch_063": [
+    {
+      "author_id": 621,
+      "canonical_name": "Vicente Díaz Samayoa",
+      "path": "authors/0621.json"
+    },
+    {
+      "author_id": 622,
+      "canonical_name": "José de Jesús Martínez",
+      "path": "authors/0622.json"
+    },
+    {
+      "author_id": 623,
+      "canonical_name": "Pablo Kraudi",
+      "path": "authors/0623.json"
+    },
+    {
+      "author_id": 624,
+      "canonical_name": "Erwin Silva",
+      "path": "authors/0624.json"
+    },
+    {
+      "author_id": 625,
+      "canonical_name": "Aura Violeta Aldana",
+      "path": "authors/0625.json"
+    },
+    {
+      "author_id": 626,
+      "canonical_name": "Ricardo Pasos",
+      "path": "authors/0626.json"
+    },
+    {
+      "author_id": 627,
+      "canonical_name": "Juan Bosco Cuadra",
+      "path": "authors/0627.json"
+    },
+    {
+      "author_id": 628,
+      "canonical_name": "Isaías García",
+      "path": "authors/0628.json"
+    },
+    {
+      "author_id": 629,
+      "canonical_name": "José Romano Muñoz",
+      "path": "authors/0629.json"
+    },
+    {
+      "author_id": 630,
+      "canonical_name": "Adalberto García de Mendoza",
+      "path": "authors/0630.json"
+    }
+  ],
+  "batch_064": [
+    {
+      "author_id": 631,
+      "canonical_name": "Eduardo García Máynez",
+      "path": "authors/0631.json"
+    },
+    {
+      "author_id": 632,
+      "canonical_name": "Joaquín Xirau",
+      "path": "authors/0632.json"
+    },
+    {
+      "author_id": 633,
+      "canonical_name": "Juan Roura-Parella",
+      "path": "authors/0633.json"
+    },
+    {
+      "author_id": 634,
+      "canonical_name": "Luis Recaséns Siches",
+      "path": "authors/0634.json"
+    },
+    {
+      "author_id": 635,
+      "canonical_name": "Manuel Cabrera",
+      "path": "authors/0635.json"
+    },
+    {
+      "author_id": 636,
+      "canonical_name": "Adolfo Menéndez y Samará",
+      "path": "authors/0636.json"
+    },
+    {
+      "author_id": 637,
+      "canonical_name": "Jorge Portilla",
+      "path": "authors/0637.json"
+    },
+    {
+      "author_id": 638,
+      "canonical_name": "Fernando Salmerón",
+      "path": "authors/0638.json"
+    },
+    {
+      "author_id": 639,
+      "canonical_name": "Ricardo Guerra",
+      "path": "authors/0639.json"
+    },
+    {
+      "author_id": 640,
+      "canonical_name": "Antonio Zirión Quijano",
+      "path": "authors/0640.json"
+    }
+  ],
+  "batch_065": [
+    {
+      "author_id": 641,
+      "canonical_name": "Miguel Ángel Cevallos",
+      "path": "authors/0641.json"
+    },
+    {
+      "author_id": 642,
+      "canonical_name": "Francisco Larroyo",
+      "path": "authors/0642.json"
+    },
+    {
+      "author_id": 643,
+      "canonical_name": "José Sánchez Villaseñor",
+      "path": "authors/0643.json"
+    },
+    {
+      "author_id": 644,
+      "canonical_name": "Agustín Basave Fernández del Valle",
+      "path": "authors/0644.json"
+    },
+    {
+      "author_id": 645,
+      "canonical_name": "Joaquín Sánchez Macgregor",
+      "path": "authors/0645.json"
+    },
+    {
+      "author_id": 646,
+      "canonical_name": "Wonfilio Trejo",
+      "path": "authors/0646.json"
+    },
+    {
+      "author_id": 647,
+      "canonical_name": "Arturo Rico Bovio",
+      "path": "authors/0647.json"
+    },
+    {
+      "author_id": 648,
+      "canonical_name": "María Zambrano",
+      "path": "authors/0648.json"
+    },
+    {
+      "author_id": 649,
+      "canonical_name": "José Manuel Gallegos Rocafull",
+      "path": "authors/0649.json"
+    },
+    {
+      "author_id": 650,
+      "canonical_name": "Eugenio Imaz",
+      "path": "authors/0650.json"
+    }
+  ],
+  "batch_066": [
+    {
+      "author_id": 651,
+      "canonical_name": "Jaime Serra Hunter",
+      "path": "authors/0651.json"
+    },
+    {
+      "author_id": 652,
+      "canonical_name": "Jorge Mañach",
+      "path": "authors/0652.json"
+    },
+    {
+      "author_id": 653,
+      "canonical_name": "Humberto Piñera Llera",
+      "path": "authors/0653.json"
+    },
+    {
+      "author_id": 654,
+      "canonical_name": "Rafael García Bárcena",
+      "path": "authors/0654.json"
+    },
+    {
+      "author_id": 655,
+      "canonical_name": "Máximo Castro Turbiano",
+      "path": "authors/0655.json"
+    },
+    {
+      "author_id": 656,
+      "canonical_name": "José Ignacio Lasaga",
+      "path": "authors/0656.json"
+    },
+    {
+      "author_id": 657,
+      "canonical_name": "Mercedes García Tudurí",
+      "path": "authors/0657.json"
+    },
+    {
+      "author_id": 658,
+      "canonical_name": "Rosaura García Tudurí",
+      "path": "authors/0658.json"
+    },
+    {
+      "author_id": 659,
+      "canonical_name": "José Antonio Fránquiz",
+      "path": "authors/0659.json"
+    },
+    {
+      "author_id": 660,
+      "canonical_name": "Domingo Marrero",
+      "path": "authors/0660.json"
+    }
+  ],
+  "batch_067": [
+    {
+      "author_id": 661,
+      "canonical_name": "Monelisa Pérez Marchand",
+      "path": "authors/0661.json"
+    },
+    {
+      "author_id": 662,
+      "canonical_name": "Elena Lugo",
+      "path": "authors/0662.json"
+    },
+    {
+      "author_id": 663,
+      "canonical_name": "Carlos Ramos Mattei",
+      "path": "authors/0663.json"
+    },
+    {
+      "author_id": 664,
+      "canonical_name": "Rubén Soto Rivera",
+      "path": "authors/0664.json"
+    },
+    {
+      "author_id": 665,
+      "canonical_name": "Eliseo Cruz Vergara",
+      "path": "authors/0665.json"
+    },
+    {
+      "author_id": 666,
+      "canonical_name": "Carlos Gil",
+      "path": "authors/0666.json"
+    },
+    {
+      "author_id": 667,
+      "canonical_name": "Eduardo Forastieri",
+      "path": "authors/0667.json"
+    },
+    {
+      "author_id": 668,
+      "canonical_name": "Guillermo Rosado Haddock",
+      "path": "authors/0668.json"
+    },
+    {
+      "author_id": 669,
+      "canonical_name": "Raúl Iturrino",
+      "path": "authors/0669.json"
+    },
+    {
+      "author_id": 670,
+      "canonical_name": "Andrés Avelino García",
+      "path": "authors/0670.json"
+    }
+  ],
+  "batch_068": [
+    {
+      "author_id": 671,
+      "canonical_name": "Edikson Minaya",
+      "path": "authors/0671.json"
+    },
+    {
+      "author_id": 672,
+      "canonical_name": "José Soriano de Souza",
+      "path": "authors/0672.json"
+    },
+    {
+      "author_id": 673,
+      "canonical_name": "Mamerto Esquiú",
+      "path": "authors/0673.json"
+    },
+    {
+      "author_id": 674,
+      "canonical_name": "Jacinto Ríos",
+      "path": "authors/0674.json"
+    },
+    {
+      "author_id": 675,
+      "canonical_name": "Mariano Soler",
+      "path": "authors/0675.json"
+    },
+    {
+      "author_id": 676,
+      "canonical_name": "Rafael María Carrasquilla",
+      "path": "authors/0676.json"
+    },
+    {
+      "author_id": 677,
+      "canonical_name": "Alberto Caturelli",
+      "path": "authors/0677.json"
+    },
+    {
+      "author_id": 678,
+      "canonical_name": "Stanislaus Ladusans",
+      "path": "authors/0678.json"
+    },
+    {
+      "author_id": 679,
+      "canonical_name": "Octavio Nicolás Derisi",
+      "path": "authors/0679.json"
+    },
+    {
+      "author_id": 680,
+      "canonical_name": "Gustavo Corção",
+      "path": "authors/0680.json"
+    }
+  ],
+  "batch_069": [
+    {
+      "author_id": 681,
+      "canonical_name": "Armando Câmara",
+      "path": "authors/0681.json"
+    },
+    {
+      "author_id": 682,
+      "canonical_name": "Godofredo da Silva Teles",
+      "path": "authors/0682.json"
+    },
+    {
+      "author_id": 683,
+      "canonical_name": "Vieira Melo",
+      "path": "authors/0683.json"
+    },
+    {
+      "author_id": 684,
+      "canonical_name": "Ubaldo Puppi",
+      "path": "authors/0684.json"
+    },
+    {
+      "author_id": 685,
+      "canonical_name": "Cândido Méndez",
+      "path": "authors/0685.json"
+    },
+    {
+      "author_id": 686,
+      "canonical_name": "Mario Alzamora Valdez",
+      "path": "authors/0686.json"
+    },
+    {
+      "author_id": 687,
+      "canonical_name": "Gerardo Alarco",
+      "path": "authors/0687.json"
+    },
+    {
+      "author_id": 688,
+      "canonical_name": "Felipe MacGregor",
+      "path": "authors/0688.json"
+    },
+    {
+      "author_id": 689,
+      "canonical_name": "Antonio San Cristóbal",
+      "path": "authors/0689.json"
+    },
+    {
+      "author_id": 690,
+      "canonical_name": "Jesús de Guiza y Acevedo",
+      "path": "authors/0690.json"
+    }
+  ],
+  "batch_070": [
+    {
+      "author_id": 691,
+      "canonical_name": "Oswaldo Robles",
+      "path": "authors/0691.json"
+    },
+    {
+      "author_id": 692,
+      "canonical_name": "José de Jesús Díez de Sollano y Dávalos",
+      "path": "authors/0692.json"
+    },
+    {
+      "author_id": 693,
+      "canonical_name": "Agustín Abarca y Cabrera",
+      "path": "authors/0693.json"
+    },
+    {
+      "author_id": 694,
+      "canonical_name": "Isaac Guzmán Valdivia",
+      "path": "authors/0694.json"
+    },
+    {
+      "author_id": 695,
+      "canonical_name": "Fernando Sodi Pallares",
+      "path": "authors/0695.json"
+    },
+    {
+      "author_id": 696,
+      "canonical_name": "José Rubén Sanabria Tapia",
+      "path": "authors/0696.json"
+    },
+    {
+      "author_id": 697,
+      "canonical_name": "Antonio Ibargüengoitia Chico",
+      "path": "authors/0697.json"
+    },
+    {
+      "author_id": 698,
+      "canonical_name": "Miguel Villoro Toranzo",
+      "path": "authors/0698.json"
+    },
+    {
+      "author_id": 699,
+      "canonical_name": "Medardo Plascencia Castellanos",
+      "path": "authors/0699.json"
+    },
+    {
+      "author_id": 700,
+      "canonical_name": "Salvador Abascal Carranza",
+      "path": "authors/0700.json"
+    }
+  ],
+  "batch_071": [
+    {
+      "author_id": 701,
+      "canonical_name": "Virgilio Ruiz Rodríguez",
+      "path": "authors/0701.json"
+    },
+    {
+      "author_id": 702,
+      "canonical_name": "Alfonso Zahar Vergara",
+      "path": "authors/0702.json"
+    },
+    {
+      "author_id": 703,
+      "canonical_name": "Evagrio López Parra",
+      "path": "authors/0703.json"
+    },
+    {
+      "author_id": 704,
+      "canonical_name": "José Alberto Serrano Moreno",
+      "path": "authors/0704.json"
+    },
+    {
+      "author_id": 705,
+      "canonical_name": "José Ramón Benito Alzaga",
+      "path": "authors/0705.json"
+    },
+    {
+      "author_id": 706,
+      "canonical_name": "Rodolfo Vázquez",
+      "path": "authors/0706.json"
+    },
+    {
+      "author_id": 707,
+      "canonical_name": "Luz García Alonso",
+      "path": "authors/0707.json"
+    },
+    {
+      "author_id": 708,
+      "canonical_name": "Enrique Aguayo",
+      "path": "authors/0708.json"
+    },
+    {
+      "author_id": 709,
+      "canonical_name": "Jorge Adame",
+      "path": "authors/0709.json"
+    },
+    {
+      "author_id": 710,
+      "canonical_name": "Demetrio Pizarro",
+      "path": "authors/0710.json"
+    }
+  ],
+  "batch_072": [
+    {
+      "author_id": 711,
+      "canonical_name": "Faustino de Arredondo",
+      "path": "authors/0711.json"
+    },
+    {
+      "author_id": 712,
+      "canonical_name": "Manuel Estrada",
+      "path": "authors/0712.json"
+    },
+    {
+      "author_id": 713,
+      "canonical_name": "Tomás D. Casares",
+      "path": "authors/0713.json"
+    },
+    {
+      "author_id": 714,
+      "canonical_name": "Manuel del Río",
+      "path": "authors/0714.json"
+    },
+    {
+      "author_id": 715,
+      "canonical_name": "Rodolfo Martínez Espinosa",
+      "path": "authors/0715.json"
+    },
+    {
+      "author_id": 716,
+      "canonical_name": "Guido Soaje Ramos",
+      "path": "authors/0716.json"
+    },
+    {
+      "author_id": 717,
+      "canonical_name": "Alfredo Fragueiro",
+      "path": "authors/0717.json"
+    },
+    {
+      "author_id": 718,
+      "canonical_name": "Gregorio Klimovsky",
+      "path": "authors/0718.json"
+    },
+    {
+      "author_id": 719,
+      "canonical_name": "J. Alberto Coffa",
+      "path": "authors/0719.json"
+    },
+    {
+      "author_id": 720,
+      "canonical_name": "Eduardo H. Flichman",
+      "path": "authors/0720.json"
+    }
+  ],
+  "batch_073": [
+    {
+      "author_id": 721,
+      "canonical_name": "Mario Otero",
+      "path": "authors/0721.json"
+    },
+    {
+      "author_id": 722,
+      "canonical_name": "Rolando García",
+      "path": "authors/0722.json"
+    },
+    {
+      "author_id": 723,
+      "canonical_name": "Víctor Rodríguez",
+      "path": "authors/0723.json"
+    },
+    {
+      "author_id": 724,
+      "canonical_name": "César Lorenzano",
+      "path": "authors/0724.json"
+    },
+    {
+      "author_id": 725,
+      "canonical_name": "Pablo Lorenzano",
+      "path": "authors/0725.json"
+    },
+    {
+      "author_id": 726,
+      "canonical_name": "León Olivé",
+      "path": "authors/0726.json"
+    },
+    {
+      "author_id": 727,
+      "canonical_name": "Ana Rosa Pérez Ransanz",
+      "path": "authors/0727.json"
+    },
+    {
+      "author_id": 728,
+      "canonical_name": "Eduardo Rubén Scarano",
+      "path": "authors/0728.json"
+    },
+    {
+      "author_id": 729,
+      "canonical_name": "Félix Schuster",
+      "path": "authors/0729.json"
+    },
+    {
+      "author_id": 730,
+      "canonical_name": "Juan Samaja",
+      "path": "authors/0730.json"
+    }
+  ],
+  "batch_074": [
+    {
+      "author_id": 731,
+      "canonical_name": "José Antonio Castorina",
+      "path": "authors/0731.json"
+    },
+    {
+      "author_id": 732,
+      "canonical_name": "Oscar Nudler",
+      "path": "authors/0732.json"
+    },
+    {
+      "author_id": 733,
+      "canonical_name": "Olimpia Lombardi",
+      "path": "authors/0733.json"
+    },
+    {
+      "author_id": 734,
+      "canonical_name": "Gustavo Marqués",
+      "path": "authors/0734.json"
+    },
+    {
+      "author_id": 735,
+      "canonical_name": "Lucía Lewowicz",
+      "path": "authors/0735.json"
+    },
+    {
+      "author_id": 736,
+      "canonical_name": "Adolfo García de la Sienra",
+      "path": "authors/0736.json"
+    },
+    {
+      "author_id": 737,
+      "canonical_name": "Adriana Gonzalo",
+      "path": "authors/0737.json"
+    },
+    {
+      "author_id": 738,
+      "canonical_name": "Julio Rey Pastor",
+      "path": "authors/0738.json"
+    },
+    {
+      "author_id": 739,
+      "canonical_name": "Ambrosio Gioja",
+      "path": "authors/0739.json"
+    },
+    {
+      "author_id": 740,
+      "canonical_name": "Genaro Carrió",
+      "path": "authors/0740.json"
+    }
+  ],
+  "batch_075": [
+    {
+      "author_id": 741,
+      "canonical_name": "Carlos Alchourrón",
+      "path": "authors/0741.json"
+    },
+    {
+      "author_id": 742,
+      "canonical_name": "Roberto Vernengo",
+      "path": "authors/0742.json"
+    },
+    {
+      "author_id": 743,
+      "canonical_name": "Eugenio Bulygin",
+      "path": "authors/0743.json"
+    },
+    {
+      "author_id": 744,
+      "canonical_name": "Ernesto Garzón Valdés",
+      "path": "authors/0744.json"
+    },
+    {
+      "author_id": 745,
+      "canonical_name": "Eduardo Bacqué",
+      "path": "authors/0745.json"
+    },
+    {
+      "author_id": 746,
+      "canonical_name": "Eduardo Rabossi",
+      "path": "authors/0746.json"
+    },
+    {
+      "author_id": 747,
+      "canonical_name": "Martín Diego Farrell",
+      "path": "authors/0747.json"
+    },
+    {
+      "author_id": 748,
+      "canonical_name": "Carlos S. Nino",
+      "path": "authors/0748.json"
+    },
+    {
+      "author_id": 749,
+      "canonical_name": "Thomas Moro Simpson",
+      "path": "authors/0749.json"
+    },
+    {
+      "author_id": 750,
+      "canonical_name": "Raúl Orayen",
+      "path": "authors/0750.json"
+    }
+  ],
+  "batch_076": [
+    {
+      "author_id": 751,
+      "canonical_name": "Alberto Moretti",
+      "path": "authors/0751.json"
+    },
+    {
+      "author_id": 752,
+      "canonical_name": "Roberto Caso",
+      "path": "authors/0752.json"
+    },
+    {
+      "author_id": 753,
+      "canonical_name": "Hugo Padilla",
+      "path": "authors/0753.json"
+    },
+    {
+      "author_id": 754,
+      "canonical_name": "Adolfo García Díaz",
+      "path": "authors/0754.json"
+    },
+    {
+      "author_id": 755,
+      "canonical_name": "Nicolás Molina Flores",
+      "path": "authors/0755.json"
+    },
+    {
+      "author_id": 756,
+      "canonical_name": "Rafael Ruiz Harrell",
+      "path": "authors/0756.json"
+    },
+    {
+      "author_id": 757,
+      "canonical_name": "Javier Esquivel",
+      "path": "authors/0757.json"
+    },
+    {
+      "author_id": 758,
+      "canonical_name": "Armando Morones",
+      "path": "authors/0758.json"
+    },
+    {
+      "author_id": 759,
+      "canonical_name": "Enrique Villanueva",
+      "path": "authors/0759.json"
+    },
+    {
+      "author_id": 760,
+      "canonical_name": "Hugo Margáin",
+      "path": "authors/0760.json"
+    }
+  ],
+  "batch_077": [
+    {
+      "author_id": 761,
+      "canonical_name": "Margarita Valdés",
+      "path": "authors/0761.json"
+    },
+    {
+      "author_id": 762,
+      "canonical_name": "José A. Robles",
+      "path": "authors/0762.json"
+    },
+    {
+      "author_id": 763,
+      "canonical_name": "Raúl Quesada",
+      "path": "authors/0763.json"
+    },
+    {
+      "author_id": 764,
+      "canonical_name": "Álvaro Rodríguez Tirado",
+      "path": "authors/0764.json"
+    },
+    {
+      "author_id": 765,
+      "canonical_name": "Susana Berestoboy",
+      "path": "authors/0765.json"
+    },
+    {
+      "author_id": 766,
+      "canonical_name": "Newton da Costa",
+      "path": "authors/0766.json"
+    },
+    {
+      "author_id": 767,
+      "canonical_name": "João Paulo Monteiro",
+      "path": "authors/0767.json"
+    },
+    {
+      "author_id": 768,
+      "canonical_name": "Oswaldo Porchat Pereira",
+      "path": "authors/0768.json"
+    },
+    {
+      "author_id": 769,
+      "canonical_name": "Baltasar Barbosa Filho",
+      "path": "authors/0769.json"
+    },
+    {
+      "author_id": 770,
+      "canonical_name": "Zeljko Loparić",
+      "path": "authors/0770.json"
+    }
+  ],
+  "batch_078": [
+    {
+      "author_id": 771,
+      "canonical_name": "Marcelo Dascal",
+      "path": "authors/0771.json"
+    },
+    {
+      "author_id": 772,
+      "canonical_name": "Luiz Henrique Lopes dos Santos",
+      "path": "authors/0772.json"
+    },
+    {
+      "author_id": 773,
+      "canonical_name": "Oswaldo Chateaubriand",
+      "path": "authors/0773.json"
+    },
+    {
+      "author_id": 774,
+      "canonical_name": "Danilo Marcondes",
+      "path": "authors/0774.json"
+    },
+    {
+      "author_id": 775,
+      "canonical_name": "Luiz Carlos Pereira",
+      "path": "authors/0775.json"
+    },
+    {
+      "author_id": 776,
+      "canonical_name": "Deborah Danowski",
+      "path": "authors/0776.json"
+    },
+    {
+      "author_id": 777,
+      "canonical_name": "Marco Rufino",
+      "path": "authors/0777.json"
+    },
+    {
+      "author_id": 778,
+      "canonical_name": "Ulises Pinheiro",
+      "path": "authors/0778.json"
+    },
+    {
+      "author_id": 779,
+      "canonical_name": "Raul Landim",
+      "path": "authors/0779.json"
+    },
+    {
+      "author_id": 780,
+      "canonical_name": "Guido de Almeida",
+      "path": "authors/0780.json"
+    }
+  ],
+  "batch_079": [
+    {
+      "author_id": 781,
+      "canonical_name": "Paulo Farias",
+      "path": "authors/0781.json"
+    },
+    {
+      "author_id": 782,
+      "canonical_name": "Alberto Cordero",
+      "path": "authors/0782.json"
+    },
+    {
+      "author_id": 783,
+      "canonical_name": "Jorge Secada",
+      "path": "authors/0783.json"
+    },
+    {
+      "author_id": 784,
+      "canonical_name": "Juan Rivano",
+      "path": "authors/0784.json"
+    },
+    {
+      "author_id": 785,
+      "canonical_name": "Rubén Sierra Mejía",
+      "path": "authors/0785.json"
+    },
+    {
+      "author_id": 786,
+      "canonical_name": "Silvio Frondizi",
+      "path": "authors/0786.json"
+    },
+    {
+      "author_id": 787,
+      "canonical_name": "Leôncio Basbaum",
+      "path": "authors/0787.json"
+    },
+    {
+      "author_id": 788,
+      "canonical_name": "Luis Vitale",
+      "path": "authors/0788.json"
+    },
+    {
+      "author_id": 789,
+      "canonical_name": "Elí de Gortari",
+      "path": "authors/0789.json"
+    },
+    {
+      "author_id": 790,
+      "canonical_name": "Roberto Fernández Retamar",
+      "path": "authors/0790.json"
+    }
+  ],
+  "batch_080": [
+    {
+      "author_id": 791,
+      "canonical_name": "José Antonio Portuondo",
+      "path": "authors/0791.json"
+    },
+    {
+      "author_id": 792,
+      "canonical_name": "María del Carmen Rovira Gaspar",
+      "path": "authors/0792.json"
+    },
+    {
+      "author_id": 793,
+      "canonical_name": "Santiago Castro-Gómez",
+      "path": "authors/0793.json"
+    },
+    {
+      "author_id": 794,
+      "canonical_name": "Adriana Arpini",
+      "path": "authors/0794.json"
+    },
+    {
+      "author_id": 795,
+      "canonical_name": "Fernanda Beigel",
+      "path": "authors/0795.json"
+    },
+    {
+      "author_id": 796,
+      "canonical_name": "Alejandra Ciriza",
+      "path": "authors/0796.json"
+    },
+    {
+      "author_id": 797,
+      "canonical_name": "Estela Fernández",
+      "path": "authors/0797.json"
+    },
+    {
+      "author_id": 798,
+      "canonical_name": "Liliana Giorgis",
+      "path": "authors/0798.json"
+    },
+    {
+      "author_id": 799,
+      "canonical_name": "Marisa Muñoz",
+      "path": "authors/0799.json"
+    },
+    {
+      "author_id": 800,
+      "canonical_name": "Dante Ramaglia",
+      "path": "authors/0800.json"
+    }
+  ],
+  "batch_081": [
+    {
+      "author_id": 801,
+      "canonical_name": "Hugo Assmann",
+      "path": "authors/0801.json"
+    },
+    {
+      "author_id": 802,
+      "canonical_name": "Osvaldo Ardiles",
+      "path": "authors/0802.json"
+    },
+    {
+      "author_id": 803,
+      "canonical_name": "Julio de Zan",
+      "path": "authors/0803.json"
+    },
+    {
+      "author_id": 804,
+      "canonical_name": "Enrique Guillot",
+      "path": "authors/0804.json"
+    },
+    {
+      "author_id": 805,
+      "canonical_name": "Mauricio A. López",
+      "path": "authors/0805.json"
+    },
+    {
+      "author_id": 806,
+      "canonical_name": "Alberto Parisí",
+      "path": "authors/0806.json"
+    },
+    {
+      "author_id": 807,
+      "canonical_name": "Carlos Bazán",
+      "path": "authors/0807.json"
+    },
+    {
+      "author_id": 808,
+      "canonical_name": "Antonio E. Kinen",
+      "path": "authors/0808.json"
+    },
+    {
+      "author_id": 809,
+      "canonical_name": "Víctor Martín",
+      "path": "authors/0809.json"
+    },
+    {
+      "author_id": 810,
+      "canonical_name": "Alipio Dias Casalis",
+      "path": "authors/0810.json"
+    }
+  ],
+  "batch_082": [
+    {
+      "author_id": 811,
+      "canonical_name": "Sírio López Velasco",
+      "path": "authors/0811.json"
+    },
+    {
+      "author_id": 812,
+      "canonical_name": "Jandir Zanotelli",
+      "path": "authors/0812.json"
+    },
+    {
+      "author_id": 813,
+      "canonical_name": "Jesus Eurico Miranda Regina",
+      "path": "authors/0813.json"
+    },
+    {
+      "author_id": 814,
+      "canonical_name": "Aníbal Quijano",
+      "path": "authors/0814.json"
+    },
+    {
+      "author_id": 815,
+      "canonical_name": "Teresa Margarida da Silva e Orta",
+      "path": "authors/0815.json"
+    },
+    {
+      "author_id": 816,
+      "canonical_name": "Flora Tristán",
+      "path": "authors/0816.json"
+    },
+    {
+      "author_id": 817,
+      "canonical_name": "Juana Manso",
+      "path": "authors/0817.json"
+    },
+    {
+      "author_id": 818,
+      "canonical_name": "Rita Cetina Gutiérrez",
+      "path": "authors/0818.json"
+    },
+    {
+      "author_id": 819,
+      "canonical_name": "Visitación Padilla",
+      "path": "authors/0819.json"
+    },
+    {
+      "author_id": 820,
+      "canonical_name": "Eli Bartra Muriá",
+      "path": "authors/0820.json"
+    }
+  ],
+  "batch_083": [
+    {
+      "author_id": 821,
+      "canonical_name": "Vera Yamuni",
+      "path": "authors/0821.json"
+    },
+    {
+      "author_id": 822,
+      "canonical_name": "Rosario Castellanos",
+      "path": "authors/0822.json"
+    },
+    {
+      "author_id": 823,
+      "canonical_name": "Diana Maffía",
+      "path": "authors/0823.json"
+    },
+    {
+      "author_id": 824,
+      "canonical_name": "María Luisa Femenías",
+      "path": "authors/0824.json"
+    },
+    {
+      "author_id": 825,
+      "canonical_name": "Sueli Carneiro",
+      "path": "authors/0825.json"
+    },
+    {
+      "author_id": 826,
+      "canonical_name": "Ochy Curiel",
+      "path": "authors/0826.json"
+    },
+    {
+      "author_id": 827,
+      "canonical_name": "Jurema Werneck",
+      "path": "authors/0827.json"
+    },
+    {
+      "author_id": 828,
+      "canonical_name": "Rita Laura Segato",
+      "path": "authors/0828.json"
+    },
+    {
+      "author_id": 829,
+      "canonical_name": "María del Rayo Ramírez Fierro",
+      "path": "authors/0829.json"
+    },
+    {
+      "author_id": 830,
+      "canonical_name": "Silvia Rivera Cusicanqui",
+      "path": "authors/0830.json"
+    }
+  ],
+  "batch_084": [
+    {
+      "author_id": 831,
+      "canonical_name": "Domitila Barrios de Chungara",
+      "path": "authors/0831.json"
+    },
+    {
+      "author_id": 832,
+      "canonical_name": "Alaíde Foppa",
+      "path": "authors/0832.json"
+    },
+    {
+      "author_id": 833,
+      "canonical_name": "Francesca Gargallo Celentani",
+      "path": "authors/0833.json"
+    },
+    {
+      "author_id": 834,
+      "canonical_name": "Arturo Escobar",
+      "path": "authors/0834.json"
+    },
+    {
+      "author_id": 835,
+      "canonical_name": "Ana Patricia Noguera de Echeverri",
+      "path": "authors/0835.json"
+    },
+    {
+      "author_id": 836,
+      "canonical_name": "Leonardo Boff",
+      "path": "authors/0836.json"
+    },
+    {
+      "author_id": 837,
+      "canonical_name": "Ivone Gebara",
+      "path": "authors/0837.json"
+    },
+    {
+      "author_id": 838,
+      "canonical_name": "Gladys Parentelli",
+      "path": "authors/0838.json"
+    },
+    {
+      "author_id": 839,
+      "canonical_name": "Ricardo Rozzi",
+      "path": "authors/0839.json"
+    },
+    {
+      "author_id": 840,
+      "canonical_name": "Víctor Toledo",
+      "path": "authors/0840.json"
+    }
+  ],
+  "batch_085": [
+    {
+      "author_id": 841,
+      "canonical_name": "Enrique Leff",
+      "path": "authors/0841.json"
+    },
+    {
+      "author_id": 842,
+      "canonical_name": "Augusto Ángel-Maya",
+      "path": "authors/0842.json"
+    },
+    {
+      "author_id": 843,
+      "canonical_name": "Teresa Kwiatkowska",
+      "path": "authors/0843.json"
+    },
+    {
+      "author_id": 844,
+      "canonical_name": "Alicia Bugallo",
+      "path": "authors/0844.json"
+    },
+    {
+      "author_id": 845,
+      "canonical_name": "Andrea Speranza",
+      "path": "authors/0845.json"
+    },
+    {
+      "author_id": 846,
+      "canonical_name": "Alejandro Herrera Ibáñez",
+      "path": "authors/0846.json"
+    },
+    {
+      "author_id": 847,
+      "canonical_name": "Leonora Esquivel",
+      "path": "authors/0847.json"
+    },
+    {
+      "author_id": 848,
+      "canonical_name": "Sonia Felipe",
+      "path": "authors/0848.json"
+    },
+    {
+      "author_id": 849,
+      "canonical_name": "Eduardo Gudynas",
+      "path": "authors/0849.json"
+    },
+    {
+      "author_id": 850,
+      "canonical_name": "Graciela Evia",
+      "path": "authors/0850.json"
+    }
+  ],
+  "batch_086": [
+    {
+      "author_id": 851,
+      "canonical_name": "José Luis Rebellato",
+      "path": "authors/0851.json"
+    },
+    {
+      "author_id": 852,
+      "canonical_name": "Salvador Bergel",
+      "path": "authors/0852.json"
+    },
+    {
+      "author_id": 853,
+      "canonical_name": "Fernando Sánchez Torres",
+      "path": "authors/0853.json"
+    },
+    {
+      "author_id": 854,
+      "canonical_name": "Juan Carlos Tealdi",
+      "path": "authors/0854.json"
+    },
+    {
+      "author_id": 855,
+      "canonical_name": "Volnei Garrafa",
+      "path": "authors/0855.json"
+    },
+    {
+      "author_id": 856,
+      "canonical_name": "Fermín Roland Schramm",
+      "path": "authors/0856.json"
+    },
+    {
+      "author_id": 857,
+      "canonical_name": "Víctor Penchaszadeh",
+      "path": "authors/0857.json"
+    },
+    {
+      "author_id": 858,
+      "canonical_name": "Miguel Kottow",
+      "path": "authors/0858.json"
+    },
+    {
+      "author_id": 859,
+      "canonical_name": "José María Cantú Garza",
+      "path": "authors/0859.json"
+    },
+    {
+      "author_id": 860,
+      "canonical_name": "Alya Saada",
+      "path": "authors/0860.json"
+    }
+  ],
+  "batch_087": [
+    {
+      "author_id": 861,
+      "canonical_name": "Genoveva Keyeux",
+      "path": "authors/0861.json"
+    },
+    {
+      "author_id": 862,
+      "canonical_name": "Pedro Luis Sotolongo",
+      "path": "authors/0862.json"
+    },
+    {
+      "author_id": 863,
+      "canonical_name": "Patricia Sorokin",
+      "path": "authors/0863.json"
+    },
+    {
+      "author_id": 864,
+      "canonical_name": "Susana Vidal",
+      "path": "authors/0864.json"
+    },
+    {
+      "author_id": 865,
+      "canonical_name": "Francisco Parenti",
+      "path": "authors/0865.json"
+    },
+    {
+      "author_id": 866,
+      "canonical_name": "Marta Fracappani",
+      "path": "authors/0866.json"
+    },
+    {
+      "author_id": 867,
+      "canonical_name": "Agustín Estévez",
+      "path": "authors/0867.json"
+    },
+    {
+      "author_id": 868,
+      "canonical_name": "Gladys Estévez",
+      "path": "authors/0868.json"
+    },
+    {
+      "author_id": 869,
+      "canonical_name": "Rosa Di Pace",
+      "path": "authors/0869.json"
+    },
+    {
+      "author_id": 870,
+      "canonical_name": "Florencia Luna",
+      "path": "authors/0870.json"
+    }
+  ],
+  "batch_088": [
+    {
+      "author_id": 871,
+      "canonical_name": "María Julia Bertomeu",
+      "path": "authors/0871.json"
+    },
+    {
+      "author_id": 872,
+      "canonical_name": "Gladys Macklison",
+      "path": "authors/0872.json"
+    },
+    {
+      "author_id": 873,
+      "canonical_name": "Susana Sommer",
+      "path": "authors/0873.json"
+    },
+    {
+      "author_id": 874,
+      "canonical_name": "M. Bochategui",
+      "path": "authors/0874.json"
+    },
+    {
+      "author_id": 875,
+      "canonical_name": "Margarita Bosch",
+      "path": "authors/0875.json"
+    },
+    {
+      "author_id": 876,
+      "canonical_name": "Dora Porto",
+      "path": "authors/0876.json"
+    },
+    {
+      "author_id": 877,
+      "canonical_name": "Gabriel Oseka",
+      "path": "authors/0877.json"
+    },
+    {
+      "author_id": 878,
+      "canonical_name": "José Roque Junges",
+      "path": "authors/0878.json"
+    },
+    {
+      "author_id": 879,
+      "canonical_name": "Mario Segre",
+      "path": "authors/0879.json"
+    },
+    {
+      "author_id": 880,
+      "canonical_name": "Mauro Machado do Prado",
+      "path": "authors/0880.json"
+    }
+  ],
+  "batch_089": [
+    {
+      "author_id": 881,
+      "canonical_name": "Ana Tapajoz",
+      "path": "authors/0881.json"
+    },
+    {
+      "author_id": 882,
+      "canonical_name": "Joaquín Clotet",
+      "path": "authors/0882.json"
+    },
+    {
+      "author_id": 883,
+      "canonical_name": "Delio Kipper",
+      "path": "authors/0883.json"
+    },
+    {
+      "author_id": 884,
+      "canonical_name": "Jussara de Azambuja Loch",
+      "path": "authors/0884.json"
+    },
+    {
+      "author_id": 885,
+      "canonical_name": "José Roberto Goldim",
+      "path": "authors/0885.json"
+    },
+    {
+      "author_id": 886,
+      "canonical_name": "William S. Hossne",
+      "path": "authors/0886.json"
+    },
+    {
+      "author_id": 887,
+      "canonical_name": "Cristian de Paul do Bachifontaine",
+      "path": "authors/0887.json"
+    },
+    {
+      "author_id": 888,
+      "canonical_name": "Dalmao Abreu Allari",
+      "path": "authors/0888.json"
+    },
+    {
+      "author_id": 889,
+      "canonical_name": "Daniel Romeo Muñoz",
+      "path": "authors/0889.json"
+    },
+    {
+      "author_id": 890,
+      "canonical_name": "Leo Pessini",
+      "path": "authors/0890.json"
+    }
+  ],
+  "batch_090": [
+    {
+      "author_id": 891,
+      "canonical_name": "Luciano Pereira",
+      "path": "authors/0891.json"
+    },
+    {
+      "author_id": 892,
+      "canonical_name": "Mario Fabri dos Anjos",
+      "path": "authors/0892.json"
+    },
+    {
+      "author_id": 893,
+      "canonical_name": "Marcos Segre",
+      "path": "authors/0893.json"
+    },
+    {
+      "author_id": 894,
+      "canonical_name": "Marcos de Almeida",
+      "path": "authors/0894.json"
+    },
+    {
+      "author_id": 895,
+      "canonical_name": "Vera Saher",
+      "path": "authors/0895.json"
+    },
+    {
+      "author_id": 896,
+      "canonical_name": "Alfonso Llano Escobar",
+      "path": "authors/0896.json"
+    },
+    {
+      "author_id": 897,
+      "canonical_name": "Jaime Escobar Triana",
+      "path": "authors/0897.json"
+    },
+    {
+      "author_id": 898,
+      "canonical_name": "Gustavo García Cardona",
+      "path": "authors/0898.json"
+    },
+    {
+      "author_id": 899,
+      "canonical_name": "Flavio Garzón",
+      "path": "authors/0899.json"
+    },
+    {
+      "author_id": 900,
+      "canonical_name": "Emilse Cancino",
+      "path": "authors/0900.json"
+    }
+  ],
+  "batch_091": [
+    {
+      "author_id": 901,
+      "canonical_name": "Fernando Lolas Stepke",
+      "path": "authors/0901.json"
+    },
+    {
+      "author_id": 902,
+      "canonical_name": "Gonzalo Figueroa Yáñez",
+      "path": "authors/0902.json"
+    },
+    {
+      "author_id": 903,
+      "canonical_name": "José Ramón Acosta Sariego",
+      "path": "authors/0903.json"
+    },
+    {
+      "author_id": 904,
+      "canonical_name": "Daniel Piedra Herrera",
+      "path": "authors/0904.json"
+    },
+    {
+      "author_id": 905,
+      "canonical_name": "Lizbeth Sagols Sales",
+      "path": "authors/0905.json"
+    },
+    {
+      "author_id": 906,
+      "canonical_name": "María Teresa de la Garza",
+      "path": "authors/0906.json"
+    },
+    {
+      "author_id": 907,
+      "canonical_name": "Jorge Enrique Linares",
+      "path": "authors/0907.json"
+    },
+    {
+      "author_id": 908,
+      "canonical_name": "Paulina Rivero Weber",
+      "path": "authors/0908.json"
+    },
+    {
+      "author_id": 909,
+      "canonical_name": "Cano Valle",
+      "path": "authors/0909.json"
+    },
+    {
+      "author_id": 910,
+      "canonical_name": "Héctor Gros Espiell",
+      "path": "authors/0910.json"
+    }
+  ],
+  "batch_092": [
+    {
+      "author_id": 911,
+      "canonical_name": "Stella Cerrutti Basso",
+      "path": "authors/0911.json"
+    },
+    {
+      "author_id": 912,
+      "canonical_name": "Marta Ascurra",
+      "path": "authors/0912.json"
+    },
+    {
+      "author_id": 913,
+      "canonical_name": "Javier Luna Orozco",
+      "path": "authors/0913.json"
+    },
+    {
+      "author_id": 914,
+      "canonical_name": "Norbert Lechner",
+      "path": "authors/0914.json"
+    },
+    {
+      "author_id": 915,
+      "canonical_name": "Guillermo O’Donnell",
+      "path": "authors/0915.json"
+    },
+    {
+      "author_id": 916,
+      "canonical_name": "Manuel Antonio Garretón",
+      "path": "authors/0916.json"
+    },
+    {
+      "author_id": 917,
+      "canonical_name": "Marcelo Cavarozzi",
+      "path": "authors/0917.json"
+    },
+    {
+      "author_id": 918,
+      "canonical_name": "Dieter Nohlen",
+      "path": "authors/0918.json"
+    },
+    {
+      "author_id": 919,
+      "canonical_name": "Carlos Huneeus",
+      "path": "authors/0919.json"
+    },
+    {
+      "author_id": 920,
+      "canonical_name": "Enrique Baloyra",
+      "path": "authors/0920.json"
+    }
+  ],
+  "batch_093": [
+    {
+      "author_id": 921,
+      "canonical_name": "César Cansino",
+      "path": "authors/0921.json"
+    },
+    {
+      "author_id": 922,
+      "canonical_name": "Octavio Paz",
+      "path": "authors/0922.json"
+    },
+    {
+      "author_id": 923,
+      "canonical_name": "Enrique Krauze",
+      "path": "authors/0923.json"
+    },
+    {
+      "author_id": 924,
+      "canonical_name": "Mario Vargas Llosa",
+      "path": "authors/0924.json"
+    },
+    {
+      "author_id": 925,
+      "canonical_name": "José Guilherme Merquior",
+      "path": "authors/0925.json"
+    },
+    {
+      "author_id": 926,
+      "canonical_name": "Celso Lafer",
+      "path": "authors/0926.json"
+    },
+    {
+      "author_id": 927,
+      "canonical_name": "Roberto Mangabeira Unger",
+      "path": "authors/0927.json"
+    },
+    {
+      "author_id": 928,
+      "canonical_name": "Carlos Monsiváis",
+      "path": "authors/0928.json"
+    },
+    {
+      "author_id": 929,
+      "canonical_name": "Arturo Uslar Pietri",
+      "path": "authors/0929.json"
+    },
+    {
+      "author_id": 930,
+      "canonical_name": "Carlos Fuentes",
+      "path": "authors/0930.json"
+    }
+  ],
+  "batch_094": [
+    {
+      "author_id": 931,
+      "canonical_name": "J.M. Briceño Guerrero",
+      "path": "authors/0931.json"
+    },
+    {
+      "author_id": 932,
+      "canonical_name": "Néstor García Canclini",
+      "path": "authors/0932.json"
+    },
+    {
+      "author_id": 933,
+      "canonical_name": "Jesús Martín-Barbero",
+      "path": "authors/0933.json"
+    },
+    {
+      "author_id": 934,
+      "canonical_name": "Fernando Calderón",
+      "path": "authors/0934.json"
+    },
+    {
+      "author_id": 935,
+      "canonical_name": "Martín Hopenhayn",
+      "path": "authors/0935.json"
+    },
+    {
+      "author_id": 936,
+      "canonical_name": "Ernesto Ottone",
+      "path": "authors/0936.json"
+    },
+    {
+      "author_id": 937,
+      "canonical_name": "Sergio Zermeño",
+      "path": "authors/0937.json"
+    },
+    {
+      "author_id": 938,
+      "canonical_name": "Francisco Zapata",
+      "path": "authors/0938.json"
+    },
+    {
+      "author_id": 939,
+      "canonical_name": "Hugo Zemelman",
+      "path": "authors/0939.json"
+    },
+    {
+      "author_id": 940,
+      "canonical_name": "Pablo González Casanova",
+      "path": "authors/0940.json"
+    }
+  ],
+  "batch_095": [
+    {
+      "author_id": 941,
+      "canonical_name": "Atilio Borón",
+      "path": "authors/0941.json"
+    },
+    {
+      "author_id": 942,
+      "canonical_name": "Pedro Vuskovic",
+      "path": "authors/0942.json"
+    },
+    {
+      "author_id": 943,
+      "canonical_name": "Edelberto Torres Rivas",
+      "path": "authors/0943.json"
+    },
+    {
+      "author_id": 944,
+      "canonical_name": "Rigoberto Lanz",
+      "path": "authors/0944.json"
+    },
+    {
+      "author_id": 945,
+      "canonical_name": "Roberto Follari",
+      "path": "authors/0945.json"
+    },
+    {
+      "author_id": 946,
+      "canonical_name": "Hélio Jaguaribe de Matos",
+      "path": "authors/0946.json"
+    },
+    {
+      "author_id": 947,
+      "canonical_name": "Ángel Flisfisch",
+      "path": "authors/0947.json"
+    },
+    {
+      "author_id": 948,
+      "canonical_name": "Francisco Weffort",
+      "path": "authors/0948.json"
+    },
+    {
+      "author_id": 949,
+      "canonical_name": "Marcos Kaplan",
+      "path": "authors/0949.json"
+    },
+    {
+      "author_id": 950,
+      "canonical_name": "Ugo Pipitone",
+      "path": "authors/0950.json"
+    }
+  ],
+  "batch_096": [
+    {
+      "author_id": 951,
+      "canonical_name": "André Franco Montoro",
+      "path": "authors/0951.json"
+    },
+    {
+      "author_id": 952,
+      "canonical_name": "R. Tamayo Salmorán",
+      "path": "authors/0952.json"
+    },
+    {
+      "author_id": 953,
+      "canonical_name": "Agustín Squella",
+      "path": "authors/0953.json"
+    },
+    {
+      "author_id": 954,
+      "canonical_name": "Luis Villar Borda",
+      "path": "authors/0954.json"
+    },
+    {
+      "author_id": 955,
+      "canonical_name": "J. Hübner Gallo",
+      "path": "authors/0955.json"
+    },
+    {
+      "author_id": 956,
+      "canonical_name": "Werner Goldschmidt",
+      "path": "authors/0956.json"
+    },
+    {
+      "author_id": 957,
+      "canonical_name": "Luis Alberto Warat",
+      "path": "authors/0957.json"
+    },
+    {
+      "author_id": 958,
+      "canonical_name": "Óscar Correas",
+      "path": "authors/0958.json"
+    },
+    {
+      "author_id": 959,
+      "canonical_name": "Julio Fernández Bulté",
+      "path": "authors/0959.json"
+    },
+    {
+      "author_id": 960,
+      "canonical_name": "Víctor Manuel Moncayo",
+      "path": "authors/0960.json"
+    }
+  ],
+  "batch_097": [
+    {
+      "author_id": 961,
+      "canonical_name": "Eduardo Novoa Monreal",
+      "path": "authors/0961.json"
+    },
+    {
+      "author_id": 962,
+      "canonical_name": "Roberto Lyra Filho",
+      "path": "authors/0962.json"
+    },
+    {
+      "author_id": 963,
+      "canonical_name": "César A. Rodríguez",
+      "path": "authors/0963.json"
+    },
+    {
+      "author_id": 964,
+      "canonical_name": "A. Botero Bernal",
+      "path": "authors/0964.json"
+    },
+    {
+      "author_id": 965,
+      "canonical_name": "Carlos Cárcova",
+      "path": "authors/0965.json"
+    },
+    {
+      "author_id": 966,
+      "canonical_name": "Alicia Ruiz",
+      "path": "authors/0966.json"
+    },
+    {
+      "author_id": 967,
+      "canonical_name": "Ricardo Entelman",
+      "path": "authors/0967.json"
+    },
+    {
+      "author_id": 968,
+      "canonical_name": "José Geraldo de Souza Jr.",
+      "path": "authors/0968.json"
+    },
+    {
+      "author_id": 969,
+      "canonical_name": "Roberto A.R. de Aguiar",
+      "path": "authors/0969.json"
+    },
+    {
+      "author_id": 970,
+      "canonical_name": "Jesús A. de la Torre Rangel",
+      "path": "authors/0970.json"
+    }
+  ],
+  "batch_098": [
+    {
+      "author_id": 971,
+      "canonical_name": "Félix Matos Bernier",
+      "path": "authors/0971.json"
+    },
+    {
+      "author_id": 972,
+      "canonical_name": "Nemesio Canales",
+      "path": "authors/0972.json"
+    },
+    {
+      "author_id": 973,
+      "canonical_name": "Rafael Arrillaga Torréns",
+      "path": "authors/0973.json"
+    },
+    {
+      "author_id": 974,
+      "canonical_name": "Julio Antonio Mella",
+      "path": "authors/0974.json"
+    },
+    {
+      "author_id": 975,
+      "canonical_name": "Juan Marinello",
+      "path": "authors/0975.json"
+    },
+    {
+      "author_id": 976,
+      "canonical_name": "Juan Bosch",
+      "path": "authors/0976.json"
+    },
+    {
+      "author_id": 977,
+      "canonical_name": "César Andreu Iglesias",
+      "path": "authors/0977.json"
+    },
+    {
+      "author_id": 978,
+      "canonical_name": "George Fromm",
+      "path": "authors/0978.json"
+    },
+    {
+      "author_id": 979,
+      "canonical_name": "Eugenio Fernández Méndez",
+      "path": "authors/0979.json"
+    },
+    {
+      "author_id": 980,
+      "canonical_name": "Samuel Silva Gotay",
+      "path": "authors/0980.json"
+    }
+  ],
+  "batch_099": [
+    {
+      "author_id": 981,
+      "canonical_name": "Luis Rivera Pagán",
+      "path": "authors/0981.json"
+    },
+    {
+      "author_id": 982,
+      "canonical_name": "Cintio Vitier",
+      "path": "authors/0982.json"
+    },
+    {
+      "author_id": 983,
+      "canonical_name": "José Manuel Lázaro",
+      "path": "authors/0983.json"
+    },
+    {
+      "author_id": 984,
+      "canonical_name": "Enrique Ubieta",
+      "path": "authors/0984.json"
+    },
+    {
+      "author_id": 985,
+      "canonical_name": "Fernando Ortiz",
+      "path": "authors/0985.json"
+    },
+    {
+      "author_id": 986,
+      "canonical_name": "Miguel Pimentel",
+      "path": "authors/0986.json"
+    },
+    {
+      "author_id": 987,
+      "canonical_name": "Julio Minaya",
+      "path": "authors/0987.json"
+    },
+    {
+      "author_id": 988,
+      "canonical_name": "José Ferrer Canales",
+      "path": "authors/0988.json"
+    },
+    {
+      "author_id": 989,
+      "canonical_name": "José Emilio González",
+      "path": "authors/0989.json"
+    },
+    {
+      "author_id": 990,
+      "canonical_name": "Rafael Aragunde",
+      "path": "authors/0990.json"
+    }
+  ],
+  "batch_100": [
+    {
+      "author_id": 991,
+      "canonical_name": "José Lezama Lima",
+      "path": "authors/0991.json"
+    },
+    {
+      "author_id": 992,
+      "canonical_name": "Alejo Carpentier",
+      "path": "authors/0992.json"
+    },
+    {
+      "author_id": 993,
+      "canonical_name": "Pedro Mir",
+      "path": "authors/0993.json"
+    },
+    {
+      "author_id": 994,
+      "canonical_name": "León David",
+      "path": "authors/0994.json"
+    },
+    {
+      "author_id": 995,
+      "canonical_name": "Francisco José Ramos",
+      "path": "authors/0995.json"
+    },
+    {
+      "author_id": 996,
+      "canonical_name": "Jorge Luis Acanda",
+      "path": "authors/0996.json"
+    },
+    {
+      "author_id": 997,
+      "canonical_name": "Ángel Villarini",
+      "path": "authors/0997.json"
+    },
+    {
+      "author_id": 998,
+      "canonical_name": "Miguel Badía",
+      "path": "authors/0998.json"
+    },
+    {
+      "author_id": 999,
+      "canonical_name": "Álvaro López Fernández",
+      "path": "authors/0999.json"
+    },
+    {
+      "author_id": 1000,
+      "canonical_name": "Luis O. Brea",
+      "path": "authors/1000.json"
+    }
+  ],
+  "batch_101": [
+    {
+      "author_id": 1001,
+      "canonical_name": "C.L.R. James",
+      "path": "authors/1001.json"
+    },
+    {
+      "author_id": 1002,
+      "canonical_name": "Sylvia Wynter",
+      "path": "authors/1002.json"
+    },
+    {
+      "author_id": 1003,
+      "canonical_name": "Alberto Torres",
+      "path": "authors/1003.json"
+    },
+    {
+      "author_id": 1004,
+      "canonical_name": "Euclides Rodrigues da Cunha",
+      "path": "authors/1004.json"
+    },
+    {
+      "author_id": 1005,
+      "canonical_name": "Silvério Fontes",
+      "path": "authors/1005.json"
+    },
+    {
+      "author_id": 1006,
+      "canonical_name": "Oliveira Viana",
+      "path": "authors/1006.json"
+    },
+    {
+      "author_id": 1007,
+      "canonical_name": "Gilberto de Melo Freyre",
+      "path": "authors/1007.json"
+    },
+    {
+      "author_id": 1008,
+      "canonical_name": "Mário de Andrade",
+      "path": "authors/1008.json"
+    },
+    {
+      "author_id": 1009,
+      "canonical_name": "Plínio Salgado",
+      "path": "authors/1009.json"
+    },
+    {
+      "author_id": 1010,
+      "canonical_name": "Theodoro Ramos",
+      "path": "authors/1010.json"
+    }
+  ],
+  "batch_102": [
+    {
+      "author_id": 1011,
+      "canonical_name": "Celso Furtado",
+      "path": "authors/1011.json"
+    },
+    {
+      "author_id": 1012,
+      "canonical_name": "Darcy Ribeiro",
+      "path": "authors/1012.json"
+    },
+    {
+      "author_id": 1013,
+      "canonical_name": "Bento Prado de Almeida Ferraz Júnior",
+      "path": "authors/1013.json"
+    },
+    {
+      "author_id": 1014,
+      "canonical_name": "Antônio Sidekum",
+      "path": "authors/1014.json"
+    },
+    {
+      "author_id": 1015,
+      "canonical_name": "José Luiz Arcanjo",
+      "path": "authors/1015.json"
+    },
+    {
+      "author_id": 1016,
+      "canonical_name": "Baldoino Antônio Andreola",
+      "path": "authors/1016.json"
+    },
+    {
+      "author_id": 1017,
+      "canonical_name": "Aloísio Ruedell",
+      "path": "authors/1017.json"
+    },
+    {
+      "author_id": 1018,
+      "canonical_name": "Alino Lorenzon",
+      "path": "authors/1018.json"
+    },
+    {
+      "author_id": 1019,
+      "canonical_name": "Guerreiro Ramos",
+      "path": "authors/1019.json"
+    },
+    {
+      "author_id": 1020,
+      "canonical_name": "Cândido Mendes de Almeida",
+      "path": "authors/1020.json"
+    }
+  ],
+  "batch_103": [
+    {
+      "author_id": 1021,
+      "canonical_name": "Evaldo Correia Lima",
+      "path": "authors/1021.json"
+    },
+    {
+      "author_id": 1022,
+      "canonical_name": "Roland Corbisier",
+      "path": "authors/1022.json"
+    },
+    {
+      "author_id": 1023,
+      "canonical_name": "Rômulo de Almeida",
+      "path": "authors/1023.json"
+    },
+    {
+      "author_id": 1024,
+      "canonical_name": "Inácio Rangel",
+      "path": "authors/1024.json"
+    },
+    {
+      "author_id": 1025,
+      "canonical_name": "Nelson Werneck Sodré",
+      "path": "authors/1025.json"
+    },
+    {
+      "author_id": 1026,
+      "canonical_name": "Roberto de Oliveira Campos",
+      "path": "authors/1026.json"
+    },
+    {
+      "author_id": 1027,
+      "canonical_name": "Anísio Teixeira",
+      "path": "authors/1027.json"
+    },
+    {
+      "author_id": 1028,
+      "canonical_name": "Hermes Lima",
+      "path": "authors/1028.json"
+    },
+    {
+      "author_id": 1029,
+      "canonical_name": "Fernando Azevedo",
+      "path": "authors/1029.json"
+    },
+    {
+      "author_id": 1030,
+      "canonical_name": "José Honório Rodrigues",
+      "path": "authors/1030.json"
+    }
+  ],
+  "batch_104": [
+    {
+      "author_id": 1031,
+      "canonical_name": "Domingos Crippa",
+      "path": "authors/1031.json"
+    },
+    {
+      "author_id": 1032,
+      "canonical_name": "Heraldo Barbuy",
+      "path": "authors/1032.json"
+    },
+    {
+      "author_id": 1033,
+      "canonical_name": "Gilberto de Melo Kujawski",
+      "path": "authors/1033.json"
+    },
+    {
+      "author_id": 1034,
+      "canonical_name": "Hamilton Nogueira",
+      "path": "authors/1034.json"
+    },
+    {
+      "author_id": 1035,
+      "canonical_name": "Tasso Silveira",
+      "path": "authors/1035.json"
+    },
+    {
+      "author_id": 1036,
+      "canonical_name": "Paulo Bonavides",
+      "path": "authors/1036.json"
+    },
+    {
+      "author_id": 1037,
+      "canonical_name": "Djacir Menezes",
+      "path": "authors/1037.json"
+    },
+    {
+      "author_id": 1038,
+      "canonical_name": "Romano Galeffi",
+      "path": "authors/1038.json"
+    },
+    {
+      "author_id": 1039,
+      "canonical_name": "Berto Condé",
+      "path": "authors/1039.json"
+    },
+    {
+      "author_id": 1040,
+      "canonical_name": "Astrogildo Pereira",
+      "path": "authors/1040.json"
+    }
+  ],
+  "batch_105": [
+    {
+      "author_id": 1041,
+      "canonical_name": "Álvaro de Faria",
+      "path": "authors/1041.json"
+    },
+    {
+      "author_id": 1042,
+      "canonical_name": "Luís Pinto Ferreira",
+      "path": "authors/1042.json"
+    },
+    {
+      "author_id": 1043,
+      "canonical_name": "Gláucio Veiga",
+      "path": "authors/1043.json"
+    },
+    {
+      "author_id": 1044,
+      "canonical_name": "Jamil Almansur Haddad",
+      "path": "authors/1044.json"
+    },
+    {
+      "author_id": 1045,
+      "canonical_name": "Octávio Ianni",
+      "path": "authors/1045.json"
+    },
+    {
+      "author_id": 1046,
+      "canonical_name": "Renato Cirell Czerna",
+      "path": "authors/1046.json"
+    },
+    {
+      "author_id": 1047,
+      "canonical_name": "Michel Schooyans",
+      "path": "authors/1047.json"
+    },
+    {
+      "author_id": 1048,
+      "canonical_name": "Ernani Fiori",
+      "path": "authors/1048.json"
+    },
+    {
+      "author_id": 1049,
+      "canonical_name": "José Arthur Giannotti",
+      "path": "authors/1049.json"
+    },
+    {
+      "author_id": 1050,
+      "canonical_name": "Aquilles Côrtes Guimarães",
+      "path": "authors/1050.json"
+    }
+  ],
+  "batch_106": [
+    {
+      "author_id": 1051,
+      "canonical_name": "João Carlos Nogueira",
+      "path": "authors/1051.json"
+    },
+    {
+      "author_id": 1052,
+      "canonical_name": "José de Anchieta Correa",
+      "path": "authors/1052.json"
+    },
+    {
+      "author_id": 1053,
+      "canonical_name": "Salma Tannus Muchail",
+      "path": "authors/1053.json"
+    },
+    {
+      "author_id": 1054,
+      "canonical_name": "Newton Aquiles von Zuben",
+      "path": "authors/1054.json"
+    },
+    {
+      "author_id": 1055,
+      "canonical_name": "Telma A. Donzelli",
+      "path": "authors/1055.json"
+    },
+    {
+      "author_id": 1056,
+      "canonical_name": "José Ozanan de Castro",
+      "path": "authors/1056.json"
+    },
+    {
+      "author_id": 1057,
+      "canonical_name": "Miguel Schaeffer",
+      "path": "authors/1057.json"
+    },
+    {
+      "author_id": 1058,
+      "canonical_name": "Maria Fernanda Dichtchekenian",
+      "path": "authors/1058.json"
+    },
+    {
+      "author_id": 1059,
+      "canonical_name": "Antônio Muniz de Rezende",
+      "path": "authors/1059.json"
+    },
+    {
+      "author_id": 1060,
+      "canonical_name": "Augusto João Crema Novaski",
+      "path": "authors/1060.json"
+    }
+  ],
+  "batch_107": [
+    {
+      "author_id": 1061,
+      "canonical_name": "Dulce Mara Critelli",
+      "path": "authors/1061.json"
+    },
+    {
+      "author_id": 1062,
+      "canonical_name": "Thais Cury Beaini",
+      "path": "authors/1062.json"
+    },
+    {
+      "author_id": 1063,
+      "canonical_name": "Maria A. Viggiani Bicudo",
+      "path": "authors/1063.json"
+    },
+    {
+      "author_id": 1064,
+      "canonical_name": "Leda Maria Huhne",
+      "path": "authors/1064.json"
+    },
+    {
+      "author_id": 1065,
+      "canonical_name": "Joel Martins",
+      "path": "authors/1065.json"
+    },
+    {
+      "author_id": 1066,
+      "canonical_name": "Yolanda Cintrão Forghieri",
+      "path": "authors/1066.json"
+    },
+    {
+      "author_id": 1067,
+      "canonical_name": "José Luiz de Souza Maranhão",
+      "path": "authors/1067.json"
+    },
+    {
+      "author_id": 1068,
+      "canonical_name": "Odone José Quadros",
+      "path": "authors/1068.json"
+    },
+    {
+      "author_id": 1069,
+      "canonical_name": "Irapuan Teixeira",
+      "path": "authors/1069.json"
+    },
+    {
+      "author_id": 1070,
+      "canonical_name": "Ayda Arruda",
+      "path": "authors/1070.json"
+    }
+  ],
+  "batch_108": [
+    {
+      "author_id": 1071,
+      "canonical_name": "Laffayette de Moraes",
+      "path": "authors/1071.json"
+    },
+    {
+      "author_id": 1072,
+      "canonical_name": "Luís Paulo Alcântara",
+      "path": "authors/1072.json"
+    },
+    {
+      "author_id": 1073,
+      "canonical_name": "Elias Humberto",
+      "path": "authors/1073.json"
+    },
+    {
+      "author_id": 1074,
+      "canonical_name": "Jorge Barbosa",
+      "path": "authors/1074.json"
+    },
+    {
+      "author_id": 1075,
+      "canonical_name": "Milton Vargas",
+      "path": "authors/1075.json"
+    },
+    {
+      "author_id": 1076,
+      "canonical_name": "Marli Bulcão",
+      "path": "authors/1076.json"
+    },
+    {
+      "author_id": 1077,
+      "canonical_name": "Elyana Barbosa",
+      "path": "authors/1077.json"
+    },
+    {
+      "author_id": 1078,
+      "canonical_name": "Theotonio dos Santos",
+      "path": "authors/1078.json"
+    },
+    {
+      "author_id": 1079,
+      "canonical_name": "Fernando Henrique Cardoso",
+      "path": "authors/1079.json"
+    },
+    {
+      "author_id": 1080,
+      "canonical_name": "Pedro Negre Rigol",
+      "path": "authors/1080.json"
+    }
+  ],
+  "batch_109": [
+    {
+      "author_id": 1081,
+      "canonical_name": "Augusto Boal",
+      "path": "authors/1081.json"
+    },
+    {
+      "author_id": 1082,
+      "canonical_name": "José Sotero Caio",
+      "path": "authors/1082.json"
+    },
+    {
+      "author_id": 1083,
+      "canonical_name": "Helmut Thielen",
+      "path": "authors/1083.json"
+    },
+    {
+      "author_id": 1084,
+      "canonical_name": "José Luiz Ames",
+      "path": "authors/1084.json"
+    },
+    {
+      "author_id": 1085,
+      "canonical_name": "Márcio Costa",
+      "path": "authors/1085.json"
+    },
+    {
+      "author_id": 1086,
+      "canonical_name": "Antônio Rufino Vieira",
+      "path": "authors/1086.json"
+    },
+    {
+      "author_id": 1087,
+      "canonical_name": "Pedro Gambin",
+      "path": "authors/1087.json"
+    },
+    {
+      "author_id": 1088,
+      "canonical_name": "Domênico Costella",
+      "path": "authors/1088.json"
+    },
+    {
+      "author_id": 1089,
+      "canonical_name": "Dario Caberlon",
+      "path": "authors/1089.json"
+    },
+    {
+      "author_id": 1090,
+      "canonical_name": "Vanderlei Luiz Trindade",
+      "path": "authors/1090.json"
+    }
+  ],
+  "batch_110": [
+    {
+      "author_id": 1091,
+      "canonical_name": "Ricardo Timm de Souza",
+      "path": "authors/1091.json"
+    },
+    {
+      "author_id": 1092,
+      "canonical_name": "Giselle Moura Schnorr",
+      "path": "authors/1092.json"
+    },
+    {
+      "author_id": 1093,
+      "canonical_name": "Alécio Donizete da Silva",
+      "path": "authors/1093.json"
+    },
+    {
+      "author_id": 1094,
+      "canonical_name": "Eduardo David de Oliveira",
+      "path": "authors/1094.json"
+    },
+    {
+      "author_id": 1095,
+      "canonical_name": "Juarez Gomes Sofiste",
+      "path": "authors/1095.json"
+    },
+    {
+      "author_id": 1096,
+      "canonical_name": "José André da Costa",
+      "path": "authors/1096.json"
+    },
+    {
+      "author_id": 1097,
+      "canonical_name": "Paulo Cesar Carbonari",
+      "path": "authors/1097.json"
+    },
+    {
+      "author_id": 1098,
+      "canonical_name": "Leônidas de Rezende",
+      "path": "authors/1098.json"
+    },
+    {
+      "author_id": 1099,
+      "canonical_name": "Edgardo de Castro Rebelo",
+      "path": "authors/1099.json"
+    },
+    {
+      "author_id": 1100,
+      "canonical_name": "Carlos Nelson Coutinho",
+      "path": "authors/1100.json"
+    }
+  ],
+  "batch_111": [
+    {
+      "author_id": 1101,
+      "canonical_name": "Luis Carlos Maciel",
+      "path": "authors/1101.json"
+    },
+    {
+      "author_id": 1102,
+      "canonical_name": "Vamireh Chacon",
+      "path": "authors/1102.json"
+    },
+    {
+      "author_id": 1103,
+      "canonical_name": "Flavio Kothe",
+      "path": "authors/1103.json"
+    },
+    {
+      "author_id": 1104,
+      "canonical_name": "Luis Costa Lima",
+      "path": "authors/1104.json"
+    },
+    {
+      "author_id": 1105,
+      "canonical_name": "Otto Maria Carpeaux",
+      "path": "authors/1105.json"
+    },
+    {
+      "author_id": 1106,
+      "canonical_name": "Gabriel Cohn",
+      "path": "authors/1106.json"
+    },
+    {
+      "author_id": 1107,
+      "canonical_name": "Renato Ortiz",
+      "path": "authors/1107.json"
+    },
+    {
+      "author_id": 1108,
+      "canonical_name": "Olgária Matos",
+      "path": "authors/1108.json"
+    },
+    {
+      "author_id": 1109,
+      "canonical_name": "Sérgio Paulo Rouanet",
+      "path": "authors/1109.json"
+    },
+    {
+      "author_id": 1110,
+      "canonical_name": "Bárbara Freitag",
+      "path": "authors/1110.json"
+    }
+  ],
+  "batch_112": [
+    {
+      "author_id": 1111,
+      "canonical_name": "Marina Vila Real",
+      "path": "authors/1111.json"
+    },
+    {
+      "author_id": 1112,
+      "canonical_name": "Suzette Motta Augusto",
+      "path": "authors/1112.json"
+    },
+    {
+      "author_id": 1113,
+      "canonical_name": "Flávio Benno Siebeneichler",
+      "path": "authors/1113.json"
+    },
+    {
+      "author_id": 1114,
+      "canonical_name": "Cecília Maria Pires",
+      "path": "authors/1114.json"
+    },
+    {
+      "author_id": 1115,
+      "canonical_name": "Gerard Lebrun",
+      "path": "authors/1115.json"
+    },
+    {
+      "author_id": 1116,
+      "canonical_name": "Teixeira Coelho",
+      "path": "authors/1116.json"
+    },
+    {
+      "author_id": 1117,
+      "canonical_name": "Caio Túlio Costa",
+      "path": "authors/1117.json"
+    },
+    {
+      "author_id": 1118,
+      "canonical_name": "Denis Rosenfield",
+      "path": "authors/1118.json"
+    },
+    {
+      "author_id": 1119,
+      "canonical_name": "Afrânio Catani",
+      "path": "authors/1119.json"
+    },
+    {
+      "author_id": 1120,
+      "canonical_name": "Herbert José de Souza",
+      "path": "authors/1120.json"
+    }
+  ],
+  "batch_113": [
+    {
+      "author_id": 1121,
+      "canonical_name": "Paul Singer",
+      "path": "authors/1121.json"
+    },
+    {
+      "author_id": 1122,
+      "canonical_name": "Marcos Arruda",
+      "path": "authors/1122.json"
+    },
+    {
+      "author_id": 1123,
+      "canonical_name": "Luís Inácio Gaiger",
+      "path": "authors/1123.json"
+    },
+    {
+      "author_id": 1124,
+      "canonical_name": "Suely Rolnik",
+      "path": "authors/1124.json"
+    },
+    {
+      "author_id": 1125,
+      "canonical_name": "Roberto Correia Freire",
+      "path": "authors/1125.json"
+    },
+    {
+      "author_id": 1126,
+      "canonical_name": "Fausto Reynaldo Alves de Brito",
+      "path": "authors/1126.json"
+    },
+    {
+      "author_id": 1127,
+      "canonical_name": "Renato Mezan",
+      "path": "authors/1127.json"
+    },
+    {
+      "author_id": 1128,
+      "canonical_name": "José Carlos de Paula Carvalho",
+      "path": "authors/1128.json"
+    },
+    {
+      "author_id": 1129,
+      "canonical_name": "Renato Janine Ribeiro",
+      "path": "authors/1129.json"
+    },
+    {
+      "author_id": 1130,
+      "canonical_name": "Ruben Alves",
+      "path": "authors/1130.json"
+    }
+  ],
+  "batch_114": [
+    {
+      "author_id": 1131,
+      "canonical_name": "Mario Sáenz",
+      "path": "authors/1131.json"
+    },
+    {
+      "author_id": 1132,
+      "canonical_name": "Juan Adolfo Vázquez",
+      "path": "authors/1132.json"
+    },
+    {
+      "author_id": 1133,
+      "canonical_name": "Manuel Gonzalo Casas",
+      "path": "authors/1133.json"
+    },
+    {
+      "author_id": 1134,
+      "canonical_name": "Hernán Zucchi",
+      "path": "authors/1134.json"
+    },
+    {
+      "author_id": 1135,
+      "canonical_name": "Gustavo Adolfo Otero",
+      "path": "authors/1135.json"
+    },
+    {
+      "author_id": 1136,
+      "canonical_name": "Luis Oyarzún",
+      "path": "authors/1136.json"
+    },
+    {
+      "author_id": 1137,
+      "canonical_name": "Roberto Agramonte",
+      "path": "authors/1137.json"
+    },
+    {
+      "author_id": 1138,
+      "canonical_name": "Edmundo O’Gorman",
+      "path": "authors/1138.json"
+    },
+    {
+      "author_id": 1139,
+      "canonical_name": "Miguel Bueno",
+      "path": "authors/1139.json"
+    },
+    {
+      "author_id": 1140,
+      "canonical_name": "Alberto Zum Felde",
+      "path": "authors/1140.json"
+    }
+  ],
+  "batch_115": [
+    {
+      "author_id": 1141,
+      "canonical_name": "Carlos Benvenuto",
+      "path": "authors/1141.json"
+    },
+    {
+      "author_id": 1142,
+      "canonical_name": "Emilio Oribe",
+      "path": "authors/1142.json"
+    },
+    {
+      "author_id": 1143,
+      "canonical_name": "Ángel Vassallo",
+      "path": "authors/1143.json"
+    },
+    {
+      "author_id": 1144,
+      "canonical_name": "Juan Rodríguez Larreta",
+      "path": "authors/1144.json"
+    },
+    {
+      "author_id": 1145,
+      "canonical_name": "Horacio Spector",
+      "path": "authors/1145.json"
+    },
+    {
+      "author_id": 1146,
+      "canonical_name": "Gladys Palau",
+      "path": "authors/1146.json"
+    },
+    {
+      "author_id": 1147,
+      "canonical_name": "María Cristina González",
+      "path": "authors/1147.json"
+    },
+    {
+      "author_id": 1148,
+      "canonical_name": "Eduardo Rivera López",
+      "path": "authors/1148.json"
+    },
+    {
+      "author_id": 1149,
+      "canonical_name": "Marcelo Sabatés",
+      "path": "authors/1149.json"
+    },
+    {
+      "author_id": 1150,
+      "canonical_name": "Manuel Comesaña",
+      "path": "authors/1150.json"
+    }
+  ],
+  "batch_116": [
+    {
+      "author_id": 1151,
+      "canonical_name": "Carlos Oller",
+      "path": "authors/1151.json"
+    },
+    {
+      "author_id": 1152,
+      "canonical_name": "Diana López",
+      "path": "authors/1152.json"
+    },
+    {
+      "author_id": 1153,
+      "canonical_name": "Nora Stigol",
+      "path": "authors/1153.json"
+    },
+    {
+      "author_id": 1154,
+      "canonical_name": "Juan Manuel Jaramillo Uribe",
+      "path": "authors/1154.json"
+    },
+    {
+      "author_id": 1155,
+      "canonical_name": "Roberto Rojo",
+      "path": "authors/1155.json"
+    },
+    {
+      "author_id": 1156,
+      "canonical_name": "Edgardo Albizu",
+      "path": "authors/1156.json"
+    },
+    {
+      "author_id": 1157,
+      "canonical_name": "José Julián Prado",
+      "path": "authors/1157.json"
+    },
+    {
+      "author_id": 1158,
+      "canonical_name": "Eugenio Dotti",
+      "path": "authors/1158.json"
+    },
+    {
+      "author_id": 1159,
+      "canonical_name": "Martha Mateo",
+      "path": "authors/1159.json"
+    },
+    {
+      "author_id": 1160,
+      "canonical_name": "Osvaldo Guariglia",
+      "path": "authors/1160.json"
+    }
+  ],
+  "batch_117": [
+    {
+      "author_id": 1161,
+      "canonical_name": "Margarita Costa",
+      "path": "authors/1161.json"
+    },
+    {
+      "author_id": 1162,
+      "canonical_name": "Daniel Brauer",
+      "path": "authors/1162.json"
+    },
+    {
+      "author_id": 1163,
+      "canonical_name": "Hipólito Rodríguez Piñeiro",
+      "path": "authors/1163.json"
+    },
+    {
+      "author_id": 1164,
+      "canonical_name": "Graciela Fernández",
+      "path": "authors/1164.json"
+    },
+    {
+      "author_id": 1165,
+      "canonical_name": "Alirio Rosales",
+      "path": "authors/1165.json"
+    },
+    {
+      "author_id": 1166,
+      "canonical_name": "Rafael Tomás Caldera",
+      "path": "authors/1166.json"
+    },
+    {
+      "author_id": 1167,
+      "canonical_name": "Gustavo Sarmiento",
+      "path": "authors/1167.json"
+    },
+    {
+      "author_id": 1168,
+      "canonical_name": "Rubén Tani",
+      "path": "authors/1168.json"
+    },
+    {
+      "author_id": 1169,
+      "canonical_name": "Sandino Núñez",
+      "path": "authors/1169.json"
+    },
+    {
+      "author_id": 1170,
+      "canonical_name": "Bernabé Navarro",
+      "path": "authors/1170.json"
+    }
+  ],
+  "batch_118": [
+    {
+      "author_id": 1171,
+      "canonical_name": "Marysol Aguilar",
+      "path": "authors/1171.json"
+    },
+    {
+      "author_id": 1172,
+      "canonical_name": "Eliam Campos",
+      "path": "authors/1172.json"
+    },
+    {
+      "author_id": 1173,
+      "canonical_name": "Luis Guillermo Coronado",
+      "path": "authors/1173.json"
+    },
+    {
+      "author_id": 1174,
+      "canonical_name": "Roberto de Andrade Martins",
+      "path": "authors/1174.json"
+    },
+    {
+      "author_id": 1175,
+      "canonical_name": "Valerio Rohden",
+      "path": "authors/1175.json"
+    },
+    {
+      "author_id": 1176,
+      "canonical_name": "Julio C. Terán Dutari",
+      "path": "authors/1176.json"
+    },
+    {
+      "author_id": 1177,
+      "canonical_name": "José Vega Delgado",
+      "path": "authors/1177.json"
+    },
+    {
+      "author_id": 1178,
+      "canonical_name": "Sergio Rojas",
+      "path": "authors/1178.json"
+    },
+    {
+      "author_id": 1179,
+      "canonical_name": "Carla Cordua",
+      "path": "authors/1179.json"
+    },
+    {
+      "author_id": 1180,
+      "canonical_name": "Esther Díaz",
+      "path": "authors/1180.json"
+    }
+  ],
+  "batch_119": [
+    {
+      "author_id": 1181,
+      "canonical_name": "Marta López Gil",
+      "path": "authors/1181.json"
+    },
+    {
+      "author_id": 1182,
+      "canonical_name": "Tomás Abraham",
+      "path": "authors/1182.json"
+    },
+    {
+      "author_id": 1183,
+      "canonical_name": "Mario Heler",
+      "path": "authors/1183.json"
+    },
+    {
+      "author_id": 1184,
+      "canonical_name": "Carlos Jesús Delgado Díaz",
+      "path": "authors/1184.json"
+    },
+    {
+      "author_id": 1185,
+      "canonical_name": "Olivia Miranda Francisco",
+      "path": "authors/1185.json"
+    },
+    {
+      "author_id": 1186,
+      "canonical_name": "Rigoberto Pupo Pupo",
+      "path": "authors/1186.json"
+    },
+    {
+      "author_id": 1187,
+      "canonical_name": "Jesús A. Díaz",
+      "path": "authors/1187.json"
+    },
+    {
+      "author_id": 1188,
+      "canonical_name": "Ignacio Delgado González",
+      "path": "authors/1188.json"
+    },
+    {
+      "author_id": 1189,
+      "canonical_name": "Lourdes Rensoli",
+      "path": "authors/1189.json"
+    },
+    {
+      "author_id": 1190,
+      "canonical_name": "Alfredo Llanos",
+      "path": "authors/1190.json"
+    }
+  ],
+  "batch_120": [
+    {
+      "author_id": 1191,
+      "canonical_name": "Juan Carlos Portantiero",
+      "path": "authors/1191.json"
+    },
+    {
+      "author_id": 1192,
+      "canonical_name": "John Holloway",
+      "path": "authors/1192.json"
+    },
+    {
+      "author_id": 1193,
+      "canonical_name": "Alberto Damiani",
+      "path": "authors/1193.json"
+    },
+    {
+      "author_id": 1194,
+      "canonical_name": "Daniel Kalpokas",
+      "path": "authors/1194.json"
+    },
+    {
+      "author_id": 1195,
+      "canonical_name": "Andrés Crelier",
+      "path": "authors/1195.json"
+    },
+    {
+      "author_id": 1196,
+      "canonical_name": "Gustavo Salerno",
+      "path": "authors/1196.json"
+    },
+    {
+      "author_id": 1197,
+      "canonical_name": "Bernardo Kliksberg",
+      "path": "authors/1197.json"
+    },
+    {
+      "author_id": 1198,
+      "canonical_name": "José Luis Balcárcel",
+      "path": "authors/1198.json"
+    },
+    {
+      "author_id": 1199,
+      "canonical_name": "Alberto Híjar",
+      "path": "authors/1199.json"
+    },
+    {
+      "author_id": 1200,
+      "canonical_name": "María Rosa Palazón Mayoral",
+      "path": "authors/1200.json"
+    }
+  ],
+  "batch_121": [
+    {
+      "author_id": 1201,
+      "canonical_name": "Estela Ocampo",
+      "path": "authors/1201.json"
+    },
+    {
+      "author_id": 1202,
+      "canonical_name": "Elena Oliveras",
+      "path": "authors/1202.json"
+    },
+    {
+      "author_id": 1203,
+      "canonical_name": "Pablo Oyarzún Robles",
+      "path": "authors/1203.json"
+    },
+    {
+      "author_id": 1204,
+      "canonical_name": "Pedro de Leyva",
+      "path": "authors/1204.json"
+    },
+    {
+      "author_id": 1205,
+      "canonical_name": "Buenaventura de Salinas",
+      "path": "authors/1205.json"
+    },
+    {
+      "author_id": 1206,
+      "canonical_name": "Alfonso Briceño",
+      "path": "authors/1206.json"
+    },
+    {
+      "author_id": 1207,
+      "canonical_name": "Anastasio Mariano Suárez",
+      "path": "authors/1207.json"
+    },
+    {
+      "author_id": 1208,
+      "canonical_name": "Juan de Albiz",
+      "path": "authors/1208.json"
+    },
+    {
+      "author_id": 1209,
+      "canonical_name": "Francisco Burgés",
+      "path": "authors/1209.json"
+    },
+    {
+      "author_id": 1210,
+      "canonical_name": "Manuel Querini",
+      "path": "authors/1210.json"
+    }
+  ],
+  "batch_122": [
+    {
+      "author_id": 1211,
+      "canonical_name": "José Ignacio Palencia",
+      "path": "authors/1211.json"
+    },
+    {
+      "author_id": 1212,
+      "canonical_name": "José Antonio Pardo Oláguez",
+      "path": "authors/1212.json"
+    },
+    {
+      "author_id": 1213,
+      "canonical_name": "César Zumeta",
+      "path": "authors/1213.json"
+    },
+    {
+      "author_id": 1214,
+      "canonical_name": "Manuel Ugarte",
+      "path": "authors/1214.json"
+    },
+    {
+      "author_id": 1215,
+      "canonical_name": "Alfonso Reyes",
+      "path": "authors/1215.json"
+    },
+    {
+      "author_id": 1216,
+      "canonical_name": "Luis Farré",
+      "path": "authors/1216.json"
+    },
+    {
+      "author_id": 1217,
+      "canonical_name": "Francisco García Bazán",
+      "path": "authors/1217.json"
+    },
+    {
+      "author_id": 1218,
+      "canonical_name": "Jorge Vélez Correa",
+      "path": "authors/1218.json"
+    },
+    {
+      "author_id": 1219,
+      "canonical_name": "Emilio Brito",
+      "path": "authors/1219.json"
+    },
+    {
+      "author_id": 1220,
+      "canonical_name": "Vicente Durán Casas",
+      "path": "authors/1220.json"
+    }
+  ],
+  "batch_123": [
+    {
+      "author_id": 1221,
+      "canonical_name": "Leonel Franca",
+      "path": "authors/1221.json"
+    },
+    {
+      "author_id": 1222,
+      "canonical_name": "Raúl Prebisch",
+      "path": "authors/1222.json"
+    },
+    {
+      "author_id": 1223,
+      "canonical_name": "Enzo Faletto",
+      "path": "authors/1223.json"
+    },
+    {
+      "author_id": 1224,
+      "canonical_name": "André Gunder Frank",
+      "path": "authors/1224.json"
+    },
+    {
+      "author_id": 1225,
+      "canonical_name": "Vânia Bambirra",
+      "path": "authors/1225.json"
+    },
+    {
+      "author_id": 1226,
+      "canonical_name": "Ruy Mauro Marini",
+      "path": "authors/1226.json"
+    },
+    {
+      "author_id": 1227,
+      "canonical_name": "Aníbal Pinto",
+      "path": "authors/1227.json"
+    },
+    {
+      "author_id": 1228,
+      "canonical_name": "Osvaldo Sunkel",
+      "path": "authors/1228.json"
+    },
+    {
+      "author_id": 1229,
+      "canonical_name": "René Zavaleta Mercado",
+      "path": "authors/1229.json"
+    },
+    {
+      "author_id": 1230,
+      "canonical_name": "Gérard Pierre-Charles",
+      "path": "authors/1230.json"
+    }
+  ],
+  "batch_124": [
+    {
+      "author_id": 1231,
+      "canonical_name": "Mario Arrubla",
+      "path": "authors/1231.json"
+    },
+    {
+      "author_id": 1232,
+      "canonical_name": "Salomón Kalmanovitz",
+      "path": "authors/1232.json"
+    },
+    {
+      "author_id": 1233,
+      "canonical_name": "Jesús Antonio Bejarano",
+      "path": "authors/1233.json"
+    },
+    {
+      "author_id": 1234,
+      "canonical_name": "Carlos Tablada",
+      "path": "authors/1234.json"
+    },
+    {
+      "author_id": 1235,
+      "canonical_name": "Walter Rodney",
+      "path": "authors/1235.json"
+    },
+    {
+      "author_id": 1236,
+      "canonical_name": "Marcos Roitman",
+      "path": "authors/1236.json"
+    },
+    {
+      "author_id": 1237,
+      "canonical_name": "Rodolfo Stavenhagen",
+      "path": "authors/1237.json"
+    },
+    {
+      "author_id": 1238,
+      "canonical_name": "Josef Estermann",
+      "path": "authors/1238.json"
+    },
+    {
+      "author_id": 1239,
+      "canonical_name": "Luis Razeto Migliaro",
+      "path": "authors/1239.json"
+    },
+    {
+      "author_id": 1240,
+      "canonical_name": "Aquiles Montoya",
+      "path": "authors/1240.json"
+    }
+  ],
+  "batch_125": [
+    {
+      "author_id": 1241,
+      "canonical_name": "Luis Coraggio",
+      "path": "authors/1241.json"
+    },
+    {
+      "author_id": 1242,
+      "canonical_name": "Marta Harnecker",
+      "path": "authors/1242.json"
+    },
+    {
+      "author_id": 1243,
+      "canonical_name": "Manfred Max-Neef",
+      "path": "authors/1243.json"
+    },
+    {
+      "author_id": 1244,
+      "canonical_name": "Carlos Lenkersdorf",
+      "path": "authors/1244.json"
+    },
+    {
+      "author_id": 1245,
+      "canonical_name": "Miguel León-Portilla",
+      "path": "authors/1245.json"
+    },
+    {
+      "author_id": 1246,
+      "canonical_name": "Mercedes de la Garza",
+      "path": "authors/1246.json"
+    },
+    {
+      "author_id": 1247,
+      "canonical_name": "Carlos Viteri",
+      "path": "authors/1247.json"
+    },
+    {
+      "author_id": 1248,
+      "canonical_name": "Félix Báez",
+      "path": "authors/1248.json"
+    },
+    {
+      "author_id": 1249,
+      "canonical_name": "Arturo Warman",
+      "path": "authors/1249.json"
+    },
+    {
+      "author_id": 1250,
+      "canonical_name": "Julio de Santa Ana",
+      "path": "authors/1250.json"
+    }
+  ],
+  "batch_126": [
+    {
+      "author_id": 1251,
+      "canonical_name": "Mo Sung",
+      "path": "authors/1251.json"
+    },
+    {
+      "author_id": 1252,
+      "canonical_name": "Wim Dierckxsens",
+      "path": "authors/1252.json"
+    },
+    {
+      "author_id": 1253,
+      "canonical_name": "Juan Baltasar Maciel",
+      "path": "authors/1253.json"
+    },
+    {
+      "author_id": 1254,
+      "canonical_name": "Iván Illich",
+      "path": "authors/1254.json"
+    },
+    {
+      "author_id": 1255,
+      "canonical_name": "Adriana Puiggrós",
+      "path": "authors/1255.json"
+    },
+    {
+      "author_id": 1256,
+      "canonical_name": "Alfredo Palacios",
+      "path": "authors/1256.json"
+    },
+    {
+      "author_id": 1257,
+      "canonical_name": "Víctor Raúl Haya de la Torre",
+      "path": "authors/1257.json"
+    },
+    {
+      "author_id": 1258,
+      "canonical_name": "Antenor Orrego",
+      "path": "authors/1258.json"
+    },
+    {
+      "author_id": 1259,
+      "canonical_name": "Humberto Cuenca",
+      "path": "authors/1259.json"
+    },
+    {
+      "author_id": 1260,
+      "canonical_name": "Héctor Ripa Alberdi",
+      "path": "authors/1260.json"
+    }
+  ],
+  "batch_127": [
+    {
+      "author_id": 1261,
+      "canonical_name": "Deodoro Roca",
+      "path": "authors/1261.json"
+    },
+    {
+      "author_id": 1262,
+      "canonical_name": "Fernando Aínsa",
+      "path": "authors/1262.json"
+    },
+    {
+      "author_id": 1263,
+      "canonical_name": "Gloria Arbonés",
+      "path": "authors/1263.json"
+    },
+    {
+      "author_id": 1264,
+      "canonical_name": "Estela Accorinti",
+      "path": "authors/1264.json"
+    },
+    {
+      "author_id": 1265,
+      "canonical_name": "Olga Grau Duhart",
+      "path": "authors/1265.json"
+    },
+    {
+      "author_id": 1266,
+      "canonical_name": "Ana María Vicuña",
+      "path": "authors/1266.json"
+    },
+    {
+      "author_id": 1267,
+      "canonical_name": "Walter Kohan",
+      "path": "authors/1267.json"
+    },
+    {
+      "author_id": 1268,
+      "canonical_name": "Vera Waksman",
+      "path": "authors/1268.json"
+    },
+    {
+      "author_id": 1269,
+      "canonical_name": "Manuel Gamio",
+      "path": "authors/1269.json"
+    },
+    {
+      "author_id": 1270,
+      "canonical_name": "Gonzalo Aguirre Beltrán",
+      "path": "authors/1270.json"
+    }
+  ],
+  "batch_128": [
+    {
+      "author_id": 1271,
+      "canonical_name": "Guillermo Bonfil Batalla",
+      "path": "authors/1271.json"
+    },
+    {
+      "author_id": 1272,
+      "canonical_name": "Ramón Grosfoguel",
+      "path": "authors/1272.json"
+    },
+    {
+      "author_id": 1273,
+      "canonical_name": "Gloria Anzaldúa",
+      "path": "authors/1273.json"
+    },
+    {
+      "author_id": 1274,
+      "canonical_name": "Aimé Césaire",
+      "path": "authors/1274.json"
+    },
+    {
+      "author_id": 1275,
+      "canonical_name": "Anthony Bogues",
+      "path": "authors/1275.json"
+    },
+    {
+      "author_id": 1276,
+      "canonical_name": "Rigoberta Menchú",
+      "path": "authors/1276.json"
+    },
+    {
+      "author_id": 1277,
+      "canonical_name": "Catherine Walsh",
+      "path": "authors/1277.json"
+    },
+    {
+      "author_id": 1278,
+      "canonical_name": "Edward Glissant",
+      "path": "authors/1278.json"
+    },
+    {
+      "author_id": 1279,
+      "canonical_name": "Louis-Joseph Janvier",
+      "path": "authors/1279.json"
+    },
+    {
+      "author_id": 1280,
+      "canonical_name": "Sylvester Williams",
+      "path": "authors/1280.json"
+    }
+  ],
+  "batch_129": [
+    {
+      "author_id": 1281,
+      "canonical_name": "Mario Barrera",
+      "path": "authors/1281.json"
+    },
+    {
+      "author_id": 1282,
+      "canonical_name": "Carlos Muñoz",
+      "path": "authors/1282.json"
+    },
+    {
+      "author_id": 1283,
+      "canonical_name": "Charles Ornelas",
+      "path": "authors/1283.json"
+    },
+    {
+      "author_id": 1284,
+      "canonical_name": "Ana Nieto Gómez",
+      "path": "authors/1284.json"
+    },
+    {
+      "author_id": 1285,
+      "canonical_name": "Leticia Hernández",
+      "path": "authors/1285.json"
+    },
+    {
+      "author_id": 1286,
+      "canonical_name": "Cherríe Moraga",
+      "path": "authors/1286.json"
+    },
+    {
+      "author_id": 1287,
+      "canonical_name": "Ana Castillo",
+      "path": "authors/1287.json"
+    },
+    {
+      "author_id": 1288,
+      "canonical_name": "Emma Pérez",
+      "path": "authors/1288.json"
+    },
+    {
+      "author_id": 1289,
+      "canonical_name": "Chela Sandoval",
+      "path": "authors/1289.json"
+    },
+    {
+      "author_id": 1290,
+      "canonical_name": "Lara Medina",
+      "path": "authors/1290.json"
+    }
+  ],
+  "batch_130": [
+    {
+      "author_id": 1291,
+      "canonical_name": "Laura E. Pérez",
+      "path": "authors/1291.json"
+    },
+    {
+      "author_id": 1292,
+      "canonical_name": "Sylvia Marcos",
+      "path": "authors/1292.json"
+    },
+    {
+      "author_id": 1293,
+      "canonical_name": "Edgardo Lander",
+      "path": "authors/1293.json"
+    },
+    {
+      "author_id": 1294,
+      "canonical_name": "Paget Henry",
+      "path": "authors/1294.json"
+    },
+    {
+      "author_id": 1295,
+      "canonical_name": "Ramabai Espinet",
+      "path": "authors/1295.json"
+    },
+    {
+      "author_id": 1296,
+      "canonical_name": "Charles W. Mills",
+      "path": "authors/1296.json"
+    },
+    {
+      "author_id": 1297,
+      "canonical_name": "Antón de Montesinos",
+      "path": "authors/1297.json"
+    },
+    {
+      "author_id": 1298,
+      "canonical_name": "Pedro de Córdoba",
+      "path": "authors/1298.json"
+    },
+    {
+      "author_id": 1299,
+      "canonical_name": "Tomás de San Martín",
+      "path": "authors/1299.json"
+    },
+    {
+      "author_id": 1300,
+      "canonical_name": "Fernando Díaz de Leiva",
+      "path": "authors/1300.json"
+    }
+  ],
+  "batch_131": [
+    {
+      "author_id": 1301,
+      "canonical_name": "Gonzalo de Oquendo",
+      "path": "authors/1301.json"
+    },
+    {
+      "author_id": 1302,
+      "canonical_name": "Juan Bautista del Rosario Sotolongo",
+      "path": "authors/1302.json"
+    },
+    {
+      "author_id": 1303,
+      "canonical_name": "José de las Alas",
+      "path": "authors/1303.json"
+    },
+    {
+      "author_id": 1304,
+      "canonical_name": "Diego de Escobar",
+      "path": "authors/1304.json"
+    },
+    {
+      "author_id": 1305,
+      "canonical_name": "Gregorio Uscamell",
+      "path": "authors/1305.json"
+    },
+    {
+      "author_id": 1306,
+      "canonical_name": "Rafael del Castillo y Sucre",
+      "path": "authors/1306.json"
+    },
+    {
+      "author_id": 1307,
+      "canonical_name": "Francisco Hernández",
+      "path": "authors/1307.json"
+    },
+    {
+      "author_id": 1308,
+      "canonical_name": "Diego José Abad y García",
+      "path": "authors/1308.json"
+    },
+    {
+      "author_id": 1309,
+      "canonical_name": "Juan Antonio de Ahumada",
+      "path": "authors/1309.json"
+    },
+    {
+      "author_id": 1310,
+      "canonical_name": "Juan de Quezada",
+      "path": "authors/1310.json"
+    }
+  ],
+  "batch_132": [
+    {
+      "author_id": 1311,
+      "canonical_name": "Francisco José de Urbina",
+      "path": "authors/1311.json"
+    },
+    {
+      "author_id": 1312,
+      "canonical_name": "Juan Bautista Aguirre",
+      "path": "authors/1312.json"
+    },
+    {
+      "author_id": 1313,
+      "canonical_name": "Juan Pérez de Menchaca",
+      "path": "authors/1313.json"
+    },
+    {
+      "author_id": 1314,
+      "canonical_name": "Alonso de Peñafiel",
+      "path": "authors/1314.json"
+    },
+    {
+      "author_id": 1315,
+      "canonical_name": "Leonardo de Peñafiel",
+      "path": "authors/1315.json"
+    },
+    {
+      "author_id": 1316,
+      "canonical_name": "Samuel Arriarán",
+      "path": "authors/1316.json"
+    },
+    {
+      "author_id": 1317,
+      "canonical_name": "Severo Sarduy",
+      "path": "authors/1317.json"
+    },
+    {
+      "author_id": 1318,
+      "canonical_name": "Carlos Cousiño",
+      "path": "authors/1318.json"
+    },
+    {
+      "author_id": 1319,
+      "canonical_name": "Pedro Morandé",
+      "path": "authors/1319.json"
+    },
+    {
+      "author_id": 1320,
+      "canonical_name": "Alcides Bezerra",
+      "path": "authors/1320.json"
+    }
+  ],
+  "batch_133": [
+    {
+      "author_id": 1321,
+      "canonical_name": "Rubén Bareiro Saguier",
+      "path": "authors/1321.json"
+    },
+    {
+      "author_id": 1322,
+      "canonical_name": "Sérgio Buarque de Holanda",
+      "path": "authors/1322.json"
+    },
+    {
+      "author_id": 1323,
+      "canonical_name": "Leônidas Hegenberg",
+      "path": "authors/1323.json"
+    },
+    {
+      "author_id": 1324,
+      "canonical_name": "Víctor Farías",
+      "path": "authors/1324.json"
+    },
+    {
+      "author_id": 1325,
+      "canonical_name": "Mario Ciudad",
+      "path": "authors/1325.json"
+    },
+    {
+      "author_id": 1326,
+      "canonical_name": "Miguel Espinoza",
+      "path": "authors/1326.json"
+    },
+    {
+      "author_id": 1327,
+      "canonical_name": "Raúl Velozo Farías",
+      "path": "authors/1327.json"
+    },
+    {
+      "author_id": 1328,
+      "canonical_name": "Cristóbal Holzapfel",
+      "path": "authors/1328.json"
+    },
+    {
+      "author_id": 1329,
+      "canonical_name": "Claudio Parra Álvarez",
+      "path": "authors/1329.json"
+    },
+    {
+      "author_id": 1330,
+      "canonical_name": "Lorenzo Livieres",
+      "path": "authors/1330.json"
+    }
+  ],
+  "batch_134": [
+    {
+      "author_id": 1331,
+      "canonical_name": "José Antero Peralta",
+      "path": "authors/1331.json"
+    },
+    {
+      "author_id": 1332,
+      "canonical_name": "Mario Silva García",
+      "path": "authors/1332.json"
+    },
+    {
+      "author_id": 1333,
+      "canonical_name": "Jorge Martínez Contreras",
+      "path": "authors/1333.json"
+    },
+    {
+      "author_id": 1334,
+      "canonical_name": "Guillermo Hurtado",
+      "path": "authors/1334.json"
+    },
+    {
+      "author_id": 1335,
+      "canonical_name": "Rubén Dri",
+      "path": "authors/1335.json"
+    },
+    {
+      "author_id": 1336,
+      "canonical_name": "Héctor Samour",
+      "path": "authors/1336.json"
+    },
+    {
+      "author_id": 1337,
+      "canonical_name": "José María Borrero",
+      "path": "authors/1337.json"
+    },
+    {
+      "author_id": 1338,
+      "canonical_name": "Aníbal Colón Rosado",
+      "path": "authors/1338.json"
+    },
+    {
+      "author_id": 1339,
+      "canonical_name": "Pedro Albizu Campos",
+      "path": "authors/1339.json"
+    },
+    {
+      "author_id": 1340,
+      "canonical_name": "Augusto Teixeira de Freitas",
+      "path": "authors/1340.json"
+    }
+  ],
+  "batch_135": [
+    {
+      "author_id": 1341,
+      "canonical_name": "Dalmacio Vélez Sársfield",
+      "path": "authors/1341.json"
+    },
+    {
+      "author_id": 1342,
+      "canonical_name": "José Mármol",
+      "path": "authors/1342.json"
+    },
+    {
+      "author_id": 1343,
+      "canonical_name": "José Oiticica",
+      "path": "authors/1343.json"
+    },
+    {
+      "author_id": 1344,
+      "canonical_name": "Maria Lacerda de Moura",
+      "path": "authors/1344.json"
+    },
+    {
+      "author_id": 1345,
+      "canonical_name": "Florentino de Carvalho",
+      "path": "authors/1345.json"
+    },
+    {
+      "author_id": 1346,
+      "canonical_name": "Edgard Leuenroth",
+      "path": "authors/1346.json"
+    },
+    {
+      "author_id": 1347,
+      "canonical_name": "Fernando Bastos de Ávila",
+      "path": "authors/1347.json"
+    },
+    {
+      "author_id": 1348,
+      "canonical_name": "Carlos Alberto Gomes dos Santos",
+      "path": "authors/1348.json"
+    },
+    {
+      "author_id": 1349,
+      "canonical_name": "Wilson John Pessoa Mendonça",
+      "path": "authors/1349.json"
+    },
+    {
+      "author_id": 1350,
+      "canonical_name": "João Zanetic",
+      "path": "authors/1350.json"
+    }
+  ],
+  "batch_136": [
+    {
+      "author_id": 1351,
+      "canonical_name": "Demétrio Delizoicov",
+      "path": "authors/1351.json"
+    },
+    {
+      "author_id": 1352,
+      "canonical_name": "Marta Pernambuco",
+      "path": "authors/1352.json"
+    },
+    {
+      "author_id": 1353,
+      "canonical_name": "José Andrés Peres Angotti",
+      "path": "authors/1353.json"
+    },
+    {
+      "author_id": 1354,
+      "canonical_name": "Maria Cristina Dal Pian",
+      "path": "authors/1354.json"
+    },
+    {
+      "author_id": 1355,
+      "canonical_name": "Luiz Carlos Bombassaro",
+      "path": "authors/1355.json"
+    },
+    {
+      "author_id": 1356,
+      "canonical_name": "Tércio Sampaio Ferraz Jr.",
+      "path": "authors/1356.json"
+    },
+    {
+      "author_id": 1357,
+      "canonical_name": "Paulo Dourado de Gusmão",
+      "path": "authors/1357.json"
+    },
+    {
+      "author_id": 1358,
+      "canonical_name": "Luiz Luisi",
+      "path": "authors/1358.json"
+    },
+    {
+      "author_id": 1359,
+      "canonical_name": "Nelson Nogueira Saldanha",
+      "path": "authors/1359.json"
+    },
+    {
+      "author_id": 1360,
+      "canonical_name": "Irineu Strenger",
+      "path": "authors/1360.json"
+    }
+  ],
+  "batch_137": [
+    {
+      "author_id": 1361,
+      "canonical_name": "Paulo Mercadante",
+      "path": "authors/1361.json"
+    },
+    {
+      "author_id": 1362,
+      "canonical_name": "Antônio Paim",
+      "path": "authors/1362.json"
+    },
+    {
+      "author_id": 1363,
+      "canonical_name": "Antônio Machado Paupério",
+      "path": "authors/1363.json"
+    },
+    {
+      "author_id": 1364,
+      "canonical_name": "José Pedro Galvão de Souza",
+      "path": "authors/1364.json"
+    },
+    {
+      "author_id": 1365,
+      "canonical_name": "Silvio de Macedo",
+      "path": "authors/1365.json"
+    },
+    {
+      "author_id": 1366,
+      "canonical_name": "Roque Spencer Maciel de Barros",
+      "path": "authors/1366.json"
+    },
+    {
+      "author_id": 1367,
+      "canonical_name": "Evaristo de Moraes Filho",
+      "path": "authors/1367.json"
+    },
+    {
+      "author_id": 1368,
+      "canonical_name": "Alcântara Nogueira",
+      "path": "authors/1368.json"
+    },
+    {
+      "author_id": 1369,
+      "canonical_name": "Jessy Santos",
+      "path": "authors/1369.json"
+    },
+    {
+      "author_id": 1370,
+      "canonical_name": "Geraldo Pinheiro Machado",
+      "path": "authors/1370.json"
+    }
+  ],
+  "batch_138": [
+    {
+      "author_id": 1371,
+      "canonical_name": "Fernando de Arruda Campos",
+      "path": "authors/1371.json"
+    },
+    {
+      "author_id": 1372,
+      "canonical_name": "Alexandre Correa",
+      "path": "authors/1372.json"
+    },
+    {
+      "author_id": 1373,
+      "canonical_name": "Carlos Lopes de Matos",
+      "path": "authors/1373.json"
+    },
+    {
+      "author_id": 1374,
+      "canonical_name": "Iulo Brandão",
+      "path": "authors/1374.json"
+    },
+    {
+      "author_id": 1375,
+      "canonical_name": "José Geraldo Vidigal de Carvalho",
+      "path": "authors/1375.json"
+    },
+    {
+      "author_id": 1376,
+      "canonical_name": "Don Beda Cruse",
+      "path": "authors/1376.json"
+    },
+    {
+      "author_id": 1377,
+      "canonical_name": "Manoel Joaquim de Carvalho",
+      "path": "authors/1377.json"
+    },
+    {
+      "author_id": 1378,
+      "canonical_name": "João de Scantimburgo",
+      "path": "authors/1378.json"
+    },
+    {
+      "author_id": 1379,
+      "canonical_name": "Antônio Joaquim Severino",
+      "path": "authors/1379.json"
+    },
+    {
+      "author_id": 1380,
+      "canonical_name": "Dermeval Saviani",
+      "path": "authors/1380.json"
+    }
+  ],
+  "batch_139": [
+    {
+      "author_id": 1381,
+      "canonical_name": "Maria Lúcia de Arruda Aranha",
+      "path": "authors/1381.json"
+    },
+    {
+      "author_id": 1382,
+      "canonical_name": "Adolfo Chaparro Amaya",
+      "path": "authors/1382.json"
+    },
+    {
+      "author_id": 1383,
+      "canonical_name": "Ezequiel de Olaso",
+      "path": "authors/1383.json"
+    },
+    {
+      "author_id": 1384,
+      "canonical_name": "Samuel Schkolnik",
+      "path": "authors/1384.json"
+    },
+    {
+      "author_id": 1385,
+      "canonical_name": "Leiser Madanes",
+      "path": "authors/1385.json"
+    },
+    {
+      "author_id": 1386,
+      "canonical_name": "Conrado Eggers Lan",
+      "path": "authors/1386.json"
+    },
+    {
+      "author_id": 1387,
+      "canonical_name": "Francisco Olicieri",
+      "path": "authors/1387.json"
+    },
+    {
+      "author_id": 1388,
+      "canonical_name": "Arnoldo Mora",
+      "path": "authors/1388.json"
+    },
+    {
+      "author_id": 1389,
+      "canonical_name": "Agustín Álvarez",
+      "path": "authors/1389.json"
+    },
+    {
+      "author_id": 1390,
+      "canonical_name": "Florentino Ameghino",
+      "path": "authors/1390.json"
+    }
+  ],
+  "batch_140": [
+    {
+      "author_id": 1391,
+      "canonical_name": "Ezequiel Martínez Estrada",
+      "path": "authors/1391.json"
+    },
+    {
+      "author_id": 1392,
+      "canonical_name": "Carlos Pereyra",
+      "path": "authors/1392.json"
+    },
+    {
+      "author_id": 1393,
+      "canonical_name": "Gaspar Yanga",
+      "path": "authors/1393.json"
+    },
+    {
+      "author_id": 1394,
+      "canonical_name": "Túpac Katari",
+      "path": "authors/1394.json"
+    },
+    {
+      "author_id": 1395,
+      "canonical_name": "José Antonio Saco",
+      "path": "authors/1395.json"
+    },
+    {
+      "author_id": 1396,
+      "canonical_name": "Manuel Antônio Álvares Azevedo",
+      "path": "authors/1396.json"
+    },
+    {
+      "author_id": 1397,
+      "canonical_name": "Juan Crisóstomo Lafinur",
+      "path": "authors/1397.json"
+    },
+    {
+      "author_id": 1398,
+      "canonical_name": "Juan Manuel Fernández de Agüero",
+      "path": "authors/1398.json"
+    },
+    {
+      "author_id": 1399,
+      "canonical_name": "Diego Alcorta",
+      "path": "authors/1399.json"
+    },
+    {
+      "author_id": 1400,
+      "canonical_name": "Luis José de la Peña",
+      "path": "authors/1400.json"
+    }
+  ],
+  "batch_141": [
+    {
+      "author_id": 1401,
+      "canonical_name": "José Antonio Arze",
+      "path": "authors/1401.json"
+    },
+    {
+      "author_id": 1402,
+      "canonical_name": "Vicente Lombardo Toledano",
+      "path": "authors/1402.json"
+    },
+    {
+      "author_id": 1403,
+      "canonical_name": "Julio Herrera y Obes",
+      "path": "authors/1403.json"
+    },
+    {
+      "author_id": 1404,
+      "canonical_name": "Manuel Bonfim",
+      "path": "authors/1404.json"
+    },
+    {
+      "author_id": 1405,
+      "canonical_name": "Carlos Rojas Osorio",
+      "path": "authors/1405.json"
+    },
+    {
+      "author_id": 1406,
+      "canonical_name": "Jorge Luis Borges",
+      "path": "authors/1406.json"
+    },
+    {
+      "author_id": 1407,
+      "canonical_name": "Gabriel Zaid",
+      "path": "authors/1407.json"
+    },
+    {
+      "author_id": 1408,
+      "canonical_name": "Cândido Gomes",
+      "path": "authors/1408.json"
+    },
+    {
+      "author_id": 1409,
+      "canonical_name": "Julieta Kirkwood",
+      "path": "authors/1409.json"
+    },
+    {
+      "author_id": 1410,
+      "canonical_name": "Maya Cu",
+      "path": "authors/1410.json"
+    }
+  ],
+  "batch_142": [
+    {
+      "author_id": 1411,
+      "canonical_name": "Ana Silvia Monzón",
+      "path": "authors/1411.json"
+    },
+    {
+      "author_id": 1412,
+      "canonical_name": "Aura Estela Cumes",
+      "path": "authors/1412.json"
+    },
+    {
+      "author_id": 1413,
+      "canonical_name": "Julio Carrizosa",
+      "path": "authors/1413.json"
+    },
+    {
+      "author_id": 1414,
+      "canonical_name": "Roy May",
+      "path": "authors/1414.json"
+    },
+    {
+      "author_id": 1415,
+      "canonical_name": "Juan A. Casas Zamora",
+      "path": "authors/1415.json"
+    },
+    {
+      "author_id": 1416,
+      "canonical_name": "Carlos Campos",
+      "path": "authors/1416.json"
+    },
+    {
+      "author_id": 1417,
+      "canonical_name": "Almáquio Diniz",
+      "path": "authors/1417.json"
+    },
+    {
+      "author_id": 1418,
+      "canonical_name": "Jacob Gorender",
+      "path": "authors/1418.json"
+    },
+    {
+      "author_id": 1419,
+      "canonical_name": "Constança Terezinha Marcondes César",
+      "path": "authors/1419.json"
+    },
+    {
+      "author_id": 1420,
+      "canonical_name": "Luís Carlos Menezes",
+      "path": "authors/1420.json"
+    }
+  ],
+  "batch_143": [
+    {
+      "author_id": 1421,
+      "canonical_name": "Roque Zimmerman",
+      "path": "authors/1421.json"
+    },
+    {
+      "author_id": 1422,
+      "canonical_name": "Roberto Gomes",
+      "path": "authors/1422.json"
+    },
+    {
+      "author_id": 1423,
+      "canonical_name": "Franz Tamayo",
+      "path": "authors/1423.json"
+    },
+    {
+      "author_id": 1424,
+      "canonical_name": "Julio Cabrera",
+      "path": "authors/1424.json"
+    },
+    {
+      "author_id": 1425,
+      "canonical_name": "Ricardo Flores Magón",
+      "path": "authors/1425.json"
+    },
+    {
+      "author_id": 1426,
+      "canonical_name": "Alberto Edwards",
+      "path": "authors/1426.json"
+    },
+    {
+      "author_id": 1427,
+      "canonical_name": "Francisco Encina",
+      "path": "authors/1427.json"
+    },
+    {
+      "author_id": 1428,
+      "canonical_name": "Jaime Eyzaguirre",
+      "path": "authors/1428.json"
+    },
+    {
+      "author_id": 1429,
+      "canonical_name": "Juan Vicente González",
+      "path": "authors/1429.json"
+    },
+    {
+      "author_id": 1430,
+      "canonical_name": "Benjamín Vicuña Mackenna",
+      "path": "authors/1430.json"
+    }
+  ],
+  "batch_144": [
+    {
+      "author_id": 1431,
+      "canonical_name": "Agustín Aragón",
+      "path": "authors/1431.json"
+    },
+    {
+      "author_id": 1432,
+      "canonical_name": "Porfirio Parra",
+      "path": "authors/1432.json"
+    },
+    {
+      "author_id": 1433,
+      "canonical_name": "Miguel Covarrubias",
+      "path": "authors/1433.json"
+    },
+    {
+      "author_id": 1434,
+      "canonical_name": "Protasio Tagle",
+      "path": "authors/1434.json"
+    },
+    {
+      "author_id": 1435,
+      "canonical_name": "Mario Casanueva López",
+      "path": "authors/1435.json"
+    },
+    {
+      "author_id": 1436,
+      "canonical_name": "José Luis Barrios",
+      "path": "authors/1436.json"
+    },
+    {
+      "author_id": 1437,
+      "canonical_name": "Osvaldo Lira",
+      "path": "authors/1437.json"
+    },
+    {
+      "author_id": 1438,
+      "canonical_name": "Jesús Acevedo",
+      "path": "authors/1438.json"
+    },
+    {
+      "author_id": 1439,
+      "canonical_name": "Diego Rivera",
+      "path": "authors/1439.json"
+    },
+    {
+      "author_id": 1440,
+      "canonical_name": "Carlos González Peña",
+      "path": "authors/1440.json"
+    }
+  ],
+  "batch_145": [
+    {
+      "author_id": 1441,
+      "canonical_name": "Martín Luis Guzmán",
+      "path": "authors/1441.json"
+    },
+    {
+      "author_id": 1442,
+      "canonical_name": "Mariano Silva y Aceves",
+      "path": "authors/1442.json"
+    },
+    {
+      "author_id": 1443,
+      "canonical_name": "Manuel M. Ponce",
+      "path": "authors/1443.json"
+    },
+    {
+      "author_id": 1444,
+      "canonical_name": "Alfonso Cravioto",
+      "path": "authors/1444.json"
+    },
+    {
+      "author_id": 1445,
+      "canonical_name": "Isidro Fabela",
+      "path": "authors/1445.json"
+    },
+    {
+      "author_id": 1446,
+      "canonical_name": "Enrique González Martínez",
+      "path": "authors/1446.json"
+    },
+    {
+      "author_id": 1447,
+      "canonical_name": "Cristóbal Valdespín",
+      "path": "authors/1447.json"
+    },
+    {
+      "author_id": 1448,
+      "canonical_name": "René Depestre",
+      "path": "authors/1448.json"
+    },
+    {
+      "author_id": 1449,
+      "canonical_name": "Mariano Egaña",
+      "path": "authors/1449.json"
+    },
+    {
+      "author_id": 1450,
+      "canonical_name": "Manuel Montt",
+      "path": "authors/1450.json"
+    }
+  ],
+  "batch_146": [
+    {
+      "author_id": 1451,
+      "canonical_name": "André Poey",
+      "path": "authors/1451.json"
+    },
+    {
+      "author_id": 1452,
+      "canonical_name": "Mario Ruiz Sotelo",
+      "path": "authors/1452.json"
+    },
+    {
+      "author_id": 1453,
+      "canonical_name": "Carlos Ruiz Schneider",
+      "path": "authors/1453.json"
+    },
+    {
+      "author_id": 1454,
+      "canonical_name": "Marta Pena de Matsushita",
+      "path": "authors/1454.json"
+    },
+    {
+      "author_id": 1455,
+      "canonical_name": "Katya Colmenares Lizárraga",
+      "path": "authors/1455.json"
+    },
+    {
+      "author_id": 1456,
+      "canonical_name": "Guillermo Jorge Silva Martínez",
+      "path": "authors/1456.json"
+    },
+    {
+      "author_id": 1457,
+      "canonical_name": "Miguel Ángel Fernández",
+      "path": "authors/1457.json"
+    },
+    {
+      "author_id": 1458,
+      "canonical_name": "Héctor Díaz-Polanco",
+      "path": "authors/1458.json"
+    },
+    {
+      "author_id": 1459,
+      "canonical_name": "Cristina Rochetti",
+      "path": "authors/1459.json"
+    },
+    {
+      "author_id": 1460,
+      "canonical_name": "Jorge Zúñiga Martínez",
+      "path": "authors/1460.json"
+    }
+  ],
+  "batch_147": [
+    {
+      "author_id": 1461,
+      "canonical_name": "Germán Gutiérrez",
+      "path": "authors/1461.json"
+    },
+    {
+      "author_id": 1462,
+      "canonical_name": "Pedro Enrique García Ruiz",
+      "path": "authors/1462.json"
+    },
+    {
+      "author_id": 1463,
+      "canonical_name": "Mario Teodoro Ramírez",
+      "path": "authors/1463.json"
+    },
+    {
+      "author_id": 1464,
+      "canonical_name": "León Cadogan",
+      "path": "authors/1464.json"
+    },
+    {
+      "author_id": 1465,
+      "canonical_name": "José Manuel Peramàs",
+      "path": "authors/1465.json"
+    },
+    {
+      "author_id": 1466,
+      "canonical_name": "Ricardo Vélez Rodríguez",
+      "path": "authors/1466.json"
+    },
+    {
+      "author_id": 1467,
+      "canonical_name": "Gustavo Gutiérrez",
+      "path": "authors/1467.json"
+    },
+    {
+      "author_id": 1468,
+      "canonical_name": "Victórico Muñoz Rosales",
+      "path": "authors/1468.json"
+    },
+    {
+      "author_id": 1469,
+      "canonical_name": "Jaime Guzmán",
+      "path": "authors/1469.json"
+    },
+    {
+      "author_id": 1470,
+      "canonical_name": "Juan José Bautista",
+      "path": "authors/1470.json"
+    }
+  ],
+  "batch_148": [
+    {
+      "author_id": 1471,
+      "canonical_name": "Rafael Bautista",
+      "path": "authors/1471.json"
+    },
+    {
+      "author_id": 1472,
+      "canonical_name": "Brigitte Bernard",
+      "path": "authors/1472.json"
+    },
+    {
+      "author_id": 1473,
+      "canonical_name": "Roberto Gustavo Cruz",
+      "path": "authors/1473.json"
+    },
+    {
+      "author_id": 1474,
+      "canonical_name": "Eli Carlos Dal’Pupo",
+      "path": "authors/1474.json"
+    },
+    {
+      "author_id": 1475,
+      "canonical_name": "Stefan Gandler",
+      "path": "authors/1475.json"
+    },
+    {
+      "author_id": 1476,
+      "canonical_name": "Miguel Hernández Díaz",
+      "path": "authors/1476.json"
+    },
+    {
+      "author_id": 1477,
+      "canonical_name": "Ricardo Horneffer",
+      "path": "authors/1477.json"
+    },
+    {
+      "author_id": 1478,
+      "canonical_name": "Anna María Laporte",
+      "path": "authors/1478.json"
+    },
+    {
+      "author_id": 1479,
+      "canonical_name": "Pablo Melogno",
+      "path": "authors/1479.json"
+    },
+    {
+      "author_id": 1480,
+      "canonical_name": "Octavio Obando Morán",
+      "path": "authors/1480.json"
+    }
+  ],
+  "batch_149": [
+    {
+      "author_id": 1481,
+      "canonical_name": "Carlos Paladines",
+      "path": "authors/1481.json"
+    },
+    {
+      "author_id": 1482,
+      "canonical_name": "Walter Redmond",
+      "path": "authors/1482.json"
+    },
+    {
+      "author_id": 1483,
+      "canonical_name": "Jaime Retamal Salazar",
+      "path": "authors/1483.json"
+    },
+    {
+      "author_id": 1484,
+      "canonical_name": "Miguel Romero Griego",
+      "path": "authors/1484.json"
+    },
+    {
+      "author_id": 1485,
+      "canonical_name": "María Luisa Rubinelli",
+      "path": "authors/1485.json"
+    },
+    {
+      "author_id": 1486,
+      "canonical_name": "Pablo Salvat Bologna",
+      "path": "authors/1486.json"
+    },
+    {
+      "author_id": 1487,
+      "canonical_name": "Juan Carlos Torchia Estrada",
+      "path": "authors/1487.json"
+    },
+    {
+      "author_id": 1488,
+      "canonical_name": "Marcelo Velarde Cañazares",
+      "path": "authors/1488.json"
+    },
+    {
+      "author_id": 1489,
+      "canonical_name": "Neusa Vendramin Volpe",
+      "path": "authors/1489.json"
+    },
+    {
+      "author_id": 1490,
+      "canonical_name": "José María Arguedas",
+      "path": "authors/1490.json"
+    }
+  ],
+  "batch_150": [
+    {
+      "author_id": 1491,
+      "canonical_name": "Fidel Castro",
+      "path": "authors/1491.json"
+    },
+    {
+      "author_id": 1492,
+      "canonical_name": "Fernando Coronil",
+      "path": "authors/1492.json"
+    },
+    {
+      "author_id": 1493,
+      "canonical_name": "Mark Platts",
+      "path": "authors/1493.json"
+    },
+    {
+      "author_id": 1494,
+      "canonical_name": "Daniel E. Guillot",
+      "path": "authors/1494.json"
+    },
+    {
+      "author_id": 1495,
+      "canonical_name": "Augusto César Sandino",
+      "path": "authors/1495.json"
+    },
+    {
+      "author_id": 1496,
+      "canonical_name": "Valerio Pujol",
+      "path": "authors/1496.json"
+    },
+    {
+      "author_id": 1497,
+      "canonical_name": "Salvador Reyes Nevares",
+      "path": "authors/1497.json"
+    },
+    {
+      "author_id": 1498,
+      "canonical_name": "María Arcelia González",
+      "path": "authors/1498.json"
+    },
+    {
+      "author_id": 1499,
+      "canonical_name": "Jerónimo de Mendieta",
+      "path": "authors/1499.json"
+    },
+    {
+      "author_id": 1500,
+      "canonical_name": "José Joaquín de Mora",
+      "path": "authors/1500.json"
+    }
+  ],
+  "batch_151": [
+    {
+      "author_id": 1501,
+      "canonical_name": "Robert S. Hartman",
+      "path": "authors/1501.json"
+    },
+    {
+      "author_id": 1502,
+      "canonical_name": "Fausto Vega",
+      "path": "authors/1502.json"
+    },
+    {
+      "author_id": 1503,
+      "canonical_name": "Juan de Zumárraga",
+      "path": "authors/1503.json"
+    },
+    {
+      "author_id": 1504,
+      "canonical_name": "Porfirio Miranda",
+      "path": "authors/1504.json"
     }
   ]
 }

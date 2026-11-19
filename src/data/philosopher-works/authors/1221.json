@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "author_id": 1221,
+  "canonical_name": "Leonel Franca",
+  "alternate_names": [
+    "Leonel Edgard da Silveira Franca"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1221-w001",
+      "title": "Noções de História da Filosofia",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=2492"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1221-w002",
+      "title": "A crise do mundo moderno",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1941,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1941,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=2492"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1221-1",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=2492"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}

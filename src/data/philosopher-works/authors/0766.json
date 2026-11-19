@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "author_id": 766,
+  "canonical_name": "Newton da Costa",
+  "alternate_names": [
+    "Newton Carneiro Affonso da Costa",
+    "Newton C. A. da Costa"
+  ],
+  "life": {
+    "born": {
+      "year": 1929,
+      "certainty": "institutional_biography"
+    },
+    "died": {
+      "year": 2024,
+      "certainty": "institutional_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0766-w001",
+      "title": "Introdução aos fundamentos da matemática",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1961,
+        "certainty": "bibliographic_source_year_or_unknown"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.iea.usp.br/noticias/brasil-perde-newton-da-costa-seu-mais-criativo-e-influente-logico"
+      ],
+      "notes": "Fuente bibliográfica o institucional indicada; ediciones posteriores y atribuciones ajenas no se cuentan como nuevas obras."
+    },
+    {
+      "work_id": "0766-w002",
+      "title": "Ensaio sobre os fundamentos da lógica",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographic_source_year_or_unknown"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books?id=731YAAAAMAAJ"
+      ],
+      "notes": "Fuente bibliográfica o institucional indicada; ediciones posteriores y atribuciones ajenas no se cuentan como nuevas obras."
+    },
+    {
+      "work_id": "0766-w003",
+      "title": "Lógica indutiva e probabilidade",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographic_source_year_or_unknown"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.iea.usp.br/noticias/brasil-perde-newton-da-costa-seu-mais-criativo-e-influente-logico"
+      ],
+      "notes": "Fuente bibliográfica o institucional indicada; ediciones posteriores y atribuciones ajenas no se cuentan como nuevas obras."
+    },
+    {
+      "work_id": "0766-w004",
+      "title": "Logique classique et non-classique",
+      "work_type": "book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1997,
+        "certainty": "bibliographic_source_year_or_unknown"
+      },
+      "first_publication_year": 1997,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://agencia.fapesp.br/newton-da-costa-professor-emerito/10988"
+      ],
+      "notes": "Fuente bibliográfica o institucional indicada; ediciones posteriores y atribuciones ajenas no se cuentan como nuevas obras."
+    },
+    {
+      "work_id": "0766-w005",
+      "title": "O conhecimento científico",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year_or_unknown"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://agencia.fapesp.br/newton-da-costa-professor-emerito/10988"
+      ],
+      "notes": "Fuente bibliográfica o institucional indicada; ediciones posteriores y atribuciones ajenas no se cuentan como nuevas obras."
+    },
+    {
+      "work_id": "0766-w006",
+      "title": "Science and Partial Truth: A Unitary Approach to Models and Scientific Reasoning",
+      "work_type": "coauthored_book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2003,
+        "certainty": "bibliographic_source_year_or_unknown"
+      },
+      "first_publication_year": 2003,
+      "authorship_status": "original_coauthor",
+      "coauthors": [
+        "Steven French"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://philpapers.org/rec/DACSAP-2"
+      ],
+      "notes": "Fuente bibliográfica o institucional indicada; ediciones posteriores y atribuciones ajenas no se cuentan como nuevas obras."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Contribución fundacional al desarrollo de lógica paraconsistente, matemáticas y filosofía de la ciencia en Brasil.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_scholarly_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_library_editorial_or_academic_source",
+      "title": "Fuente documental de Newton da Costa (N)",
+      "url": "https://www.iea.usp.br/noticias/brasil-perde-newton-da-costa-seu-mais-criativo-e-influente-logico"
+    },
+    {
+      "kind": "institutional_library_editorial_or_academic_source",
+      "title": "Fuente documental de Newton da Costa (NG)",
+      "url": "https://books.google.com/books?id=731YAAAAMAAJ"
+    },
+    {
+      "kind": "institutional_library_editorial_or_academic_source",
+      "title": "Fuente documental de Newton da Costa (NF)",
+      "url": "https://agencia.fapesp.br/newton-da-costa-professor-emerito/10988"
+    },
+    {
+      "kind": "institutional_library_editorial_or_academic_source",
+      "title": "Fuente documental de Newton da Costa (NP)",
+      "url": "https://philpapers.org/rec/DACSAP-2"
+    }
+  ],
+  "research_notes": [
+    "USP confirma años 1929–2024.",
+    "Ensaio sobre os fundamentos da lógica: ejemplar Hucitec 1980, FAPESP indica 1979; fecha original requiere cotejo.",
+    "Science and Partial Truth de 2003 es coautoría con Steven French."
+  ]
+}

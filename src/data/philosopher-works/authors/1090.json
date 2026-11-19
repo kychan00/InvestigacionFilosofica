@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "author_id": 1090,
+  "canonical_name": "Vanderlei Luiz Trindade",
+  "alternate_names": [
+    "Vanderley Luiz Trindade"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1090-w001",
+      "title": "O debate entre Salazar Bondy e Leopoldo Zea",
+      "work_type": "philosophical_article",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://seer.ufu.br/index.php/EducacaoFilosofia/article/view/32995/38247"
+      ],
+      "notes": "Estudio sobre autenticidad de la filosofía latinoamericana; bibliografías citan 1998, otras 1997; publicación original y revista requieren identificación."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 1: d",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 2: trindade",
+      "url": "https://seer.ufu.br/index.php/EducacaoFilosofia/article/view/32995/38247"
+    }
+  ],
+  "research_notes": [
+    "La referencia bibliográfica aparece con año 1998 en el libro de Dussel y estudios posteriores; al menos un estudio de 2020 lo lista 1997. Se registra la discrepancia, sin inventar DOI ni revista.",
+    "No se confunde su nombre con autores homónimos ni se atribuyen comentarios posteriores sobre la polémica como obras suyas."
+  ]
+}

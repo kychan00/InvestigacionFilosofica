@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 505,
+  "canonical_name": "Otavio Mello Alvarenga",
+  "alternate_names": [
+    "Otávio Melo Alvarenga",
+    "Otávio Junqueira Melo Alvarenga",
+    "Octávio Mello Alvarenga"
+  ],
+  "life": {
+    "born": {
+      "year": 1926,
+      "certainty": "national_library_authority"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0505-w001",
+      "title": "Mitos e valores",
+      "work_type": "literary_philosophical_essay_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1956,
+        "certainty": "national_bibliographical_source"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "literatura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/autores?id=5208",
+        "https://files.cercomp.ufg.br/weby/up/508/o/Noemy_Oliveira_Cardoso_Costa.pdf"
+      ],
+      "notes": "Rio de Janeiro, Instituto Nacional do Livro. Fontes secundárias oscilam entre 1956 e 1958; a bibliografia de literatura brasileira fixa 1956, adotado neste seed."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participação no horizonte existencialista brasileiro do pós-guerra por meio de ensaísmo sobre mito, valores, literatura e cultura",
+      "kind": "brazilian_existentialist_literary_and_value_essay_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_authority",
+      "title": "Biblioteca Nacional — autoridade Otávio Mello Alvarenga",
+      "url": "https://acervo.bn.gov.br/sophia_web/autoridade/detalhe/000596132"
+    },
+    {
+      "kind": "biobibliographical_source",
+      "title": "UFSC — Otávio Junqueira Melo Alvarenga",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=5208"
+    }
+  ],
+  "research_notes": [
+    "A ficha é deliberadamente curta: Mitos e valores é a obra ensaística pertinente melhor documentada; poesia, romances e produção de direito agrário não são inflados como filosofia.",
+    "Há discrepância 1956/1958 para Mitos e valores; adota-se 1956 pela biobibliografia UFSC."
+  ]
+}

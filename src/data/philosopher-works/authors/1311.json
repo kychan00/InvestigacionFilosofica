@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "author_id": 1311,
+  "canonical_name": "Francisco José de Urbina",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1311-w001",
+      "title": "Cursus Philosophicus",
+      "work_type": "manuscript_course",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://produccioncientificaluz.org/index.php/filosofia/article/view/17952"
+      ],
+      "notes": "El estudio biográfico de LUZ documenta a Urbina como autor de un Cursus Philosophicus; la fecha exacta del manuscrito no queda fijada con seguridad."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de filosofía en la Universidad de Caracas durante el siglo XVIII y representante documentado de la filosofía colonial venezolana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1311-1",
+      "url": "https://produccioncientificaluz.org/index.php/filosofia/article/view/17952"
+    }
+  ],
+  "research_notes": [
+    "Lote 132 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–131 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva. En autores coloniales se distinguen manuscrito/composición, primera publicación y ediciones póstumas; cuando la fecha no está establecida se conserva null."
+  ]
+}

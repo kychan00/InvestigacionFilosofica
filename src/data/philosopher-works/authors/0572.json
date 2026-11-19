@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "author_id": 572,
+  "canonical_name": "Juan Bautista Ferro",
+  "alternate_names": [
+    "Juan Bautista Ferro Porcile"
+  ],
+  "life": {
+    "born": {
+      "year": 1920,
+      "certainty": "specialized_biographical_study"
+    },
+    "died": {
+      "year": 1993,
+      "certainty": "pucp_memorial_bibliography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0572-w001",
+      "title": "Los procedimientos decisorios para fórmulas monádicas de primer grado ideadas por W. v. O. Quine",
+      "work_type": "undergraduate_logic_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Quine",
+          "provenance": "inferred"
+        },
+        {
+          "term": "lógica matemática",
+          "provenance": "inferred"
+        },
+        {
+          "term": "procedimientos decisorios",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/"
+      ],
+      "notes": "Tesis de bachiller mimeografiada (UNMSM), 1966. No confundir con la tesis doctoral distinta del mismo año."
+    },
+    {
+      "work_id": "0572-w002",
+      "title": "Procedimientos decisorios para fórmulas monádicas de primer grado",
+      "work_type": "doctoral_logic_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica de predicados",
+          "provenance": "inferred"
+        },
+        {
+          "term": "decidibilidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Herbrand",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/",
+        "https://revistas.pucp.edu.pe/index.php/arete/article/view/5170"
+      ],
+      "notes": "Tesis doctoral, UNMSM, 1966, estudia algoritmos y método Ferro-Herbrand."
+    },
+    {
+      "work_id": "0572-w003",
+      "title": "Husserl: la filosofía como ciencia rigurosa",
+      "work_type": "chapter_in_collected_philosophy_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencia rigurosa",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Capítulo de La filosofía alemana: desde Nicolás de Cusa hasta nuestros días, editada por David Sobrevilla; no se atribuye todo el libro a Ferro."
+    },
+    {
+      "work_id": "0572-w004",
+      "title": "Popper: la lógica del descubrimiento científico",
+      "work_type": "chapter_in_collected_philosophy_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Popper",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía de la ciencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "falsacionismo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0572-w005",
+      "title": "Lógica y procedimientos decisorios",
+      "work_type": "chapter_in_collected_logic_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1978,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica matemática",
+          "provenance": "inferred"
+        },
+        {
+          "term": "decidibilidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "procedimientos",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0572-w006",
+      "title": "La doctrina de las impresiones en la filosofía de Hume",
+      "work_type": "hume_epistemology_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Hume",
+          "provenance": "inferred"
+        },
+        {
+          "term": "impresiones",
+          "provenance": "inferred"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0572-w007",
+      "title": "Un procedimiento decisorio para fórmulas monádicas de primer grado",
+      "work_type": "formal_logic_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "pucp_contemporary_biobibliography"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "chapter_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica de primer orden",
+          "provenance": "inferred"
+        },
+        {
+          "term": "algoritmos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "decidibilidad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/"
+      ],
+      "notes": "Antología de la lógica en América Latina, Universidad de Carabobo, 1988, pp. 59–83. Relacionado con su investigación doctoral, pero es un artículo publicado independiente."
+    },
+    {
+      "work_id": "0572-w008",
+      "title": "La reforma baconiana del saber y la teología",
+      "work_type": "posthumous_history_of_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/arete.199502.001",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Francis Bacon",
+          "provenance": "inferred"
+        },
+        {
+          "term": "teología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "reforma del saber",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/5168"
+      ],
+      "notes": "Publicado póstumamente por Areté en 1995; el autor había fallecido en 1993."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Propuesta del procedimiento Ferro-Herbrand y enseñanza de la lógica matemática y la fenomenología en la filosofía peruana",
+      "kind": "ferro_herbrand_decision_procedures_and_logical_education",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "pucp_contemporary_biobibliography",
+      "title": "Atilio Castro y Dante Dávila — Juan Bautista Ferro: nota biobibliográfica",
+      "url": "https://revistas.pucp.edu.pe/index.php/arete/es/article/view/5181"
+    },
+    {
+      "kind": "primary_memorial_bibliography",
+      "title": "Areté — texto de nota biobibliográfica",
+      "url": "https://revistas.pucp.edu.pe/index.php/arete/article/download/5181/5173/"
+    },
+    {
+      "kind": "specialist_logical_history",
+      "title": "Rafael F. Mora Ramírez — Tras el rastro de Juan Bautista Ferro Porcile",
+      "url": "https://www.researchgate.net/publication/362629363_Tras_el_Rastro_de_Juan_Bautista_Ferro_Porcile"
+    }
+  ],
+  "research_notes": [
+    "Dussel/Mendieta/Bohórquez da nacimiento en 1922; la investigación biográfica específica y fuentes de la PUCP registran 1920. Se conserva esta discrepancia.",
+    "La nota biobibliográfica de 1995 registra ambas tesis en 1966, a diferencia de semblanzas secundarias que confunden el doctorado con 1952.",
+    "No se atribuyen a Ferro los artículos conmemorativos de Rosales, Carrión, Camino o Miró Quesada publicados en Areté 1995."
+  ]
+}

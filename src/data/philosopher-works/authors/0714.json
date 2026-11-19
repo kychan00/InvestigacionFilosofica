@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "author_id": 714,
+  "canonical_name": "Manuel del Río",
+  "alternate_names": [
+    "Manuel Río"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_bibliographic_records_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía en Córdoba; la historia institucional del Colegio de Monserrat registra que la vacante de Manuel Río fue cubierta por Alfredo Fragueiro en 1935.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_specialized_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano... (inventario fuente)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "Diccionario de Historia Cultural de la Iglesia en América Latina: Alfredo Fragueiro, bibliografía",
+      "url": "https://www.dhial.org/diccionario/index.php?title=FRAGUEIRO_ALFREDO"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "Universidad Nacional de Córdoba: estudio histórico del nacionalismo católico cordobés",
+      "url": "https://repositoriosdigitales.sicyt.gob.ar/vufind/Record/RDUUNC_b74e8f844ad83c32a68ca19910afa525"
+    }
+  ],
+  "research_notes": [
+    "El nombre corto del libro, Manuel del Río, corresponde probablemente al Manuel Río citado como profesor del Colegio de Monserrat, pero no se ha documentado publicación propia.",
+    "A falta de autoridades bibliográficas inequívocas se evita transferir obras de otros Manuel del Río o de Manuel Río."
+  ]
+}

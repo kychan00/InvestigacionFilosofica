@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "author_id": 1052,
+  "canonical_name": "José de Anchieta Correa",
+  "alternate_names": [
+    "José de Anchieta Corrêa",
+    "José de Anchieta Correa"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1052-w001",
+      "title": "Um estudo da cidade",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.br/j/er/a/f9QqBD5mJGznMX8MWJR3ySg/?lang=pt"
+      ],
+      "notes": "Textos SEAF, año 2, núm.3, enero–diciembre de 1981; el índice académico atribuye el ensayo expresamente al autor."
+    },
+    {
+      "work_id": "1052-w002",
+      "title": "Na companhia de Foucault",
+      "work_type": "journal_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 2018,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2018,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.5752/P.1678-9563.2018v24n1p337-342",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodicos.pucminas.br/psicologiaemrevista/article/view/18361"
+      ],
+      "notes": "Psicologia em Revista 24(1), pp.337–342, DOI institucional."
+    },
+    {
+      "work_id": "1052-w003",
+      "title": "Presença e participação",
+      "work_type": "memoir_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodicos.ufmg.br/index.php/kriterion/article/download/29112/22980"
+      ],
+      "notes": "Kriterion: Revista de Filosofia, UFMG, edição especial Memória Dois em Um, janeiro de 2021, pp.41–61. Título exacto cotejado con el índice oficial de UFMG; se trata de testimonio autobiográfico y memoria del departamento."
+    },
+    {
+      "work_id": "1052-w004",
+      "title": "A estrutura do comportamento",
+      "work_type": "translation",
+      "original_language": "português",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Maurice Merleau-Ponty"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ucs.br/educs/arquivo/ebook/corpo-disciplina-e-educacao-fisica/",
+        "https://repositorio.ufmg.br/items/48e45b60-e1be-4bdf-b273-f4e70b7de7da"
+      ],
+      "notes": "Traducción portuguesa de Maurice Merleau-Ponty editada en Belo Horizonte por Interlivros (1975); Corrêa es traductor, no autor del libro francés original. Dos referencias académicas atribuyen expresamente su traducción."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de metafísica de UFMG, doctorado en Lovaina sobre Merleau-Ponty; coordinó el posgrado de filosofía y participó en SEAF.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico de Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UFMG, Kriterion edición de memoria, testimonio del profesor José de Anchieta Corrêa (2021)",
+      "url": "https://periodicos.ufmg.br/index.php/kriterion/article/download/29112/22980"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "PUC Minas, Psicologia em Revista, Na companhia de Foucault (2018)",
+      "url": "https://periodicos.pucminas.br/psicologiaemrevista/article/view/18361"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "SciELO Educação e Pesquisa, índice y reimpresión del ensayo Um estudo da cidade (1981)",
+      "url": "https://www.scielo.br/j/er/a/f9QqBD5mJGznMX8MWJR3ySg/?lang=pt"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "SciELO, trayectorias de sociedad de estudios filosóficos SEAF",
+      "url": "https://www.scielo.br/j/pp/a/W8nH6Lp9SZVvqrLgSPwHGDt/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UFMG, memoria del Departamento de Filosofía, índice de publicaciones",
+      "url": "https://filosofia.fafich.ufmg.br/departamento/memoria/publicacoes/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UCS, referência bibliográfica da tradução de Merleau-Ponty",
+      "url": "https://www.ucs.br/educs/arquivo/ebook/corpo-disciplina-e-educacao-fisica/"
+    }
+  ],
+  "research_notes": [
+    "Inventario 'Correa' y revista institucional 'Corrêa'; misma trayectoria UFMG y estudios de filosofía en Lovaina.",
+    "Auditoría lote 106: título exacto de Kriterion identificado como 'Presença e participação', no título editorial reconstruido.",
+    "La traducción de 1975 se incorpora como responsabilidad de traductor distinta de artículos originales."
+  ]
+}

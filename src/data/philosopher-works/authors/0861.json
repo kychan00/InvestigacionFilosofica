@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "author_id": 861,
+  "canonical_name": "Genoveva Keyeux",
+  "alternate_names": [
+    "Genoveva Keyeux Burian von Dedina"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0861-w001",
+      "title": "Ética de la investigación en seres humanos y políticas de salud pública",
+      "work_type": "coedited_collective_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Víctor Penchaszadeh",
+        "Alya Saada"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "978-958-701-745-8"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.umanizales.edu.co/ils/opac_css/index.php?id=37079&lvl=author_see"
+      ],
+      "notes": "Bogotá: UNESCO / Universidad Nacional de Colombia; 347 pp. Coordinación compartida, no autoría única."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Bioética de la investigación humana y genética en Colombia, ética de investigación y política de salud pública.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca Universidad de Manizales: autoría editorial de Ética de la investigación en seres humanos (2006)",
+      "url": "https://biblioteca.umanizales.edu.co/ils/opac_css/index.php?id=37079&lvl=author_see"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "CvLAC MinCiencias Colombia: producción profesional y genética de Genoveva Keyeux",
+      "url": "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000193453"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Doctorado Salud Pública UNAL: participación de Keyeux en Ética, Salud y Vida",
+      "url": "https://doctoradosaludp.unal.edu.co/2005/06/30/etica-salud-y-vida/"
+    }
+  ],
+  "research_notes": [
+    "La obra colectiva de UNESCO/Universidad Nacional de Colombia fue coordinada por Genoveva Keyeux, Víctor Penchaszadeh y Alya Saada; no atribuir capítulos de colaboradores a Keyeux.",
+    "El catálogo identifica edición de Bogotá 2006, 347 páginas e ISBN 978-958-701-745-8, mientras los preliminares de otra referencia presentan 958-701-745-5; usar el ISBN del catálogo y cotejar ejemplar físico.",
+    "El currículo MinCiencias contiene producción en genética biomédica que no se incorpora indiscriminadamente como filosofía sin comprobar autoría y relevancia."
+  ]
+}

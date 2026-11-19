@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 1358,
+  "canonical_name": "Luiz Luisi",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1358-w001",
+      "title": "O tipo penal, a teoria finalista e a nova legislação penal",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.readinglength.com/work/WjfhFOj"
+      ],
+      "notes": "La edición original documentada es de 1987; existe reedición posterior."
+    },
+    {
+      "work_id": "1358-w002",
+      "title": "Os princípios constitucionais penais",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/os-princ%C3%ADpios-constitucionais-penais"
+      ],
+      "notes": "La segunda edición revisada y ampliada de 2003 no se cuenta como obra nueva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Penalista brasileño cuya obra articula teoría finalista, tipo penal y límites constitucionales del poder punitivo.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Registro bibliográfico — O tipo penal, a teoria finalista e a nova legislação penal",
+      "url": "https://www.readinglength.com/work/WjfhFOj"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Catálogo bibliográfico — Os princípios constitucionais penais",
+      "url": "https://www.estantevirtual.com.br/busca/os-princ%C3%ADpios-constitucionais-penais"
+    }
+  ],
+  "research_notes": [
+    "Se mantienen únicamente dos libros con primera edición suficientemente comprobada.",
+    "La edición ampliada de 2003 de Os princípios constitucionais penais se trata como reedición."
+  ]
+}

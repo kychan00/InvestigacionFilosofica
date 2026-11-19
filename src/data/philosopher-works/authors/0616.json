@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "author_id": 616,
+  "canonical_name": "Constantino Láscaris",
+  "alternate_names": [
+    "Constantino Láscaris Comneno",
+    "Constantino Láscaris-Comneno Micolaw"
+  ],
+  "life": {
+    "born": {
+      "year": 1923,
+      "certainty": "Costa_Rican_legislative_biography"
+    },
+    "died": {
+      "year": 1979,
+      "certainty": "documented_bibliography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_translations_manuscripts_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0616-w001",
+      "title": "Colegios mayores",
+      "work_type": "philosophy_of_university_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "formación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0616-w002",
+      "title": "Prontuario de historia de la filosofía y de los sistemas filosóficos",
+      "work_type": "introductory_history_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sistemas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0616-w003",
+      "title": "La filosofía española, de Marcelino Menéndez Pelayo",
+      "work_type": "Spanish_philosophy_selected_texts",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "editor_and_introduction_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Menéndez Pelayo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento español",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de la filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": "Selección e introducción firmadas por Láscaris; los textos originales son de Marcelino Menéndez Pelayo."
+    },
+    {
+      "work_id": "0616-w004",
+      "title": "Mi primer testamento",
+      "work_type": "philosophical_literary_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "existencia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "vida",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "verdad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.ucr.ac.cr/index.php/rfilosofia/article/view/1774"
+      ],
+      "notes": "Se documenta un texto fechado en 1956 en estudio contemporáneo; no confundir la fecha del artículo secundario 2025 con la del original."
+    },
+    {
+      "work_id": "0616-w005",
+      "title": "Antología filosófica: antropología y filosofía práctica",
+      "work_type": "selected_philosophical_readings",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "compiler",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "antropología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía práctica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": "Antología de diversos autores seleccionados por Láscaris, no un libro de textos íntegramente propios."
+    },
+    {
+      "work_id": "0616-w006",
+      "title": "Concepto de filosofía y teoría de los métodos del pensamiento",
+      "work_type": "methodology_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "método",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://inif.ucr.ac.cr/wp-content/uploads/2022/05/Vol.XXXV/No.%2087/indice%20por%20a%C3%B1o.pdf"
+      ],
+      "notes": "Edición UCR 1959; segunda edición 1960."
+    },
+    {
+      "work_id": "0616-w007",
+      "title": "Fundamentos de filosofía",
+      "work_type": "introduction_to_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fundamentos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": "Segunda edición 1977 y posteriores no contadas."
+    },
+    {
+      "work_id": "0616-w008",
+      "title": "Desarrollo de las ideas filosóficas en Costa Rica",
+      "work_type": "Costa_Rican_history_of_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Costa Rica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia de las ideas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento filosófico",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": "Ediciones 1975, 1983 posteriores. No confundir con Desarrollo de las ideas en Costa Rica de 1975 sin cotejo textual."
+    },
+    {
+      "work_id": "0616-w009",
+      "title": "Historia de las ideas en Centroamérica",
+      "work_type": "Central_American_history_of_ideas_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Centroamérica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia intelectual",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ideas",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": "El manuscrito publicado póstumamente en 1989 como Las ideas en Centroamérica de 1838 a 1970 complementa esta obra pero no se registra como una mera reedición."
+    },
+    {
+      "work_id": "0616-w010",
+      "title": "El costarricense",
+      "work_type": "Costa_Rican_philosophical_anthropology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Costa Rica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "identidad cultural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.org/ave/001/a441.htm"
+      ],
+      "notes": "Reimpresiones 1977–1994 no duplicadas."
+    },
+    {
+      "work_id": "0616-w011",
+      "title": "Palabras",
+      "work_type": "philosophical_essays_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ensayo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "pensamiento",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ruie.ucr.ac.cr/catalogo/Author/Home?author=L%C3%A1scaris%2C+Constantino"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0616-w012",
+      "title": "De Salomón a Demóstene Smith",
+      "work_type": "cultural_philosophical_essays_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "catalog_or_academic_bibliography"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "pensamiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Costa Rica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://ruie.ucr.ac.cr/catalogo/Author/Home?author=L%C3%A1scaris%2C+Constantino"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Institucionalización de los estudios sistemáticos de filosofía e historia de las ideas en Costa Rica y Centroamérica",
+      "kind": "Costa_Rican_founding_academic_philosophy_and_history_of_ideas",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "historical_biobibliography",
+      "title": "Filosofía en español: Constantino Láscaris Comneno, bibliografía selecta",
+      "url": "https://www.filosofia.org/ave/001/a441.htm"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "UCR RUIE: Constantino Láscaris",
+      "url": "https://ruie.ucr.ac.cr/catalogo/Author/Home?author=L%C3%A1scaris%2C+Constantino"
+    },
+    {
+      "kind": "Costa_Rican_legislative_authority",
+      "title": "Asamblea Legislativa de Costa Rica: Constantino Láscaris",
+      "url": "https://www.asamblea.go.cr/ca/Lists/coleccion/DispForm.aspx?ContentTypeId=0x0100C97DC289459B304BA629D4F4451428AD&ID=32"
+    }
+  ],
+  "research_notes": [
+    "Conservar nombre canónico Constantino Láscaris; identidad completa Láscaris-Comneno Micolaw.",
+    "Distinguir compilaciones, ediciones y monografías originales; ediciones posteriores no duplicadas.",
+    "El proyecto posterior Las ideas en Centroamérica de 1838 a 1970 (1989, edición póstuma de manuscrito) queda para revisar continuidad con Historia de las ideas en Centroamérica de 1970."
+  ]
+}

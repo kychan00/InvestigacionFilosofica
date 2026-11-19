@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "author_id": 566,
+  "canonical_name": "César Góngora Perea",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0566-w001",
+      "title": "El espíritu y la vida en la filosofía de Max Scheler",
+      "work_type": "doctoral_philosophy_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1939,
+        "certainty": "university_thesis_catalog"
+      },
+      "first_publication_year": 1939,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Max Scheler",
+          "provenance": "inferred"
+        },
+        {
+          "term": "espíritu",
+          "provenance": "inferred"
+        },
+        {
+          "term": "vida",
+          "provenance": "inferred"
+        },
+        {
+          "term": "valores",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://unmsm-web-static-files.s3.sa-east-1.amazonaws.com/fondo-editorial/open-access-book/260C.pdf"
+      ],
+      "notes": "Tesis doctoral presentada en 1939, 184 hojas. El libro-base menciona una edición o fecha bibliográfica de 1943; esa fecha no se toma como obra nueva sin demostrar independencia del texto."
+    },
+    {
+      "work_id": "0566-w002",
+      "title": "Actualidad y trascendencia del Quijote",
+      "work_type": "cervantes_philosophy_and_literature_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1942,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1942,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.8.23.6",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Cervantes",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Quijote",
+          "provenance": "inferred"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/es/article/view/1514"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0566-w003",
+      "title": "Hacia una filosofía de la educación",
+      "work_type": "philosophy_of_education_journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.30920/letras.11.31.3",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía de la educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "pedagogía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistaletras.unmsm.edu.pe/index.php/le/article/view/1548"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Recepción peruana de la antropología de Max Scheler, la fenomenología de los valores y la filosofía de la educación",
+      "kind": "peruvian_scheler_values_and_philosophy_of_education_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_thesis_catalog",
+      "title": "UNMSM — Catálogo de tesis de filosofía, César Góngora Perea",
+      "url": "https://unmsm-web-static-files.s3.sa-east-1.amazonaws.com/fondo-editorial/open-access-book/260C.pdf"
+    },
+    {
+      "kind": "primary_journal_source",
+      "title": "Revista Letras — Hacia una filosofía de la educación",
+      "url": "https://revistaletras.unmsm.edu.pe/index.php/le/article/view/1548"
+    }
+  ],
+  "research_notes": [
+    "La labor de revisión de la traducción de Sentido y sinsentido de Walter Blumenfeld (1949) es participación editorial y no autoría del libro; se documenta sin sumarla como original independiente.",
+    "Se conserva la tesis de 1939; fecha 1943 mencionada en el libro-base como probable edición posterior."
+  ]
+}

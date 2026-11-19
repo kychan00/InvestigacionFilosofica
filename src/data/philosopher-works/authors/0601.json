@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "author_id": 601,
+  "canonical_name": "Juan F. Porras Rangel",
+  "alternate_names": [
+    "Juan Porras Rengel",
+    "Juan F. Porras Rengel"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0601-w001",
+      "title": "Metafísica del conocimiento y de la acción",
+      "work_type": "epistemology_and_action_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1976,
+        "certainty": "academic_bibliographic_source"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conocimiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "acción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/elio-gomez-grillo-juan-porras-rengel-ii/"
+      ],
+      "notes": "Estudio filosófico con prólogo de Juan David García Bacca; fuente biobibliográfica de Elio Gómez Grillo."
+    },
+    {
+      "work_id": "0601-w002",
+      "title": "Lógica del sentimiento: ensayo de una antropología filosófica",
+      "work_type": "philosophical_anthropology_two_volume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "academic_bibliographic_source"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sentimiento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "razón",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/elio-gomez-grillo-juan-porras-rengel-ii/"
+      ],
+      "notes": "Dos tomos de una misma obra, no se contabilizan como dos títulos."
+    },
+    {
+      "work_id": "0601-w003",
+      "title": "Dialéctica del bidet: un ensayo filosófico de antropología con los duendes del humor y la poesía",
+      "work_type": "philosophical_anthropology_and_humor_two_volume_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "academic_bibliographic_source"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "humor",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metáfora",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/elio-gomez-grillo-juan-porras-rengel-ii/"
+      ],
+      "notes": "Anthropos, Barcelona, obra en dos volúmenes; se cuenta una sola vez."
+    },
+    {
+      "work_id": "0601-w004",
+      "title": "Libertad, usurpación del yo e hipnosis colectiva",
+      "work_type": "philosophy_of_freedom_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "academic_bibliographic_source"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "libertad",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "yo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "hipnosis colectiva",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.filosofia.mx/elio-gomez-grillo-juan-porras-rengel-ii/"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filosofía venezolana de la libertad, acción, sentimiento y antropología filosófica en diálogo con Juan David García Bacca",
+      "kind": "Venezuelan_philosophical_anthropology_freedom_and_reason",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico de filósofos latinoamericanos",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "specialized_biobibliography",
+      "title": "Elio Gómez Grillo — Juan Porras Rengel, estudio de su obra filosófica",
+      "url": "https://www.filosofia.mx/elio-gomez-grillo-juan-porras-rengel-ii/"
+    }
+  ],
+  "research_notes": [
+    "El nombre canónico es Juan F. Porras Rangel. El estudio biobibliográfico publicado por Gómez Grillo escribe sistemáticamente Juan Porras Rengel. Registrar la variante, no sustituir el registro de autoridad sin revisar libro-base.",
+    "Los dos tomos de Lógica del sentimiento y de Dialéctica del bidet son una obra por título."
+  ]
+}

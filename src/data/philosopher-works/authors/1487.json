@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "author_id": 1487,
+  "canonical_name": "Juan Carlos Torchia Estrada",
+  "alternate_names": [
+    "Juan Carlos Torchia-Estrada"
+  ],
+  "life": {
+    "birth_year": 1927,
+    "death_year": 2016
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1487-w001",
+      "title": "La filosofía del siglo XX",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.anle.us/en/noticias/inside-anle/fallecimiento-de-juan-carlos-torchia-estrada/"
+      ],
+      "notes": "Buenos Aires: Atlántida."
+    },
+    {
+      "work_id": "1487-w002",
+      "title": "La filosofía en la Argentina",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1961,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.anle.us/en/noticias/inside-anle/fallecimiento-de-juan-carlos-torchia-estrada/"
+      ],
+      "notes": "Washington: Unión Panamericana; edición bibliográfica ampliamente citada."
+    },
+    {
+      "work_id": "1487-w003",
+      "title": "Alejandro Korn: profesión y vocación",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.anle.us/en/noticias/inside-anle/fallecimiento-de-juan-carlos-torchia-estrada/"
+      ],
+      "notes": "México: UNAM."
+    },
+    {
+      "work_id": "1487-w004",
+      "title": "Filosofía y colonización en Hispanoamérica",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9786070209307"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosoficas.unam.mx/catalogo/?publicaciones=filosofia-y-colonizacion-en-hispanoamerica"
+      ],
+      "notes": "UNAM, primera edición 2009, ISBN 9786070209307."
+    },
+    {
+      "work_id": "1487-w005",
+      "title": "Vicisitudes de la filosofía colonial en Hispanoamérica: siglos XVIII y XIX",
+      "work_type": "posthumous_collected_studies",
+      "original_language": "español",
+      "original_date": {
+        "year": 2024,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2024,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789507744235"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncu.edu.ar/19912"
+      ],
+      "notes": "Edición póstuma de estudios del autor, EDIFYL, ISBN 978-950-774-423-5."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historiador argentino del pensamiento filosófico latinoamericano, discípulo de Francisco Romero y especialista en filosofía colonial e historia de las ideas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Academia Norteamericana de la Lengua Española — Juan Carlos Torchia-Estrada",
+      "url": "https://www.anle.us/en/noticias/inside-anle/fallecimiento-de-juan-carlos-torchia-estrada/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Instituto de Investigaciones Filosóficas UNAM — Filosofía y colonización",
+      "url": "https://www.filosoficas.unam.mx/catalogo/?publicaciones=filosofia-y-colonizacion-en-hispanoamerica"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNCuyo — Vicisitudes de la filosofía colonial",
+      "url": "https://bdigital.uncu.edu.ar/19912"
+    }
+  ],
+  "research_notes": [
+    "Vicisitudes se clasifica como edición póstuma de estudios ya escritos por Torchia, no como obra compuesta en 2024.",
+    "No se atribuyen a Torchia como autor original las ediciones de textos de Francisco Romero."
+  ]
+}

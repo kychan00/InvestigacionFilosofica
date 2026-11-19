@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "author_id": 1041,
+  "canonical_name": "Álvaro de Faria",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1041-w001",
+      "title": "Introdução ao estudo do formalismo e das contradições",
+      "work_type": "monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.biblioteca.bib.br/Biblivre5/iahgp/?action=list_bibliographic&letter=i",
+        "https://marxists.pages.dev/portugues/coutinho/1998/mes/filosofo.htm"
+      ],
+      "notes": "São Paulo: Brasiliense, 1960; biblioteca IAHGP y ensayo de Carlos Nelson Coutinho registran el título y año."
+    },
+    {
+      "work_id": "1041-w002",
+      "title": "Conhecimento e reflexos condicionados",
+      "work_type": "monograph",
+      "original_language": "português",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.scribd.com/doc/152112088/livro-a-1808-1930-1"
+      ],
+      "notes": "São Paulo: Fulgor, 1963, prefacio de J. B. Burza; dato procedente de bibliografía filosófica de referencia y sujeto a cotejo de ejemplar."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca do Instituto Arqueológico, Histórico e Geográfico Pernambucano: catálogo Introdução ao estudo do formalismo e das contradições",
+      "url": "https://www.biblioteca.bib.br/Biblivre5/iahgp/?action=list_bibliographic&letter=i"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Carlos Nelson Coutinho, Um filósofo democrático, referência a Álvaro de Faria e o marxismo brasileiro",
+      "url": "https://marxists.pages.dev/portugues/coutinho/1998/mes/filosofo.htm"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Bibliografia Filosófica Brasileira 1808–1985, catálogos de Faria",
+      "url": "https://pt.scribd.com/doc/152112088/livro-a-1808-1930-1"
+    }
+  ],
+  "research_notes": [
+    "Identidad de un médico y escritor brasileño llamado Álvaro de Faria; no atribuir las obras de otros autores homónimos.",
+    "Bibliografía mínima; no se inventan contribuciones institucionales adicionales."
+  ]
+}

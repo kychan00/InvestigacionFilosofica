@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "author_id": 1499,
+  "canonical_name": "Jerónimo de Mendieta",
+  "alternate_names": [
+    "Gerónimo de Mendieta",
+    "Fray Jerónimo de Mendieta"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1499-w001",
+      "title": "Historia eclesiástica indiana",
+      "work_type": "chronicle",
+      "original_language": "español",
+      "original_date": {
+        "year": 1597,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1870,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/obra/historia-eclesiastica-indiana--0/"
+      ],
+      "notes": "Redactada entre 1595 y 1597; primera publicación impresa en 1870 por Joaquín García Icazbalceta. No se confunde fecha de composición con fecha editorial."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Franciscano e historiador del siglo XVI cuya Historia eclesiástica indiana constituye una fuente fundamental para la evangelización, sociedad indígena e historia colonial de Nueva España.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1499-1",
+      "url": "https://www.cervantesvirtual.com/obra/historia-eclesiastica-indiana--0/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1499-2",
+      "url": "https://ri.conicet.gov.ar/bitstream/handle/11336/152921/CONICET_Digital_Nro.b51f62e5-1f1b-4b21-ad73-170dda4064bd_B.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1499-3",
+      "url": "https://bvpb.mcu.es/iberoamerica/gl/consulta/registro.do?control=EMD+056059"
+    }
+  ],
+  "research_notes": [
+    "Lote 150 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 146–149 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; discursos, traducciones, reediciones, recopilaciones y ediciones póstumas se distinguen explícitamente."
+  ]
+}

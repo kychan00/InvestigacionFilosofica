@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "author_id": 568,
+  "canonical_name": "Enrique Torres Llosa",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0568-w001",
+      "title": "La persona individual en la axiología moral de Max Scheler",
+      "work_type": "moral_philosophy_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1945,
+        "certainty": "project_primary_bibliography"
+      },
+      "first_publication_year": 1945,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Max Scheler",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        },
+        {
+          "term": "axiología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0568-w002",
+      "title": "Consideraciones sobre la filosofía de Gabriel Marcel",
+      "work_type": "gabriel_marcel_existential_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1955,
+        "certainty": "journal_volume_1953_to_1955"
+      },
+      "first_publication_year": 1955,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Gabriel Marcel",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trascendencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "reflexión",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://beta.acuedi.org/storage/books/pdf/6047.pdf",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Artículo publicado en el volumen II del Boletín del Instituto Riva-Agüero, fechado 1953–1955. Se adopta 1955 como cierre del intervalo bibliográfico, no como fecha comprobada de impresión exacta."
+    },
+    {
+      "work_id": "0568-w003",
+      "title": "Lógica y nociones de ética: manual adaptado a los programas de enseñanza secundaria",
+      "work_type": "logic_and_ethics_textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1959,
+        "certainty": "bibliographic_entry_cited_in_biography"
+      },
+      "first_publication_year": 1959,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "lógica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación secundaria",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/Enrique_Torres_Llosa"
+      ],
+      "notes": "Lima, Librería Studium, 1959; la localización física de un ejemplar debe completarse en auditoría exhaustiva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudios peruanos de axiología scheleriana, pensamiento de Gabriel Marcel y enseñanza de lógica y ética",
+      "kind": "peruvian_scheler_marcel_and_ethical_education_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "primary_journal_text",
+      "title": "Boletín del Instituto Riva-Agüero — Consideraciones sobre Gabriel Marcel",
+      "url": "https://beta.acuedi.org/storage/books/pdf/6047.pdf"
+    },
+    {
+      "kind": "project_bibliographic_source",
+      "title": "Dussel, Mendieta y Bohórquez — referencia a la tesis de 1945",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "No se le atribuye JURIVOX de 2001, cuya autoría homónima no ha sido resuelta para el filósofo descrito en el inventario."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 1226,
+  "canonical_name": "Ruy Mauro Marini",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1226-w001",
+      "title": "Subdesarrollo y revolución",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://marini-escritos.unam.mx/?page_id=3735"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1226-w002",
+      "title": "Dialéctica de la dependencia",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1973,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://arboldelademocracia.cuaieed.unam.mx/autor/ruy-mauro-marini/"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1226-w003",
+      "title": "La dialéctica del desarrollo capitalista en Brasil",
+      "work_type": "article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1966,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://marini-escritos.unam.mx/?page_id=3735"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1226-1",
+      "url": "https://marini-escritos.unam.mx/?page_id=3735"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1226-2",
+      "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/ruy-mauro-marini/"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "author_id": 687,
+  "canonical_name": "Gerardo Alarco",
+  "alternate_names": [
+    "Gerardo Alarco Larrabure"
+  ],
+  "life": {
+    "born": {
+      "year": 1907,
+      "certainty": "PUCP_academic_biography"
+    },
+    "died": {
+      "year": 1996,
+      "certainty": "PUCP_academic_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_originals_articles_editions_and_roles_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0687-w001",
+      "title": "Agustín de Hipona: ensayos sobre su itinerario espiritual",
+      "work_type": "Augustinian_philosophy_posthumous_essays",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "academic_or_institutional_bibliography"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/9789972420344",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cris.pucp.edu.pe/entities/publication/12e92c98-81ce-4919-8a93-14a7b292cd3d"
+      ],
+      "notes": "Fondo Editorial PUCP 1996, DOI 10.18800/9789972420344. Introducción y edición de Luis Bacigalupo: textos propios son de Alarco; no adjudicarle la introducción editorial."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía medieval y análisis de las Confesiones de Agustín de Hipona en la PUCP.",
+      "kind": "documented_philosophical_educational_or_editorial_contribution",
+      "authorship_status": "documented_in_academic_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_primary_author_bibliography",
+      "title": "PUCP CRIS — Agustín de Hipona: ensayos sobre su itinerario espiritual, Gerardo Alarco",
+      "url": "https://cris.pucp.edu.pe/entities/publication/12e92c98-81ce-4919-8a93-14a7b292cd3d"
+    },
+    {
+      "kind": "university_author_biography",
+      "title": "PUCP Areté — Gerardo Alarco Larrabure, apuntes biográficos (1996)",
+      "url": "https://revistas.pucp.edu.pe/index.php/arete/article/view/5209"
+    }
+  ],
+  "research_notes": [
+    "La biografía PUCP acredita identidad Gerardo Alarco Larrabure (1907–1996).",
+    "La monografía fue editada por Luis Bacigalupo y publicada en 1996: no inventar títulos de apuntes o clases no identificados con respaldo individual.",
+    "La ficha representa una selección mínima sustentada, no un catálogo exhaustivo."
+  ]
+}

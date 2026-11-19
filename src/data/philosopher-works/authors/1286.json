@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "author_id": 1286,
+  "canonical_name": "Cherríe Moraga",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1952
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1286-w001",
+      "title": "This Bridge Called My Back: Writings by Radical Women of Color",
+      "work_type": "anthology",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Gloria Anzaldúa"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://english.ucsb.edu/research/bookshelf/this-bridge-called-my-back-writings-by-radical-women-of-color/"
+      ],
+      "notes": "Primera edición; reediciones posteriores no se duplican."
+    },
+    {
+      "work_id": "1286-w002",
+      "title": "Loving in the War Years: Lo Que Nunca Pasó por Sus Labios",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://openlibrary.org/books/OL3190330M/Loving_in_the_war_years"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1286-w003",
+      "title": "A Xicana Codex of Changing Consciousness: Writings, 2000–2010",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.dukeupress.edu/A-Xicana-Codex-of-Changing-Consciousness"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1286-w004",
+      "title": "Native Country of the Heart",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2019,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cherriemoraga-writer.com/index.php/books-1/native-country"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Escritora, ensayista y activista chicana cuya obra articula feminismo, sexualidad, indigeneidad y teoría política de mujeres de color.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1286-1",
+      "url": "https://english.ucsb.edu/research/bookshelf/this-bridge-called-my-back-writings-by-radical-women-of-color/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1286-2",
+      "url": "https://openlibrary.org/books/OL3190330M/Loving_in_the_war_years"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1286-3",
+      "url": "https://www.dukeupress.edu/A-Xicana-Codex-of-Changing-Consciousness"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1286-4",
+      "url": "https://cherriemoraga-writer.com/index.php/books-1/native-country"
+    }
+  ],
+  "research_notes": [
+    "This Bridge Called My Back se registra como coedición, no como autoría íntegra de la antología.",
+    "La edición de 2000 de Loving in the War Years es ampliada y no se cuenta como obra distinta."
+  ]
+}

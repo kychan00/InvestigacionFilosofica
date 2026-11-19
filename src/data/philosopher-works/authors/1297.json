@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "author_id": 1297,
+  "canonical_name": "Antón de Montesinos",
+  "alternate_names": [
+    "Antón Montesino",
+    "Antonio de Montesinos"
+  ],
+  "life": {
+    "birth_year": 1480,
+    "death_year": 1540
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1297-w001",
+      "title": "Sermón de Adviento contra la esclavitud y las encomiendas",
+      "work_type": "sermon_collectively_composed",
+      "original_language": "español",
+      "original_date": {
+        "year": 1511,
+        "certainty": "documented_preaching_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "designated_preacher_for_collective_dominican_text",
+      "coauthors": [
+        "Comunidad dominicana de Santo Domingo"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.dominicos.org/500-sermon-montesino/montesino/biografia-montesino/",
+        "https://www.dominicos.org/quienes-somos/grandes-figuras/anton-de-montesinos/"
+      ],
+      "notes": "Predicado el 21 de diciembre de 1511. Las fuentes dominicas subrayan que el texto fue deliberado, preparado y firmado por la comunidad; Montesinos fue el predicador designado, por lo que no se le atribuye autoría individual exclusiva."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Predicador dominico cuya denuncia pública de 1511 contra la explotación indígena se convirtió en un hito temprano de la crítica moral a la conquista.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dominicos — Biografía de Antón Montesino",
+      "url": "https://www.dominicos.org/500-sermon-montesino/montesino/biografia-montesino/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dominicos — Antón de Montesinos",
+      "url": "https://www.dominicos.org/quienes-somos/grandes-figuras/anton-de-montesinos/"
+    }
+  ],
+  "research_notes": [
+    "El sermón se registra como texto comunitario predicado por Montesinos, no como composición individual.",
+    "La fecha de nacimiento es aproximada según la cronología dominicana."
+  ]
+}

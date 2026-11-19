@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "author_id": 1010,
+  "canonical_name": "Theodoro Ramos",
+  "alternate_names": [
+    "Theodoro Augusto Ramos",
+    "Teodoro Augusto Ramos"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1010-w001",
+      "title": "Sobre as funcções de variaveis reaes",
+      "work_type": "degree_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1918,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1918,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.rbhm.org.br/index.php/RBHM/article/view/7"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1010-w002",
+      "title": "Questões sobre as curvas reversas",
+      "work_type": "academic_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.rbhm.org.br/index.php/RBHM/article/download/56/64/219"
+      ],
+      "notes": "La bibliografía difiere sobre la fecha 1919/1926; año inaugural pendiente de cotejo."
+    },
+    {
+      "work_id": "1010-w003",
+      "title": "Integraes definidas das funções discontinuas",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1927,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Teodoro_Augusto_Ramos"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1010-w004",
+      "title": "Cálculo vectorial",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1930,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Teodoro_Augusto_Ramos"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1010-w005",
+      "title": "Leçons sur le calcul vectoriel",
+      "work_type": "monograph",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1930,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1930,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Teodoro_Augusto_Ramos"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1010-w006",
+      "title": "Estudos: ensino, sciencias physicas e mathematicas",
+      "work_type": "monograph",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1933,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pt.wikipedia.org/wiki/Teodoro_Augusto_Ramos"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Renovación de la enseñanza matemática y el cálculo vectorial en Brasil.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 1",
+      "url": "https://www.rbhm.org.br/index.php/RBHM/article/view/7"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 2",
+      "url": "https://www.rbhm.org.br/index.php/RBHM/article/download/56/64/219"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Fuente bibliográfica 3",
+      "url": "https://pt.wikipedia.org/wiki/Teodoro_Augusto_Ramos"
+    }
+  ],
+  "research_notes": [
+    "Renovación de la enseñanza matemática y el cálculo vectorial en Brasil."
+  ]
+}

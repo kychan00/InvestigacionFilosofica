@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "author_id": 909,
+  "canonical_name": "Cano Valle",
+  "alternate_names": [
+    "Rubén Fernando Cano Valle",
+    "Rubén F. Cano Valle"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0909-w001",
+      "title": "Bioética",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2005,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2005,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9703294113"
+        ]
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/bioetica-5018892?as=0&c=ZXzZpR&d=false&i=20&q=%2A%3A%2A&t=search_0&v=1"
+      ],
+      "notes": "Instituto de Investigaciones Jurídicas, UNAM (2005), ISBN 970-32-9411-3. Recurso editorial completo que reúne las secciones catalogadas por separado como capítulos; dichas secciones NO constituyen obras nuevas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación y gestión de servicios de salud, bioética y derecho médico en UNAM; divulgación de consentimiento informado y comités clínicos.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, Bioética (2005)",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/bioetica-5018892?as=0&c=ZXzZpR&d=false&i=20&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, Enfoque filosófico-médico acerca de la bioética",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/enfoque-filosofico-medico-acerca-de-la-bioetica-5007231?as=0&c=ZXzZpR&d=false&i=20&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, Bioética y biotecnología",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/bioetica-y-biotecnologia-5034381?as=0&c=mvM90j&d=false&i=1&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, El consentimiento bajo información",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/el-consentimiento-bajo-informacion-un-documento-o-un-proceso-5027627?as=0&c=BGzRAQ&d=false&i=745&q=derecho&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, El SIDA, reto para la bioética",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/el-sida-reto-para-la-bioetica-5010904?as=0&c=nwm0Wk&d=false&i=20&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, La medicina y el derecho de los enfermos terminales",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/la-medicina-y-el-derecho-de-los-enfermos-terminales-5018079?as=0&c=ZXzZpR&d=false&i=20&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, Una figura denominada comité de bioética",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/una-figura-denominada-comite-de-bioetica-5024069?as=0&c=mvM90j&d=false&i=1&q=%2A%3A%2A&t=search_0&v=1"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "UNAM repositorio, La bioética como ciencia de valor infrangible",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/la-bioetica-como-ciencia-de-valor-infrangible-5022673?as=0&c=ZXzZpR&d=false&i=20&q=%2A%3A%2A&t=search_0&v=1"
+    }
+  ],
+  "research_notes": [
+    "Auditoría correctiva del lote 091: los siete capítulos que el repositorio UNAM muestra por separado pertenecen al mismo libro Bioética (2005), ISBN 970-32-9411-3. No se cuentan como siete obras adicionales. Índice de títulos: Enfoque filosófico-médico acerca de la bioética; Bioética y biotecnología; El consentimiento bajo información: ¿un documento o un proceso?; El SIDA, reto para la bioética; La medicina y el derecho de los enfermos terminales; Una figura denominada comité de bioética; La bioética como ciencia de valor infrangible. Las URL específicas se conservan en sources."
+  ]
+}

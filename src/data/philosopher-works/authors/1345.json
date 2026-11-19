@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "author_id": 1345,
+  "canonical_name": "Florentino de Carvalho",
+  "alternate_names": [
+    "Primitivo Raymundo Soares"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1345-w001",
+      "title": "Da escravidão à liberdade: a derrocada burguesa e o advento da igualdade social",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1927,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://teses.usp.br/teses/disponiveis/100/100135/tde-13032014-203900/publico/dissertacao.pdf"
+      ],
+      "notes": "A dissertação da USP documenta publicação pela Sociedade Editora Renascença, Porto Alegre, em 1927."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pseudônimo do militante anarquista Primitivo Raymundo Soares, ativo no movimento operário brasileiro e autor de reflexão social libertária.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1345-1",
+      "url": "https://teses.usp.br/teses/disponiveis/100/100135/tde-13032014-203900/publico/dissertacao.pdf"
+    }
+  ],
+  "research_notes": [
+    "Lote 135 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–134 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, reimpresiones, prensa periódica y versiones posteriores no se convierten automáticamente en obras nuevas."
+  ]
+}

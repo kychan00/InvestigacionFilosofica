@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "author_id": 1315,
+  "canonical_name": "Leonardo de Peñafiel",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1315-w001",
+      "title": "Commentarii in Aristotelis metaphysicam",
+      "work_type": "manuscript_commentary",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1632,
+        "certainty": "documented_or_composition_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lluisvives.com/obra-visor/sobre-la-escolstica-virreinal-peruana-el-p-leonardo-de-peafiel-comentarista-de-aristteles-1632-0/html/02367a0a-82b2-11df-acc7-002185ce6064_7.html"
+      ],
+      "notes": "Manuscrito redactado en Lima en 1632; no se convierte la posterior descripción académica en una primera edición ficticia."
+    },
+    {
+      "work_id": "1315-w002",
+      "title": "Disputationes theologicas in primam partem divi Thomae, de deo uno",
+      "work_type": "multivolume_book",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": 1663,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lluisvives.com/obra-visor/sobre-la-escolstica-virreinal-peruana-el-p-leonardo-de-peafiel-comentarista-de-aristteles-1632-0/html/02367a0a-82b2-11df-acc7-002185ce6064_7.html"
+      ],
+      "notes": "Edición póstuma en Lyon, publicada en dos volúmenes entre 1663 y 1666."
+    },
+    {
+      "work_id": "1315-w003",
+      "title": "Disputationes scholasticae et morales de virtute fidei divinae, deque infidelitate, haeresi et poenis haereticorum",
+      "work_type": "book",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": 1673,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lluisvives.com/obra-visor/sobre-la-escolstica-virreinal-peruana-el-p-leonardo-de-peafiel-comentarista-de-aristteles-1632-0/html/02367a0a-82b2-11df-acc7-002185ce6064_7.html"
+      ],
+      "notes": "Edición póstuma en Lyon, 1673."
+    },
+    {
+      "work_id": "1315-w004",
+      "title": "Tractatus de incarnatione verbi divini",
+      "work_type": "book",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": 1678,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lluisvives.com/obra-visor/sobre-la-escolstica-virreinal-peruana-el-p-leonardo-de-peafiel-comentarista-de-aristteles-1632-0/html/02367a0a-82b2-11df-acc7-002185ce6064_7.html"
+      ],
+      "notes": "Edición póstuma en Lyon, 1678."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita riobambeño y profesor en el Colegio de San Pablo de Lima, autor de comentarios aristotélicos y tratados escolásticos conservados en manuscrito y ediciones póstumas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1315-1",
+      "url": "https://www.lluisvives.com/obra-visor/sobre-la-escolstica-virreinal-peruana-el-p-leonardo-de-peafiel-comentarista-de-aristteles-1632-0/html/02367a0a-82b2-11df-acc7-002185ce6064_7.html"
+    }
+  ],
+  "research_notes": [
+    "Lote 132 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–131 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva. En autores coloniales se distinguen manuscrito/composición, primera publicación y ediciones póstumas; cuando la fecha no está establecida se conserva null."
+  ]
+}

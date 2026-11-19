@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 1088,
+  "canonical_name": "Domênico Costella",
+  "alternate_names": [
+    "Domenico Costella",
+    "Doménico Costella"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1088-w001",
+      "title": "Filosofia e teologia da libertação",
+      "work_type": "booklet_or_essay",
+      "original_language": "português",
+      "original_date": {
+        "year": null,
+        "certainty": "first_publication_not_verified"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://www.ariadnatucma.com.ar/?p=6968"
+      ],
+      "notes": "IFIL, Curitiba; citada como 1997 en bibliografía secundaria y 1998 en Dussel; año de primera versión requiere comprobar original."
+    },
+    {
+      "work_id": "1088-w002",
+      "title": "O fundamento epistemológico do ensino religioso",
+      "work_type": "book_chapter",
+      "original_language": "português",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://mid-educacao.curitiba.pr.gov.br/2016/5/pdf/00108941.pdf"
+      ],
+      "notes": "En O ensino religioso no Brasil, orgs. Sérgio Junqueira y Raul Wagner; Curitiba: Champagnat, capítulo 5, pp.97 y ss."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participó en el desarrollo del Instituto de Filosofia da Libertação (IFiL) y actividades públicas de enseñanza de filosofía en Paraná.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 1: d",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 2: costa",
+      "url": "https://www.ariadnatucma.com.ar/?p=6968"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 3: costella",
+      "url": "https://mid-educacao.curitiba.pr.gov.br/2016/5/pdf/00108941.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 4: costella3",
+      "url": "https://www.ifil.org/ead/index.php?cal_m=10&cal_y=2026"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 5: costella4",
+      "url": "https://www.cee.pr.gov.br/Noticia/CEEPR-Promove-palestra-aos-servidores"
+    }
+  ],
+  "research_notes": [
+    "El libro de Dussel menciona juntos Pedro Gambin y Domênico Costella antes del título Filosofia e teologia da libertação; referencias posteriores lo atribuyen individualmente a Costella.",
+    "Existe discrepancia 1997 (bibliografía académica) vs. 1998 (Dussel) para Filosofia e teologia da libertação; sin portada primigenia se deja indeterminada la primera publicación.",
+    "La autoría de un capítulo no se extrapola a la obra colectiva O ensino religioso no Brasil."
+  ]
+}

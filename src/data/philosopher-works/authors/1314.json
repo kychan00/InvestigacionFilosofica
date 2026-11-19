@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "author_id": 1314,
+  "canonical_name": "Alonso de Peñafiel",
+  "alternate_names": [
+    "Ildefonso de Peñafiel"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1314-w001",
+      "title": "Obligaciones y excelencias de las tres órdenes militares de Santiago, Calatrava y Alcántara",
+      "work_type": "book",
+      "original_language": "latín/español",
+      "original_date": {
+        "year": 1643,
+        "certainty": "documented_or_composition_year"
+      },
+      "first_publication_year": 1643,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.ucuenca.edu.ec/digital/files/original/eb4a835c1962467d2fc1dd54ff7f9ffb7b6acc45.pdf"
+      ],
+      "notes": "Publicado en Madrid en 1643 por su discípulo Pedro de Pineda."
+    },
+    {
+      "work_id": "1314-w002",
+      "title": "Cursus integri philosophici",
+      "work_type": "multivolume_book",
+      "original_language": "latín/español",
+      "original_date": {
+        "year": 1653,
+        "certainty": "documented_or_composition_year"
+      },
+      "first_publication_year": 1653,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1050511"
+      ],
+      "notes": "Curso filosófico en varios tomos; ADABI documenta la edición de Lyon de 1653-1655. Se registra como una sola empresa bibliográfica."
+    },
+    {
+      "work_id": "1314-w003",
+      "title": "Theologia scholastica naturalis",
+      "work_type": "book",
+      "original_language": "latín/español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": 1666,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.ucuenca.edu.ec/digital/files/original/eb4a835c1962467d2fc1dd54ff7f9ffb7b6acc45.pdf"
+      ],
+      "notes": "Fuente bibliográfica registra edición en Lyon de 1666; por ser posterior a la muerte del autor se trata como publicación póstuma."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita criollo, profesor en Cuzco y Lima, autor de un curso filosófico escolástico que circuló ampliamente en instituciones educativas del virreinato.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1314-1",
+      "url": "https://www.adabi.org.mx/vufind/Record/1050511"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1314-2",
+      "url": "https://biblioteca.ucuenca.edu.ec/digital/files/original/eb4a835c1962467d2fc1dd54ff7f9ffb7b6acc45.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1314-3",
+      "url": "https://enriquedussel.com/txt/Textos_200_Obras/Filosofos_Peru/Filosofia_colonial-M.Luisa_Tuesta.pdf"
+    }
+  ],
+  "research_notes": [
+    "Lote 132 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–131 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva. En autores coloniales se distinguen manuscrito/composición, primera publicación y ediciones póstumas; cuando la fecha no está establecida se conserva null."
+  ]
+}

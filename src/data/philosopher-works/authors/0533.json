@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "author_id": 533,
+  "canonical_name": "Rafael Castellanos",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0533-w001",
+      "title": "Hermenéutica y deconstrucción",
+      "work_type": "hermeneutics_and_deconstruction_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "journal_original_record"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "hermenéutica",
+          "provenance": "editorial"
+        },
+        {
+          "term": "deconstrucción",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Derrida",
+          "provenance": "editorial"
+        },
+        {
+          "term": "Heidegger",
+          "provenance": "editorial"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.unal.edu.co/index.php/idval/issue/view/317"
+      ],
+      "notes": "Ideas y Valores, vol. 55, núm. 130, 2006, pp. 3-21."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Diálogo colombiano entre hermenéutica y deconstrucción a partir de la lectura derridiana de Heidegger",
+      "kind": "colombian_hermeneutics_and_deconstruction_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "journal_source",
+      "title": "Ideas y Valores 55(130) — Hermenéutica y deconstrucción",
+      "url": "https://revistas.unal.edu.co/index.php/idval/issue/view/317"
+    }
+  ],
+  "research_notes": [
+    "La ficha queda deliberadamente restringida al trabajo inequívocamente atribuido por el libro-base y por Ideas y Valores; no se fuerza identificación con homónimos."
+  ]
+}

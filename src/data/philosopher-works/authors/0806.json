@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "author_id": 806,
+  "canonical_name": "Alberto Parisí",
+  "alternate_names": [
+    "Alberto Parisi",
+    "Alberto Polo Parisí"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0806-w001",
+      "title": "La problemática de la cultura en América Latina: ensayo de aproximación",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.loc.gov/item/hlas-bi76109429/"
+      ],
+      "notes": "Obra documentada por la fuente bibliográfica indicada; sin multiplicar reediciones."
+    },
+    {
+      "work_id": "0806-w002",
+      "title": "Filosofía y dialéctica",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://afyl.org/archivos-en-linea/articulos-disponibles/"
+      ],
+      "notes": "Obra documentada por la fuente bibliográfica indicada; sin multiplicar reediciones."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dialéctica marxista, crítica a la filosofía de la liberación y filosofía de la cultura popular en clave latinoamericana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca del Congreso de Estados Unidos: La problemática de la cultura en América Latina",
+      "url": "https://www.loc.gov/item/hlas-bi76109429/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Asociación Filosofía y Liberación: Filosofía y dialéctica",
+      "url": "https://afyl.org/archivos-en-linea/articulos-disponibles/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "CLACSO: Alberto Polo Parisí, maestro de las ciencias sociales críticas",
+      "url": "https://libreria.clacso.org/publicacion.php?c=1&p=4683"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Theoria UNAM: Crítica a la filosofía de la liberación de Parisí y Cerutti Guldberg",
+      "url": "https://revistas.filos.unam.mx/index.php/theoria/article/view/2151"
+    }
+  ],
+  "research_notes": [
+    "La problemática de la cultura en América Latina fue publicada por Bonum en 1974, según Library of Congress.",
+    "Filosofía y dialéctica se publicó por Edicol en México en 1979; comentario crítico de la filosofía de la liberación, no duplicar capítulos al contar el libro."
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "author_id": 492,
+  "canonical_name": "Adolpho Crippa",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1929,
+      "certainty": "project_bibliography"
+    },
+    "died": {
+      "year": 2000,
+      "certainty": "academy_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0492-w001",
+      "title": "Mito e cultura",
+      "work_type": "philosophy_of_myth_and_culture_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1975,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia brasileira",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "São Paulo, Convívio, 1975, 214 p."
+    },
+    {
+      "work_id": "0492-w002",
+      "title": "As idéias filosóficas no Brasil",
+      "work_type": "edited_history_of_brazilian_philosophy_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1978,
+        "certainty": "academy_bibliography_and_review"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "coordinator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia brasileira",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história das ideias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "Coleção em três volumes, São Paulo, Convívio, 1978. Crippa figura como coordenador; não se lhe atribuem os capítulos de outros autores."
+    },
+    {
+      "work_id": "0492-w003",
+      "title": "As idéias políticas no Brasil",
+      "work_type": "edited_history_of_brazilian_political_ideas_collection",
+      "original_language": "português",
+      "original_date": {
+        "year": 1979,
+        "certainty": "library_catalog"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "coordinator",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ideias políticas",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://opac.um.edu.uy/index.php?id=4398&lvl=publisher_see"
+      ],
+      "notes": "São Paulo, Convívio, 1979, 2 volumes. O catálogo identifica Crippa como coordenador."
+    },
+    {
+      "work_id": "0492-w004",
+      "title": "A universidade",
+      "work_type": "philosophy_and_university_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1980,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "universidade",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "educação",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "São Paulo, Convívio, 1980, 144 p."
+    },
+    {
+      "work_id": "0492-w005",
+      "title": "A idéia de cultura em Vicente Ferreira da Silva",
+      "work_type": "doctoral_dissertation_on_vicente_ferreira_da_silva",
+      "original_language": "português",
+      "original_date": {
+        "year": 1983,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Vicente Ferreira da Silva",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia brasileira",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "Tese de doutorado, Universidade Gama Filho, 1983, 132 folhas mimeografadas."
+    },
+    {
+      "work_id": "0492-w006",
+      "title": "A idéia de cultura em Vicente Ferreira da Silva",
+      "work_type": "published_book_version_of_dissertation",
+      "original_language": "português",
+      "original_date": {
+        "year": 1984,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Vicente Ferreira da Silva",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "mito",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "São Paulo, Convívio, 1984, 194 p. Livro derivado da tese de 1983; a relação entre ambos fica explícita para evitar falsa independência intelectual."
+    },
+    {
+      "work_id": "0492-w007",
+      "title": "Introdução à filosofia: sinopse",
+      "work_type": "introduction_to_philosophy_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1995,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "introdução à filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofar",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "problemas filosóficos",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "São Paulo, 1995, 100 p."
+    },
+    {
+      "work_id": "0492-w008",
+      "title": "Problemas filosóficos",
+      "work_type": "philosophical_problems_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1995,
+        "certainty": "academy_bibliography"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "problemas filosóficos",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+      ],
+      "notes": "São Paulo, 1995, 129 p."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Coordenação de grandes sínteses da história das ideias filosóficas e políticas no Brasil e reflexão própria sobre mito, cultura e universidade",
+      "kind": "brazilian_history_of_ideas_myth_and_culture_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academy_biobibliography",
+      "title": "Academia Brasileira de Filosofia — Adolpho Crippa",
+      "url": "https://www.academia-de-filosofia.org.br/adolpho-crippa"
+    },
+    {
+      "kind": "library_catalog_source",
+      "title": "Universidad de Montevideo — As idéias políticas no Brasil",
+      "url": "https://opac.um.edu.uy/index.php?id=4398&lvl=publisher_see"
+    }
+  ],
+  "research_notes": [
+    "As idéias filosóficas no Brasil e As idéias políticas no Brasil são obras coletivas coordenadas por Crippa; o papel editorial é mantido explicitamente.",
+    "A edição de 1984 de A idéia de cultura desenvolve/publica a tese doutoral de 1983 e é marcada como versão em livro."
+  ]
+}

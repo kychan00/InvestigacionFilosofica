@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "author_id": 1502,
+  "canonical_name": "Fausto Vega",
+  "alternate_names": [
+    "Fausto Vega y Gómez y Cervantes",
+    "Fausto Vega y Gómez"
+  ],
+  "life": {
+    "birth_year": 1922,
+    "death_year": 2015
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1502-w001",
+      "title": "De la literatura mexicana",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.br/j/ts/a/bqVZcDQH8SfVf4cRGPm5TTH/?format=html&ilang=es&lang=es"
+      ],
+      "notes": "Conferencia pronunciada en mayo de 1956 en el Palacio de Bellas Artes y publicada en Revista Mexicana de Literatura 6(1), pp.659–673."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Abogado, ensayista y filósofo mexicano integrante del grupo Hiperión, vinculado a la reflexión sobre lo mexicano, nacionalismo cultural y crítica literaria.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Enciclopedia de la Literatura en México — Fausto Vega",
+      "url": "https://www.elem.mx/autor/datos/119305"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "SciELO — Revista Mexicana de Literatura: autonomía literaria y crítica de la sociedad",
+      "url": "https://www.scielo.br/j/ts/a/bqVZcDQH8SfVf4cRGPm5TTH/?format=html&ilang=es&lang=es"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "La Jornada — Muere Fausto Vega, abogado y filósofo",
+      "url": "https://www.jornada.com.mx/2015/05/08/cultura/a07n1cul"
+    }
+  ],
+  "research_notes": [
+    "La antología El Hiperión menciona a Fausto Vega como integrante del grupo, pero no reproduce textos suyos; por eso la ficha se mantiene intencionalmente breve.",
+    "De la literatura mexicana es el texto individual mejor documentado localizado en esta revisión y se registra sin inferir una bibliografía inexistente."
+  ]
+}

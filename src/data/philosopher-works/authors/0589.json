@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "author_id": 589,
+  "canonical_name": "José Carlos Montaner",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0589-w001",
+      "title": "Instituto de Psicotécnica y Educación",
+      "work_type": "experimental_psychopedagogy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1928,
+        "certainty": "historical_education_scholarship_citation"
+      },
+      "first_publication_year": 1928,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicotécnica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "educación",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicología experimental",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.academia.edu/128479920/Investigaci%C3%B3n_en_educaci%C3%B3n_y_docencia_en_Uruguay_1942_1967_Una_aproximaci%C3%B3n_a_partir_de_la_trayectoria_de_Mar%C3%ADa_A_Carbonell_de_Grompone"
+      ],
+      "notes": "Anales de Instrucción Primaria, vol. XXIV (1928), pp. 355–364, firmado J. C. Montaner. Requiere cotejo de original para validar iniciales completas."
+    },
+    {
+      "work_id": "0589-w002",
+      "title": "Goethe",
+      "work_type": "commemorative_conference_cycle_collective_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "Uruguayan_physical_library_catalog"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "co_contributor_to_conference_cycle",
+      "coauthors": [
+        "Sarah Bollo",
+        "Eduardo de Salterain y Herrera",
+        "José A. Gallinal",
+        "José M. Estapé"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Goethe",
+          "provenance": "inferred"
+        },
+        {
+          "term": "literatura alemana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "cultura",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://opac.um.edu.uy/index.php?lvl=notice_display&id=9404"
+      ],
+      "notes": "Volumen colectivo de ciclo de conferencias en Instituto de Estudios Superiores, Montevideo, 1933. No se atribuyen a Montaner todas las conferencias; falta identificar título de su intervención individual."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia de filosofía y psicología experimental en el Instituto de Estudios Superiores de Montevideo y educación nueva uruguaya",
+      "kind": "Uruguay_experimental_psychology_and_fenomenology_institutional_teaching",
+      "authorship_status": "documented_academic_contribution",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano, del Caribe y latino",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "Uruguayan_university_physical_catalog",
+      "title": "Universidad de Montevideo — Goethe, ciclo de conferencias de 1933",
+      "url": "https://opac.um.edu.uy/index.php?lvl=notice_display&id=9404"
+    },
+    {
+      "kind": "peer_reviewed_historical_education_research",
+      "title": "Historia de psicopedagogía y educación uruguaya, referencia Montaner (1928)",
+      "url": "https://www.academia.edu/128479920/Investigaci%C3%B3n_en_educaci%C3%B3n_y_docencia_en_Uruguay_1942_1967_Una_aproximaci%C3%B3n_a_partir_de_la_trayectoria_de_Mar%C3%ADa_A_Carbonell_de_Grompone"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — docencia en el Instituto de Estudios Superiores",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "No confundir al profesor uruguayo de psicología y filosofía activo en 1928–1944 con figuras contemporáneas de apellido Montaner ni atribuirle textos de autores distintos.",
+    "El volumen Goethe (1933) es colectivo; la autoría individual del contenido de Montaner permanece pendiente."
+  ]
+}

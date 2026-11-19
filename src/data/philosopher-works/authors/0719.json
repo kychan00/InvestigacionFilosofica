@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "author_id": 719,
+  "canonical_name": "J. Alberto Coffa",
+  "alternate_names": [
+    "J. Alberto Coffa",
+    "Alberto Coffa"
+  ],
+  "life": {
+    "born": {
+      "year": null,
+      "certainty": "not_verified"
+    },
+    "died": {
+      "year": null,
+      "certainty": "not_verified"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_verified_bibliographic_records_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0719-w001",
+      "title": "Notas para un esquema de la filosofía de la ciencia contemporánea",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1972,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.22201/iifs.18704905e.1972.132",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://critica.filosoficas.unam.mx/index.php/critica/article/view/132"
+      ],
+      "notes": "Vol. 6, n.º 16-17, pp. 15-56 (1972); el sistema editorial web marca 2018 como fecha de digitalización, no de primera publicación."
+    },
+    {
+      "work_id": "0719-w002",
+      "title": "Dos concepciones de la elucidación filosófica",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.22201/iifs.18704905e.1975.160",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://critica.filosoficas.unam.mx/index.php/critica/article/view/160"
+      ],
+      "notes": "Vol. 7 n.º 21, pp. 43–67; la cabecera digital en inglés dice Two Conceptions of Philosophical Elucidatio, pero el original es el mismo artículo de 1975."
+    },
+    {
+      "work_id": "0719-w003",
+      "title": "The Semantic Tradition from Kant to Carnap: To the Vienna Station",
+      "work_type": "posthumous_book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographic_source"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author_posthumous_edited_edition",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cambridge.org/core/books/semantic-tradition-from-kant-to-carnap/E448B2413A076ED2275A87C87811D419"
+      ],
+      "notes": "Libro póstumo de Cambridge University Press; edición de Linda Wessels, quien no debe incluirse como coautora; traducciones posteriores no son obras distintas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación sobre la tradición semántica, el apriorismo, Carnap, Tarski y la transición histórica hacia el positivismo lógico.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_specialized_scholarly_or_institutional_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez, El pensamiento filosófico latinoamericano... (inventario fuente)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "UNAM Crítica: Notas para un esquema de la filosofía de la ciencia contemporánea (1972)",
+      "url": "https://critica.filosoficas.unam.mx/index.php/critica/article/view/132"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "UNAM Crítica: Dos concepciones de la elucidación filosófica (1975)",
+      "url": "https://critica.filosoficas.unam.mx/index.php/critica/article/view/160"
+    },
+    {
+      "kind": "bibliographic_or_specialized_documentary_source",
+      "title": "Cambridge University Press: The Semantic Tradition from Kant to Carnap (1991)",
+      "url": "https://www.cambridge.org/core/books/semantic-tradition-from-kant-to-carnap/E448B2413A076ED2275A87C87811D419"
+    }
+  ],
+  "research_notes": [
+    "La ficha editorial digital de Crítica muestra publicación web 2018; conservar los años originales de los volúmenes 1972 y 1975, confirmados además por sus DOI.",
+    "La edición de Linda Wessels del libro póstumo de 1991 no equivale a coautoría."
+  ]
+}

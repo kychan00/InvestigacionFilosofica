@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "author_id": 1290,
+  "canonical_name": "Lara Medina",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1953
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1290-w001",
+      "title": "Las Hermanas: Chicana/Latina Religious-Political Activism in the U.S. Catholic Church",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://tupress.temple.edu/books/las-hermanas"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1290-w002",
+      "title": "Voices from the Ancestors: Xicanx and Latinx Spiritual Expressions and Healing Practices",
+      "work_type": "anthology",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2019,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "coeditor",
+      "coauthors": [
+        "Martha R. Gonzales"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.ncbi.nlm.nih.gov/nlmcatalog/101767609"
+      ],
+      "notes": "Antología colectiva; se registra la función editorial."
+    },
+    {
+      "work_id": "1290-w003",
+      "title": "The Legacy of Las Hermanas for Latina/o Religious Politics in the Twenty-First Century",
+      "work_type": "book_chapter",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 2022,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://academic.oup.com/nyu-press-scholarship-online/book/44344/chapter-abstract/373044956"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Académica de Chicana/o Studies especializada en historia religiosa, espiritualidad chicana y activismo religioso-político.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1290-1",
+      "url": "https://tupress.temple.edu/books/las-hermanas"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1290-2",
+      "url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/101767609"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1290-3",
+      "url": "https://academic.oup.com/nyu-press-scholarship-online/book/44344/chapter-abstract/373044956"
+    }
+  ],
+  "research_notes": [
+    "La tesis doctoral de 1998 sobre Las Hermanas es antecedente del libro de 2004; no se duplica aquí como publicación comercial.",
+    "Voices from the Ancestors se registra como coedición."
+  ]
+}

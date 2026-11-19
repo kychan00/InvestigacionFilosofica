@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "author_id": 1400,
+  "canonical_name": "Luis José de la Peña",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1798,
+    "death_year": 1871
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1400-w001",
+      "title": "Lecciones de filosofía",
+      "work_type": "philosophy_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1827,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncuyo.edu.ar/ficha/5735"
+      ],
+      "notes": "El cuerpo central corresponde a las lecciones dictadas en 1827; el manuscrito fue donado a la Universidad de Montevideo en 1850 y publicado por UNCuyo en 2006."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de la cátedra de Ideología y filosofía en el Río de la Plata; sus lecciones abarcan metafísica, moral, lógica, retórica y gramática.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Digital UNCuyo — Lecciones de filosofía, Luis José de la Peña",
+      "url": "https://bdigital.uncuyo.edu.ar/ficha/5735"
+    }
+  ],
+  "research_notes": [
+    "Se distingue la fecha de dictado de 1827 de la edición crítica moderna de 2006.",
+    "Las conferencias de gramática agregadas posteriormente al manuscrito no se cuentan como obras independientes."
+  ]
+}

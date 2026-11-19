@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "author_id": 710,
+  "canonical_name": "Demetrio Pizarro",
+  "alternate_names": [
+    "Manuel Demetrio Pizarro",
+    "Manuel D. Pizarro",
+    "Manuel Demetrio de la Pasión Pizarro"
+  ],
+  "life": {
+    "born": {
+      "year": 1841,
+      "certainty": "historical_book_and_biography"
+    },
+    "died": {
+      "year": 1909,
+      "certainty": "historical_book_and_biography"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_documented_first_editions_editorial_roles_and_articles_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0710-w001",
+      "title": "Miscelánea: discursos, escritos forenses, memorias, mensajes, notas, cartas y artículos de diario",
+      "work_type": "collected_original_political_and_legal_writings",
+      "original_language": "español",
+      "original_date": {
+        "year": 1887,
+        "certainty": "university_library_or_scholarly_bibliography"
+      },
+      "first_publication_year": 1887,
+      "authorship_status": "original_author_compiled_writings",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://libreriaelforo.com.ar/mx/productos/manuel-d-pizarro-miscelanea-discursos-escritos-forenses-memorias-mensajes-notas-cartas-y-articulos-de-diario-cordoba-1887-obra-en-espanol-1kmdx/"
+      ],
+      "notes": "Volumen cordobés 1887 de discursos, memoriales, escritos forenses y periodísticos propios. No se multiplican sus secciones como libros independientes."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo de pensamiento jurídico, constitucional y religioso en Córdoba y participación en debates parlamentarios argentinos del siglo XIX.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_specialized_academic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "antiquarian_primary_book_record",
+      "title": "Miscelánea, Manuel D. Pizarro, Córdoba 1887, ejemplar antiguo",
+      "url": "https://libreriaelforo.com.ar/mx/productos/manuel-d-pizarro-miscelanea-discursos-escritos-forenses-memorias-mensajes-notas-cartas-y-articulos-de-diario-cordoba-1887-obra-en-espanol-1kmdx/"
+    },
+    {
+      "kind": "university_historical_biographical_study",
+      "title": "UCA — Alberto Caturelli, pensamiento filosófico-religioso de Manuel Demetrio Pizarro",
+      "url": "https://repositorio.uca.edu.ar/handle/123456789/4748"
+    },
+    {
+      "kind": "specialized_historical_bibliography",
+      "title": "Caturelli, Historia de la filosofía en Argentina — capítulo de Manuel Demetrio Pizarro",
+      "url": "https://www.filosofia.org/bol/bib/nb057.htm"
+    }
+  ],
+  "research_notes": [
+    "Nombre abreviado del inventario 'Demetrio Pizarro' corresponde al político, jurista y autor Manuel Demetrio Pizarro (1841–1909).",
+    "El texto El pensamiento filosófico-religioso de Manuel Demetrio Pizarro (Alberto Caturelli, 1984) es estudio SOBRE él, no escrito suyo.",
+    "Solo se incorpora Miscelánea de 1887 con testimonio de edición material; otras intervenciones no se cuentan sin ficha individual."
+  ]
+}

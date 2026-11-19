@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "author_id": 1369,
+  "canonical_name": "Jessy Santos",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1909
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1369-w001",
+      "title": "Instinto, Razão e Intuição",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1950,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1950,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://fontesdealencar.org/wp-content/uploads/2020/12/joao-da-crauz-cost-a-historia-da-filosofia-no-brasil.pdf"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo brasileiro identificado pela historiografia de João Cruz Costa entre autores da renovação filosófica paulista de meados do século XX.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1369-1",
+      "url": "https://fontesdealencar.org/wp-content/uploads/2020/12/joao-da-crauz-cost-a-historia-da-filosofia-no-brasil.pdf"
+    }
+  ],
+  "research_notes": [
+    "A fonte historiográfica localizada registra de forma inequívoca apenas Instinto, Razão e Intuição (1950).",
+    "Não se adicionam obras de homônimos sem autoridade bibliográfica que confirme a identidade."
+  ]
+}

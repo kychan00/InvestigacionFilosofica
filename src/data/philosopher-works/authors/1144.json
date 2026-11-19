@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "author_id": 1144,
+  "canonical_name": "Juan Rodríguez Larreta",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1941,
+    "death_year": 2012
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1144-w001",
+      "title": "Metafísica, ética y conocimiento",
+      "work_type": "posthumous_collected_articles",
+      "original_language": "español",
+      "original_date": {
+        "year": 2013,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2013,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/phm/jrl.htm",
+        "https://fundacionluminis.org.ar/listado-orientativo/metafisica-etica-y-conocimiento",
+        "https://mail.analisisfilosofico.org/index.php/af/article/view/61"
+      ],
+      "notes": "Prometeo, Buenos Aires, 2013, 370 páginas; veintena de artículos escritos en vida y editados después de su muerte por Thomas Moro Simpson, Nora Stigol e Iñaki Zuberbühler; las funciones editoriales corresponden a estos terceros."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundador y presidente de SADAF en dos períodos y promotor de Análisis Filosófico y programas de formación filosófica argentina.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: larreta",
+      "url": "https://www.filosofia.net/ddf/phm/jrl.htm"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: larretaReview",
+      "url": "https://fundacionluminis.org.ar/listado-orientativo/metafisica-etica-y-conocimiento"
+    },
+    {
+      "kind": "institutional_academic_library_catalog_or_bibliographic_source",
+      "title": "Referencia documental: larretaStudy",
+      "url": "https://mail.analisisfilosofico.org/index.php/af/article/view/61"
+    }
+  ],
+  "research_notes": [
+    "La recopilación de 2013 tiene aproximadamente veinte artículos. No se crean fichas bibliográficas individuales para ellos sin confirmar sus títulos originales y años de publicación.",
+    "La antología es autoral de Rodríguez Larreta, pero los compiladores fueron Thomas Moro Simpson, Nora Stigol e Iñaki Zuberbühler.",
+    "No se atribuyen a Rodríguez Larreta los estudios y homenajes que otras personas escribieron sobre él."
+  ]
+}

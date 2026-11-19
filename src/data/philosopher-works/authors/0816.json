@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "author_id": 816,
+  "canonical_name": "Flora Tristán",
+  "alternate_names": [
+    "Flore Célestine Thérèse Henriette Tristán Moscoso",
+    "Flora Tristan",
+    "Flora Célestine Tristán"
+  ],
+  "life": {
+    "born": {
+      "year": 1803,
+      "certainty": "national_library_year"
+    },
+    "died": {
+      "year": 1844,
+      "certainty": "scholarly_biography_year"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0816-w001",
+      "title": "Nécessité de faire un bon accueil aux femmes étrangères",
+      "work_type": "essay_book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1835,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1835,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Folleto de 1835."
+    },
+    {
+      "work_id": "0816-w002",
+      "title": "Pérégrinations d'une paria",
+      "work_type": "travel_book",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1838,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1838,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bnp.gob.pe/bnp-obra-de-flora-tristan-es-declarada-patrimonio-cultural-de-la-nacion/"
+      ],
+      "notes": "Primera edición parisina en dos tomos; viaje de 1833–1834."
+    },
+    {
+      "work_id": "0816-w003",
+      "title": "Méphis",
+      "work_type": "novel",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1838,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1838,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Novela publicada por Ladvocat."
+    },
+    {
+      "work_id": "0816-w004",
+      "title": "Promenades dans Londres",
+      "work_type": "travel_essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1840,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1840,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Título original francés; traducida como Paseos en Londres."
+    },
+    {
+      "work_id": "0816-w005",
+      "title": "Union ouvrière",
+      "work_type": "political_manifesto",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1843,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1843,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Llamamiento a la organización internacional de trabajadores y trabajadoras."
+    },
+    {
+      "work_id": "0816-w006",
+      "title": "L'émancipation de la femme, ou Le testament de la paria",
+      "work_type": "posthumous_essay",
+      "original_language": "francés",
+      "original_date": {
+        "year": null,
+        "certainty": "manuscript_precedes_author_death_1844"
+      },
+      "first_publication_year": 1845,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Redactado antes del fallecimiento de la autora en 1844 y publicado póstumamente en 1845 por A. Constant."
+    },
+    {
+      "work_id": "0816-w007",
+      "title": "Le tour de France: état actuel de la classe ouvrière sous l'aspect moral, intellectuel et matériel",
+      "work_type": "posthumous_travel_diary",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1843,
+        "certainty": "manuscript_written_1843_to_1844"
+      },
+      "first_publication_year": 1973,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Diario redactado entre 1843 y 1844, póstumo, primero publicado en 1973 (según CeDInCI), con edición ulterior de Maspero en 1980 en dos volúmenes; no duplicar ediciones."
+    },
+    {
+      "work_id": "0816-w008",
+      "title": "Lettres",
+      "work_type": "posthumous_correspondence_collection",
+      "original_language": "francés",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://diccionario.cedinci.org/tristan-flora/"
+      ],
+      "notes": "Recopilación por Stéphane Michaud; las cartas tienen composición previa."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Feminismo socialista, unión internacional del proletariado, crítica de subordinación matrimonial y reflexión social sobre viaje, clase y colonialismo.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Diccionario biográfico CeDInCI: Flora Tristán y bibliografía",
+      "url": "https://diccionario.cedinci.org/tristan-flora/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Biblioteca Nacional del Perú: primera edición de Pérégrinations d'une paria",
+      "url": "https://www.bnp.gob.pe/bnp-obra-de-flora-tristan-es-declarada-patrimonio-cultural-de-la-nacion/"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Centro de la Mujer Peruana Flora Tristán: biografía y publicaciones",
+      "url": "https://www.flora.org.pe/flora-tristan/nosotras/historia/"
+    }
+  ],
+  "research_notes": [
+    "Pérégrinations d'une paria de 1838 narra un viaje realizado 1833–1834. No confundir fechas de viaje con primera edición.",
+    "L'émancipation de la femme ou le testament de la paria apareció póstumamente en 1845; título español La emancipación de la mujer es traducción.",
+    "Le tour de France: manuscrito 1843–1844, primera publicación póstuma 1973 y edición de Maspero 1980; fecha de composición y publicación mantenidas separadas."
+  ]
+}

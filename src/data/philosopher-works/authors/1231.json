@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "author_id": 1231,
+  "canonical_name": "Mario Arrubla",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1231-w001",
+      "title": "Estudios sobre el subdesarrollo colombiano",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.archivosmarioarrubla.com/estudios-sobre-el-subdesarrollo-colombiano.html"
+      ],
+      "notes": "Tres ensayos antes publicados en Estrategia en 1962–1963; no se duplican como tres libros."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1231-1",
+      "url": "https://www.archivosmarioarrubla.com/estudios-sobre-el-subdesarrollo-colombiano.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1231-2",
+      "url": "https://www.archivosmarioarrubla.com/libros.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1231-3",
+      "url": "https://diccionario.cedinci.org/arrubla-mario/"
+    }
+  ],
+  "research_notes": [
+    "Lote 124 preparado de forma aislada: el manifiesto principal permanece en lote 120 hasta la integración previa de 121–123.",
+    "Bibliografía selectiva y sujeta a auditoría editorial fina. No inferir obras sin fuentes."
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "author_id": 1342,
+  "canonical_name": "José Mármol",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1342-w001",
+      "title": "Cantos del peregrino",
+      "work_type": "poetry_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1847,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1847,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+      ],
+      "notes": "Primera edición documentada en Montevideo en 1847."
+    },
+    {
+      "work_id": "1342-w002",
+      "title": "Examen crítico de la juventud progresista del Río Janeiro",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1848,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1848,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+      ],
+      "notes": "Ensayo publicado en Montevideo en 1848."
+    },
+    {
+      "work_id": "1342-w003",
+      "title": "Manuela Rosas",
+      "work_type": "biographical_political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1850,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1850,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+      ],
+      "notes": "Edición de 1850; la versión ampliada de 1851 no se cuenta como obra distinta."
+    },
+    {
+      "work_id": "1342-w004",
+      "title": "El cruzado",
+      "work_type": "play",
+      "original_language": "español",
+      "original_date": {
+        "year": 1851,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1851,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+      ],
+      "notes": "Drama en cinco actos y verso, publicado en 1851."
+    },
+    {
+      "work_id": "1342-w005",
+      "title": "Amalia",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1851,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1851,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+      ],
+      "notes": "Publicación en dos tomos entre 1851 y 1852; ediciones posteriores no se duplican."
+    },
+    {
+      "work_id": "1342-w006",
+      "title": "Consideraciones políticas",
+      "work_type": "political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1854,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1854,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+      ],
+      "notes": "Publicado en Buenos Aires en 1854."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Escritor, periodista y político argentino del romanticismo rioplatense, cuya obra articuló exilio, oposición al rosismo y reflexión política.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1342-1",
+      "url": "https://www.cervantesvirtual.com/portales/jose_marmol/su_obra_bibliografia/"
+    }
+  ],
+  "research_notes": [
+    "Lote 135 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–134 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, reimpresiones, prensa periódica y versiones posteriores no se convierten automáticamente en obras nuevas."
+  ]
+}

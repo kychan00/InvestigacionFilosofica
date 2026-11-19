@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "author_id": 498,
+  "canonical_name": "Beneval de Oliveira",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1916,
+      "certainty": "scholarly_history_source"
+    },
+    "died": {
+      "year": 1988,
+      "certainty": "scholarly_history_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0498-w001",
+      "title": "A estética fenomenológica no contexto da fenomenologia psiquiátrica",
+      "work_type": "masters_dissertation_in_phenomenological_aesthetics",
+      "original_language": "português",
+      "original_date": {
+        "year": 1978,
+        "certainty": "university_dissertation_record"
+      },
+      "first_publication_year": 1978,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "estética fenomenológica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenologia psiquiátrica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.ppgf.ifcs.ufrj.br/dissertacoes-defendidas/"
+      ],
+      "notes": "Dissertação defendida em 24 de outubro de 1978, com orientação de José Silveira da Costa."
+    },
+    {
+      "work_id": "0498-w002",
+      "title": "A fenomenologia no Brasil",
+      "work_type": "history_of_brazilian_phenomenology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1983,
+        "certainty": "scholarly_history_source"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenologia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história da filosofia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://livrozilla.com/doc/1330709/movimento-existencial---centro-de-documenta%C3%A7%C3%A3o-do-pensamento"
+      ],
+      "notes": "Rio de Janeiro, Pallas, 1983."
+    },
+    {
+      "work_id": "0498-w003",
+      "title": "Planaltos de frio e lama: os fanáticos do Contestado — o meio, o homem, a guerra",
+      "work_type": "contestado_history_and_cultural_study_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1985,
+        "certainty": "historical_bibliography"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Contestado",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fanatismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://portouniao.webnode.com.br/contestado/bibliografia-da-guerra-do-contestado/"
+      ],
+      "notes": "Obra registrada em 1985 na bibliografia histórica do Contestado; há notícias de circulação/lançamento em 1986, diferença conservada em nota."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Historiografia da fenomenologia brasileira e aplicação de perspectiva fenomenológica à estética, psiquiatria e interpretação cultural",
+      "kind": "brazilian_history_of_phenomenology_and_aesthetics_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_dissertation_record",
+      "title": "UFRJ PPGF — dissertações defendidas",
+      "url": "https://www.ppgf.ifcs.ufrj.br/dissertacoes-defendidas/"
+    },
+    {
+      "kind": "historical_bibliography",
+      "title": "Bibliografia da Guerra do Contestado — Beneval de Oliveira",
+      "url": "https://portouniao.webnode.com.br/contestado/bibliografia-da-guerra-do-contestado/"
+    }
+  ],
+  "research_notes": [
+    "Planaltos de frio e lama fica em 1985 pela bibliografia histórica; referências a lançamento em 1986 podem corresponder à circulação posterior."
+  ]
+}

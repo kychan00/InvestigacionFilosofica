@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "author_id": 574,
+  "canonical_name": "Luis Felipe Guerra",
+  "alternate_names": [
+    "Luis Felipe Guerra M."
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "latin_american_philosophy_book_biographical_note"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0574-w001",
+      "title": "La filosofía de la naturaleza en Teilhard de Chardin",
+      "work_type": "teilhard_philosophy_of_nature_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "philosophical_bibliography"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Teilhard de Chardin",
+          "provenance": "inferred"
+        },
+        {
+          "term": "naturaleza",
+          "provenance": "inferred"
+        },
+        {
+          "term": "evolución",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/asearch.pl?author=Ribeiro%2C+Lu%C3%ADs+Felipe+Bellintani&categorizerOn=off&filterByAreas=off&filterMode=notauthors&freeOnly=&hideAbstracts=off&langFilter=&newWindow=&onlineOnly=&proOnly=&publishedOnly=&searchStr=Lu%C3%ADs+Felipe+Bellintani+Ribeiro&showCategories=off&sort=relevance&sqc=&year="
+      ],
+      "notes": "Registrado en PhilPapers como obra de Luis Felipe Guerra de 1964, Lima."
+    },
+    {
+      "work_id": "0574-w002",
+      "title": "Perspectivas de la filosofía según la encíclica «Sobre el desarrollo de los pueblos»",
+      "work_type": "christian_social_philosophy_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "undated_primary_transcription"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Populorum progressio",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía cristiana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "desarrollo humano",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://studylib.es/doc/7979990/perspectivas-de-la-filosofia-segun-la-enciclica"
+      ],
+      "notes": "Texto escrito después de la encíclica Populorum progressio de 1967. El testimonio localizado no permite confirmar el año de publicación; se deja fecha nula en lugar de inventarla."
+    },
+    {
+      "work_id": "0574-w003",
+      "title": "Algunos aspectos principistas de un nuevo derecho",
+      "work_type": "philosophy_of_law_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "primary_journal_publication"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18800/derechopucp.196901.009",
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "editorial"
+        },
+        {
+          "term": "justicia",
+          "provenance": "editorial"
+        },
+        {
+          "term": "derecho dinámico",
+          "provenance": "editorial"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.pucp.edu.pe/index.php/derechopucp/es/article/view/12828"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0574-w004",
+      "title": "Presentación de la filosofía",
+      "work_type": "introduction_to_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "publisher_and_book_bibliography"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antropología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "existencia",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://philpapers.org/asearch.pl?author=Ribeiro%2C+Lu%C3%ADs+Felipe+Bellintani&categorizerOn=off&filterByAreas=off&filterMode=notauthors&freeOnly=&hideAbstracts=off&langFilter=&newWindow=&onlineOnly=&proOnly=&publishedOnly=&searchStr=Lu%C3%ADs+Felipe+Bellintani+Ribeiro&showCategories=off&sort=relevance&sqc=&year="
+      ],
+      "notes": "Editado por la Casa de la Cultura del Perú en Lima, 1970; citado expresamente por el libro-base del proyecto."
+    },
+    {
+      "work_id": "0574-w005",
+      "title": "Augusto Salazar Bondy, \"¿Existe una filosofía de nuestra América?\"",
+      "work_type": "published_book_review",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "philosophical_bibliography"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "reviewer",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Salazar Bondy",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía latinoamericana",
+          "provenance": "inferred"
+        },
+        {
+          "term": "autenticidad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://philpapers.org/rec/GUEASB"
+      ],
+      "notes": "Reseña de un libro de Augusto Salazar Bondy en Man and World 3(4), p. 393; la obra reseñada pertenece a Salazar Bondy."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docencia filosófica en el Instituto Riva-Agüero, diálogo entre pensamiento cristiano, antropología y filosofía del derecho",
+      "kind": "pucp_christian_social_philosophy_and_philosophy_of_law",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "contemporary_university_necrology",
+      "title": "Instituto Riva-Agüero PUCP — Necrología de Luis Felipe Guerra",
+      "url": "https://repositorio.pucp.edu.pe/server/api/core/bitstreams/6f2f5a5a-347a-43ae-a647-6ecb9858dd1d/content"
+    },
+    {
+      "kind": "primary_journal_article",
+      "title": "Derecho PUCP — Algunos aspectos principistas de un nuevo derecho",
+      "url": "https://revistas.pucp.edu.pe/index.php/derechopucp/es/article/view/12828"
+    },
+    {
+      "kind": "philosophy_bibliography",
+      "title": "PhilPapers — Presentación de la filosofía (1970)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "La fuente Dussel/Mendieta/Bohórquez consigna muerte en 1975; una reseña contemporánea de la PUCP habla del décimo aniversario de su fallecimiento en una entrega relativa a 1984–1985, y una reseña histórica lo data en 1974. Se omite año de muerte sin resolver el conflicto.",
+    "El catálogo Formabiap identifica coautoría de Guerra con Hugo García Salvattecci en Lógica matemática, pero sin fecha de impresión; se conserva la referencia para próxima ampliación y no se inventa un año de primera publicación."
+  ]
+}

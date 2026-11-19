@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "author_id": 578,
+  "canonical_name": "Fernando Elguegrén Reátegui",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0578-w001",
+      "title": "La fenomenología de la relación sujeto-objeto en la filosofía de Edmund Husserl",
+      "work_type": "doctoral_or_licentiate_phenomenology_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1975,
+        "certainty": "latin_american_philosophy_book_explicit_attribution"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "inferred"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sujeto-objeto",
+          "provenance": "inferred"
+        },
+        {
+          "term": "intencionalidad",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "El capítulo de filosofía fenomenológica peruana en Dussel/Mendieta/Bohórquez (p. 301) atribuye expresamente esta tesis a Fernando Elguegrén Reátegui y la fecha en 1975; no se confirmó una ficha de biblioteca independiente."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudio académico peruano de intencionalidad y relación sujeto-objeto en la fenomenología husserliana",
+      "kind": "peruvian_husserl_subject_object_phenomenology",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — p. 301, apartado Perú",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "La impresión original del libro-base indica Elguegrén Reátegui. Algunos extractores digitales transforman la grafía en Elguera; no se incorpora como variante sin autoridad bibliográfica independiente.",
+    "Sólo se registra la tesis de 1975 y no se atribuyen resultados de homónimos por coincidencias parciales."
+  ]
+}

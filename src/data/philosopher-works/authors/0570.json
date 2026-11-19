@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "author_id": 570,
+  "canonical_name": "Beatriz Benoit de Velazco",
+  "alternate_names": [
+    "Beatriz Benoit de Velasco"
+  ],
+  "life": {
+    "born": {
+      "year": 1929,
+      "certainty": "project_primary_bibliographic_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0570-w001",
+      "title": "Crítica del conocimiento histórico e historicidad",
+      "work_type": "historical_knowledge_and_philosophy_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1961,
+        "certainty": "project_primary_bibliography"
+      },
+      "first_publication_year": 1976,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "conocimiento histórico",
+          "provenance": "inferred"
+        },
+        {
+          "term": "historicidad",
+          "provenance": "inferred"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Tesis elaborada en Italia en 1961 y publicada en Lima en 1976 según Dussel, Mendieta y Bohórquez. El año de composición (1961) se mantiene separado del de publicación (1976)."
+    },
+    {
+      "work_id": "0570-w002",
+      "title": "El ideario anarquista y su penetración en el área rural",
+      "work_type": "anarchism_and_rural_social_history_research_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "specialized_scholarly_bibliography"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "anarquismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sindicalismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "trabajo rural",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Perú",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://rilzea.cialc.unam.mx/jspui/bitstream/CIALC-UNAM/A_CA914/1136/CA82_217.pdf",
+        "https://perulibertario.wordpress.com/material-bibliografico-2/"
+      ],
+      "notes": "Informe de investigación de la Universidad Nacional Agraria, colección Taller de Estudios Andinos, Movimientos Sociales n.º 6, 1980. Otro catálogo digital señala 1969; se conserva 1980 por la referencia académica y se documenta la discrepancia."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Estudios peruanos de filosofía de la historia, conocimiento histórico e ideas anarquistas en movimientos rurales",
+      "kind": "peruvian_historical_epistemology_and_anarchism_studies_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "project_bibliography",
+      "title": "Dussel, Mendieta y Bohórquez — tesis de 1961, edición de 1976",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_study",
+      "title": "CIALC-UNAM — referencia al ideario anarquista y su penetración en el área rural",
+      "url": "https://rilzea.cialc.unam.mx/jspui/bitstream/CIALC-UNAM/A_CA914/1136/CA82_217.pdf"
+    },
+    {
+      "kind": "specialized_bibliography",
+      "title": "Perú Libertario — bibliografía de anarquismo peruano",
+      "url": "https://perulibertario.wordpress.com/material-bibliografico-2/"
+    }
+  ],
+  "research_notes": [
+    "La grafía del inventario es Velazco; otras variantes escriben Velasco, pero no se sustituyen sin autoridad documental.",
+    "Se conserva explícita la discrepancia bibliográfica 1969/1980 del informe sobre anarquismo rural."
+  ]
+}

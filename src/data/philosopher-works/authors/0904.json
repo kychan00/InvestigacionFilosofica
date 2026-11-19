@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "author_id": 904,
+  "canonical_name": "Daniel Piedra Herrera",
+  "alternate_names": [
+    "Daniel Piedra-Herrera"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0904-w001",
+      "title": "Bioética en Cuba",
+      "work_type": "conference_text",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cbioetica.org/suplement/63_sup.pdf"
+      ],
+      "notes": "Reflexión publicada en suplemento de Revista Bioética, septiembre–diciembre 2006; no monografía autónoma."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participación en el Comité Nacional Cubano de Bioética y en la Academia de Ciencias de Cuba; intervenciones sobre sustentabilidad y bioética.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Bioética, suplemento de 2006: Bioética en Cuba",
+      "url": "https://cbioetica.org/suplement/63_sup.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Universidad de Granada, conferencia de Daniel Piedra Herrera 2011",
+      "url": "https://secretariageneral.ugr.es/informacion/noticias/conferenciacoloquio-una-aproximacion-bioetica-a-la-crisis-general-y-medioambiental"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Sociedad Internacional de Bioética, IX Congreso",
+      "url": "https://sibi.org/ponentes-2/"
+    }
+  ],
+  "research_notes": [
+    "No se inventan libros a partir de conferencias o de su participación institucional.",
+    "Se registra una pieza textual verificable (Bioética en Cuba) en su soporte real de suplemento de revista."
+  ]
+}

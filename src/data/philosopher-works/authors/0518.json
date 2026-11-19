@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "author_id": 518,
+  "canonical_name": "Abel Naranjo Villegas",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1910,
+      "certainty": "biographical_sources"
+    },
+    "died": {
+      "year": 1992,
+      "certainty": "biographical_sources"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0518-w001",
+      "title": "Filosofía del derecho",
+      "work_type": "philosophy_of_law_thesis_and_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1943,
+        "certainty": "thesis_defense_with_later_publication"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "filosofía del derecho",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persona",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "derecho natural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.udea.edu.co/index.php/red/article/download/332374/20788271/144823",
+        "https://philpapers.org/rec/NARFDD"
+      ],
+      "notes": "Tese de graduação defendida em 1943 na Universidad Católica Bolivariana. PhilPapers registra edição original em 1947; há uma referência historiográfica a publicação universitária em 1941, anterior à defesa, conflito que fica documentado."
+    },
+    {
+      "work_id": "0518-w002",
+      "title": "Ilustración y valoración: una filosofía de la educación",
+      "work_type": "philosophy_of_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "contemporary_review_and_catalog"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "valoración",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la educación",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.educacionfpydeportes.gob.es/dctm/revista-de-educacion/1952/195205/1952re05resenas.pdf?documentId=0901e72b81ee08a5",
+        "https://www.iealbacetenses.com/libros/josePrat.html"
+      ],
+      "notes": "Bogotá, Ministerio de Educación Nacional, 1952, 186 p."
+    },
+    {
+      "work_id": "0518-w003",
+      "title": "Ideas sobre educación colombiana",
+      "work_type": "philosophy_of_education_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "educación colombiana",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía de la educación",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Bogotá, Imprenta Nacional, 1960, 427 p."
+    },
+    {
+      "work_id": "0518-w004",
+      "title": "Apología y decadencia del diálogo",
+      "work_type": "philosophical_essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "biobibliographic_record_with_date_variants"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "diálogo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/Abel_Naranjo_Villegas",
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Medellín, Universidad Pontificia Bolivariana. Se adopta 1963 por biobibliografía; repertórios secundários também registram 1966 ou 1969."
+    },
+    {
+      "work_id": "0518-w005",
+      "title": "Tradición y reforma constitucional",
+      "work_type": "political_and_constitutional_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1964,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1964,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "constitución",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "tradición",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "reforma",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía política",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Obra de 1964, 206 p."
+    },
+    {
+      "work_id": "0518-w006",
+      "title": "Sociología de la familia",
+      "work_type": "family_sociology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "familia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociedad",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Bogotá, Imprenta Patriótica del Instituto Caro y Cuervo, 1968."
+    },
+    {
+      "work_id": "0518-w007",
+      "title": "Disertaciones sobre ética",
+      "work_type": "ethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía moral",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "persona",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Bogotá, Universidad Nacional, 1968, 76 p."
+    },
+    {
+      "work_id": "0518-w008",
+      "title": "Generaciones colombianas",
+      "work_type": "cultural_and_generation_theory_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "generaciones",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Colombia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia intelectual",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Bogotá, Banco de la República, 1974, 157 p."
+    },
+    {
+      "work_id": "0518-w009",
+      "title": "Antioquia, del hidalguismo al puritanismo",
+      "work_type": "cultural_history_and_social_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Antioquia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "cultura",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "puritanismo",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "historia social",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://es.slideshare.net/slideshow/rastreo-bibliogrfico-autores-abejorraleos-70438788/70438788"
+      ],
+      "notes": "Bogotá, 1981, 127 p."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Desarrollo colombiano de filosofía del derecho, ética, filosofía de la educación y reflexión histórico-cultural sobre nación, generaciones y familia",
+      "kind": "colombian_philosophy_of_law_ethics_education_and_culture_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "scholarly_memorial_source",
+      "title": "Universidad de Antioquia — Abel Naranjo Villegas, filósofo del derecho",
+      "url": "https://revistas.udea.edu.co/index.php/red/article/download/332374/20788271/144823"
+    },
+    {
+      "kind": "bibliographic_source",
+      "title": "PhilPapers — Filosofía del derecho",
+      "url": "https://philpapers.org/rec/NARFDD"
+    }
+  ],
+  "research_notes": [
+    "Filosofía del derecho tem cronologia editorial conflitante: tese defendida em 1943, PhilPapers registra original de 1947, enquanto uma fonte histórica menciona publicação universitária em 1941. O seed preserva defesa 1943 e primeira publicação bibliográfica verificada 1947.",
+    "Apología y decadencia del diálogo também apresenta variações 1963/1966/1969; adota-se 1963 com a discrepância explícita."
+  ]
+}

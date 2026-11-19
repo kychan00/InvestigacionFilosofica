@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "author_id": 563,
+  "canonical_name": "José Russo Delgado",
+  "alternate_names": [
+    "José Antonio Russo Delgado",
+    "José A. Russo Delgado"
+  ],
+  "life": {
+    "born": {
+      "year": 1917,
+      "certainty": "university_biographical_source"
+    },
+    "died": {
+      "year": 1997,
+      "certainty": "university_biographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_manuscripts_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0563-w001",
+      "title": "Nietzsche y el problema del conocimiento",
+      "work_type": "undergraduate_philosophy_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "thesis_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "inferred"
+        },
+        {
+          "term": "conocimiento",
+          "provenance": "inferred"
+        },
+        {
+          "term": "epistemología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0563-w002",
+      "title": "Nietzsche, moral y vida",
+      "work_type": "nietzsche_ethics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1948,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1948,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Nietzsche",
+          "provenance": "inferred"
+        },
+        {
+          "term": "moral",
+          "provenance": "inferred"
+        },
+        {
+          "term": "vida",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/",
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5336/5331/20520"
+      ],
+      "notes": "Desarrolla la tesis doctoral Moral y vida en Federico Nietzsche (1947); no se le asigna work_id adicional a esa tesis por tratarse del núcleo de este libro."
+    },
+    {
+      "work_id": "0563-w003",
+      "title": "Lecciones de psicología general",
+      "work_type": "general_psychology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "psicología general",
+          "provenance": "inferred"
+        },
+        {
+          "term": "docencia",
+          "provenance": "inferred"
+        },
+        {
+          "term": "persona",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": "Ediciones posteriores de 1963, 1964 y 1968 no constituyen obras nuevas."
+    },
+    {
+      "work_id": "0563-w004",
+      "title": "Sobre la paz y el hombre",
+      "work_type": "philosophical_essays_and_conferences_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "paz",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "humanismo",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": "Recopila textos de 1951–1961; no se cuentan cada capítulo y el volumen como obras independientes."
+    },
+    {
+      "work_id": "0563-w005",
+      "title": "El hombre y la pregunta por el ser",
+      "work_type": "heidegger_ontology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heidegger",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ser",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/",
+        "https://revistas.pucp.edu.pe/index.php/arete/article/download/5336/5331/20520"
+      ],
+      "notes": "Investigación premiada originalmente como manuscrito en 1957 y publicada en forma de libro en 1963."
+    },
+    {
+      "work_id": "0563-w006",
+      "title": "Sócrates, problema, mensaje",
+      "work_type": "socratic_philosophy_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1984,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sócrates",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ética",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía antigua",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0563-w007",
+      "title": "De filosofía, paz y religión",
+      "work_type": "philosophical_conference_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "paz",
+          "provenance": "inferred"
+        },
+        {
+          "term": "religión",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": "Recopilación de artículos, conferencias y textos difundidos antes de 1985."
+    },
+    {
+      "work_id": "0563-w008",
+      "title": "Los presocráticos I. El principio",
+      "work_type": "presocratics_history_of_philosophy_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "presocráticos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "milesios",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía griega",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0563-w009",
+      "title": "Los presocráticos III. Lo que es",
+      "work_type": "presocratics_ontology_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1991,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Parménides",
+          "provenance": "inferred"
+        },
+        {
+          "term": "eleatas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ontología",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0563-w010",
+      "title": "Los presocráticos II. El Logos (Heráclito)",
+      "work_type": "presocratics_heraclitus_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "scholarly_bibliography"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Heráclito",
+          "provenance": "inferred"
+        },
+        {
+          "term": "logos",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía antigua",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+      ],
+      "notes": "Publicación póstuma: la fecha editorial es 2000 y el autor falleció en 1997."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Magisterio sanmarquino de historia de la filosofía, estudios sobre Nietzsche, ontología heideggeriana y filosofía antigua",
+      "kind": "peruvian_nietzsche_heidegger_ancient_philosophy_teaching_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez (eds.) — Inventario canónico de filosofía latinoamericana",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "university_biobibliography",
+      "title": "UNMSM — José Antonio Russo Delgado: títulos del maestro",
+      "url": "https://letras.unmsm.edu.pe/noticias/dr-jose-antonio-russo-delgado/"
+    },
+    {
+      "kind": "university_memorial_source",
+      "title": "Areté PUCP — José Antonio Russo Delgado (1917–1997)",
+      "url": "https://revistas.pucp.edu.pe/index.php/arete/article/download/5336/5331/20520"
+    }
+  ],
+  "research_notes": [
+    "El inventario registra José Russo Delgado; fuentes de San Marcos identifican la forma completa José Antonio Russo Delgado.",
+    "Los presocráticos II (2000) es póstumo. Los volúmenes I, II y III son unidades diferenciadas, no reediciones.",
+    "No se añaden los libros inéditos Los presocráticos IV y V ni la traducción inédita de Heidegger como publicaciones existentes."
+  ]
+}

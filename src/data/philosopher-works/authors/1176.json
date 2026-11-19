@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "author_id": 1176,
+  "canonical_name": "Julio C. Terán Dutari",
+  "alternate_names": [
+    "Julio César Terán Dutari",
+    "Julio Terán Dutari"
+  ],
+  "life": {
+    "birth_year": 1933
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1176-w001",
+      "title": "Conocimiento y tradición metafísica: estudios gnoseológicos sobre Bergson, Heidegger, Husserl, Hegel, Kant y Tomás de Aquino",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=23364"
+      ],
+      "notes": "Quito: Universidad Católica, 332 p.; la edición PUCE de 2022 se considera reedición, no obra nueva."
+    },
+    {
+      "work_id": "1176-w002",
+      "title": "Fundamentos filosóficos de un nuevo orden político",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=18491"
+      ],
+      "notes": "Cuenca: Don Bosco, 32 p.; separata del vol. V, n.º 11 de la revista Cultura."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo y teólogo ecuatoriano de la PUCE, con formación doctoral en Múnich y trabajo especializado en metafísica, gnoseología y Erich Przywara.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "PUCE — legado intelectual de Julio César Terán Dutari",
+      "url": "https://conexion.puce.edu.ec/el-legado-del-p-julio-cesar-teran-dutari-s-j-un-intelectual-clave-en-la-historia-de-la-puce/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Red de Bibliotecas Municipales de Cuenca — Conocimiento y tradición metafísica",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=23364"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Red de Bibliotecas Municipales de Cuenca — Fundamentos filosóficos de un nuevo orden político",
+      "url": "https://biblioteca.cuenca.gob.ec/opac_css/index.php?lvl=notice_display&id=18491"
+    }
+  ],
+  "research_notes": [
+    "La página 538 de la fuente canónica imprime Julio C. Terán Dutari; el catálogo bibliográfico desarrolla el nombre como Julio César Terán Dutari.",
+    "La reedición de Conocimiento y tradición metafísica publicada por la PUCE en 2022 no se duplica como obra nueva."
+  ]
+}

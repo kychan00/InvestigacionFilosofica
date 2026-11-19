@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 1087,
+  "canonical_name": "Pedro Gambin",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1087-w001",
+      "title": "História e absoluto no pensamento de H. C. de Lima Vaz",
+      "work_type": "masters_thesis",
+      "original_language": "português",
+      "original_date": {
+        "year": 1982,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1982,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://rubensgodoysampaio.blogspot.com/2014/02/etica-democracia-direitos-humanos.html",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Dissertação de mestrado, PUCRS, Porto Alegre, 1982; citada en bibliografía académica."
+    },
+    {
+      "work_id": "1087-w002",
+      "title": "A vida humana",
+      "work_type": "periodical_article",
+      "original_language": "português",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio-api.animaeducacao.com.br/server/api/core/bitstreams/440fe61f-377b-4cce-bc88-2fb704132dbf/content",
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Revista Mundo Jovem, Porto Alegre, abril 1987, según material de curso; otra transcripción señala abril 1997, requiere cotejo del fascículo."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 1: gambin",
+      "url": "https://rubensgodoysampaio.blogspot.com/2014/02/etica-democracia-direitos-humanos.html"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 2: d",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_library_catalog_authority_or_secondary_bibliography",
+      "title": "Fuente documental 3: gambin2",
+      "url": "https://repositorio-api.animaeducacao.com.br/server/api/core/bitstreams/440fe61f-377b-4cce-bc88-2fb704132dbf/content"
+    }
+  ],
+  "research_notes": [
+    "La disertación de 1982 trata de Henrique Cláudio de Lima Vaz, no de Hegel en general.",
+    "La referencia al texto A vida humana aparece como abril de 1987 y en una transcripción como 1997; se privilegia la datación 1987 reiterada en manuales y se anota la discrepancia.",
+    "Su inclusión en el inventario no justifica atribuir automáticamente títulos colectivos de filosofía de la liberación."
+  ]
+}

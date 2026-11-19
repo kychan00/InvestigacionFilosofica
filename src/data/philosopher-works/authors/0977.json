@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "author_id": 977,
+  "canonical_name": "César Andreu Iglesias",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1915,
+    "death_year": 1976
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "977-w001",
+      "title": "Los derrotados",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.80grados.net/cesar-andreu-iglesias-la-esperanza-en-la-derrota/"
+      ],
+      "notes": "Primera edición Los Presentes, México, 1956; segunda 1964 y traducción posterior no se cuentan aparte."
+    },
+    {
+      "work_id": "977-w002",
+      "title": "Una gota de tiempo",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/C%C3%A9sar_Andreu_Iglesias"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "977-w003",
+      "title": "El derrumbe",
+      "work_type": "novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://es.wikipedia.org/wiki/C%C3%A9sar_Andreu_Iglesias"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Organización obrera e independentista, periodismo socialista y cofundación del semanario Claridad en Puerto Rico.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "80grados, estudio de Arcadio Díaz-Quiñones sobre César Andreu Iglesias",
+      "url": "https://www.80grados.net/cesar-andreu-iglesias-la-esperanza-en-la-derrota/"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "SIEP, ensayo de historia intelectual de Andreu Iglesias",
+      "url": "https://ecumenico.org/cesar-andreu-iglesias-la-esperanza-en-la-derrota-arcadio-diaz-2020"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Perfil biográfico César Andreu Iglesias",
+      "url": "https://es.wikipedia.org/wiki/C%C3%A9sar_Andreu_Iglesias"
+    }
+  ],
+  "research_notes": [
+    "Se conservan tres novelas políticas como documentación inicial de pensamiento social; pendiente identificar ensayos con título y publicación primaria."
+  ]
+}

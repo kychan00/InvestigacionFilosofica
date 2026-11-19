@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "author_id": 576,
+  "canonical_name": "Luis Herrera Zavaleta",
+  "alternate_names": [
+    "José Luis Herrera Zavaleta",
+    "Herrera Zavaleta, José Luis"
+  ],
+  "life": {
+    "born": {
+      "year": 1933,
+      "certainty": "puno_municipal_library_catalog"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0576-w001",
+      "title": "Sartre y Lacan. Una comprensión dialéctica del psiquismo",
+      "work_type": "sartre_lacan_psychology_and_philosophy_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1988,
+        "certainty": "original_journal_reproduced_by_cervantes_library"
+      },
+      "first_publication_year": 1988,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Sartre",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Lacan",
+          "provenance": "inferred"
+        },
+        {
+          "term": "dialéctica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicoanálisis",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/nd/ark:/59851/bmc1047570",
+        "https://www.cervantesvirtual.com/portales/editores_editoriales_iberoamericanos_en/obras/autor/herrera-zavaleta-jose-luis-108064"
+      ],
+      "notes": "Publicado originalmente en Cuadernos Hispanoamericanos n.º 453, marzo 1988, pp. 7–20; digitalización de 2020 no es publicación original."
+    },
+    {
+      "work_id": "0576-w002",
+      "title": "Sartre y el psicoanálisis: seguido de Coloquio sobre la antropología de Jean-Paul Sartre",
+      "work_type": "sartre_psychoanalysis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "puno_municipal_library_catalog"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "9789972345838"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Sartre",
+          "provenance": "inferred"
+        },
+        {
+          "term": "psicoanálisis",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://bibliotecamunicipal.munipuno.gob.pe/biblioteca/opac_css/index.php?id=381&lvl=indexint_see"
+      ],
+      "notes": "Librería Editorial San Marcos, 2006, 162 pp. Catálogo municipal registra nombre José Luis Herrera Zavaleta."
+    },
+    {
+      "work_id": "0576-w003",
+      "title": "Filosofía y contracultura",
+      "work_type": "philosophy_and_counterculture_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "primary_academic_journal_record"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "contracultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antipsiquiatría",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.uv.es/sfpv/quadern_textos/v39p73-82.pdf"
+      ],
+      "notes": "Quaderns de filosofia i ciència, 39 (2009), pp. 73–82."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Articulación peruana de existencialismo sartreano, crítica psicoanalítica y contracultura",
+      "kind": "peruvian_sartre_lacan_psychoanalysis_and_counterculture",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "virtual_library_authority",
+      "title": "Biblioteca Virtual Miguel de Cervantes — José Luis Herrera Zavaleta",
+      "url": "https://www.cervantesvirtual.com/nd/ark:/59851/bmc1047570"
+    },
+    {
+      "kind": "municipal_library_catalog",
+      "title": "Biblioteca municipal de Puno — Sartre y el psicoanálisis",
+      "url": "https://bibliotecamunicipal.munipuno.gob.pe/biblioteca/opac_css/index.php?id=381&lvl=indexint_see"
+    },
+    {
+      "kind": "primary_academic_journal",
+      "title": "Quaderns de filosofia i ciència — Filosofía y contracultura",
+      "url": "https://www.uv.es/sfpv/quadern_textos/v39p73-82.pdf"
+    }
+  ],
+  "research_notes": [
+    "El inventario guarda Luis Herrera Zavaleta, pero los catálogos de la Biblioteca Virtual Miguel de Cervantes y de Puno identifican José Luis Herrera Zavaleta. Se conserva el nombre canónico del proyecto y la forma documentada en alternate_names.",
+    "No atribuir al autor de 1933 otros libros genéricos de abogados homónimos sin metadatos de autoridad."
+  ]
+}

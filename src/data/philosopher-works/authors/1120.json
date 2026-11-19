@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "author_id": 1120,
+  "canonical_name": "Herbert José de Souza",
+  "alternate_names": [
+    "Betinho",
+    "Herbert de Souza",
+    "Herbert José de Sousa"
+  ],
+  "life": {
+    "birth_year": 1935,
+    "death_year": 1997
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1120-w001",
+      "title": "Como se faz análise de conjuntura",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1984,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1984,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.jota.info/opiniao-e-analise/colunas/judiciario-e-sociedade/o-direito-e-a-justica-na-analise-de-conjuntura"
+      ],
+      "notes": "Petrópolis: Vozes, 1984; reimpresiones y reediciones no duplicadas."
+    },
+    {
+      "work_id": "1120-w002",
+      "title": "O capital transnacional e o Estado",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.estantevirtual.com.br/busca/herbert-jose-de-souza?page=1"
+      ],
+      "notes": "Vozes, 1985; estudio sociológico-político."
+    },
+    {
+      "work_id": "1120-w003",
+      "title": "Construir a utopia: proposta de democracia",
+      "work_type": "book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "Petrópolis: Vozes/Ibase, 1987; fuente canónica de Dussel lo cita expresamente."
+    },
+    {
+      "work_id": "1120-w004",
+      "title": "Ética e cidadania",
+      "work_type": "coauthored_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Carla Rodrigues"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.marilia.sp.gov.br/Biblivre5/?action=list_bibliographic&letter=e",
+        "https://www1.folha.uol.com.br/fsp/1994/9/08/cotidiano/14.html"
+      ],
+      "notes": "Moderna, 1994; colaboración con Carla Rodrigues, con artículos e entrevista, no dos obras independientes."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Cofundó el IBASE y promovió la Ação da Cidadania contra a Fome, a Miséria e Pela Vida y el movimiento por la ética en política.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: bet1984",
+      "url": "https://www.jota.info/opiniao-e-analise/colunas/judiciario-e-sociedade/o-direito-e-a-justica-na-analise-de-conjuntura"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: bet1985",
+      "url": "https://www.estantevirtual.com.br/busca/herbert-jose-de-souza?page=1"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: bet1987",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: bet1994",
+      "url": "https://biblioteca.marilia.sp.gov.br/Biblivre5/?action=list_bibliographic&letter=e"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: bet1994folha",
+      "url": "https://www1.folha.uol.com.br/fsp/1994/9/08/cotidiano/14.html"
+    },
+    {
+      "kind": "academic_institutional_catalog_or_author_bibliography",
+      "title": "Fuente de evidencia: betbio",
+      "url": "https://prefeitura.sp.gov.br/meio_ambiente/w/umapaz/galeria_de_retratos/7330"
+    }
+  ],
+  "research_notes": [
+    "Nombre conocido Betinho, distinto de otros autores Souza homónimos.",
+    "Ética e cidadania (1994) es libro coescrito/editorial con Carla Rodrigues; el material de entrevistas no se duplica como monografía separada.",
+    "El libro O Brasil de Betinho (2012) es homenaje organizado por terceros, no obra autoral suya."
+  ]
+}

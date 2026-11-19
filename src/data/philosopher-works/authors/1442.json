@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "author_id": 1442,
+  "canonical_name": "Mariano Silva y Aceves",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1442-w001",
+      "title": "Arquilla de marfil",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1916,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1916,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/1019"
+      ],
+      "notes": "Libro original publicado en 1916."
+    },
+    {
+      "work_id": "1442-w002",
+      "title": "Cara de virgen",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1919,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1919,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/1019"
+      ],
+      "notes": "Libro original publicado en 1919."
+    },
+    {
+      "work_id": "1442-w003",
+      "title": "Anímula",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1920,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1920,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/1019"
+      ],
+      "notes": "Libro original publicado en 1920."
+    },
+    {
+      "work_id": "1442-w004",
+      "title": "Campanitas de plata",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/1019"
+      ],
+      "notes": "Libro original publicado en 1925."
+    },
+    {
+      "work_id": "1442-w005",
+      "title": "Muñecos de cuerda",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1937,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1937,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/datos/1019"
+      ],
+      "notes": "Libro original publicado en 1937; recopilaciones póstumas de 1964 y 1987 no se cuentan como obras originales adicionales."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Prosista, profesor e investigador mexicano vinculado al Ateneo de la Juventud y a la renovación literaria de principios del siglo XX.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1442-1",
+      "url": "https://www.elem.mx/autor/datos/1019"
+    }
+  ],
+  "research_notes": [
+    "Lote 145 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–144 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones, recopilaciones y ediciones críticas póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}

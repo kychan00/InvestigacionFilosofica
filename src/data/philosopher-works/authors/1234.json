@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "author_id": 1234,
+  "canonical_name": "Carlos Tablada",
+  "alternate_names": [
+    "Carlos Tablada Pérez"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1234-w001",
+      "title": "El pensamiento económico de Ernesto Che Guevara",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1987,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1987,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://ccc.opac.com.ar/pergamo/documento.php?id=CCC.1.9329&recno=9329&ui=1"
+      ],
+      "notes": "Autor identificado como Carlos Tablada Pérez; la misma obra tiene ediciones con distinta paginación."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1234-1",
+      "url": "https://ccc.opac.com.ar/pergamo/documento.php?id=CCC.1.9329&recno=9329&ui=1"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1234-2",
+      "url": "https://ci.nii.ac.jp/author/DA07747423"
+    }
+  ],
+  "research_notes": [
+    "Lote 124 preparado de forma aislada: el manifiesto principal permanece en lote 120 hasta la integración previa de 121–123.",
+    "Bibliografía selectiva y sujeta a auditoría editorial fina. No inferir obras sin fuentes."
+  ]
+}

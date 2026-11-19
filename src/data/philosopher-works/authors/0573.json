@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "author_id": 573,
+  "canonical_name": "J. Antonio López Cornejo",
+  "alternate_names": [
+    "J. A. López Cornejo"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0573-w001",
+      "title": "Tres puntos de la filosofía de Max Scheler: el hombre, la cultura y la sociología del saber",
+      "work_type": "edited_philosophical_study_or_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 1938,
+        "certainty": "source_book_explicit_editorial_attribution"
+      },
+      "first_publication_year": 1938,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Max Scheler",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antropología filosófica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "cultura",
+          "provenance": "inferred"
+        },
+        {
+          "term": "sociología del saber",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+      ],
+      "notes": "La fuente primaria del inventario dice expresamente «editó»; se registra con función de editor y no se atribuye como autor original la doctrina de Scheler ni los contenidos sin identificar su procedencia."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Edición y circulación temprana de estudios schelerianos sobre el hombre, la cultura y la sociología del saber",
+      "kind": "scheler_reception_and_philosophical_editing_peru",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano — p. 301, López Cornejo",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    }
+  ],
+  "research_notes": [
+    "La única atribución documental segura de esta pasada es la edición de 1938. No se crea bibliografía adicional sin catálogo de autoridad.",
+    "El nombre completo más allá de la inicial J. no está resuelto; se preserva el nombre canónico para evitar homónimos."
+  ]
+}

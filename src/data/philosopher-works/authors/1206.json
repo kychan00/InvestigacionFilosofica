@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "author_id": 1206,
+  "canonical_name": "Alfonso Briceño",
+  "alternate_names": [
+    "Alonso Briceño",
+    "Ildephonsus Brizeño",
+    "Alphonsus Briceño"
+  ],
+  "life": {
+    "birth_year": 1587,
+    "death_year": 1668
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1206-w001",
+      "title": "Prima pars celebriorum controversiarum in primum Sententiarum Ioannis Scoti Doctoris Subtilis",
+      "work_type": "scholastic_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1638,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1638,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.conimbricenses.org/encyclopedia/latin-american-colonial-scholasticism/"
+      ],
+      "notes": "Dos tomos publicados en Madrid entre 1638/1639 y 1642, según fuentes con divergencia de portada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Teólogo y filósofo escotista de Chile colonial, autor de tratados sobre metafísica y conocimiento divino.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1206-1",
+      "url": "https://www.conimbricenses.org/encyclopedia/latin-american-colonial-scholasticism/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1206-2",
+      "url": "https://revistas.ugm.cl/index.php/rcem/article/view/28"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1206-3",
+      "url": "https://bibliofep.fundacionempresaspolar.org/dhv/entradas/b/briceno-alonso/"
+    }
+  ],
+  "research_notes": [
+    "Los dos tomos de Celebriorum controversiarum se registran como una sola obra multivolumen.",
+    "Disputaciones metafísicas (Caracas, 1955) es una traducción/selección tardía, no nueva obra original del autor.",
+    "Las fuentes discrepan entre 1638, 1639 y 1642; la fecha de la primera portada necesita cotejo."
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "author_id": 1503,
+  "canonical_name": "Juan de Zumárraga",
+  "alternate_names": [
+    "Fray Juan de Zumárraga",
+    "Juan de Zumárraga y Lares"
+  ],
+  "life": {
+    "birth_year": 1468,
+    "death_year": 1548
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1503-w001",
+      "title": "Doctrina breve muy provechosa de las cosas que pertenecen a la fe católica y a nuestra cristiandad",
+      "work_type": "catechetical_compilation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1544,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1544,
+      "authorship_status": "compiler_and_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.udea.edu.co/public/journals/recursos_html/Mutatis-Html/mutatis-v17n2/v17n2a1.html",
+        "https://www.dhial.org/diccionario/index.php/ZUM%C3%81RRAGA%2C_Fray_Juan_de"
+      ],
+      "notes": "Impreso en México durante su episcopado. Estudios recientes advierten que la autoría de varias doctrinas atribuidas a Zumárraga es compleja; se registra como compilador/editor y no como autor original exclusivo."
+    },
+    {
+      "work_id": "1503-w002",
+      "title": "Doctrina cristiana cierta y verdadera para gente sin erudición ni letras",
+      "work_type": "catechetical_compilation",
+      "original_language": "español",
+      "original_date": {
+        "year": 1546,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1546,
+      "authorship_status": "compiler_and_editor",
+      "coauthors": [
+        "Constantino Ponce de la Fuente"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://lacolmena.uaemex.mx/article/view/5776",
+        "https://revistas.udea.edu.co/public/journals/recursos_html/Mutatis-Html/mutatis-v17n2/v17n2a1.html",
+        "https://www.dhial.org/diccionario/index.php/ZUM%C3%81RRAGA%2C_Fray_Juan_de"
+      ],
+      "notes": "Publicada en México por orden de Zumárraga y vinculada a la Junta eclesiástica de 1546; la investigación muestra dependencias textuales con Constantino Ponce de la Fuente, por lo que se evita una atribución exclusiva simple."
+    },
+    {
+      "work_id": "1503-w003",
+      "title": "Regla cristiana breve para ordenar la vida y tiempo del cristiano",
+      "work_type": "devotional_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1547,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1547,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://media.unesco.org/sites/default/files/webform/mtd001/5_2002_mex_incunables_esp.pdf",
+        "https://www.dhial.org/diccionario/index.php/ZUM%C3%81RRAGA%2C_Fray_Juan_de",
+        "https://revistas.udea.edu.co/public/journals/recursos_html/Mutatis-Html/mutatis-v17n2/v17n2a1.html"
+      ],
+      "notes": "Obra cuya autoría zumarraguiana cuenta con respaldo bibliográfico mucho más firme; edición príncipe mexicana de 1547."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Primer obispo y arzobispo de México, promotor de la imprenta novohispana y figura central de la evangelización y producción catequética temprana en Nueva España.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dicionário de História Cultural da Igreja — Juan de Zumárraga",
+      "url": "https://www.dhial.org/diccionario/index.php/ZUM%C3%81RRAGA%2C_Fray_Juan_de"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UAEM — estudio sobre Doctrina cristiana cierta y verdadera",
+      "url": "https://lacolmena.uaemex.mx/article/view/5776"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNESCO — impresos mexicanos del siglo XVI",
+      "url": "https://media.unesco.org/sites/default/files/webform/mtd001/5_2002_mex_incunables_esp.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Mutatis Mutandis — ediciones y traducciones de Zumárraga",
+      "url": "https://revistas.udea.edu.co/public/journals/recursos_html/Mutatis-Html/mutatis-v17n2/v17n2a1.html"
+    }
+  ],
+  "research_notes": [
+    "Se evita atribuir sin reservas todas las doctrinas catequéticas impresas bajo el episcopado de Zumárraga.",
+    "Regla cristiana breve (1547) se mantiene como la obra de autoría más sólidamente defendida.",
+    "Doctrina cristiana cierta y verdadera se registra con nota explícita de dependencia y discusión de autoría."
+  ]
+}

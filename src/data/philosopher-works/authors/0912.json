@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "author_id": 912,
+  "canonical_name": "Marta Ascurra",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0912-w001",
+      "title": "Historia y desarrollo de la bioética en el Paraguay",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://scielo.iics.una.py/scielo.php?pid=S2307-33492021000200009&script=sci_arttext"
+      ],
+      "notes": "Capítulo en volumen sobre Bioética Ibero-Americana, identificado en la bibliografía de artículo académico de 2021."
+    },
+    {
+      "work_id": "0912-w002",
+      "title": "Principios de la bioética comprometidos en la detección neonatal",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2015,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2015,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.18004/mem.iics/1812-9528/2015.013(01)88-096",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistascientificas.una.py/index.php/RIIC/article/view/1800"
+      ],
+      "notes": "Artículo 2015 de perspectiva bioética sobre principios, vulnerabilidad y responsabilidad."
+    },
+    {
+      "work_id": "0912-w003",
+      "title": "Caracterización de los comités de bioética del Paraguay",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2021,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2021,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Silvia Ferreira",
+        "Lucila María González-Donna"
+      ],
+      "identifiers": {
+        "doi": "10.18004/rspp.2021.diciembre.9",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revista.ins.gov.py/rspp/article/view/121"
+      ],
+      "notes": "Revista de Salud Pública del Paraguay 11(2):9–16."
+    },
+    {
+      "work_id": "0912-w004",
+      "title": "Ciencia con ética: dignidad humana y desarrollo responsable",
+      "work_type": "journal_editorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 2025,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2025,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.26885/rcei.14.e957",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revista.unibe.edu.py/index.php/rcei/article/view/957"
+      ],
+      "notes": "Editorial de Revista Científica Estudios e Investigaciones 14 (30 diciembre 2025)."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundadora y expresidenta de la Comisión Nacional de Bioética del Paraguay; representación de ética en investigación y dignidad humana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "SciELO Paraguay, repertorio de 14 artículos de Marta Ascurra",
+      "url": "https://scielo.iics.una.py/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xis&base=article%5Edlibrary&exprSearch=ASCURRA,+MARTA&format=iso.pft&indexSearch=AU&lang=e&nextAction=lnk"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Investigación e Innovación en Ciencias de la Salud, Principios de la bioética 2015",
+      "url": "https://revistascientificas.una.py/index.php/RIIC/article/view/1800"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Salud Pública Paraguay, Comités de Bioética 2021",
+      "url": "https://revista.ins.gov.py/rspp/article/view/121"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Revista Estudios e Investigaciones, Ciencia con ética 2025",
+      "url": "https://revista.unibe.edu.py/index.php/rcei/article/view/957"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "SciELO Paraguay, análisis de comité e historia de la bioética paraguaya",
+      "url": "https://scielo.iics.una.py/scielo.php?pid=S2307-33492021000200009&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "ORCID institucional del editorial 2025: 0000-0002-3381-3214.",
+    "La producción genética/biomédica de la autora consta en SciELO pero la selección inicial se centra en contribuciones explícitas de bioética."
+  ]
+}

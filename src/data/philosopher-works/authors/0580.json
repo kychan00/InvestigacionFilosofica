@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "author_id": 580,
+  "canonical_name": "Francisco Nicoli",
+  "alternate_names": [
+    "Francisco Nicolí"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selected_works_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0580-w001",
+      "title": "Fenomenología y ciencias humanas: hacia una fenomenología del hombre contemporáneo",
+      "work_type": "phenomenology_and_human_sciences_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1989,
+        "certainty": "project_primary_book_bibliography_and_physical_library_inventory"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "fenomenología",
+          "provenance": "inferred"
+        },
+        {
+          "term": "ciencias humanas",
+          "provenance": "inferred"
+        },
+        {
+          "term": "antropología contemporánea",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://iesppmfgb.edu.pe/wp-content/uploads/2017/11/Inventario_Biblioteca-Octubre-2017.pdf"
+      ],
+      "notes": "Lima: Arius (también citado Ariu), 1989; listado en biblioteca física del IESPP 2017."
+    },
+    {
+      "work_id": "0580-w002",
+      "title": "El método dialéctico marxista",
+      "work_type": "marxist_dialectics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1990,
+        "certainty": "peruvian_university_physical_catalog"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "dialéctica",
+          "provenance": "inferred"
+        },
+        {
+          "term": "marxismo",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Sartre",
+          "provenance": "inferred"
+        },
+        {
+          "term": "Althusser",
+          "provenance": "inferred"
+        }
+      ],
+      "evidence_urls": [
+        "https://pmb.unjbg.edu.pe/opac_css/index.php?lvl=notice_display&id=5152"
+      ],
+      "notes": "Lima: Concytec / Librería Studium, 1990, 265 pp., según catálogo universitario; estudiar la divergencia editorial Concytec/Studium en una revisión posterior."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigación filosófica peruana sobre fenomenología del ser humano contemporáneo y dialéctica marxista",
+      "kind": "peruvian_phenomenology_and_marxist_dialectics",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — El pensamiento filosófico latinoamericano, del Caribe y latino (1300–2000)",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "physical_library_inventory",
+      "title": "IESPPMFG — Inventario 2017: Fenomenología y ciencias humanas",
+      "url": "https://iesppmfgb.edu.pe/wp-content/uploads/2017/11/Inventario_Biblioteca-Octubre-2017.pdf"
+    },
+    {
+      "kind": "university_library_catalog",
+      "title": "Universidad Nacional Jorge Basadre Grohmann — El método dialéctico marxista",
+      "url": "https://pmb.unjbg.edu.pe/opac_css/index.php?lvl=notice_display&id=5152"
+    }
+  ],
+  "research_notes": [
+    "Se conserva el nombre canónico sin acento Nicoli y se registra Nicolí como variante usada en bibliografía peruana.",
+    "Solo dos títulos están suficientemente documentados para esta pasada; no se inferirán otros a partir de entrevistas o citas de terceros."
+  ]
+}

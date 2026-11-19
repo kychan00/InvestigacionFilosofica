@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "author_id": 692,
+  "canonical_name": "José de Jesús Díez de Sollano y Dávalos",
+  "alternate_names": [
+    "José María de Jesús Díez de Sollano y Dávalos",
+    "José María Díez de Sollano",
+    "José María de Jesús Diez del Sollano y Dávalos"
+  ],
+  "life": {
+    "born": {
+      "year": 1820,
+      "certainty": "ADABI_authority_record"
+    },
+    "died": {
+      "year": 1881,
+      "certainty": "ADABI_and_episcopal_history"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_original_works_edited_texts_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0692-w001",
+      "title": "Nociones sobre la disciplina eclesiástica",
+      "work_type": "canon_law_scholarly_text",
+      "original_language": "español",
+      "original_date": {
+        "year": 1857,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1857,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Primera impresión mexicana 1857; edición revisada de León 1875 no se duplica."
+    },
+    {
+      "work_id": "0692-w002",
+      "title": "Primera pastoral del obispo de León",
+      "work_type": "episcopal_pastoral",
+      "original_language": "español",
+      "original_date": {
+        "year": 1864,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cd.dgb.uanl.mx/handle/201504211/11685"
+      ],
+      "notes": "Documento histórico conservado por UANL, fecha exacta de impresión requiere cotejo; se usa año de inicio del episcopado con primera publicación null."
+    },
+    {
+      "work_id": "0692-w003",
+      "title": "Sermón en honra de la gloriosa Asunción de María Santísima",
+      "work_type": "theological_sermon",
+      "original_language": "español",
+      "original_date": {
+        "year": 1866,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1866,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Predicado y publicado en León el 15 de agosto de 1866."
+    },
+    {
+      "work_id": "0692-w004",
+      "title": "Logicae Compendium iuxta doctrinam S. Thomae Aquinatis, de P. C. Roux-Lavergne",
+      "work_type": "annotated_logic_critical_edition",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1868,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1868,
+      "authorship_status": "annotator_and_editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Autor del compendio original: P. C. Roux-Lavergne. Díez de Sollano redactó anotaciones y adiciones; reedición 1900 no duplicada."
+    },
+    {
+      "work_id": "0692-w005",
+      "title": "Undécima carta pastoral, estatutos disciplinares de la diócesis de León",
+      "work_type": "episcopal_pastoral",
+      "original_language": "español",
+      "original_date": {
+        "year": 1871,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1871,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1085651"
+      ],
+      "notes": "Título y responsabilidad documentados en fuente citada; no multiplicar reediciones."
+    },
+    {
+      "work_id": "0692-w006",
+      "title": "Exposición contra el proyecto de elevar a constitucionales las Leyes de Reforma",
+      "work_type": "political_religious_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1873,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1873,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Título y responsabilidad documentados en fuente citada; no multiplicar reediciones."
+    },
+    {
+      "work_id": "0692-w007",
+      "title": "Opúsculo sobre estudios de Sagrada Escritura y apuntamientos sobre métodos de exposición",
+      "work_type": "biblical_scholarship_combined_booklet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Contiene la séptima y octava pastoral y los Apuntamientos; se agrupan en una unidad para evitar sumar su versión interna como otro libro."
+    },
+    {
+      "work_id": "0692-w008",
+      "title": "Manifestación del obispo de León con clero y diocesanos contra la Ley Orgánica y las reformas constitucionales",
+      "work_type": "political_pastoral_statement",
+      "original_language": "español",
+      "original_date": {
+        "year": 1874,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1874,
+      "authorship_status": "coauthor_or_collective_statement",
+      "coauthors": [
+        "clero y diocesanos católicos de León"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Se reconoce intervención colectiva con su clero, sin adjudicar todas las firmas al obispo."
+    },
+    {
+      "work_id": "0692-w009",
+      "title": "Theologica Disquisitio: defensa de la compatibilidad del dogma de la Inmaculada Concepción con la doctrina de Santo Tomás",
+      "work_type": "Latin_Thomist_theological_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1880,
+        "certainty": "bibliographic_or_historical_source"
+      },
+      "first_publication_year": 1880,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/aut/001/ev190414.htm"
+      ],
+      "notes": "Texto latino de 1880 redactado con ocasión de Aeterni Patris; la obra Felicitaciones de 1881 escrita por otros no se le atribuye."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Primer obispo de León y figura de la restauración del tomismo en México del siglo XIX; enseñanza seminarística, dirección universitaria y escritos de teología escolástica.",
+      "kind": "historically_documented_philosophical_teaching_or_institutional_activity",
+      "authorship_status": "documented_in_scholarly_or_primary_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "primary_historical_bibliography",
+      "title": "Emeterio Valverde Téllez, Apuntaciones críticas / obras de Díez de Sollano (1904)",
+      "url": "https://www.filosofia.org/aut/001/ev190414.htm"
+    },
+    {
+      "kind": "university_historical_study",
+      "title": "Revista Valenciana, primeros años del obispado de León y escolástica",
+      "url": "https://www.revistavalenciana.ugto.mx/index.php/valenciana/article/view/354"
+    },
+    {
+      "kind": "national_cultural_book_catalogue",
+      "title": "ADABI, Obras completas de Díez de Sollano compiladas por José M. de Yermo (1894)",
+      "url": "https://www.adabi.org.mx/vufind/Record/1087538"
+    },
+    {
+      "kind": "archival_library_catalogue",
+      "title": "ADABI, Undécima carta pastoral del obispo Díez de Sollano (1871)",
+      "url": "https://www.adabi.org.mx/vufind/Record/1085651"
+    },
+    {
+      "kind": "university_digital_library",
+      "title": "UANL, Primera pastoral del obispo de León",
+      "url": "https://cd.dgb.uanl.mx/handle/201504211/11685"
+    }
+  ],
+  "research_notes": [
+    "Los archivos ADABI e historia episcopal fijan la forma de autoridad José María de Jesús, y el nacimiento en 1820; la ficha ELEM que reporta nacimiento 1844 contradice esos registros y no se adopta.",
+    "La colección Obras completas de 1894 fue compilada por José M. de Yermo y Parres: no se añade como obra original adicional ni se le atribuye su biografía.",
+    "Logicae Compendium es un texto de Roux-Lavergne con glosas del obispo, no su tratado original.",
+    "Año de publicación del primer documento pastoral no verificado, se fija null en el campo publicado."
+  ]
+}

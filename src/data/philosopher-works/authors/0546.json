@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "author_id": 546,
+  "canonical_name": "Félix Martínez Bonati",
+  "alternate_names": [],
+  "life": {
+    "born": {
+      "year": 1929,
+      "certainty": "national_library_source"
+    },
+    "died": {
+      "year": 2025,
+      "certainty": "national_library_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_editions_translations_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0546-w001",
+      "title": "La estructura de la obra literaria: una investigación de filosofía del lenguaje y estética",
+      "work_type": "literary_theory_and_philosophy_of_language_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "national_library_primary_record"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoría literaria",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía del lenguaje",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-93888.html"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0546-w002",
+      "title": "Las ideas estéticas de Schiller",
+      "work_type": "aesthetics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "national_library_bibliographic_record"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Schiller",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "estética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "arte",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-84642.html"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0546-w003",
+      "title": "La concepción del lenguaje en la filosofía de Husserl",
+      "work_type": "husserl_and_philosophy_of_language_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographic_record"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "Husserl",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lenguaje",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "fenomenología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofía del lenguaje",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.iifilologicas.unam.mx/bibliotecaiifl/uploads/Fondo_Nicol.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0546-w004",
+      "title": "La ficción narrativa: su lógica y ontología",
+      "work_type": "fiction_logic_and_ontology_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1992,
+        "certainty": "publisher_bibliographic_record"
+      },
+      "first_publication_year": 1992,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ficción",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "lógica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "ontología",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "narratología",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://books.google.es/books?hl=es&id=1tEzWrP749EC"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "0546-w005",
+      "title": "El Quijote y la poética de la novela",
+      "work_type": "cervantes_and_poetics_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "university_research_institute_record"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": [
+          "8488333099",
+          "9788488333094"
+        ]
+      },
+      "keywords": [
+        {
+          "term": "Don Quijote",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "poética",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "novela",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Cervantes",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://iimigueldecervantes.web.uah.es/es/publicaciones/biblioteca-estudios-cervantinos/03-el-quijote-y-la-poetica-de-la-novela"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Fundación de una teoría fenomenológica latinoamericana de la obra literaria y de la ontología de la ficción",
+      "kind": "latin_american_phenomenological_literary_theory_and_fiction_ontology_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_library_source",
+      "title": "Memoria Chilena — Félix Martínez Bonati y la teoría literaria (1929–2025)",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-3420.html"
+    },
+    {
+      "kind": "national_library_primary_record",
+      "title": "Memoria Chilena — La estructura de la obra literaria",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-93888.html"
+    }
+  ],
+  "research_notes": [
+    "Las reediciones de La estructura de la obra literaria (1972, 1983) no generan nuevos work_id.",
+    "La edición castellana de El Quijote y la poética de la novela se fija en 1995; existe una edición posterior chilena de 2004."
+  ]
+}

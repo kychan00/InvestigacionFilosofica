@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "author_id": 966,
+  "canonical_name": "Alicia Ruiz",
+  "alternate_names": [
+    "Alicia E. C. Ruiz",
+    "Alicia E. Ruiz"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "966-w001",
+      "title": "Idas y vueltas: por una teoría crítica del derecho",
+      "work_type": "monograph",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.derecho.uba.ar/publicaciones/libros/ind-idasyvueltas.php"
+      ],
+      "notes": "Edición de septiembre de 2001 publicada por la Facultad de Derecho de la Universidad de Buenos Aires."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pensamiento crítico del derecho, democracia, género, ciudadanía y discurso judicial.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "bibliographic_catalog_or_academic_source",
+      "title": "Evidencia bibliográfica de Alicia Ruiz",
+      "url": "https://www.derecho.uba.ar/publicaciones/libros/ind-idasyvueltas.php"
+    }
+  ],
+  "research_notes": [
+    "La Universidad de Buenos Aires incluye un índice de capítulos dentro del volumen; no se duplican como monografías independientes."
+  ]
+}

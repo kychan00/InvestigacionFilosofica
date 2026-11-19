@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "author_id": 1329,
+  "canonical_name": "Claudio Parra Álvarez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1329-w001",
+      "title": "Análisis existencial de la soledad humana",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1995,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1995,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.ubiobio.cl/index.php/RHE/es/article/view/1857"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1329-w002",
+      "title": "Naturaleza emocional y valórica del joven pobre",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.ubiobio.cl/index.php/RHE/en/article/view/1878"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1329-w003",
+      "title": "La extraña figura moral del profesional universitario",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.ubiobio.cl/index.php/RHE/es/article/view/5338"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1329-w004",
+      "title": "La filosofía y el sabio estoico: examen de la virtud",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.ubiobio.cl/index.php/RHE/en/article/view/5282"
+      ],
+      "notes": "El portal muestra una republicación técnica en 2022; el año del número original requiere cotejo antes de fijarlo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de filosofía de la Universidad del Bío-Bío, con trabajos sobre ética, educación, fenomenología y filosofía antigua.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1329-1",
+      "url": "https://revistas.ubiobio.cl/index.php/RHE/es/article/view/1857"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1329-2",
+      "url": "https://revistas.ubiobio.cl/index.php/RHE/en/article/view/1878"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1329-3",
+      "url": "https://revistas.ubiobio.cl/index.php/RHE/es/article/view/5338"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1329-4",
+      "url": "https://revistas.ubiobio.cl/index.php/RHE/en/article/view/5282"
+    }
+  ],
+  "research_notes": [
+    "El año original de La filosofía y el sabio estoico no se fija porque el repositorio muestra una fecha de carga reciente que puede no coincidir con el fascículo histórico.",
+    "Se evitan atribuciones de libros no localizados en catálogo."
+  ]
+}

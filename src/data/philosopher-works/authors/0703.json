@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "author_id": 703,
+  "canonical_name": "Evagrio López Parra",
+  "alternate_names": [
+    "Hermano Evagrio López Parra",
+    "H. Evagrio López Parra"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selection_not_exhaustive",
+    "last_reviewed": "2026-11-17"
+  },
+  "works": [
+    {
+      "work_id": "0703-w001",
+      "title": "Trayectoria de la educación católica en Méjico durante el siglo XX",
+      "work_type": "Catholic_education_congress_paper",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "library_or_institutional_bibliography"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "conference_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.org/hem/194/194910ci.htm"
+      ],
+      "notes": "Ponencia presentada en el I Congreso Interiberoamericano de Educación, Santander 1949; consta separata impresa del CSIC con 27 páginas. No duplicar ponencia y separata."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Participación como educador marista en el Congreso Interiberoamericano de Educación, desde la historiografía de la educación católica mexicana.",
+      "kind": "documented_academic_or_intellectual_contribution",
+      "authorship_status": "documented_in_academic_source",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "primary_congress_programme",
+      "title": "Congreso de Educación de 1949: ponencia de Evagrio López Parra",
+      "url": "https://www.filosofia.org/hem/194/194910ci.htm"
+    },
+    {
+      "kind": "contemporary_print_catalog",
+      "title": "Extracto original de 1949, Trayectoria de la educación católica en Méjico",
+      "url": "https://www.uniliber.com/buscar/libros_ordenado_por_precio-mas-bajo_pagina_8?autor=parra&rows=100"
+    }
+  ],
+  "research_notes": [
+    "H. corresponde a Hermano en programa histórico, no al nombre de pila.",
+    "No se atribuyen a López Parra escritos de homónimos ni ponencias de otros participantes."
+  ]
+}

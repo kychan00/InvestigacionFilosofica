@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "author_id": 1080,
+  "canonical_name": "Pedro Negre Rigol",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-18"
+  },
+  "works": [
+    {
+      "work_id": "1080-w001",
+      "title": "Budismo: enigma de un nirvana misterioso",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1946,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1946,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=62271&lvl=author_see"
+      ],
+      "notes": "Barcelona, Labor."
+    },
+    {
+      "work_id": "1080-w002",
+      "title": "Fe y política: sociología latinoamericana y teología de la liberación",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1971,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1971,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=62271&lvl=author_see",
+        "https://opaccedei.um.edu.uy/index.php?id=1095&lvl=indexint_see&main="
+      ],
+      "notes": "Buenos Aires, Tierra Nueva, 1971 [fecha de catálogo]; edición Montevideo, Iglesia y Sociedad, 1973."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Fuente de evidencia bibliográfica: pedro",
+      "url": "https://pmb.parlamento.gub.uy/pmb/opac_css/index.php?id=62271&lvl=author_see"
+    },
+    {
+      "kind": "institutional_academic_library_or_scholarly_bibliography",
+      "title": "Fuente de evidencia bibliográfica: pedro71",
+      "url": "https://opaccedei.um.edu.uy/index.php?id=1095&lvl=indexint_see&main="
+    }
+  ],
+  "research_notes": [
+    "El catálogo del Parlamento de Uruguay lista tres ejemplares, pero Pueblo oprimido, señor de la historia es obra colectiva sin atribución capitular confirmada a Negre; no se suma.",
+    "Fe y política tiene registro de Tierra Nueva, Buenos Aires [1971] en CEDEI y registro de Montevideo 1973 en biblioteca parlamentaria; se considera una sola obra en ediciones distintas."
+  ]
+}

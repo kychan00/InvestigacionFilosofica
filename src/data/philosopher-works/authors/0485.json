@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "author_id": 485,
+  "canonical_name": "Antônio Luís Machado Neto",
+  "alternate_names": [
+    "A. L. Machado Neto",
+    "Antonio Luiz Machado Neto",
+    "Antônio Luiz Machado Neto"
+  ],
+  "life": {
+    "born": {
+      "year": 1930,
+      "certainty": "national_biobibliographical_source"
+    },
+    "died": {
+      "year": 1977,
+      "certainty": "national_biobibliographical_source"
+    }
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "selected_originals_and_contributions_not_exhaustive",
+    "last_reviewed": "2026-11-16"
+  },
+  "works": [
+    {
+      "work_id": "0485-w001",
+      "title": "Sociologia do direito natural",
+      "work_type": "sociology_of_law_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1957,
+        "certainty": "retrospective_scholarly_bibliography"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "sociologia jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "direito natural",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoria do direito",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/revistajuridica/article/view/14360"
+      ],
+      "notes": "Salvador, Progresso Editora, 1957."
+    },
+    {
+      "work_id": "0485-w002",
+      "title": "Introdução à ciência do direito",
+      "work_type": "jurisprudence_textbook",
+      "original_language": "português",
+      "original_date": {
+        "year": 1960,
+        "certainty": "retrospective_scholarly_bibliography_with_later_catalog"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciência do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "teoria jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "egologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://periodicos.puc-campinas.edu.br/revistajuridica/article/view/14360",
+        "https://www.uesc.br/lea/2020/acervo-bibliog-lea.pdf"
+      ],
+      "notes": "A bibliografia retrospectiva fixa a obra em 1960; catálogo UESC conserva edição de 1963 em dois volumes. A edição de 1963 não é contada como nova obra."
+    },
+    {
+      "work_id": "0485-w003",
+      "title": "Teoria geral do direito",
+      "work_type": "general_theory_of_law_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1966,
+        "certainty": "university_library_catalog"
+      },
+      "first_publication_year": 1966,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "teoria geral do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "norma",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociologia jurídica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.uesc.br/lea/2020/acervo-bibliog-lea.pdf"
+      ],
+      "notes": "Rio de Janeiro, Tempo Brasileiro, 1966, 339 p."
+    },
+    {
+      "work_id": "0485-w004",
+      "title": "Compêndio de introdução à ciência do direito",
+      "work_type": "jurisprudence_compendium",
+      "original_language": "português",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bar_association_library_catalog"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciência do direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "introdução ao direito",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociologia jurídica",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://www2.oabsp.org.br/asp/biblioteca/site/detalhes_livro.asp?id_livro=11427"
+      ],
+      "notes": "São Paulo, Saraiva, 1969, 339 p. Edições posteriores de 1973 e 1977 não são duplicadas."
+    },
+    {
+      "work_id": "0485-w005",
+      "title": "História das ideias jurídicas no Brasil",
+      "work_type": "history_of_legal_ideas_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1969,
+        "certainty": "contemporary_review_and_library_catalog"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "história das ideias",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "filosofia jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Brasil",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://revistas.usp.br/revhistoria/pt_BR/article/view/129401",
+        "https://www2.oabsp.org.br/asp/biblioteca/site/detalhes_livro.asp?id_livro=11321"
+      ],
+      "notes": "São Paulo, Grijalbo/EDUSP, 1969, cerca de 236 p.; prefácio de Miguel Reale."
+    },
+    {
+      "work_id": "0485-w006",
+      "title": "A Bahia intelectual (1900-1930)",
+      "work_type": "sociology_of_intellectual_life_study",
+      "original_language": "português",
+      "original_date": {
+        "year": 1972,
+        "certainty": "university_digital_library"
+      },
+      "first_publication_year": 1972,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "intelectuais",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "Bahia",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "sociologia do conhecimento",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "história cultural",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=222242"
+      ],
+      "notes": "Publicado em Universitas, 1972; desdobramento de pesquisa sobre a vida intelectual brasileira."
+    },
+    {
+      "work_id": "0485-w007",
+      "title": "Teoria da ciência jurídica",
+      "work_type": "legal_epistemology_book",
+      "original_language": "português",
+      "original_date": {
+        "year": 1975,
+        "certainty": "court_library_catalog"
+      },
+      "first_publication_year": 1975,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [
+        {
+          "term": "ciência jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "epistemologia jurídica",
+          "provenance": "scholarly"
+        },
+        {
+          "term": "metodologia",
+          "provenance": "scholarly"
+        }
+      ],
+      "evidence_urls": [
+        "https://bdjur.stj.jus.br/server/api/core/bitstreams/be64b016-76f3-45e7-8042-27256415d6ec/content"
+      ],
+      "notes": "São Paulo, Saraiva, 1975."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Sistematização brasileira da sociologia jurídica, da teoria geral do direito e da história das ideias jurídicas em diálogo com a teoria egológica",
+      "kind": "brazilian_legal_philosophy_and_sociology_of_law_contribution",
+      "authorship_status": "documented_in_academic_and_bibliographic_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "El pensamiento filosófico latinoamericano, del Caribe y «latino» (1300–2000), inventario canónico del proyecto",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "national_biobibliographical_source",
+      "title": "Biblioteca Digital de Literatura — A. L. Machado Neto",
+      "url": "https://literaturabrasileira.ufsc.br/autores?id=1401"
+    },
+    {
+      "kind": "bar_association_library_catalog",
+      "title": "OAB-SP — Compêndio de introdução à ciência do direito",
+      "url": "https://www2.oabsp.org.br/asp/biblioteca/site/detalhes_livro.asp?id_livro=11427"
+    }
+  ],
+  "research_notes": [
+    "Introdução à ciência do direito conserva 1960 como primeira data da bibliografia retrospectiva; 1963 corresponde a edição catalogada posterior."
+  ]
+}
