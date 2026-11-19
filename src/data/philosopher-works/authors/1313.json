@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "author_id": 1313,
+  "canonical_name": "Juan Pérez de Menchaca",
+  "alternate_names": [
+    "Juan Pérez de Menacho"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1313-w001",
+      "title": "Theologiae moralis tractatus",
+      "work_type": "manuscript_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/socialismo_participacion/Socialismo%20y%20participacion%20N%C2%B037.pdf"
+      ],
+      "notes": "Tratado manuscrito atribuido a Pérez de Menacho en fuentes historiográficas; no se fija fecha sin evidencia editorial suficiente."
+    },
+    {
+      "work_id": "1313-w002",
+      "title": "Comentarios a la Suma teológica de Santo Tomás",
+      "work_type": "manuscript_commentary",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/socialismo_participacion/Socialismo%20y%20participacion%20N%C2%B037.pdf"
+      ],
+      "notes": "Comentarios escolásticos documentados por la historiografía; la mayor parte de la obra permaneció manuscrita."
+    },
+    {
+      "work_id": "1313-w003",
+      "title": "Privilegios de los indios",
+      "work_type": "manuscript_treatise",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+      ],
+      "notes": "Estudio atribuido por la historiografía de la filosofía colonial; fecha y estado material requieren cotejo archivístico adicional."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita limeño y catedrático de Prima de Teología en San Marcos, considerado una figura temprana de la escolástica indiana.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1313-1",
+      "url": "https://journals.uco.es/refime/article/view/13165"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1313-2",
+      "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/socialismo_participacion/Socialismo%20y%20participacion%20N%C2%B037.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1313-3",
+      "url": "https://www.filosofia.mx/la-ensenanza-de-la-filosofia/"
+    }
+  ],
+  "research_notes": [
+    "Lote 132 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–131 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva. En autores coloniales se distinguen manuscrito/composición, primera publicación y ediciones póstumas; cuando la fecha no está establecida se conserva null."
+  ]
+}
