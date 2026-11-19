@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "author_id": 1439,
+  "canonical_name": "Diego Rivera",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1886,
+    "death_year": 1957
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1439-w001",
+      "title": "La pintura revolucionaria mexicana",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://portales.sre.gob.mx/acervo/images/libros/cultura/5_artes_plasticas.pdf"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1439-w002",
+      "title": "Notas sobre los pintores mexicanos",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1926,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1926,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/26789655/Las_revistas_como_dispositivos_de_relaciones_art%C3%ADsticas_en_Latinoam%C3%A9rica_y_el_Caribe"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1439-w003",
+      "title": "El espíritu revolucionario en el arte moderno",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1932,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1932,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://philarchive.org/archive/GUTCTY"
+      ],
+      "notes": "Publicado originalmente en Modern Quarterly."
+    },
+    {
+      "work_id": "1439-w004",
+      "title": "Sobre el arte y la burguesía",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1947,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1947,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/20843315/DE_SENSACIONES_PERCEPCI%C3%93N_Y_EMOCI%C3%93N_EST%C3%89TICA_UN_ACERCAMIENTO_AL_PENSAMIENTO_ESTETICO_DE_DIEGO_RIVERA"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1439-w005",
+      "title": "Sobre la encáustica y el fresco",
+      "work_type": "essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1951,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1951,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Juan O'Gorman"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/20843315/DE_SENSACIONES_PERCEPCI%C3%93N_Y_EMOCI%C3%93N_EST%C3%89TICA_UN_ACERCAMIENTO_AL_PENSAMIENTO_ESTETICO_DE_DIEGO_RIVERA"
+      ],
+      "notes": "Texto conjunto sobre técnica y teoría mural."
+    },
+    {
+      "work_id": "1439-w006",
+      "title": "La cuestión del arte en México",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1952,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1952,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/20843315/DE_SENSACIONES_PERCEPCI%C3%93N_Y_EMOCI%C3%93N_EST%C3%89TICA_UN_ACERCAMIENTO_AL_PENSAMIENTO_ESTETICO_DE_DIEGO_RIVERA"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Pintor y muralista mexicano con una producción ensayística explícita sobre estética marxista, función social del arte, muralismo, técnica pictórica y política cultural.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Secretaría de Relaciones Exteriores — México y la invención del arte latinoamericano",
+      "url": "https://portales.sre.gob.mx/acervo/images/libros/cultura/5_artes_plasticas.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "PhilArchive — El espíritu revolucionario en el arte moderno",
+      "url": "https://philarchive.org/archive/GUTCTY"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNAM — bibliografía de textos de Diego Rivera",
+      "url": "https://ora.ox.ac.uk/objects/uuid%3A0f8cc8b1-2fe6-4069-a350-9fd2b057a836/files/me16700b8291f8300e4b4e9f49b586f55"
+    }
+  ],
+  "research_notes": [
+    "Se seleccionan textos de autoría directa de Rivera sobre arte y política; las antologías póstumas Arte y política y Textos de arte se utilizan sólo como vehículos editoriales, no como obras originales nuevas.",
+    "No se confunden críticas sobre Rivera escritas por terceros con ensayos del propio artista."
+  ]
+}
