@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1380,
-    "authors_remaining": 124,
-    "works_or_contributions_seeded": 11864,
-    "current_batch": "138",
+    "authors_seeded": 1390,
+    "authors_remaining": 114,
+    "works_or_contributions_seeded": 11940,
+    "current_batch": "139",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7207,6 +7207,58 @@
       "author_id": 1380,
       "canonical_name": "Dermeval Saviani",
       "path": "authors/1380.json"
+    }
+  ],
+  "batch_139": [
+    {
+      "author_id": 1381,
+      "canonical_name": "Maria Lúcia de Arruda Aranha",
+      "path": "authors/1381.json"
+    },
+    {
+      "author_id": 1382,
+      "canonical_name": "Adolfo Chaparro Amaya",
+      "path": "authors/1382.json"
+    },
+    {
+      "author_id": 1383,
+      "canonical_name": "Ezequiel de Olaso",
+      "path": "authors/1383.json"
+    },
+    {
+      "author_id": 1384,
+      "canonical_name": "Samuel Schkolnik",
+      "path": "authors/1384.json"
+    },
+    {
+      "author_id": 1385,
+      "canonical_name": "Leiser Madanes",
+      "path": "authors/1385.json"
+    },
+    {
+      "author_id": 1386,
+      "canonical_name": "Conrado Eggers Lan",
+      "path": "authors/1386.json"
+    },
+    {
+      "author_id": 1387,
+      "canonical_name": "Francisco Olicieri",
+      "path": "authors/1387.json"
+    },
+    {
+      "author_id": 1388,
+      "canonical_name": "Arnoldo Mora",
+      "path": "authors/1388.json"
+    },
+    {
+      "author_id": 1389,
+      "canonical_name": "Agustín Álvarez",
+      "path": "authors/1389.json"
+    },
+    {
+      "author_id": 1390,
+      "canonical_name": "Florentino Ameghino",
+      "path": "authors/1390.json"
     }
   ]
 }

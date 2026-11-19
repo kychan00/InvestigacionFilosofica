@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "author_id": 1384,
+  "canonical_name": "Samuel Schkolnik",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1384-w001",
+      "title": "Algunas claves",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1983,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1983,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lagaceta.com.ar/nota/861210/la-gaceta-literaria/null"
+      ],
+      "notes": "Libro de aforismos filosóficos publicado en 1983."
+    },
+    {
+      "work_id": "1384-w002",
+      "title": "Tiempo y sociedad",
+      "work_type": "doctoral_thesis_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1996,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1996,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lillo.org.ar/journals/index.php/hyc/article/download/1788/1800"
+      ],
+      "notes": "Tesis doctoral publicada por la Universidad Nacional de Tucumán en 1996."
+    },
+    {
+      "work_id": "1384-w003",
+      "title": "Salven nuestras almas",
+      "work_type": "philosophical_novel",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lagaceta.com.ar/nota/861210/la-gaceta-literaria/null"
+      ],
+      "notes": "Novela filosófica publicada en 2001."
+    },
+    {
+      "work_id": "1384-w004",
+      "title": "Parker 51",
+      "work_type": "essay_collection",
+      "original_language": "español",
+      "original_date": {
+        "year": 2010,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2010,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.lagaceta.com.ar/nota/861210/la-gaceta-literaria/null"
+      ],
+      "notes": "Colección de ensayos y textos literarios publicada en 2010; una nota periodística de 2010 la llama por error Parker 55."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo tucumano dedicado a ética, filosofía del tiempo, mente, condición humana y escritura ensayística de orientación humanista.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1384-1",
+      "url": "https://ri.conicet.gov.ar/bitstream/handle/11336/144722/CONICET_Digital_Nro.6d39b607-953d-4337-8e8c-ede9755d229b_A.pdf?isAllowed=y&sequence=2"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1384-2",
+      "url": "https://www.lillo.org.ar/journals/index.php/hyc/article/download/1788/1800"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1384-3",
+      "url": "https://www.lagaceta.com.ar/nota/861210/la-gaceta-literaria/null"
+    }
+  ],
+  "research_notes": [
+    "Lote 139 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–138 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y recopilaciones póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "author_id": 1383,
+  "canonical_name": "Ezequiel de Olaso",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1383-w001",
+      "title": "Los nombres de Unamuno",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.sanchoelsabio.eus/Record/35473/Details"
+      ],
+      "notes": "Primera edición en Editorial Sudamericana, Buenos Aires, 1963."
+    },
+    {
+      "work_id": "1383-w002",
+      "title": "Escepticismo e Ilustración: la crisis pirrónica de Hume y Rousseau",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/download/702/D33/719"
+      ],
+      "notes": "La reseña de Diánoia documenta la edición de la Universidad de Carabobo de 1981; otras fuentes mencionan una versión o antecedente de 1970, discrepancia que queda señalada para auditoría."
+    },
+    {
+      "work_id": "1383-w003",
+      "title": "Del Renacimiento a la Ilustración I",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 1994,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1994,
+      "authorship_status": "editor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dialnet.unirioja.es/servlet/autor?codigo=22049"
+      ],
+      "notes": "Volumen editado por Olaso, publicado por Trotta-CSIC en 1994."
+    },
+    {
+      "work_id": "1383-w004",
+      "title": "Jugar en serio: aventuras de Borges",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/phm/eol.htm"
+      ],
+      "notes": "Obra publicada póstumamente en México por Paidós-UNAM en 1999."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo argentino especializado en filosofía moderna, escepticismo, Leibniz, Hume, Rousseau y pensamiento iberoamericano.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1383-1",
+      "url": "https://catalogo.sanchoelsabio.eus/Record/35473/Details"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1383-2",
+      "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/download/702/D33/719"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1383-3",
+      "url": "https://dialnet.unirioja.es/servlet/autor?codigo=22049"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1383-4",
+      "url": "https://www.filosofia.net/ddf/phm/eol.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1383-5",
+      "url": "https://www.fundacionkonex.org/b1549-ezequiel-de-olaso"
+    }
+  ],
+  "research_notes": [
+    "Lote 139 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–138 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, traducciones y recopilaciones póstumas no se convierten automáticamente en obras nuevas."
+  ]
+}
