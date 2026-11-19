@@ -1,6 +1,6 @@
 import { normalizeAuthorName } from "./remote-author-resolution.js";
 import { searchCrossref } from "../sources/crossref.js";
-import { searchInternetArchive } from "../sources/internet-archive.js";
+import { searchInternetArchive } from "../sources/internet-archive.js?v=20261119-author-creator-v1";
 import { searchCucshFilosofia } from "../sources/cucsh-filosofia.js";
 import {
   normalizeAuthorAliases,
