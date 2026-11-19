@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 1496,
+  "canonical_name": "Valerio Pujol",
+  "alternate_names": [
+    "Valero Pujol"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1496-w001",
+      "title": "Compendio de Historia Universal",
+      "work_type": "textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1878,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1878,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://libros.colmex.mx/wp-content/uploads/2024/10/EBOOKCEH002.pdf"
+      ],
+      "notes": "La historiografía académica identifica una edición guatemalteca de 1878; reediciones tardías, incluida la de 1934, no se duplican."
+    },
+    {
+      "work_id": "1496-w002",
+      "title": "Compendio de la Historia de la Filosofía",
+      "work_type": "textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1885,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1885,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.oj.gob.gt/digitales/56906.pdf"
+      ],
+      "notes": "Texto encargado por el gobierno de Guatemala para los institutos de segunda enseñanza, publicado en 1885."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo, historiador, periodista y educador republicano español radicado en Guatemala, influyente en la reforma educativa liberal y la enseñanza de filosofía e historia.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1496-1",
+      "url": "https://www.scielo.sa.cr/scielo.php?pid=S1409-469X2019000100056&script=sci_arttext"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1496-2",
+      "url": "https://libros.colmex.mx/wp-content/uploads/2024/10/EBOOKCEH002.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1496-3",
+      "url": "https://biblioteca.oj.gob.gt/digitales/56906.pdf"
+    }
+  ],
+  "research_notes": [
+    "Lote 150 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 146–149 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; discursos, traducciones, reediciones, recopilaciones y ediciones póstumas se distinguen explícitamente."
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "author_id": 1495,
+  "canonical_name": "Augusto César Sandino",
+  "alternate_names": [
+    "Augusto C. Sandino"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1495-w001",
+      "title": "Manifiesto de San Albino",
+      "work_type": "political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1927,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1927,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cenida.una.edu.ni/relectronicos/REN303.4S194.pdf"
+      ],
+      "notes": "Manifiesto fechado en San Albino, Nueva Segovia, 1 de julio de 1927."
+    },
+    {
+      "work_id": "1495-w002",
+      "title": "Plan de realización del Supremo Sueño de Bolívar",
+      "work_type": "political_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1929,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1929,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.ucm.es/index.php/GEOP/es/article/view/78605"
+      ],
+      "notes": "Documento político fechado el 20 de marzo de 1929; reediciones y transcripciones posteriores no se duplican."
+    },
+    {
+      "work_id": "1495-w003",
+      "title": "Manifiesto a los pueblos de la tierra y en particular al de Nicaragua",
+      "work_type": "political_manifesto",
+      "original_language": "español",
+      "original_date": {
+        "year": 1933,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1933,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Manifiesto_a_los_pueblos_de_la_tierra_y.html?id=vZhDPgAACAAJ"
+      ],
+      "notes": "Edición nicaragüense de Tipografía La Prensa, 1933."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Líder antiimperialista nicaragüense cuyo pensamiento político articuló soberanía, unidad latinoamericana e independencia frente a la intervención estadounidense.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1495-1",
+      "url": "https://revistas.ucm.es/index.php/GEOP/es/article/view/78605"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1495-2",
+      "url": "https://cenida.una.edu.ni/relectronicos/REN303.4S194.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1495-3",
+      "url": "https://books.google.com/books/about/Manifiesto_a_los_pueblos_de_la_tierra_y.html?id=vZhDPgAACAAJ"
+    }
+  ],
+  "research_notes": [
+    "Lote 150 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 146–149 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; discursos, traducciones, reediciones, recopilaciones y ediciones póstumas se distinguen explícitamente."
+  ]
+}

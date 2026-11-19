@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "author_id": 1491,
+  "canonical_name": "Fidel Castro",
+  "alternate_names": [
+    "Fidel Castro Ruz"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1491-w001",
+      "title": "La historia me absolverá",
+      "work_type": "defense_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1953,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1953,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.marxists.org/history/cuba/archive/castro/1953/10/16.htm"
+      ],
+      "notes": "Alegato de defensa pronunciado tras el asalto al Moncada; se registra como discurso político, no como libro independiente por cada reedición."
+    },
+    {
+      "work_id": "1491-w002",
+      "title": "Primer discurso por Radio Rebelde",
+      "work_type": "broadcast_speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1958,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1958,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.marxists.org/history/cuba/archive/castro/1958/04/14.htm"
+      ],
+      "notes": "Discurso del 14 de abril de 1958 transmitido por Radio Rebelde."
+    },
+    {
+      "work_id": "1491-w003",
+      "title": "Discurso ante la Asamblea General de las Naciones Unidas",
+      "work_type": "speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1960,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1960,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.marxists.org/history/cuba/archive/castro/1960/09/26.htm"
+      ],
+      "notes": "Intervención del 26 de septiembre de 1960 ante la Asamblea General de la ONU."
+    },
+    {
+      "work_id": "1491-w004",
+      "title": "Discurso de clausura del Congreso Cultural de La Habana",
+      "work_type": "speech",
+      "original_language": "español",
+      "original_date": {
+        "year": 1968,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1968,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.marxists.org/espanol/castro/1968/01/12.htm"
+      ],
+      "notes": "Discurso de clausura de enero de 1968; se registra como pieza oratoria documentada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirigente revolucionario cubano cuya producción discursiva y política articuló soberanía, antiimperialismo, socialismo y revolución en América Latina.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1491-1",
+      "url": "https://www.marxists.org/espanol/castro/index.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1491-2",
+      "url": "https://www.marxists.org/history/cuba/archive/castro/"
+    }
+  ],
+  "research_notes": [
+    "Lote 150 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 146–149 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; discursos, traducciones, reediciones, recopilaciones y ediciones póstumas se distinguen explícitamente."
+  ]
+}

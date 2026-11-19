@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "author_id": 1500,
+  "canonical_name": "José Joaquín de Mora",
+  "alternate_names": [
+    "José Joaquín Mora"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1500-w001",
+      "title": "Discurso inaugural que pronunció en el Ateneo Español al abrir un curso de derecho natural",
+      "work_type": "speech_pamphlet",
+      "original_language": "español",
+      "original_date": {
+        "year": 1821,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1821,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cervantesvirtual.com/obra/discurso-inaugural-que-pronuncio-en-el-ateneo-espanol-d-jose-joaquin-de-mora-uno-de-sus-socios-al-abrir-un-curso-de-derecho-natural-el-dia-7-de-marzo-de-1821-1023329/"
+      ],
+      "notes": "Discurso publicado en Madrid en 1821."
+    },
+    {
+      "work_id": "1500-w002",
+      "title": "Catecismo de economía-política",
+      "work_type": "textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1825,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1825,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://historia-hispanica.rah.es/biografias/30833-jose-joaquin-de-mora"
+      ],
+      "notes": "Publicado en Londres por R. Ackermann en 1825; tuvo numerosas reediciones hispanoamericanas."
+    },
+    {
+      "work_id": "1500-w003",
+      "title": "Curso de Derechos del Liceo de Chile: Derecho natural y derecho de gentes",
+      "work_type": "textbook",
+      "original_language": "español",
+      "original_date": {
+        "year": 1830,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1830,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://pegasus.law.columbia.edu/record/128430"
+      ],
+      "notes": "Manual publicado en Santiago de Chile en 1830; fue el primer tomo de un proyecto mayor que no se completó íntegramente."
+    },
+    {
+      "work_id": "1500-w004",
+      "title": "De la situación actual de las Repúblicas Sur-Americanas",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 1853,
+        "certainty": "bibliographic_or_composition_year"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://onlinelibrary.wiley.com/doi/abs/10.1111/blar.12480"
+      ],
+      "notes": "Artículo publicado en Revista Española de Ambos Mundos, 1853."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Intelectual liberal español de amplia actuación hispanoamericana, decisivo en la enseñanza moderna de derecho natural, economía política y filosofía en Chile.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1500-1",
+      "url": "https://cervantesvirtual.com/obra/discurso-inaugural-que-pronuncio-en-el-ateneo-espanol-d-jose-joaquin-de-mora-uno-de-sus-socios-al-abrir-un-curso-de-derecho-natural-el-dia-7-de-marzo-de-1821-1023329/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1500-2",
+      "url": "https://historia-hispanica.rah.es/biografias/30833-jose-joaquin-de-mora"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1500-3",
+      "url": "https://pegasus.law.columbia.edu/record/128430"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1500-4",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-95483.html"
+    }
+  ],
+  "research_notes": [
+    "Lote 150 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 146–149 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; discursos, traducciones, reediciones, recopilaciones y ediciones póstumas se distinguen explícitamente."
+  ]
+}
