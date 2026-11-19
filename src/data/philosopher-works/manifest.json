@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1300,
-    "authors_remaining": 204,
-    "works_or_contributions_seeded": 11267,
-    "current_batch": "130",
+    "authors_seeded": 1310,
+    "authors_remaining": 194,
+    "works_or_contributions_seeded": 11292,
+    "current_batch": "131",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6791,6 +6791,58 @@
       "author_id": 1300,
       "canonical_name": "Fernando Díaz de Leiva",
       "path": "authors/1300.json"
+    }
+  ],
+  "batch_131": [
+    {
+      "author_id": 1301,
+      "canonical_name": "Gonzalo de Oquendo",
+      "path": "authors/1301.json"
+    },
+    {
+      "author_id": 1302,
+      "canonical_name": "Juan Bautista del Rosario Sotolongo",
+      "path": "authors/1302.json"
+    },
+    {
+      "author_id": 1303,
+      "canonical_name": "José de las Alas",
+      "path": "authors/1303.json"
+    },
+    {
+      "author_id": 1304,
+      "canonical_name": "Diego de Escobar",
+      "path": "authors/1304.json"
+    },
+    {
+      "author_id": 1305,
+      "canonical_name": "Gregorio Uscamell",
+      "path": "authors/1305.json"
+    },
+    {
+      "author_id": 1306,
+      "canonical_name": "Rafael del Castillo y Sucre",
+      "path": "authors/1306.json"
+    },
+    {
+      "author_id": 1307,
+      "canonical_name": "Francisco Hernández",
+      "path": "authors/1307.json"
+    },
+    {
+      "author_id": 1308,
+      "canonical_name": "Diego José Abad y García",
+      "path": "authors/1308.json"
+    },
+    {
+      "author_id": 1309,
+      "canonical_name": "Juan Antonio de Ahumada",
+      "path": "authors/1309.json"
+    },
+    {
+      "author_id": 1310,
+      "canonical_name": "Juan de Quezada",
+      "path": "authors/1310.json"
     }
   ]
 }

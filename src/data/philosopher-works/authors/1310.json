@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "author_id": 1310,
+  "canonical_name": "Juan de Quezada",
+  "alternate_names": [
+    "Juan de Quevedo",
+    "Fray Juan de Quevedo"
+  ],
+  "life": {
+    "death_year": 1519
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [],
+  "non_bibliographic_contributions": [
+    {
+      "title": "El inventario lo presenta como Juan de Quezada, O.F.M., primer obispo de Darién y contraparte de Bartolomé de Las Casas; las fuentes eclesiásticas e históricas identifican inequívocamente a esa persona como fray Juan de Quevedo.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Banco de la República de Colombia — Fray Juan de Quevedo",
+      "url": "https://enciclopedia.banrepcultural.org/Fray_Juan_de_Quevedo"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Enrique Dussel — Episcopado hispanoamericano, primer obispo del Darién",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/11.Episcopado_hispanoamericano_T6.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Historia Cultural de la Iglesia en América Latina — Juan de Quevedo",
+      "url": "https://dhial.org/diccionario/index.php?title=PRIMERA_FUNDACI%C3%93N_DIOCESANA_Y_CIVIL_EN_TIERRA_FIRME"
+    }
+  ],
+  "research_notes": [
+    "Discrepancia nominal importante: el inventario canónico dice Juan de Quezada, pero la identidad biográfica descrita corresponde a Juan de Quevedo, O.F.M., primer obispo de Santa María la Antigua del Darién.",
+    "No se registran obras bibliográficas individuales porque las fuentes consultadas sólo mencionan memoriales sin títulos suficientemente establecidos; se prioriza evitar una falsa atribución.",
+    "Se conserva canonical_name = Juan de Quezada para mantener la alineación con el inventario de 1,504 autores y se añade Juan de Quevedo como variante documentada."
+  ]
+}

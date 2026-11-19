@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "author_id": 1308,
+  "canonical_name": "Diego José Abad y García",
+  "alternate_names": [
+    "Diego José Abad"
+  ],
+  "life": {
+    "birth_year": 1727,
+    "death_year": 1779
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1308-w001",
+      "title": "Rasgo épico descriptivo de la fábrica y grandezas del templo de la Compañía de Jesús de Zacatecas",
+      "work_type": "poem",
+      "original_language": "español",
+      "original_date": {
+        "year": 1750,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1750,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.iifilologicas.unam.mx/pnovohispano/uploads/memoxviii/05_art_43.pdf"
+      ],
+      "notes": "Publicado dentro de la Breve descripción de la fábrica y adornos del templo de la Compañía de Jesús de Zacatecas."
+    },
+    {
+      "work_id": "1308-w002",
+      "title": "Nascitura philosophia",
+      "work_type": "philosophy_course_manuscript",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://cee.edu.mx/NuestrasPublicaciones/11_TENDENCIAS-I-V/TEOM-I.pdf"
+      ],
+      "notes": "Curso de filosofía en tres volúmenes atribuido a Abad; la fuente no establece una fecha de composición segura."
+    },
+    {
+      "work_id": "1308-w003",
+      "title": "Musa Americana seu De Deo carmina / De Deo Deoque Homine Heroica",
+      "work_type": "poem",
+      "original_language": "latín",
+      "original_date": {
+        "year": 1769,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1769,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.iifilologicas.unam.mx/pnovohispano/uploads/memoxviii/05_art_43.pdf",
+        "https://www.elem.mx/autor/datos/3481"
+      ],
+      "notes": "La primera edición documentada como Musa Americana seu De Deo carmina apareció en Cádiz en 1769. La versión ampliada y definitiva se publicó póstumamente como De Deo, Deoque Homine Heroica en 1780; se cuenta como una misma obra en desarrollo, no como dos obras independientes."
+    },
+    {
+      "work_id": "1308-w004",
+      "title": "Dissertatio Joco-Seria: si alguien nacido fuera de Italia puede escribir correctamente el latín, en contra de lo que opina Roberti",
+      "work_type": "essay",
+      "original_language": "latín",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.elem.mx/autor/obra/directa/3481/"
+      ],
+      "notes": "La obra está identificada en ELEM mediante su traducción moderna de 2001; no se infiere aquí una fecha original."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita humanista, profesor de filosofía y agente de la renovación de estudios novohispanos; su obra poética latina articula teología, metafísica y cultura ilustrada.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Enciclopedia de la Literatura en México — Diego José Abad",
+      "url": "https://www.elem.mx/autor/datos/3481"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNAM, Estudios del Pensamiento Novohispano — bibliografía de Diego José Abad",
+      "url": "https://www.iifilologicas.unam.mx/pnovohispano/uploads/memoxviii/05_art_43.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Centro de Estudios Educativos — historia de la educación en México",
+      "url": "https://cee.edu.mx/NuestrasPublicaciones/11_TENDENCIAS-I-V/TEOM-I.pdf"
+    }
+  ],
+  "research_notes": [
+    "Se evita duplicar como obras autónomas las sucesivas ampliaciones y traducciones del gran poema De Deo.",
+    "El curso Nascitura philosophia se conserva como obra manuscrita sin fecha original establecida."
+  ]
+}
