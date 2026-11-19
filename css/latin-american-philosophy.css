@@ -3200,3 +3200,12 @@ button.author-card,
     height: 30px;
   }
 }
+
+
+.explorer-actions button:focus-visible,
+.explorer-period-filter button:focus-visible,
+.period-group-toggle:focus-visible,
+.author-profile-card:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--latam-gold) 86%, white);
+  outline-offset: 3px;
+}
