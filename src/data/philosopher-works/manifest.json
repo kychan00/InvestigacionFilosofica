@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1210,
-    "authors_remaining": 294,
-    "works_or_contributions_seeded": 10653,
-    "current_batch": "121",
+    "authors_seeded": 1220,
+    "authors_remaining": 284,
+    "works_or_contributions_seeded": 10737,
+    "current_batch": "122",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6323,6 +6323,58 @@
       "author_id": 1210,
       "canonical_name": "Manuel Querini",
       "path": "authors/1210.json"
+    }
+  ],
+  "batch_122": [
+    {
+      "author_id": 1211,
+      "canonical_name": "José Ignacio Palencia",
+      "path": "authors/1211.json"
+    },
+    {
+      "author_id": 1212,
+      "canonical_name": "José Antonio Pardo Oláguez",
+      "path": "authors/1212.json"
+    },
+    {
+      "author_id": 1213,
+      "canonical_name": "César Zumeta",
+      "path": "authors/1213.json"
+    },
+    {
+      "author_id": 1214,
+      "canonical_name": "Manuel Ugarte",
+      "path": "authors/1214.json"
+    },
+    {
+      "author_id": 1215,
+      "canonical_name": "Alfonso Reyes",
+      "path": "authors/1215.json"
+    },
+    {
+      "author_id": 1216,
+      "canonical_name": "Luis Farré",
+      "path": "authors/1216.json"
+    },
+    {
+      "author_id": 1217,
+      "canonical_name": "Francisco García Bazán",
+      "path": "authors/1217.json"
+    },
+    {
+      "author_id": 1218,
+      "canonical_name": "Jorge Vélez Correa",
+      "path": "authors/1218.json"
+    },
+    {
+      "author_id": 1219,
+      "canonical_name": "Emilio Brito",
+      "path": "authors/1219.json"
+    },
+    {
+      "author_id": 1220,
+      "canonical_name": "Vicente Durán Casas",
+      "path": "authors/1220.json"
     }
   ]
 }

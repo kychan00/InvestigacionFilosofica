@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "author_id": 1214,
+  "canonical_name": "Manuel Ugarte",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1875,
+    "death_year": 1951
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1214-w001",
+      "title": "Las ideas del siglo",
+      "work_type": "political_essay",
+      "original_language": "español",
+      "original_date": {
+        "year": 1904,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1904,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/manuel_ugarte/bibliografia/"
+      ],
+      "notes": "Registro de political_essay; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1214-w002",
+      "title": "El arte y la democracia",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1905,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1905,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/manuel_ugarte/bibliografia/"
+      ],
+      "notes": "Registro de book; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1214-w003",
+      "title": "Enfermedades sociales",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1906,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1906,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/manuel_ugarte/bibliografia/"
+      ],
+      "notes": "Registro de book; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1214-w004",
+      "title": "El porvenir de la América Latina",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1911,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1911,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/manuel_ugarte/bibliografia/"
+      ],
+      "notes": "Registro de book; año y atribución contrastados con fuente bibliográfica indicada. "
+    },
+    {
+      "work_id": "1214-w005",
+      "title": "El destino de un continente",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1923,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1923,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cervantesvirtual.com/portales/manuel_ugarte/bibliografia/"
+      ],
+      "notes": "Registro de book; año y atribución contrastados con fuente bibliográfica indicada. "
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Intelectual argentino defensor de la unidad latinoamericana, el antiimperialismo y el socialismo democrático.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1214-1",
+      "url": "https://www.cervantesvirtual.com/portales/manuel_ugarte/bibliografia/"
+    }
+  ],
+  "research_notes": [
+    "Se excluyen de esta selección inicial novelas, poesía y reediciones; la bibliografía de la Biblioteca Virtual Miguel de Cervantes distingue las primeras ediciones.",
+    "El porvenir de la América Latina (1911) no se duplica por reproducciones digitales de 2017."
+  ]
+}
