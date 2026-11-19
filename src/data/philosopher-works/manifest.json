@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1280,
-    "authors_remaining": 224,
-    "works_or_contributions_seeded": 11153,
-    "current_batch": "128",
+    "authors_seeded": 1290,
+    "authors_remaining": 214,
+    "works_or_contributions_seeded": 11199,
+    "current_batch": "129",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6687,6 +6687,58 @@
       "author_id": 1280,
       "canonical_name": "Sylvester Williams",
       "path": "authors/1280.json"
+    }
+  ],
+  "batch_129": [
+    {
+      "author_id": 1281,
+      "canonical_name": "Mario Barrera",
+      "path": "authors/1281.json"
+    },
+    {
+      "author_id": 1282,
+      "canonical_name": "Carlos Muñoz",
+      "path": "authors/1282.json"
+    },
+    {
+      "author_id": 1283,
+      "canonical_name": "Charles Ornelas",
+      "path": "authors/1283.json"
+    },
+    {
+      "author_id": 1284,
+      "canonical_name": "Ana Nieto Gómez",
+      "path": "authors/1284.json"
+    },
+    {
+      "author_id": 1285,
+      "canonical_name": "Leticia Hernández",
+      "path": "authors/1285.json"
+    },
+    {
+      "author_id": 1286,
+      "canonical_name": "Cherríe Moraga",
+      "path": "authors/1286.json"
+    },
+    {
+      "author_id": 1287,
+      "canonical_name": "Ana Castillo",
+      "path": "authors/1287.json"
+    },
+    {
+      "author_id": 1288,
+      "canonical_name": "Emma Pérez",
+      "path": "authors/1288.json"
+    },
+    {
+      "author_id": 1289,
+      "canonical_name": "Chela Sandoval",
+      "path": "authors/1289.json"
+    },
+    {
+      "author_id": 1290,
+      "canonical_name": "Lara Medina",
+      "path": "authors/1290.json"
     }
   ]
 }

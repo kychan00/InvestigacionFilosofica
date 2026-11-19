@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "author_id": 1282,
+  "canonical_name": "Carlos Muñoz",
+  "alternate_names": [
+    "Carlos Muñoz Jr."
+  ],
+  "life": {
+    "birth_year": 1939
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1282-w001",
+      "title": "Youth, Identity, Power: The Chicano Movement",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1989,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1989,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://collections.si.edu/search/results.htm?q=%22Mun%5Cu0303oz%2C+Carlos+1939-%22"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Académico y activista chicano, fundador del primer departamento de Chicano Studies en Estados Unidos y estudioso del movimiento estudiantil chicano.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1282-1",
+      "url": "https://collections.si.edu/search/results.htm?q=%22Mun%5Cu0303oz%2C+Carlos+1939-%22"
+    }
+  ],
+  "research_notes": [
+    "La edición de 1999/2007 es revisión de la misma obra y no se duplica."
+  ]
+}
