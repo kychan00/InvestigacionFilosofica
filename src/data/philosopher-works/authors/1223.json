@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "author_id": 1223,
+  "canonical_name": "Enzo Faletto",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1223-w001",
+      "title": "Dependencia y desarrollo en América Latina",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Fernando Henrique Cardoso"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sigloxxieditores.com.mx/libro/dependencia-y-desarrollo-en-america-latina-2/"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1223-w002",
+      "title": "La dependencia y lo nacional-popular",
+      "work_type": "article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.nuso.org/autor/enzo-faletto/"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1223-1",
+      "url": "https://sigloxxieditores.com.mx/libro/dependencia-y-desarrollo-en-america-latina-2/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1223-2",
+      "url": "https://www.nuso.org/autor/enzo-faletto/"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}
