@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "author_id": 1259,
+  "canonical_name": "Humberto Cuenca",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1911,
+    "death_year": 1965
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1259-w001",
+      "title": "Biografía del paisaje",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1954,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1954,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliofep.fundacionempresaspolar.org/media/1280009/200_educadores_vnzlns_lw.pdf"
+      ],
+      "notes": "Asociación de Escritores de Venezuela, 1954."
+    },
+    {
+      "work_id": "1259-w002",
+      "title": "Tratado sobre Derecho procesal en Venezuela",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1956,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1956,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliofep.fundacionempresaspolar.org/media/1280009/200_educadores_vnzlns_lw.pdf"
+      ],
+      "notes": "Facultad de Derecho de la UCV, 1956; obra jurídica de consulta prolongada."
+    },
+    {
+      "work_id": "1259-w003",
+      "title": "Proceso Civil Romano",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1957,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1957,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://periodico.uma.edu.ve/2018/05/03/historias-del-futuro-loreto-sanabria-y-cuenca-romanistas/"
+      ],
+      "notes": "Ediciones Jurídicas Europa-América, Buenos Aires; algunas reseñas biográficas mencionan 1961, por lo que se documenta la discrepancia."
+    },
+    {
+      "work_id": "1259-w004",
+      "title": "Ejército, universidad y revolución",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1962,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1962,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliofep.fundacionempresaspolar.org/media/1280009/200_educadores_vnzlns_lw.pdf"
+      ],
+      "notes": "Obra publicada en 1962; La universidad revolucionaria circuló también separadamente como capítulo."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de Derecho Procesal Civil y Derecho Romano en la Universidad Central de Venezuela, crítico literario y promotor de estudios universitarios de periodismo.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fundación Empresas Polar / UCAB — Humberto Cuenca",
+      "url": "https://bibliofep.fundacionempresaspolar.org/media/1280009/200_educadores_vnzlns_lw.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Universidad Monteávila — Cuenca romanista",
+      "url": "https://periodico.uma.edu.ve/2018/05/03/historias-del-futuro-loreto-sanabria-y-cuenca-romanistas/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Universidad Monteávila — Derecho procesal civil",
+      "url": "https://catalagobiblioteca.uma.edu.ve/cgi-bin/koha/opac-detail.pl?biblionumber=12139"
+    }
+  ],
+  "research_notes": [
+    "Proceso Civil Romano aparece citado como 1957 en referencias jurídicas, mientras una reseña biográfica lo menciona como 1961; se adopta 1957 por la referencia editorial específica.",
+    "La octava edición de Derecho procesal civil de 2000 no se cuenta como obra póstuma nueva."
+  ]
+}
