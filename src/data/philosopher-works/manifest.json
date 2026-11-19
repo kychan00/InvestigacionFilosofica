@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1400,
-    "authors_remaining": 104,
-    "works_or_contributions_seeded": 11981,
-    "current_batch": "140",
+    "authors_seeded": 1410,
+    "authors_remaining": 94,
+    "works_or_contributions_seeded": 12129,
+    "current_batch": "141",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7311,6 +7311,58 @@
       "author_id": 1400,
       "canonical_name": "Luis José de la Peña",
       "path": "authors/1400.json"
+    }
+  ],
+  "batch_141": [
+    {
+      "author_id": 1401,
+      "canonical_name": "José Antonio Arze",
+      "path": "authors/1401.json"
+    },
+    {
+      "author_id": 1402,
+      "canonical_name": "Vicente Lombardo Toledano",
+      "path": "authors/1402.json"
+    },
+    {
+      "author_id": 1403,
+      "canonical_name": "Julio Herrera y Obes",
+      "path": "authors/1403.json"
+    },
+    {
+      "author_id": 1404,
+      "canonical_name": "Manuel Bonfim",
+      "path": "authors/1404.json"
+    },
+    {
+      "author_id": 1405,
+      "canonical_name": "Carlos Rojas Osorio",
+      "path": "authors/1405.json"
+    },
+    {
+      "author_id": 1406,
+      "canonical_name": "Jorge Luis Borges",
+      "path": "authors/1406.json"
+    },
+    {
+      "author_id": 1407,
+      "canonical_name": "Gabriel Zaid",
+      "path": "authors/1407.json"
+    },
+    {
+      "author_id": 1408,
+      "canonical_name": "Cândido Gomes",
+      "path": "authors/1408.json"
+    },
+    {
+      "author_id": 1409,
+      "canonical_name": "Julieta Kirkwood",
+      "path": "authors/1409.json"
+    },
+    {
+      "author_id": 1410,
+      "canonical_name": "Maya Cu",
+      "path": "authors/1410.json"
     }
   ]
 }
