@@ -728,10 +728,18 @@ export function buildInternetArchiveSearchUrl(
     );
 
 
+  const scopedQuery =
+    safeQuery &&
+    options.queryType === "author"
+      ? `creator:(${safeQuery})`
+      : safeQuery
+        ? `(${safeQuery})`
+        : "";
+
   url.searchParams.set(
     "q",
-    safeQuery
-      ? `mediatype:texts AND (${safeQuery})`
+    scopedQuery
+      ? `mediatype:texts AND ${scopedQuery}`
       : "mediatype:texts"
   );
 
@@ -1187,6 +1195,8 @@ export async function searchInternetArchive(
       query,
       {
         ...options,
+
+        queryType,
 
         rows:
           candidateRows
