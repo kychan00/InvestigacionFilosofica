@@ -137,6 +137,107 @@ test(
 
 
 test(
+  "la búsqueda de autor consulta explícitamente el campo creator",
+  () => {
+    const url =
+      buildInternetArchiveSearchUrl(
+        "Theodor W. Adorno",
+        {
+          rows: 20,
+          page: 1,
+          queryType: "author"
+        }
+      );
+
+    const query =
+      url.searchParams.get("q");
+
+    assert.match(
+      query,
+      /mediatype:texts/
+    );
+
+    assert.match(
+      query,
+      /creator:\(Theodor W\. Adorno\)/
+    );
+  }
+);
+
+
+test(
+  "searchInternetArchive conserva el tipo author al construir la petición",
+  async () => {
+    const originalFetch =
+      globalThis.fetch;
+
+    let query = "";
+
+    globalThis.fetch =
+      async url => {
+        query =
+          new URL(String(url))
+            .searchParams
+            .get("q") || "";
+
+        return {
+          ok: true,
+          status: 200,
+          headers: {
+            get() {
+              return null;
+            }
+          },
+          async json() {
+            return {
+              response: {
+                docs: [
+                  {
+                    identifier: "adorno-negative-dialectics",
+                    title: "Negative Dialectics",
+                    creator: "Adorno, Theodor W.",
+                    year: 1973,
+                    language: "eng"
+                  }
+                ]
+              }
+            };
+          }
+        };
+      };
+
+    try {
+      const results =
+        await searchInternetArchive(
+          {
+            query: "Theodor W. Adorno",
+            weight: 1,
+            type: "author"
+          },
+          {
+            rows: 10,
+            retries: 0
+          }
+        );
+
+      assert.match(
+        query,
+        /creator:\(Theodor W\. Adorno\)/
+      );
+
+      assert.equal(
+        results[0].providers[0],
+        "Internet Archive"
+      );
+    } finally {
+      globalThis.fetch =
+        originalFetch;
+    }
+  }
+);
+
+
+test(
   "construye búsqueda limitada a textos",
   () => {
     const url =
