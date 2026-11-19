@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 1456,
+  "canonical_name": "Guillermo Jorge Silva Martínez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1456-w001",
+      "title": "Teoría de la caridad: crítica al concepto de caridad cristiana",
+      "work_type": "doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 2012,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2012,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/pxd/gsm.htm"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1456-w002",
+      "title": "Ensayo sobre el ágape",
+      "work_type": "conference_paper",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://posgrado.unam.mx/filosofia/?page_id=627"
+      ],
+      "notes": "Texto publicado en memorias/actas del posgrado; fecha exacta pendiente de identificación en el índice consultado."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor de filosofía de la UNAM, con trabajo en ética, Antonio Caso, divulgación filosófica y crítica de la religión.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1456-1",
+      "url": "https://www.filosofia.net/ddf/pxd/gsm.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1456-2",
+      "url": "https://posgrado.unam.mx/filosofia/?page_id=627"
+    }
+  ],
+  "research_notes": [
+    "La ficha se mantiene deliberadamente breve porque la fuente institucional solo individualiza con claridad la tesis/libro Teoría de la caridad y el Ensayo sobre el ágape.",
+    "No se inventan títulos a partir de sus líneas de investigación."
+  ]
+}

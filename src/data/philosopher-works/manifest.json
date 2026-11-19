@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1450,
-    "authors_remaining": 54,
-    "works_or_contributions_seeded": 12405,
-    "current_batch": "145",
+    "authors_seeded": 1460,
+    "authors_remaining": 44,
+    "works_or_contributions_seeded": 12482,
+    "current_batch": "146",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7571,6 +7571,58 @@
       "author_id": 1450,
       "canonical_name": "Manuel Montt",
       "path": "authors/1450.json"
+    }
+  ],
+  "batch_146": [
+    {
+      "author_id": 1451,
+      "canonical_name": "André Poey",
+      "path": "authors/1451.json"
+    },
+    {
+      "author_id": 1452,
+      "canonical_name": "Mario Ruiz Sotelo",
+      "path": "authors/1452.json"
+    },
+    {
+      "author_id": 1453,
+      "canonical_name": "Carlos Ruiz Schneider",
+      "path": "authors/1453.json"
+    },
+    {
+      "author_id": 1454,
+      "canonical_name": "Marta Pena de Matsushita",
+      "path": "authors/1454.json"
+    },
+    {
+      "author_id": 1455,
+      "canonical_name": "Katya Colmenares Lizárraga",
+      "path": "authors/1455.json"
+    },
+    {
+      "author_id": 1456,
+      "canonical_name": "Guillermo Jorge Silva Martínez",
+      "path": "authors/1456.json"
+    },
+    {
+      "author_id": 1457,
+      "canonical_name": "Miguel Ángel Fernández",
+      "path": "authors/1457.json"
+    },
+    {
+      "author_id": 1458,
+      "canonical_name": "Héctor Díaz-Polanco",
+      "path": "authors/1458.json"
+    },
+    {
+      "author_id": 1459,
+      "canonical_name": "Cristina Rochetti",
+      "path": "authors/1459.json"
+    },
+    {
+      "author_id": 1460,
+      "canonical_name": "Jorge Zúñiga Martínez",
+      "path": "authors/1460.json"
     }
   ]
 }
