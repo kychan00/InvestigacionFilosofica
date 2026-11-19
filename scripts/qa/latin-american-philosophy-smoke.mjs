@@ -382,6 +382,33 @@ try {
     assert.ok(firstLoaded > 0 && firstLoaded <= 40,
       "First period hydration must be bounded to one 40-author batch");
 
+    const originariosToggle = page.locator("#coleccion-originarios .period-group-toggle");
+    assert.equal(
+      await originariosToggle.getAttribute("aria-expanded"),
+      "true",
+      "Selected period must open as an expanded editorial group"
+    );
+    await originariosToggle.click();
+    assert.equal(
+      await originariosToggle.getAttribute("aria-expanded"),
+      "false",
+      "Period groups must be collapsible"
+    );
+    await originariosToggle.click();
+
+    await page.locator("#period-author-search").fill("Firmin");
+    await page.waitForFunction(() =>
+      document.querySelector("#author-explorer-results")?.textContent?.includes("Anténor Firmin")
+    );
+    assert.ok(
+      await page.locator("#author-explorer-results .author-profile-card").count() >= 1,
+      "Explorer search must return a rich author card from the full canonical inventory"
+    );
+    await page.locator("#period-author-search").fill("");
+    await page.waitForFunction(() =>
+      document.querySelector("#periodized-authors")?.hidden === false
+    );
+
     const periodLoadMore = page.locator("#load-more-period-authors");
     if (await periodLoadMore.isVisible()) {
       await periodLoadMore.click();
