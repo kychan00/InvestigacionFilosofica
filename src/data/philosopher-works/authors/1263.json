@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "author_id": 1263,
+  "canonical_name": "Gloria Arbonés",
+  "alternate_names": [
+    "Glòria Arbonès Villaverde",
+    "Gloria María Arbonés Villaverde"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1263-w001",
+      "title": "Rebeca",
+      "work_type": "translated_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Horacio Pons",
+        "Stella Accorinti"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://koha.chubut.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=10132"
+      ],
+      "notes": "Traducción de la obra de Ronald Reed; se registra el rol de traducción y no autoría del texto original."
+    },
+    {
+      "work_id": "1263-w002",
+      "title": "Lisa",
+      "work_type": "translated_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1999,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1999,
+      "authorship_status": "translator",
+      "coauthors": [
+        "Horacio Pons",
+        "Stella Accorinti"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://koha.chubut.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=10134"
+      ],
+      "notes": "Traducción de la obra de Matthew Lipman; se registra el rol de traducción y no autoría del texto original."
+    },
+    {
+      "work_id": "1263-w003",
+      "title": "Suki",
+      "work_type": "translated_book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2000,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2000,
+      "authorship_status": "translator",
+      "coauthors": [
+        "César Aira",
+        "Stella Accorinti"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://koha.chubut.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=10133"
+      ],
+      "notes": "Traducción de la obra de Matthew Lipman; se registra el rol de traducción y no autoría del texto original."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofa formada en la Universidad Nacional de La Plata y especialista en Filosofía para Niños; desarrolló trabajo formativo y de dirección en el GrupIREF.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Graó — Glòria Arbonès Villaverde",
+      "url": "https://www.grao.com/autores/arbones-villaverde-gloria-106538/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "GrupIREF — equipo y dirección",
+      "url": "https://www.grupiref.org/qui-som/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Pedagógica de Chubut — Rebeca",
+      "url": "https://koha.chubut.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=10132"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Pedagógica de Chubut — Lisa",
+      "url": "https://koha.chubut.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=10134"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Pedagógica de Chubut — Suki",
+      "url": "https://koha.chubut.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=10133"
+    }
+  ],
+  "research_notes": [
+    "El inventario canónico usa Gloria Arbonés; las fuentes catalanas emplean Glòria Arbonès Villaverde.",
+    "Solo se incorporan traducciones con responsabilidad explícita en catálogo; no se atribuyen a Arbonés las obras originales de Lipman o Reed."
+  ]
+}
