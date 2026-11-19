@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1360,
-    "authors_remaining": 144,
-    "works_or_contributions_seeded": 11647,
-    "current_batch": "136",
+    "authors_seeded": 1370,
+    "authors_remaining": 134,
+    "works_or_contributions_seeded": 11770,
+    "current_batch": "137",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7103,6 +7103,58 @@
       "author_id": 1360,
       "canonical_name": "Irineu Strenger",
       "path": "authors/1360.json"
+    }
+  ],
+  "batch_137": [
+    {
+      "author_id": 1361,
+      "canonical_name": "Paulo Mercadante",
+      "path": "authors/1361.json"
+    },
+    {
+      "author_id": 1362,
+      "canonical_name": "Antônio Paim",
+      "path": "authors/1362.json"
+    },
+    {
+      "author_id": 1363,
+      "canonical_name": "Antônio Machado Paupério",
+      "path": "authors/1363.json"
+    },
+    {
+      "author_id": 1364,
+      "canonical_name": "José Pedro Galvão de Souza",
+      "path": "authors/1364.json"
+    },
+    {
+      "author_id": 1365,
+      "canonical_name": "Silvio de Macedo",
+      "path": "authors/1365.json"
+    },
+    {
+      "author_id": 1366,
+      "canonical_name": "Roque Spencer Maciel de Barros",
+      "path": "authors/1366.json"
+    },
+    {
+      "author_id": 1367,
+      "canonical_name": "Evaristo de Moraes Filho",
+      "path": "authors/1367.json"
+    },
+    {
+      "author_id": 1368,
+      "canonical_name": "Alcântara Nogueira",
+      "path": "authors/1368.json"
+    },
+    {
+      "author_id": 1369,
+      "canonical_name": "Jessy Santos",
+      "path": "authors/1369.json"
+    },
+    {
+      "author_id": 1370,
+      "canonical_name": "Geraldo Pinheiro Machado",
+      "path": "authors/1370.json"
     }
   ]
 }
