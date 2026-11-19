@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1290,
-    "authors_remaining": 214,
-    "works_or_contributions_seeded": 11199,
-    "current_batch": "129",
+    "authors_seeded": 1300,
+    "authors_remaining": 204,
+    "works_or_contributions_seeded": 11267,
+    "current_batch": "130",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6739,6 +6739,58 @@
       "author_id": 1290,
       "canonical_name": "Lara Medina",
       "path": "authors/1290.json"
+    }
+  ],
+  "batch_130": [
+    {
+      "author_id": 1291,
+      "canonical_name": "Laura E. Pérez",
+      "path": "authors/1291.json"
+    },
+    {
+      "author_id": 1292,
+      "canonical_name": "Sylvia Marcos",
+      "path": "authors/1292.json"
+    },
+    {
+      "author_id": 1293,
+      "canonical_name": "Edgardo Lander",
+      "path": "authors/1293.json"
+    },
+    {
+      "author_id": 1294,
+      "canonical_name": "Paget Henry",
+      "path": "authors/1294.json"
+    },
+    {
+      "author_id": 1295,
+      "canonical_name": "Ramabai Espinet",
+      "path": "authors/1295.json"
+    },
+    {
+      "author_id": 1296,
+      "canonical_name": "Charles W. Mills",
+      "path": "authors/1296.json"
+    },
+    {
+      "author_id": 1297,
+      "canonical_name": "Antón de Montesinos",
+      "path": "authors/1297.json"
+    },
+    {
+      "author_id": 1298,
+      "canonical_name": "Pedro de Córdoba",
+      "path": "authors/1298.json"
+    },
+    {
+      "author_id": 1299,
+      "canonical_name": "Tomás de San Martín",
+      "path": "authors/1299.json"
+    },
+    {
+      "author_id": 1300,
+      "canonical_name": "Fernando Díaz de Leiva",
+      "path": "authors/1300.json"
     }
   ]
 }

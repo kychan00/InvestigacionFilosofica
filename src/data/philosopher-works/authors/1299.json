@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "author_id": 1299,
+  "canonical_name": "Tomás de San Martín",
+  "alternate_names": [
+    "Fray Tomás de San Martín"
+  ],
+  "life": {
+    "birth_year": 1482,
+    "death_year": 1554
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1299-w001",
+      "title": "Catecismo para la enseñanza de los Indios",
+      "work_type": "manuscript",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=SAN_MART%C3%8DN,_FRAY_TOM%C3%81S_DE"
+      ],
+      "notes": "Manuscrito conservado; la fuente indica expresamente que Tomás de San Martín no publicó obras en vida."
+    },
+    {
+      "work_id": "1299-w002",
+      "title": "Relación de los sacrificios que los indios hacen a sus dioses en tiempos de sementeras, cosechas y trabajos públicos",
+      "work_type": "manuscript_report",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=SAN_MART%C3%8DN,_FRAY_TOM%C3%81S_DE"
+      ],
+      "notes": "Manuscrito listado por la biografía histórica del dominico."
+    },
+    {
+      "work_id": "1299-w003",
+      "title": "Parecer sobre el escrúpulo de si son bien ganados los bienes adquiridos por los conquistadores, pobladores y encomenderos de Indias",
+      "work_type": "manuscript_opinion",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=SAN_MART%C3%8DN,_FRAY_TOM%C3%81S_DE"
+      ],
+      "notes": "Parecer manuscrito sobre legitimidad moral de bienes derivados de la conquista y encomienda."
+    },
+    {
+      "work_id": "1299-w004",
+      "title": "Carta al emperador Carlos V pidiendo la fundación de una Real Audiencia en la ciudad y distrito de La Plata o Las Charcas",
+      "work_type": "letter",
+      "original_language": "español",
+      "original_date": {
+        "year": 1553,
+        "certainty": "documented_letter_year"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.dhial.org/diccionario/index.php?title=SAN_MART%C3%8DN,_FRAY_TOM%C3%81S_DE"
+      ],
+      "notes": "Carta escrita desde Sevilla a fines de noviembre de 1553."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dominico, profesor de filosofía, provincial y gestor de la creación del Estudio General de Lima que dio origen a la Universidad de San Marcos; también defensor de la población indígena.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dicionário de História Cultural de la Iglesia en América Latina — Tomás de San Martín",
+      "url": "https://www.dhial.org/diccionario/index.php?title=SAN_MART%C3%8DN,_FRAY_TOM%C3%81S_DE"
+    }
+  ],
+  "research_notes": [
+    "La fuente afirma expresamente que no publicó obras y enumera cuatro manuscritos conservados.",
+    "Hay discrepancias biográficas secundarias sobre lugar y año exacto de muerte; se adopta 1554, fecha indicada en el desarrollo biográfico que describe su fallecimiento en Lima."
+  ]
+}

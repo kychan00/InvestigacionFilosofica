@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "author_id": 1300,
+  "canonical_name": "Fernando Díaz de Leiva",
+  "alternate_names": [
+    "Fernando Díez de Leiva",
+    "Fernando Dios de Leyva"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1300-w001",
+      "title": "Axiomas morales, médicos, filosóficos y políticos",
+      "work_type": "book_of_aphorisms",
+      "original_language": "español",
+      "original_date": {
+        "year": 1682,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1682,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf",
+        "https://tesiunamdocumentos.dgb.unam.mx/ptd2019/enero/0784751/0784751.pdf"
+      ],
+      "notes": "Publicado en España en 1682; Dussel identifica al autor como sevillano que vivió en Santo Domingo. Fuentes paremiológicas presentan variantes del apellido y del título."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Escritor sevillano avecindado en Santo Domingo, asociado a la tradición colonial de axiomas, refranes y reflexión moral, médica y filosófica.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Dussel, Mendieta y Bohórquez — referencia a Díaz de Leiva y Axiomas",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNAM — estudio literario con referencia al refranero de 1682",
+      "url": "https://tesiunamdocumentos.dgb.unam.mx/ptd2019/enero/0784751/0784751.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Revista Ciencias de la Salud — referencia paremiológica a Fernando Díez de Leiva",
+      "url": "https://editorial.ucatolica.edu.co/index.php/RevClat/issue/download/117/27"
+    }
+  ],
+  "research_notes": [
+    "La fuente primaria del inventario da el título Axiomas morales, médicos, filosóficos y políticos y la forma Fernando Díaz de Leiva.",
+    "Una fuente paremiológica moderna utiliza Fernando Díez de Leiva y el título Antiaxiomas morales, médicos, filosóficos y políticos; se trata como variante bibliográfica pendiente de cotejo con ejemplar de 1682, no como segunda obra."
+  ]
+}
