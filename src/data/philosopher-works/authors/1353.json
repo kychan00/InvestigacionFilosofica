@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "author_id": 1353,
+  "canonical_name": "José Andrés Peres Angotti",
+  "alternate_names": [
+    "José André Peres Angotti",
+    "Jose Andre Peres Angotti"
+  ],
+  "life": {
+    "birth_year": 1949
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1353-w001",
+      "title": "Física",
+      "work_type": "coauthored_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Demétrio Delizoicov"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.br/j/ciedu/a/y3QT786pHBdGzxcsRtHTb9c/?lang=pt"
+      ],
+      "notes": "Primera edición de la Coleção Magistério – 2º grau."
+    },
+    {
+      "work_id": "1353-w002",
+      "title": "Metodologia do ensino de ciências",
+      "work_type": "coauthored_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Demétrio Delizoicov"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://books.google.com/books/about/Metodologia_do_ensino_de_ci%C3%AAncias.html?id=VmY2AAAACAAJ"
+      ],
+      "notes": "Primera edición; las reediciones de 1992/1994 y posteriores no se duplican."
+    },
+    {
+      "work_id": "1353-w003",
+      "title": "Fragmentos e totalidades no conhecimento científico e ensino de ciências",
+      "work_type": "doctoral_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1991,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1991,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.11606/T.48.1991.tde-20052015-095531",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://teses.usp.br/teses/disponiveis/48/48133/tde-20052015-095531/"
+      ],
+      "notes": "Tesis doctoral defendida en la Faculdade de Educação da USP el 25 de abril de 1991."
+    },
+    {
+      "work_id": "1353-w004",
+      "title": "Ensino de ciências: fundamentos e métodos",
+      "work_type": "coauthored_book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2002,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2002,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Demétrio Delizoicov",
+        "Marta Maria Pernambuco"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://acervo.bn.gov.br/sophia_web/acervo/detalhe/303304"
+      ],
+      "notes": "Primera edición de 2002; se evita duplicar reediciones."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Físico y educador dedicado a epistemología y enseñanza de ciencias, con aportes a los conceptos unificadores y a los Três Momentos Pedagógicos.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "USP — tesis doctoral de José André Peres Angotti",
+      "url": "https://teses.usp.br/teses/disponiveis/48/48133/tde-20052015-095531/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "SciELO — historia de los Três Momentos Pedagógicos",
+      "url": "https://www.scielo.br/j/ciedu/a/y3QT786pHBdGzxcsRtHTb9c/?lang=pt"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Nacional do Brasil — Ensino de ciências",
+      "url": "https://acervo.bn.gov.br/sophia_web/acervo/detalhe/303304"
+    }
+  ],
+  "research_notes": [
+    "El inventario usa José Andrés Peres Angotti; las fuentes brasileñas emplean sistemáticamente José André Peres Angotti.",
+    "Las distintas ediciones de sus manuales con Delizoicov y Pernambuco se cuentan una sola vez."
+  ]
+}
