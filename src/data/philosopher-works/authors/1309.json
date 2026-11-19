@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "author_id": 1309,
+  "canonical_name": "Juan Antonio de Ahumada",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1309-w001",
+      "title": "Representación político-legal que hace a nuestro señor soberano Don Felipe Quinto para que se sirva declarar que no tienen los españoles indianos óbice para obtener los empleos políticos y militares de la América",
+      "work_type": "legal_political_treatise",
+      "original_language": "español",
+      "original_date": {
+        "year": 1725,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1725,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.adabi.org.mx/vufind/Record/1040454",
+        "https://revistas.mjusticia.gob.es/index.php/AHDE/article/download/4474/4474/"
+      ],
+      "notes": "La primera edición se sitúa en Madrid hacia 1725. Defiende la preferencia de los españoles americanos o criollos en empleos eclesiásticos, políticos y militares."
+    },
+    {
+      "work_id": "1309-w002",
+      "title": "Informe jurídico al rey Felipe V en su Real y Supremo Consejo de las Indias por Juan de Oliván Rebolledo",
+      "work_type": "legal_report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1725,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1725,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://studylib.es/doc/8592195/latin-american-history-and-culture--series-6--parts-1"
+      ],
+      "notes": "Índice bibliográfico de impresos latinoamericanos atribuye a Juan Antonio de Ahumada la redacción del informe; se conserva como pieza jurídica distinta de la Representación político-legal."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jurista criollo y abogado de la Real Audiencia de México cuya Representación político-legal formuló una defensa jurídico-política de la preferencia de los americanos en cargos de Indias.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "ADABI — Representación político legal de Juan Antonio de Ahumada",
+      "url": "https://www.adabi.org.mx/vufind/Record/1040454"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Anuario de Historia del Derecho Español — ciencia jurídica hispanoamericana",
+      "url": "https://revistas.mjusticia.gob.es/index.php/AHDE/article/download/4474/4474/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Memoria Política de México — antecedentes del criollismo político",
+      "url": "https://www.memoriapoliticademexico.org/Textos/1Independencia/1521-1820.html"
+    }
+  ],
+  "research_notes": [
+    "La fecha 1725 se usa como fecha aproximada de la primera edición de la Representación, respaldada por bibliografía jurídica; la reimpresión mexicana de 1820 no se cuenta como obra nueva."
+  ]
+}
