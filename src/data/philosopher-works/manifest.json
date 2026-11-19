@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1340,
-    "authors_remaining": 164,
-    "works_or_contributions_seeded": 11509,
-    "current_batch": "134",
+    "authors_seeded": 1350,
+    "authors_remaining": 154,
+    "works_or_contributions_seeded": 11563,
+    "current_batch": "135",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6999,6 +6999,58 @@
       "author_id": 1340,
       "canonical_name": "Augusto Teixeira de Freitas",
       "path": "authors/1340.json"
+    }
+  ],
+  "batch_135": [
+    {
+      "author_id": 1341,
+      "canonical_name": "Dalmacio Vélez Sársfield",
+      "path": "authors/1341.json"
+    },
+    {
+      "author_id": 1342,
+      "canonical_name": "José Mármol",
+      "path": "authors/1342.json"
+    },
+    {
+      "author_id": 1343,
+      "canonical_name": "José Oiticica",
+      "path": "authors/1343.json"
+    },
+    {
+      "author_id": 1344,
+      "canonical_name": "Maria Lacerda de Moura",
+      "path": "authors/1344.json"
+    },
+    {
+      "author_id": 1345,
+      "canonical_name": "Florentino de Carvalho",
+      "path": "authors/1345.json"
+    },
+    {
+      "author_id": 1346,
+      "canonical_name": "Edgard Leuenroth",
+      "path": "authors/1346.json"
+    },
+    {
+      "author_id": 1347,
+      "canonical_name": "Fernando Bastos de Ávila",
+      "path": "authors/1347.json"
+    },
+    {
+      "author_id": 1348,
+      "canonical_name": "Carlos Alberto Gomes dos Santos",
+      "path": "authors/1348.json"
+    },
+    {
+      "author_id": 1349,
+      "canonical_name": "Wilson John Pessoa Mendonça",
+      "path": "authors/1349.json"
+    },
+    {
+      "author_id": 1350,
+      "canonical_name": "João Zanetic",
+      "path": "authors/1350.json"
     }
   ]
 }

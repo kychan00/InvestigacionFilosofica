@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "author_id": 1341,
+  "canonical_name": "Dalmacio Vélez Sársfield",
+  "alternate_names": [
+    "Dalmacio Vélez Sarsfield"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1341-w001",
+      "title": "Derecho público eclesiástico: relaciones del Estado con la Iglesia en la antigua América española",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1854,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1854,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.uca.edu.ar/bitstream/123456789/19735/1/especial-velez-sarsfield.pdf"
+      ],
+      "notes": "La investigación de la UCA señala primera publicación en 1854; las ediciones de 1871 y 1889 no se cuentan como obras nuevas."
+    },
+    {
+      "work_id": "1341-w002",
+      "title": "Proyecto de Código Civil para la República Argentina",
+      "work_type": "multivolume_legal_code_project",
+      "original_language": "español",
+      "original_date": {
+        "year": 1865,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1865,
+      "authorship_status": "codifier_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://facsej.userena.cl/images/revistas/dospuntas/2020/Dos_Puntas_23_edici%C3%B3n_-_2021.pdf"
+      ],
+      "notes": "Proyecto impreso entre 1865 y 1869, en cuatro tomos distribuidos en cinco volúmenes; se registra como una sola empresa codificadora."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jurista y codificador argentino encargado de redactar el proyecto sancionado como Código Civil de la República Argentina en 1869.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1341-1",
+      "url": "https://repositorio.uca.edu.ar/bitstream/123456789/19735/1/especial-velez-sarsfield.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1341-2",
+      "url": "https://facsej.userena.cl/images/revistas/dospuntas/2020/Dos_Puntas_23_edici%C3%B3n_-_2021.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1341-3",
+      "url": "https://museosarmiento.cultura.gob.ar/noticia/sancion-del-codigo-civil-de-la-republica-argentina/"
+    }
+  ],
+  "research_notes": [
+    "Lote 135 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–134 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, reimpresiones, prensa periódica y versiones posteriores no se convierten automáticamente en obras nuevas."
+  ]
+}
