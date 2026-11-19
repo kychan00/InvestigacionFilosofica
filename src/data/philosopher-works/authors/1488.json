@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "author_id": 1488,
+  "canonical_name": "Marcelo Velarde Cañazares",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1488-w001",
+      "title": "Vicente Fatone (1903-1962)",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unam.mx/contenidos/ficha/vicente-fatone-1903-1962-5000671?as=0&c=X778aX0&d=false&i=1&q=humanidades&t=search_0&v=1"
+      ],
+      "notes": "Capítulo en Personajes latinoamericanos del siglo XX, UNAM/CIALC, pp.127–137."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Investigador de historia de las ideas latinoamericanas, con estudios sobre Vicente Fatone, existencialismo y pensamiento filosófico argentino.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Repositorio UNAM/CIALC — Vicente Fatone (1903-1962)",
+      "url": "https://repositorio.unam.mx/contenidos/ficha/vicente-fatone-1903-1962-5000671?as=0&c=X778aX0&d=false&i=1&q=humanidades&t=search_0&v=1"
+    }
+  ],
+  "research_notes": [
+    "La ficha se mantiene deliberadamente breve por falta de una bibliografía de autoridad más amplia y segura.",
+    "No se infieren títulos a partir de menciones secundarias sin registro editorial."
+  ]
+}

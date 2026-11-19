@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "author_id": 1484,
+  "canonical_name": "Miguel Romero Griego",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1484-w001",
+      "title": "Ideas estéticas de José Revueltas",
+      "work_type": "doctoral_thesis",
+      "original_language": "español",
+      "original_date": {
+        "year": 1980,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1980,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/pxd/mrg.htm"
+      ],
+      "notes": "Tesis doctoral en Estudios Latinoamericanos, UNAM."
+    },
+    {
+      "work_id": "1484-w002",
+      "title": "Bibliografía Mexicana Filosófica Polémica, primera mitad del siglo XIX",
+      "work_type": "bibliography",
+      "original_language": "español",
+      "original_date": {
+        "year": 1993,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1993,
+      "authorship_status": "coauthor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/pxd/mrg.htm"
+      ],
+      "notes": "Obra bibliográfica en coautoría; la fuente de autoridad no detalla aquí todos los coautores."
+    },
+    {
+      "work_id": "1484-w003",
+      "title": "Filosofía de la Educación, Ideología y Utopía",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2014,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2014,
+      "authorship_status": "coauthor",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.filosofia.net/ddf/pxd/mrg.htm"
+      ],
+      "notes": "Publicación en coautoría documentada en su perfil filosófico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor e investigador mexicano dedicado a filosofía de la educación, estética y pensamiento latinoamericano; miembro fundador del Círculo Mexicano de Profesores de Filosofía.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Proyecto Filosofía en español — Miguel Romero Griego",
+      "url": "https://www.filosofia.net/ddf/pxd/mrg.htm"
+    }
+  ],
+  "research_notes": [
+    "Se mantienen únicamente las publicaciones explícitamente citadas en la fuente de autoridad.",
+    "No se atribuyen individualmente textos colectivos sin desglose de responsabilidad."
+  ]
+}

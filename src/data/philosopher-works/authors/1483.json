@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "author_id": 1483,
+  "canonical_name": "Jaime Retamal Salazar",
+  "alternate_names": [
+    "Jaime Andrés Retamal Salazar"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1483-w001",
+      "title": "Nos siguen pegando abajo. Jaime Guzmán, Dictadura, Concertación y Alianza: 40 años de educación de mercado",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2013,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2013,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://opinion.cooperativa.cl/opinion/jaime-retamal-salazar/2013-12-16/185648.html"
+      ],
+      "notes": "Editorial Ceibo; libro sobre política educativa chilena."
+    },
+    {
+      "work_id": "1483-w002",
+      "title": "De la microviolencia al clima escolar: Claves de comprensión desde el discurso de profesores",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2019,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2019,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Sebastián González"
+      ],
+      "identifiers": {
+        "doi": "10.5027/psicoperspectivas-Vol18-Issue1-fulltext-1559",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://fahu.usach.cl/academico/jaime-retamal/"
+      ],
+      "notes": "Psicoperspectivas 18(1), DOI 10.5027/psicoperspectivas-Vol18-Issue1-fulltext-1559."
+    },
+    {
+      "work_id": "1483-w003",
+      "title": "Filosofía, violencia y educación: 20 años de una ética intercultural",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2022,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2022,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.29035/pyr.22.89",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistapyr.ucm.cl/article/view/1101"
+      ],
+      "notes": "Palabra y Razón 22, pp.89–119."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Académico chileno de filosofía de la educación, ética educacional, convivencia y violencia escolar, con énfasis en política pública educativa.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Universidad de Santiago de Chile — Jaime Retamal",
+      "url": "https://fahu.usach.cl/academico/jaime-retamal/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Palabra y Razón — Filosofía, violencia y educación",
+      "url": "https://revistapyr.ucm.cl/article/view/1101"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Cooperativa — perfil y libro de 2013",
+      "url": "https://opinion.cooperativa.cl/opinion/jaime-retamal-salazar/2013-12-16/185648.html"
+    }
+  ],
+  "research_notes": [
+    "La ficha privilegia tres publicaciones con datos bibliográficos claros; no se infieren libros a partir de columnas de opinión.",
+    "La tesis doctoral de 2014 no se duplica como libro."
+  ]
+}

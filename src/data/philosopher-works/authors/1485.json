@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "author_id": 1485,
+  "canonical_name": "María Luisa Rubinelli",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1485-w001",
+      "title": "Reflexiones actuales sobre el pensamiento de Rodolfo Kusch",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2001,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2001,
+      "authorship_status": "compiler",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliotecacisor.unju.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=9"
+      ],
+      "notes": "Universidad Nacional de Jujuy / Universidad Nacional de Tucumán; Rubinelli figura como compiladora."
+    },
+    {
+      "work_id": "1485-w002",
+      "title": "Cuestiones de diversidad e interculturalidad en el pensamiento latinoamericano",
+      "work_type": "journal_article",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bdigital.uncuyo.edu.ar/ficha/3373"
+      ],
+      "notes": "Cuyo 23, pp.193–207."
+    },
+    {
+      "work_id": "1485-w003",
+      "title": "¿Los otros como nosotros? Tomo I: Interculturalidad y ciudadanía en la escuela: reflexiones desde América Latina",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2009,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2009,
+      "authorship_status": "compiler",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliotecacisor.unju.edu.ar/cgi-bin/koha/opac-ISBDdetail.pl?biblionumber=16"
+      ],
+      "notes": "EdiUnju; Rubinelli figura como compiladora y autora de capítulos."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Docente e investigadora argentina de pensamiento latinoamericano, antropología filosófica, identidad, diversidad e interculturalidad.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "UNCuyo — Cuestiones de diversidad e interculturalidad",
+      "url": "https://bdigital.uncuyo.edu.ar/ficha/3373"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Ana Teruel CONICET — Reflexiones sobre Rodolfo Kusch",
+      "url": "https://bibliotecacisor.unju.edu.ar/cgi-bin/koha/opac-detail.pl?biblionumber=9"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Ana Teruel CONICET — ¿Los otros como nosotros?",
+      "url": "https://bibliotecacisor.unju.edu.ar/cgi-bin/koha/opac-ISBDdetail.pl?biblionumber=16"
+    }
+  ],
+  "research_notes": [
+    "Se distinguen claramente los volúmenes compilados de los artículos de autoría individual.",
+    "No se atribuyen a Rubinelli los capítulos escritos por otros autores en los libros colectivos."
+  ]
+}
