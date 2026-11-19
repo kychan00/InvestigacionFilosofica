@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1260,
-    "authors_remaining": 244,
-    "works_or_contributions_seeded": 10995,
-    "current_batch": "126",
+    "authors_seeded": 1270,
+    "authors_remaining": 234,
+    "works_or_contributions_seeded": 11098,
+    "current_batch": "127",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6583,6 +6583,58 @@
       "author_id": 1260,
       "canonical_name": "Héctor Ripa Alberdi",
       "path": "authors/1260.json"
+    }
+  ],
+  "batch_127": [
+    {
+      "author_id": 1261,
+      "canonical_name": "Deodoro Roca",
+      "path": "authors/1261.json"
+    },
+    {
+      "author_id": 1262,
+      "canonical_name": "Fernando Aínsa",
+      "path": "authors/1262.json"
+    },
+    {
+      "author_id": 1263,
+      "canonical_name": "Gloria Arbonés",
+      "path": "authors/1263.json"
+    },
+    {
+      "author_id": 1264,
+      "canonical_name": "Estela Accorinti",
+      "path": "authors/1264.json"
+    },
+    {
+      "author_id": 1265,
+      "canonical_name": "Olga Grau Duhart",
+      "path": "authors/1265.json"
+    },
+    {
+      "author_id": 1266,
+      "canonical_name": "Ana María Vicuña",
+      "path": "authors/1266.json"
+    },
+    {
+      "author_id": 1267,
+      "canonical_name": "Walter Kohan",
+      "path": "authors/1267.json"
+    },
+    {
+      "author_id": 1268,
+      "canonical_name": "Vera Waksman",
+      "path": "authors/1268.json"
+    },
+    {
+      "author_id": 1269,
+      "canonical_name": "Manuel Gamio",
+      "path": "authors/1269.json"
+    },
+    {
+      "author_id": 1270,
+      "canonical_name": "Gonzalo Aguirre Beltrán",
+      "path": "authors/1270.json"
     }
   ]
 }
