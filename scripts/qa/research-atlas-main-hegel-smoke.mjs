@@ -28,7 +28,10 @@ try {
     timeout: 60000
   });
 
-  await page.locator("#search-input").fill("Hegel");
+  // Use the explicit author name here: the one-word query "Hegel" is also
+  // a valid topical search and live providers can legitimately return only
+  // secondary literature, making the author-focus assertion nondeterministic.
+  await page.locator("#search-input").fill("Georg Wilhelm Friedrich Hegel");
   await page.locator("#search-form button[type=submit]").click();
 
   await page.waitForFunction(() => {
