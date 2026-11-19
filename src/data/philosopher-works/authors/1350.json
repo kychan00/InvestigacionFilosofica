@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "author_id": 1350,
+  "canonical_name": "João Zanetic",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1350-w001",
+      "title": "Física também é cultura",
+      "work_type": "doctoral_thesis",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1990,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1990,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://portal.if.usp.br/lattes/fep/OC-0.html"
+      ],
+      "notes": "Registro institucional da USP data a tese de doutorado em 1990; bibliografia secundária cita 1989 como data de redação, por isso não se infere uma segunda obra."
+    },
+    {
+      "work_id": "1350-w002",
+      "title": "Física e Arte: uma ponte entre duas culturas",
+      "work_type": "journal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.fe.unicamp.br/pf-fe/publicacao/2344/49_dossie_zaneticj.pdf"
+      ],
+      "notes": "Publicado em Pro-Posições, v. 17, n. 1, jan.-abr. 2006; a data de ingestão posterior no portal não é tratada como nova publicação."
+    },
+    {
+      "work_id": "1350-w003",
+      "title": "Física e literatura: construindo uma ponte entre as duas culturas",
+      "work_type": "journal_article",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 2006,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2006,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": "10.1590/S0104-59702006000500004",
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.br/j/hcsm/a/JDfShKQ4dxHXV7zWDx85ZcC/"
+      ],
+      "notes": "Artigo no suplemento de 2006 de História, Ciências, Saúde–Manguinhos; DOI 10.1590/S0104-59702006000500004."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Físico e educador da USP conhecido por integrar história e filosofia da ciência, literatura e cultura ao ensino de física.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1350-1",
+      "url": "https://portal.if.usp.br/lattes/fep/OC-0.html"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1350-2",
+      "url": "https://www.fe.unicamp.br/pf-fe/publicacao/2344/49_dossie_zaneticj.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente documental 1350-3",
+      "url": "https://www.scielo.br/j/hcsm/a/JDfShKQ4dxHXV7zWDx85ZcC/"
+    }
+  ],
+  "research_notes": [
+    "Lote 135 preparado de forma aislada porque el PR #340 aún no había integrado los lotes 123–134 al momento de esta revisión.",
+    "Bibliografía selectiva y no exhaustiva; reediciones, reimpresiones, prensa periódica y versiones posteriores no se convierten automáticamente en obras nuevas."
+  ]
+}
