@@ -193,7 +193,7 @@ function earliestYear(record) {
     .filter(Number.isFinite);
   if (workYears.length) return Math.min(...workYears);
 
-  const born = record.life?.born?.year;
+  const born = record.life?.born?.year ?? record.life?.birth_year;
   return Number.isFinite(born) ? born : null;
 }
 
