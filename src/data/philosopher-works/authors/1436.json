@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "author_id": 1436,
+  "canonical_name": "José Luis Barrios",
+  "alternate_names": [
+    "José Luis Barrios Lara"
+  ],
+  "life": {
+    "birth_year": 1961
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1436-w001",
+      "title": "Ensayos de crítica cultural: una mirada fenomenológica a la contemporaneidad",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2004,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2004,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://catalogo.bibliotecasguanajuato.gob.mx/cgi-bin/koha/opac-search.pl?count=20&limit=au%3ABarrios%2C+Jos%C3%A9+Luis&q=ccl%3DProvider%3AUniversidad+Iberoamericana%3B+and+%28%28+%28allrecords%2CAlwaysMatches%3D%27%27%29+and+%28not-onloan-count,st-numeric+%3E%3D+1%29+and+%28lost-count,st-numeric%3D0%29+%29%29+and+su-to%3AFilosof%C3%ADa&sort_by=relevance_dsc"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1436-w002",
+      "title": "Símbolo, fantasma y afecto. Seis variaciones de la mirada sobre el arte contemporáneo en México",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2007,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2007,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://museoamparo.com/semblanzas/perfil/749/jose-luis-barrios"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1436-w003",
+      "title": "Memoria instituida, memoria instituyente",
+      "work_type": "edited_volume",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "editor",
+      "coauthors": [
+        "Pablo Lazo",
+        "Ana María Martínez de la Escalera"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.bib.ibero.mx/informesrector/files/original/ac0c2347acdd61631bc8efc980d7afc7.pdf"
+      ],
+      "notes": "Volumen colectivo de filosofía y memoria."
+    },
+    {
+      "work_id": "1436-w004",
+      "title": "Archivo y memoria: los lindes del acontecimiento entre la reificación y el afecto",
+      "work_type": "book_chapter",
+      "original_language": "español",
+      "original_date": {
+        "year": 2008,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2008,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://perfiles.ibero.mx/es/publications/archivo-y-memoria-los-lindes-del-acontecimiento-entre-la-reificac/"
+      ],
+      "notes": ""
+    },
+    {
+      "work_id": "1436-w005",
+      "title": "Lengua herida y crítica del presente",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2016,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2016,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://repositorio.unicach.mx/bitstream/handle/20.500.12753/5897/Capi%CC%81tulo%20II.pdf"
+      ],
+      "notes": ""
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Filósofo e historiador del arte mexicano especializado en estética, teoría crítica, política de la imagen, arte contemporáneo y cine.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Universidad Iberoamericana — perfil José Luis Barrios",
+      "url": "https://academia.ibero.mx/dr-jose-luis-barrios/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Museo Amparo — José Luis Barrios",
+      "url": "https://museoamparo.com/semblanzas/perfil/749/jose-luis-barrios"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Perfiles Ibero — Archivo y memoria",
+      "url": "https://perfiles.ibero.mx/es/publications/archivo-y-memoria-los-lindes-del-acontecimiento-entre-la-reificac/"
+    }
+  ],
+  "research_notes": [
+    "El cuerpo disuelto y El coloso aparecen documentados en perfiles institucionales, pero se dejan fuera de este primer lote por no fijarse aquí con suficiente seguridad sus primeras fechas editoriales.",
+    "Se distingue el rol editorial en Memoria instituida, memoria instituyente de la autoría de su capítulo individual."
+  ]
+}
