@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "author_id": 1222,
+  "canonical_name": "Raúl Prebisch",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1222-w001",
+      "title": "El desarrollo económico de la América Latina y algunos de sus principales problemas",
+      "work_type": "report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1949,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1949,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cepal.org/es/publicaciones/40010-desarrollo-economico-la-america-latina-algunos-sus-principales-problemas"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1222-w002",
+      "title": "Hacia una dinámica del desarrollo latinoamericano",
+      "work_type": "report",
+      "original_language": "español",
+      "original_date": {
+        "year": 1963,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1963,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cepal.org/es/equipo/raul-prebisch"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1222-w003",
+      "title": "Capitalismo periférico: crisis y transformación",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1981,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1981,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioguias.cepal.org/portalprebisch/TextosEsenciales"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1222-w004",
+      "title": "Transformación y desarrollo: la gran tarea de América Latina",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1970,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1970,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.scielo.org.mx/scielo.php?pid=S1665-952X2007000100006&script=sci_arttext"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1222-1",
+      "url": "https://www.cepal.org/es/publicaciones/40010-desarrollo-economico-la-america-latina-algunos-sus-principales-problemas"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1222-2",
+      "url": "https://www.cepal.org/es/equipo/raul-prebisch"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1222-3",
+      "url": "https://biblioguias.cepal.org/portalprebisch/TextosEsenciales"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1222-4",
+      "url": "https://www.scielo.org.mx/scielo.php?pid=S1665-952X2007000100006&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}

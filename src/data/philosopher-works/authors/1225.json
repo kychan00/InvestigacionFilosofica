@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "author_id": 1225,
+  "canonical_name": "Vânia Bambirra",
+  "alternate_names": [
+    "Vania Bambirra"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1225-w001",
+      "title": "El capitalismo dependiente latinoamericano",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://buscador.unsam.edu.ar/Record/16279/Details"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1225-w002",
+      "title": "La revolución cubana: una reinterpretación",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1974,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1974,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://revistas.usp.br/prolam/es/article/view/232696"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1225-1",
+      "url": "https://buscador.unsam.edu.ar/Record/16279/Details"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1225-2",
+      "url": "https://revistas.usp.br/prolam/es/article/view/232696"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}

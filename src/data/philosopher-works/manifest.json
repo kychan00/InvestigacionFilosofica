@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1220,
-    "authors_remaining": 284,
-    "works_or_contributions_seeded": 10737,
-    "current_batch": "122",
+    "authors_seeded": 1230,
+    "authors_remaining": 274,
+    "works_or_contributions_seeded": 10766,
+    "current_batch": "123",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6375,6 +6375,58 @@
       "author_id": 1220,
       "canonical_name": "Vicente Durán Casas",
       "path": "authors/1220.json"
+    }
+  ],
+  "batch_123": [
+    {
+      "author_id": 1221,
+      "canonical_name": "Leonel Franca",
+      "path": "authors/1221.json"
+    },
+    {
+      "author_id": 1222,
+      "canonical_name": "Raúl Prebisch",
+      "path": "authors/1222.json"
+    },
+    {
+      "author_id": 1223,
+      "canonical_name": "Enzo Faletto",
+      "path": "authors/1223.json"
+    },
+    {
+      "author_id": 1224,
+      "canonical_name": "André Gunder Frank",
+      "path": "authors/1224.json"
+    },
+    {
+      "author_id": 1225,
+      "canonical_name": "Vânia Bambirra",
+      "path": "authors/1225.json"
+    },
+    {
+      "author_id": 1226,
+      "canonical_name": "Ruy Mauro Marini",
+      "path": "authors/1226.json"
+    },
+    {
+      "author_id": 1227,
+      "canonical_name": "Aníbal Pinto",
+      "path": "authors/1227.json"
+    },
+    {
+      "author_id": 1228,
+      "canonical_name": "Osvaldo Sunkel",
+      "path": "authors/1228.json"
+    },
+    {
+      "author_id": 1229,
+      "canonical_name": "René Zavaleta Mercado",
+      "path": "authors/1229.json"
+    },
+    {
+      "author_id": 1230,
+      "canonical_name": "Gérard Pierre-Charles",
+      "path": "authors/1230.json"
     }
   ]
 }
