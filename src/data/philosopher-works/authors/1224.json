@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "author_id": 1224,
+  "canonical_name": "André Gunder Frank",
+  "alternate_names": [
+    "Andre Gunder Frank"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1224-w001",
+      "title": "Capitalism and Underdevelopment in Latin America: Historical Studies of Chile and Brazil",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1967,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1967,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://nyupress.org/9780853450931/capitalism-and-underdevelopment-in-latin-america/"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1224-w002",
+      "title": "Latin America: Underdevelopment or Revolution",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1969,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1969,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://obnb.uk/a00237035-andre-gunder-frank"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    },
+    {
+      "work_id": "1224-w003",
+      "title": "Dependent Accumulation and Underdevelopment",
+      "work_type": "book",
+      "original_language": "inglés",
+      "original_date": {
+        "year": 1979,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1979,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://bibliothecamarxista.org/authors/andre-gunder-frank/"
+      ],
+      "notes": "Registro selectivo: se cuenta la obra, no sus reediciones o traducciones."
+    }
+  ],
+  "non_bibliographic_contributions": [],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Inventario canónico Dussel, Mendieta y Bohórquez",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1224-1",
+      "url": "https://nyupress.org/9780853450931/capitalism-and-underdevelopment-in-latin-america/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1224-2",
+      "url": "https://obnb.uk/a00237035-andre-gunder-frank"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Fuente bibliográfica 1224-3",
+      "url": "https://bibliothecamarxista.org/authors/andre-gunder-frank/"
+    }
+  ],
+  "research_notes": [
+    "Primera selección documental; no exhaustiva. Revisar en una auditoría posterior diferencias entre año de redacción, primera edición y reediciones."
+  ]
+}
