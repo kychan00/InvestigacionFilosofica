@@ -5,12 +5,83 @@ import { searchCucshFilosofia } from "../sources/cucsh-filosofia.js";
 import {
   normalizeAuthorAliases,
   matchFederatedWork,
-  discoveredAuthorVariants
+  discoveredAuthorVariants,
+  splitCreatorMetadata
 } from "./author-federated-matching.js";
 
 function orcid(value) {
   return /(?:orcid\.org\/)?(\d{4}-\d{4}-\d{4}-[\dX]{4})$/i
     .exec(String(value||""))?.[1]?.toUpperCase()||null;
+}
+
+function shortCreatorSurname(name) {
+  const tokens=normalizeAuthorName(name).split(" ").filter(Boolean);
+  if(tokens.length<2)return "";
+  const surname=tokens.at(-1);
+  return surname.length>=4?surname:"";
+}
+
+function titleKeys(work,surname="") {
+  const base=normalizeAuthorName(work?.title||"");
+  if(!base)return [];
+  const keys=new Set([base]);
+  const prefix=normalizeAuthorName(surname);
+  if(prefix&&base.startsWith(prefix+" ")) {
+    const stripped=base.slice(prefix.length+1).trim();
+    if(stripped)keys.add(stripped);
+  }
+  return [...keys];
+}
+
+function titleCorroborates(work,evidenceWorks,surname) {
+  const candidate=new Set(titleKeys(work,surname));
+  return (evidenceWorks||[]).some(reference=>
+    titleKeys(reference,surname).some(key=>candidate.has(key))
+  );
+}
+
+function matchCorroboratedSurnameWork(work,name,evidenceWorks=[]) {
+  const surname=shortCreatorSurname(name);
+  if(!surname||!titleCorroborates(work,evidenceWorks,surname))return null;
+  const creators=splitCreatorMetadata(work?.authors||[]);
+  const matched=creators.find(creator=>
+    normalizeAuthorName(creator.name)===surname
+  );
+  if(!matched)return null;
+  const canonical=String(name||"").trim();
+  return {
+    ...work,
+    authors:(work?.authors||[]).length===1
+      ? [{...(work.authors[0]||{}),name:canonical}]
+      : work.authors,
+    matchedAuthor:{...matched,name:canonical},
+    matchedAuthorEvidence:"surname-title-corroborated",
+    matchedAuthorDisplayName:canonical,
+    attributionEvidence:"surname-title-corroborated",
+    collectiveWork:false,
+    coauthorCount:work?.coauthorCount??null
+  };
+}
+
+async function collectArchiveSurnameBatch(name,options,limit,evidenceWorks=[]) {
+  const surname=shortCreatorSurname(name);
+  if(!surname||!evidenceWorks.length||options.disableInternetArchive)return [];
+  try {
+    const works=await (options.archiveSearchImpl||searchInternetArchive)(
+      {query:surname,weight:1,type:"author"},
+      {rows:Math.min(limit,120),signal:options.signal,retries:1}
+    );
+    return (works||[]).map(work=>
+      matchFederatedWork(work,name,{
+        aliases:options.aliases||[],expectedOrcid:options.orcid
+      }) || matchCorroboratedSurnameWork(work,name,evidenceWorks)
+    ).filter(Boolean).map(work=>({
+      ...work,retrievalMode:"author-internet-archive"
+    }));
+  } catch(error) {
+    if(options.signal?.aborted||error?.name==="AbortError")throw error;
+    return [];
+  }
 }
 
 function workFingerprint(work) {
@@ -133,6 +204,21 @@ export async function resolveFederatedAuthor(name,options={}) {
         })
       ).filter(Boolean).map(work=>({...work,retrievalMode:entry.mode}))
     ));
+  }
+  // Internet Archive often stores historical creators as a surname only.
+  // Query that abbreviated creator separately, but only accept a record when
+  // another source or the local corpus corroborates the same work title.
+  const surnameEvidence=[
+    ...(options.knownWorks||[]),
+    ...found
+  ];
+  const abbreviatedArchive=await collectArchiveSurnameBatch(
+    original,{...options,aliases},limit,surnameEvidence
+  );
+  if(abbreviatedArchive.length) {
+    found.push(...abbreviatedArchive);
+    fulfilled.push({ok:true,provider:"Internet Archive",
+      mode:"author-internet-archive",works:abbreviatedArchive});
   }
   if(!fulfilled.length)return {status:"unavailable",works:[],errors};
 

@@ -3,7 +3,7 @@ import {
   resolveRemoteAuthorCandidate,
   enrichAuthorWorksWithCollaborators
 } from "./remote-author-resolution.js";
-import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261101-federated-coverage-v1";
+import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261119-archive-abbrev-v1";
 import { searchCrossrefByOrcid } from "../sources/crossref.js";
 import {
   fetchOrcidPublicWorks,
@@ -288,7 +288,8 @@ export async function discoverAuthorArchive({
     jobs.push((async()=>{
       try {
         const federated=await federatedImpl(name,{
-          signal,orcid,aliases:author?.aliases||[],limit:150,...federatedOptions
+          signal,orcid,aliases:author?.aliases||[],knownWorks:[...works],
+          limit:150,...federatedOptions
         });
         if(federated.status==="resolved") {
           works=mergeAuthorArchives(works,federated.works);
