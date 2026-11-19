@@ -33,13 +33,34 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
 body {
   margin: 0;
   background: var(--latam-paper);
   color: var(--latam-ink);
   font-family: Georgia, "Times New Roman", serif;
 }
+
+/*
+ * Scroll stability: fixed/sticky translucent surfaces with backdrop-filter can
+ * flicker while the compositor repaints during scroll, especially on macOS.
+ * Keep the same visual hierarchy with opaque surfaces on this archive only.
+ */
+body.latam-body .site-desktop-rail,
+body.latam-body .site-mobile-toolbar {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.author-dialog,
+.author-dialog-shell,
+.author-dossier-reader {
+  scrollbar-gutter: stable;
+}
+
 button, input { font: inherit; }
 a { color: inherit; }
 
@@ -93,10 +114,9 @@ a { color: inherit; }
   padding: 0 4vw;
   align-items: center;
   border-bottom: 1px solid var(--latam-line);
-  background: rgba(247,236,210,.58);
-  backdrop-filter: blur(12px);
+  background: rgba(247,236,210,.96);
 }
-html[data-theme="dark"] .latam-nav { background: rgba(23,36,31,.78); }
+html[data-theme="dark"] .latam-nav { background: rgba(23,36,31,.97); }
 .latam-brand {
   display: inline-flex;
   width: fit-content;
@@ -930,8 +950,7 @@ button.mini-author:hover { transform: translateY(-2px); }
   box-shadow: 0 34px 110px rgba(0,0,0,.42);
 }
 .author-dialog::backdrop {
-  background: rgba(8,15,13,.82);
-  backdrop-filter: blur(7px);
+  background: rgba(8,15,13,.94);
 }
 .author-dialog.period-originarios {
   --dossier-bg: #153238;
@@ -1279,8 +1298,7 @@ button.mini-author:hover { transform: translateY(-2px); }
   display: grid;
   grid-template-columns: repeat(5,1fr);
   border-bottom: 1px solid color-mix(in srgb, var(--dossier-paper-ink) 24%, transparent);
-  background: color-mix(in srgb, var(--dossier-paper) 94%, transparent);
-  backdrop-filter: blur(16px);
+  background: var(--dossier-paper);
 }
 .author-dossier-nav button {
   display: grid;
@@ -2268,11 +2286,10 @@ html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
     overflow-x: auto;
     overscroll-behavior-x: contain;
     border-bottom: 1px solid var(--latam-line);
-    background: color-mix(in srgb, var(--latam-paper-soft) 94%, transparent);
+    background: var(--latam-paper-soft);
     box-shadow: 0 8px 18px rgba(49,40,25,.08);
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    backdrop-filter: blur(14px);
   }
   .latam-mobile-sections::-webkit-scrollbar { display: none; }
   .latam-mobile-sections a {
