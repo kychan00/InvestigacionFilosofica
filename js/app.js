@@ -212,6 +212,10 @@ let authorArchiveNotice = "";
 let authorArchiveSources = [];
 let authorArchiveOrcidSummary = null;
 let authorArchiveOrcidProfile = null;
+let authorWorkBrowserState = {
+  query: "",
+  letter: ""
+};
 
 const qwen3OptIn =
   isQwen3BrowserQ8OptIn(
@@ -5015,6 +5019,10 @@ function showExclusiveAuthorWorks(
       selectedKey: null,
       visibleLimit: 60
     };
+    authorWorkBrowserState = {
+      query: "",
+      letter: ""
+    };
   }
 
   authorArchiveLoading = Boolean(options.loading);
@@ -6520,9 +6528,372 @@ function renderAuthorOrcidProfile(profile, orcidUrl) {
 }
 
 
+function normalizeAuthorWorkLookup(
+  value
+) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("es-MX")
+    .trim();
+}
+
+
+function authorWorkInitial(
+  item
+) {
+  const normalized =
+    normalizeAuthorWorkLookup(
+      item?.title
+    ).toUpperCase();
+
+  return normalized.match(/[A-Z]/)?.[0] || "";
+}
+
+
+function availableAuthorWorkLetters(
+  works
+) {
+  return [...new Set(
+    (works || [])
+      .map(authorWorkInitial)
+      .filter(Boolean)
+  )].sort((a, b) =>
+    a.localeCompare(
+      b,
+      "es-MX"
+    )
+  );
+}
+
+
+function filterAuthorWorks(
+  works
+) {
+  const query =
+    normalizeAuthorWorkLookup(
+      authorWorkBrowserState.query
+    );
+  const letter =
+    String(
+      authorWorkBrowserState.letter || ""
+    ).toUpperCase();
+
+  return (works || []).filter(item => {
+    if (
+      query &&
+      !normalizeAuthorWorkLookup(
+        item?.title
+      ).includes(query)
+    ) {
+      return false;
+    }
+
+    if (
+      letter &&
+      authorWorkInitial(item) !== letter
+    ) {
+      return false;
+    }
+
+    return true;
+  });
+}
+
+
+function renderAuthorWorkBrowser(
+  works,
+  filteredCount
+) {
+  const letters =
+    availableAuthorWorkLetters(
+      works
+    );
+  const total =
+    works.length;
+  const activeLetter =
+    authorWorkBrowserState.letter;
+
+  return `
+    <div class="author-work-browser" aria-label="Buscar y filtrar obras del autor">
+      <div class="author-work-search">
+        <label for="author-work-search">
+          Buscar en las obras
+        </label>
+
+        <div class="author-work-search-field">
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="author-work-search"
+            type="search"
+            value="${escapeHtml(authorWorkBrowserState.query)}"
+            placeholder="Buscar por título…"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+
+        <small id="author-work-count" aria-live="polite">
+          ${filteredCount === total
+            ? `${total} ${total === 1 ? "obra" : "obras"}`
+            : `${filteredCount} de ${total} obras`}
+        </small>
+      </div>
+
+      ${letters.length > 1 ? `
+        <div class="author-work-alphabet">
+          <span>Índice alfabético</span>
+          <div role="group" aria-label="Filtrar obras por inicial">
+            <button
+              type="button"
+              data-author-work-letter=""
+              class="${activeLetter ? "" : "is-active"}"
+              aria-pressed="${activeLetter ? "false" : "true"}"
+            >
+              Todas
+            </button>
+
+            ${letters.map(letter => `
+              <button
+                type="button"
+                data-author-work-letter="${letter}"
+                class="${activeLetter === letter ? "is-active" : ""}"
+                aria-pressed="${activeLetter === letter ? "true" : "false"}"
+              >
+                ${letter}
+              </button>
+            `).join("")}
+          </div>
+        </div>
+      ` : ""}
+    </div>
+  `;
+}
+
+
+function renderAuthorWorkCollection(
+  author,
+  works
+) {
+  const filteredWorks =
+    filterAuthorWorks(
+      works
+    );
+  const visibleWorks =
+    filteredWorks.slice(
+      0,
+      visibleLimit
+    );
+
+  if (!filteredWorks.length) {
+    return `
+      <div class="author-work-empty">
+        <strong>No hay obras que coincidan con este filtro.</strong>
+        <span>Pruebe con otro término o vuelva a mostrar todas las iniciales disponibles.</span>
+        <button id="author-work-reset" type="button">
+          Limpiar búsqueda
+        </button>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="author-work-grid">
+      ${visibleWorks.map((item, index) => {
+        const collab =
+          workCollaboration(
+            item,
+            author
+          );
+
+        return renderResult({
+          ...item,
+          collaborationKind:
+            collab.kind,
+          collaborationCount:
+            collab.count
+        }, index);
+      }).join("")}
+    </div>
+
+    ${filteredWorks.length > visibleLimit
+      ? `
+        <div class="load-more-wrap">
+          <button id="load-more" type="button" class="load-more">
+            Mostrar más obras
+          </button>
+          <span>
+            Mostrando ${visibleWorks.length} de ${filteredWorks.length}
+          </span>
+        </div>
+      `
+      : `
+        <div class="load-more-wrap">
+          <span>
+            Mostrando
+            ${filteredWorks.length === works.length ? " todas las" : ""}
+            ${filteredWorks.length}
+            ${filteredWorks.length === 1 ? "obra" : "obras"}
+            ${filteredWorks.length === works.length ? "cargadas" : "filtradas"}
+          </span>
+        </div>
+      `
+    }
+  `;
+}
+
+
+function bindAuthorWorkCollectionActions() {
+  document
+    .querySelector(
+      "#load-more"
+    )
+    ?.addEventListener(
+      "click",
+      () => {
+        visibleLimit += 20;
+        updateAuthorWorkCollection();
+      }
+    );
+
+  document
+    .querySelector(
+      "#author-work-reset"
+    )
+    ?.addEventListener(
+      "click",
+      () => {
+        authorWorkBrowserState = {
+          query: "",
+          letter: ""
+        };
+        resetVisibleLimit();
+
+        const search =
+          document.querySelector(
+            "#author-work-search"
+          );
+
+        if (search) {
+          search.value = "";
+          search.focus();
+        }
+
+        updateAuthorWorkCollection();
+      }
+    );
+}
+
+
+function updateAuthorWorkCollection() {
+  const root =
+    document.querySelector(
+      "#author-work-collection"
+    );
+
+  if (
+    !root ||
+    currentResponse?.authorOnly !== true
+  ) {
+    return;
+  }
+
+  const works =
+    currentFilteredResults || [];
+  const author =
+    currentResponse.authorResolution
+      ?.author;
+
+  if (!author) {
+    return;
+  }
+
+  root.innerHTML =
+    renderAuthorWorkCollection(
+      author,
+      works
+    );
+
+  const filteredCount =
+    filterAuthorWorks(
+      works
+    ).length;
+
+  const count =
+    document.querySelector(
+      "#author-work-count"
+    );
+
+  if (count) {
+    count.textContent =
+      filteredCount === works.length
+        ? `${works.length} ${works.length === 1 ? "obra" : "obras"}`
+        : `${filteredCount} de ${works.length} obras`;
+  }
+
+  document
+    .querySelectorAll(
+      "[data-author-work-letter]"
+    )
+    .forEach(button => {
+      const active =
+        button.dataset
+          .authorWorkLetter ===
+        authorWorkBrowserState.letter;
+
+      button.classList.toggle(
+        "is-active",
+        active
+      );
+      button.setAttribute(
+        "aria-pressed",
+        active ? "true" : "false"
+      );
+    });
+
+  bindResultActions();
+  bindAuthorWorkCollectionActions();
+}
+
+
+function bindAuthorWorkBrowser() {
+  document
+    .querySelector(
+      "#author-work-search"
+    )
+    ?.addEventListener(
+      "input",
+      event => {
+        authorWorkBrowserState.query =
+          event.currentTarget.value;
+        resetVisibleLimit();
+        updateAuthorWorkCollection();
+      }
+    );
+
+  document
+    .querySelectorAll(
+      "[data-author-work-letter]"
+    )
+    .forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          authorWorkBrowserState.letter =
+            button.dataset
+              .authorWorkLetter || "";
+          resetVisibleLimit();
+          updateAuthorWorkCollection();
+        }
+      );
+    });
+
+  bindAuthorWorkCollectionActions();
+}
+
+
 function renderAuthorPage(
-  response,
-  visible
+  response
 ) {
   const resolution =
     response.authorResolution;
@@ -6864,33 +7235,19 @@ function renderAuthorPage(
           <p>${escapeHtml(corpusNotice)}</p>
         </div>
 
-        <div class="author-work-grid">
-          ${visible.map((item, index) => {
-            const collab = workCollaboration(item, author);
-            return renderResult({
-              ...item,
-              collaborationKind:collab.kind,
-              collaborationCount:collab.count
-            }, index);
-          }).join("")}
-        </div>
+        ${renderAuthorWorkBrowser(
+          currentFilteredResults,
+          filterAuthorWorks(
+            currentFilteredResults
+          ).length
+        )}
 
-        ${
-          works.length > visibleLimit
-            ? `
-              <div class="load-more-wrap">
-                <button id="load-more" type="button" class="load-more">
-                  Mostrar más obras
-                </button>
-                <span>Mostrando ${visible.length} de ${works.length}</span>
-              </div>
-            `
-            : `
-              <div class="load-more-wrap">
-                <span>Mostrando todas las ${works.length} obras cargadas</span>
-              </div>
-            `
-        }
+        <div id="author-work-collection">
+          ${renderAuthorWorkCollection(
+            author,
+            currentFilteredResults
+          )}
+        </div>
       </section>
     </article>
   `;
@@ -6926,8 +7283,7 @@ function renderFilteredResults() {
     resultsEl.innerHTML =
       errorHtml +
       renderAuthorPage(
-        currentResponse,
-        visible
+        currentResponse
       );
 
     mountAuthorTimeline(
@@ -6944,16 +7300,7 @@ function renderFilteredResults() {
       }
     );
 
-    document
-      .querySelector("#load-more")
-      ?.addEventListener(
-        "click",
-        () => {
-          visibleLimit += 20;
-          renderFilteredResults();
-        }
-      );
-
+    bindAuthorWorkBrowser();
     bindAuthorResolutionActions();
     bindResultActions();
     return;
