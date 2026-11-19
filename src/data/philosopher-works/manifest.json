@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1250,
-    "authors_remaining": 254,
-    "works_or_contributions_seeded": 10903,
-    "current_batch": "125",
+    "authors_seeded": 1260,
+    "authors_remaining": 244,
+    "works_or_contributions_seeded": 10995,
+    "current_batch": "126",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6531,6 +6531,58 @@
       "author_id": 1250,
       "canonical_name": "Julio de Santa Ana",
       "path": "authors/1250.json"
+    }
+  ],
+  "batch_126": [
+    {
+      "author_id": 1251,
+      "canonical_name": "Mo Sung",
+      "path": "authors/1251.json"
+    },
+    {
+      "author_id": 1252,
+      "canonical_name": "Wim Dierckxsens",
+      "path": "authors/1252.json"
+    },
+    {
+      "author_id": 1253,
+      "canonical_name": "Juan Baltasar Maciel",
+      "path": "authors/1253.json"
+    },
+    {
+      "author_id": 1254,
+      "canonical_name": "Iván Illich",
+      "path": "authors/1254.json"
+    },
+    {
+      "author_id": 1255,
+      "canonical_name": "Adriana Puiggrós",
+      "path": "authors/1255.json"
+    },
+    {
+      "author_id": 1256,
+      "canonical_name": "Alfredo Palacios",
+      "path": "authors/1256.json"
+    },
+    {
+      "author_id": 1257,
+      "canonical_name": "Víctor Raúl Haya de la Torre",
+      "path": "authors/1257.json"
+    },
+    {
+      "author_id": 1258,
+      "canonical_name": "Antenor Orrego",
+      "path": "authors/1258.json"
+    },
+    {
+      "author_id": 1259,
+      "canonical_name": "Humberto Cuenca",
+      "path": "authors/1259.json"
+    },
+    {
+      "author_id": 1260,
+      "canonical_name": "Héctor Ripa Alberdi",
+      "path": "authors/1260.json"
     }
   ]
 }

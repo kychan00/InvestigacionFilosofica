@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "author_id": 1260,
+  "canonical_name": "Héctor Ripa Alberdi",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1897,
+    "death_year": 1923
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1260-w001",
+      "title": "Obras de Héctor Ripa Alberdi",
+      "work_type": "posthumous_collected_works",
+      "original_language": "español",
+      "original_date": {
+        "year": 1925,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1925,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://sedici.unlp.edu.ar/handle/10915/131325"
+      ],
+      "notes": "Edición póstuma en dos tomos preparada por el Grupo de Estudiantes Renovación; reúne prosa, discursos, ensayos, críticas y poemas."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Dirigente estudiantil de la Reforma Universitaria, discípulo de Alejandro Korn y figura central del Grupo Renovación y de la revista Valoraciones en La Plata.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "SEDICI-UNLP — Obras de Héctor Ripa Alberdi",
+      "url": "https://sedici.unlp.edu.ar/handle/10915/131325"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "SciELO Chile — Grupo Renovación y Ripa Alberdi",
+      "url": "https://www.scielo.cl/scielo.php?pid=S0718-50492017000300150&script=sci_arttext"
+    }
+  ],
+  "research_notes": [
+    "La colección póstuma de 1925 se cuenta como un solo conjunto editorial, no como una obra nueva por cada tomo.",
+    "No se desagregan poemas y ensayos individuales sin una referencia bibliográfica estable de publicación original."
+  ]
+}
