@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1390,
-    "authors_remaining": 114,
-    "works_or_contributions_seeded": 11940,
-    "current_batch": "139",
+    "authors_seeded": 1400,
+    "authors_remaining": 104,
+    "works_or_contributions_seeded": 11981,
+    "current_batch": "140",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7259,6 +7259,58 @@
       "author_id": 1390,
       "canonical_name": "Florentino Ameghino",
       "path": "authors/1390.json"
+    }
+  ],
+  "batch_140": [
+    {
+      "author_id": 1391,
+      "canonical_name": "Ezequiel Martínez Estrada",
+      "path": "authors/1391.json"
+    },
+    {
+      "author_id": 1392,
+      "canonical_name": "Carlos Pereyra",
+      "path": "authors/1392.json"
+    },
+    {
+      "author_id": 1393,
+      "canonical_name": "Gaspar Yanga",
+      "path": "authors/1393.json"
+    },
+    {
+      "author_id": 1394,
+      "canonical_name": "Túpac Katari",
+      "path": "authors/1394.json"
+    },
+    {
+      "author_id": 1395,
+      "canonical_name": "José Antonio Saco",
+      "path": "authors/1395.json"
+    },
+    {
+      "author_id": 1396,
+      "canonical_name": "Manuel Antônio Álvares Azevedo",
+      "path": "authors/1396.json"
+    },
+    {
+      "author_id": 1397,
+      "canonical_name": "Juan Crisóstomo Lafinur",
+      "path": "authors/1397.json"
+    },
+    {
+      "author_id": 1398,
+      "canonical_name": "Juan Manuel Fernández de Agüero",
+      "path": "authors/1398.json"
+    },
+    {
+      "author_id": 1399,
+      "canonical_name": "Diego Alcorta",
+      "path": "authors/1399.json"
+    },
+    {
+      "author_id": 1400,
+      "canonical_name": "Luis José de la Peña",
+      "path": "authors/1400.json"
     }
   ]
 }

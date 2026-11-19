@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author_id": 1396,
+  "canonical_name": "Manuel Antônio Álvares Azevedo",
+  "alternate_names": [
+    "Álvares de Azevedo",
+    "Manuel Antônio Álvares de Azevedo"
+  ],
+  "life": {
+    "birth_year": 1831,
+    "death_year": 1852
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1396-w001",
+      "title": "Lira dos vinte anos",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1853,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1853,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dominiopublico.mec.gov.br/pesquisa/PesquisaObraForm.do?co_autor=87&select_action="
+      ],
+      "notes": "Publicación póstuma; el autor murió en 1852."
+    },
+    {
+      "work_id": "1396-w002",
+      "title": "Macário",
+      "work_type": "play",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1855,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1855,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dominiopublico.mec.gov.br/pesquisa/PesquisaObraForm.do?co_autor=87&select_action="
+      ],
+      "notes": "Drama publicado póstumamente."
+    },
+    {
+      "work_id": "1396-w003",
+      "title": "Noite na taverna",
+      "work_type": "book",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1855,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1855,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://dominiopublico.mec.gov.br/pesquisa/PesquisaObraForm.do?co_autor=87&select_action="
+      ],
+      "notes": "Narrativa publicada póstumamente."
+    },
+    {
+      "work_id": "1396-w004",
+      "title": "O poema do frade",
+      "work_type": "poem",
+      "original_language": "portugués",
+      "original_date": {
+        "year": 1862,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1862,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://literaturabrasileira.ufsc.br/documentos?id=140784&locale=es"
+      ],
+      "notes": "Incluido en la edición ampliada de sus Obras de 1862; se registra como unidad textual independiente documentada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Poeta y escritor romántico brasileño cuya obra articuló subjetividad, muerte, ironía y crítica cultural; su producción se publicó en buena medida de forma póstuma.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Domínio Público — obras de Álvares de Azevedo",
+      "url": "https://dominiopublico.mec.gov.br/pesquisa/PesquisaObraForm.do?co_autor=87&select_action="
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Literatura Brasileira / UFSC — Obras de Manuel Antônio Álvares de Azevedo, 1862",
+      "url": "https://literaturabrasileira.ufsc.br/documentos?id=140784&locale=es"
+    }
+  ],
+  "research_notes": [
+    "La edición colectiva Obras (1862) no se cuenta como obra nueva aparte de las unidades textuales originales que contiene.",
+    "Se evita transformar selecciones editoriales modernas como Poemas malditos en obras originales independientes."
+  ]
+}

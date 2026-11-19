@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "author_id": 1398,
+  "canonical_name": "Juan Manuel Fernández de Agüero",
+  "alternate_names": [],
+  "life": {
+    "birth_year": 1772,
+    "death_year": 1840
+  },
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1398-w001",
+      "title": "Principios de ideología: elemental, abstractiva y oratoria",
+      "work_type": "philosophy_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1822,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1940,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://legischubut.opac.com.ar/pergamo/documento.php?id=LEGISCHUBUT.1.54402&recno=54402&ui=1"
+      ],
+      "notes": "Texto confeccionado para la cátedra de Ideología de la Universidad de Buenos Aires durante 1822-1827; edición moderna del Instituto de Filosofía de la UBA en 1940."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Primer profesor de filosofía de la Universidad de Buenos Aires; introdujo de manera sistemática la Idéologie francesa de Destutt de Tracy, Condillac y Cabanis.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez: inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Biblioteca Legislativa del Chubut — Principios de ideología",
+      "url": "https://legischubut.opac.com.ar/pergamo/documento.php?id=LEGISCHUBUT.1.54402&recno=54402&ui=1"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "CONICET — Fernández de Agüero y la renovación de la filosofía en la UBA",
+      "url": "https://bicyt.conicet.gov.ar/fichas/produccion/2928952"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Archivo Filosófico Argentino — Juan Manuel Fernández de Agüero",
+      "url": "https://www.ciencias.org.ar/user/CEF/Galer%C3%ADa_compressed.pdf"
+    }
+  ],
+  "research_notes": [
+    "Se registra como una sola obra el cuerpo de lecciones conocido modernamente como Principios de ideología; no se separan artificialmente sus partes de lógica, metafísica y retórica."
+  ]
+}
