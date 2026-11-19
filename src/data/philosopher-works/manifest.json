@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1310,
-    "authors_remaining": 194,
-    "works_or_contributions_seeded": 11292,
-    "current_batch": "131",
+    "authors_seeded": 1320,
+    "authors_remaining": 184,
+    "works_or_contributions_seeded": 11340,
+    "current_batch": "132",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6843,6 +6843,58 @@
       "author_id": 1310,
       "canonical_name": "Juan de Quezada",
       "path": "authors/1310.json"
+    }
+  ],
+  "batch_132": [
+    {
+      "author_id": 1311,
+      "canonical_name": "Francisco José de Urbina",
+      "path": "authors/1311.json"
+    },
+    {
+      "author_id": 1312,
+      "canonical_name": "Juan Bautista Aguirre",
+      "path": "authors/1312.json"
+    },
+    {
+      "author_id": 1313,
+      "canonical_name": "Juan Pérez de Menchaca",
+      "path": "authors/1313.json"
+    },
+    {
+      "author_id": 1314,
+      "canonical_name": "Alonso de Peñafiel",
+      "path": "authors/1314.json"
+    },
+    {
+      "author_id": 1315,
+      "canonical_name": "Leonardo de Peñafiel",
+      "path": "authors/1315.json"
+    },
+    {
+      "author_id": 1316,
+      "canonical_name": "Samuel Arriarán",
+      "path": "authors/1316.json"
+    },
+    {
+      "author_id": 1317,
+      "canonical_name": "Severo Sarduy",
+      "path": "authors/1317.json"
+    },
+    {
+      "author_id": 1318,
+      "canonical_name": "Carlos Cousiño",
+      "path": "authors/1318.json"
+    },
+    {
+      "author_id": 1319,
+      "canonical_name": "Pedro Morandé",
+      "path": "authors/1319.json"
+    },
+    {
+      "author_id": 1320,
+      "canonical_name": "Alcides Bezerra",
+      "path": "authors/1320.json"
     }
   ]
 }
