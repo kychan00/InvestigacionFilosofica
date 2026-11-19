@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1350,
-    "authors_remaining": 154,
-    "works_or_contributions_seeded": 11563,
-    "current_batch": "135",
+    "authors_seeded": 1360,
+    "authors_remaining": 144,
+    "works_or_contributions_seeded": 11647,
+    "current_batch": "136",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -7051,6 +7051,58 @@
       "author_id": 1350,
       "canonical_name": "João Zanetic",
       "path": "authors/1350.json"
+    }
+  ],
+  "batch_136": [
+    {
+      "author_id": 1351,
+      "canonical_name": "Demétrio Delizoicov",
+      "path": "authors/1351.json"
+    },
+    {
+      "author_id": 1352,
+      "canonical_name": "Marta Pernambuco",
+      "path": "authors/1352.json"
+    },
+    {
+      "author_id": 1353,
+      "canonical_name": "José Andrés Peres Angotti",
+      "path": "authors/1353.json"
+    },
+    {
+      "author_id": 1354,
+      "canonical_name": "Maria Cristina Dal Pian",
+      "path": "authors/1354.json"
+    },
+    {
+      "author_id": 1355,
+      "canonical_name": "Luiz Carlos Bombassaro",
+      "path": "authors/1355.json"
+    },
+    {
+      "author_id": 1356,
+      "canonical_name": "Tércio Sampaio Ferraz Jr.",
+      "path": "authors/1356.json"
+    },
+    {
+      "author_id": 1357,
+      "canonical_name": "Paulo Dourado de Gusmão",
+      "path": "authors/1357.json"
+    },
+    {
+      "author_id": 1358,
+      "canonical_name": "Luiz Luisi",
+      "path": "authors/1358.json"
+    },
+    {
+      "author_id": 1359,
+      "canonical_name": "Nelson Nogueira Saldanha",
+      "path": "authors/1359.json"
+    },
+    {
+      "author_id": 1360,
+      "canonical_name": "Irineu Strenger",
+      "path": "authors/1360.json"
     }
   ]
 }
