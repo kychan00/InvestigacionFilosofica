@@ -399,6 +399,7 @@ async function renderExplorerSearch() {
     explorerResults.hidden = true;
     explorerResults.replaceChildren();
     periodizedAuthors.hidden = false;
+    renderPeriodized();
     explorerStatus.textContent =
       "Explore las épocas o escriba al menos dos letras para buscar cualquier ficha del inventario.";
     return;
@@ -1441,7 +1442,6 @@ loadMorePeriodAuthors?.addEventListener("click", loadNextPeriodBatch);
 for (const button of document.querySelectorAll("[data-period-jump]")) {
   button.addEventListener("click", async () => {
     const periodId = button.dataset.periodJump;
-    setExplorerPeriod(periodId, { render: false });
     collapsedPeriods.delete(periodId);
 
     const target = seededCount
