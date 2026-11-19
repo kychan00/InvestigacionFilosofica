@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1200,
-    "authors_remaining": 304,
-    "works_or_contributions_seeded": 10615,
-    "current_batch": "120",
+    "authors_seeded": 1210,
+    "authors_remaining": 294,
+    "works_or_contributions_seeded": 10653,
+    "current_batch": "121",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6271,6 +6271,58 @@
       "author_id": 1200,
       "canonical_name": "María Rosa Palazón Mayoral",
       "path": "authors/1200.json"
+    }
+  ],
+  "batch_121": [
+    {
+      "author_id": 1201,
+      "canonical_name": "Estela Ocampo",
+      "path": "authors/1201.json"
+    },
+    {
+      "author_id": 1202,
+      "canonical_name": "Elena Oliveras",
+      "path": "authors/1202.json"
+    },
+    {
+      "author_id": 1203,
+      "canonical_name": "Pablo Oyarzún Robles",
+      "path": "authors/1203.json"
+    },
+    {
+      "author_id": 1204,
+      "canonical_name": "Pedro de Leyva",
+      "path": "authors/1204.json"
+    },
+    {
+      "author_id": 1205,
+      "canonical_name": "Buenaventura de Salinas",
+      "path": "authors/1205.json"
+    },
+    {
+      "author_id": 1206,
+      "canonical_name": "Alfonso Briceño",
+      "path": "authors/1206.json"
+    },
+    {
+      "author_id": 1207,
+      "canonical_name": "Anastasio Mariano Suárez",
+      "path": "authors/1207.json"
+    },
+    {
+      "author_id": 1208,
+      "canonical_name": "Juan de Albiz",
+      "path": "authors/1208.json"
+    },
+    {
+      "author_id": 1209,
+      "canonical_name": "Francisco Burgés",
+      "path": "authors/1209.json"
+    },
+    {
+      "author_id": 1210,
+      "canonical_name": "Manuel Querini",
+      "path": "authors/1210.json"
     }
   ]
 }

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "author_id": 1205,
+  "canonical_name": "Buenaventura de Salinas",
+  "alternate_names": [
+    "Buenaventura de Salinas y Córdova",
+    "Buenaventura Sancho de Salinas y Córdova"
+  ],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1205-w001",
+      "title": "Memorial de las historias del Nuevo Mundo Pirú",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1630,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1630,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://estudiosindianos.up.edu.pe/biblioteca-indiana/memorial-de-las-historias-del-nuevo-mundo-piru/"
+      ],
+      "notes": "Primera edición con doble portada 1630/1631; se adopta 1630, consignando variante 1631."
+    },
+    {
+      "work_id": "1205-w002",
+      "title": "Memorial como procurador general de la Ciudad de los Reyes para la canonización del venerable y apostólico padre fray Francisco Solano",
+      "work_type": "memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1641,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1641,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://webs.uab.cat/ceac/wp-content/uploads/sites/152/2026/01/Horizontes-compartidos.pdf"
+      ],
+      "notes": "Memorial impreso en Madrid; trabajo separado del Memorial de 1630."
+    },
+    {
+      "work_id": "1205-w003",
+      "title": "Memorial, informe y manifiesto",
+      "work_type": "memorial",
+      "original_language": "español",
+      "original_date": {
+        "year": 1646,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1646,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://webs.uab.cat/ceac/wp-content/uploads/sites/152/2026/01/Horizontes-compartidos.pdf"
+      ],
+      "notes": "Memorial publicado en Madrid, según estudio histórico."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Cronista y memorialista franciscano del virreinato peruano, defensor de la posición criolla y crítico de abusos sobre la población indígena.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1205-1",
+      "url": "https://estudiosindianos.up.edu.pe/biblioteca-indiana/memorial-de-las-historias-del-nuevo-mundo-piru/"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1205-2",
+      "url": "https://webs.uab.cat/ceac/wp-content/uploads/sites/152/2026/01/Horizontes-compartidos.pdf"
+    }
+  ],
+  "research_notes": [
+    "La obra de 1630 tiene portada interior 1630 y exterior 1631: no se duplica como dos títulos.",
+    "El Memorial publicado por otros investigadores en el siglo XXI no es una obra compuesta por ellos."
+  ]
+}

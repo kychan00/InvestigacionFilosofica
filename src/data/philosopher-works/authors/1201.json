@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "author_id": 1201,
+  "canonical_name": "Estela Ocampo",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1201-w001",
+      "title": "Apolo y la máscara: la estética occidental frente a las prácticas artísticas de otras culturas",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1985,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1985,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cccb.org/es/w/participantes/estela-ocampo"
+      ],
+      "notes": "Referencia asociada a ficha de autoridad o fuente bibliográfica; cotejo editorial ampliado pendiente."
+    },
+    {
+      "work_id": "1201-w002",
+      "title": "El arte precolombino I",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cccb.org/es/w/participantes/estela-ocampo"
+      ],
+      "notes": "Fuente CCCB: obra en dos volúmenes; verificar si son volúmenes de una misma unidad bibliográfica."
+    },
+    {
+      "work_id": "1201-w003",
+      "title": "El arte precolombino II",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 1986,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1986,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cccb.org/es/w/participantes/estela-ocampo"
+      ],
+      "notes": "Segundo volumen de El arte precolombino; se registran volúmenes diferenciados por catálogo."
+    },
+    {
+      "work_id": "1201-w004",
+      "title": "El fetiche en el museo",
+      "work_type": "book",
+      "original_language": "español",
+      "original_date": {
+        "year": 2011,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 2011,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.cccb.org/es/w/participantes/estela-ocampo"
+      ],
+      "notes": "Referencia asociada a ficha de autoridad o fuente bibliográfica; cotejo editorial ampliado pendiente."
+    },
+    {
+      "work_id": "1201-w005",
+      "title": "Teorías del arte",
+      "work_type": "coauthored_book",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "coauthor",
+      "coauthors": [
+        "Martí Perán"
+      ],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://absysnet.bbtk.ull.es/cgi-bin/abnetopac/O7123/IDcd437d4e/NT0?ACC=257&DI=2181"
+      ],
+      "notes": "Coautoría con Martí Perán, fecha aún no establecida."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesora de Teoría del Arte en la Universitat Pompeu Fabra; estudios estéticos de culturas precolombinas y no europeas.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1201-1",
+      "url": "https://www.cccb.org/es/w/participantes/estela-ocampo"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1201-2",
+      "url": "https://absysnet.bbtk.ull.es/cgi-bin/abnetopac/O7123/IDcd437d4e/NT0?ACC=257&DI=2181"
+    }
+  ],
+  "research_notes": [
+    "El arte precolombino I y II son volúmenes de una misma obra, no tratados independientes; se conservan como unidades bibliográficas por volumen.",
+    "No se asigna año a Teorías del arte sin prueba de edición."
+  ]
+}

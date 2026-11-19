@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "author_id": 1210,
+  "canonical_name": "Manuel Querini",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1210-w001",
+      "title": "Informes al rey (1747–1750)",
+      "work_type": "archival_reports",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://profesoradodonbosco.opac.com.ar/pergamo/documento.php?id=PROFESORADODONBOSCO.1.22985&recno=22985&ui=1"
+      ],
+      "notes": "Conjunto documental colonial recuperado por Guillermo Furlong en edición de 1967; la edición de Furlong no es autoría original de Querini."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita y provincial de Paraguay en el siglo XVIII, autor de informes dirigidos a la corona española.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1210-1",
+      "url": "https://profesoradodonbosco.opac.com.ar/pergamo/documento.php?id=PROFESORADODONBOSCO.1.22985&recno=22985&ui=1"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1210-2",
+      "url": "https://www.carlospage.com.ar/wp-content/2008/06/Page-Rectores-del-Monserrat.pdf"
+    }
+  ],
+  "research_notes": [
+    "«Manuel Querini S.J. y sus Informes al Rey 1747–1750» (1967) es libro historiográfico/editorial de Guillermo Furlong, no una monografía original de Querini de 1967.",
+    "Los informes de 1747–1750 se agrupan como corpus documental mientras no se establezca el título de cada informe."
+  ]
+}

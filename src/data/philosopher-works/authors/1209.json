@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 1209,
+  "canonical_name": "Francisco Burgés",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1209-w001",
+      "title": "Cursus Philosophicus ad mentem Eximii Doctoris",
+      "work_type": "manuscript_course",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://filosofia.org/bol/bib/nb056.htm"
+      ],
+      "notes": "Título de curso atribuido a Burgés por Guillermo Furlong; verificar identificación material del manuscrito."
+    },
+    {
+      "work_id": "1209-w002",
+      "title": "Relación sobre la reducción de San Javier de mocovíes",
+      "work_type": "manuscript_report",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://www.academia.edu/62353847/Francisco_Burg%C3%A9s_SJ_y_su_relaci%C3%B3n_in%C3%A9dita_sobre_la_reducci%C3%B3n_de_San_Javier_de_mocov%C3%ADes_Transcripci%C3%B3n_y_comparaci%C3%B3n_cr%C3%ADticas"
+      ],
+      "notes": "Relación jesuítica manuscrita estudiada y transcrita por investigadores contemporáneos; su edición moderna no equivale a composición moderna."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Jesuita docente de filosofía y autor de documentación de las misiones del Río de la Plata.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1209-1",
+      "url": "https://filosofia.org/bol/bib/nb056.htm"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1209-2",
+      "url": "https://www.academia.edu/62353847/Francisco_Burg%C3%A9s_SJ_y_su_relaci%C3%B3n_in%C3%A9dita_sobre_la_reducci%C3%B3n_de_San_Javier_de_mocov%C3%ADes_Transcripci%C3%B3n_y_comparaci%C3%B3n_cr%C3%ADticas"
+    }
+  ],
+  "research_notes": [
+    "Se distinguen el tratado filosófico de la relación sobre la reducción.",
+    "No confundir al Francisco Burgés profesor con eventuales personas homónimas o distintas cronologías jesuitas sin corroboración."
+  ]
+}

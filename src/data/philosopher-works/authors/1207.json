@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "author_id": 1207,
+  "canonical_name": "Anastasio Mariano Suárez",
+  "alternate_names": [],
+  "life": {},
+  "coverage": {
+    "status": "seeded",
+    "works_status": "documented_selective_bibliography_non_exhaustive",
+    "last_reviewed": "2026-11-19"
+  },
+  "works": [
+    {
+      "work_id": "1207-w001",
+      "title": "Curso de lógica",
+      "work_type": "manuscript_course",
+      "original_language": "español",
+      "original_date": {
+        "year": 1793,
+        "certainty": "bibliographic_source_year"
+      },
+      "first_publication_year": 1793,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cfe.edu.uy/IFDcanelones/opac_css/index.php?id=83&lvl=indexint_see"
+      ],
+      "notes": "Curso franciscano colonial; manuscrito preservado y estudiado como primera parte de una secuencia docente."
+    },
+    {
+      "work_id": "1207-w002",
+      "title": "Curso de ética",
+      "work_type": "manuscript_course",
+      "original_language": "español",
+      "original_date": {
+        "year": null,
+        "certainty": "not_established"
+      },
+      "first_publication_year": null,
+      "authorship_status": "original_author",
+      "coauthors": [],
+      "identifiers": {
+        "doi": null,
+        "isbn": []
+      },
+      "keywords": [],
+      "evidence_urls": [
+        "https://biblioteca.cfe.edu.uy/IFDcanelones/opac_css/index.php?id=83&lvl=indexint_see"
+      ],
+      "notes": "Tratado manuscrito relacionado con el curso franciscano; cronología exacta no confirmada."
+    }
+  ],
+  "non_bibliographic_contributions": [
+    {
+      "title": "Profesor franciscano de filosofía en el ámbito rioplatense de finales del siglo XVIII, asociado a controversias sobre escolástica y cartesianismo.",
+      "kind": "documented_philosophical_academic_or_institutional_contribution",
+      "authorship_status": "documented_in_institutional_or_scholarly_sources",
+      "coauthors": [],
+      "keywords": []
+    }
+  ],
+  "sources": [
+    {
+      "kind": "project_primary_source",
+      "title": "Dussel, Mendieta y Bohórquez — inventario canónico",
+      "url": "https://docs.enriquedussel.com/txt/Textos_Libros/62.Pensamiento_filosofico_Caribe.pdf"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1207-1",
+      "url": "https://biblioteca.cfe.edu.uy/IFDcanelones/opac_css/index.php?id=83&lvl=indexint_see"
+    },
+    {
+      "kind": "academic_institutional_library_or_scholarly_bibliography",
+      "title": "Referencia documental 1207-2",
+      "url": "https://filosofia.org/bol/bib/nb056.htm"
+    }
+  ],
+  "research_notes": [
+    "No confundir con Mariano Suárez, jesuita cordobés de 1758, ni atribuirle automáticamente los cursos de ese catedrático.",
+    "Los cursos son manuscritos y no se presentan como libros impresos del siglo XVIII."
+  ]
+}
