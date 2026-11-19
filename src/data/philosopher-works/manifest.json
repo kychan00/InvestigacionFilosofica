@@ -27,10 +27,10 @@
   },
   "progress": {
     "authors_total": 1504,
-    "authors_seeded": 1150,
-    "authors_remaining": 354,
-    "works_or_contributions_seeded": 10193,
-    "current_batch": "115",
+    "authors_seeded": 1160,
+    "authors_remaining": 344,
+    "works_or_contributions_seeded": 10311,
+    "current_batch": "116",
     "last_updated": "2026-11-19"
   },
   "batch_001": [
@@ -6011,6 +6011,58 @@
       "author_id": 1150,
       "canonical_name": "Manuel Comesaña",
       "path": "authors/1150.json"
+    }
+  ],
+  "batch_116": [
+    {
+      "author_id": 1151,
+      "canonical_name": "Carlos Oller",
+      "path": "authors/1151.json"
+    },
+    {
+      "author_id": 1152,
+      "canonical_name": "Diana López",
+      "path": "authors/1152.json"
+    },
+    {
+      "author_id": 1153,
+      "canonical_name": "Nora Stigol",
+      "path": "authors/1153.json"
+    },
+    {
+      "author_id": 1154,
+      "canonical_name": "Juan Manuel Jaramillo Uribe",
+      "path": "authors/1154.json"
+    },
+    {
+      "author_id": 1155,
+      "canonical_name": "Roberto Rojo",
+      "path": "authors/1155.json"
+    },
+    {
+      "author_id": 1156,
+      "canonical_name": "Edgardo Albizu",
+      "path": "authors/1156.json"
+    },
+    {
+      "author_id": 1157,
+      "canonical_name": "José Julián Prado",
+      "path": "authors/1157.json"
+    },
+    {
+      "author_id": 1158,
+      "canonical_name": "Eugenio Dotti",
+      "path": "authors/1158.json"
+    },
+    {
+      "author_id": 1159,
+      "canonical_name": "Martha Mateo",
+      "path": "authors/1159.json"
+    },
+    {
+      "author_id": 1160,
+      "canonical_name": "Osvaldo Guariglia",
+      "path": "authors/1160.json"
     }
   ]
 }
