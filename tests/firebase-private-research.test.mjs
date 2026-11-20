@@ -287,3 +287,25 @@ test("profile avoids scroll repaint triggers and hidden atlas redraws", () => {
   assert.match(profile, /atlasCanvas\.offsetParent === null/);
   assert.match(profile, /requestAnimationFrame\(drawProjectAtlas\)/);
 });
+
+
+test("profile settings save gives feedback and returns to the private home", () => {
+  const page = read("perfil.html");
+  const profile = read("js/profile.js");
+
+  assert.match(page, /id="profile-settings-back"/);
+  assert.match(page, /id="profile-save-button"/);
+  assert.match(page, /id="profile-save-status"/);
+  assert.match(profile, /profileSaveButton\.textContent = "Guardando…"/);
+  assert.match(profile, /profileSaveButton\.textContent = "Guardado ✓"/);
+  assert.match(profile, /setActivePanel\("resumen"/);
+  assert.match(profile, /No fue posible guardar los cambios/);
+});
+
+test("profile settings has an explicit back action", () => {
+  const page = read("perfil.html");
+  const profile = read("js/profile.js");
+
+  assert.match(page, /← Volver a mi investigación/);
+  assert.match(profile, /settingsBackButton\.addEventListener\("click"/);
+});
