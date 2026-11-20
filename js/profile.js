@@ -33,6 +33,7 @@ import {
   subscribeSavedAuthors,
   subscribeSubprojects,
   updateProject,
+  updateProjectWorkPresentation,
   updateSubproject,
   updateUserProfileDocument
 } from "./user-data.js";
@@ -108,6 +109,11 @@ const libraryExportButton = document.querySelector("#library-export");
 const authorsExportButton = document.querySelector("#authors-export");
 const projectExportButton = document.querySelector("[data-project-export]");
 const profileSettingsForm = document.querySelector("#profile-settings-form");
+const cardCatalogDialog = document.querySelector("#project-card-catalog-dialog");
+const cardCatalogGrid = document.querySelector("#project-card-catalog");
+const cardCatalogWorkTitle = document.querySelector("#card-catalog-work-title");
+const savedAuthorDialog = document.querySelector("#saved-author-dialog");
+const savedAuthorDialogBody = document.querySelector("#saved-author-dialog-body");
 
 let currentUser = null;
 let currentProfile = null;
@@ -122,6 +128,7 @@ let subprojects = [];
 let projectWorks = [];
 let projectAuthors = [];
 let identityDecisions = [];
+let cardCatalogWorkId = "";
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -135,6 +142,56 @@ let unsubscribeSubprojects = null;
 let unsubscribeProjectWorks = null;
 let unsubscribeProjectAuthors = null;
 let unsubscribeIdentityDecisions = null;
+
+const PROJECT_CARD_STYLES = [
+  {
+    id: "archive",
+    label: "Archivo",
+    note: "Ficha académica limpia, equilibrada y documental.",
+    mark: "A"
+  },
+  {
+    id: "paper",
+    label: "Papel",
+    note: "Hoja de lectura cálida con ritmo de cuaderno y margen editorial.",
+    mark: "P"
+  },
+  {
+    id: "index",
+    label: "Índice",
+    note: "Ficha compacta de catálogo para proyectos con muchas lecturas.",
+    mark: "I"
+  },
+  {
+    id: "folio",
+    label: "Folio",
+    note: "Composición tipográfica amplia para títulos que merecen respirar.",
+    mark: "F"
+  },
+  {
+    id: "night",
+    label: "Nocturna",
+    note: "Contraste oscuro para destacar una lectura central del proyecto.",
+    mark: "N"
+  },
+  {
+    id: "signal",
+    label: "Señal",
+    note: "Acento gráfico fuerte para textos clave, hallazgos o pivotes.",
+    mark: "S"
+  }
+];
+
+function projectCardStyle(value) {
+  return PROJECT_CARD_STYLES.some(style => style.id === value)
+    ? value
+    : "archive";
+}
+
+function projectCardStyleMeta(value) {
+  const id = projectCardStyle(value);
+  return PROJECT_CARD_STYLES.find(style => style.id === id) || PROJECT_CARD_STYLES[0];
+}
 
 function escapeHtml(value) {
   return String(value ?? "")
