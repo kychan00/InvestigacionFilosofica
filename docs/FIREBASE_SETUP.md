@@ -2,14 +2,16 @@
 
 Esta capa **no sustituye** el corpus público ni la analítica existente. Firebase se usa exclusivamente para identidad y datos privados creados o guardados por cada usuario.
 
-## 1. Crear o seleccionar un proyecto Firebase
+## 1. Proyecto Firebase activo
 
-En Firebase Console:
+Producción usa el proyecto:
 
-1. Cree un proyecto.
-2. Añada una aplicación Web.
-3. Copie el objeto `firebaseConfig`.
-4. Pegue sus valores en `js/firebase-config.js`.
+- Project ID: `investigacion-filosofica`
+- Firestore database: `(default)`
+- Región: `northamerica-south1`
+- Aplicación Web: Investigación Filosófica Web
+
+El objeto `firebaseConfig` de producción ya está configurado en `js/firebase-config.js`.
 
 El objeto de configuración del SDK Web identifica el proyecto y se entrega al navegador. La seguridad de los datos depende de Authentication + Firestore Security Rules, no de ocultar ese objeto.
 
@@ -27,10 +29,7 @@ En **Settings → Authorized domains** agregue como mínimo:
 
 La aplicación exige verificación de correo para cuentas Email/Password. Las reglas de Firestore también comprueban `email_verified == true`.
 
-Personalice, si lo desea, las plantillas de:
-
-- verificación de correo;
-- restablecimiento de contraseña.
+Las plantillas de correo usan el remitente **Investigación Filosófica** y asuntos en español. El cliente fija `auth.languageCode = "es"` para solicitar a Firebase las acciones de correo en español.
 
 ## 3. Firestore
 
@@ -63,12 +62,24 @@ Las obras agregadas manualmente por el usuario se marcan como:
 
 Una entrada privada nunca debe incorporarse automáticamente al corpus, los índices, las métricas públicas ni las fichas bibliográficas de Investigación Filosófica.
 
-## 5. Despliegue recomendado
+## 5. Estado de despliegue
 
-Antes de fusionar a producción:
+Ya están configurados:
 
-1. Configure Firebase.
-2. Despliegue las reglas.
-3. Pruebe registro por correo, verificación, login, Google y recuperación de contraseña.
-4. Compruebe con dos cuentas diferentes que ninguna pueda leer rutas del otro UID.
-5. Considere activar Firebase App Check como defensa adicional para el cliente web.
+- Firebase Authentication con Email/Password y Google;
+- `kychan00.github.io` y `localhost` como dominios autorizados;
+- Cloud Firestore en `northamerica-south1`;
+- reglas privadas por UID con requisito de correo verificado;
+- configuración Web de producción.
+
+Antes de considerar cerrada la validación funcional:
+
+1. Pruebe registro por correo, verificación, login, Google y recuperación de contraseña en el despliegue real.
+2. Compruebe con dos cuentas diferentes que ninguna pueda leer rutas del otro UID.
+3. Considere activar Firebase App Check como defensa adicional para el cliente web.
+
+## 6. Privacidad y licencia
+
+La licencia MIT aplica al software del proyecto; no sustituye una política de privacidad.
+
+Para crear e identificar una cuenta, la interfaz solicita un nombre visible y un correo electrónico. Las credenciales son gestionadas por Firebase Authentication. El contenido adicional —biblioteca, autores, proyectos, subproyectos, perfil y referencias privadas— solo se almacena cuando el usuario decide crearlo o guardarlo en su espacio privado.
