@@ -128,10 +128,12 @@ test("project readings expose a persistent visual card catalog", () => {
   assert.match(data, /updateProjectWorkPresentation/);
   assert.match(data, /"archive"[\s\S]*"paper"[\s\S]*"index"[\s\S]*"folio"[\s\S]*"night"[\s\S]*"signal"/);
   assert.match(data, /presentationUpdatedAt/);
-  assert.doesNotMatch(
-    data.match(/export async function updateProjectWorkPresentation[\s\S]*?return style;/)?.[0] || "",
-    /updatedAt:\s*serverTimestamp\(\)/
-  );
+  const presentationFunction =
+    data.match(/export async function updateProjectWorkPresentation[\s\S]*?return style;/)?.[0] || "";
+  const workUpdate =
+    presentationFunction.match(/await updateDoc\(\s*projectWorkRef[\s\S]*?\n\s*\);/)?.[0] || "";
+  assert.match(workUpdate, /presentationUpdatedAt:\s*serverTimestamp\(\)/);
+  assert.doesNotMatch(workUpdate, /\n\s*updatedAt:\s*serverTimestamp\(\)/);
 
   assert.match(profile, /PROJECT_CARD_STYLES/);
   assert.match(profile, /data-project-work-style/);
