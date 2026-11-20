@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "index.html"
+      - "perfil.html"
       - "tesis.html"
       - "atlas.html"
       - "acerca.html"
@@ -25,6 +26,7 @@ on:
       - main
     paths:
       - "index.html"
+      - "perfil.html"
       - "tesis.html"
       - "atlas.html"
       - "acerca.html"
