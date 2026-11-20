@@ -128,7 +128,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 #thesis-summary { margin: 0; color: var(--td-muted); font-size: 13px; }
 .td-scope-tag { align-self: center; padding: 8px 13px; border: 1px solid var(--td-border); color: var(--td-muted); white-space: nowrap; }
 .td-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 25px 0; }
-.td-result { display: flex; flex-direction: column; min-width: 0; background: var(--td-surface); border: 1px solid var(--td-border); border-left: 3px solid var(--td-blue); padding: 24px; transition: box-shadow .16s, transform .16s; }
+.td-result { position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--td-surface); border: 1px solid var(--td-border); border-left: 3px solid var(--td-blue); padding: 24px; transition: box-shadow .16s, transform .16s; }
 .td-result:hover { box-shadow: 0 15px 35px rgba(0,0,0,.09); transform: translateY(-1px); }
 .td-result-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
 .td-result-type { color: var(--td-blue); }
@@ -150,6 +150,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .td-primary-action { font-size: 12px; padding: 11px 14px; min-height: 43px; flex: 1; }
 .td-secondary-action { border: 1px solid var(--td-border); background: transparent; color: var(--td-ink); padding: 11px 14px; font-size: 12px; cursor: pointer; }
 .td-secondary-action:hover { background: var(--td-surface-soft); }
+.td-result > .research-save-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+}
+.td-result:has(> .research-save-button) .td-result-top {
+  padding-right: 42px;
+}
 .td-no-link { flex: 1; padding: 11px; background: var(--td-surface-soft); color: var(--td-muted); font-size: 12px; }
 .td-pagination { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px; padding: 18px 0 55px; }
 .td-page-button { padding: 11px 16px; background: var(--td-surface); color: var(--td-ink); border: 1px solid var(--td-border); cursor: pointer; }

@@ -10,6 +10,7 @@ import {
 } from "./firebase-client.js";
 
 import {
+  attachAuthorToProject,
   attachWorkToProject,
   createProject,
   createSubproject,
@@ -17,11 +18,16 @@ import {
   deleteProject,
   deleteSavedAuthor,
   deleteSubproject,
+  detachAuthorFromProject,
   detachWorkFromProject,
   ensureUserProfile,
   getUserProfile,
+  saveAuthor,
+  saveAuthorIdentityDecision,
   saveLibraryWork,
+  subscribeAuthorIdentityDecisions,
   subscribeLibrary,
+  subscribeProjectAuthors,
   subscribeProjectWorks,
   subscribeProjects,
   subscribeSavedAuthors,
@@ -91,6 +97,7 @@ const atlasCanvas = document.querySelector("#project-atlas");
 const atlasNote = document.querySelector("#project-atlas-note");
 const projectWorkList = document.querySelector("#project-work-list");
 const projectAuthorList = document.querySelector("#project-author-list");
+const projectIdentityReview = document.querySelector("#project-identity-review");
 const projectWorkNote = document.querySelector("#project-work-note");
 
 const manualWorkForm = document.querySelector("#manual-work-form");
@@ -113,7 +120,10 @@ let activeSubprojectFilter = "all";
 let pendingProjectSelectionId = "";
 let subprojects = [];
 let projectWorks = [];
+let projectAuthors = [];
+let identityDecisions = [];
 const projectWorkIndex = new Map();
+const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
 let assignmentProjectSignature = "";
 let assignmentUnsubscribers = [];
@@ -123,6 +133,8 @@ let unsubscribeLibrary = null;
 let unsubscribeAuthors = null;
 let unsubscribeSubprojects = null;
 let unsubscribeProjectWorks = null;
+let unsubscribeProjectAuthors = null;
+let unsubscribeIdentityDecisions = null;
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -213,7 +225,9 @@ function stopRealtimeListeners() {
     unsubscribeLibrary,
     unsubscribeAuthors,
     unsubscribeSubprojects,
-    unsubscribeProjectWorks
+    unsubscribeProjectWorks,
+    unsubscribeProjectAuthors,
+    unsubscribeIdentityDecisions
   ]) {
     if (typeof unsubscribe === "function") unsubscribe();
   }
@@ -224,6 +238,7 @@ function stopRealtimeListeners() {
   assignmentUnsubscribers = [];
   assignmentProjectSignature = "";
   projectWorkIndex.clear();
+  projectAuthorIndex.clear();
   projectSubprojectIndex.clear();
 
   unsubscribeProjects = null;
@@ -231,6 +246,8 @@ function stopRealtimeListeners() {
   unsubscribeAuthors = null;
   unsubscribeSubprojects = null;
   unsubscribeProjectWorks = null;
+  unsubscribeProjectAuthors = null;
+  unsubscribeIdentityDecisions = null;
 }
 
 function showGate(message, {
@@ -314,7 +331,7 @@ function renderIdentity() {
 function renderMetrics() {
   metricProjects.textContent = String(projects.length);
   metricWorks.textContent = String(library.length);
-  metricAuthors.textContent = String(savedAuthors.length);
+  metricAuthors.textContent = String(mergedSavedAuthors().length);
   metricPrivate.textContent = String(
     library.filter(work => work.privateOnly).length
   );
@@ -358,15 +375,74 @@ function membershipsForWork(workId) {
   return memberships;
 }
 
+function identityPairKey(leftName, rightName) {
+  return [
+    normalizedPersonName(leftName),
+    normalizedPersonName(rightName)
+  ].filter(Boolean).sort().join("::");
+}
+
+function identityDecisionFor(leftName, rightName) {
+  const key = identityPairKey(leftName, rightName);
+  return identityDecisions.find(decision =>
+    identityPairKey(decision.leftName, decision.rightName) === key
+  ) || null;
+}
+
+function preferredCanonicalName(names = []) {
+  return [...new Set(names.filter(Boolean))]
+    .sort((a, b) => {
+      const tokenDelta =
+        normalizedPersonName(b).split(" ").filter(Boolean).length -
+        normalizedPersonName(a).split(" ").filter(Boolean).length;
+      return tokenDelta || b.length - a.length || a.localeCompare(b, "es");
+    })[0] || "Autor";
+}
+
+function equivalentNormalizedNames(author) {
+  const names = new Set(
+    [
+      author?.name,
+      author?.displayName,
+      ...(author?.aliases || []),
+      ...(author?.alternateNames || [])
+    ]
+      .map(normalizedPersonName)
+      .filter(Boolean)
+  );
+
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const decision of identityDecisions) {
+      if (decision.same !== true) continue;
+      const left = normalizedPersonName(decision.leftName);
+      const right = normalizedPersonName(decision.rightName);
+      if (names.has(left) && right && !names.has(right)) {
+        names.add(right);
+        changed = true;
+      }
+      if (names.has(right) && left && !names.has(left)) {
+        names.add(left);
+        changed = true;
+      }
+    }
+  }
+
+  return names;
+}
+
 function membershipsForAuthor(author) {
-  const needle = normalizedPersonName(author?.name || author?.displayName);
-  if (!needle) return [];
+  const needles = equivalentNormalizedNames(author);
+  if (!needles.size) return [];
 
   const grouped = new Map();
   for (const project of projects) {
     const works = projectWorkIndex.get(project.id) || [];
     for (const work of works) {
-      const hasAuthor = authorNames(work).some(name => normalizedPersonName(name) === needle);
+      const hasAuthor = authorNames(work).some(name =>
+        needles.has(normalizedPersonName(name))
+      );
       if (!hasAuthor) continue;
 
       const collection = work.subprojectId
@@ -374,11 +450,36 @@ function membershipsForAuthor(author) {
         : null;
       const key = [project.id, work.subprojectId || ""].join("::");
       const previous = grouped.get(key) || {
+        projectId: project.id,
         projectTitle: project.title || "Proyecto",
+        subprojectId: work.subprojectId || "",
         subprojectTitle: collection?.title || "",
-        count: 0
+        count: 0,
+        explicit: false
       };
       previous.count += 1;
+      grouped.set(key, previous);
+    }
+
+    const explicitAuthors = projectAuthorIndex.get(project.id) || [];
+    for (const projectAuthor of explicitAuthors) {
+      const variants = equivalentNormalizedNames(projectAuthor);
+      const matches = [...variants].some(name => needles.has(name));
+      if (!matches) continue;
+
+      const collection = projectAuthor.subprojectId
+        ? projectSubprojectById(project.id, projectAuthor.subprojectId)
+        : null;
+      const key = [project.id, projectAuthor.subprojectId || ""].join("::");
+      const previous = grouped.get(key) || {
+        projectId: project.id,
+        projectTitle: project.title || "Proyecto",
+        subprojectId: projectAuthor.subprojectId || "",
+        subprojectTitle: collection?.title || "",
+        count: 0,
+        explicit: false
+      };
+      previous.explicit = true;
       grouped.set(key, previous);
     }
   }
@@ -393,36 +494,287 @@ function visibleProjectWorks() {
   return projectWorks.filter(work => work.subprojectId === activeSubprojectFilter);
 }
 
-function projectAuthorsFromWorks(works = visibleProjectWorks()) {
+function visibleProjectAuthors() {
+  if (activeSubprojectFilter === "all") return [...projectAuthors];
+  if (activeSubprojectFilter === "unfiled") {
+    return projectAuthors.filter(author => !author.subprojectId);
+  }
+  return projectAuthors.filter(author => author.subprojectId === activeSubprojectFilter);
+}
+
+function exactProjectAuthorEntries(
+  works = visibleProjectWorks(),
+  explicitAuthors = visibleProjectAuthors()
+) {
   const grouped = new Map();
+
+  const ensure = name => {
+    const key = normalizedPersonName(name);
+    if (!key) return null;
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        key,
+        name,
+        names: new Set([name]),
+        count: 0,
+        works: [],
+        explicitRecords: [],
+        savedRecords: [],
+        orcids: new Set()
+      });
+    }
+    return grouped.get(key);
+  };
+
   for (const work of works) {
     for (const name of authorNames(work)) {
-      const key = normalizedPersonName(name);
-      if (!key) continue;
-      const item = grouped.get(key) || {
-        name,
-        count: 0,
-        works: []
-      };
+      const item = ensure(name);
+      if (!item) continue;
       item.count += 1;
-      item.works.push(work);
-      grouped.set(key, item);
+      if (!item.works.some(existing => existing.id === work.id)) {
+        item.works.push(work);
+      }
     }
   }
 
-  return [...grouped.values()]
-    .map(item => {
-      const saved = savedAuthors.find(author =>
-        normalizedPersonName(author.name || author.displayName) === normalizedPersonName(item.name)
+  for (const author of explicitAuthors) {
+    const item = ensure(author.name || author.displayName);
+    if (!item) continue;
+    item.names.add(author.name || author.displayName);
+    item.explicitRecords.push(author);
+    if (author.orcid) item.orcids.add(String(author.orcid));
+    for (const alias of author.alternateNames || []) {
+      if (alias) item.names.add(alias);
+    }
+  }
+
+  for (const author of savedAuthors) {
+    const variants = equivalentNormalizedNames(author);
+    for (const item of grouped.values()) {
+      if (!variants.has(item.key)) continue;
+      item.savedRecords.push(author);
+      if (author.orcid) item.orcids.add(String(author.orcid));
+      for (const alias of author.alternateNames || []) {
+        if (alias) item.names.add(alias);
+      }
+    }
+  }
+
+  return grouped;
+}
+
+function mergeAuthorIdentityEntries(entries) {
+  const keys = [...entries.keys()];
+  const parent = new Map(keys.map(key => [key, key]));
+
+  const find = key => {
+    let root = parent.get(key) || key;
+    while (parent.get(root) && parent.get(root) !== root) {
+      root = parent.get(root);
+    }
+    let current = key;
+    while (parent.get(current) && parent.get(current) !== root) {
+      const next = parent.get(current);
+      parent.set(current, root);
+      current = next;
+    }
+    return root;
+  };
+
+  const union = (left, right) => {
+    if (!parent.has(left) || !parent.has(right)) return;
+    const rootLeft = find(left);
+    const rootRight = find(right);
+    if (rootLeft !== rootRight) parent.set(rootRight, rootLeft);
+  };
+
+  for (const decision of identityDecisions) {
+    if (decision.same !== true) continue;
+    union(
+      normalizedPersonName(decision.leftName),
+      normalizedPersonName(decision.rightName)
+    );
+  }
+
+  const merged = new Map();
+  for (const [key, item] of entries) {
+    const root = find(key);
+    const target = merged.get(root) || {
+      names: new Set(),
+      count: 0,
+      works: [],
+      explicitRecords: [],
+      savedRecords: [],
+      orcids: new Set()
+    };
+
+    for (const name of item.names) target.names.add(name);
+    target.count += item.count;
+    for (const work of item.works) {
+      if (!target.works.some(existing => existing.id === work.id)) {
+        target.works.push(work);
+      }
+    }
+    for (const record of item.explicitRecords) {
+      if (!target.explicitRecords.some(existing => existing.id === record.id)) {
+        target.explicitRecords.push(record);
+      }
+    }
+    for (const record of item.savedRecords) {
+      if (!target.savedRecords.some(existing => existing.id === record.id)) {
+        target.savedRecords.push(record);
+      }
+    }
+    for (const orcid of item.orcids) target.orcids.add(orcid);
+    merged.set(root, target);
+  }
+
+  return [...merged.values()].map(group => {
+    const canonicalFromDecision = identityDecisions
+      .filter(decision => decision.same === true && decision.canonicalName)
+      .find(decision => {
+        const left = normalizedPersonName(decision.leftName);
+        const right = normalizedPersonName(decision.rightName);
+        return [...group.names].some(name => {
+          const normalized = normalizedPersonName(name);
+          return normalized === left || normalized === right;
+        });
+      })?.canonicalName;
+
+    const name =
+      canonicalFromDecision ||
+      preferredCanonicalName([
+        ...group.savedRecords.map(record => record.name),
+        ...group.explicitRecords.map(record => record.name),
+        ...group.names
+      ]);
+
+    const aliases = [...group.names].filter(
+      alias => normalizedPersonName(alias) !== normalizedPersonName(name)
+    );
+
+    return {
+      name,
+      aliases,
+      count: group.count,
+      works: group.works,
+      explicitRecords: group.explicitRecords,
+      savedRecords: group.savedRecords,
+      saved: group.savedRecords[0] || null,
+      orcid: [...group.orcids][0] || group.savedRecords[0]?.orcid || "",
+      explicit: group.explicitRecords.length > 0
+    };
+  });
+}
+
+function projectAuthorsFromWorks(
+  works = visibleProjectWorks(),
+  explicitAuthors = visibleProjectAuthors()
+) {
+  return mergeAuthorIdentityEntries(
+    exactProjectAuthorEntries(works, explicitAuthors)
+  ).sort((a, b) =>
+    b.count - a.count ||
+    Number(b.explicit) - Number(a.explicit) ||
+    a.name.localeCompare(b.name, "es")
+  );
+}
+
+function namesLookCompatible(leftName, rightName) {
+  const left = normalizedPersonName(leftName).split(" ").filter(Boolean);
+  const right = normalizedPersonName(rightName).split(" ").filter(Boolean);
+  if (left.length < 2 || right.length < 2 || left[0] !== right[0]) return false;
+
+  const [shorter, longer] = left.length <= right.length
+    ? [left, right]
+    : [right, left];
+
+  return shorter.every(token => longer.includes(token));
+}
+
+function normalizedWorkTitle(work) {
+  return normalizedPersonName(work?.title);
+}
+
+function nextIdentityReviewCandidate() {
+  const entries = [...exactProjectAuthorEntries(projectWorks, projectAuthors).values()];
+
+  for (let i = 0; i < entries.length; i += 1) {
+    for (let j = i + 1; j < entries.length; j += 1) {
+      const left = entries[i];
+      const right = entries[j];
+      const leftName = preferredCanonicalName([...left.names]);
+      const rightName = preferredCanonicalName([...right.names]);
+
+      if (identityDecisionFor(leftName, rightName)) continue;
+
+      const leftTitles = new Map(
+        left.works.map(work => [normalizedWorkTitle(work), work.title]).filter(([key]) => key)
       );
-      return { ...item, saved: saved || null };
-    })
-    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+      const sharedTitle = right.works
+        .map(work => normalizedWorkTitle(work))
+        .find(title => title && leftTitles.has(title));
+
+      const sharedOrcid = [...left.orcids].find(orcid => right.orcids.has(orcid));
+      const compatible = namesLookCompatible(leftName, rightName);
+
+      if (!sharedOrcid && !(sharedTitle && compatible)) continue;
+
+      return {
+        leftName,
+        rightName,
+        canonicalName: preferredCanonicalName([leftName, rightName]),
+        evidence: sharedOrcid
+          ? `Comparten el ORCID ${sharedOrcid}.`
+          : `Comparten la obra “${leftTitles.get(sharedTitle)}” y sus nombres son compatibles.`
+      };
+    }
+  }
+
+  return null;
+}
+
+function mergedSavedAuthors() {
+  const grouped = new Map();
+
+  for (const author of savedAuthors) {
+    const key = normalizedPersonName(author.name || author.displayName);
+    if (!key) continue;
+    const item = grouped.get(key) || {
+      key,
+      name: author.name || author.displayName || "Autor",
+      names: new Set(),
+      count: 0,
+      works: [],
+      explicitRecords: [],
+      savedRecords: [],
+      orcids: new Set()
+    };
+    item.names.add(author.name || author.displayName || "Autor");
+    for (const alias of author.alternateNames || []) item.names.add(alias);
+    item.savedRecords.push(author);
+    if (author.orcid) item.orcids.add(String(author.orcid));
+    grouped.set(key, item);
+  }
+
+  return mergeAuthorIdentityEntries(grouped)
+    .map(group => ({
+      ...group,
+      id: group.savedRecords[0]?.id || "",
+      documentIds: group.savedRecords.map(record => record.id),
+      biography:
+        group.savedRecords.find(record => record.biography)?.biography || "",
+      wikipediaUrl:
+        group.savedRecords.find(record => record.wikipediaUrl)?.wikipediaUrl || "",
+      sourceType:
+        group.savedRecords.find(record => record.sourceType)?.sourceType || ""
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es"));
 }
 
 function renderProjectStats() {
   if (!projectDetailStats) return;
-  const authors = projectAuthorsFromWorks(projectWorks);
+  const authors = projectAuthorsFromWorks(projectWorks, projectAuthors);
   projectDetailStats.innerHTML = [
     ["Lecturas", projectWorks.length],
     ["Autores", authors.length],
@@ -458,6 +810,7 @@ function syncProjectAssignmentIndex(uid) {
   }
   assignmentUnsubscribers = [];
   projectWorkIndex.clear();
+  projectAuthorIndex.clear();
   projectSubprojectIndex.clear();
   assignmentProjectSignature = signature;
 
@@ -475,6 +828,16 @@ function syncProjectAssignmentIndex(uid) {
         projectSubprojectIndex.set(project.id, items);
         renderLibrary();
         renderAuthors();
+      })
+    );
+    assignmentUnsubscribers.push(
+      subscribeProjectAuthors(uid, project.id, items => {
+        projectAuthorIndex.set(project.id, items);
+        renderAuthors();
+        if (project.id === selectedProjectId) {
+          renderProjectAuthors();
+          renderProjectStats();
+        }
       })
     );
   }
@@ -544,7 +907,7 @@ function exportProjectExcel() {
     ]);
   }
 
-  for (const author of projectAuthorsFromWorks(projectWorks)) {
+  for (const author of projectAuthorsFromWorks(projectWorks, projectAuthors)) {
     rows.push([
       "Autor", project.title || "", "", author.name,
       "", "", "", `${author.count} obra(s)`, ""
@@ -579,7 +942,7 @@ function exportLibraryExcel() {
 
 function exportAuthorsExcel() {
   const rows = [["Autor", "ORCID", "Proyectos / colecciones", "Obras relacionadas", "Biografía"]];
-  for (const author of savedAuthors) {
+  for (const author of mergedSavedAuthors()) {
     const memberships = membershipsForAuthor(author);
     rows.push([
       author.name || "", author.orcid || "",
@@ -733,9 +1096,13 @@ function selectProject(id) {
   if (typeof unsubscribeProjectWorks === "function") {
     unsubscribeProjectWorks();
   }
+  if (typeof unsubscribeProjectAuthors === "function") {
+    unsubscribeProjectAuthors();
+  }
 
   subprojects = [];
   projectWorks = [];
+  projectAuthors = [];
   renderSubprojects();
   renderProjectWorks();
   renderProjectAuthors();
@@ -763,6 +1130,19 @@ function selectProject(id) {
       renderProjectWorks();
       renderProjectAuthors();
       drawProjectAtlas();
+    }
+  );
+
+  unsubscribeProjectAuthors = subscribeProjectAuthors(
+    currentUser.uid,
+    selectedProjectId,
+    items => {
+      projectAuthors = items;
+      projectAuthorIndex.set(selectedProjectId, items);
+      renderSubprojects();
+      renderProjectAuthors();
+      renderProjectStats();
+      renderAuthors();
     }
   );
 
@@ -798,28 +1178,35 @@ function renderSubprojects() {
   const countFor = id => projectWorks.filter(work =>
     id === "unfiled" ? !work.subprojectId : work.subprojectId === id
   ).length;
+  const authorCountFor = id => projectAuthors.filter(author =>
+    id === "unfiled" ? !author.subprojectId : author.subprojectId === id
+  ).length;
 
   const filterCards = [
     {
       id: "all",
       title: "Todo el proyecto",
-      description: "Todas las lecturas, voces y relaciones.",
+      description: `${projectWorks.length} lectura(s) · ${projectAuthors.length} autor(es) añadido(s)`,
       color: projectById(selectedProjectId)?.color || "#0f62fe",
-      count: projectWorks.length
+      count: projectWorks.length + projectAuthors.length
     },
     ...subprojects.map(item => ({
       id: item.id,
       title: item.title || "Colección",
-      description: item.description || "Una línea de trabajo dentro del proyecto.",
+      description: [
+        item.description || "Una línea de trabajo dentro del proyecto.",
+        `${countFor(item.id)} lectura(s)`,
+        `${authorCountFor(item.id)} autor(es)`
+      ].join(" · "),
       color: /^#[0-9a-f]{6}$/i.test(item.color || "") ? item.color : "#4589ff",
-      count: countFor(item.id)
+      count: countFor(item.id) + authorCountFor(item.id)
     })),
     {
       id: "unfiled",
       title: "Sin colección",
-      description: "Lecturas todavía no clasificadas.",
+      description: `${countFor("unfiled")} lectura(s) · ${authorCountFor("unfiled")} autor(es) sin colección`,
       color: "#8d8d8d",
-      count: countFor("unfiled")
+      count: countFor("unfiled") + authorCountFor("unfiled")
     }
   ];
 
@@ -853,7 +1240,7 @@ function renderSubprojects() {
           <span></span>
           <div>
             <strong>${escapeHtml(item.title || "Colección")}</strong>
-            <small>${escapeHtml(countFor(item.id))} lectura(s) · ${escapeHtml(item.status || "active")}</small>
+            <small>${escapeHtml(countFor(item.id))} lectura(s) · ${escapeHtml(authorCountFor(item.id))} autor(es) · ${escapeHtml(item.status || "active")}</small>
           </div>
           <div class="subproject-card-actions">
             <button type="button" data-subproject-edit="${escapeHtml(item.id)}">Editar</button>
@@ -941,7 +1328,9 @@ function renderLibrary() {
 function renderAuthors() {
   renderMetrics();
 
-  if (!savedAuthors.length) {
+  const authors = mergedSavedAuthors();
+
+  if (!authors.length) {
     savedAuthorList.innerHTML = `
       <div class="profile-empty">
         Todavía no ha guardado autores desde el archivo.
@@ -950,19 +1339,27 @@ function renderAuthors() {
     return;
   }
 
-  savedAuthorList.innerHTML = savedAuthors.map(author => {
+  savedAuthorList.innerHTML = authors.map(author => {
     const orcid = author.orcid
-      ? safeUrl(String(author.orcid).startsWith("http") ? author.orcid : `https://orcid.org/${author.orcid}`)
+      ? safeUrl(String(author.orcid).startsWith("http")
+        ? author.orcid
+        : `https://orcid.org/${author.orcid}`)
       : "";
     const wikipedia = safeUrl(author.wikipediaUrl);
     const memberships = membershipsForAuthor(author);
     const workCount = memberships.reduce((sum, item) => sum + item.count, 0);
+    const explicitProjects = new Set(
+      memberships.filter(item => item.explicit).map(item => item.projectId)
+    );
 
     return `
       <article class="author-card">
         <div>
           <span class="profile-kicker">AUTOR GUARDADO</span>
           <h3>${escapeHtml(author.name || "Autor")}</h3>
+          ${author.aliases.length
+            ? `<p class="author-aliases">También aparece como: ${escapeHtml(author.aliases.join(" · "))}</p>`
+            : ""}
           <p>${escapeHtml(compact(author.biography || "Identidad bibliográfica guardada.", 260))}</p>
 
           <div class="author-project-usage">
@@ -971,10 +1368,11 @@ function renderAuthors() {
                   <span class="project-usage-badge">
                     <b>${escapeHtml(item.projectTitle)}</b>
                     ${item.subprojectTitle ? `<small> / ${escapeHtml(item.subprojectTitle)}</small>` : ""}
-                    <em>${escapeHtml(item.count)} obra(s)</em>
+                    ${item.explicit ? "<em>autor añadido</em>" : ""}
+                    ${item.count ? `<em>${escapeHtml(item.count)} obra(s)</em>` : ""}
                   </span>
                 `).join("")
-              : '<span class="project-usage-empty">Todavía no aparece en una lectura de sus proyectos</span>'}
+              : '<span class="project-usage-empty">Todavía no está vinculado a sus proyectos</span>'}
           </div>
 
           <div class="library-card-tags">
@@ -983,7 +1381,22 @@ function renderAuthors() {
             ${wikipedia ? `<a href="${escapeHtml(wikipedia)}" target="_blank" rel="noopener noreferrer">Biografía ↗</a>` : ""}
           </div>
         </div>
-        <button type="button" data-author-delete="${escapeHtml(author.id)}">Quitar</button>
+
+        <div class="author-card-actions">
+          <select data-author-project="${escapeHtml(author.id)}" aria-label="Proyecto destino para este autor">
+            <option value="">Añadir a proyecto…</option>
+            ${projects.map(project => `
+              <option value="${escapeHtml(project.id)}">
+                ${explicitProjects.has(project.id) ? "✓ " : ""}${escapeHtml(project.title)}
+              </option>
+            `).join("")}
+          </select>
+          <button type="button" data-author-attach="${escapeHtml(author.id)}">Añadir al proyecto</button>
+          <button
+            type="button"
+            data-author-delete="${escapeHtml(author.documentIds.join("|"))}"
+          >Quitar</button>
+        </div>
       </article>
     `;
   }).join("");
@@ -1076,36 +1489,143 @@ function renderProjectWorks() {
   renderProjectStats();
 }
 
+function projectAuthorPayload(author) {
+  const source =
+    author.saved ||
+    author.explicitRecords?.[0] ||
+    {};
+
+  return {
+    name: author.name,
+    displayName: author.name,
+    id: source.sourceId || source.id || normalizedPersonName(author.name),
+    sourceId: source.sourceId || source.id || "",
+    orcid: author.orcid || source.orcid || "",
+    biography: source.biography || "",
+    wikipediaUrl: source.wikipediaUrl || "",
+    alternateNames: author.aliases || []
+  };
+}
+
+function projectAuthorRenderKey(author) {
+  return normalizedPersonName(author.name);
+}
+
+function currentProjectAuthorByKey(key) {
+  return projectAuthorsFromWorks().find(author => {
+    const variants = new Set([
+      normalizedPersonName(author.name),
+      ...(author.aliases || []).map(normalizedPersonName)
+    ]);
+    return variants.has(key);
+  }) || null;
+}
+
+function renderIdentityReview() {
+  if (!projectIdentityReview) return;
+
+  const candidate = nextIdentityReviewCandidate();
+  if (!candidate) {
+    projectIdentityReview.hidden = true;
+    projectIdentityReview.innerHTML = "";
+    return;
+  }
+
+  projectIdentityReview.hidden = false;
+  projectIdentityReview.innerHTML = `
+    <div class="identity-review-mark" aria-hidden="true">≈</div>
+    <div class="identity-review-copy">
+      <span class="profile-kicker">REVISIÓN DE IDENTIDAD</span>
+      <h4>¿Son la misma persona?</h4>
+      <p>
+        <strong>${escapeHtml(candidate.leftName)}</strong>
+        <span>↔</span>
+        <strong>${escapeHtml(candidate.rightName)}</strong>
+      </p>
+      <small>${escapeHtml(candidate.evidence)}</small>
+    </div>
+    <div class="identity-review-actions">
+      <button type="button" data-identity-decision="same">Sí, unir identidad</button>
+      <button type="button" data-identity-decision="different">No, mantener separadas</button>
+    </div>
+  `;
+
+  projectIdentityReview.dataset.leftName = candidate.leftName;
+  projectIdentityReview.dataset.rightName = candidate.rightName;
+  projectIdentityReview.dataset.canonicalName = candidate.canonicalName;
+}
+
 function renderProjectAuthors() {
   if (!projectAuthorList) return;
   const authors = projectAuthorsFromWorks();
 
+  renderIdentityReview();
+
   if (!authors.length) {
     projectAuthorList.innerHTML = `
       <div class="profile-empty project-view-empty">
-        Esta vista todavía no tiene autores porque no contiene lecturas.
+        Esta vista todavía no tiene autores. Puede añadirlos desde “Autores” o incorporar lecturas.
       </div>
     `;
     return;
   }
 
   projectAuthorList.innerHTML = authors.map(author => {
-    const orcid = author.saved?.orcid
-      ? safeUrl(String(author.saved.orcid).startsWith("http")
-        ? author.saved.orcid
-        : `https://orcid.org/${author.saved.orcid}`)
+    const orcid = author.orcid
+      ? safeUrl(String(author.orcid).startsWith("http")
+        ? author.orcid
+        : `https://orcid.org/${author.orcid}`)
       : "";
+    const explicit = author.explicitRecords.length > 0;
+    const key = projectAuthorRenderKey(author);
+    const selectedSubproject = author.explicitRecords[0]?.subprojectId || "";
+
+    let label = "AUTOR EN LA BIBLIOGRAFÍA";
+    if (explicit && author.count) label = "AUTOR AÑADIDO · PRESENTE EN LECTURAS";
+    else if (explicit) label = "AUTOR AÑADIDO";
+    else if (author.saved) label = "AUTOR GUARDADO · PRESENTE EN LECTURAS";
 
     return `
       <article class="project-author-card">
-        <span class="profile-kicker">${author.saved ? "AUTOR GUARDADO" : "AUTOR EN LA BIBLIOGRAFÍA"}</span>
+        <span class="profile-kicker">${label}</span>
         <h4>${escapeHtml(author.name)}</h4>
+        ${author.aliases.length
+          ? `<p class="project-author-aliases">Unificado con: ${escapeHtml(author.aliases.join(" · "))}</p>`
+          : ""}
         <strong>${escapeHtml(author.count)}</strong>
         <small>obra${author.count === 1 ? "" : "s"} en esta vista</small>
         <div class="project-author-titles">
           ${author.works.slice(0, 4).map(work => `<span>${escapeHtml(compact(work.title, 78))}</span>`).join("")}
         </div>
         ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
+
+        <div class="project-author-actions">
+          ${explicit ? `
+            <select
+              data-project-author-subproject="${escapeHtml(key)}"
+              aria-label="Colección de este autor"
+            >
+              <option value="">Sin colección</option>
+              ${subprojects.map(item => `
+                <option value="${escapeHtml(item.id)}" ${selectedSubproject === item.id ? "selected" : ""}>
+                  ${escapeHtml(item.title)}
+                </option>
+              `).join("")}
+            </select>
+            <button type="button" data-project-author-remove="${escapeHtml(key)}">
+              Quitar autor del proyecto
+            </button>
+          ` : `
+            <button type="button" data-project-author-pin="${escapeHtml(key)}">
+              Añadir autor al proyecto
+            </button>
+          `}
+          ${author.saved ? "" : `
+            <button type="button" data-project-author-save="${escapeHtml(key)}">
+              Guardar en mi archivo
+            </button>
+          `}
+        </div>
       </article>
     `;
   }).join("");
@@ -1446,6 +1966,18 @@ async function loadPrivateWorkspace(user) {
     items => {
       savedAuthors = items;
       renderAuthors();
+      renderProjectAuthors();
+      renderProjectStats();
+    }
+  );
+
+  unsubscribeIdentityDecisions = subscribeAuthorIdentityDecisions(
+    user.uid,
+    items => {
+      identityDecisions = items;
+      renderAuthors();
+      renderProjectAuthors();
+      renderProjectStats();
     }
   );
 }
@@ -1772,16 +2304,146 @@ libraryList.addEventListener("click", async event => {
 });
 
 savedAuthorList.addEventListener("click", async event => {
+  const attach = event.target.closest("[data-author-attach]");
   const remove = event.target.closest("[data-author-delete]");
-  if (!remove || !currentUser) return;
 
-  const author = savedAuthors.find(
-    item => item.id === remove.dataset.authorDelete
+  if (attach && currentUser) {
+    const authors = mergedSavedAuthors();
+    const author = authors.find(item => item.id === attach.dataset.authorAttach);
+    const select = savedAuthorList.querySelector(
+      `[data-author-project="${CSS.escape(attach.dataset.authorAttach)}"]`
+    );
+    const projectId = select?.value || "";
+
+    if (!author || !projectId) {
+      select?.focus();
+      return;
+    }
+
+    await attachAuthorToProject(
+      currentUser.uid,
+      projectId,
+      projectAuthorPayload(author)
+    );
+
+    attach.textContent = "Añadido ✓";
+    window.setTimeout(() => {
+      attach.textContent = "Añadir al proyecto";
+    }, 1400);
+    return;
+  }
+
+  if (remove && currentUser) {
+    const ids = String(remove.dataset.authorDelete || "")
+      .split("|")
+      .filter(Boolean);
+    if (!ids.length) return;
+
+    await Promise.all(
+      ids.map(id => deleteSavedAuthor(currentUser.uid, id))
+    );
+  }
+});
+
+projectIdentityReview?.addEventListener("click", async event => {
+  const button = event.target.closest("[data-identity-decision]");
+  if (!button || !currentUser) return;
+
+  const leftName = projectIdentityReview.dataset.leftName || "";
+  const rightName = projectIdentityReview.dataset.rightName || "";
+  const canonicalName = projectIdentityReview.dataset.canonicalName || "";
+  if (!leftName || !rightName) return;
+
+  const same = button.dataset.identityDecision === "same";
+  const buttons = [...projectIdentityReview.querySelectorAll("button")];
+  buttons.forEach(item => { item.disabled = true; });
+
+  try {
+    await saveAuthorIdentityDecision(currentUser.uid, {
+      leftName,
+      rightName,
+      same,
+      canonicalName: same ? canonicalName : ""
+    });
+  } catch (error) {
+    console.error("No fue posible guardar la decisión de identidad.", error);
+    buttons.forEach(item => { item.disabled = false; });
+  }
+});
+
+projectAuthorList.addEventListener("change", async event => {
+  const select = event.target.closest("[data-project-author-subproject]");
+  if (!select || !currentUser || !selectedProjectId) return;
+
+  const author = currentProjectAuthorByKey(
+    select.dataset.projectAuthorSubproject
   );
+  if (!author?.explicitRecords?.length) return;
+
+  await Promise.all(
+    author.explicitRecords.map(record =>
+      attachAuthorToProject(
+        currentUser.uid,
+        selectedProjectId,
+        record,
+        { subprojectId: select.value }
+      )
+    )
+  );
+});
+
+projectAuthorList.addEventListener("click", async event => {
+  if (!currentUser || !selectedProjectId) return;
+
+  const pin = event.target.closest("[data-project-author-pin]");
+  const remove = event.target.closest("[data-project-author-remove]");
+  const save = event.target.closest("[data-project-author-save]");
+  const key =
+    pin?.dataset.projectAuthorPin ||
+    remove?.dataset.projectAuthorRemove ||
+    save?.dataset.projectAuthorSave ||
+    "";
+
+  if (!key) return;
+  const author = currentProjectAuthorByKey(key);
   if (!author) return;
 
-  await deleteSavedAuthor(currentUser.uid, author.id);
+  if (pin) {
+    const subprojectId =
+      !["all", "unfiled"].includes(activeSubprojectFilter)
+        ? activeSubprojectFilter
+        : "";
+
+    await attachAuthorToProject(
+      currentUser.uid,
+      selectedProjectId,
+      projectAuthorPayload(author),
+      { subprojectId }
+    );
+    return;
+  }
+
+  if (remove && author.explicitRecords?.length) {
+    await Promise.all(
+      author.explicitRecords.map(record =>
+        detachAuthorFromProject(
+          currentUser.uid,
+          selectedProjectId,
+          record.id
+        )
+      )
+    );
+    return;
+  }
+
+  if (save) {
+    await saveAuthor(
+      currentUser.uid,
+      projectAuthorPayload(author)
+    );
+  }
 });
+
 
 projectWorkList.addEventListener("change", async event => {
   const select = event.target.closest("[data-project-work-subproject]");

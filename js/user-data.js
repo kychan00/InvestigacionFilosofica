@@ -103,6 +103,40 @@ function projectWorkRef(uid, projectId, workId) {
   );
 }
 
+function projectAuthorRef(uid, projectId, authorId) {
+  return doc(
+    requiredDb(),
+    "users",
+    uid,
+    "projects",
+    projectId,
+    "authors",
+    authorId
+  );
+}
+
+function normalizedIdentityName(value) {
+  return compactText(value, 300)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("es")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function authorIdentityDecisionId(leftName, rightName) {
+  const pair = [
+    normalizedIdentityName(leftName),
+    normalizedIdentityName(rightName)
+  ].filter(Boolean).sort();
+
+  return stableDocumentId(
+    "author-identity",
+    pair[0] || "unknown",
+    pair[1] || "unknown"
+  );
+}
+
 export async function ensureUserProfile(user) {
   if (!user?.uid) return null;
 
@@ -244,7 +278,7 @@ export async function updateProject(uid, projectId, data) {
 export async function deleteProject(uid, projectId) {
   const database = requiredDb();
 
-  for (const childCollection of ["subprojects", "works"]) {
+  for (const childCollection of ["subprojects", "works", "authors"]) {
     const snapshot = await getDocs(
       collection(
         database,
@@ -512,6 +546,150 @@ export function subscribeProjectWorks(uid, projectId, callback) {
   });
 }
 
+export async function attachAuthorToProject(
+  uid,
+  projectId,
+  author,
+  {
+    subprojectId = ""
+  } = {}
+) {
+  const name = compactText(
+    author?.name || author?.displayName,
+    300
+  );
+  const sourceId = compactText(
+    author?.sourceId || author?.id,
+    500
+  );
+  const orcid = compactText(author?.orcid, 120);
+  const id = stableDocumentId(
+    "author",
+    orcid || sourceId || name
+  );
+
+  const normalized = {
+    id,
+    name,
+    sourceId,
+    orcid,
+    biography: compactText(author?.biography, 4000),
+    wikipediaUrl: normalizeUrl(author?.wikipediaUrl),
+    alternateNames: Array.from(
+      new Set(
+        (author?.alternateNames || [])
+          .map(item => compactText(item, 300))
+          .filter(Boolean)
+      )
+    ).slice(0, 40),
+    sourceType: compactText(author?.sourceType, 120),
+    sourcePage: compactText(author?.sourcePage, 1200),
+    subprojectId: compactText(subprojectId, 200)
+  };
+
+  await setDoc(
+    projectAuthorRef(uid, projectId, id),
+    {
+      ...normalized,
+      addedAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
+    },
+    { merge: true }
+  );
+
+  await updateDoc(projectRef(uid, projectId), {
+    updatedAt: serverTimestamp()
+  });
+
+  return normalized;
+}
+
+export async function detachAuthorFromProject(
+  uid,
+  projectId,
+  authorId
+) {
+  await deleteDoc(projectAuthorRef(uid, projectId, authorId));
+  await updateDoc(projectRef(uid, projectId), {
+    updatedAt: serverTimestamp()
+  });
+}
+
+export function subscribeProjectAuthors(uid, projectId, callback) {
+  const ref = query(
+    collection(
+      requiredDb(),
+      "users",
+      uid,
+      "projects",
+      projectId,
+      "authors"
+    ),
+    orderBy("updatedAt", "desc")
+  );
+
+  return onSnapshot(ref, snapshot => {
+    callback(
+      snapshot.docs.map(item => ({
+        id: item.id,
+        ...item.data()
+      }))
+    );
+  });
+}
+
+export async function saveAuthorIdentityDecision(
+  uid,
+  {
+    leftName,
+    rightName,
+    same,
+    canonicalName = ""
+  }
+) {
+  const id = authorIdentityDecisionId(leftName, rightName);
+  const ref = doc(
+    requiredDb(),
+    "users",
+    uid,
+    "authorIdentityDecisions",
+    id
+  );
+
+  await setDoc(
+    ref,
+    {
+      id,
+      leftName: compactText(leftName, 300),
+      rightName: compactText(rightName, 300),
+      leftNormalized: normalizedIdentityName(leftName),
+      rightNormalized: normalizedIdentityName(rightName),
+      same: Boolean(same),
+      canonicalName: compactText(canonicalName, 300),
+      updatedAt: serverTimestamp()
+    },
+    { merge: true }
+  );
+
+  return id;
+}
+
+export function subscribeAuthorIdentityDecisions(uid, callback) {
+  const ref = query(
+    userCollection(uid, "authorIdentityDecisions"),
+    orderBy("updatedAt", "desc")
+  );
+
+  return onSnapshot(ref, snapshot => {
+    callback(
+      snapshot.docs.map(item => ({
+        id: item.id,
+        ...item.data()
+      }))
+    );
+  });
+}
+
 export async function saveAuthor(uid, author) {
   const name = compactText(
     author?.displayName || author?.name,
@@ -532,6 +710,15 @@ export async function saveAuthor(uid, author) {
       orcid: compactText(author?.orcid, 120),
       biography: compactText(author?.biography, 4000),
       wikipediaUrl: normalizeUrl(author?.wikipediaUrl),
+      alternateNames: Array.from(
+        new Set(
+          (author?.alternateNames || [])
+            .map(item => compactText(item, 300))
+            .filter(Boolean)
+        )
+      ).slice(0, 40),
+      sourceType: compactText(author?.sourceType, 120),
+      sourcePage: compactText(author?.sourcePage, 1200),
       savedAt: serverTimestamp(),
       updatedAt: serverTimestamp()
     },

@@ -871,8 +871,8 @@ html[data-theme="dark"] .hero-illustration { filter: saturate(.82) brightness(.7
 }
 
 /* Cards interactivos */
-button.author-card,
-button.mini-author {
+.author-card[role="button"],
+.mini-author[role="button"] {
   width: 100%;
   border-top: 0;
   border-left: 0;
@@ -894,12 +894,12 @@ button.mini-author {
 .mini-author {
   transition: filter 150ms ease, transform 150ms ease;
 }
-button.mini-author:hover,
-button.mini-author:focus-visible {
+.mini-author:hover,
+.mini-author:focus-visible {
   z-index: 2;
   filter: saturate(1.08) contrast(1.02);
 }
-button.mini-author:hover { transform: translateY(-2px); }
+.mini-author:hover { transform: translateY(-2px); }
 
 .period-card button:focus-visible,
 .button-primary:focus-visible,
@@ -2217,6 +2217,17 @@ html[data-theme="dark"] .author-live-result {
   font-weight: 800;
 }
 .author-card h3 { margin: 12px 0 0; font-size: 17px; font-weight: 400; line-height: 1.15; }
+
+.author-card > .author-save-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+}
+
+.author-card:has(> .author-save-button) .author-card-topline {
+  padding-right: 38px;
+}
 .author-card .author-state {
   position: absolute;
   left: 16px; bottom: 12px;
@@ -2789,7 +2800,7 @@ html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
 }
 
 /* Card editorial de autor */
-button.mini-author.author-profile-card {
+.mini-author.author-profile-card {
   display: flex;
   position: relative;
   min-height: 286px;
@@ -2806,7 +2817,7 @@ button.mini-author.author-profile-card {
   transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
 }
 
-button.mini-author.author-profile-card::before {
+.mini-author.author-profile-card::before {
   top: 0;
   left: 0;
   width: 100%;
@@ -2814,7 +2825,7 @@ button.mini-author.author-profile-card::before {
   background: var(--period-accent);
 }
 
-button.mini-author.author-profile-card::after {
+.mini-author.author-profile-card::after {
   right: -28px;
   bottom: -34px;
   width: 96px;
@@ -2824,8 +2835,8 @@ button.mini-author.author-profile-card::after {
   opacity: .7;
 }
 
-button.mini-author.author-profile-card:hover,
-button.mini-author.author-profile-card:focus-visible {
+.mini-author.author-profile-card:hover,
+.mini-author.author-profile-card:focus-visible {
   filter: none;
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--period-accent) 72%, var(--latam-line));
@@ -2881,7 +2892,7 @@ button.mini-author.author-profile-card:focus-visible {
   margin-top: 13px;
 }
 
-button.mini-author.author-profile-card .author-profile-copy strong {
+.mini-author.author-profile-card .author-profile-copy strong {
   display: block;
   max-width: none;
   font-size: 23px;
@@ -2889,7 +2900,7 @@ button.mini-author.author-profile-card .author-profile-copy strong {
   line-height: 1.04;
 }
 
-button.mini-author.author-profile-card .author-profile-life {
+.mini-author.author-profile-card .author-profile-life {
   display: block;
   margin-top: 7px;
   color: var(--latam-muted);
@@ -2988,7 +2999,6 @@ button.mini-author.author-profile-card .author-profile-life {
   border: 0;
 }
 
-button.author-card,
 .author-card {
   display: flex;
   min-height: 188px;
@@ -3173,7 +3183,7 @@ button.author-card,
     padding: 10px;
   }
 
-  button.mini-author.author-profile-card {
+  .mini-author.author-profile-card {
     min-height: 250px;
   }
 
