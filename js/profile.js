@@ -375,15 +375,74 @@ function membershipsForWork(workId) {
   return memberships;
 }
 
+function identityPairKey(leftName, rightName) {
+  return [
+    normalizedPersonName(leftName),
+    normalizedPersonName(rightName)
+  ].filter(Boolean).sort().join("::");
+}
+
+function identityDecisionFor(leftName, rightName) {
+  const key = identityPairKey(leftName, rightName);
+  return identityDecisions.find(decision =>
+    identityPairKey(decision.leftName, decision.rightName) === key
+  ) || null;
+}
+
+function preferredCanonicalName(names = []) {
+  return [...new Set(names.filter(Boolean))]
+    .sort((a, b) => {
+      const tokenDelta =
+        normalizedPersonName(b).split(" ").filter(Boolean).length -
+        normalizedPersonName(a).split(" ").filter(Boolean).length;
+      return tokenDelta || b.length - a.length || a.localeCompare(b, "es");
+    })[0] || "Autor";
+}
+
+function equivalentNormalizedNames(author) {
+  const names = new Set(
+    [
+      author?.name,
+      author?.displayName,
+      ...(author?.aliases || []),
+      ...(author?.alternateNames || [])
+    ]
+      .map(normalizedPersonName)
+      .filter(Boolean)
+  );
+
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const decision of identityDecisions) {
+      if (decision.same !== true) continue;
+      const left = normalizedPersonName(decision.leftName);
+      const right = normalizedPersonName(decision.rightName);
+      if (names.has(left) && right && !names.has(right)) {
+        names.add(right);
+        changed = true;
+      }
+      if (names.has(right) && left && !names.has(left)) {
+        names.add(left);
+        changed = true;
+      }
+    }
+  }
+
+  return names;
+}
+
 function membershipsForAuthor(author) {
-  const needle = normalizedPersonName(author?.name || author?.displayName);
-  if (!needle) return [];
+  const needles = equivalentNormalizedNames(author);
+  if (!needles.size) return [];
 
   const grouped = new Map();
   for (const project of projects) {
     const works = projectWorkIndex.get(project.id) || [];
     for (const work of works) {
-      const hasAuthor = authorNames(work).some(name => normalizedPersonName(name) === needle);
+      const hasAuthor = authorNames(work).some(name =>
+        needles.has(normalizedPersonName(name))
+      );
       if (!hasAuthor) continue;
 
       const collection = work.subprojectId
@@ -391,11 +450,36 @@ function membershipsForAuthor(author) {
         : null;
       const key = [project.id, work.subprojectId || ""].join("::");
       const previous = grouped.get(key) || {
+        projectId: project.id,
         projectTitle: project.title || "Proyecto",
+        subprojectId: work.subprojectId || "",
         subprojectTitle: collection?.title || "",
-        count: 0
+        count: 0,
+        explicit: false
       };
       previous.count += 1;
+      grouped.set(key, previous);
+    }
+
+    const explicitAuthors = projectAuthorIndex.get(project.id) || [];
+    for (const projectAuthor of explicitAuthors) {
+      const variants = equivalentNormalizedNames(projectAuthor);
+      const matches = [...variants].some(name => needles.has(name));
+      if (!matches) continue;
+
+      const collection = projectAuthor.subprojectId
+        ? projectSubprojectById(project.id, projectAuthor.subprojectId)
+        : null;
+      const key = [project.id, projectAuthor.subprojectId || ""].join("::");
+      const previous = grouped.get(key) || {
+        projectId: project.id,
+        projectTitle: project.title || "Proyecto",
+        subprojectId: projectAuthor.subprojectId || "",
+        subprojectTitle: collection?.title || "",
+        count: 0,
+        explicit: false
+      };
+      previous.explicit = true;
       grouped.set(key, previous);
     }
   }
@@ -410,34 +494,285 @@ function visibleProjectWorks() {
   return projectWorks.filter(work => work.subprojectId === activeSubprojectFilter);
 }
 
-function projectAuthorsFromWorks(works = visibleProjectWorks()) {
+function visibleProjectAuthors() {
+  if (activeSubprojectFilter === "all") return [...projectAuthors];
+  if (activeSubprojectFilter === "unfiled") {
+    return projectAuthors.filter(author => !author.subprojectId);
+  }
+  return projectAuthors.filter(author => author.subprojectId === activeSubprojectFilter);
+}
+
+function exactProjectAuthorEntries(
+  works = visibleProjectWorks(),
+  explicitAuthors = visibleProjectAuthors()
+) {
   const grouped = new Map();
+
+  const ensure = name => {
+    const key = normalizedPersonName(name);
+    if (!key) return null;
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        key,
+        name,
+        names: new Set([name]),
+        count: 0,
+        works: [],
+        explicitRecords: [],
+        savedRecords: [],
+        orcids: new Set()
+      });
+    }
+    return grouped.get(key);
+  };
+
   for (const work of works) {
     for (const name of authorNames(work)) {
-      const key = normalizedPersonName(name);
-      if (!key) continue;
-      const item = grouped.get(key) || {
-        name,
-        count: 0,
-        works: []
-      };
+      const item = ensure(name);
+      if (!item) continue;
       item.count += 1;
-      item.works.push(work);
-      grouped.set(key, item);
+      if (!item.works.some(existing => existing.id === work.id)) {
+        item.works.push(work);
+      }
     }
   }
 
-  return [...grouped.values()]
-    .map(item => {
-      const saved = savedAuthors.find(author =>
-        normalizedPersonName(author.name || author.displayName) === normalizedPersonName(item.name)
-      );
-      return { ...item, saved: saved || null };
-    })
-    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+  for (const author of explicitAuthors) {
+    const item = ensure(author.name || author.displayName);
+    if (!item) continue;
+    item.names.add(author.name || author.displayName);
+    item.explicitRecords.push(author);
+    if (author.orcid) item.orcids.add(String(author.orcid));
+    for (const alias of author.alternateNames || []) {
+      if (alias) item.names.add(alias);
+    }
+  }
+
+  for (const author of savedAuthors) {
+    const variants = equivalentNormalizedNames(author);
+    for (const item of grouped.values()) {
+      if (!variants.has(item.key)) continue;
+      item.savedRecords.push(author);
+      if (author.orcid) item.orcids.add(String(author.orcid));
+      for (const alias of author.alternateNames || []) {
+        if (alias) item.names.add(alias);
+      }
+    }
+  }
+
+  return grouped;
 }
 
-function renderProjectStats() {
+function mergeAuthorIdentityEntries(entries) {
+  const keys = [...entries.keys()];
+  const parent = new Map(keys.map(key => [key, key]));
+
+  const find = key => {
+    let root = parent.get(key) || key;
+    while (parent.get(root) && parent.get(root) !== root) {
+      root = parent.get(root);
+    }
+    let current = key;
+    while (parent.get(current) && parent.get(current) !== root) {
+      const next = parent.get(current);
+      parent.set(current, root);
+      current = next;
+    }
+    return root;
+  };
+
+  const union = (left, right) => {
+    if (!parent.has(left) || !parent.has(right)) return;
+    const rootLeft = find(left);
+    const rootRight = find(right);
+    if (rootLeft !== rootRight) parent.set(rootRight, rootLeft);
+  };
+
+  for (const decision of identityDecisions) {
+    if (decision.same !== true) continue;
+    union(
+      normalizedPersonName(decision.leftName),
+      normalizedPersonName(decision.rightName)
+    );
+  }
+
+  const merged = new Map();
+  for (const [key, item] of entries) {
+    const root = find(key);
+    const target = merged.get(root) || {
+      names: new Set(),
+      count: 0,
+      works: [],
+      explicitRecords: [],
+      savedRecords: [],
+      orcids: new Set()
+    };
+
+    for (const name of item.names) target.names.add(name);
+    target.count += item.count;
+    for (const work of item.works) {
+      if (!target.works.some(existing => existing.id === work.id)) {
+        target.works.push(work);
+      }
+    }
+    for (const record of item.explicitRecords) {
+      if (!target.explicitRecords.some(existing => existing.id === record.id)) {
+        target.explicitRecords.push(record);
+      }
+    }
+    for (const record of item.savedRecords) {
+      if (!target.savedRecords.some(existing => existing.id === record.id)) {
+        target.savedRecords.push(record);
+      }
+    }
+    for (const orcid of item.orcids) target.orcids.add(orcid);
+    merged.set(root, target);
+  }
+
+  return [...merged.values()].map(group => {
+    const canonicalFromDecision = identityDecisions
+      .filter(decision => decision.same === true && decision.canonicalName)
+      .find(decision => {
+        const left = normalizedPersonName(decision.leftName);
+        const right = normalizedPersonName(decision.rightName);
+        return [...group.names].some(name => {
+          const normalized = normalizedPersonName(name);
+          return normalized === left || normalized === right;
+        });
+      })?.canonicalName;
+
+    const name =
+      canonicalFromDecision ||
+      preferredCanonicalName([
+        ...group.savedRecords.map(record => record.name),
+        ...group.explicitRecords.map(record => record.name),
+        ...group.names
+      ]);
+
+    const aliases = [...group.names].filter(
+      alias => normalizedPersonName(alias) !== normalizedPersonName(name)
+    );
+
+    return {
+      name,
+      aliases,
+      count: group.count,
+      works: group.works,
+      explicitRecords: group.explicitRecords,
+      savedRecords: group.savedRecords,
+      saved: group.savedRecords[0] || null,
+      orcid: [...group.orcids][0] || group.savedRecords[0]?.orcid || "",
+      explicit: group.explicitRecords.length > 0
+    };
+  });
+}
+
+function projectAuthorsFromWorks(
+  works = visibleProjectWorks(),
+  explicitAuthors = visibleProjectAuthors()
+) {
+  return mergeAuthorIdentityEntries(
+    exactProjectAuthorEntries(works, explicitAuthors)
+  ).sort((a, b) =>
+    b.count - a.count ||
+    Number(b.explicit) - Number(a.explicit) ||
+    a.name.localeCompare(b.name, "es")
+  );
+}
+
+function namesLookCompatible(leftName, rightName) {
+  const left = normalizedPersonName(leftName).split(" ").filter(Boolean);
+  const right = normalizedPersonName(rightName).split(" ").filter(Boolean);
+  if (left.length < 2 || right.length < 2 || left[0] !== right[0]) return false;
+
+  const [shorter, longer] = left.length <= right.length
+    ? [left, right]
+    : [right, left];
+
+  return shorter.every(token => longer.includes(token));
+}
+
+function normalizedWorkTitle(work) {
+  return normalizedPersonName(work?.title);
+}
+
+function nextIdentityReviewCandidate() {
+  const entries = [...exactProjectAuthorEntries(projectWorks, projectAuthors).values()];
+
+  for (let i = 0; i < entries.length; i += 1) {
+    for (let j = i + 1; j < entries.length; j += 1) {
+      const left = entries[i];
+      const right = entries[j];
+      const leftName = preferredCanonicalName([...left.names]);
+      const rightName = preferredCanonicalName([...right.names]);
+
+      if (identityDecisionFor(leftName, rightName)) continue;
+
+      const leftTitles = new Map(
+        left.works.map(work => [normalizedWorkTitle(work), work.title]).filter(([key]) => key)
+      );
+      const sharedTitle = right.works
+        .map(work => normalizedWorkTitle(work))
+        .find(title => title && leftTitles.has(title));
+
+      const sharedOrcid = [...left.orcids].find(orcid => right.orcids.has(orcid));
+      const compatible = namesLookCompatible(leftName, rightName);
+
+      if (!sharedOrcid && !(sharedTitle && compatible)) continue;
+
+      return {
+        leftName,
+        rightName,
+        canonicalName: preferredCanonicalName([leftName, rightName]),
+        evidence: sharedOrcid
+          ? `Comparten el ORCID ${sharedOrcid}.`
+          : `Comparten la obra “${leftTitles.get(sharedTitle)}” y sus nombres son compatibles.`
+      };
+    }
+  }
+
+  return null;
+}
+
+function mergedSavedAuthors() {
+  const grouped = new Map();
+
+  for (const author of savedAuthors) {
+    const key = normalizedPersonName(author.name || author.displayName);
+    if (!key) continue;
+    const item = grouped.get(key) || {
+      key,
+      name: author.name || author.displayName || "Autor",
+      names: new Set(),
+      count: 0,
+      works: [],
+      explicitRecords: [],
+      savedRecords: [],
+      orcids: new Set()
+    };
+    item.names.add(author.name || author.displayName || "Autor");
+    for (const alias of author.alternateNames || []) item.names.add(alias);
+    item.savedRecords.push(author);
+    if (author.orcid) item.orcids.add(String(author.orcid));
+    grouped.set(key, item);
+  }
+
+  return mergeAuthorIdentityEntries(grouped)
+    .map(group => ({
+      ...group,
+      id: group.savedRecords[0]?.id || "",
+      documentIds: group.savedRecords.map(record => record.id),
+      biography:
+        group.savedRecords.find(record => record.biography)?.biography || "",
+      wikipediaUrl:
+        group.savedRecords.find(record => record.wikipediaUrl)?.wikipediaUrl || "",
+      sourceType:
+        group.savedRecords.find(record => record.sourceType)?.sourceType || ""
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es"));
+}
+
+function renderProjectStats() {function renderProjectStats() {
   if (!projectDetailStats) return;
   const authors = projectAuthorsFromWorks(projectWorks);
   projectDetailStats.innerHTML = [
