@@ -1,5 +1,3 @@
-import "./account-menu.js";
-
 const MOBILE_MENU_BREAKPOINT = 820;
 const STORAGE_KEY = "investigacion-filosofica-theme";
 const SITE_ROOT = new URL("../", import.meta.url);
@@ -531,3 +529,7 @@ window.addEventListener("philosophythemechange", syncThemeControls);
 
 markCurrentLink();
 syncThemeControls();
+
+void import("./account-menu.js").catch(error => {
+  console.warn("No se pudo cargar la cuenta de investigación.", error);
+});
