@@ -1442,6 +1442,14 @@ function renderAuthors() {
         </div>
 
         <div class="author-card-actions">
+          <button
+            type="button"
+            class="author-open-button"
+            data-author-open="${escapeHtml(authorViewKey(author))}"
+          >
+            <span aria-hidden="true">↗</span>
+            Abrir ficha
+          </button>
           <select data-author-project="${escapeHtml(author.id)}" aria-label="Proyecto destino para este autor">
             <option value="">Añadir a proyecto…</option>
             ${projects.map(project => `
@@ -1900,6 +1908,14 @@ function renderProjectAuthors() {
         ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
 
         <div class="project-author-actions">
+          <button
+            type="button"
+            class="author-open-button"
+            data-project-author-open="${escapeHtml(key)}"
+          >
+            <span aria-hidden="true">↗</span>
+            Abrir ficha
+          </button>
           ${explicit ? `
             <select
               data-project-author-subproject="${escapeHtml(key)}"
