@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "index.html"
+      - "auth/**"
+      - "js/account-menu.js"
+      - "js/auth-page.js"
       - "filosofia-latinoamericana.html"
       - "js/latin-american-philosophy.js"
       - "scripts/qa/latin-american-philosophy-smoke.mjs"
