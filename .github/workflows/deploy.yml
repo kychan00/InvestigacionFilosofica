@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -531,6 +532,24 @@ jobs:
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: _site
+
+      - name: Wait for Pages artifact registration
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          for attempt in {1..18}; do
+            if gh api               "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts?name=${PAGES_ARTIFACT}"               --jq '.artifacts[].name' 2>/dev/null               | grep -Fxq "${PAGES_ARTIFACT}"; then
+              echo "Pages artifact registered: ${PAGES_ARTIFACT}"
+              exit 0
+            fi
+
+            echo "Waiting for Pages artifact registration (${attempt}/18)…"
+            sleep 5
+          done
+
+          echo "::error::Pages artifact was uploaded but never became visible through the Actions API."
+          exit 1
 
       - name: Deploy GitHub Pages
         id: deployment
