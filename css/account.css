@@ -9,6 +9,7 @@
 }
 
 .account-trigger {
+  position: relative;
   width: 44px;
   height: 44px;
   display: grid;
@@ -20,18 +21,64 @@
   box-shadow: 0 10px 32px rgba(0,0,0,.12);
   cursor: pointer;
   backdrop-filter: blur(14px);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
 }
 
 .account-trigger:hover,
 .account-trigger:focus-visible {
   border-color: #0f62fe;
-  box-shadow: 0 0 0 3px color-mix(in srgb, #0f62fe 18%, transparent);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, #0f62fe 18%, transparent),
+    0 14px 34px rgba(0,0,0,.14);
   outline: 0;
+  transform: translateY(-1px);
+}
+
+.account-trigger:active {
+  transform: translateY(0);
 }
 
 .account-trigger svg {
   width: 20px;
   height: 20px;
+}
+
+.account-trigger-label {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  transform: translate(6px, -50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--theme-text, #161616) 14%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--theme-surface, #fff) 96%, transparent);
+  color: var(--theme-text, #161616);
+  box-shadow: 0 10px 28px rgba(0,0,0,.10);
+  backdrop-filter: blur(12px);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+}
+
+.account-trigger:hover .account-trigger-label,
+.account-trigger:focus-visible .account-trigger-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
 }
 
 body.modal-open .account-dock {
@@ -80,6 +127,17 @@ body.site-menu-open .account-dock {
   font-family: var(--pg-mono, ui-monospace, monospace);
   font-size: 11px;
   line-height: 1.5;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  will-change: opacity, transform;
+}
+
+.account-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .account-toast[hidden] {
@@ -97,5 +155,23 @@ body.site-menu-open .account-dock {
     width: 40px;
     height: 40px;
     box-shadow: none;
+  }
+
+  .account-trigger-label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account-trigger,
+  .account-trigger-label,
+  .account-toast {
+    transition: none !important;
+  }
+
+  .account-trigger:hover,
+  .account-trigger:focus-visible,
+  .account-trigger:active {
+    transform: none;
   }
 }
