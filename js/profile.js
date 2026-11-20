@@ -135,7 +135,7 @@ let activeWorkspaceUid = "";
 
 const PROFILE_NETWORK_TIMEOUT_MS = 4500;
 const PROFILE_BOOT_WATCHDOG_MS = 8000;
-const PROFILE_SHELLS = new Set(["default", "territory"]);
+const PROFILE_SHELLS = new Set(["default", "territory", "marginalia"]);
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -412,6 +412,13 @@ function applyProfileShell(value) {
     if (profileAccentHelp) {
       profileAccentHelp.textContent =
         "Su color personal se conserva y reaparece al volver a Predeterminado.";
+    }
+  } else if (shell === "marginalia") {
+    applyProfileAccent("#0f62fe");
+    if (previewAccentLabel) previewAccentLabel.textContent = "Paleta editorial · Marginalia";
+    if (profileAccentHelp) {
+      profileAccentHelp.textContent =
+        "Su color personal se conserva; Marginalia usa su propia paleta editorial.";
     }
   } else {
     const color =
