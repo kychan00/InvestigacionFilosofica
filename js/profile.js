@@ -1569,7 +1569,7 @@ projectSettingsToggle?.addEventListener("click", () => {
   projectSettings.open = !projectSettings.open;
   projectSettingsToggle.setAttribute("aria-expanded", projectSettings.open ? "true" : "false");
   if (projectSettings.open) {
-    projectSettings.scrollIntoView({ behavior: "smooth", block: "start" });
+    projectSettings.scrollIntoView({ behavior: "auto", block: "start" });
   }
 });
 
