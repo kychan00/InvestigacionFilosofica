@@ -218,8 +218,16 @@ try {
       "Search should narrow directory to Firmin");
 
     const firminCard = page.locator("#author-directory .author-card").first();
-    assert.equal(await firminCard.getAttribute("type"), "button",
-      "Documented author cards should be interactive buttons");
+    assert.equal(
+      await firminCard.evaluate(element => element.tagName),
+      "ARTICLE",
+      "Documented author cards should support a separate private save action"
+    );
+    assert.equal(
+      await firminCard.getAttribute("role"),
+      "button",
+      "Documented author cards must remain keyboard-addressable dossier openers"
+    );
     await firminCard.click();
 
     await page.locator("#author-dialog[open]").waitFor({ state: "visible" });
@@ -361,8 +369,13 @@ try {
     const finalCard = page.locator("#author-directory .author-card").first();
     assert.equal(
       await finalCard.evaluate(element => element.tagName),
-      "BUTTON",
-      "Every canonical author must open a bibliographic dossier after full coverage"
+      "ARTICLE",
+      "Every canonical author must expose a dossier card after full coverage"
+    );
+    assert.equal(
+      await finalCard.getAttribute("role"),
+      "button",
+      "Every canonical dossier card must remain interactive"
     );
     assert.ok(
       (await finalCard.locator(".author-state").textContent()).includes("ficha bibliográfica"),
