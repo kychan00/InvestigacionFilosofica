@@ -135,3 +135,12 @@ test("Firebase production configuration is present and Auth uses Spanish", () =>
   assert.match(config, /appId:\s*"[^"]+"/);
   assert.match(client, /auth\.languageCode\s*=\s*"es"/);
 });
+
+
+test("account dock yields to the site menu and modals", () => {
+  const css = read("css/account.css");
+
+  assert.match(css, /body\.site-menu-open \.account-dock\s*\{/);
+  assert.match(css, /body\.site-menu-open \.account-dock[\s\S]*?pointer-events:\s*none/);
+  assert.match(css, /body\.modal-open \.account-dock[\s\S]*?pointer-events:\s*none/);
+});
