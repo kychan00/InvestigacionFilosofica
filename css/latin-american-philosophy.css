@@ -2900,7 +2900,7 @@ html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
   line-height: 1.04;
 }
 
-button.mini-author.author-profile-card .author-profile-life {
+.mini-author.author-profile-card .author-profile-life {
   display: block;
   margin-top: 7px;
   color: var(--latam-muted);
@@ -2999,7 +2999,6 @@ button.mini-author.author-profile-card .author-profile-life {
   border: 0;
 }
 
-button.author-card,
 .author-card {
   display: flex;
   min-height: 188px;
