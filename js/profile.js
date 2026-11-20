@@ -1607,7 +1607,7 @@ function renderProjectAuthors() {
   }).join("");
 }
 
-const STOPWORDS = new Set([const STOPWORDS = new Set([
+const STOPWORDS = new Set([
   "para","como","con","por","una","uno","unos","unas","del","las","los",
   "que","sus","sin","sobre","entre","desde","this","that","with","from",
   "the","and","for","into","dans","les","des","une","und","der","die","das",
