@@ -529,3 +529,7 @@ window.addEventListener("philosophythemechange", syncThemeControls);
 
 markCurrentLink();
 syncThemeControls();
+
+void import("./account-menu.js").catch(error => {
+  console.warn("No se pudo cargar la cuenta de investigación.", error);
+});
