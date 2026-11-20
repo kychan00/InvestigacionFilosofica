@@ -1,5 +1,3 @@
-import "./account-menu.js";
-
 const STORAGE_KEY =
   "investigacion-filosofica-theme";
 
@@ -109,3 +107,7 @@ applyTheme(
   root.dataset.theme
 );
 
+
+void import("./account-menu.js").catch(error => {
+  console.warn("No se pudo cargar la cuenta de investigación.", error);
+});
