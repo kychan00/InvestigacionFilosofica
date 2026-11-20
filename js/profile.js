@@ -60,6 +60,8 @@ const previewAvatar = document.querySelector("#profile-preview-avatar");
 const previewName = document.querySelector("#profile-preview-name");
 const previewInstitution = document.querySelector("#profile-preview-institution");
 const previewBio = document.querySelector("#profile-preview-bio");
+const previewAccentLabel = document.querySelector("#profile-preview-accent-label");
+const profileAccentHelp = document.querySelector("#profile-accent-help");
 
 const signoutButton = document.querySelector("#profile-signout");
 const signoutSecondary = document.querySelector("#profile-signout-secondary");
@@ -133,6 +135,7 @@ let activeWorkspaceUid = "";
 
 const PROFILE_NETWORK_TIMEOUT_MS = 4500;
 const PROFILE_BOOT_WATCHDOG_MS = 8000;
+const PROFILE_SHELLS = new Set(["default", "territory"]);
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -385,8 +388,48 @@ function applyProfileAccent(value) {
   document.body.style.setProperty("--profile-accent-contrast", contrastForAccent(color));
 }
 
-function setProfileAccent() {
-  applyProfileAccent(currentProfile?.accentColor || "#0f62fe");
+function normalizeProfileShell(value) {
+  return PROFILE_SHELLS.has(String(value || ""))
+    ? String(value)
+    : "default";
+}
+
+function selectedProfileShell() {
+  return normalizeProfileShell(
+    profileSettingsForm?.elements?.profileShell?.value ||
+    currentProfile?.profileShell ||
+    "default"
+  );
+}
+
+function applyProfileShell(value) {
+  const shell = normalizeProfileShell(value);
+  document.body.dataset.profileShell = shell;
+
+  if (shell === "territory") {
+    applyProfileAccent("#a23d2c");
+    if (previewAccentLabel) previewAccentLabel.textContent = "Paleta editorial · Territorio";
+    if (profileAccentHelp) {
+      profileAccentHelp.textContent =
+        "Su color personal se conserva y reaparece al volver a Predeterminado.";
+    }
+  } else {
+    const color =
+      profileSettingsForm?.elements?.accentColor?.value ||
+      currentProfile?.accentColor ||
+      "#0f62fe";
+    applyProfileAccent(color);
+    if (previewAccentLabel) previewAccentLabel.textContent = "Color personal · Predeterminado";
+    if (profileAccentHelp) {
+      profileAccentHelp.textContent = "Se previsualiza al instante en Predeterminado.";
+    }
+  }
+
+  return shell;
+}
+
+function setProfileAppearance() {
+  applyProfileShell(currentProfile?.profileShell || "default");
 }
 
 function stopRealtimeListeners() {
@@ -494,7 +537,7 @@ function renderIdentity() {
     "Un espacio privado para guardar preguntas, lecturas y relaciones.";
 
   renderAvatar(avatar, name);
-  setProfileAccent();
+  setProfileAppearance();
   renderProfilePreview();
 }
 
@@ -1599,6 +1642,8 @@ function fillProfileForm() {
     /^#[0-9a-f]{6}$/i.test(currentProfile?.accentColor || "")
       ? currentProfile.accentColor
       : "#0f62fe";
+  profileSettingsForm.elements.profileShell.value =
+    normalizeProfileShell(currentProfile?.profileShell);
   profileSettingsForm.elements.bio.value =
     currentProfile?.bio || "";
 
@@ -3014,6 +3059,7 @@ profileSettingsForm.addEventListener("submit", async event => {
       institution: data.get("institution"),
       website: data.get("website"),
       accentColor: data.get("accentColor"),
+      profileShell: normalizeProfileShell(data.get("profileShell")),
       bio: data.get("bio")
     });
 
@@ -3062,7 +3108,15 @@ settingsBackButton.addEventListener("click", () => {
 profileSettingsForm.addEventListener("input", event => {
   profileSaveStatus.textContent = "";
   profileSaveStatus.classList.remove("is-error");
-  if (event.target?.name === "accentColor") {
+  if (event.target?.name === "profileShell") {
+    applyProfileShell(event.target.value);
+    renderProfilePreview();
+  }
+
+  if (
+    event.target?.name === "accentColor" &&
+    selectedProfileShell() === "default"
+  ) {
     applyProfileAccent(event.target.value);
   }
 

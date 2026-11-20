@@ -408,6 +408,30 @@ test("personal accent controls the whole private profile and previews live", () 
   assert.match(profile, /applyProfileAccent\(event\.target\.value\)/);
 });
 
+test("full profile shell is persistent, live-previewed and keeps default personal color", () => {
+  const data = read("js/user-data.js");
+  const profile = read("js/profile.js");
+  const page = read("perfil.html");
+  const css = read("css/profile.css");
+
+  assert.match(page, /name="profileShell" value="default"/);
+  assert.match(page, /name="profileShell" value="territory"/);
+  assert.match(page, />Predeterminado</);
+  assert.match(page, />Territorio</);
+  assert.match(data, /profileShell:\s*"default"/);
+  assert.match(data, /\["default", "territory"\]\.includes\(changes\.profileShell\)/);
+  assert.match(profile, /function applyProfileShell/);
+  assert.match(profile, /document\.body\.dataset\.profileShell = shell/);
+  assert.match(profile, /event\.target\?\.name === "profileShell"/);
+  assert.match(profile, /selectedProfileShell\(\) === "default"/);
+  assert.match(profile, /profileShell: normalizeProfileShell\(data\.get\("profileShell"\)\)/);
+  assert.match(css, /data-profile-shell="territory"/);
+  assert.match(css, /--territory-paper:/);
+  assert.match(css, /\.profile-shell-options/);
+  assert.match(css, /\.profile-page\[data-profile-shell="territory"\] \.profile-cover-art/);
+  assert.match(css, /\.profile-page\[data-profile-shell="territory"\] \.profile-dialog/);
+});
+
 test("private profile bootstrap cannot hang on remote auth or Firestore", () => {
   const page = read("perfil.html");
   const profile = read("js/profile.js");
@@ -420,7 +444,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261120-abstract-card-system-v2/);
+  assert.match(page, /profile\.js\?v=20261120-profile-shell-territory-v1/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
