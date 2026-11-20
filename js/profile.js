@@ -1959,6 +1959,18 @@ async function loadPrivateWorkspace(user) {
     items => {
       savedAuthors = items;
       renderAuthors();
+      renderProjectAuthors();
+      renderProjectStats();
+    }
+  );
+
+  unsubscribeIdentityDecisions = subscribeAuthorIdentityDecisions(
+    user.uid,
+    items => {
+      identityDecisions = items;
+      renderAuthors();
+      renderProjectAuthors();
+      renderProjectStats();
     }
   );
 }
@@ -2285,16 +2297,146 @@ libraryList.addEventListener("click", async event => {
 });
 
 savedAuthorList.addEventListener("click", async event => {
+  const attach = event.target.closest("[data-author-attach]");
   const remove = event.target.closest("[data-author-delete]");
-  if (!remove || !currentUser) return;
 
-  const author = savedAuthors.find(
-    item => item.id === remove.dataset.authorDelete
+  if (attach && currentUser) {
+    const authors = mergedSavedAuthors();
+    const author = authors.find(item => item.id === attach.dataset.authorAttach);
+    const select = savedAuthorList.querySelector(
+      `[data-author-project="${CSS.escape(attach.dataset.authorAttach)}"]`
+    );
+    const projectId = select?.value || "";
+
+    if (!author || !projectId) {
+      select?.focus();
+      return;
+    }
+
+    await attachAuthorToProject(
+      currentUser.uid,
+      projectId,
+      projectAuthorPayload(author)
+    );
+
+    attach.textContent = "Añadido ✓";
+    window.setTimeout(() => {
+      attach.textContent = "Añadir al proyecto";
+    }, 1400);
+    return;
+  }
+
+  if (remove && currentUser) {
+    const ids = String(remove.dataset.authorDelete || "")
+      .split("|")
+      .filter(Boolean);
+    if (!ids.length) return;
+
+    await Promise.all(
+      ids.map(id => deleteSavedAuthor(currentUser.uid, id))
+    );
+  }
+});
+
+projectIdentityReview?.addEventListener("click", async event => {
+  const button = event.target.closest("[data-identity-decision]");
+  if (!button || !currentUser) return;
+
+  const leftName = projectIdentityReview.dataset.leftName || "";
+  const rightName = projectIdentityReview.dataset.rightName || "";
+  const canonicalName = projectIdentityReview.dataset.canonicalName || "";
+  if (!leftName || !rightName) return;
+
+  const same = button.dataset.identityDecision === "same";
+  const buttons = [...projectIdentityReview.querySelectorAll("button")];
+  buttons.forEach(item => { item.disabled = true; });
+
+  try {
+    await saveAuthorIdentityDecision(currentUser.uid, {
+      leftName,
+      rightName,
+      same,
+      canonicalName: same ? canonicalName : ""
+    });
+  } catch (error) {
+    console.error("No fue posible guardar la decisión de identidad.", error);
+    buttons.forEach(item => { item.disabled = false; });
+  }
+});
+
+projectAuthorList.addEventListener("change", async event => {
+  const select = event.target.closest("[data-project-author-subproject]");
+  if (!select || !currentUser || !selectedProjectId) return;
+
+  const author = currentProjectAuthorByKey(
+    select.dataset.projectAuthorSubproject
   );
+  if (!author?.explicitRecords?.length) return;
+
+  await Promise.all(
+    author.explicitRecords.map(record =>
+      attachAuthorToProject(
+        currentUser.uid,
+        selectedProjectId,
+        record,
+        { subprojectId: select.value }
+      )
+    )
+  );
+});
+
+projectAuthorList.addEventListener("click", async event => {
+  if (!currentUser || !selectedProjectId) return;
+
+  const pin = event.target.closest("[data-project-author-pin]");
+  const remove = event.target.closest("[data-project-author-remove]");
+  const save = event.target.closest("[data-project-author-save]");
+  const key =
+    pin?.dataset.projectAuthorPin ||
+    remove?.dataset.projectAuthorRemove ||
+    save?.dataset.projectAuthorSave ||
+    "";
+
+  if (!key) return;
+  const author = currentProjectAuthorByKey(key);
   if (!author) return;
 
-  await deleteSavedAuthor(currentUser.uid, author.id);
+  if (pin) {
+    const subprojectId =
+      !["all", "unfiled"].includes(activeSubprojectFilter)
+        ? activeSubprojectFilter
+        : "";
+
+    await attachAuthorToProject(
+      currentUser.uid,
+      selectedProjectId,
+      projectAuthorPayload(author),
+      { subprojectId }
+    );
+    return;
+  }
+
+  if (remove && author.explicitRecords?.length) {
+    await Promise.all(
+      author.explicitRecords.map(record =>
+        detachAuthorFromProject(
+          currentUser.uid,
+          selectedProjectId,
+          record.id
+        )
+      )
+    );
+    return;
+  }
+
+  if (save) {
+    await saveAuthor(
+      currentUser.uid,
+      projectAuthorPayload(author)
+    );
+  }
 });
+
 
 projectWorkList.addEventListener("change", async event => {
   const select = event.target.closest("[data-project-work-subproject]");
