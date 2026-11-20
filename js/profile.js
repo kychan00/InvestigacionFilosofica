@@ -1530,13 +1530,13 @@ function openCardCatalog(workId) {
   }
   renderCardCatalog(work);
   cardCatalogDialog.showModal();
-  document.body.classList.add("profile-dialog-open");
+  document.body.classList.add("profile-dialog-open", "modal-open");
 }
 
 function closeCardCatalog() {
   cardCatalogWorkId = "";
   if (cardCatalogDialog?.open) cardCatalogDialog.close();
-  document.body.classList.remove("profile-dialog-open");
+  document.body.classList.remove("profile-dialog-open", "modal-open");
 }
 
 function authorViewKey(author) {
@@ -1703,12 +1703,12 @@ function openSavedAuthorView(key) {
   `;
 
   savedAuthorDialog.showModal();
-  document.body.classList.add("profile-dialog-open");
+  document.body.classList.add("profile-dialog-open", "modal-open");
 }
 
 function closeSavedAuthorView() {
   if (savedAuthorDialog?.open) savedAuthorDialog.close();
-  document.body.classList.remove("profile-dialog-open");
+  document.body.classList.remove("profile-dialog-open", "modal-open");
 }
 
 function renderProjectWorks() {
@@ -2840,11 +2840,11 @@ document.querySelector("[data-author-view-close]")
 
 cardCatalogDialog?.addEventListener("close", () => {
   cardCatalogWorkId = "";
-  document.body.classList.remove("profile-dialog-open");
+  document.body.classList.remove("profile-dialog-open", "modal-open");
 });
 
 savedAuthorDialog?.addEventListener("close", () => {
-  document.body.classList.remove("profile-dialog-open");
+  document.body.classList.remove("profile-dialog-open", "modal-open");
 });
 
 profileSettingsForm.addEventListener("submit", async event => {
