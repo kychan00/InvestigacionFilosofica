@@ -71,6 +71,10 @@ jobs:
       - name: Check critical browser entrypoints
         run: |
           node --check js/app.js
+          node --check js/account-menu.js
+          node --check js/firebase-client.js
+          node --check js/user-data.js
+          node --check js/profile.js
           node --check js/research-atlas-embed.js
           node --check js/research-atlas.js
           node --check js/thesis-demo.js
