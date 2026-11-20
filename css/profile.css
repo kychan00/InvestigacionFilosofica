@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
 /* =========================================================
    PRIVATE RESEARCH PINBOARD
    ========================================================= */
@@ -3595,7 +3597,7 @@ html[data-theme="dark"] .project-work-card[data-card-style="protrepsis"] :is(.pr
 
 .profile-shell-options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -4576,5 +4578,1482 @@ html[data-theme="dark"] .profile-page[data-profile-shell="territory"] .profile-f
 
   .profile-page[data-profile-shell="territory"] .profile-settings-preview {
     min-height: 470px;
+  }
+}
+
+
+/* =========================================================
+   FULL PROFILE SHELL · MARGINALIA
+   Editorial-paper language for the complete private workspace.
+   ========================================================= */
+
+.profile-shell-sample[data-shell-sample="marginalia"] {
+  border-color: #d1c5b4;
+  background:
+    linear-gradient(90deg, #ece2d3 0 17px, #d1c5b4 17px 18px, #faf7f1 18px);
+}
+
+.profile-shell-sample[data-shell-sample="marginalia"] i {
+  width: 36px;
+  height: 49px;
+  right: 14px;
+  top: 12px;
+  border-left: 5px solid #8c364c;
+  background: #19293c;
+  box-shadow: 7px 7px 0 rgba(32,40,35,.12);
+  transform: rotate(-5deg);
+}
+
+.profile-shell-sample[data-shell-sample="marginalia"] i::after {
+  content: "Φ";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #f4eee1;
+  font: 500 22px/1 "Cormorant Garamond", Georgia, serif;
+}
+
+.profile-shell-sample[data-shell-sample="marginalia"] b {
+  width: 46px;
+  height: 5px;
+  left: 28px;
+  top: 18px;
+  background: #0f62fe;
+}
+
+.profile-shell-sample[data-shell-sample="marginalia"] em {
+  width: 52px;
+  height: 22px;
+  left: 28px;
+  bottom: 13px;
+  border-top: 1px solid #8a8275;
+  border-bottom: 1px solid #8a8275;
+  background:
+    linear-gradient(#645f57 0 0) 0 6px / 42px 2px no-repeat,
+    linear-gradient(#645f57 0 0) 0 13px / 31px 2px no-repeat;
+}
+
+/* ---------------------------------------------------------
+   MARGINALIA · complete shell
+   --------------------------------------------------------- */
+
+.profile-page[data-profile-shell="marginalia"] {
+  --marginalia-bg: #f4eee1;
+  --marginalia-surface: #faf7f1;
+  --marginalia-surface-2: #ece2d3;
+  --marginalia-ink: #202823;
+  --marginalia-muted: #645f57;
+  --marginalia-line: #d1c5b4;
+  --marginalia-line-strong: #8a8275;
+  --marginalia-blue: #0f62fe;
+  --marginalia-blue-soft: #618ae0;
+  --marginalia-oxblood: #8c364c;
+  --marginalia-forest: #1c3027;
+  --marginalia-book: #19293c;
+  --marginalia-serif: "Cormorant Garamond", Georgia, serif;
+  --marginalia-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --marginalia-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --profile-radius-xl: 0px;
+  --profile-radius-lg: 0px;
+  --profile-radius-md: 0px;
+  --profile-shadow: 0 18px 44px rgba(62,45,28,.09);
+  --profile-shadow-hover: 0 24px 58px rgba(62,45,28,.14);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 5% 3%, rgba(255,255,255,.22), transparent 38rem),
+    radial-gradient(ellipse at 85% 30%, rgba(131,86,53,.055), transparent 48rem),
+    repeating-linear-gradient(12deg, rgba(104,78,44,.03) 0 1px, transparent 1px 25px),
+    repeating-linear-gradient(94deg, rgba(104,78,44,.018) 0 1px, transparent 1px 31px),
+    var(--marginalia-bg);
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-sans);
+}
+
+html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] {
+  --marginalia-bg: #1b201e;
+  --marginalia-surface: #292d27;
+  --marginalia-surface-2: #30372f;
+  --marginalia-ink: #f1ecdf;
+  --marginalia-muted: #c8beae;
+  --marginalia-line: #4b5048;
+  --marginalia-line-strong: #7e837a;
+  --marginalia-blue: #78a9ff;
+  --marginalia-blue-soft: #a6c8ff;
+  --marginalia-oxblood: #c65b77;
+  --marginalia-forest: #f4eee1;
+  --marginalia-book: #12202d;
+  --profile-shadow: 0 20px 65px rgba(0,0,0,.3);
+  --profile-shadow-hover: 0 24px 72px rgba(0,0,0,.38);
+}
+
+/* Masthead / top navigation */
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar {
+  min-height: 80px;
+  grid-template-columns: minmax(280px, 1fr) auto auto;
+  gap: 20px;
+  padding: 12px clamp(22px, 3.2vw, 46px);
+  border-bottom: 1px solid var(--marginalia-line-strong);
+  background: var(--marginalia-bg);
+  color: var(--marginalia-ink);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar::after {
+  content: "";
+  position: absolute;
+  left: clamp(22px, 3.2vw, 46px);
+  right: clamp(22px, 3.2vw, 46px);
+  bottom: -5px;
+  height: 1px;
+  background: var(--marginalia-line);
+  pointer-events: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-brand {
+  gap: 14px;
+  font-family: var(--marginalia-serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-brand small {
+  margin-top: 5px;
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .13em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-brand-mark {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 0;
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+  font-family: var(--marginalia-serif);
+  font-size: 30px;
+}
+
+html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] .profile-brand-mark {
+  background: var(--marginalia-book);
+  color: #f4eee1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar-links {
+  gap: 0;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar-links a {
+  min-height: 42px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 14px;
+  border-radius: 0;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar-links a:hover {
+  background: transparent;
+  color: var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar .theme-switch {
+  border-color: var(--marginalia-line-strong);
+  border-radius: 0;
+  background: transparent;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar .theme-switch button {
+  border-radius: 0;
+  font-family: var(--marginalia-mono);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-topbar .theme-switch button[aria-pressed="true"] {
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+}
+
+html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] .profile-topbar .theme-switch button[aria-pressed="true"] {
+  background: var(--marginalia-book);
+  color: #f4eee1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-signout {
+  min-height: 38px;
+  border-color: var(--marginalia-line-strong);
+  border-radius: 0;
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-signout:hover {
+  border-color: var(--marginalia-blue);
+  color: var(--marginalia-blue);
+}
+
+/* Main editorial canvas */
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell {
+  width: min(1480px, 100%);
+  padding: 32px 20px 90px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-loading-mark {
+  border-radius: 0;
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+  font-family: var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-loading strong {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-loading small {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+}
+
+/* Hero: editorial split with abstract book object */
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover {
+  display: grid;
+  grid-template-columns: minmax(330px, .88fr) minmax(0, 1.12fr);
+  overflow: visible;
+  border: 1px solid var(--marginalia-line-strong);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-art {
+  min-height: 560px;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  padding: 54px;
+  overflow: hidden;
+  border-right: 1px solid var(--marginalia-line-strong);
+  background:
+    radial-gradient(circle at 50% 43%, rgba(255,255,255,.18), transparent 50%),
+    linear-gradient(140deg, rgba(255,255,255,.08), transparent 54%),
+    var(--marginalia-surface-2);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-art::before {
+  content: "Φ";
+  width: min(60%, 270px);
+  aspect-ratio: 3 / 4.15;
+  display: grid;
+  place-items: center;
+  padding-left: 4px;
+  position: relative;
+  z-index: 2;
+  border-left: 9px solid var(--marginalia-oxblood);
+  background:
+    linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.015)),
+    var(--marginalia-book);
+  color: #fbf4e6;
+  box-shadow:
+    18px 22px 0 -4px var(--marginalia-oxblood),
+    27px 32px 0 -8px var(--marginalia-surface),
+    30px 35px 24px rgba(20,20,20,.23);
+  transform: rotate(-7deg);
+  font: 400 clamp(8rem, 14vw, 13rem)/1 var(--marginalia-serif);
+  letter-spacing: -.12em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-art::after {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  z-index: 1;
+  height: auto;
+  border: 1px solid var(--marginalia-line-strong);
+  background: transparent;
+  pointer-events: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-art > span {
+  width: 128px;
+  height: 128px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  z-index: 3;
+  left: 28px;
+  bottom: 30px;
+  padding: 18px;
+  border: 1px dashed var(--marginalia-oxblood);
+  border-radius: 50%;
+  background: var(--marginalia-surface);
+  color: var(--marginalia-oxblood);
+  text-align: center;
+  font-family: var(--marginalia-mono);
+  font-size: 8px;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: .03em;
+  transform: rotate(-8deg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-body {
+  min-height: 560px;
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 50px;
+  padding: clamp(54px, 6vw, 92px) clamp(38px, 5vw, 76px) 38px;
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(140,54,76,.045), transparent 26rem),
+    var(--marginalia-surface);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-persona {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-avatar {
+  width: 96px;
+  height: 124px;
+  border: 0;
+  border-left: 7px solid var(--marginalia-oxblood);
+  border-radius: 0;
+  background: var(--marginalia-book);
+  color: #fbf4e6;
+  box-shadow: 11px 12px 0 var(--marginalia-surface-2);
+  font: 500 44px/1 var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-persona-copy {
+  min-width: 0;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-kicker,
+.profile-page[data-profile-shell="marginalia"] .profile-pin-label {
+  color: var(--marginalia-blue);
+  font-family: var(--marginalia-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .1em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-persona-copy h1 {
+  max-width: 11ch;
+  margin: 12px 0 9px;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: clamp(54px, 7vw, 96px);
+  font-weight: 500;
+  line-height: .84;
+  letter-spacing: -.06em;
+}
+
+.profile-page[data-profile-shell="marginalia"] #profile-persona-meta {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+  font-size: 9px;
+  letter-spacing: .035em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-persona-bio {
+  max-width: 620px;
+  margin-top: 18px !important;
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-serif);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-note {
+  max-width: 640px;
+  padding: 17px 0 0;
+  border-top: 1px solid var(--marginalia-line);
+  border-left: 0;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-note-index {
+  color: var(--marginalia-oxblood);
+  font-family: var(--marginalia-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-cover-note p {
+  margin-top: 11px;
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* Section index navigation */
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid var(--marginalia-line-strong);
+  background: var(--marginalia-bg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav a {
+  min-height: 68px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 0 20px;
+  border: 0;
+  border-right: 1px solid var(--marginalia-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .025em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav a:last-child {
+  border-right: 0;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav a span {
+  color: var(--marginalia-blue);
+  font-family: var(--marginalia-mono);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav a:hover {
+  transform: none;
+  border-color: var(--marginalia-line);
+  background: var(--marginalia-surface-2);
+  color: var(--marginalia-ink);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav a.is-active {
+  border-color: var(--marginalia-forest);
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] .profile-nav a.is-active {
+  background: var(--marginalia-book);
+  color: #f4eee1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-nav a.is-active span {
+  color: var(--marginalia-blue-soft);
+}
+
+/* Content chapters */
+
+.profile-page[data-profile-shell="marginalia"] .profile-content {
+  padding: 58px 0 90px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-head {
+  grid-template-columns: minmax(150px,.25fr) minmax(0,1fr);
+  column-gap: 32px;
+  align-items: start;
+  padding: 0 0 clamp(38px, 5vw, 70px);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-head > div:first-child {
+  display: contents;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-head .profile-kicker {
+  grid-column: 1;
+  padding-top: 13px;
+  border-top: 2px solid var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-head h2 {
+  grid-column: 2;
+  margin: 0;
+  max-width: 850px;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: clamp(52px, 6.4vw, 92px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.05em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-head > p,
+.profile-page[data-profile-shell="marginalia"] .profile-section-side {
+  grid-column: 2;
+  max-width: 690px;
+  margin: 18px 0 0;
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-side p {
+  color: inherit;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-section-side {
+  align-items: flex-start;
+}
+
+/* Editorial grids replace masonry in this shell */
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .profile-pinboard,
+  .project-grid,
+  .library-list,
+  .saved-author-list
+) {
+  columns: unset;
+  display: grid;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pinboard,
+.profile-page[data-profile-shell="marginalia"] .library-list,
+.profile-page[data-profile-shell="marginalia"] .saved-author-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .profile-pin,
+  .project-card,
+  .library-card,
+  .author-card
+) {
+  width: auto;
+  display: block;
+  margin: 0;
+  break-inside: auto;
+  border-radius: 0;
+}
+
+/* Home folios */
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin {
+  min-height: 260px;
+  padding: 26px 28px 28px 58px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--marginalia-line);
+  background:
+    linear-gradient(90deg, var(--marginalia-surface-2) 0 33px, var(--marginalia-line) 33px 34px, var(--marginalia-surface) 34px);
+  box-shadow: 0 4px 18px rgba(62,45,28,.04);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin::before {
+  content: "✳";
+  position: absolute;
+  top: 16px;
+  left: 9px;
+  color: var(--marginalia-oxblood);
+  font: 500 13px/1 var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin:hover {
+  transform: translateY(-3px);
+  border-color: var(--marginalia-line-strong);
+  box-shadow: 0 12px 35px rgba(62,45,28,.13);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin h3 {
+  margin-top: 30px;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: clamp(32px, 3.1vw, 46px);
+  font-weight: 500;
+  line-height: .98;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin p {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin button {
+  color: var(--marginalia-blue);
+  font-family: var(--marginalia-sans);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin-metric strong {
+  margin: 38px 0 8px;
+  color: var(--marginalia-blue);
+  font-family: var(--marginalia-serif);
+  font-size: 88px;
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin-accent {
+  background:
+    linear-gradient(90deg, var(--marginalia-surface-2) 0 33px, var(--marginalia-line) 33px 34px, transparent 34px),
+    linear-gradient(145deg, rgba(15,98,254,.055), transparent 48%),
+    var(--marginalia-surface);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin-quote {
+  min-height: 360px;
+  background:
+    linear-gradient(90deg, var(--marginalia-surface-2) 0 33px, var(--marginalia-line) 33px 34px, transparent 34px),
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.12), transparent 45%),
+    var(--marginalia-book);
+  color: #fbf4e6;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin-quote::after {
+  content: "Φ";
+  position: absolute;
+  right: 20px;
+  bottom: -36px;
+  color: rgba(255,255,255,.055);
+  font: 400 210px/1 var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin-quote .profile-pin-label {
+  color: var(--marginalia-blue-soft);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-pin-quote blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 105px 0 10px;
+  font-family: var(--marginalia-serif);
+  font-size: 31px;
+  font-style: italic;
+  line-height: 1.12;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-mini-atlas {
+  border: 1px solid var(--marginalia-line);
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(15,98,254,.095), transparent 52%),
+    var(--marginalia-surface-2);
+}
+
+/* Project folios */
+
+.profile-page[data-profile-shell="marginalia"] .project-card {
+  min-height: 300px;
+  padding: 26px 26px 28px 52px;
+  border: 1px solid var(--marginalia-line);
+  background:
+    linear-gradient(90deg, var(--marginalia-surface-2) 0 31px, var(--marginalia-line) 31px 32px, transparent 32px),
+    linear-gradient(145deg, color-mix(in srgb, var(--project-color) 7%, transparent), transparent 50%),
+    var(--marginalia-surface);
+  box-shadow: 0 4px 18px rgba(62,45,28,.04);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card:nth-child(3n + 2),
+.profile-page[data-profile-shell="marginalia"] .project-card:nth-child(4n) {
+  min-height: 300px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card::before {
+  content: "§";
+  position: absolute;
+  top: 16px;
+  left: 9px;
+  color: var(--project-color);
+  font: 500 15px/1 var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card::after {
+  width: 74px;
+  height: 74px;
+  right: -28px;
+  bottom: -28px;
+  border: 13px solid color-mix(in srgb, var(--project-accent) 15%, transparent);
+  border-radius: 50%;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--marginalia-line-strong);
+  box-shadow: 0 12px 35px rgba(62,45,28,.13);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card-top {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+  font-size: 8px;
+  letter-spacing: .08em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card h3 {
+  margin: 48px 0 13px;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 38px;
+  font-weight: 500;
+  line-height: .95;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card p {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+  line-height: 1.65;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card-keywords span,
+.profile-page[data-profile-shell="marginalia"] .project-usage-badge {
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface-2);
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-detail {
+  margin-top: 38px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-detail-hero {
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid var(--marginalia-line-strong);
+  border-radius: 0;
+  background:
+    radial-gradient(ellipse at 90% 12%, color-mix(in srgb, var(--project-color) 7%, transparent), transparent 26rem),
+    var(--marginalia-surface);
+  box-shadow: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-detail-hero h2 {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: clamp(52px, 6vw, 86px);
+  font-weight: 500;
+  letter-spacing: -.05em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-detail-hero p {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+  line-height: 1.7;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-detail-grid {
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .project-panel,
+  .project-settings,
+  .project-atlas-panel
+) {
+  padding: 26px;
+  border: 1px solid var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+  box-shadow: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-view-head h3,
+.profile-page[data-profile-shell="marginalia"] .project-panel h3,
+.profile-page[data-profile-shell="marginalia"] .project-settings h3 {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .project-panel-intro,
+  .project-work-authors,
+  .project-work-abstract
+) {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-view-switcher {
+  overflow: hidden;
+  border: 1px solid var(--marginalia-line-strong);
+  border-radius: 0;
+  background: var(--marginalia-bg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-view-switcher button {
+  border-radius: 0;
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-view-switcher button.is-active {
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+}
+
+html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] .project-view-switcher button.is-active {
+  background: var(--marginalia-book);
+  color: #f4eee1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-collection-card,
+.profile-page[data-profile-shell="marginalia"] .project-author-card,
+.profile-page[data-profile-shell="marginalia"] .project-work-card {
+  border-radius: 0;
+  border-color: var(--marginalia-line);
+  box-shadow: 0 4px 18px rgba(62,45,28,.04);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-work-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(62,45,28,.1);
+}
+
+/* Editors, forms and actions */
+
+.profile-page[data-profile-shell="marginalia"] .profile-editor {
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+  box-shadow: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-editor > summary {
+  color: var(--marginalia-blue);
+  font-family: var(--marginalia-sans);
+  font-weight: 600;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-form label > span {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .035em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-form :is(input, textarea, select) {
+  border-color: var(--marginalia-line-strong);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-form :is(input, textarea, select):focus {
+  outline: 3px solid color-mix(in srgb, var(--marginalia-blue) 30%, transparent);
+  outline-offset: 1px;
+  border-color: var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .profile-primary-button,
+  .profile-quiet-button,
+  .profile-section-back
+) {
+  border-radius: 0;
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-primary-button {
+  min-height: 50px;
+  border: 1px solid var(--marginalia-forest);
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+  box-shadow: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-primary-button:hover {
+  border-color: var(--marginalia-blue);
+  background: var(--marginalia-blue);
+  color: #fff;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] .profile-primary-button {
+  border-color: var(--marginalia-book);
+  background: var(--marginalia-book);
+  color: #f4eee1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-quiet-button,
+.profile-page[data-profile-shell="marginalia"] .profile-section-back {
+  border-color: var(--marginalia-line-strong);
+  background: transparent;
+  color: var(--marginalia-ink);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-quiet-button:hover,
+.profile-page[data-profile-shell="marginalia"] .profile-section-back:hover {
+  border-color: var(--marginalia-blue);
+  color: var(--marginalia-blue);
+}
+
+/* Library and saved authors */
+
+.profile-page[data-profile-shell="marginalia"] .library-card {
+  min-height: 250px;
+  border-radius: 0 !important;
+  box-shadow: 0 4px 18px rgba(62,45,28,.04) !important;
+}
+
+.profile-page[data-profile-shell="marginalia"] .library-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(62,45,28,.13) !important;
+}
+
+.profile-page[data-profile-shell="marginalia"] .library-card-actions,
+.profile-page[data-profile-shell="marginalia"] .author-card-actions {
+  border-top-color: var(--marginalia-line);
+}
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .library-card-actions button,
+  .library-card-actions select,
+  .author-card-actions button,
+  .author-card-actions select,
+  .author-open-button
+) {
+  border-radius: 0;
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-card {
+  min-height: 330px;
+  padding-left: 50px;
+  position: relative;
+  border: 1px solid var(--marginalia-line);
+  background:
+    linear-gradient(90deg, var(--marginalia-surface-2) 0 31px, var(--marginalia-line) 31px 32px, var(--marginalia-surface) 32px);
+  box-shadow: 0 4px 18px rgba(62,45,28,.04);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-card::before {
+  content: "❧";
+  position: absolute;
+  left: 8px;
+  top: 15px;
+  color: var(--marginalia-oxblood);
+  font: 500 16px/1 var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--marginalia-line-strong);
+  box-shadow: 0 12px 35px rgba(62,45,28,.13);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-card h3 {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-card p,
+.profile-page[data-profile-shell="marginalia"] .author-aliases {
+  color: var(--marginalia-muted);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-open-button {
+  border-color: var(--marginalia-forest);
+  background: var(--marginalia-forest);
+  color: var(--marginalia-bg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-open-button:hover {
+  border-color: var(--marginalia-blue);
+  background: var(--marginalia-blue);
+  color: #fff;
+}
+
+/* Profile editor / appearance catalog */
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-layout {
+  grid-template-columns: minmax(300px,.75fr) minmax(0,1.25fr);
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview {
+  min-height: 600px;
+  padding: 30px;
+  border: 1px solid var(--marginalia-line-strong);
+  background:
+    linear-gradient(90deg, var(--marginalia-surface-2) 0 37px, var(--marginalia-line) 37px 38px, transparent 38px),
+    radial-gradient(circle at 78% 16%, rgba(15,98,254,.06), transparent 26%),
+    var(--marginalia-surface);
+  box-shadow: none;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview::before {
+  content: "CUADERNO / IDENTIDAD";
+  position: absolute;
+  top: 18px;
+  left: 55px;
+  color: var(--marginalia-blue);
+  font: 500 8px/1 var(--marginalia-mono);
+  letter-spacing: .12em;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview::after {
+  width: 210px;
+  height: 210px;
+  right: -74px;
+  bottom: -70px;
+  border: 1px solid var(--marginalia-line-strong);
+  border-radius: 50%;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-preview-avatar {
+  width: 100px;
+  height: 128px;
+  margin-top: 62px;
+  border: 0;
+  border-left: 7px solid var(--marginalia-oxblood);
+  border-radius: 0;
+  background: var(--marginalia-book);
+  color: #fbf4e6;
+  box-shadow: 11px 12px 0 var(--marginalia-surface-2);
+  font-family: var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview h3 {
+  margin-top: 28px;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 46px;
+  font-weight: 500;
+  line-height: .92;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview > p,
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview blockquote {
+  color: var(--marginalia-muted);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-settings-preview blockquote {
+  font-family: var(--marginalia-serif);
+  font-size: 21px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-preview-accent span {
+  border-radius: 0;
+  background: var(--marginalia-blue);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--marginalia-blue) 10%, transparent);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-preview-accent small {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-mono);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-field > legend {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-field > p {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-option {
+  grid-template-columns: 96px minmax(0,1fr);
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-option:hover {
+  transform: translateY(-2px);
+  border-color: var(--marginalia-line-strong);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-option:has(input:checked) {
+  border-color: var(--marginalia-blue);
+  box-shadow: inset 0 0 0 1px var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-option strong {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-shell-option small {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+}
+
+/* Dialogs become reading sheets */
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog {
+  border: 1px solid var(--marginalia-line-strong);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+  color: var(--marginalia-ink);
+  box-shadow: 0 32px 90px rgba(20,20,20,.3);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog-head {
+  padding: 28px 30px 24px;
+  border-bottom-color: var(--marginalia-line-strong);
+  background: var(--marginalia-bg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog-head::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 34px;
+  height: 2px;
+  background: var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog-head h2 {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog-head p {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+  line-height: 1.7;
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog-head > button {
+  border-color: var(--marginalia-line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-mono);
+}
+
+.profile-page[data-profile-shell="marginalia"] .profile-dialog-head > button:hover {
+  border-color: var(--marginalia-blue);
+  color: var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] .project-card-catalog {
+  gap: 16px;
+  padding: 24px;
+  background: var(--marginalia-bg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .card-catalog-option {
+  min-height: 350px;
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+}
+
+.profile-page[data-profile-shell="marginalia"] .card-catalog-option:hover,
+.profile-page[data-profile-shell="marginalia"] .card-catalog-option:focus-visible {
+  border-color: var(--marginalia-blue);
+  box-shadow: 0 12px 30px rgba(62,45,28,.1);
+}
+
+.profile-page[data-profile-shell="marginalia"] .card-catalog-option.is-selected {
+  border-color: var(--marginalia-blue);
+  box-shadow: inset 0 0 0 1px var(--marginalia-blue);
+}
+
+.profile-page[data-profile-shell="marginalia"] .card-catalog-choice > b {
+  border-color: var(--marginalia-line-strong);
+  border-radius: 0;
+  color: var(--marginalia-blue);
+  font-family: var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .card-catalog-choice strong {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .card-catalog-choice small {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+}
+
+/* Saved author dossier */
+
+.profile-page[data-profile-shell="marginalia"] .author-view-shell {
+  background: var(--marginalia-bg);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-view-hero,
+.profile-page[data-profile-shell="marginalia"] .author-view-section {
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-view-monogram {
+  width: 112px;
+  height: 144px;
+  border-radius: 0;
+  border-left: 8px solid var(--marginalia-oxblood);
+  background: var(--marginalia-book);
+  color: #fbf4e6;
+  font-family: var(--marginalia-serif);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-view-identity h2,
+.profile-page[data-profile-shell="marginalia"] .author-view-section h3 {
+  color: var(--marginalia-ink);
+  font-family: var(--marginalia-serif);
+  font-weight: 500;
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-view-identity h2 {
+  font-size: clamp(46px, 6vw, 80px);
+  line-height: .88;
+}
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .author-view-bio,
+  .author-view-projects,
+  .author-view-works
+) {
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-view-metrics span {
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface-2);
+}
+
+/* Empty states / private notes */
+
+.profile-page[data-profile-shell="marginalia"] :is(
+  .profile-empty,
+  .project-usage-empty,
+  .project-settings-empty,
+  .manual-private-note
+) {
+  border-color: var(--marginalia-line);
+  border-radius: 0;
+  background: var(--marginalia-surface-2);
+  color: var(--marginalia-muted);
+  font-family: var(--marginalia-sans);
+}
+
+/* Responsive editorial behavior */
+
+@media (max-width: 1180px) {
+  .profile-shell-options {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover {
+    grid-template-columns: minmax(300px,.78fr) minmax(0,1.22fr);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona {
+    grid-template-columns: 82px minmax(0,1fr);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-avatar {
+    width: 82px;
+    height: 108px;
+  }
+}
+
+@media (max-width: 900px) {
+  .profile-page[data-profile-shell="marginalia"] .profile-cover {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art {
+    min-height: 420px;
+    border-right: 0;
+    border-bottom: 1px solid var(--marginalia-line-strong);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art::before {
+    width: 220px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-body {
+    min-height: auto;
+    padding: 52px 38px 34px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-nav {
+    grid-template-columns: repeat(5, minmax(125px,1fr));
+    overflow-x: auto;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pinboard,
+  .profile-page[data-profile-shell="marginalia"] .library-list,
+  .profile-page[data-profile-shell="marginalia"] .saved-author-list {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .profile-page[data-profile-shell="marginalia"] .profile-topbar {
+    min-height: 64px;
+    grid-template-columns: minmax(0,1fr) auto;
+    padding: 8px 12px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-topbar::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-brand {
+    font-size: 17px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-shell {
+    padding: 18px 8px 64px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art {
+    min-height: 320px;
+    padding: 32px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art::before {
+    width: 155px;
+    box-shadow:
+      12px 15px 0 -3px var(--marginalia-oxblood),
+      19px 22px 0 -6px var(--marginalia-surface),
+      22px 25px 18px rgba(20,20,20,.2);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art::after {
+    inset: 16px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art > span {
+    width: 90px;
+    height: 90px;
+    left: 18px;
+    bottom: 18px;
+    padding: 12px;
+    font-size: 6px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-body {
+    padding: 36px 20px 28px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona {
+    grid-template-columns: 66px minmax(0,1fr);
+    gap: 16px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-avatar {
+    width: 66px;
+    height: 88px;
+    border-left-width: 5px;
+    box-shadow: 7px 8px 0 var(--marginalia-surface-2);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona-copy h1 {
+    font-size: clamp(42px, 14vw, 62px);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona-bio {
+    font-size: 17px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-nav a {
+    min-height: 58px;
+    padding: 0 14px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-content {
+    padding-top: 42px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head .profile-kicker,
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head h2,
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head > p,
+  .profile-page[data-profile-shell="marginalia"] .profile-section-side {
+    grid-column: 1;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head h2 {
+    font-size: 50px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin {
+    padding-left: 50px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-card {
+    padding-left: 46px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview {
+    min-height: 520px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-card-catalog {
+    grid-template-columns: 1fr;
   }
 }
