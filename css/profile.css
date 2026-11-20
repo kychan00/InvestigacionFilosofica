@@ -1435,3 +1435,66 @@
     transition: none !important;
   }
 }
+
+
+.profile-section-back {
+  width: fit-content;
+  min-height: 38px;
+  margin: 2px 4px 8px;
+  padding: 0 13px;
+  border: 1px solid color-mix(in srgb, var(--profile-accent) 24%, var(--theme-line, #d7d7d7));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--profile-accent) 5%, var(--theme-surface, #fff));
+  color: var(--profile-accent);
+  cursor: pointer;
+  font-family: var(--pg-mono, ui-monospace, monospace);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.profile-section-back:hover,
+.profile-section-back:focus-visible {
+  outline: 0;
+  transform: translateX(-2px);
+  border-color: var(--profile-accent);
+  background: color-mix(in srgb, var(--profile-accent) 10%, var(--theme-surface, #fff));
+}
+
+.profile-save-status {
+  min-height: 1em;
+  color: var(--profile-accent);
+  font-family: var(--pg-mono, ui-monospace, monospace);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.profile-save-status.is-error {
+  color: #da1e28;
+}
+
+#profile-save-button[aria-busy="true"] {
+  cursor: progress;
+  opacity: .82;
+}
+
+@media (max-width: 820px) {
+  .profile-section-back {
+    margin-left: 0;
+  }
+
+  .profile-settings-actions {
+    align-items: flex-start;
+  }
+
+  .profile-save-status {
+    width: 100%;
+  }
+}
