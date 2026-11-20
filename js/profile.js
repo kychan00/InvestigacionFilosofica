@@ -331,7 +331,7 @@ function renderIdentity() {
 function renderMetrics() {
   metricProjects.textContent = String(projects.length);
   metricWorks.textContent = String(library.length);
-  metricAuthors.textContent = String(savedAuthors.length);
+  metricAuthors.textContent = String(mergedSavedAuthors().length);
   metricPrivate.textContent = String(
     library.filter(work => work.privateOnly).length
   );
@@ -907,7 +907,7 @@ function exportProjectExcel() {
     ]);
   }
 
-  for (const author of projectAuthorsFromWorks(projectWorks)) {
+  for (const author of projectAuthorsFromWorks(projectWorks, projectAuthors)) {
     rows.push([
       "Autor", project.title || "", "", author.name,
       "", "", "", `${author.count} obra(s)`, ""
@@ -942,7 +942,7 @@ function exportLibraryExcel() {
 
 function exportAuthorsExcel() {
   const rows = [["Autor", "ORCID", "Proyectos / colecciones", "Obras relacionadas", "Biografía"]];
-  for (const author of savedAuthors) {
+  for (const author of mergedSavedAuthors()) {
     const memberships = membershipsForAuthor(author);
     rows.push([
       author.name || "", author.orcid || "",
