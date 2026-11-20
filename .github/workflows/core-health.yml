@@ -7,6 +7,7 @@ on:
     paths:
       - "index.html"
       - "perfil.html"
+      - "auth/**"
       - "tesis.html"
       - "atlas.html"
       - "acerca.html"
@@ -27,6 +28,7 @@ on:
     paths:
       - "index.html"
       - "perfil.html"
+      - "auth/**"
       - "tesis.html"
       - "atlas.html"
       - "acerca.html"
@@ -72,6 +74,7 @@ jobs:
         run: |
           node --check js/app.js
           node --check js/account-menu.js
+          node --check js/auth-page.js
           node --check js/firebase-client.js
           node --check js/user-data.js
           node --check js/profile.js
