@@ -25,7 +25,7 @@
 
   <link rel="stylesheet" href="./css/app.css">
   <link rel="stylesheet" href="./css/theme.css?v=20261109-author-timeline-v2">
-  <link rel="stylesheet" href="./css/profile.css?v=20261120-author-identity-v3">
+  <link rel="stylesheet" href="./css/profile.css?v=20261120-card-catalog-v4">
 </head>
 
 <body class="profile-page profile-auth-pending">
@@ -559,7 +559,34 @@
     </div>
   </main>
 
+  <dialog id="project-card-catalog-dialog" class="profile-dialog card-catalog-dialog">
+    <div class="profile-dialog-shell">
+      <header class="profile-dialog-head">
+        <div>
+          <span class="profile-kicker">DISEÑO DE LECTURA</span>
+          <h2>Elija cómo quiere leer esta ficha.</h2>
+          <p id="card-catalog-work-title">Seleccione una presentación para esta lectura.</p>
+        </div>
+        <button type="button" data-card-catalog-close aria-label="Cerrar catálogo">Cerrar</button>
+      </header>
+      <div id="project-card-catalog" class="project-card-catalog" role="list"></div>
+    </div>
+  </dialog>
+
+  <dialog id="saved-author-dialog" class="profile-dialog saved-author-dialog">
+    <div class="profile-dialog-shell author-view-shell">
+      <header class="profile-dialog-head author-view-head">
+        <div>
+          <span class="profile-kicker">IDENTIDAD GUARDADA</span>
+          <p>Vista privada del autor dentro de su archivo de investigación.</p>
+        </div>
+        <button type="button" data-author-view-close aria-label="Cerrar ficha del autor">Cerrar</button>
+      </header>
+      <div id="saved-author-dialog-body" class="saved-author-dialog-body"></div>
+    </div>
+  </dialog>
+
   <script type="module" src="./js/theme.js?v=20261120-account-v1"></script>
-  <script type="module" src="./js/profile.js?v=20261120-author-identity-v3"></script>
+  <script type="module" src="./js/profile.js?v=20261120-card-catalog-v4"></script>
 </body>
 </html>

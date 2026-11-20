@@ -33,6 +33,7 @@ import {
   subscribeSavedAuthors,
   subscribeSubprojects,
   updateProject,
+  updateProjectWorkPresentation,
   updateSubproject,
   updateUserProfileDocument
 } from "./user-data.js";
@@ -108,6 +109,11 @@ const libraryExportButton = document.querySelector("#library-export");
 const authorsExportButton = document.querySelector("#authors-export");
 const projectExportButton = document.querySelector("[data-project-export]");
 const profileSettingsForm = document.querySelector("#profile-settings-form");
+const cardCatalogDialog = document.querySelector("#project-card-catalog-dialog");
+const cardCatalogGrid = document.querySelector("#project-card-catalog");
+const cardCatalogWorkTitle = document.querySelector("#card-catalog-work-title");
+const savedAuthorDialog = document.querySelector("#saved-author-dialog");
+const savedAuthorDialogBody = document.querySelector("#saved-author-dialog-body");
 
 let currentUser = null;
 let currentProfile = null;
@@ -122,6 +128,7 @@ let subprojects = [];
 let projectWorks = [];
 let projectAuthors = [];
 let identityDecisions = [];
+let cardCatalogWorkId = "";
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -135,6 +142,56 @@ let unsubscribeSubprojects = null;
 let unsubscribeProjectWorks = null;
 let unsubscribeProjectAuthors = null;
 let unsubscribeIdentityDecisions = null;
+
+const PROJECT_CARD_STYLES = [
+  {
+    id: "archive",
+    label: "Archivo",
+    note: "Ficha académica limpia, equilibrada y documental.",
+    mark: "A"
+  },
+  {
+    id: "paper",
+    label: "Papel",
+    note: "Hoja de lectura cálida con ritmo de cuaderno y margen editorial.",
+    mark: "P"
+  },
+  {
+    id: "index",
+    label: "Índice",
+    note: "Ficha compacta de catálogo para proyectos con muchas lecturas.",
+    mark: "I"
+  },
+  {
+    id: "folio",
+    label: "Folio",
+    note: "Composición tipográfica amplia para títulos que merecen respirar.",
+    mark: "F"
+  },
+  {
+    id: "night",
+    label: "Nocturna",
+    note: "Contraste oscuro para destacar una lectura central del proyecto.",
+    mark: "N"
+  },
+  {
+    id: "signal",
+    label: "Señal",
+    note: "Acento gráfico fuerte para textos clave, hallazgos o pivotes.",
+    mark: "S"
+  }
+];
+
+function projectCardStyle(value) {
+  return PROJECT_CARD_STYLES.some(style => style.id === value)
+    ? value
+    : "archive";
+}
+
+function projectCardStyleMeta(value) {
+  const id = projectCardStyle(value);
+  return PROJECT_CARD_STYLES.find(style => style.id === id) || PROJECT_CARD_STYLES[0];
+}
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -767,7 +824,9 @@ function mergedSavedAuthors() {
       wikipediaUrl:
         group.savedRecords.find(record => record.wikipediaUrl)?.wikipediaUrl || "",
       sourceType:
-        group.savedRecords.find(record => record.sourceType)?.sourceType || ""
+        group.savedRecords.find(record => record.sourceType)?.sourceType || "",
+      sourcePage:
+        group.savedRecords.find(record => record.sourcePage)?.sourcePage || ""
     }))
     .sort((a, b) => a.name.localeCompare(b.name, "es"));
 }
@@ -1383,6 +1442,14 @@ function renderAuthors() {
         </div>
 
         <div class="author-card-actions">
+          <button
+            type="button"
+            class="author-open-button"
+            data-author-open="${escapeHtml(authorViewKey(author))}"
+          >
+            <span aria-hidden="true">↗</span>
+            Abrir ficha
+          </button>
           <select data-author-project="${escapeHtml(author.id)}" aria-label="Proyecto destino para este autor">
             <option value="">Añadir a proyecto…</option>
             ${projects.map(project => `
@@ -1421,6 +1488,229 @@ function fillProfileForm() {
   renderProfilePreview();
 }
 
+function renderCardCatalog(work) {
+  if (!cardCatalogGrid || !work) return;
+
+  const activeStyle = projectCardStyle(work.cardStyle);
+  const sampleTitle = compact(work.title || "Obra sin título", 58);
+  const sampleAuthor = compact(authorNames(work).join("; ") || "Autor no indicado", 44);
+
+  cardCatalogGrid.innerHTML = PROJECT_CARD_STYLES.map(style => `
+    <button
+      type="button"
+      class="card-catalog-option ${style.id === activeStyle ? "is-selected" : ""}"
+      data-card-catalog-style="${escapeHtml(style.id)}"
+      role="listitem"
+      aria-pressed="${style.id === activeStyle ? "true" : "false"}"
+    >
+      <span class="card-catalog-choice">
+        <b>${escapeHtml(style.mark)}</b>
+        <span>
+          <strong>${escapeHtml(style.label)}</strong>
+          <small>${escapeHtml(style.note)}</small>
+        </span>
+      </span>
+      <span class="card-catalog-preview" data-preview-style="${escapeHtml(style.id)}">
+        <i>${escapeHtml(work.year || "LECTURA")}</i>
+        <strong>${escapeHtml(sampleTitle)}</strong>
+        <small>${escapeHtml(sampleAuthor)}</small>
+        <em>Ver composición</em>
+      </span>
+    </button>
+  `).join("");
+}
+
+function openCardCatalog(workId) {
+  const work = projectWorks.find(item => item.id === workId);
+  if (!work || !cardCatalogDialog) return;
+
+  cardCatalogWorkId = work.id;
+  if (cardCatalogWorkTitle) {
+    cardCatalogWorkTitle.textContent = work.title || "Obra sin título";
+  }
+  renderCardCatalog(work);
+  cardCatalogDialog.showModal();
+  document.body.classList.add("profile-dialog-open", "modal-open");
+}
+
+function closeCardCatalog() {
+  cardCatalogWorkId = "";
+  if (cardCatalogDialog?.open) cardCatalogDialog.close();
+  document.body.classList.remove("profile-dialog-open", "modal-open");
+}
+
+function authorViewKey(author) {
+  return normalizedPersonName(author?.name || author?.displayName);
+}
+
+function allWorksForAuthor(author) {
+  const needles = equivalentNormalizedNames(author);
+  const merged = new Map();
+
+  const addWork = (work, project = null) => {
+    if (!work?.id) return;
+    const match = authorNames(work).some(name =>
+      needles.has(normalizedPersonName(name))
+    );
+    if (!match) return;
+
+    const key = work.id;
+    const existing = merged.get(key) || {
+      ...work,
+      projectNames: new Set()
+    };
+    if (project?.title) existing.projectNames.add(project.title);
+    merged.set(key, existing);
+  };
+
+  for (const work of library) addWork(work);
+
+  for (const project of projects) {
+    for (const work of projectWorkIndex.get(project.id) || []) {
+      addWork(work, project);
+    }
+  }
+
+  for (const work of projectWorks) {
+    addWork(work, projectById(selectedProjectId));
+  }
+
+  return [...merged.values()]
+    .map(work => ({
+      ...work,
+      projectNames: [...work.projectNames]
+    }))
+    .sort((a, b) =>
+      Number(b.year || 0) - Number(a.year || 0) ||
+      String(a.title || "").localeCompare(String(b.title || ""), "es")
+    );
+}
+
+function internalOrExternalUrl(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const url = new URL(raw, window.location.href);
+    if (!["http:", "https:"].includes(url.protocol)) return "";
+    return url.href;
+  } catch {
+    return "";
+  }
+}
+
+function openSavedAuthorView(key) {
+  if (!savedAuthorDialog || !savedAuthorDialogBody) return;
+
+  const saved = mergedSavedAuthors();
+  const projectDerived = projectAuthorsFromWorks(projectWorks, projectAuthors);
+  const author = [...saved, ...projectDerived].find(item => {
+    const variants = new Set([
+      authorViewKey(item),
+      ...(item.aliases || []).map(normalizedPersonName)
+    ]);
+    return variants.has(key);
+  });
+  if (!author) return;
+
+  const works = allWorksForAuthor(author);
+  const memberships = membershipsForAuthor(author);
+  const orcid = author.orcid
+    ? internalOrExternalUrl(
+        String(author.orcid).startsWith("http")
+          ? author.orcid
+          : `https://orcid.org/${author.orcid}`
+      )
+    : "";
+  const wikipedia = internalOrExternalUrl(
+    author.wikipediaUrl || author.saved?.wikipediaUrl
+  );
+  const sourcePage = internalOrExternalUrl(
+    author.sourcePage ||
+    author.saved?.sourcePage ||
+    author.explicitRecords?.find(record => record.sourcePage)?.sourcePage
+  );
+  const biography =
+    author.biography ||
+    author.saved?.biography ||
+    author.explicitRecords?.find(record => record.biography)?.biography ||
+    "Esta identidad está guardada en su archivo, pero todavía no cuenta con una nota biográfica documentada.";
+  const monogram = String(author.name || "Φ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0]?.toUpperCase() || "")
+    .join("") || "Φ";
+
+  savedAuthorDialogBody.innerHTML = `
+    <section class="author-view-hero">
+      <div class="author-view-monogram" aria-hidden="true">${escapeHtml(monogram)}</div>
+      <div class="author-view-identity">
+        <span class="profile-kicker">AUTOR / ARCHIVO PRIVADO</span>
+        <h2>${escapeHtml(author.name || "Autor")}</h2>
+        ${author.aliases?.length
+          ? `<p class="author-view-aliases">También aparece como <strong>${escapeHtml(author.aliases.join(" · "))}</strong></p>`
+          : ""}
+        <p class="author-view-bio">${escapeHtml(biography)}</p>
+        <div class="author-view-links">
+          ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
+          ${wikipedia ? `<a href="${escapeHtml(wikipedia)}" target="_blank" rel="noopener noreferrer">Biografía ↗</a>` : ""}
+          ${sourcePage ? `<a href="${escapeHtml(sourcePage)}">Abrir fuente guardada ↗</a>` : ""}
+        </div>
+      </div>
+      <div class="author-view-metrics">
+        <span><strong>${escapeHtml(works.length)}</strong>lecturas</span>
+        <span><strong>${escapeHtml(new Set(memberships.map(item => item.projectId)).size)}</strong>proyectos</span>
+        <span><strong>${escapeHtml(author.aliases?.length || 0)}</strong>alias</span>
+      </div>
+    </section>
+
+    <section class="author-view-section">
+      <header>
+        <span class="profile-kicker">PROYECTOS</span>
+        <h3>Presencia en su investigación</h3>
+      </header>
+      <div class="author-view-projects">
+        ${memberships.length
+          ? memberships.map(item => `
+              <span>
+                <strong>${escapeHtml(item.projectTitle)}</strong>
+                ${item.subprojectTitle ? `<small>${escapeHtml(item.subprojectTitle)}</small>` : ""}
+                ${item.count ? `<em>${escapeHtml(item.count)} lectura(s)</em>` : "<em>autor añadido</em>"}
+              </span>
+            `).join("")
+          : "<p>Todavía no está vinculado a un proyecto.</p>"}
+      </div>
+    </section>
+
+    <section class="author-view-section">
+      <header>
+        <span class="profile-kicker">LECTURAS</span>
+        <h3>Obras relacionadas en su archivo</h3>
+      </header>
+      <div class="author-view-works">
+        ${works.length
+          ? works.map(work => `
+              <article>
+                <span>${escapeHtml(work.year || "s. f.")}</span>
+                <strong>${escapeHtml(work.title || "Obra sin título")}</strong>
+                <small>${escapeHtml(work.projectNames?.join(" · ") || (work.privateOnly ? "Entrada privada" : "Biblioteca"))}</small>
+              </article>
+            `).join("")
+          : "<p>No hay lecturas relacionadas todavía.</p>"}
+      </div>
+    </section>
+  `;
+
+  savedAuthorDialog.showModal();
+  document.body.classList.add("profile-dialog-open", "modal-open");
+}
+
+function closeSavedAuthorView() {
+  if (savedAuthorDialog?.open) savedAuthorDialog.close();
+  document.body.classList.remove("profile-dialog-open", "modal-open");
+}
+
 function renderProjectWorks() {
   if (!selectedProjectId) {
     projectWorkList.innerHTML = "";
@@ -1448,20 +1738,38 @@ function renderProjectWorks() {
   projectWorkNote.textContent =
     `${works.length} lectura${works.length === 1 ? "" : "s"} en esta vista · puede organizarlas por colección.`;
 
-  projectWorkList.innerHTML = works.map(work => {
+  projectWorkList.innerHTML = works.map((work, index) => {
     const tags = (work.tags || []).slice(0, 5);
     const collection = subprojects.find(item => item.id === work.subprojectId);
+    const style = projectCardStyle(work.cardStyle);
+    const styleMeta = projectCardStyleMeta(style);
+    const folio = String(index + 1).padStart(2, "0");
 
     return `
-      <article class="project-work-card">
-        <div class="project-work-meta">
-          <span>${work.privateOnly ? "ENTRADA PRIVADA" : "MOTOR PÚBLICO"}</span>
-          ${work.year ? `<span>${escapeHtml(work.year)}</span>` : ""}
-          ${collection ? `<span style="--collection-color:${escapeHtml(collection.color || "#4589ff")}">${escapeHtml(collection.title)}</span>` : ""}
+      <article
+        class="project-work-card"
+        data-card-style="${escapeHtml(style)}"
+        style="--work-folio:'${escapeHtml(folio)}'"
+      >
+        <div class="project-work-card-head">
+          <div class="project-work-meta">
+            <span>${work.privateOnly ? "ENTRADA PRIVADA" : "MOTOR PÚBLICO"}</span>
+            ${work.year ? `<span>${escapeHtml(work.year)}</span>` : ""}
+            ${collection ? `<span style="--collection-color:${escapeHtml(collection.color || "#4589ff")}">${escapeHtml(collection.title)}</span>` : ""}
+          </div>
+          <button
+            type="button"
+            class="project-work-style-button"
+            data-project-work-style="${escapeHtml(work.id)}"
+            aria-label="Cambiar diseño de ${escapeHtml(work.title || "esta lectura")}"
+          >
+            <span aria-hidden="true">${escapeHtml(styleMeta.mark)}</span>
+            Diseño · ${escapeHtml(styleMeta.label)}
+          </button>
         </div>
-        <strong>${escapeHtml(work.title || "Obra")}</strong>
-        <small>${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
-        ${work.abstract ? `<p>${escapeHtml(compact(work.abstract, 220))}</p>` : ""}
+        <strong class="project-work-title">${escapeHtml(work.title || "Obra")}</strong>
+        <small class="project-work-authors">${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
+        ${work.abstract ? `<p class="project-work-abstract">${escapeHtml(compact(work.abstract, style === "index" ? 120 : 220))}</p>` : ""}
         <div class="project-work-tags">
           ${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join("")}
         </div>
@@ -1600,6 +1908,14 @@ function renderProjectAuthors() {
         ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
 
         <div class="project-author-actions">
+          <button
+            type="button"
+            class="author-open-button"
+            data-project-author-open="${escapeHtml(key)}"
+          >
+            <span aria-hidden="true">↗</span>
+            Abrir ficha
+          </button>
           ${explicit ? `
             <select
               data-project-author-subproject="${escapeHtml(key)}"
@@ -2304,8 +2620,14 @@ libraryList.addEventListener("click", async event => {
 });
 
 savedAuthorList.addEventListener("click", async event => {
+  const open = event.target.closest("[data-author-open]");
   const attach = event.target.closest("[data-author-attach]");
   const remove = event.target.closest("[data-author-delete]");
+
+  if (open) {
+    openSavedAuthorView(open.dataset.authorOpen || "");
+    return;
+  }
 
   if (attach && currentUser) {
     const authors = mergedSavedAuthors();
@@ -2393,6 +2715,12 @@ projectAuthorList.addEventListener("change", async event => {
 });
 
 projectAuthorList.addEventListener("click", async event => {
+  const open = event.target.closest("[data-project-author-open]");
+  if (open) {
+    openSavedAuthorView(open.dataset.projectAuthorOpen || "");
+    return;
+  }
+
   if (!currentUser || !selectedProjectId) return;
 
   const pin = event.target.closest("[data-project-author-pin]");
@@ -2465,7 +2793,14 @@ projectWorkList.addEventListener("change", async event => {
 });
 
 projectWorkList.addEventListener("click", async event => {
+  const style = event.target.closest("[data-project-work-style]");
   const remove = event.target.closest("[data-project-work-remove]");
+
+  if (style) {
+    openCardCatalog(style.dataset.projectWorkStyle || "");
+    return;
+  }
+
   if (!remove || !currentUser || !selectedProjectId) return;
 
   await detachWorkFromProject(
@@ -2473,6 +2808,43 @@ projectWorkList.addEventListener("click", async event => {
     selectedProjectId,
     remove.dataset.projectWorkRemove
   );
+});
+
+cardCatalogGrid?.addEventListener("click", async event => {
+  const option = event.target.closest("[data-card-catalog-style]");
+  if (!option || !currentUser || !selectedProjectId || !cardCatalogWorkId) return;
+
+  const style = projectCardStyle(option.dataset.cardCatalogStyle);
+  const buttons = [...cardCatalogGrid.querySelectorAll("[data-card-catalog-style]")];
+  buttons.forEach(button => { button.disabled = true; });
+
+  try {
+    await updateProjectWorkPresentation(
+      currentUser.uid,
+      selectedProjectId,
+      cardCatalogWorkId,
+      { cardStyle: style }
+    );
+    closeCardCatalog();
+  } catch (error) {
+    console.error("No fue posible guardar el diseño de la lectura.", error);
+    buttons.forEach(button => { button.disabled = false; });
+  }
+});
+
+document.querySelector("[data-card-catalog-close]")
+  ?.addEventListener("click", closeCardCatalog);
+
+document.querySelector("[data-author-view-close]")
+  ?.addEventListener("click", closeSavedAuthorView);
+
+cardCatalogDialog?.addEventListener("close", () => {
+  cardCatalogWorkId = "";
+  document.body.classList.remove("profile-dialog-open", "modal-open");
+});
+
+savedAuthorDialog?.addEventListener("close", () => {
+  document.body.classList.remove("profile-dialog-open", "modal-open");
 });
 
 profileSettingsForm.addEventListener("submit", async event => {

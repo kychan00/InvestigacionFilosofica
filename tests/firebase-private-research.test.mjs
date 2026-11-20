@@ -119,6 +119,49 @@ test("project authors can be added explicitly and identity decisions persist pri
   assert.match(page, /id="project-identity-review"/);
 });
 
+test("project readings expose a persistent visual card catalog", () => {
+  const data = read("js/user-data.js");
+  const profile = read("js/profile.js");
+  const page = read("perfil.html");
+  const css = read("css/profile.css");
+
+  assert.match(data, /updateProjectWorkPresentation/);
+  assert.match(data, /"archive"[\s\S]*"paper"[\s\S]*"index"[\s\S]*"folio"[\s\S]*"night"[\s\S]*"signal"/);
+  assert.match(data, /presentationUpdatedAt/);
+  const presentationFunction =
+    data.match(/export async function updateProjectWorkPresentation[\s\S]*?return style;/)?.[0] || "";
+  const workUpdate =
+    presentationFunction.match(/await updateDoc\(\s*projectWorkRef[\s\S]*?\n\s*\);/)?.[0] || "";
+  assert.match(workUpdate, /presentationUpdatedAt:\s*serverTimestamp\(\)/);
+  assert.doesNotMatch(workUpdate, /\n\s*updatedAt:\s*serverTimestamp\(\)/);
+
+  assert.match(profile, /PROJECT_CARD_STYLES/);
+  assert.match(profile, /data-project-work-style/);
+  assert.match(profile, /data-card-catalog-style/);
+  assert.match(profile, /updateProjectWorkPresentation/);
+  assert.match(page, /id="project-card-catalog-dialog"/);
+  assert.match(page, /id="project-card-catalog"/);
+  assert.match(css, /data-card-style="paper"/);
+  assert.match(css, /data-card-style="night"/);
+  assert.match(css, /data-card-style="signal"/);
+});
+
+test("saved authors open a private dossier view", () => {
+  const profile = read("js/profile.js");
+  const page = read("perfil.html");
+  const css = read("css/profile.css");
+
+  assert.match(profile, /data-author-open/);
+  assert.match(profile, /data-project-author-open/);
+  assert.match(profile, /function openSavedAuthorView/);
+  assert.match(profile, /allWorksForAuthor/);
+  assert.match(page, /id="saved-author-dialog"/);
+  assert.match(page, /id="saved-author-dialog-body"/);
+  assert.match(css, /\.author-open-button/);
+  assert.match(css, /\.author-view-hero/);
+  assert.match(css, /\.author-view-works/);
+});
+
 test("project workspace hides configuration behind organization controls", () => {
   const page = read("perfil.html");
   const profile = read("js/profile.js");

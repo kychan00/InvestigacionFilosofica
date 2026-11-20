@@ -516,6 +516,42 @@ export async function attachWorkToProject(
   return normalized;
 }
 
+const PROJECT_WORK_CARD_STYLES = new Set([
+  "archive",
+  "paper",
+  "index",
+  "folio",
+  "night",
+  "signal"
+]);
+
+export async function updateProjectWorkPresentation(
+  uid,
+  projectId,
+  workId,
+  {
+    cardStyle = "archive"
+  } = {}
+) {
+  const style = PROJECT_WORK_CARD_STYLES.has(cardStyle)
+    ? cardStyle
+    : "archive";
+
+  await updateDoc(
+    projectWorkRef(uid, projectId, workId),
+    {
+      cardStyle: style,
+      presentationUpdatedAt: serverTimestamp()
+    }
+  );
+
+  await updateDoc(projectRef(uid, projectId), {
+    updatedAt: serverTimestamp()
+  });
+
+  return style;
+}
+
 export async function detachWorkFromProject(uid, projectId, workId) {
   await deleteDoc(projectWorkRef(uid, projectId, workId));
   await updateDoc(projectRef(uid, projectId), {
