@@ -774,7 +774,7 @@ function mergedSavedAuthors() {
 
 function renderProjectStats() {function renderProjectStats() {
   if (!projectDetailStats) return;
-  const authors = projectAuthorsFromWorks(projectWorks);
+  const authors = projectAuthorsFromWorks(projectWorks, projectAuthors);
   projectDetailStats.innerHTML = [
     ["Lecturas", projectWorks.length],
     ["Autores", authors.length],
@@ -810,6 +810,7 @@ function syncProjectAssignmentIndex(uid) {
   }
   assignmentUnsubscribers = [];
   projectWorkIndex.clear();
+  projectAuthorIndex.clear();
   projectSubprojectIndex.clear();
   assignmentProjectSignature = signature;
 
@@ -827,6 +828,16 @@ function syncProjectAssignmentIndex(uid) {
         projectSubprojectIndex.set(project.id, items);
         renderLibrary();
         renderAuthors();
+      })
+    );
+    assignmentUnsubscribers.push(
+      subscribeProjectAuthors(uid, project.id, items => {
+        projectAuthorIndex.set(project.id, items);
+        renderAuthors();
+        if (project.id === selectedProjectId) {
+          renderProjectAuthors();
+          renderProjectStats();
+        }
       })
     );
   }
