@@ -1,5 +1,5 @@
 export const FIREBASE_CONFIG = Object.freeze({
-  apiKey: "AIzaSyBNCwpa3bTMBUIC6GSXTDmoFpqik4W0yzs",
+  apiKey: "AIzaSyBNCwpa3bTMBUIC6GSXTDmoFpqik4WOyzs",
   authDomain: "investigacion-filosofica.firebaseapp.com",
   projectId: "investigacion-filosofica",
   storageBucket: "investigacion-filosofica.firebasestorage.app",
