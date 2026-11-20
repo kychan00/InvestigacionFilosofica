@@ -1,4 +1,7 @@
 import { protrepsisMissingKeywordStatus } from "./protrepsis-editorial-status.js";
+import {
+  createWorkSaveButton
+} from "./public-save-controls.js";
 import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-topic-tags-v1";
 import {
   articleTopicMetadata,
@@ -539,6 +542,25 @@ function chip(label, className = "") {
   return span;
 }
 
+function journalSavePayload(record) {
+  return {
+    id: record.id || record.doi || record.title,
+    title: record.title || "Sin título",
+    authors: authors(record).map(name => ({ name })),
+    year: record.year ?? null,
+    type: record.type || "journal-article",
+    journal: record.journal || config.label,
+    doi: record.doi || "",
+    abstract: record.abstract || "",
+    tags: [
+      ...(record.keywords || []),
+      ...articleTopics(record, { derive: false, limit: 12 })
+    ],
+    referenceUrl: linkFor(record),
+    providers: [record.journal || config.label]
+  };
+}
+
 function card(record, index) {
   const article = document.createElement("article");
   article.className = "journal-card";
@@ -742,6 +764,13 @@ function card(record, index) {
 
   body.append(pins, title, byline, category, excerpt, actions, details);
   article.append(rail, body);
+
+  const save = createWorkSaveButton(
+    journalSavePayload(record),
+    { label: "Guardar artículo en mi biblioteca" }
+  );
+  if (save) article.append(save);
+
   return article;
 }
 
