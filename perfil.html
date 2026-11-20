@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+
+  <title>Mi investigación · Investigación Filosófica</title>
+
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/theme.css?v=20261109-author-timeline-v2">
+  <link rel="stylesheet" href="./css/profile.css?v=20261120-private-research-v1">
+</head>
+
+<body class="profile-page">
+  <header class="profile-topbar">
+    <a class="profile-brand" href="./">
+      <span class="profile-brand-mark">Φ</span>
+      <span>
+        Investigación Filosófica
+        <small>Espacio personal de investigación</small>
+      </span>
+    </a>
+
+    <nav class="profile-topbar-links" aria-label="Navegación">
+      <a href="./">Investigación</a>
+      <a href="./tesis.html">Tesis</a>
+      <a href="./articulos.html">Artículos</a>
+      <a href="./acerca.html">Acerca de</a>
+    </nav>
+
+    <div class="theme-switch" role="group" aria-label="Apariencia">
+      <button type="button" data-theme-choice="light" aria-pressed="false">Claro</button>
+      <button type="button" data-theme-choice="dark" aria-pressed="false">Oscuro</button>
+    </div>
+  </header>
+
+  <main class="profile-shell">
+    <section id="profile-gate" class="profile-gate">
+      <span class="profile-kicker">ESPACIO PERSONAL</span>
+      <h1>Su investigación, organizada como un territorio propio.</h1>
+      <p id="profile-gate-copy">
+        Inicie sesión para acceder a obras guardadas, autores, proyectos y atlas privados.
+      </p>
+      <button id="profile-gate-login" type="button">Login / Registro</button>
+    </section>
+
+    <div id="profile-workspace" class="profile-workspace" hidden>
+      <aside class="profile-sidebar">
+        <section class="profile-identity-card">
+          <div id="profile-avatar" class="profile-avatar">Φ</div>
+          <div>
+            <span class="profile-kicker">INVESTIGADOR</span>
+            <strong id="profile-display-name">—</strong>
+            <small id="profile-email">—</small>
+          </div>
+        </section>
+
+        <nav class="profile-nav" aria-label="Mi investigación">
+          <a href="#resumen" data-profile-nav="resumen">01 / Resumen</a>
+          <a href="#proyectos" data-profile-nav="proyectos">02 / Proyectos</a>
+          <a href="#biblioteca" data-profile-nav="biblioteca">03 / Biblioteca</a>
+          <a href="#autores" data-profile-nav="autores">04 / Autores</a>
+          <a href="#mi-perfil" data-profile-nav="mi-perfil">05 / Perfil</a>
+        </nav>
+
+        <p class="profile-privacy-note">
+          Todo lo que cree aquí pertenece a su espacio privado. Las entradas manuales
+          no se añaden al corpus público.
+        </p>
+      </aside>
+
+      <div class="profile-content">
+        <section id="resumen" class="profile-section profile-overview">
+          <header class="profile-section-head">
+            <div>
+              <span class="profile-kicker">01 / RESUMEN</span>
+              <h1>Mi investigación</h1>
+            </div>
+            <p>
+              Una capa privada sobre el archivo público para construir bibliotecas,
+              proyectos y mapas de trabajo sin alterar el corpus.
+            </p>
+          </header>
+
+          <div class="profile-metrics">
+            <article>
+              <strong id="metric-projects">0</strong>
+              <span>proyectos</span>
+            </article>
+            <article>
+              <strong id="metric-works">0</strong>
+              <span>obras guardadas</span>
+            </article>
+            <article>
+              <strong id="metric-authors">0</strong>
+              <span>autores guardados</span>
+            </article>
+            <article>
+              <strong id="metric-private">0</strong>
+              <span>entradas privadas</span>
+            </article>
+          </div>
+
+          <div class="profile-overview-grid">
+            <article class="profile-principle">
+              <span>PUBLIC / PRIVATE</span>
+              <h2>El archivo sigue siendo público. Su trabajo, no.</h2>
+              <p>
+                Guardar una obra no modifica su registro original. Agregar una obra manual
+                crea únicamente una referencia privada ligada a su cuenta.
+              </p>
+            </article>
+
+            <article class="profile-principle">
+              <span>PROJECT ATLAS</span>
+              <h2>Cada proyecto construye su propia cartografía.</h2>
+              <p>
+                El Atlas privado conecta las obras asignadas al proyecto mediante
+                coincidencias de autores, etiquetas y vocabulario de título + abstract.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="proyectos" class="profile-section">
+          <header class="profile-section-head">
+            <div>
+              <span class="profile-kicker">02 / PROYECTOS</span>
+              <h2>Proyectos de investigación</h2>
+            </div>
+            <p>
+              Cada proyecto puede tener pregunta, área, palabras clave, colores,
+              subproyectos, biblioteca y Atlas propios.
+            </p>
+          </header>
+
+          <details class="profile-editor" open>
+            <summary>Crear nuevo proyecto</summary>
+            <form id="project-create-form" class="profile-form profile-form-grid">
+              <label>
+                <span>Título</span>
+                <input name="title" required maxlength="240">
+              </label>
+              <label>
+                <span>Área / disciplina</span>
+                <input name="area" maxlength="300" placeholder="Ej. Ontología">
+              </label>
+              <label class="is-wide">
+                <span>Pregunta de investigación</span>
+                <textarea name="researchQuestion" rows="3"></textarea>
+              </label>
+              <label class="is-wide">
+                <span>Descripción</span>
+                <textarea name="description" rows="4"></textarea>
+              </label>
+              <label class="is-wide">
+                <span>Palabras clave</span>
+                <input name="keywords" placeholder="Hegel, negatividad, reconocimiento">
+              </label>
+              <label>
+                <span>Color principal</span>
+                <input name="color" type="color" value="#0f62fe">
+              </label>
+              <label>
+                <span>Color secundario</span>
+                <input name="accentColor" type="color" value="#8a3ffc">
+              </label>
+              <label>
+                <span>Estado</span>
+                <select name="status">
+                  <option value="active">Activo</option>
+                  <option value="paused">En pausa</option>
+                  <option value="archived">Archivado</option>
+                </select>
+              </label>
+              <button class="profile-primary-button" type="submit">Crear proyecto</button>
+            </form>
+          </details>
+
+          <div id="project-grid" class="project-grid"></div>
+
+          <section id="project-detail" class="project-detail" hidden>
+            <header class="project-detail-hero" id="project-detail-hero">
+              <div>
+                <span class="profile-kicker">PROYECTO SELECCIONADO</span>
+                <h2 id="project-detail-title">—</h2>
+                <p id="project-detail-description"></p>
+              </div>
+              <div class="project-detail-actions">
+                <button type="button" data-project-delete>Eliminar proyecto</button>
+              </div>
+            </header>
+
+            <div class="project-detail-grid">
+              <section class="project-panel">
+                <span class="profile-kicker">CONFIGURACIÓN</span>
+                <h3>Identidad del proyecto</h3>
+                <form id="project-edit-form" class="profile-form">
+                  <label><span>Título</span><input name="title" required maxlength="240"></label>
+                  <label><span>Área</span><input name="area" maxlength="300"></label>
+                  <label><span>Pregunta</span><textarea name="researchQuestion" rows="3"></textarea></label>
+                  <label><span>Descripción</span><textarea name="description" rows="4"></textarea></label>
+                  <label><span>Palabras clave</span><input name="keywords"></label>
+                  <div class="profile-form-inline">
+                    <label><span>Principal</span><input name="color" type="color"></label>
+                    <label><span>Secundario</span><input name="accentColor" type="color"></label>
+                    <label>
+                      <span>Estado</span>
+                      <select name="status">
+                        <option value="active">Activo</option>
+                        <option value="paused">En pausa</option>
+                        <option value="archived">Archivado</option>
+                      </select>
+                    </label>
+                  </div>
+                  <button class="profile-primary-button" type="submit">Guardar cambios</button>
+                </form>
+              </section>
+
+              <section class="project-panel">
+                <span class="profile-kicker">SUBPROYECTOS</span>
+                <h3>Capas de trabajo</h3>
+                <form id="subproject-form" class="profile-form">
+                  <input type="hidden" name="id">
+                  <label><span>Título</span><input name="title" required maxlength="240"></label>
+                  <label><span>Descripción</span><textarea name="description" rows="3"></textarea></label>
+                  <div class="profile-form-inline">
+                    <label><span>Color</span><input name="color" type="color" value="#4589ff"></label>
+                    <label>
+                      <span>Estado</span>
+                      <select name="status">
+                        <option value="active">Activo</option>
+                        <option value="paused">En pausa</option>
+                        <option value="archived">Archivado</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="profile-form-actions">
+                    <button class="profile-primary-button" type="submit" data-subproject-submit>Crear subproyecto</button>
+                    <button type="button" data-subproject-cancel hidden>Cancelar edición</button>
+                  </div>
+                </form>
+                <div id="subproject-list" class="subproject-list"></div>
+              </section>
+            </div>
+
+            <section class="project-atlas-panel">
+              <header>
+                <div>
+                  <span class="profile-kicker">ATLAS PRIVADO</span>
+                  <h3>Territorio bibliográfico del proyecto</h3>
+                </div>
+                <p id="project-atlas-note">Añada obras al proyecto para construir el mapa.</p>
+              </header>
+              <div class="project-atlas-layout">
+                <canvas id="project-atlas" width="1100" height="620" aria-label="Atlas privado del proyecto"></canvas>
+                <aside id="project-work-list" class="project-work-list"></aside>
+              </div>
+            </section>
+          </section>
+        </section>
+
+        <section id="biblioteca" class="profile-section">
+          <header class="profile-section-head">
+            <div>
+              <span class="profile-kicker">03 / BIBLIOTECA</span>
+              <h2>Obras guardadas</h2>
+            </div>
+            <p>
+              Aquí conviven referencias guardadas desde el motor y entradas manuales privadas.
+            </p>
+          </header>
+
+          <details class="profile-editor">
+            <summary>Agregar trabajo que no existe en el motor</summary>
+            <form id="manual-work-form" class="profile-form profile-form-grid">
+              <label class="is-wide">
+                <span>Título *</span>
+                <input name="title" required maxlength="600">
+              </label>
+              <label class="is-wide">
+                <span>Autor o autores</span>
+                <input name="authors" placeholder="Separados por punto y coma">
+              </label>
+              <label>
+                <span>Año</span>
+                <input name="year" type="number" min="0" max="2100">
+              </label>
+              <label>
+                <span>Tipo</span>
+                <input name="type" placeholder="Artículo, libro, capítulo…">
+              </label>
+              <label class="is-wide">
+                <span>Abstract</span>
+                <textarea name="abstract" rows="6"></textarea>
+              </label>
+              <label class="is-wide">
+                <span>Etiquetas</span>
+                <input name="tags" placeholder="ética, tecnología, crítica">
+              </label>
+              <label>
+                <span>DOI</span>
+                <input name="doi" placeholder="10.xxxx/xxxxx">
+              </label>
+              <label>
+                <span>Enlace de referencia</span>
+                <input name="referenceUrl" type="url" placeholder="https://…">
+              </label>
+              <label class="is-wide">
+                <span>Añadir también al proyecto</span>
+                <select name="projectId" id="manual-work-project">
+                  <option value="">Solo biblioteca</option>
+                </select>
+              </label>
+              <p class="manual-private-note is-wide">
+                Esta referencia será <strong>solo para usted</strong>. No se publica,
+                no entra al corpus y no altera los resultados del buscador.
+              </p>
+              <button class="profile-primary-button" type="submit">Guardar entrada privada</button>
+            </form>
+          </details>
+
+          <div id="library-list" class="library-list"></div>
+        </section>
+
+        <section id="autores" class="profile-section">
+          <header class="profile-section-head">
+            <div>
+              <span class="profile-kicker">04 / AUTORES</span>
+              <h2>Autores guardados</h2>
+            </div>
+            <p>
+              Accesos personales a identidades bibliográficas que quiera seguir consultando.
+            </p>
+          </header>
+          <div id="saved-author-list" class="saved-author-list"></div>
+        </section>
+
+        <section id="mi-perfil" class="profile-section">
+          <header class="profile-section-head">
+            <div>
+              <span class="profile-kicker">05 / PERFIL</span>
+              <h2>Perfil personal</h2>
+            </div>
+            <p>
+              Personalice cómo se presenta su espacio. Estos datos no convierten su perfil en público.
+            </p>
+          </header>
+
+          <form id="profile-settings-form" class="profile-form profile-settings-form">
+            <label><span>Nombre visible</span><input name="displayName" maxlength="160"></label>
+            <label><span>Institución</span><input name="institution" maxlength="300"></label>
+            <label><span>Sitio personal</span><input name="website" type="url"></label>
+            <label><span>Color personal</span><input name="accentColor" type="color" value="#0f62fe"></label>
+            <label class="is-wide"><span>Bio</span><textarea name="bio" rows="6"></textarea></label>
+            <button class="profile-primary-button" type="submit">Guardar perfil</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./js/theme.js?v=20261120-account-v1"></script>
+  <script type="module" src="./js/profile.js?v=20261120-private-research-v1"></script>
+</body>
+</html>
