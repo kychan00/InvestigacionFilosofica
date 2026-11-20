@@ -126,7 +126,7 @@ test("project readings expose a persistent visual card catalog", () => {
   const css = read("css/profile.css");
 
   assert.match(data, /updateProjectWorkPresentation/);
-  assert.match(data, /"archive"[\s\S]*"paper"[\s\S]*"index"[\s\S]*"folio"[\s\S]*"night"[\s\S]*"signal"/);
+  assert.match(data, /"default"[\s\S]*"protrepsis"[\s\S]*"sincronia"[\s\S]*"quadripartita"[\s\S]*"thesis"[\s\S]*"author-archive"/);
   assert.match(data, /presentationUpdatedAt/);
   const presentationFunction =
     data.match(/export async function updateProjectWorkPresentation[\s\S]*?return style;/)?.[0] || "";
@@ -141,9 +141,26 @@ test("project readings expose a persistent visual card catalog", () => {
   assert.match(profile, /updateProjectWorkPresentation/);
   assert.match(page, /id="project-card-catalog-dialog"/);
   assert.match(page, /id="project-card-catalog"/);
-  assert.match(css, /data-card-style="paper"/);
-  assert.match(css, /data-card-style="night"/);
-  assert.match(css, /data-card-style="signal"/);
+  assert.match(css, /data-card-style="protrepsis"/);
+  assert.match(css, /data-card-style="sincronia"/);
+  assert.match(css, /data-card-style="quadripartita"/);
+  assert.match(profile, /work\.cardStyle = style/);
+  assert.match(profile, /previousStyle/);
+});
+
+test("private card catalog uses abstract labels instead of journal names", () => {
+  const profile = read("js/profile.js");
+  const page = read("perfil.html");
+  const css = read("css/profile.css");
+
+  assert.match(profile, /label: "Clásica"/);
+  assert.match(profile, /label: "Marginalia"/);
+  assert.match(profile, /label: "Estampa"/);
+  assert.match(profile, /label: "Cobalto"/);
+  assert.match(profile, /label: "Índice"/);
+  assert.match(profile, /label: "Dossier"/);
+  assert.doesNotMatch(page, /Protrepsis|Sincronía|Quadripartita/);
+  assert.doesNotMatch(css, /content:\s*"PROTREPSIS"|content:\s*"SINCRONÍA"|content:\s*"QUADRIPARTITA/);
 });
 
 test("saved authors open a private dossier view", () => {
@@ -403,7 +420,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261120-existing-card-system-v1/);
+  assert.match(page, /profile\.js\?v=20261120-abstract-card-system-v2/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
