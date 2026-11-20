@@ -94,23 +94,107 @@ body.site-menu-open .account-dock {
 
 .research-save-button,
 .author-save-button {
-  min-height: 32px;
-  padding: 0 11px;
-  border: 1px solid currentColor;
-  background: transparent;
-  color: #0f62fe;
-  font: inherit;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--theme-text, #161616) 16%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--theme-surface, #fff) 92%, transparent);
+  color: color-mix(in srgb, var(--theme-text, #161616) 72%, transparent);
+  box-shadow: 0 7px 20px rgba(0,0,0,.07);
   cursor: pointer;
+  backdrop-filter: blur(9px);
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+}
+
+.research-save-button svg,
+.author-save-button svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .research-save-button:hover,
-.author-save-button:hover {
+.research-save-button:focus-visible,
+.author-save-button:hover,
+.author-save-button:focus-visible {
+  outline: 0;
+  transform: translateY(-1px);
+  border-color: #0f62fe;
+  background: color-mix(in srgb, #0f62fe 8%, var(--theme-surface, #fff));
+  color: #0f62fe;
+  box-shadow: 0 9px 22px rgba(15,98,254,.12);
+}
+
+.research-save-button.is-saving,
+.author-save-button.is-saving {
+  color: #0f62fe;
+  opacity: .58;
+}
+
+.research-save-button.is-saved,
+.author-save-button.is-saved {
+  border-color: #0f62fe;
   background: #0f62fe;
   color: #fff;
+  opacity: 1;
+}
+
+.research-save-button.is-saved .save-bookmark-shape,
+.author-save-button.is-saved .save-bookmark-shape {
+  fill: currentColor;
+}
+
+.result-card {
+  position: relative;
+}
+
+.result-card > .research-save-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 8;
+}
+
+.result-card:has(> .research-save-button) .result-title-row {
+  padding-right: 42px;
+}
+
+.author-resolution.is-resolved,
+.author-profile-card {
+  position: relative;
+}
+
+.author-resolution.is-resolved > .author-save-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+}
+
+.author-resolution.is-resolved:has(> .author-save-button) {
+  padding-right: 58px;
+}
+
+.author-profile-card > .author-save-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+
+.author-profile-card:has(> .author-save-button) {
+  padding-right: 54px;
 }
 
 .account-toast {
