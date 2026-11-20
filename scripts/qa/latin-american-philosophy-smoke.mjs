@@ -234,6 +234,8 @@ try {
     await page.waitForFunction(() =>
       document.querySelector("#author-dialog-title")?.textContent?.includes("Anténor Firmin")
     );
+    await page.locator("#author-dialog #author-dossier-overview")
+      .waitFor({ state: "visible" });
 
     assert.equal(new URL(page.url()).hash, "#autor-0380",
       "Opening a philosopher dossier must expose a shareable author hash");
