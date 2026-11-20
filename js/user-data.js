@@ -3,6 +3,7 @@ import {
   deleteDoc,
   doc,
   getDoc,
+  getDocs,
   onSnapshot,
   orderBy,
   query,
@@ -241,6 +242,25 @@ export async function updateProject(uid, projectId, data) {
 }
 
 export async function deleteProject(uid, projectId) {
+  const database = requiredDb();
+
+  for (const childCollection of ["subprojects", "works"]) {
+    const snapshot = await getDocs(
+      collection(
+        database,
+        "users",
+        uid,
+        "projects",
+        projectId,
+        childCollection
+      )
+    );
+
+    await Promise.all(
+      snapshot.docs.map(item => deleteDoc(item.ref))
+    );
+  }
+
   await deleteDoc(projectRef(uid, projectId));
 }
 
