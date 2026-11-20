@@ -156,6 +156,7 @@ export async function ensureUserProfile(user) {
       institution: "",
       website: "",
       accentColor: "#0f62fe",
+      profileShell: "default",
       providerIds,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp()
@@ -188,6 +189,9 @@ export async function updateUserProfileDocument(uid, changes) {
     accentColor: /^#[0-9a-f]{6}$/i.test(changes.accentColor || "")
       ? changes.accentColor
       : "#0f62fe",
+    profileShell: ["default", "territory"].includes(changes.profileShell)
+      ? changes.profileShell
+      : "default",
     updatedAt: serverTimestamp()
   };
 
