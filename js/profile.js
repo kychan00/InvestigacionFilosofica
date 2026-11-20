@@ -782,6 +782,13 @@ function resetSubprojectForm() {
 }
 
 function renderSubprojects() {
+  if (
+    !["all", "unfiled"].includes(activeSubprojectFilter) &&
+    !subprojects.some(item => item.id === activeSubprojectFilter)
+  ) {
+    activeSubprojectFilter = "all";
+  }
+
   if (!selectedProjectId) {
     subprojectList.innerHTML = "";
     subprojectManageList.innerHTML = "";
@@ -1522,6 +1529,10 @@ projectCreateForm.addEventListener("submit", async event => {
   projectCreateForm.elements.status.value = "active";
 
   pendingProjectSelectionId = id;
+  if (projects.some(project => project.id === id)) {
+    pendingProjectSelectionId = "";
+    selectProject(id);
+  }
 });
 
 projectGrid.addEventListener("click", event => {
@@ -1668,7 +1679,7 @@ subprojectManageList.addEventListener("click", async event => {
     );
     if (!item) return;
 
-    if (!confirm(`¿Eliminar el subproyecto "${item.title}"?`)) return;
+    if (!confirm(`¿Eliminar la colección "${item.title}"?`)) return;
 
     await deleteSubproject(
       currentUser.uid,
