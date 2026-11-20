@@ -51,6 +51,9 @@ const previewBio = document.querySelector("#profile-preview-bio");
 
 const signoutButton = document.querySelector("#profile-signout");
 const signoutSecondary = document.querySelector("#profile-signout-secondary");
+const settingsBackButton = document.querySelector("#profile-settings-back");
+const profileSaveButton = document.querySelector("#profile-save-button");
+const profileSaveStatus = document.querySelector("#profile-save-status");
 
 const profilePanels = [...document.querySelectorAll("[data-profile-panel]")];
 const profileNavLinks = [...document.querySelectorAll("[data-profile-nav]")];
@@ -1324,26 +1327,67 @@ profileSettingsForm.addEventListener("submit", async event => {
   if (!currentUser) return;
 
   const data = new FormData(profileSettingsForm);
+  const originalLabel = profileSaveButton.textContent;
 
-  await updateUserProfileDocument(currentUser.uid, {
-    displayName: data.get("displayName"),
-    institution: data.get("institution"),
-    website: data.get("website"),
-    accentColor: data.get("accentColor"),
-    bio: data.get("bio")
-  });
+  profileSaveButton.disabled = true;
+  profileSaveButton.setAttribute("aria-busy", "true");
+  profileSaveButton.textContent = "Guardando…";
+  profileSaveStatus.textContent = "";
 
-  const displayName = String(data.get("displayName") || "").trim();
-  if (displayName && displayName !== currentUser.displayName) {
-    await updateAuthProfile(currentUser, { displayName });
+  try {
+    await updateUserProfileDocument(currentUser.uid, {
+      displayName: data.get("displayName"),
+      institution: data.get("institution"),
+      website: data.get("website"),
+      accentColor: data.get("accentColor"),
+      bio: data.get("bio")
+    });
+
+    const displayName = String(data.get("displayName") || "").trim();
+    if (displayName && displayName !== currentUser.displayName) {
+      await updateAuthProfile(currentUser, { displayName });
+    }
+
+    currentProfile = await getUserProfile(currentUser.uid);
+    fillProfileForm();
+    renderIdentity();
+
+    profileSaveButton.textContent = "Guardado ✓";
+    profileSaveStatus.textContent = "Cambios guardados.";
+
+    window.setTimeout(() => {
+      setActivePanel("resumen", {
+        updateHash: true,
+        scroll: true
+      });
+
+      profileSaveButton.disabled = false;
+      profileSaveButton.removeAttribute("aria-busy");
+      profileSaveButton.textContent = originalLabel;
+      profileSaveStatus.textContent = "";
+    }, 480);
+  } catch (error) {
+    console.error("No se pudo guardar el perfil.", error);
+
+    profileSaveButton.disabled = false;
+    profileSaveButton.removeAttribute("aria-busy");
+    profileSaveButton.textContent = originalLabel;
+    profileSaveStatus.textContent =
+      "No fue posible guardar los cambios. Intente de nuevo.";
+    profileSaveStatus.classList.add("is-error");
   }
+});
 
-  currentProfile = await getUserProfile(currentUser.uid);
-  fillProfileForm();
-  renderIdentity();
+settingsBackButton.addEventListener("click", () => {
+  setActivePanel("resumen", {
+    updateHash: true,
+    scroll: true
+  });
 });
 
 profileSettingsForm.addEventListener("input", event => {
+  profileSaveStatus.textContent = "";
+  profileSaveStatus.classList.remove("is-error");
   if (event.target?.name === "accentColor") {
     applyProfileAccent(event.target.value);
   }
