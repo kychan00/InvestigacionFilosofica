@@ -1,3 +1,9 @@
+import {
+  clearVerifiedAuthHint,
+  hasVerifiedAuthHint,
+  markVerifiedAuthHint
+} from "./auth-session-hint.js";
+
 const SITE_ROOT = new URL("../", import.meta.url);
 
 const PENDING_KEY = "research-pending-save-v1";
@@ -74,7 +80,14 @@ async function getVerifiedUser(runtime) {
   }
 
   const user = runtime.auth.currentUser;
-  return user?.emailVerified ? user : null;
+
+  if (user?.emailVerified) {
+    markVerifiedAuthHint();
+    return user;
+  }
+
+  clearVerifiedAuthHint();
+  return null;
 }
 
 function stagePendingAction(type, payload) {
@@ -131,8 +144,26 @@ function showToast(toast, message) {
   }, 3400);
 }
 
+function isSaveIcon(button) {
+  return Boolean(button?.hasAttribute("data-save-icon"));
+}
+
 function setSavingState(button, text = "Guardando…") {
   if (!button) return;
+
+  if (isSaveIcon(button)) {
+    if (!button.dataset.originalLabel) {
+      button.dataset.originalLabel =
+        button.getAttribute("aria-label") || "Guardar";
+    }
+
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    button.classList.add("is-saving");
+    button.setAttribute("aria-label", text);
+    button.title = text;
+    return;
+  }
 
   if (!button.dataset.originalText) {
     button.dataset.originalText =
@@ -150,6 +181,15 @@ function setSavedState(button, text = "Guardada") {
   button.disabled = true;
   button.removeAttribute("aria-busy");
   button.dataset.saved = "true";
+
+  if (isSaveIcon(button)) {
+    button.classList.remove("is-saving");
+    button.classList.add("is-saved");
+    button.setAttribute("aria-label", "Guardado");
+    button.title = "Guardado";
+    return;
+  }
+
   button.textContent = text;
 }
 
@@ -158,6 +198,15 @@ function restoreButton(button, fallback = "Guardar") {
 
   button.disabled = false;
   button.removeAttribute("aria-busy");
+
+  if (isSaveIcon(button)) {
+    button.classList.remove("is-saving", "is-saved");
+    const label = button.dataset.originalLabel || fallback;
+    button.setAttribute("aria-label", label);
+    button.title = label;
+    return;
+  }
+
   button.textContent =
     button.dataset.originalText || fallback;
 }
@@ -185,7 +234,7 @@ function mountAccountDock() {
   dock.innerHTML = `
     <a
       class="account-trigger"
-      href="${authUrl("login")}"
+      href="${hasVerifiedAuthHint() ? siteUrl("perfil.html") : authUrl("login")}"
       aria-label="Abrir cuenta de investigación"
       title="Cuenta de investigación"
     >
