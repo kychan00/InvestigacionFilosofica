@@ -391,6 +391,21 @@ test("personal accent controls the whole private profile and previews live", () 
   assert.match(profile, /applyProfileAccent\(event\.target\.value\)/);
 });
 
+test("private profile bootstrap cannot hang on remote auth or Firestore", () => {
+  const page = read("perfil.html");
+  const profile = read("js/profile.js");
+
+  assert.match(profile, /PROFILE_NETWORK_TIMEOUT_MS/);
+  assert.match(profile, /PROFILE_BOOT_WATCHDOG_MS/);
+  assert.match(profile, /function withTimeout/);
+  assert.match(profile, /refreshVerificationOnlyWhenNeeded/);
+  assert.match(profile, /if \(user\?\.emailVerified\) return true/);
+  assert.doesNotMatch(profile, /await user\.reload\(\);/);
+  assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
+  assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
+  assert.match(page, /profile\.js\?v=20261120-profile-bootstrap-v5/);
+});
+
 test("private profile does not flash the login gate for authenticated users", () => {
   const page = read("perfil.html");
   const profile = read("js/profile.js");
