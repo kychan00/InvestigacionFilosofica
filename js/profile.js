@@ -1096,9 +1096,13 @@ function selectProject(id) {
   if (typeof unsubscribeProjectWorks === "function") {
     unsubscribeProjectWorks();
   }
+  if (typeof unsubscribeProjectAuthors === "function") {
+    unsubscribeProjectAuthors();
+  }
 
   subprojects = [];
   projectWorks = [];
+  projectAuthors = [];
   renderSubprojects();
   renderProjectWorks();
   renderProjectAuthors();
@@ -1126,6 +1130,19 @@ function selectProject(id) {
       renderProjectWorks();
       renderProjectAuthors();
       drawProjectAtlas();
+    }
+  );
+
+  unsubscribeProjectAuthors = subscribeProjectAuthors(
+    currentUser.uid,
+    selectedProjectId,
+    items => {
+      projectAuthors = items;
+      projectAuthorIndex.set(selectedProjectId, items);
+      renderSubprojects();
+      renderProjectAuthors();
+      renderProjectStats();
+      renderAuthors();
     }
   );
 
