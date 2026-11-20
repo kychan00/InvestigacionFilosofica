@@ -36,6 +36,11 @@
   height: 20px;
 }
 
+body.modal-open .account-dock {
+  z-index: 90;
+  pointer-events: none;
+}
+
 .account-trigger.is-authenticated {
   background: #0f62fe;
   color: #fff;
