@@ -1,4 +1,7 @@
 import {
+  createWorkSaveButton
+} from "./public-save-controls.js";
+import {
   PAGE_SIZE,
   approvedInstitutionalUrl,
   approvedReferenceUrl,
@@ -544,6 +547,22 @@ function editorialCard(record) {
   return card;
 }
 
+function thesisSavePayload(record, referenceUrl = "") {
+  return {
+    id: record.canonicalWorkId || record.id || record.handle || record.title,
+    title: record.title || "Tesis sin título",
+    authors: splitThesisPeople(record.authors).map(name => ({ name })),
+    year: record.year ?? null,
+    type: "thesis",
+    abstract: record.abstractExcerpt || record.philosophyEvidence || "",
+    tags: record.keywords || [],
+    referenceUrl: referenceUrl || record.sourceUrl || "",
+    providers: [
+      record.institutionAcronym || record.institution || "Archivo de tesis"
+    ].filter(Boolean)
+  };
+}
+
 function sourceCard(record) {
   if (isUdgEditorial()) return editorialCard(record);
   const udgPhilosophy = isUdgPhilosophy();
@@ -692,6 +711,13 @@ function sourceCard(record) {
   });
   actions.append(copy);
   card.append(actions);
+
+  const save = createWorkSaveButton(
+    thesisSavePayload(record, referenceUrl),
+    { label: "Guardar tesis en mi biblioteca" }
+  );
+  if (save) card.append(save);
+
   return card;
 }
 
