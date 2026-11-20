@@ -517,12 +517,12 @@ export async function attachWorkToProject(
 }
 
 const PROJECT_WORK_CARD_STYLES = new Set([
-  "archive",
-  "paper",
-  "index",
-  "folio",
-  "night",
-  "signal"
+  "default",
+  "protrepsis",
+  "sincronia",
+  "quadripartita",
+  "thesis",
+  "author-archive"
 ]);
 
 export async function updateProjectWorkPresentation(
@@ -530,12 +530,12 @@ export async function updateProjectWorkPresentation(
   projectId,
   workId,
   {
-    cardStyle = "archive"
+    cardStyle = "default"
   } = {}
 ) {
   const style = PROJECT_WORK_CARD_STYLES.has(cardStyle)
     ? cardStyle
-    : "archive";
+    : "default";
 
   await updateDoc(
     projectWorkRef(uid, projectId, workId),
