@@ -129,6 +129,10 @@ let projectWorks = [];
 let projectAuthors = [];
 let identityDecisions = [];
 let cardCatalogWorkId = "";
+let activeWorkspaceUid = "";
+
+const PROFILE_NETWORK_TIMEOUT_MS = 4500;
+const PROFILE_BOOT_WATCHDOG_MS = 8000;
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -210,6 +214,75 @@ function safeUrl(value) {
       : "";
   } catch {
     return "";
+  }
+}
+
+function withTimeout(promise, timeoutMs, label = "operation") {
+  let timer = 0;
+
+  const timeout = new Promise((_, reject) => {
+    timer = window.setTimeout(() => {
+      const error = new Error(`${label}-timeout`);
+      error.code = "profile/network-timeout";
+      reject(error);
+    }, timeoutMs);
+  });
+
+  return Promise.race([promise, timeout])
+    .finally(() => window.clearTimeout(timer));
+}
+
+async function refreshVerificationOnlyWhenNeeded(user) {
+  if (user?.emailVerified) return true;
+
+  try {
+    await withTimeout(
+      user.reload(),
+      PROFILE_NETWORK_TIMEOUT_MS,
+      "auth-reload"
+    );
+  } catch (error) {
+    console.warn(
+      "La verificación remota de la sesión tardó demasiado; se conserva el estado local.",
+      error
+    );
+  }
+
+  return Boolean(user?.emailVerified);
+}
+
+async function hydratePrivateProfile(user) {
+  try {
+    let profile = await withTimeout(
+      getUserProfile(user.uid),
+      PROFILE_NETWORK_TIMEOUT_MS,
+      "profile-read"
+    );
+
+    if (!profile) {
+      await withTimeout(
+        ensureUserProfile(user),
+        PROFILE_NETWORK_TIMEOUT_MS,
+        "profile-create"
+      );
+
+      profile = await withTimeout(
+        getUserProfile(user.uid),
+        PROFILE_NETWORK_TIMEOUT_MS,
+        "profile-read-after-create"
+      );
+    }
+
+    if (currentUser?.uid !== user.uid || !profile) return;
+
+    currentProfile = profile;
+    fillProfileForm();
+    renderIdentity();
+  } catch (error) {
+    console.warn(
+      "El perfil privado no respondió a tiempo. El espacio continúa disponible con la identidad de la sesión.",
+      error
+    );
   }
 }
 
@@ -2214,11 +2287,18 @@ function drawProjectAtlas() {
 }
 
 async function loadPrivateWorkspace(user) {
+  if (!user?.uid) return;
+  if (activeWorkspaceUid === user.uid && !workspace.hidden) return;
+
+  activeWorkspaceUid = user.uid;
   currentUser = user;
+  currentProfile = null;
   markVerifiedAuthHint();
 
-  await ensureUserProfile(user);
-  currentProfile = await getUserProfile(user.uid);
+  stopRealtimeListeners();
+
+  // Never make the visible workspace depend on a Firestore round trip.
+  // Firebase Auth already owns the local session; profile metadata hydrates after paint.
   fillProfileForm();
   renderIdentity();
   showWorkspace();
@@ -2233,8 +2313,6 @@ async function loadPrivateWorkspace(user) {
       : "resumen",
     { updateHash: false, scroll: false }
   );
-
-  stopRealtimeListeners();
 
   unsubscribeProjects = subscribeProjects(
     user.uid,
@@ -2296,6 +2374,9 @@ async function loadPrivateWorkspace(user) {
       renderProjectStats();
     }
   );
+
+  // Profile metadata is useful, but it must never hold the whole private UI hostage.
+  void hydratePrivateProfile(user);
 }
 
 function setActivePanel(id, {
@@ -2953,8 +3034,28 @@ if (!firebaseReady()) {
     "La interfaz está instalada, pero este despliegue todavía no tiene un proyecto Firebase configurado. Añada firebaseConfig para activar cuentas y datos privados."
   );
 } else {
+  const bootWatchdog = window.setTimeout(() => {
+    if (!document.body.classList.contains("profile-auth-pending")) return;
+
+    const fallbackUser = auth?.currentUser;
+    if (fallbackUser?.emailVerified) {
+      console.warn(
+        "Firebase Auth tardó en emitir el estado inicial; usando la sesión local verificada."
+      );
+      void loadPrivateWorkspace(fallbackUser);
+      return;
+    }
+
+    showGate(
+      "La sesión tardó demasiado en responder. Puede volver a entrar sin perder sus datos privados."
+    );
+  }, PROFILE_BOOT_WATCHDOG_MS);
+
   onAuthStateChanged(auth, async user => {
+    window.clearTimeout(bootWatchdog);
+
     stopRealtimeListeners();
+    activeWorkspaceUid = "";
     selectedProjectId = "";
     projects = [];
     library = [];
@@ -2972,9 +3073,9 @@ if (!firebaseReady()) {
       return;
     }
 
-    await user.reload();
+    const verified = await refreshVerificationOnlyWhenNeeded(user);
 
-    if (!user.emailVerified) {
+    if (!verified) {
       clearVerifiedAuthHint();
       currentUser = null;
       currentProfile = null;
@@ -2987,9 +3088,11 @@ if (!firebaseReady()) {
     try {
       await loadPrivateWorkspace(user);
     } catch (error) {
-      console.error("No se pudo cargar el espacio privado.", error);
+      console.error("No se pudo iniciar el espacio privado.", error);
+
+      // Even an unexpected bootstrap error must never leave the user on an infinite loader.
       showGate(
-        "No fue posible cargar su espacio privado. Revise la configuración de Firebase y las reglas de Firestore."
+        "No fue posible iniciar su espacio privado. Vuelva a entrar; sus datos permanecen en Firebase."
       );
     }
   });
