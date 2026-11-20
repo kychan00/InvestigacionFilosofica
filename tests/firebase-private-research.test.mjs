@@ -33,17 +33,21 @@ test("manual works are explicitly separated from the public corpus", () => {
   assert.match(page, /no entra al corpus/i);
 });
 
-test("account surface contains required authentication flows", () => {
-  const account = read("js/account-menu.js");
+test("dedicated auth page contains required authentication flows", () => {
+  const auth = read("js/auth-page.js");
+  const page = read("auth/index.html");
 
-  assert.match(account, /createUserWithEmailAndPassword/);
-  assert.match(account, /signInWithEmailAndPassword/);
-  assert.match(account, /GoogleAuthProvider/);
-  assert.match(account, /signInWithPopup/);
-  assert.match(account, /sendEmailVerification/);
-  assert.match(account, /sendPasswordResetEmail/);
-  assert.match(account, />Login</);
-  assert.match(account, />Registro</);
+  assert.match(auth, /createUserWithEmailAndPassword/);
+  assert.match(auth, /signInWithEmailAndPassword/);
+  assert.match(auth, /GoogleAuthProvider/);
+  assert.match(auth, /signInWithPopup/);
+  assert.match(auth, /sendEmailVerification/);
+  assert.match(auth, /sendPasswordResetEmail/);
+  assert.match(page, /data-mode-tab="login"/);
+  assert.match(page, /data-mode-tab="register"/);
+  assert.match(page, /google-mark/);
+  assert.match(page, /hero-school-athens\.jpg/);
+  assert.match(page, /dominio público/i);
 });
 
 test("public search emits private save actions without importing Firestore", () => {
@@ -85,6 +89,7 @@ test("new browser modules parse as JavaScript", () => {
     "js/firebase-client.js",
     "js/user-data.js",
     "js/account-menu.js",
+    "js/auth-page.js",
     "js/profile.js"
   ];
 
@@ -117,7 +122,7 @@ test("Firebase browser SDK version is pinned consistently", () => {
   for (const file of [
     "js/firebase-client.js",
     "js/user-data.js",
-    "js/account-menu.js",
+    "js/auth-page.js",
     "js/profile.js"
   ]) {
     assert.match(read(file), /firebasejs\/13\.3\.0\//);
@@ -146,12 +151,28 @@ test("account dock yields to the site menu and modals", () => {
 });
 
 
-test("account menu does not fetch Firebase until account interaction", () => {
+test("public account dock is navigation-only and has no auth modal", () => {
   const account = read("js/account-menu.js");
+  const css = read("css/account.css");
 
   assert.doesNotMatch(account, /^import\s+[\s\S]*firebase-auth\.js/m);
-  assert.doesNotMatch(account, /^import\s+[\s\S]*firebase-client\.js/m);
-  assert.match(account, /import\(FIREBASE_AUTH_URL\)/);
+  assert.doesNotMatch(account, /auth-dialog|account-panel/);
+  assert.match(account, /auth\/index\.html/);
   assert.match(account, /import\("\.\/firebase-client\.js"\)/);
-  assert.match(account, /async function prepareAccountState/);
+  assert.match(account, /research-library:save-work/);
+  assert.doesNotMatch(css, /\.auth-dialog|\.account-panel/);
+});
+
+
+test("authentication is a dedicated philosophical page, not a modal", () => {
+  const page = read("auth/index.html");
+  const css = read("css/auth.css");
+  const account = read("js/account-menu.js");
+
+  assert.match(page, /Cuenta de investigación/);
+  assert.match(page, /La Escuela de Atenas/);
+  assert.match(page, /Cuenta mínima, investigación privada/);
+  assert.match(css, /\.auth-layout/);
+  assert.match(css, /url\("\.\.\/assets\/hero-school-athens\.jpg"\)/);
+  assert.doesNotMatch(account, /aria-modal|role="dialog"/);
 });
