@@ -420,6 +420,14 @@
         </section>
 
         <section id="mi-perfil" class="profile-section" data-profile-panel hidden>
+          <button
+            id="profile-settings-back"
+            class="profile-section-back"
+            type="button"
+          >
+            ← Volver a mi investigación
+          </button>
+
           <header class="profile-section-head">
             <div>
               <span class="profile-kicker">05 / PERFIL</span>
@@ -458,7 +466,19 @@
               </label>
               <label class="is-wide"><span>Bio</span><textarea name="bio" rows="6"></textarea></label>
               <div class="profile-settings-actions is-wide">
-                <button class="profile-primary-button" type="submit">Guardar perfil</button>
+                <button
+                  id="profile-save-button"
+                  class="profile-primary-button"
+                  type="submit"
+                >
+                  Guardar perfil
+                </button>
+                <span
+                  id="profile-save-status"
+                  class="profile-save-status"
+                  role="status"
+                  aria-live="polite"
+                ></span>
                 <button id="profile-signout-secondary" type="button">Cerrar sesión</button>
               </div>
             </form>
