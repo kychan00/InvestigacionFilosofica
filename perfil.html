@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#161616">
+  <meta name="theme-color" content="#f1ece2">
 
   <script>
     (() => {
@@ -25,134 +25,200 @@
 
   <link rel="stylesheet" href="./css/app.css">
   <link rel="stylesheet" href="./css/theme.css?v=20261109-author-timeline-v2">
-  <link rel="stylesheet" href="./css/profile.css?v=20261120-private-research-v1">
+  <link rel="stylesheet" href="./css/profile.css?v=20261120-pinboard-profile-v1">
 </head>
 
-<body class="profile-page">
+<body class="profile-page profile-auth-pending">
   <header class="profile-topbar">
     <a class="profile-brand" href="./">
       <span class="profile-brand-mark">Φ</span>
       <span>
         Investigación Filosófica
-        <small>Espacio personal de investigación</small>
+        <small>Espacio personal</small>
       </span>
     </a>
 
-    <nav class="profile-topbar-links" aria-label="Navegación">
+    <nav class="profile-topbar-links" aria-label="Navegación pública">
       <a href="./">Investigación</a>
       <a href="./tesis.html">Tesis</a>
       <a href="./articulos.html">Artículos</a>
       <a href="./acerca.html">Acerca de</a>
     </nav>
 
-    <div class="theme-switch" role="group" aria-label="Apariencia">
-      <button type="button" data-theme-choice="light" aria-pressed="false">Claro</button>
-      <button type="button" data-theme-choice="dark" aria-pressed="false">Oscuro</button>
+    <div class="profile-topbar-actions">
+      <div class="theme-switch" role="group" aria-label="Apariencia">
+        <button type="button" data-theme-choice="light" aria-pressed="false">Claro</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false">Oscuro</button>
+      </div>
+      <button id="profile-signout" class="profile-signout" type="button" hidden>Salir</button>
     </div>
   </header>
 
   <main class="profile-shell">
-    <section id="profile-gate" class="profile-gate">
-      <span class="profile-kicker">ESPACIO PERSONAL</span>
-      <h1>Su investigación, organizada como un territorio propio.</h1>
-      <p id="profile-gate-copy">
-        Inicie sesión para acceder a obras guardadas, autores, proyectos y atlas privados.
-      </p>
-      <button id="profile-gate-login" type="button">Login / Registro</button>
+    <section id="profile-loading" class="profile-loading" aria-live="polite">
+      <span class="profile-loading-mark">Φ</span>
+      <div>
+        <strong>Abriendo su archivo privado</strong>
+        <small>Recuperando proyectos, biblioteca y autores…</small>
+      </div>
+    </section>
+
+    <section id="profile-gate" class="profile-gate" hidden>
+      <div class="profile-gate-art" aria-hidden="true"></div>
+      <div class="profile-gate-copy">
+        <span class="profile-kicker">ESPACIO PERSONAL</span>
+        <h1>Su investigación merece un lugar propio.</h1>
+        <p id="profile-gate-copy">
+          Inicie sesión para acceder a obras guardadas, autores, proyectos y atlas privados.
+        </p>
+        <button id="profile-gate-login" type="button">Entrar / Registrarme</button>
+      </div>
     </section>
 
     <div id="profile-workspace" class="profile-workspace" hidden>
-      <aside class="profile-sidebar">
-        <section class="profile-identity-card">
-          <div id="profile-avatar" class="profile-avatar">Φ</div>
-          <div>
-            <span class="profile-kicker">INVESTIGADOR</span>
-            <strong id="profile-display-name">—</strong>
-            <small id="profile-email">—</small>
+      <section class="profile-cover">
+        <div class="profile-cover-art" aria-hidden="true">
+          <span>“Pensar también es ordenar afinidades.”</span>
+        </div>
+
+        <div class="profile-cover-body">
+          <div class="profile-persona">
+            <div id="profile-avatar" class="profile-avatar">Φ</div>
+            <div class="profile-persona-copy">
+              <span class="profile-kicker">MI ARCHIVO DE INVESTIGACIÓN</span>
+              <h1 id="profile-display-name">—</h1>
+              <p id="profile-persona-meta">—</p>
+              <p id="profile-persona-bio" class="profile-persona-bio">
+                Un espacio privado para guardar preguntas, lecturas y relaciones.
+              </p>
+            </div>
           </div>
-        </section>
+
+          <aside class="profile-cover-note">
+            <span class="profile-cover-note-index">Φ / PRIVATE</span>
+            <p>
+              Una biblioteca visual para pensar por constelaciones: proyectos,
+              obras, autores y notas que se conectan sin alterar el archivo público.
+            </p>
+          </aside>
+        </div>
 
         <nav class="profile-nav" aria-label="Mi investigación">
-          <a href="#resumen" data-profile-nav="resumen">01 / Resumen</a>
-          <a href="#proyectos" data-profile-nav="proyectos">02 / Proyectos</a>
-          <a href="#biblioteca" data-profile-nav="biblioteca">03 / Biblioteca</a>
-          <a href="#autores" data-profile-nav="autores">04 / Autores</a>
-          <a href="#mi-perfil" data-profile-nav="mi-perfil">05 / Perfil</a>
+          <a href="#resumen" data-profile-nav="resumen" class="is-active">
+            <span>01</span> Inicio
+          </a>
+          <a href="#proyectos" data-profile-nav="proyectos">
+            <span>02</span> Proyectos
+          </a>
+          <a href="#biblioteca" data-profile-nav="biblioteca">
+            <span>03</span> Biblioteca
+          </a>
+          <a href="#autores" data-profile-nav="autores">
+            <span>04</span> Autores
+          </a>
+          <a href="#mi-perfil" data-profile-nav="mi-perfil">
+            <span>05</span> Mi perfil
+          </a>
         </nav>
-
-        <p class="profile-privacy-note">
-          Todo lo que cree aquí pertenece a su espacio privado. Las entradas manuales
-          no se añaden al corpus público.
-        </p>
-      </aside>
+      </section>
 
       <div class="profile-content">
-        <section id="resumen" class="profile-section profile-overview">
+        <section id="resumen" class="profile-section is-active" data-profile-panel>
           <header class="profile-section-head">
             <div>
-              <span class="profile-kicker">01 / RESUMEN</span>
-              <h1>Mi investigación</h1>
+              <span class="profile-kicker">01 / CONSTELACIÓN PERSONAL</span>
+              <h2>Su mesa de trabajo</h2>
             </div>
             <p>
-              Una capa privada sobre el archivo público para construir bibliotecas,
-              proyectos y mapas de trabajo sin alterar el corpus.
+              No es un dashboard: es una vista de aquello que usted está leyendo,
+              siguiendo y convirtiendo en investigación.
             </p>
           </header>
 
-          <div class="profile-metrics">
-            <article>
+          <div class="profile-pinboard">
+            <article class="profile-pin profile-pin-metric profile-pin-accent">
+              <span class="profile-pin-label">PROYECTOS</span>
               <strong id="metric-projects">0</strong>
-              <span>proyectos</span>
+              <p>Preguntas que ya tienen un territorio propio.</p>
+              <button type="button" data-profile-jump="proyectos">Ver proyectos →</button>
             </article>
-            <article>
+
+            <article class="profile-pin profile-pin-quote">
+              <span class="profile-pin-label">NOTA AL MARGEN</span>
+              <blockquote>
+                Una biblioteca personal no ordena solamente libros: ordena posibilidades de lectura.
+              </blockquote>
+            </article>
+
+            <article class="profile-pin profile-pin-metric">
+              <span class="profile-pin-label">OBRAS GUARDADAS</span>
               <strong id="metric-works">0</strong>
-              <span>obras guardadas</span>
+              <p>Textos que decidió apartar del ruido general.</p>
+              <button type="button" data-profile-jump="biblioteca">Abrir biblioteca →</button>
             </article>
-            <article>
+
+            <article class="profile-pin profile-pin-principle">
+              <span class="profile-pin-label">PÚBLICO / PRIVADO</span>
+              <h3>El archivo sigue siendo público. Su trabajo, no.</h3>
+              <p>
+                Guardar una obra no modifica el registro original. Sus asociaciones,
+                proyectos y entradas manuales pertenecen únicamente a su cuenta.
+              </p>
+            </article>
+
+            <article class="profile-pin profile-pin-metric profile-pin-tall">
+              <span class="profile-pin-label">AUTORES</span>
               <strong id="metric-authors">0</strong>
-              <span>autores guardados</span>
+              <p>
+                Identidades bibliográficas que quiere tener cerca para volver a ellas.
+              </p>
+              <button type="button" data-profile-jump="autores">Ver autores →</button>
             </article>
-            <article>
+
+            <article class="profile-pin profile-pin-atlas">
+              <span class="profile-pin-label">ATLAS PRIVADO</span>
+              <h3>Los proyectos pueden convertirse en mapas.</h3>
+              <p>
+                Título, abstract, autor y etiquetas forman conexiones dentro de cada
+                proyecto sin alterar el corpus general.
+              </p>
+              <div class="profile-mini-atlas" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </article>
+
+            <article class="profile-pin profile-pin-metric">
+              <span class="profile-pin-label">ENTRADAS PRIVADAS</span>
               <strong id="metric-private">0</strong>
-              <span>entradas privadas</span>
-            </article>
-          </div>
-
-          <div class="profile-overview-grid">
-            <article class="profile-principle">
-              <span>PUBLIC / PRIVATE</span>
-              <h2>El archivo sigue siendo público. Su trabajo, no.</h2>
-              <p>
-                Guardar una obra no modifica su registro original. Agregar una obra manual
-                crea únicamente una referencia privada ligada a su cuenta.
-              </p>
+              <p>Referencias que existen únicamente dentro de su archivo.</p>
             </article>
 
-            <article class="profile-principle">
-              <span>PROJECT ATLAS</span>
-              <h2>Cada proyecto construye su propia cartografía.</h2>
+            <article class="profile-pin profile-pin-color">
+              <span class="profile-pin-label">IDENTIDAD</span>
+              <div class="profile-color-orbit" aria-hidden="true"></div>
+              <h3>Su color también organiza el espacio.</h3>
               <p>
-                El Atlas privado conecta las obras asignadas al proyecto mediante
-                coincidencias de autores, etiquetas y vocabulario de título + abstract.
+                El tono personal aparece en navegación, botones, énfasis y tarjetas.
               </p>
+              <button type="button" data-profile-jump="mi-perfil">Personalizar →</button>
             </article>
           </div>
         </section>
 
-        <section id="proyectos" class="profile-section">
+        <section id="proyectos" class="profile-section" data-profile-panel hidden>
           <header class="profile-section-head">
             <div>
               <span class="profile-kicker">02 / PROYECTOS</span>
-              <h2>Proyectos de investigación</h2>
+              <h2>Tableros para cada pregunta</h2>
             </div>
             <p>
-              Cada proyecto puede tener pregunta, área, palabras clave, colores,
-              subproyectos, biblioteca y Atlas propios.
+              Cada proyecto puede reunir pregunta, área, palabras clave, colores,
+              subproyectos, biblioteca y un Atlas propio.
             </p>
           </header>
 
-          <details class="profile-editor" open>
-            <summary>Crear nuevo proyecto</summary>
+          <details class="profile-editor">
+            <summary>+ Crear un nuevo proyecto</summary>
             <form id="project-create-form" class="profile-form profile-form-grid">
               <label>
                 <span>Título</span>
@@ -277,11 +343,11 @@
           </section>
         </section>
 
-        <section id="biblioteca" class="profile-section">
+        <section id="biblioteca" class="profile-section" data-profile-panel hidden>
           <header class="profile-section-head">
             <div>
               <span class="profile-kicker">03 / BIBLIOTECA</span>
-              <h2>Obras guardadas</h2>
+              <h2>Una pared de lecturas</h2>
             </div>
             <p>
               Aquí conviven referencias guardadas desde el motor y entradas manuales privadas.
@@ -289,7 +355,7 @@
           </header>
 
           <details class="profile-editor">
-            <summary>Agregar trabajo que no existe en el motor</summary>
+            <summary>+ Agregar un trabajo que no existe en el motor</summary>
             <form id="manual-work-form" class="profile-form profile-form-grid">
               <label class="is-wide">
                 <span>Título *</span>
@@ -340,44 +406,69 @@
           <div id="library-list" class="library-list"></div>
         </section>
 
-        <section id="autores" class="profile-section">
+        <section id="autores" class="profile-section" data-profile-panel hidden>
           <header class="profile-section-head">
             <div>
               <span class="profile-kicker">04 / AUTORES</span>
-              <h2>Autores guardados</h2>
+              <h2>Una constelación de voces</h2>
             </div>
             <p>
-              Accesos personales a identidades bibliográficas que quiera seguir consultando.
+              Accesos personales a identidades bibliográficas a las que quiere regresar.
             </p>
           </header>
           <div id="saved-author-list" class="saved-author-list"></div>
         </section>
 
-        <section id="mi-perfil" class="profile-section">
+        <section id="mi-perfil" class="profile-section" data-profile-panel hidden>
           <header class="profile-section-head">
             <div>
               <span class="profile-kicker">05 / PERFIL</span>
-              <h2>Perfil personal</h2>
+              <h2>Dar forma a su espacio</h2>
             </div>
             <p>
-              Personalice cómo se presenta su espacio. Estos datos no convierten su perfil en público.
+              Estos datos siguen siendo privados. Aquí decide cómo se siente y se reconoce su archivo.
             </p>
           </header>
 
-          <form id="profile-settings-form" class="profile-form profile-settings-form">
-            <label><span>Nombre visible</span><input name="displayName" maxlength="160"></label>
-            <label><span>Institución</span><input name="institution" maxlength="300"></label>
-            <label><span>Sitio personal</span><input name="website" type="url"></label>
-            <label><span>Color personal</span><input name="accentColor" type="color" value="#0f62fe"></label>
-            <label class="is-wide"><span>Bio</span><textarea name="bio" rows="6"></textarea></label>
-            <button class="profile-primary-button" type="submit">Guardar perfil</button>
-          </form>
+          <div class="profile-settings-layout">
+            <aside class="profile-settings-preview">
+              <span class="profile-pin-label">VISTA PREVIA</span>
+              <div id="profile-preview-avatar" class="profile-preview-avatar">Φ</div>
+              <h3 id="profile-preview-name">Investigador</h3>
+              <p id="profile-preview-institution">Sin institución indicada</p>
+              <blockquote id="profile-preview-bio">
+                Su bio aparecerá aquí como una pequeña nota de autor.
+              </blockquote>
+              <div class="profile-preview-accent">
+                <span></span>
+                <small>Color personal</small>
+              </div>
+            </aside>
+
+            <form id="profile-settings-form" class="profile-form profile-settings-form">
+              <label><span>Nombre visible</span><input name="displayName" maxlength="160"></label>
+              <label><span>Institución</span><input name="institution" maxlength="300"></label>
+              <label><span>Sitio personal</span><input name="website" type="url"></label>
+              <label>
+                <span>Color personal</span>
+                <div class="profile-color-control">
+                  <input name="accentColor" type="color" value="#0f62fe">
+                  <small>Se previsualiza al instante.</small>
+                </div>
+              </label>
+              <label class="is-wide"><span>Bio</span><textarea name="bio" rows="6"></textarea></label>
+              <div class="profile-settings-actions is-wide">
+                <button class="profile-primary-button" type="submit">Guardar perfil</button>
+                <button id="profile-signout-secondary" type="button">Cerrar sesión</button>
+              </div>
+            </form>
+          </div>
         </section>
       </div>
     </div>
   </main>
 
   <script type="module" src="./js/theme.js?v=20261120-account-v1"></script>
-  <script type="module" src="./js/profile.js?v=20261120-private-research-v1"></script>
+  <script type="module" src="./js/profile.js?v=20261120-pinboard-profile-v1"></script>
 </body>
 </html>
