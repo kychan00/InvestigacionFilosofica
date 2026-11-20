@@ -41,6 +41,12 @@ body.modal-open .account-dock {
   pointer-events: none;
 }
 
+body.site-menu-open .account-dock {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .account-trigger.is-authenticated {
   background: #0f62fe;
   color: #fff;
