@@ -2620,8 +2620,14 @@ libraryList.addEventListener("click", async event => {
 });
 
 savedAuthorList.addEventListener("click", async event => {
+  const open = event.target.closest("[data-author-open]");
   const attach = event.target.closest("[data-author-attach]");
   const remove = event.target.closest("[data-author-delete]");
+
+  if (open) {
+    openSavedAuthorView(open.dataset.authorOpen || "");
+    return;
+  }
 
   if (attach && currentUser) {
     const authors = mergedSavedAuthors();
@@ -2709,6 +2715,12 @@ projectAuthorList.addEventListener("change", async event => {
 });
 
 projectAuthorList.addEventListener("click", async event => {
+  const open = event.target.closest("[data-project-author-open]");
+  if (open) {
+    openSavedAuthorView(open.dataset.projectAuthorOpen || "");
+    return;
+  }
+
   if (!currentUser || !selectedProjectId) return;
 
   const pin = event.target.closest("[data-project-author-pin]");
@@ -2781,7 +2793,14 @@ projectWorkList.addEventListener("change", async event => {
 });
 
 projectWorkList.addEventListener("click", async event => {
+  const style = event.target.closest("[data-project-work-style]");
   const remove = event.target.closest("[data-project-work-remove]");
+
+  if (style) {
+    openCardCatalog(style.dataset.projectWorkStyle || "");
+    return;
+  }
+
   if (!remove || !currentUser || !selectedProjectId) return;
 
   await detachWorkFromProject(
@@ -2789,6 +2808,43 @@ projectWorkList.addEventListener("click", async event => {
     selectedProjectId,
     remove.dataset.projectWorkRemove
   );
+});
+
+cardCatalogGrid?.addEventListener("click", async event => {
+  const option = event.target.closest("[data-card-catalog-style]");
+  if (!option || !currentUser || !selectedProjectId || !cardCatalogWorkId) return;
+
+  const style = projectCardStyle(option.dataset.cardCatalogStyle);
+  const buttons = [...cardCatalogGrid.querySelectorAll("[data-card-catalog-style]")];
+  buttons.forEach(button => { button.disabled = true; });
+
+  try {
+    await updateProjectWorkPresentation(
+      currentUser.uid,
+      selectedProjectId,
+      cardCatalogWorkId,
+      { cardStyle: style }
+    );
+    closeCardCatalog();
+  } catch (error) {
+    console.error("No fue posible guardar el diseño de la lectura.", error);
+    buttons.forEach(button => { button.disabled = false; });
+  }
+});
+
+document.querySelector("[data-card-catalog-close]")
+  ?.addEventListener("click", closeCardCatalog);
+
+document.querySelector("[data-author-view-close]")
+  ?.addEventListener("click", closeSavedAuthorView);
+
+cardCatalogDialog?.addEventListener("close", () => {
+  cardCatalogWorkId = "";
+  document.body.classList.remove("profile-dialog-open");
+});
+
+savedAuthorDialog?.addEventListener("close", () => {
+  document.body.classList.remove("profile-dialog-open");
 });
 
 profileSettingsForm.addEventListener("submit", async event => {
