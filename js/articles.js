@@ -1,3 +1,7 @@
+import {
+  createWorkSaveButton
+} from "./public-save-controls.js";
+
 const DATA_URL = "./src/data/cucsh-filosofia.json";
 const PAGE_SIZE = 24;
 
@@ -96,6 +100,23 @@ function recordLink(record) {
   return record.urls?.canonical || record.urls?.doi || (record.doi ? "https://doi.org/" + record.doi : "");
 }
 
+function articleSavePayload(record) {
+  return {
+    id: record.id || record.doi || record.title,
+    title: record.title || "Sin título",
+    authors: (record.authors || []).map(author => ({
+      name: author?.name || author?.sourceName || ""
+    })).filter(author => author.name),
+    year: record.year ?? null,
+    type: record.type || "journal-article",
+    journal: record.journal || "Revista UdeG",
+    doi: record.doi || "",
+    referenceUrl: recordLink(record),
+    providers: [record.journal || "Artículos UdeG"],
+    tags: record.keywords || record.tags || []
+  };
+}
+
 function articleCard(record, index) {
   const article = document.createElement("article");
   article.className = "article-card";
@@ -140,6 +161,13 @@ function articleCard(record, index) {
   }
 
   article.append(number, copy, meta);
+
+  const save = createWorkSaveButton(
+    articleSavePayload(record),
+    { label: "Guardar artículo en mi biblioteca" }
+  );
+  if (save) article.append(save);
+
   return article;
 }
 
