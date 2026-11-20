@@ -150,38 +150,38 @@ let unsubscribeIdentityDecisions = null;
 const PROJECT_CARD_STYLES = [
   {
     id: "default",
-    label: "Investigación",
-    note: "La ficha base del motor de Investigación Filosófica: sobria, clara y documental.",
+    label: "Clásica",
+    note: "Composición sobria, clara y documental para una lectura equilibrada.",
     mark: "Φ"
   },
   {
     id: "protrepsis",
-    label: "Protrepsis",
-    note: "Papel editorial cálido, lomo de archivo y ritmo tipográfico de la revista.",
+    label: "Marginalia",
+    note: "Papel cálido, margen de archivo y ritmo tipográfico de cuaderno editorial.",
     mark: "P"
   },
   {
     id: "sincronia",
-    label: "Sincronía",
-    note: "Ficha-estampilla con papel crema, marco cromático y acentos editoriales.",
+    label: "Estampa",
+    note: "Papel crema, marco cromático y composición inspirada en una pieza postal.",
     mark: "S"
   },
   {
     id: "quadripartita",
-    label: "Quadripartita Ratio",
-    note: "Estampilla bibliográfica en cobalto, papel blanco y composición de archivo.",
+    label: "Cobalto",
+    note: "Campo cobalto, papel claro y geometría bibliográfica de alto contraste.",
     mark: "Q"
   },
   {
     id: "thesis",
-    label: "Tesis",
-    note: "Ficha institucional limpia con barra azul, metadatos compactos y lectura directa.",
+    label: "Índice",
+    note: "Ficha institucional contenida, metadatos compactos y lectura directa.",
     mark: "T"
   },
   {
     id: "author-archive",
-    label: "Archivo de autor",
-    note: "Dossier bibliográfico con rail lateral, numeración y composición de ficha de autor.",
+    label: "Dossier",
+    note: "Rail lateral, numeración y composición de expediente bibliográfico.",
     mark: "A"
   }
 ];
@@ -2940,18 +2940,41 @@ cardCatalogGrid?.addEventListener("click", async event => {
   if (!option || !currentUser || !selectedProjectId || !cardCatalogWorkId) return;
 
   const style = projectCardStyle(option.dataset.cardCatalogStyle);
+  const workId = cardCatalogWorkId;
+  const work = projectWorks.find(item => item.id === workId);
+  const previousStyle = work?.cardStyle || "default";
   const buttons = [...cardCatalogGrid.querySelectorAll("[data-card-catalog-style]")];
-  buttons.forEach(button => { button.disabled = true; });
+  buttons.forEach(button => {
+    button.disabled = true;
+    button.classList.toggle(
+      "is-selected",
+      button.dataset.cardCatalogStyle === style
+    );
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.cardCatalogStyle === style)
+    );
+  });
+
+  // Reflect the choice immediately instead of waiting for Firestore's snapshot.
+  if (work) {
+    work.cardStyle = style;
+    renderProjectWorks();
+  }
 
   try {
     await updateProjectWorkPresentation(
       currentUser.uid,
       selectedProjectId,
-      cardCatalogWorkId,
+      workId,
       { cardStyle: style }
     );
     closeCardCatalog();
   } catch (error) {
+    if (work) {
+      work.cardStyle = previousStyle;
+      renderProjectWorks();
+    }
     console.error("No fue posible guardar el diseño de la lectura.", error);
     buttons.forEach(button => { button.disabled = false; });
   }
