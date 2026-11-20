@@ -3423,6 +3423,16 @@ function renderResult(
             Ver ficha
           </button>
 
+          <button
+            type="button"
+            class="research-save-button"
+            data-save-work-id="${escapeHtml(
+              recordId(item)
+            )}"
+          >
+            Guardar
+          </button>
+
 
           ${
             institutionalLinks.length
@@ -5956,6 +5966,14 @@ function renderAuthorResolution(
             : ""
         }
 
+        <button
+          type="button"
+          class="author-save-button"
+          data-save-author
+        >
+          Guardar autor
+        </button>
+
         <span>
           Corpus filosófico del proyecto
         </span>
@@ -6182,6 +6200,84 @@ document.addEventListener(
 
     event.preventDefault();
     openAuthorDestination(link.href);
+  }
+);
+
+
+document.addEventListener(
+  "click",
+  event => {
+    const workButton =
+      event.target
+        ?.closest?.(
+          "[data-save-work-id]"
+        );
+
+    if (workButton) {
+      const workId =
+        workButton.dataset
+          .saveWorkId;
+
+      const work =
+        [
+          ...currentFilteredResults,
+          ...currentResults
+        ]
+          .find(item =>
+            recordId(item) ===
+            workId
+          );
+
+      if (work) {
+        window.dispatchEvent(
+          new CustomEvent(
+            "research-library:save-work",
+            {
+              detail: {
+                work,
+                trigger:
+                  workButton
+              }
+            }
+          )
+        );
+      }
+
+      return;
+    }
+
+
+    const authorButton =
+      event.target
+        ?.closest?.(
+          "[data-save-author]"
+        );
+
+    if (!authorButton) {
+      return;
+    }
+
+    const author =
+      currentResponse
+        ?.authorResolution
+        ?.author;
+
+    if (!author) {
+      return;
+    }
+
+    window.dispatchEvent(
+      new CustomEvent(
+        "research-library:save-author",
+        {
+          detail: {
+            author,
+            trigger:
+              authorButton
+          }
+        }
+      )
+    );
   }
 );
 
