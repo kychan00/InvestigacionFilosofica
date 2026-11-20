@@ -1,5 +1,6 @@
 import {
   onAuthStateChanged,
+  signOut,
   updateProfile as updateAuthProfile
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
 
@@ -32,6 +33,7 @@ import {
 
 import "./account-menu.js";
 
+const loading = document.querySelector("#profile-loading");
 const gate = document.querySelector("#profile-gate");
 const gateCopy = document.querySelector("#profile-gate-copy");
 const gateLogin = document.querySelector("#profile-gate-login");
@@ -39,7 +41,19 @@ const workspace = document.querySelector("#profile-workspace");
 
 const avatar = document.querySelector("#profile-avatar");
 const displayNameEl = document.querySelector("#profile-display-name");
-const emailEl = document.querySelector("#profile-email");
+const personaMeta = document.querySelector("#profile-persona-meta");
+const personaBio = document.querySelector("#profile-persona-bio");
+
+const previewAvatar = document.querySelector("#profile-preview-avatar");
+const previewName = document.querySelector("#profile-preview-name");
+const previewInstitution = document.querySelector("#profile-preview-institution");
+const previewBio = document.querySelector("#profile-preview-bio");
+
+const signoutButton = document.querySelector("#profile-signout");
+const signoutSecondary = document.querySelector("#profile-signout-secondary");
+
+const profilePanels = [...document.querySelectorAll("[data-profile-panel]")];
+const profileNavLinks = [...document.querySelectorAll("[data-profile-nav]")];
 
 const metricProjects = document.querySelector("#metric-projects");
 const metricWorks = document.querySelector("#metric-works");
@@ -141,14 +155,30 @@ function compact(value, max = 220) {
     : text;
 }
 
-function setProfileAccent() {
-  const color =
-    currentProfile?.accentColor &&
-    /^#[0-9a-f]{6}$/i.test(currentProfile.accentColor)
-      ? currentProfile.accentColor
-      : "#0f62fe";
+function contrastForAccent(hex) {
+  const normalized = String(hex || "#0f62fe").replace("#", "");
+  const safe = /^[0-9a-f]{6}$/i.test(normalized) ? normalized : "0f62fe";
+  const channels = [0, 2, 4].map(index => parseInt(safe.slice(index, index + 2), 16) / 255);
+  const linear = channels.map(value =>
+    value <= .03928
+      ? value / 12.92
+      : Math.pow((value + .055) / 1.055, 2.4)
+  );
+  const luminance = .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2];
+  return luminance > .56 ? "#161616" : "#ffffff";
+}
 
-  document.documentElement.style.setProperty("--profile-blue", color);
+function applyProfileAccent(value) {
+  const color = /^#[0-9a-f]{6}$/i.test(String(value || ""))
+    ? String(value)
+    : "#0f62fe";
+
+  document.body.style.setProperty("--profile-accent", color);
+  document.body.style.setProperty("--profile-accent-contrast", contrastForAccent(color));
+}
+
+function setProfileAccent() {
+  applyProfileAccent(currentProfile?.accentColor || "#0f62fe");
 }
 
 function stopRealtimeListeners() {
@@ -172,15 +202,59 @@ function stopRealtimeListeners() {
 function showGate(message, {
   button = true
 } = {}) {
+  document.body.classList.remove("profile-auth-pending");
+  loading.hidden = true;
   gate.hidden = false;
   workspace.hidden = true;
+  signoutButton.hidden = true;
   gateCopy.textContent = message;
   gateLogin.hidden = !button;
 }
 
 function showWorkspace() {
+  document.body.classList.remove("profile-auth-pending");
+  loading.hidden = true;
   gate.hidden = true;
   workspace.hidden = false;
+  signoutButton.hidden = false;
+}
+
+function renderAvatar(target, name) {
+  if (!target) return;
+  target.innerHTML = "";
+
+  if (currentUser?.photoURL) {
+    const image = document.createElement("img");
+    image.src = currentUser.photoURL;
+    image.alt = "";
+    target.append(image);
+    return;
+  }
+
+  target.textContent = name.trim().charAt(0).toUpperCase() || "Φ";
+}
+
+function renderProfilePreview() {
+  if (!profileSettingsForm) return;
+
+  const name =
+    String(profileSettingsForm.elements.displayName.value || "").trim() ||
+    currentProfile?.displayName ||
+    currentUser?.displayName ||
+    "Investigador";
+
+  const institution =
+    String(profileSettingsForm.elements.institution.value || "").trim() ||
+    "Sin institución indicada";
+
+  const bio =
+    String(profileSettingsForm.elements.bio.value || "").trim() ||
+    "Su bio aparecerá aquí como una pequeña nota de autor.";
+
+  previewName.textContent = name;
+  previewInstitution.textContent = institution;
+  previewBio.textContent = bio;
+  renderAvatar(previewAvatar, name);
 }
 
 function renderIdentity() {
@@ -189,22 +263,18 @@ function renderIdentity() {
     currentUser?.displayName ||
     "Investigador";
 
+  const institution = currentProfile?.institution || "";
+  const email = currentUser?.email || "";
+
   displayNameEl.textContent = name;
-  emailEl.textContent = currentUser?.email || "";
+  personaMeta.textContent = [institution, email].filter(Boolean).join(" · ") || "Archivo privado";
+  personaBio.textContent =
+    currentProfile?.bio ||
+    "Un espacio privado para guardar preguntas, lecturas y relaciones.";
 
-  avatar.innerHTML = "";
-
-  if (currentUser?.photoURL) {
-    const image = document.createElement("img");
-    image.src = currentUser.photoURL;
-    image.alt = "";
-    avatar.append(image);
-  } else {
-    avatar.textContent =
-      name.trim().charAt(0).toUpperCase() || "Φ";
-  }
-
+  renderAvatar(avatar, name);
   setProfileAccent();
+  renderProfilePreview();
 }
 
 function renderMetrics() {
@@ -342,6 +412,8 @@ function selectProject(id) {
   if (!currentUser || !projectById(id)) return;
 
   selectedProjectId = id;
+  setActivePanel("proyectos", { updateHash: false, scroll: false });
+  history.replaceState(null, "", `#proyecto?id=${encodeURIComponent(id)}`);
   renderSelectedProject();
 
   if (typeof unsubscribeSubprojects === "function") {
@@ -377,7 +449,7 @@ function selectProject(id) {
   );
 
   projectDetail.scrollIntoView({
-    behavior: "smooth",
+    behavior: "auto",
     block: "start"
   });
 }
@@ -545,6 +617,8 @@ function fillProfileForm() {
       : "#0f62fe";
   profileSettingsForm.elements.bio.value =
     currentProfile?.bio || "";
+
+  renderProfilePreview();
 }
 
 function renderProjectWorks() {
@@ -683,7 +757,12 @@ function colorWithAlpha(hex, alpha) {
 }
 
 function drawProjectAtlas() {
-  if (!atlasCanvas) return;
+  if (
+    !atlasCanvas ||
+    atlasCanvas.offsetParent === null ||
+    projectDetail.hidden ||
+    !selectedProjectId
+  ) return;
 
   const project = projectById(selectedProjectId);
   const works = projectWorks.slice(0, 90);
@@ -857,12 +936,23 @@ function drawProjectAtlas() {
 
 async function loadPrivateWorkspace(user) {
   currentUser = user;
-  showWorkspace();
 
   await ensureUserProfile(user);
   currentProfile = await getUserProfile(user.uid);
-  renderIdentity();
   fillProfileForm();
+  renderIdentity();
+  showWorkspace();
+
+  const requestedPanel = location.hash.startsWith("#proyecto?")
+    ? "proyectos"
+    : location.hash.replace(/^#/, "");
+
+  setActivePanel(
+    profilePanels.some(panel => panel.id === requestedPanel)
+      ? requestedPanel
+      : "resumen",
+    { updateHash: false, scroll: false }
+  );
 
   stopRealtimeListeners();
 
@@ -903,6 +993,55 @@ async function loadPrivateWorkspace(user) {
     }
   );
 }
+
+function setActivePanel(id, {
+  updateHash = true,
+  scroll = true
+} = {}) {
+  const target = profilePanels.some(panel => panel.id === id)
+    ? id
+    : "resumen";
+
+  profilePanels.forEach(panel => {
+    const active = panel.id === target;
+    panel.hidden = !active;
+    panel.classList.toggle("is-active", active);
+  });
+
+  profileNavLinks.forEach(link => {
+    const active = link.dataset.profileNav === target;
+    link.classList.toggle("is-active", active);
+    link.setAttribute("aria-current", active ? "page" : "false");
+  });
+
+  if (updateHash) {
+    history.replaceState(null, "", `#${target}`);
+  }
+
+  if (target === "proyectos") {
+    requestAnimationFrame(drawProjectAtlas);
+  }
+
+  if (scroll) {
+    document.querySelector(".profile-content")?.scrollIntoView({
+      behavior: "auto",
+      block: "start"
+    });
+  }
+}
+
+profileNavLinks.forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    setActivePanel(link.dataset.profileNav);
+  });
+});
+
+document.querySelectorAll("[data-profile-jump]").forEach(button => {
+  button.addEventListener("click", () => {
+    setActivePanel(button.dataset.profileJump);
+  });
+});
 
 gateLogin.addEventListener("click", () => {
   window.dispatchEvent(
@@ -1202,36 +1341,42 @@ profileSettingsForm.addEventListener("submit", async event => {
   }
 
   currentProfile = await getUserProfile(currentUser.uid);
-  renderIdentity();
   fillProfileForm();
+  renderIdentity();
 });
 
-window.addEventListener("resize", drawProjectAtlas);
-window.addEventListener("philosophythemechange", drawProjectAtlas);
-
-const resizeObserver = new ResizeObserver(() => {
-  drawProjectAtlas();
-});
-if (atlasCanvas) resizeObserver.observe(atlasCanvas);
-
-const observer = new IntersectionObserver(entries => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) continue;
-    const id = entry.target.id;
-    document.querySelectorAll("[data-profile-nav]").forEach(link => {
-      link.classList.toggle(
-        "is-active",
-        link.dataset.profileNav === id
-      );
-    });
+profileSettingsForm.addEventListener("input", event => {
+  if (event.target?.name === "accentColor") {
+    applyProfileAccent(event.target.value);
   }
-}, {
-  rootMargin: "-25% 0px -65% 0px",
-  threshold: 0
+
+  if (["displayName", "institution", "bio"].includes(event.target?.name)) {
+    renderProfilePreview();
+  }
 });
 
-document.querySelectorAll(".profile-section[id]")
-  .forEach(section => observer.observe(section));
+async function leavePrivateWorkspace() {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.error("No se pudo cerrar la sesión.", error);
+  }
+}
+
+signoutButton.addEventListener("click", leavePrivateWorkspace);
+signoutSecondary.addEventListener("click", leavePrivateWorkspace);
+
+let atlasFrame = 0;
+function scheduleAtlasDraw() {
+  cancelAnimationFrame(atlasFrame);
+  atlasFrame = requestAnimationFrame(drawProjectAtlas);
+}
+
+window.addEventListener("resize", scheduleAtlasDraw);
+window.addEventListener("philosophythemechange", scheduleAtlasDraw);
+
+const resizeObserver = new ResizeObserver(scheduleAtlasDraw);
+if (atlasCanvas) resizeObserver.observe(atlasCanvas);
 
 if (!firebaseReady()) {
   showGate(
