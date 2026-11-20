@@ -413,8 +413,8 @@ test("private profile does not flash the login gate for authenticated users", ()
   assert.match(page, /class="profile-page profile-auth-pending"/);
   assert.match(page, /id="profile-gate"[^>]*hidden/);
   assert.match(page, /id="profile-workspace"[^>]*hidden/);
-  assert.match(profile, /await getUserProfile\(user\.uid\)/);
-  assert.match(profile, /showWorkspace\(\)/);
+  assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
+  assert.match(profile, /getUserProfile\(user\.uid\)/);
   assert.match(profile, /loading\.hidden = true/);
 });
 
