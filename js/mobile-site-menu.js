@@ -1,3 +1,5 @@
+import "./account-menu.js";
+
 const MOBILE_MENU_BREAKPOINT = 820;
 const STORAGE_KEY = "investigacion-filosofica-theme";
 const SITE_ROOT = new URL("../", import.meta.url);
