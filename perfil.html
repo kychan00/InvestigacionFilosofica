@@ -25,10 +25,10 @@
 
   <link rel="stylesheet" href="./css/app.css">
   <link rel="stylesheet" href="./css/theme.css?v=20261109-author-timeline-v2">
-  <link rel="stylesheet" href="./css/profile.css?v=20261120-abstract-card-system-v2">
+  <link rel="stylesheet" href="./css/profile.css?v=20261120-profile-shell-territory-v1">
 </head>
 
-<body class="profile-page profile-auth-pending">
+<body class="profile-page profile-auth-pending" data-profile-shell="default">
   <header class="profile-topbar">
     <a class="profile-brand" href="./">
       <span class="profile-brand-mark">Φ</span>
@@ -520,11 +520,37 @@
               </blockquote>
               <div class="profile-preview-accent">
                 <span></span>
-                <small>Color personal</small>
+                <small id="profile-preview-accent-label">Color personal · Predeterminado</small>
               </div>
             </aside>
 
             <form id="profile-settings-form" class="profile-form profile-settings-form">
+              <fieldset class="profile-shell-field is-wide">
+                <legend>Estilo completo del perfil</legend>
+                <p>Elija el cascarón visual de todo su espacio. Sus datos y proyectos no cambian.</p>
+                <div class="profile-shell-options" role="radiogroup" aria-label="Estilo completo del perfil">
+                  <label class="profile-shell-option" data-shell-option="default">
+                    <input type="radio" name="profileShell" value="default" checked>
+                    <span class="profile-shell-sample" data-shell-sample="default" aria-hidden="true">
+                      <i></i><b></b><em></em>
+                    </span>
+                    <span>
+                      <strong>Predeterminado</strong>
+                      <small>El diseño actual usando su color personal como acento principal.</small>
+                    </span>
+                  </label>
+                  <label class="profile-shell-option" data-shell-option="territory">
+                    <input type="radio" name="profileShell" value="territory">
+                    <span class="profile-shell-sample" data-shell-sample="territory" aria-hidden="true">
+                      <i></i><b></b><em></em>
+                    </span>
+                    <span>
+                      <strong>Territorio</strong>
+                      <small>Papel, tinta, verde profundo, terracota y composición editorial de archivo.</small>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
               <label><span>Nombre visible</span><input name="displayName" maxlength="160"></label>
               <label><span>Institución</span><input name="institution" maxlength="300"></label>
               <label><span>Sitio personal</span><input name="website" type="url"></label>
@@ -532,7 +558,7 @@
                 <span>Color personal</span>
                 <div class="profile-color-control">
                   <input name="accentColor" type="color" value="#0f62fe">
-                  <small>Se previsualiza al instante.</small>
+                  <small id="profile-accent-help">Se previsualiza al instante en Predeterminado.</small>
                 </div>
               </label>
               <label class="is-wide"><span>Bio</span><textarea name="bio" rows="6"></textarea></label>
@@ -587,6 +613,6 @@
   </dialog>
 
   <script type="module" src="./js/theme.js?v=20261120-account-v1"></script>
-  <script type="module" src="./js/profile.js?v=20261120-abstract-card-system-v2"></script>
+  <script type="module" src="./js/profile.js?v=20261120-profile-shell-territory-v1"></script>
 </body>
 </html>
