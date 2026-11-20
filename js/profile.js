@@ -968,11 +968,9 @@ async function loadPrivateWorkspace(user) {
           location.hash.replace(/^#/, "").replace(/^proyecto\?/, "")
         ).get("id");
 
-        selectProject(
-          projects.some(project => project.id === hashProject)
-            ? hashProject
-            : projects[0].id
-        );
+        if (projects.some(project => project.id === hashProject)) {
+          selectProject(hashProject);
+        }
       }
     }
   );
