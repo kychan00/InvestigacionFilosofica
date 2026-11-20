@@ -354,6 +354,7 @@ export function normalizeWork(work, {
   const referenceUrl =
     normalizeUrl(work?.referenceUrl) ||
     normalizeUrl(work?.urls?.reference) ||
+    normalizeUrl(work?.urls?.primary) ||
     normalizeUrl(work?.url) ||
     normalizeUrl(work?.openAccess?.url);
 
@@ -369,7 +370,13 @@ export function normalizeWork(work, {
   ).slice(0, 40);
 
   const title = compactText(work?.title, 600);
-  const id = stableDocumentId(
+  const existingNormalizedId =
+    ["public-engine", "private-user-entry"].includes(work?.origin) &&
+    /^work-[a-z0-9-]+$/i.test(String(work?.id || ""))
+      ? String(work.id)
+      : "";
+
+  const id = existingNormalizedId || stableDocumentId(
     "work",
     doi || work?.id || work?.openalexId || title,
     authors.map(author => author.name).join("|"),
@@ -382,9 +389,13 @@ export function normalizeWork(work, {
     authors,
     abstract: compactText(work?.abstract, 12000),
     tags,
-    year: Number.isFinite(Number(work?.year))
-      ? Number(work.year)
-      : null,
+    year:
+      work?.year !== null &&
+      work?.year !== undefined &&
+      String(work.year).trim() !== "" &&
+      Number.isFinite(Number(work.year))
+        ? Number(work.year)
+        : null,
     type: compactText(work?.type || work?.workType, 120),
     journal: compactText(work?.journal, 500),
     doi,
