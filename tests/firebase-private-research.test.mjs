@@ -177,3 +177,36 @@ test("authentication is a dedicated philosophical page, not a modal", () => {
   assert.match(css, /url\("\.\.\/assets\/hero-school-athens\.jpg"\)/);
   assert.doesNotMatch(account, /aria-modal|role="dialog"/);
 });
+
+
+test("account dock uses a progressive-enhancement link and mounts once", () => {
+  const account = read("js/account-menu.js");
+
+  assert.match(account, /<a[\s\S]*class="account-trigger"/);
+  assert.match(account, /href="\$\{authUrl\("login"\)\}"/);
+  assert.match(account, /data-research-account-dock/);
+  assert.match(account, /document\.querySelector\([\s\S]*data-research-account-dock/);
+  assert.match(account, /export\s*\{[\s\S]*authUrl,[\s\S]*navigateToAuth/);
+});
+
+test("account dock label and toast animate without layout motion", () => {
+  const css = read("css/account.css");
+  const account = read("js/account-menu.js");
+
+  assert.match(css, /\.account-trigger-label\s*\{/);
+  assert.match(css, /\.account-toast\.is-visible\s*\{/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(css, /@media \(max-width: 820px\)[\s\S]*\.account-trigger-label[\s\S]*display:\s*none/);
+  assert.match(account, /requestAnimationFrame\(/);
+  assert.match(account, /aria-busy/);
+  assert.match(account, /dataset\.originalText/);
+});
+
+test("account dock keeps Firebase lazy until a private save action", () => {
+  const account = read("js/account-menu.js");
+
+  assert.doesNotMatch(account, /^import\s+[\s\S]*firebase-client\.js/m);
+  assert.doesNotMatch(account, /^import\s+[\s\S]*user-data\.js/m);
+  assert.match(account, /import\("\.\/firebase-client\.js"\)/);
+  assert.match(account, /import\("\.\/user-data\.js"\)/);
+});
