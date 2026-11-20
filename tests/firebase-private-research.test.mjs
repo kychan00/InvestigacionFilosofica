@@ -144,3 +144,14 @@ test("account dock yields to the site menu and modals", () => {
   assert.match(css, /body\.site-menu-open \.account-dock[\s\S]*?pointer-events:\s*none/);
   assert.match(css, /body\.modal-open \.account-dock[\s\S]*?pointer-events:\s*none/);
 });
+
+
+test("account menu does not fetch Firebase until account interaction", () => {
+  const account = read("js/account-menu.js");
+
+  assert.doesNotMatch(account, /^import\s+[\s\S]*firebase-auth\.js/m);
+  assert.doesNotMatch(account, /^import\s+[\s\S]*firebase-client\.js/m);
+  assert.match(account, /import\(FIREBASE_AUTH_URL\)/);
+  assert.match(account, /import\("\.\/firebase-client\.js"\)/);
+  assert.match(account, /async function prepareAccountState/);
+});
