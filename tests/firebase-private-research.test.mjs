@@ -76,6 +76,44 @@ test("profile workspace supports projects, subprojects and a private atlas", () 
   assert.match(page, /Agregar trabajo que no existe en el motor/);
 });
 
+test("project workspace hides configuration behind organization controls", () => {
+  const page = read("perfil.html");
+  const profile = read("js/profile.js");
+
+  assert.match(page, /id="project-settings" class="project-settings"/);
+  assert.match(page, /data-project-settings-toggle/);
+  assert.match(page, /data-project-view="works"/);
+  assert.match(page, /data-project-view="authors"/);
+  assert.match(page, /data-project-view="atlas"/);
+  assert.match(profile, /setProjectView/);
+  assert.match(profile, /activeSubprojectFilter/);
+  assert.match(profile, /data-subproject-filter/);
+});
+
+test("project and private archive expose work author usage and Excel exports", () => {
+  const page = read("perfil.html");
+  const profile = read("js/profile.js");
+
+  assert.match(page, /id="project-author-list"/);
+  assert.match(page, /id="library-export"/);
+  assert.match(page, /id="authors-export"/);
+  assert.match(profile, /membershipsForWork/);
+  assert.match(profile, /membershipsForAuthor/);
+  assert.match(profile, /projectAuthorsFromWorks/);
+  assert.match(profile, /application\/vnd\.ms-excel/);
+  assert.match(profile, /exportProjectExcel/);
+  assert.match(profile, /exportLibraryExcel/);
+  assert.match(profile, /exportAuthorsExcel/);
+});
+
+test("new projects open their workspace without a second click", () => {
+  const profile = read("js/profile.js");
+
+  assert.match(profile, /pendingProjectSelectionId\s*=\s*id/);
+  assert.match(profile, /projects\.some\(project => project\.id === id\)/);
+  assert.match(profile, /selectProject\(id\)/);
+});
+
 test("normalized work identifiers survive library to project moves", () => {
   const data = read("js/user-data.js");
 

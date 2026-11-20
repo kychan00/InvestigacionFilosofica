@@ -75,20 +75,31 @@ const projectDetailHero = document.querySelector("#project-detail-hero");
 const projectDetailTitle = document.querySelector("#project-detail-title");
 const projectDetailDescription = document.querySelector("#project-detail-description");
 const projectEditForm = document.querySelector("#project-edit-form");
+const projectSettings = document.querySelector("#project-settings");
+const projectSettingsToggle = document.querySelector("[data-project-settings-toggle]");
+const projectDetailStats = document.querySelector("#project-detail-stats");
+const projectViewButtons = [...document.querySelectorAll("[data-project-view]")];
+const projectViewPanels = [...document.querySelectorAll("[data-project-view-panel]")];
 
 const subprojectForm = document.querySelector("#subproject-form");
 const subprojectList = document.querySelector("#subproject-list");
+const subprojectManageList = document.querySelector("#subproject-manage-list");
 const subprojectCancel = document.querySelector("[data-subproject-cancel]");
 const subprojectSubmit = document.querySelector("[data-subproject-submit]");
 
 const atlasCanvas = document.querySelector("#project-atlas");
 const atlasNote = document.querySelector("#project-atlas-note");
 const projectWorkList = document.querySelector("#project-work-list");
+const projectAuthorList = document.querySelector("#project-author-list");
+const projectWorkNote = document.querySelector("#project-work-note");
 
 const manualWorkForm = document.querySelector("#manual-work-form");
 const manualWorkProject = document.querySelector("#manual-work-project");
 const libraryList = document.querySelector("#library-list");
 const savedAuthorList = document.querySelector("#saved-author-list");
+const libraryExportButton = document.querySelector("#library-export");
+const authorsExportButton = document.querySelector("#authors-export");
+const projectExportButton = document.querySelector("[data-project-export]");
 const profileSettingsForm = document.querySelector("#profile-settings-form");
 
 let currentUser = null;
@@ -97,8 +108,15 @@ let projects = [];
 let library = [];
 let savedAuthors = [];
 let selectedProjectId = "";
+let activeProjectView = "works";
+let activeSubprojectFilter = "all";
+let pendingProjectSelectionId = "";
 let subprojects = [];
 let projectWorks = [];
+const projectWorkIndex = new Map();
+const projectSubprojectIndex = new Map();
+let assignmentProjectSignature = "";
+let assignmentUnsubscribers = [];
 
 let unsubscribeProjects = null;
 let unsubscribeLibrary = null;
@@ -200,6 +218,14 @@ function stopRealtimeListeners() {
     if (typeof unsubscribe === "function") unsubscribe();
   }
 
+  for (const unsubscribe of assignmentUnsubscribers) {
+    if (typeof unsubscribe === "function") unsubscribe();
+  }
+  assignmentUnsubscribers = [];
+  assignmentProjectSignature = "";
+  projectWorkIndex.clear();
+  projectSubprojectIndex.clear();
+
   unsubscribeProjects = null;
   unsubscribeLibrary = null;
   unsubscribeAuthors = null;
@@ -296,6 +322,276 @@ function renderMetrics() {
 
 function projectById(id) {
   return projects.find(project => project.id === id) || null;
+}
+
+function normalizedPersonName(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("es")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function projectSubprojectById(projectId, subprojectId) {
+  return (projectSubprojectIndex.get(projectId) || []).find(
+    item => item.id === subprojectId
+  ) || null;
+}
+
+function membershipsForWork(workId) {
+  const memberships = [];
+  for (const project of projects) {
+    const works = projectWorkIndex.get(project.id) || [];
+    const work = works.find(item => item.id === workId);
+    if (!work) continue;
+    const collection = work.subprojectId
+      ? projectSubprojectById(project.id, work.subprojectId)
+      : null;
+    memberships.push({
+      projectId: project.id,
+      projectTitle: project.title || "Proyecto",
+      subprojectId: work.subprojectId || "",
+      subprojectTitle: collection?.title || ""
+    });
+  }
+  return memberships;
+}
+
+function membershipsForAuthor(author) {
+  const needle = normalizedPersonName(author?.name || author?.displayName);
+  if (!needle) return [];
+
+  const grouped = new Map();
+  for (const project of projects) {
+    const works = projectWorkIndex.get(project.id) || [];
+    for (const work of works) {
+      const hasAuthor = authorNames(work).some(name => normalizedPersonName(name) === needle);
+      if (!hasAuthor) continue;
+
+      const collection = work.subprojectId
+        ? projectSubprojectById(project.id, work.subprojectId)
+        : null;
+      const key = [project.id, work.subprojectId || ""].join("::");
+      const previous = grouped.get(key) || {
+        projectTitle: project.title || "Proyecto",
+        subprojectTitle: collection?.title || "",
+        count: 0
+      };
+      previous.count += 1;
+      grouped.set(key, previous);
+    }
+  }
+  return [...grouped.values()];
+}
+
+function visibleProjectWorks() {
+  if (activeSubprojectFilter === "all") return [...projectWorks];
+  if (activeSubprojectFilter === "unfiled") {
+    return projectWorks.filter(work => !work.subprojectId);
+  }
+  return projectWorks.filter(work => work.subprojectId === activeSubprojectFilter);
+}
+
+function projectAuthorsFromWorks(works = visibleProjectWorks()) {
+  const grouped = new Map();
+  for (const work of works) {
+    for (const name of authorNames(work)) {
+      const key = normalizedPersonName(name);
+      if (!key) continue;
+      const item = grouped.get(key) || {
+        name,
+        count: 0,
+        works: []
+      };
+      item.count += 1;
+      item.works.push(work);
+      grouped.set(key, item);
+    }
+  }
+
+  return [...grouped.values()]
+    .map(item => {
+      const saved = savedAuthors.find(author =>
+        normalizedPersonName(author.name || author.displayName) === normalizedPersonName(item.name)
+      );
+      return { ...item, saved: saved || null };
+    })
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+}
+
+function renderProjectStats() {
+  if (!projectDetailStats) return;
+  const authors = projectAuthorsFromWorks(projectWorks);
+  projectDetailStats.innerHTML = [
+    ["Lecturas", projectWorks.length],
+    ["Autores", authors.length],
+    ["Colecciones", subprojects.length]
+  ].map(([label, value]) => `
+    <span><strong>${escapeHtml(value)}</strong>${escapeHtml(label)}</span>
+  `).join("");
+}
+
+function setProjectView(view) {
+  activeProjectView = ["works", "authors", "atlas"].includes(view) ? view : "works";
+  projectViewButtons.forEach(button => {
+    const active = button.dataset.projectView === activeProjectView;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  projectViewPanels.forEach(panel => {
+    const active = panel.dataset.projectViewPanel === activeProjectView;
+    panel.hidden = !active;
+    panel.classList.toggle("is-active", active);
+  });
+  if (activeProjectView === "atlas") {
+    requestAnimationFrame(drawProjectAtlas);
+  }
+}
+
+function syncProjectAssignmentIndex(uid) {
+  const signature = projects.map(project => project.id).sort().join("|");
+  if (signature === assignmentProjectSignature) return;
+
+  for (const unsubscribe of assignmentUnsubscribers) {
+    if (typeof unsubscribe === "function") unsubscribe();
+  }
+  assignmentUnsubscribers = [];
+  projectWorkIndex.clear();
+  projectSubprojectIndex.clear();
+  assignmentProjectSignature = signature;
+
+  for (const project of projects) {
+    assignmentUnsubscribers.push(
+      subscribeProjectWorks(uid, project.id, items => {
+        projectWorkIndex.set(project.id, items);
+        renderProjects();
+        renderLibrary();
+        renderAuthors();
+      })
+    );
+    assignmentUnsubscribers.push(
+      subscribeSubprojects(uid, project.id, items => {
+        projectSubprojectIndex.set(project.id, items);
+        renderLibrary();
+        renderAuthors();
+      })
+    );
+  }
+}
+
+function excelSafe(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function downloadExcelTable(filename, rows) {
+  const table = rows.map(row =>
+    "<tr>" + row.map(cell => `<td>${excelSafe(cell)}</td>`).join("") + "</tr>"
+  ).join("");
+  const html = `<!doctype html><html><head><meta charset="utf-8"></head><body><table>${table}</table></body></html>`;
+  const blob = new Blob(["\ufeff", html], {
+    type: "application/vnd.ms-excel;charset=utf-8"
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename.endsWith(".xls") ? filename : filename + ".xls";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function safeFilePart(value) {
+  return String(value || "exportacion")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "exportacion";
+}
+
+function exportProjectExcel() {
+  const project = projectById(selectedProjectId);
+  if (!project) return;
+  const rows = [[
+    "Tipo", "Proyecto", "Colección", "Título / Autor",
+    "Autores", "Año", "DOI", "Estado / cantidad", "Descripción"
+  ]];
+
+  rows.push([
+    "Proyecto", project.title || "", "", project.title || "",
+    "", "", "", project.status || "", project.researchQuestion || project.description || ""
+  ]);
+
+  for (const collection of subprojects) {
+    rows.push([
+      "Colección", project.title || "", collection.title || "",
+      collection.title || "", "", "", "", collection.status || "",
+      collection.description || ""
+    ]);
+  }
+
+  for (const work of projectWorks) {
+    const collection = subprojects.find(item => item.id === work.subprojectId);
+    rows.push([
+      "Lectura", project.title || "", collection?.title || "Sin colección",
+      work.title || "", authorNames(work).join("; "), work.year || "",
+      work.doi || "", work.privateOnly ? "Privada" : "Motor público", work.abstract || ""
+    ]);
+  }
+
+  for (const author of projectAuthorsFromWorks(projectWorks)) {
+    rows.push([
+      "Autor", project.title || "", "", author.name,
+      "", "", "", `${author.count} obra(s)`, ""
+    ]);
+  }
+
+  downloadExcelTable(`proyecto-${safeFilePart(project.title)}.xls`, rows);
+}
+
+function exportLibraryExcel() {
+  const rows = [[
+    "Título", "Autores", "Año", "Tipo", "DOI", "Origen",
+    "Proyecto / colección", "Etiquetas", "Abstract"
+  ]];
+
+  for (const work of library) {
+    const memberships = membershipsForWork(work.id)
+      .map(item => item.subprojectTitle
+        ? `${item.projectTitle} / ${item.subprojectTitle}`
+        : item.projectTitle
+      )
+      .join("; ");
+    rows.push([
+      work.title || "", authorNames(work).join("; "), work.year || "",
+      work.type || "", work.doi || "", work.privateOnly ? "Entrada privada" : "Motor público",
+      memberships, (work.tags || []).join("; "), work.abstract || ""
+    ]);
+  }
+
+  downloadExcelTable("biblioteca-investigacion.xls", rows);
+}
+
+function exportAuthorsExcel() {
+  const rows = [["Autor", "ORCID", "Proyectos / colecciones", "Obras relacionadas", "Biografía"]];
+  for (const author of savedAuthors) {
+    const memberships = membershipsForAuthor(author);
+    rows.push([
+      author.name || "", author.orcid || "",
+      memberships.map(item => item.subprojectTitle
+        ? `${item.projectTitle} / ${item.subprojectTitle}`
+        : item.projectTitle
+      ).join("; "),
+      memberships.reduce((sum, item) => sum + item.count, 0),
+      author.biography || ""
+    ]);
+  }
+  downloadExcelTable("autores-guardados.xls", rows);
 }
 
 function renderProjectSelectors() {
@@ -413,6 +709,11 @@ function renderSelectedProject() {
   projectEditForm.elements.accentColor.value = accent;
   projectEditForm.elements.status.value = project.status || "active";
 
+  renderProjectStats();
+  renderSubprojects();
+  renderProjectWorks();
+  renderProjectAuthors();
+  setProjectView(activeProjectView);
   drawProjectAtlas();
 }
 
@@ -420,6 +721,8 @@ function selectProject(id) {
   if (!currentUser || !projectById(id)) return;
 
   selectedProjectId = id;
+  activeSubprojectFilter = "all";
+  activeProjectView = "works";
   setActivePanel("proyectos", { updateHash: false, scroll: false });
   history.replaceState(null, "", `#proyecto?id=${encodeURIComponent(id)}`);
   renderSelectedProject();
@@ -435,6 +738,9 @@ function selectProject(id) {
   projectWorks = [];
   renderSubprojects();
   renderProjectWorks();
+  renderProjectAuthors();
+  setProjectView("works");
+  if (projectSettings) projectSettings.open = false;
 
   unsubscribeSubprojects = subscribeSubprojects(
     currentUser.uid,
@@ -442,6 +748,8 @@ function selectProject(id) {
     items => {
       subprojects = items;
       renderSubprojects();
+      renderProjectWorks();
+      renderProjectAuthors();
       drawProjectAtlas();
     }
   );
@@ -451,7 +759,9 @@ function selectProject(id) {
     selectedProjectId,
     items => {
       projectWorks = items;
+      renderSubprojects();
       renderProjectWorks();
+      renderProjectAuthors();
       drawProjectAtlas();
     }
   );
@@ -467,42 +777,94 @@ function resetSubprojectForm() {
   subprojectForm.elements.id.value = "";
   subprojectForm.elements.color.value = "#4589ff";
   subprojectForm.elements.status.value = "active";
-  subprojectSubmit.textContent = "Crear subproyecto";
+  subprojectSubmit.textContent = "Crear colección";
   subprojectCancel.hidden = true;
 }
 
 function renderSubprojects() {
+  if (
+    !["all", "unfiled"].includes(activeSubprojectFilter) &&
+    !subprojects.some(item => item.id === activeSubprojectFilter)
+  ) {
+    activeSubprojectFilter = "all";
+  }
+
   if (!selectedProjectId) {
     subprojectList.innerHTML = "";
+    subprojectManageList.innerHTML = "";
     return;
   }
+
+  const countFor = id => projectWorks.filter(work =>
+    id === "unfiled" ? !work.subprojectId : work.subprojectId === id
+  ).length;
+
+  const filterCards = [
+    {
+      id: "all",
+      title: "Todo el proyecto",
+      description: "Todas las lecturas, voces y relaciones.",
+      color: projectById(selectedProjectId)?.color || "#0f62fe",
+      count: projectWorks.length
+    },
+    ...subprojects.map(item => ({
+      id: item.id,
+      title: item.title || "Colección",
+      description: item.description || "Una línea de trabajo dentro del proyecto.",
+      color: /^#[0-9a-f]{6}$/i.test(item.color || "") ? item.color : "#4589ff",
+      count: countFor(item.id)
+    })),
+    {
+      id: "unfiled",
+      title: "Sin colección",
+      description: "Lecturas todavía no clasificadas.",
+      color: "#8d8d8d",
+      count: countFor("unfiled")
+    }
+  ];
+
+  subprojectList.innerHTML = filterCards.map(item => `
+    <button
+      type="button"
+      class="project-collection-card ${activeSubprojectFilter === item.id ? "is-active" : ""}"
+      data-subproject-filter="${escapeHtml(item.id)}"
+      style="--subproject-color:${escapeHtml(item.color)}"
+    >
+      <span class="project-collection-count">${escapeHtml(item.count)}</span>
+      <strong>${escapeHtml(item.title)}</strong>
+      <small>${escapeHtml(compact(item.description, 120))}</small>
+    </button>
+  `).join("");
 
   if (!subprojects.length) {
-    subprojectList.innerHTML = `
-      <div class="profile-empty">Sin subproyectos todavía.</div>
+    subprojectManageList.innerHTML = `
+      <p class="project-settings-empty">
+        Todavía no hay colecciones. Cree una cuando necesite separar corpus,
+        momentos o problemas dentro del proyecto.
+      </p>
     `;
-    return;
+  } else {
+    subprojectManageList.innerHTML = subprojects.map(item => {
+      const color = /^#[0-9a-f]{6}$/i.test(item.color || "")
+        ? item.color
+        : "#4589ff";
+      return `
+        <article class="subproject-manage-card" style="--subproject-color:${color}">
+          <span></span>
+          <div>
+            <strong>${escapeHtml(item.title || "Colección")}</strong>
+            <small>${escapeHtml(countFor(item.id))} lectura(s) · ${escapeHtml(item.status || "active")}</small>
+          </div>
+          <div class="subproject-card-actions">
+            <button type="button" data-subproject-edit="${escapeHtml(item.id)}">Editar</button>
+            <button type="button" data-subproject-delete="${escapeHtml(item.id)}">Eliminar</button>
+          </div>
+        </article>
+      `;
+    }).join("");
   }
 
-  subprojectList.innerHTML = subprojects.map(item => {
-    const color = /^#[0-9a-f]{6}$/i.test(item.color || "")
-      ? item.color
-      : "#4589ff";
-
-    return `
-      <article class="subproject-card" style="--subproject-color:${color}">
-        <div></div>
-        <div>
-          <strong>${escapeHtml(item.title || "Subproyecto")}</strong>
-          <small>${escapeHtml(compact(item.description || item.status || "", 130))}</small>
-        </div>
-        <div class="subproject-card-actions">
-          <button type="button" data-subproject-edit="${escapeHtml(item.id)}">Editar</button>
-          <button type="button" data-subproject-delete="${escapeHtml(item.id)}">Eliminar</button>
-        </div>
-      </article>
-    `;
-  }).join("");
+  renderProjectStats();
 }
 
 function renderLibrary() {
@@ -520,10 +882,9 @@ function renderLibrary() {
   libraryList.innerHTML = library.map(work => {
     const authors = authorNames(work);
     const reference = safeUrl(work.referenceUrl);
-    const doiUrl = work.doi
-      ? safeUrl(`https://doi.org/${work.doi}`)
-      : "";
+    const doiUrl = work.doi ? safeUrl(`https://doi.org/${work.doi}`) : "";
     const tags = (work.tags || []).slice(0, 8);
+    const memberships = membershipsForWork(work.id);
 
     return `
       <article class="library-card ${work.privateOnly ? "is-private" : ""}">
@@ -539,14 +900,8 @@ function renderLibrary() {
           <h3>${escapeHtml(work.title || "Obra sin título")}</h3>
 
           <p>
-            ${escapeHtml(
-              authors.length
-                ? authors.join("; ")
-                : "Autor no indicado"
-            )}
-            ${work.abstract
-              ? " · " + escapeHtml(compact(work.abstract, 260))
-              : ""}
+            ${escapeHtml(authors.length ? authors.join("; ") : "Autor no indicado")}
+            ${work.abstract ? " · " + escapeHtml(compact(work.abstract, 260)) : ""}
           </p>
 
           <div class="library-card-tags">
@@ -554,14 +909,26 @@ function renderLibrary() {
             ${doiUrl ? `<a href="${escapeHtml(doiUrl)}" target="_blank" rel="noopener noreferrer">DOI ↗</a>` : ""}
             ${reference ? `<a href="${escapeHtml(reference)}" target="_blank" rel="noopener noreferrer">Referencia ↗</a>` : ""}
           </div>
+
+          <div class="library-card-projects">
+            ${memberships.length
+              ? memberships.map(item => `
+                  <span class="project-usage-badge">
+                    <b>${escapeHtml(item.projectTitle)}</b>
+                    ${item.subprojectTitle ? `<small> / ${escapeHtml(item.subprojectTitle)}</small>` : ""}
+                  </span>
+                `).join("")
+              : '<span class="project-usage-empty">Aún no está en un proyecto</span>'}
+          </div>
         </div>
 
         <div class="library-card-actions">
           <select data-library-project="${escapeHtml(work.id)}" aria-label="Proyecto destino">
             <option value="">Añadir a proyecto…</option>
-            ${projects.map(project =>
-              `<option value="${escapeHtml(project.id)}">${escapeHtml(project.title)}</option>`
-            ).join("")}
+            ${projects.map(project => {
+              const attached = memberships.some(item => item.projectId === project.id);
+              return `<option value="${escapeHtml(project.id)}">${attached ? "✓ " : ""}${escapeHtml(project.title)}</option>`;
+            }).join("")}
           </select>
           <button type="button" data-library-attach="${escapeHtml(work.id)}">Añadir al proyecto</button>
           <button type="button" data-library-delete="${escapeHtml(work.id)}">Quitar de biblioteca</button>
@@ -585,13 +952,11 @@ function renderAuthors() {
 
   savedAuthorList.innerHTML = savedAuthors.map(author => {
     const orcid = author.orcid
-      ? safeUrl(
-          String(author.orcid).startsWith("http")
-            ? author.orcid
-            : `https://orcid.org/${author.orcid}`
-        )
+      ? safeUrl(String(author.orcid).startsWith("http") ? author.orcid : `https://orcid.org/${author.orcid}`)
       : "";
     const wikipedia = safeUrl(author.wikipediaUrl);
+    const memberships = membershipsForAuthor(author);
+    const workCount = memberships.reduce((sum, item) => sum + item.count, 0);
 
     return `
       <article class="author-card">
@@ -599,7 +964,21 @@ function renderAuthors() {
           <span class="profile-kicker">AUTOR GUARDADO</span>
           <h3>${escapeHtml(author.name || "Autor")}</h3>
           <p>${escapeHtml(compact(author.biography || "Identidad bibliográfica guardada.", 260))}</p>
+
+          <div class="author-project-usage">
+            ${memberships.length
+              ? memberships.map(item => `
+                  <span class="project-usage-badge">
+                    <b>${escapeHtml(item.projectTitle)}</b>
+                    ${item.subprojectTitle ? `<small> / ${escapeHtml(item.subprojectTitle)}</small>` : ""}
+                    <em>${escapeHtml(item.count)} obra(s)</em>
+                  </span>
+                `).join("")
+              : '<span class="project-usage-empty">Todavía no aparece en una lectura de sus proyectos</span>'}
+          </div>
+
           <div class="library-card-tags">
+            ${workCount ? `<span>${escapeHtml(workCount)} obra(s) en proyectos</span>` : ""}
             ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
             ${wikipedia ? `<a href="${escapeHtml(wikipedia)}" target="_blank" rel="noopener noreferrer">Biografía ↗</a>` : ""}
           </div>
@@ -635,45 +1014,101 @@ function renderProjectWorks() {
     return;
   }
 
-  if (!projectWorks.length) {
+  const works = visibleProjectWorks().sort((a, b) =>
+    timestampValue(b.updatedAt) - timestampValue(a.updatedAt)
+  );
+
+  if (!works.length) {
     projectWorkList.innerHTML = `
-      <div class="profile-empty">
-        Añada obras desde su biblioteca para construir este Atlas.
+      <div class="profile-empty project-view-empty">
+        ${activeSubprojectFilter === "all"
+          ? "Añada obras desde su biblioteca para construir este proyecto."
+          : "Esta colección todavía no tiene lecturas."}
+      </div>
+    `;
+    projectWorkNote.textContent = "No hay lecturas en esta vista.";
+    renderProjectAuthors();
+    renderProjectStats();
+    return;
+  }
+
+  projectWorkNote.textContent =
+    `${works.length} lectura${works.length === 1 ? "" : "s"} en esta vista · puede organizarlas por colección.`;
+
+  projectWorkList.innerHTML = works.map(work => {
+    const tags = (work.tags || []).slice(0, 5);
+    const collection = subprojects.find(item => item.id === work.subprojectId);
+
+    return `
+      <article class="project-work-card">
+        <div class="project-work-meta">
+          <span>${work.privateOnly ? "ENTRADA PRIVADA" : "MOTOR PÚBLICO"}</span>
+          ${work.year ? `<span>${escapeHtml(work.year)}</span>` : ""}
+          ${collection ? `<span style="--collection-color:${escapeHtml(collection.color || "#4589ff")}">${escapeHtml(collection.title)}</span>` : ""}
+        </div>
+        <strong>${escapeHtml(work.title || "Obra")}</strong>
+        <small>${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
+        ${work.abstract ? `<p>${escapeHtml(compact(work.abstract, 220))}</p>` : ""}
+        <div class="project-work-tags">
+          ${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join("")}
+        </div>
+        <div class="project-work-actions">
+          <select
+            data-project-work-subproject="${escapeHtml(work.id)}"
+            aria-label="Colección de esta obra"
+          >
+            <option value="">Sin colección</option>
+            ${subprojects.map(item => `
+              <option value="${escapeHtml(item.id)}" ${work.subprojectId === item.id ? "selected" : ""}>
+                ${escapeHtml(item.title)}
+              </option>
+            `).join("")}
+          </select>
+          <button type="button" data-project-work-remove="${escapeHtml(work.id)}">
+            Quitar del proyecto
+          </button>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  renderProjectAuthors();
+  renderProjectStats();
+}
+
+function renderProjectAuthors() {
+  if (!projectAuthorList) return;
+  const authors = projectAuthorsFromWorks();
+
+  if (!authors.length) {
+    projectAuthorList.innerHTML = `
+      <div class="profile-empty project-view-empty">
+        Esta vista todavía no tiene autores porque no contiene lecturas.
       </div>
     `;
     return;
   }
 
-  const sorted = [...projectWorks].sort((a, b) =>
-    timestampValue(b.updatedAt) - timestampValue(a.updatedAt)
-  );
+  projectAuthorList.innerHTML = authors.map(author => {
+    const orcid = author.saved?.orcid
+      ? safeUrl(String(author.saved.orcid).startsWith("http")
+        ? author.saved.orcid
+        : `https://orcid.org/${author.saved.orcid}`)
+      : "";
 
-  projectWorkList.innerHTML = sorted.map(work => `
-    <article class="project-work-card">
-      <strong>${escapeHtml(work.title || "Obra")}</strong>
-      <small>
-        ${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}
-        ${work.privateOnly ? " · entrada privada" : ""}
-      </small>
-      <select
-        data-project-work-subproject="${escapeHtml(work.id)}"
-        aria-label="Subproyecto de esta obra"
-      >
-        <option value="">Sin subproyecto</option>
-        ${subprojects.map(item => `
-          <option
-            value="${escapeHtml(item.id)}"
-            ${work.subprojectId === item.id ? "selected" : ""}
-          >
-            ${escapeHtml(item.title)}
-          </option>
-        `).join("")}
-      </select>
-      <button type="button" data-project-work-remove="${escapeHtml(work.id)}">
-        Quitar del proyecto
-      </button>
-    </article>
-  `).join("");
+    return `
+      <article class="project-author-card">
+        <span class="profile-kicker">${author.saved ? "AUTOR GUARDADO" : "AUTOR EN LA BIBLIOGRAFÍA"}</span>
+        <h4>${escapeHtml(author.name)}</h4>
+        <strong>${escapeHtml(author.count)}</strong>
+        <small>obra${author.count === 1 ? "" : "s"} en esta vista</small>
+        <div class="project-author-titles">
+          ${author.works.slice(0, 4).map(work => `<span>${escapeHtml(compact(work.title, 78))}</span>`).join("")}
+        </div>
+        ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
+      </article>
+    `;
+  }).join("");
 }
 
 const STOPWORDS = new Set([
@@ -773,7 +1208,7 @@ function drawProjectAtlas() {
   ) return;
 
   const project = projectById(selectedProjectId);
-  const works = projectWorks.slice(0, 90);
+  const works = visibleProjectWorks().slice(0, 90);
   const rect = atlasCanvas.getBoundingClientRect();
   const width = Math.max(320, Math.round(rect.width || 900));
   const height = Math.max(360, Math.round(rect.height || 520));
@@ -969,8 +1404,22 @@ async function loadPrivateWorkspace(user) {
     user.uid,
     items => {
       projects = items;
+      syncProjectAssignmentIndex(user.uid);
       renderProjects();
       renderLibrary();
+      renderAuthors();
+
+      if (pendingProjectSelectionId && projects.some(project => project.id === pendingProjectSelectionId)) {
+        const id = pendingProjectSelectionId;
+        pendingProjectSelectionId = "";
+        selectProject(id);
+        return;
+      }
+
+      if (selectedProjectId && projects.some(project => project.id === selectedProjectId) && !unsubscribeProjectWorks) {
+        selectProject(selectedProjectId);
+        return;
+      }
 
       if (!selectedProjectId && projects.length) {
         const hashProject = new URLSearchParams(
@@ -1079,7 +1528,11 @@ projectCreateForm.addEventListener("submit", async event => {
   projectCreateForm.elements.accentColor.value = "#8a3ffc";
   projectCreateForm.elements.status.value = "active";
 
-  selectedProjectId = id;
+  pendingProjectSelectionId = id;
+  if (projects.some(project => project.id === id)) {
+    pendingProjectSelectionId = "";
+    selectProject(id);
+  }
 });
 
 projectGrid.addEventListener("click", event => {
@@ -1095,6 +1548,38 @@ projectGrid.addEventListener("keydown", event => {
   event.preventDefault();
   selectProject(card.dataset.projectOpen);
 });
+
+projectViewButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    setProjectView(button.dataset.projectView);
+  });
+});
+
+subprojectList.addEventListener("click", event => {
+  const card = event.target.closest("[data-subproject-filter]");
+  if (!card) return;
+  activeSubprojectFilter = card.dataset.subprojectFilter || "all";
+  renderSubprojects();
+  renderProjectWorks();
+  renderProjectAuthors();
+  drawProjectAtlas();
+});
+
+projectSettingsToggle?.addEventListener("click", () => {
+  projectSettings.open = !projectSettings.open;
+  projectSettingsToggle.setAttribute("aria-expanded", projectSettings.open ? "true" : "false");
+  if (projectSettings.open) {
+    projectSettings.scrollIntoView({ behavior: "auto", block: "start" });
+  }
+});
+
+projectSettings?.addEventListener("toggle", () => {
+  projectSettingsToggle?.setAttribute("aria-expanded", projectSettings.open ? "true" : "false");
+});
+
+projectExportButton?.addEventListener("click", exportProjectExcel);
+libraryExportButton?.addEventListener("click", exportLibraryExcel);
+authorsExportButton?.addEventListener("click", exportAuthorsExcel);
 
 projectEditForm.addEventListener("submit", async event => {
   event.preventDefault();
@@ -1165,7 +1650,7 @@ subprojectForm.addEventListener("submit", async event => {
 
 subprojectCancel.addEventListener("click", resetSubprojectForm);
 
-subprojectList.addEventListener("click", async event => {
+subprojectManageList.addEventListener("click", async event => {
   const edit = event.target.closest("[data-subproject-edit]");
   const remove = event.target.closest("[data-subproject-delete]");
 
@@ -1183,7 +1668,7 @@ subprojectList.addEventListener("click", async event => {
         ? item.color
         : "#4589ff";
     subprojectForm.elements.status.value = item.status || "active";
-    subprojectSubmit.textContent = "Guardar subproyecto";
+    subprojectSubmit.textContent = "Guardar colección";
     subprojectCancel.hidden = false;
     return;
   }
@@ -1194,7 +1679,7 @@ subprojectList.addEventListener("click", async event => {
     );
     if (!item) return;
 
-    if (!confirm(`¿Eliminar el subproyecto "${item.title}"?`)) return;
+    if (!confirm(`¿Eliminar la colección "${item.title}"?`)) return;
 
     await deleteSubproject(
       currentUser.uid,

@@ -25,7 +25,7 @@
 
   <link rel="stylesheet" href="./css/app.css">
   <link rel="stylesheet" href="./css/theme.css?v=20261109-author-timeline-v2">
-  <link rel="stylesheet" href="./css/profile.css?v=20261120-pinboard-profile-v1">
+  <link rel="stylesheet" href="./css/profile.css?v=20261120-project-workspace-v2">
 </head>
 
 <body class="profile-page profile-auth-pending">
@@ -212,8 +212,8 @@
               <h2>Tableros para cada pregunta</h2>
             </div>
             <p>
-              Cada proyecto puede reunir pregunta, área, palabras clave, colores,
-              subproyectos, biblioteca y un Atlas propio.
+              Cada proyecto reúne una pregunta con sus lecturas, autores, colecciones
+              de trabajo y un Atlas propio.
             </p>
           </header>
 
@@ -264,82 +264,138 @@
 
           <section id="project-detail" class="project-detail" hidden>
             <header class="project-detail-hero" id="project-detail-hero">
-              <div>
+              <div class="project-detail-copy">
                 <span class="profile-kicker">PROYECTO SELECCIONADO</span>
                 <h2 id="project-detail-title">—</h2>
                 <p id="project-detail-description"></p>
+                <div id="project-detail-stats" class="project-detail-stats" aria-label="Resumen del proyecto"></div>
               </div>
               <div class="project-detail-actions">
-                <button type="button" data-project-delete>Eliminar proyecto</button>
+                <button type="button" data-project-export>Exportar Excel</button>
+                <button type="button" data-project-settings-toggle aria-expanded="false">
+                  Organizar proyecto
+                </button>
               </div>
             </header>
 
-            <div class="project-detail-grid">
-              <section class="project-panel">
-                <span class="profile-kicker">CONFIGURACIÓN</span>
-                <h3>Identidad del proyecto</h3>
-                <form id="project-edit-form" class="profile-form">
-                  <label><span>Título</span><input name="title" required maxlength="240"></label>
-                  <label><span>Área</span><input name="area" maxlength="300"></label>
-                  <label><span>Pregunta</span><textarea name="researchQuestion" rows="3"></textarea></label>
-                  <label><span>Descripción</span><textarea name="description" rows="4"></textarea></label>
-                  <label><span>Palabras clave</span><input name="keywords"></label>
-                  <div class="profile-form-inline">
-                    <label><span>Principal</span><input name="color" type="color"></label>
-                    <label><span>Secundario</span><input name="accentColor" type="color"></label>
-                    <label>
-                      <span>Estado</span>
-                      <select name="status">
-                        <option value="active">Activo</option>
-                        <option value="paused">En pausa</option>
-                        <option value="archived">Archivado</option>
-                      </select>
-                    </label>
-                  </div>
-                  <button class="profile-primary-button" type="submit">Guardar cambios</button>
-                </form>
-              </section>
+            <nav class="project-view-switcher" aria-label="Vista del proyecto">
+              <button type="button" data-project-view="works" class="is-active">Lecturas</button>
+              <button type="button" data-project-view="authors">Autores</button>
+              <button type="button" data-project-view="atlas">Atlas</button>
+            </nav>
 
-              <section class="project-panel">
-                <span class="profile-kicker">SUBPROYECTOS</span>
-                <h3>Capas de trabajo</h3>
-                <form id="subproject-form" class="profile-form">
-                  <input type="hidden" name="id">
-                  <label><span>Título</span><input name="title" required maxlength="240"></label>
-                  <label><span>Descripción</span><textarea name="description" rows="3"></textarea></label>
-                  <div class="profile-form-inline">
-                    <label><span>Color</span><input name="color" type="color" value="#4589ff"></label>
-                    <label>
-                      <span>Estado</span>
-                      <select name="status">
-                        <option value="active">Activo</option>
-                        <option value="paused">En pausa</option>
-                        <option value="archived">Archivado</option>
-                      </select>
-                    </label>
-                  </div>
-                  <div class="profile-form-actions">
-                    <button class="profile-primary-button" type="submit" data-subproject-submit>Crear subproyecto</button>
-                    <button type="button" data-subproject-cancel hidden>Cancelar edición</button>
-                  </div>
-                </form>
-                <div id="subproject-list" class="subproject-list"></div>
-              </section>
-            </div>
-
-            <section class="project-atlas-panel">
+            <section class="project-collections" aria-labelledby="project-collections-title">
               <header>
                 <div>
-                  <span class="profile-kicker">ATLAS PRIVADO</span>
-                  <h3>Territorio bibliográfico del proyecto</h3>
+                  <span class="profile-kicker">COLECCIONES</span>
+                  <h3 id="project-collections-title">Líneas dentro del proyecto</h3>
                 </div>
-                <p id="project-atlas-note">Añada obras al proyecto para construir el mapa.</p>
+                <p>
+                  Los subproyectos funcionan aquí como colecciones: agrupan lecturas,
+                  filtran autores y dejan ver una parte concreta del Atlas.
+                </p>
               </header>
-              <div class="project-atlas-layout">
-                <canvas id="project-atlas" width="1100" height="620" aria-label="Atlas privado del proyecto"></canvas>
-                <aside id="project-work-list" class="project-work-list"></aside>
-              </div>
+              <div id="subproject-list" class="subproject-list"></div>
             </section>
+
+            <section id="project-view-works" class="project-workspace-view is-active" data-project-view-panel="works">
+              <header class="project-view-head">
+                <div>
+                  <span class="profile-kicker">LECTURAS</span>
+                  <h3>Bibliografía del proyecto</h3>
+                </div>
+                <p id="project-work-note">Obras guardadas y referencias privadas asignadas a este proyecto.</p>
+              </header>
+              <div id="project-work-list" class="project-work-list"></div>
+            </section>
+
+            <section id="project-view-authors" class="project-workspace-view" data-project-view-panel="authors" hidden>
+              <header class="project-view-head">
+                <div>
+                  <span class="profile-kicker">AUTORES</span>
+                  <h3>Voces presentes en la bibliografía</h3>
+                </div>
+                <p>Se construye automáticamente a partir de las obras del proyecto y la colección seleccionada.</p>
+              </header>
+              <div id="project-author-list" class="project-author-list"></div>
+            </section>
+
+            <section id="project-view-atlas" class="project-workspace-view" data-project-view-panel="atlas" hidden>
+              <section class="project-atlas-panel">
+                <header>
+                  <div>
+                    <span class="profile-kicker">ATLAS PRIVADO</span>
+                    <h3>Territorio bibliográfico del proyecto</h3>
+                  </div>
+                  <p id="project-atlas-note">Añada obras al proyecto para construir el mapa.</p>
+                </header>
+                <canvas id="project-atlas" width="1100" height="620" aria-label="Atlas privado del proyecto"></canvas>
+              </section>
+            </section>
+
+            <details id="project-settings" class="project-settings">
+              <summary>Organización y configuración</summary>
+              <div class="project-settings-grid">
+                <section class="project-panel">
+                  <span class="profile-kicker">IDENTIDAD</span>
+                  <h3>Editar proyecto</h3>
+                  <form id="project-edit-form" class="profile-form">
+                    <label><span>Título</span><input name="title" required maxlength="240"></label>
+                    <label><span>Área</span><input name="area" maxlength="300"></label>
+                    <label><span>Pregunta</span><textarea name="researchQuestion" rows="3"></textarea></label>
+                    <label><span>Descripción</span><textarea name="description" rows="4"></textarea></label>
+                    <label><span>Palabras clave</span><input name="keywords"></label>
+                    <div class="profile-form-inline">
+                      <label><span>Principal</span><input name="color" type="color"></label>
+                      <label><span>Secundario</span><input name="accentColor" type="color"></label>
+                      <label>
+                        <span>Estado</span>
+                        <select name="status">
+                          <option value="active">Activo</option>
+                          <option value="paused">En pausa</option>
+                          <option value="archived">Archivado</option>
+                        </select>
+                      </label>
+                    </div>
+                    <button class="profile-primary-button" type="submit">Guardar cambios</button>
+                  </form>
+                </section>
+
+                <section class="project-panel">
+                  <span class="profile-kicker">COLECCIONES</span>
+                  <h3>Crear o editar una línea</h3>
+                  <p class="project-panel-intro">
+                    Una colección sirve para separar momentos, problemas o corpus dentro del mismo proyecto.
+                    Después puede asignar cada lectura desde la vista principal.
+                  </p>
+                  <form id="subproject-form" class="profile-form">
+                    <input type="hidden" name="id">
+                    <label><span>Nombre de la colección</span><input name="title" required maxlength="240" placeholder="Ej. Fenomenología, críticas, antecedentes"></label>
+                    <label><span>Descripción</span><textarea name="description" rows="3"></textarea></label>
+                    <div class="profile-form-inline">
+                      <label><span>Color</span><input name="color" type="color" value="#4589ff"></label>
+                      <label>
+                        <span>Estado</span>
+                        <select name="status">
+                          <option value="active">Activa</option>
+                          <option value="paused">En pausa</option>
+                          <option value="archived">Archivada</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="profile-form-actions">
+                      <button class="profile-primary-button" type="submit" data-subproject-submit>Crear colección</button>
+                      <button type="button" data-subproject-cancel hidden>Cancelar edición</button>
+                    </div>
+                  </form>
+                  <div id="subproject-manage-list" class="subproject-manage-list"></div>
+                </section>
+              </div>
+              <div class="project-danger-zone">
+                <span>Zona de archivo</span>
+                <button type="button" data-project-delete>Eliminar proyecto</button>
+              </div>
+            </details>
           </section>
         </section>
 
@@ -349,9 +405,12 @@
               <span class="profile-kicker">03 / BIBLIOTECA</span>
               <h2>Una pared de lecturas</h2>
             </div>
-            <p>
-              Aquí conviven referencias guardadas desde el motor y entradas manuales privadas.
-            </p>
+            <div class="profile-section-side">
+              <p>
+                Aquí conviven referencias guardadas desde el motor y entradas manuales privadas.
+              </p>
+              <button id="library-export" class="profile-quiet-button" type="button">Exportar Excel</button>
+            </div>
           </header>
 
           <details class="profile-editor">
@@ -412,9 +471,12 @@
               <span class="profile-kicker">04 / AUTORES</span>
               <h2>Una constelación de voces</h2>
             </div>
-            <p>
-              Accesos personales a identidades bibliográficas a las que quiere regresar.
-            </p>
+            <div class="profile-section-side">
+              <p>
+                Accesos personales a identidades bibliográficas a las que quiere regresar.
+              </p>
+              <button id="authors-export" class="profile-quiet-button" type="button">Exportar Excel</button>
+            </div>
           </header>
           <div id="saved-author-list" class="saved-author-list"></div>
         </section>
@@ -489,6 +551,6 @@
   </main>
 
   <script type="module" src="./js/theme.js?v=20261120-account-v1"></script>
-  <script type="module" src="./js/profile.js?v=20261120-private-bookmark-v1"></script>
+  <script type="module" src="./js/profile.js?v=20261120-project-workspace-v2"></script>
 </body>
 </html>
