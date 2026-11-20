@@ -1480,6 +1480,229 @@ function fillProfileForm() {
   renderProfilePreview();
 }
 
+function renderCardCatalog(work) {
+  if (!cardCatalogGrid || !work) return;
+
+  const activeStyle = projectCardStyle(work.cardStyle);
+  const sampleTitle = compact(work.title || "Obra sin título", 58);
+  const sampleAuthor = compact(authorNames(work).join("; ") || "Autor no indicado", 44);
+
+  cardCatalogGrid.innerHTML = PROJECT_CARD_STYLES.map(style => `
+    <button
+      type="button"
+      class="card-catalog-option ${style.id === activeStyle ? "is-selected" : ""}"
+      data-card-catalog-style="${escapeHtml(style.id)}"
+      role="listitem"
+      aria-pressed="${style.id === activeStyle ? "true" : "false"}"
+    >
+      <span class="card-catalog-choice">
+        <b>${escapeHtml(style.mark)}</b>
+        <span>
+          <strong>${escapeHtml(style.label)}</strong>
+          <small>${escapeHtml(style.note)}</small>
+        </span>
+      </span>
+      <span class="card-catalog-preview" data-preview-style="${escapeHtml(style.id)}">
+        <i>${escapeHtml(work.year || "LECTURA")}</i>
+        <strong>${escapeHtml(sampleTitle)}</strong>
+        <small>${escapeHtml(sampleAuthor)}</small>
+        <em>Ver composición</em>
+      </span>
+    </button>
+  `).join("");
+}
+
+function openCardCatalog(workId) {
+  const work = projectWorks.find(item => item.id === workId);
+  if (!work || !cardCatalogDialog) return;
+
+  cardCatalogWorkId = work.id;
+  if (cardCatalogWorkTitle) {
+    cardCatalogWorkTitle.textContent = work.title || "Obra sin título";
+  }
+  renderCardCatalog(work);
+  cardCatalogDialog.showModal();
+  document.body.classList.add("profile-dialog-open");
+}
+
+function closeCardCatalog() {
+  cardCatalogWorkId = "";
+  if (cardCatalogDialog?.open) cardCatalogDialog.close();
+  document.body.classList.remove("profile-dialog-open");
+}
+
+function authorViewKey(author) {
+  return normalizedPersonName(author?.name || author?.displayName);
+}
+
+function allWorksForAuthor(author) {
+  const needles = equivalentNormalizedNames(author);
+  const merged = new Map();
+
+  const addWork = (work, project = null) => {
+    if (!work?.id) return;
+    const match = authorNames(work).some(name =>
+      needles.has(normalizedPersonName(name))
+    );
+    if (!match) return;
+
+    const key = work.id;
+    const existing = merged.get(key) || {
+      ...work,
+      projectNames: new Set()
+    };
+    if (project?.title) existing.projectNames.add(project.title);
+    merged.set(key, existing);
+  };
+
+  for (const work of library) addWork(work);
+
+  for (const project of projects) {
+    for (const work of projectWorkIndex.get(project.id) || []) {
+      addWork(work, project);
+    }
+  }
+
+  for (const work of projectWorks) {
+    addWork(work, projectById(selectedProjectId));
+  }
+
+  return [...merged.values()]
+    .map(work => ({
+      ...work,
+      projectNames: [...work.projectNames]
+    }))
+    .sort((a, b) =>
+      Number(b.year || 0) - Number(a.year || 0) ||
+      String(a.title || "").localeCompare(String(b.title || ""), "es")
+    );
+}
+
+function internalOrExternalUrl(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const url = new URL(raw, window.location.href);
+    if (!["http:", "https:"].includes(url.protocol)) return "";
+    return url.href;
+  } catch {
+    return "";
+  }
+}
+
+function openSavedAuthorView(key) {
+  if (!savedAuthorDialog || !savedAuthorDialogBody) return;
+
+  const saved = mergedSavedAuthors();
+  const projectDerived = projectAuthorsFromWorks(projectWorks, projectAuthors);
+  const author = [...saved, ...projectDerived].find(item => {
+    const variants = new Set([
+      authorViewKey(item),
+      ...(item.aliases || []).map(normalizedPersonName)
+    ]);
+    return variants.has(key);
+  });
+  if (!author) return;
+
+  const works = allWorksForAuthor(author);
+  const memberships = membershipsForAuthor(author);
+  const orcid = author.orcid
+    ? internalOrExternalUrl(
+        String(author.orcid).startsWith("http")
+          ? author.orcid
+          : `https://orcid.org/${author.orcid}`
+      )
+    : "";
+  const wikipedia = internalOrExternalUrl(
+    author.wikipediaUrl || author.saved?.wikipediaUrl
+  );
+  const sourcePage = internalOrExternalUrl(
+    author.sourcePage ||
+    author.saved?.sourcePage ||
+    author.explicitRecords?.find(record => record.sourcePage)?.sourcePage
+  );
+  const biography =
+    author.biography ||
+    author.saved?.biography ||
+    author.explicitRecords?.find(record => record.biography)?.biography ||
+    "Esta identidad está guardada en su archivo, pero todavía no cuenta con una nota biográfica documentada.";
+  const monogram = String(author.name || "Φ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0]?.toUpperCase() || "")
+    .join("") || "Φ";
+
+  savedAuthorDialogBody.innerHTML = `
+    <section class="author-view-hero">
+      <div class="author-view-monogram" aria-hidden="true">${escapeHtml(monogram)}</div>
+      <div class="author-view-identity">
+        <span class="profile-kicker">AUTOR / ARCHIVO PRIVADO</span>
+        <h2>${escapeHtml(author.name || "Autor")}</h2>
+        ${author.aliases?.length
+          ? `<p class="author-view-aliases">También aparece como <strong>${escapeHtml(author.aliases.join(" · "))}</strong></p>`
+          : ""}
+        <p class="author-view-bio">${escapeHtml(biography)}</p>
+        <div class="author-view-links">
+          ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
+          ${wikipedia ? `<a href="${escapeHtml(wikipedia)}" target="_blank" rel="noopener noreferrer">Biografía ↗</a>` : ""}
+          ${sourcePage ? `<a href="${escapeHtml(sourcePage)}">Abrir fuente guardada ↗</a>` : ""}
+        </div>
+      </div>
+      <div class="author-view-metrics">
+        <span><strong>${escapeHtml(works.length)}</strong>lecturas</span>
+        <span><strong>${escapeHtml(new Set(memberships.map(item => item.projectId)).size)}</strong>proyectos</span>
+        <span><strong>${escapeHtml(author.aliases?.length || 0)}</strong>alias</span>
+      </div>
+    </section>
+
+    <section class="author-view-section">
+      <header>
+        <span class="profile-kicker">PROYECTOS</span>
+        <h3>Presencia en su investigación</h3>
+      </header>
+      <div class="author-view-projects">
+        ${memberships.length
+          ? memberships.map(item => `
+              <span>
+                <strong>${escapeHtml(item.projectTitle)}</strong>
+                ${item.subprojectTitle ? `<small>${escapeHtml(item.subprojectTitle)}</small>` : ""}
+                ${item.count ? `<em>${escapeHtml(item.count)} lectura(s)</em>` : "<em>autor añadido</em>"}
+              </span>
+            `).join("")
+          : "<p>Todavía no está vinculado a un proyecto.</p>"}
+      </div>
+    </section>
+
+    <section class="author-view-section">
+      <header>
+        <span class="profile-kicker">LECTURAS</span>
+        <h3>Obras relacionadas en su archivo</h3>
+      </header>
+      <div class="author-view-works">
+        ${works.length
+          ? works.map(work => `
+              <article>
+                <span>${escapeHtml(work.year || "s. f.")}</span>
+                <strong>${escapeHtml(work.title || "Obra sin título")}</strong>
+                <small>${escapeHtml(work.projectNames?.join(" · ") || (work.privateOnly ? "Entrada privada" : "Biblioteca"))}</small>
+              </article>
+            `).join("")
+          : "<p>No hay lecturas relacionadas todavía.</p>"}
+      </div>
+    </section>
+  `;
+
+  savedAuthorDialog.showModal();
+  document.body.classList.add("profile-dialog-open");
+}
+
+function closeSavedAuthorView() {
+  if (savedAuthorDialog?.open) savedAuthorDialog.close();
+  document.body.classList.remove("profile-dialog-open");
+}
+
 function renderProjectWorks() {
   if (!selectedProjectId) {
     projectWorkList.innerHTML = "";
