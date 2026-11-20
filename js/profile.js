@@ -1730,20 +1730,38 @@ function renderProjectWorks() {
   projectWorkNote.textContent =
     `${works.length} lectura${works.length === 1 ? "" : "s"} en esta vista · puede organizarlas por colección.`;
 
-  projectWorkList.innerHTML = works.map(work => {
+  projectWorkList.innerHTML = works.map((work, index) => {
     const tags = (work.tags || []).slice(0, 5);
     const collection = subprojects.find(item => item.id === work.subprojectId);
+    const style = projectCardStyle(work.cardStyle);
+    const styleMeta = projectCardStyleMeta(style);
+    const folio = String(index + 1).padStart(2, "0");
 
     return `
-      <article class="project-work-card">
-        <div class="project-work-meta">
-          <span>${work.privateOnly ? "ENTRADA PRIVADA" : "MOTOR PÚBLICO"}</span>
-          ${work.year ? `<span>${escapeHtml(work.year)}</span>` : ""}
-          ${collection ? `<span style="--collection-color:${escapeHtml(collection.color || "#4589ff")}">${escapeHtml(collection.title)}</span>` : ""}
+      <article
+        class="project-work-card"
+        data-card-style="${escapeHtml(style)}"
+        style="--work-folio:'${escapeHtml(folio)}'"
+      >
+        <div class="project-work-card-head">
+          <div class="project-work-meta">
+            <span>${work.privateOnly ? "ENTRADA PRIVADA" : "MOTOR PÚBLICO"}</span>
+            ${work.year ? `<span>${escapeHtml(work.year)}</span>` : ""}
+            ${collection ? `<span style="--collection-color:${escapeHtml(collection.color || "#4589ff")}">${escapeHtml(collection.title)}</span>` : ""}
+          </div>
+          <button
+            type="button"
+            class="project-work-style-button"
+            data-project-work-style="${escapeHtml(work.id)}"
+            aria-label="Cambiar diseño de ${escapeHtml(work.title || "esta lectura")}"
+          >
+            <span aria-hidden="true">${escapeHtml(styleMeta.mark)}</span>
+            Diseño · ${escapeHtml(styleMeta.label)}
+          </button>
         </div>
-        <strong>${escapeHtml(work.title || "Obra")}</strong>
-        <small>${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
-        ${work.abstract ? `<p>${escapeHtml(compact(work.abstract, 220))}</p>` : ""}
+        <strong class="project-work-title">${escapeHtml(work.title || "Obra")}</strong>
+        <small class="project-work-authors">${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
+        ${work.abstract ? `<p class="project-work-abstract">${escapeHtml(compact(work.abstract, style === "index" ? 120 : 220))}</p>` : ""}
         <div class="project-work-tags">
           ${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join("")}
         </div>
