@@ -4,153 +4,228 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eee9df">
-  <meta name="description" content="Acceda a su espacio personal de Investigación Filosófica para guardar obras, autores y proyectos privados.">
+  <meta name="theme-color" content="#ece6db">
+  <meta
+    name="description"
+    content="Acceda a su espacio personal de Investigación Filosófica para guardar obras, autores y proyectos privados."
+  >
   <title>Cuenta de investigación · Investigación Filosófica</title>
-  <link rel="stylesheet" href="../css/auth.css?v=20261120-philosophical-auth-v1">
+  <link rel="preload" as="image" href="../assets/hero-school-athens.jpg">
+  <link rel="stylesheet" href="../css/auth.css?v=20261120-artistic-socrates-v2">
 </head>
 <body class="auth-page">
-  <main class="auth-layout">
-    <section class="auth-art" aria-label="Entrada al espacio personal de investigación">
-      <div class="auth-art-grid" aria-hidden="true"></div>
+  <main class="auth-shell auth-layout">
+    <div class="auth-background" aria-hidden="true"></div>
+    <div class="auth-background-wash" aria-hidden="true"></div>
 
-      <a class="auth-brand" href="../index.html" aria-label="Volver a Investigación Filosófica">
-        <span class="auth-brand-mark">Φ</span>
-        <span class="auth-brand-copy">
-          <strong>Investigación Filosófica</strong>
-          <small>Archivo vivo · Espacio personal</small>
-        </span>
-      </a>
+    <section class="auth-card" aria-label="Cuenta de Investigación Filosófica">
+      <aside class="auth-visual" aria-label="Archivo privado de investigación">
+        <div class="auth-visual-grid" aria-hidden="true"></div>
 
-      <div class="auth-art-copy">
-        <p class="auth-kicker">ARCHIVO PRIVADO / 01</p>
-        <h1>Su investigación,<br>como territorio propio.</h1>
-        <p class="auth-deck">
-          Guarde obras, siga autores y construya proyectos sin convertir
-          su trabajo privado en parte del corpus público.
-        </p>
+        <a class="auth-brand" href="../index.html" aria-label="Volver a Investigación Filosófica">
+          <span class="auth-brand-mark">Φ</span>
+          <span class="auth-brand-copy">
+            <strong>Investigación Filosófica</strong>
+            <small>Archivo vivo · Espacio personal</small>
+          </span>
+        </a>
 
-        <ol class="auth-manifesto">
-          <li><span>01</span> Conservar obras y autores.</li>
-          <li><span>02</span> Construir proyectos y subproyectos.</li>
-          <li><span>03</span> Añadir referencias privadas propias.</li>
-          <li><span>04</span> Levantar atlas desde su biblioteca.</li>
-        </ol>
-      </div>
+        <div class="auth-philosopher-frame" aria-hidden="true">
+          <span class="auth-philosopher-label">SÓCRATES / 1875</span>
+          <img
+            class="auth-socrates"
+            src="https://upload.wikimedia.org/wikipedia/commons/2/26/Socrates_transparent.svg"
+            alt=""
+            decoding="async"
+            fetchpriority="high"
+          >
+        </div>
 
-      <footer class="auth-art-credit">
-        <span>Rafael · <em>La Escuela de Atenas</em> · 1509–1511</span>
-        <span>Obra de dominio público · imagen local del proyecto</span>
-      </footer>
-    </section>
-
-    <section class="auth-entry" aria-labelledby="auth-title">
-      <header class="auth-entry-head">
-        <a class="auth-return" href="../index.html">← Archivo público</a>
-        <span class="auth-entry-index">CUENTA / Φ</span>
-      </header>
-
-      <div class="auth-entry-body">
-        <p class="auth-kicker">ESPACIO PERSONAL</p>
-        <h2 id="auth-title">Cuenta de investigación</h2>
-        <p id="auth-subtitle" class="auth-intro">
-          Inicie sesión para entrar en su biblioteca y proyectos privados.
-        </p>
-
-        <nav class="auth-tabs" aria-label="Acceso a la cuenta">
-          <button class="auth-tab is-active" type="button" data-mode-tab="login">Login</button>
-          <button class="auth-tab" type="button" data-mode-tab="register">Registro</button>
-        </nav>
-
-        <div id="auth-feedback" class="auth-feedback" role="status" aria-live="polite" hidden></div>
-
-        <section class="auth-view is-active" data-mode-view="login">
-          <form id="login-form" class="auth-form">
-            <label class="auth-field">
-              <span>Correo</span>
-              <input type="email" name="email" autocomplete="email" required>
-            </label>
-
-            <label class="auth-field">
-              <span>Contraseña</span>
-              <input type="password" name="password" autocomplete="current-password" required>
-            </label>
-
-            <button class="auth-primary" type="submit">Entrar al archivo privado</button>
-
-            <button id="forgot-password-btn" class="auth-link" type="button">
-              Olvidé mi contraseña
-            </button>
-          </form>
-
-          <div class="auth-separator"><span>o</span></div>
-
-          <button id="login-google-btn" class="auth-google" type="button">
-            <span class="google-mark" aria-hidden="true">
-              <svg viewBox="0 0 48 48" focusable="false">
-                <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.7-.4-3.9z"/>
-                <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 16.1 19 13 24 13c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4c-7.7 0-14.3 4.3-17.7 10.7z"/>
-                <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
-                <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.7-.4-3.9z"/>
-              </svg>
-            </span>
-            <span>Continuar con Google</span>
-          </button>
-        </section>
-
-        <section class="auth-view" data-mode-view="register">
-          <form id="register-form" class="auth-form">
-            <label class="auth-field">
-              <span>Nombre visible</span>
-              <input type="text" name="displayName" autocomplete="name" maxlength="160" required>
-            </label>
-
-            <label class="auth-field">
-              <span>Correo</span>
-              <input type="email" name="email" autocomplete="email" required>
-            </label>
-
-            <label class="auth-field">
-              <span>Contraseña</span>
-              <input type="password" name="password" autocomplete="new-password" minlength="6" required>
-            </label>
-
-            <button class="auth-primary" type="submit">Crear mi espacio personal</button>
-          </form>
-
-          <div class="auth-separator"><span>o</span></div>
-
-          <button id="register-google-btn" class="auth-google" type="button">
-            <span class="google-mark" aria-hidden="true">
-              <svg viewBox="0 0 48 48" focusable="false">
-                <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.7-.4-3.9z"/>
-                <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 16.1 19 13 24 13c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4c-7.7 0-14.3 4.3-17.7 10.7z"/>
-                <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
-                <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.7-.4-3.9z"/>
-              </svg>
-            </span>
-            <span>Registrarme con Google</span>
-          </button>
-        </section>
-
-        <aside class="auth-privacy">
-          <strong>Cuenta mínima, investigación privada.</strong>
-          <p>
-            Para identificar su cuenta solicitamos nombre visible y correo.
-            Las credenciales son gestionadas por Firebase Authentication.
-            Proyectos, obras, etiquetas y demás contenido se almacenan solo cuando usted decide añadirlos.
+        <div class="auth-visual-copy">
+          <p class="auth-kicker">ARCHIVO PRIVADO / 01</p>
+          <h1>Su investigación,<br>como territorio propio.</h1>
+          <p class="auth-deck">
+            Guarde obras, siga autores y construya proyectos sin convertir
+            su trabajo privado en parte del corpus público.
           </p>
-          <small>La licencia MIT corresponde al software del proyecto y no sustituye esta declaración de privacidad.</small>
-        </aside>
-      </div>
 
-      <footer class="auth-entry-footer">
-        <span>Investigación Filosófica</span>
-        <span>Software · MIT</span>
-      </footer>
+          <blockquote class="auth-quote">
+            Buscar no es encontrar palabras. Es reconstruir una conversación.
+          </blockquote>
+
+          <div class="auth-capabilities" aria-label="Funciones del espacio personal">
+            <span><b>01</b> Obras</span>
+            <span><b>02</b> Autores</span>
+            <span><b>03</b> Proyectos</span>
+            <span><b>04</b> Atlas</span>
+          </div>
+        </div>
+
+        <footer class="auth-art-credit">
+          <span>Rafael · <em>La Escuela de Atenas</em> · dominio público</span>
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Socrates_transparent.svg"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Sócrates · Wilhelm Meyer · 1875 · dominio público
+          </a>
+        </footer>
+      </aside>
+
+      <section class="auth-entry" aria-labelledby="auth-title">
+        <header class="auth-entry-head">
+          <a class="auth-return" href="../index.html">← Archivo público</a>
+          <span class="auth-entry-index">CUENTA / Φ</span>
+        </header>
+
+        <div class="auth-entry-body">
+          <div class="auth-entry-intro">
+            <p class="auth-kicker">ESPACIO PERSONAL</p>
+            <h2 id="auth-title">Cuenta de investigación</h2>
+            <p id="auth-subtitle" class="auth-intro">
+              Inicie sesión para entrar en su biblioteca y proyectos privados.
+            </p>
+          </div>
+
+          <nav class="auth-tabs" aria-label="Acceso a la cuenta">
+            <button
+              class="auth-tab is-active"
+              type="button"
+              data-mode-tab="login"
+              aria-selected="true"
+            >
+              Login
+            </button>
+            <button
+              class="auth-tab"
+              type="button"
+              data-mode-tab="register"
+              aria-selected="false"
+            >
+              Registro
+            </button>
+          </nav>
+
+          <div
+            id="auth-feedback"
+            class="auth-feedback"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+
+          <section class="auth-view is-active" data-mode-view="login">
+            <form id="login-form" class="auth-form">
+              <label class="auth-field">
+                <span>Correo</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+
+              <label class="auth-field">
+                <span>Contraseña</span>
+                <input
+                  type="password"
+                  name="password"
+                  autocomplete="current-password"
+                  required
+                >
+              </label>
+
+              <button class="auth-primary" type="submit">
+                Entrar al archivo privado
+              </button>
+
+              <button id="forgot-password-btn" class="auth-link" type="button">
+                Olvidé mi contraseña
+              </button>
+            </form>
+
+            <div class="auth-separator"><span>o</span></div>
+
+            <button id="login-google-btn" class="auth-google" type="button">
+              <span class="google-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.7-.4-3.9z"/>
+                  <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 16.1 19 13 24 13c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4c-7.7 0-14.3 4.3-17.7 10.7z"/>
+                  <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+                  <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.7-.4-3.9z"/>
+                </svg>
+              </span>
+              <span>Continuar con Google</span>
+            </button>
+          </section>
+
+          <section class="auth-view" data-mode-view="register">
+            <form id="register-form" class="auth-form">
+              <label class="auth-field">
+                <span>Nombre visible</span>
+                <input
+                  type="text"
+                  name="displayName"
+                  autocomplete="name"
+                  maxlength="160"
+                  required
+                >
+              </label>
+
+              <label class="auth-field">
+                <span>Correo</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+
+              <label class="auth-field">
+                <span>Contraseña</span>
+                <input
+                  type="password"
+                  name="password"
+                  autocomplete="new-password"
+                  minlength="6"
+                  required
+                >
+              </label>
+
+              <button class="auth-primary" type="submit">
+                Crear mi espacio personal
+              </button>
+            </form>
+
+            <div class="auth-separator"><span>o</span></div>
+
+            <button id="register-google-btn" class="auth-google" type="button">
+              <span class="google-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.7-.4-3.9z"/>
+                  <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 16.1 19 13 24 13c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4c-7.7 0-14.3 4.3-17.7 10.7z"/>
+                  <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+                  <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.7-.4-3.9z"/>
+                </svg>
+              </span>
+              <span>Registrarme con Google</span>
+            </button>
+          </section>
+
+          <aside class="auth-privacy">
+            <strong>Cuenta mínima, investigación privada.</strong>
+            <p>
+              Para identificar su cuenta solicitamos nombre visible y correo.
+              Las credenciales son gestionadas por Firebase Authentication.
+              Proyectos, obras, etiquetas y demás contenido se almacenan solo cuando usted decide añadirlos.
+            </p>
+            <small>
+              La licencia MIT corresponde al software del proyecto y no sustituye esta declaración de privacidad.
+            </small>
+          </aside>
+        </div>
+
+        <footer class="auth-entry-footer">
+          <span>Investigación Filosófica</span>
+          <span>Software · MIT</span>
+        </footer>
+      </section>
     </section>
   </main>
 
-  <script type="module" src="../js/auth-page.js?v=20261120-philosophical-auth-v1"></script>
+  <script type="module" src="../js/auth-page.js?v=20261120-artistic-socrates-v2"></script>
 </body>
 </html>

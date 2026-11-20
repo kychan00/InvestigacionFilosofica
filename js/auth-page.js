@@ -273,3 +273,28 @@ if (!firebaseReady()) {
     location.replace(destination);
   }
 }
+
+
+const socratesArt = document.querySelector(".auth-socrates");
+
+if (socratesArt) {
+  const revealSocrates = () => {
+    requestAnimationFrame(() => {
+      socratesArt.classList.add("is-loaded");
+    });
+  };
+
+  if (socratesArt.complete && socratesArt.naturalWidth > 0) {
+    revealSocrates();
+  } else {
+    socratesArt.addEventListener("load", revealSocrates, { once: true });
+  }
+
+  socratesArt.addEventListener(
+    "error",
+    () => {
+      socratesArt.closest(".auth-philosopher-frame")?.remove();
+    },
+    { once: true }
+  );
+}
