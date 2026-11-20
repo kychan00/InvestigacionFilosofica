@@ -1178,28 +1178,35 @@ function renderSubprojects() {
   const countFor = id => projectWorks.filter(work =>
     id === "unfiled" ? !work.subprojectId : work.subprojectId === id
   ).length;
+  const authorCountFor = id => projectAuthors.filter(author =>
+    id === "unfiled" ? !author.subprojectId : author.subprojectId === id
+  ).length;
 
   const filterCards = [
     {
       id: "all",
       title: "Todo el proyecto",
-      description: "Todas las lecturas, voces y relaciones.",
+      description: `${projectWorks.length} lectura(s) · ${projectAuthors.length} autor(es) añadido(s)`,
       color: projectById(selectedProjectId)?.color || "#0f62fe",
-      count: projectWorks.length
+      count: projectWorks.length + projectAuthors.length
     },
     ...subprojects.map(item => ({
       id: item.id,
       title: item.title || "Colección",
-      description: item.description || "Una línea de trabajo dentro del proyecto.",
+      description: [
+        item.description || "Una línea de trabajo dentro del proyecto.",
+        `${countFor(item.id)} lectura(s)`,
+        `${authorCountFor(item.id)} autor(es)`
+      ].join(" · "),
       color: /^#[0-9a-f]{6}$/i.test(item.color || "") ? item.color : "#4589ff",
-      count: countFor(item.id)
+      count: countFor(item.id) + authorCountFor(item.id)
     })),
     {
       id: "unfiled",
       title: "Sin colección",
-      description: "Lecturas todavía no clasificadas.",
+      description: `${countFor("unfiled")} lectura(s) · ${authorCountFor("unfiled")} autor(es) sin colección`,
       color: "#8d8d8d",
-      count: countFor("unfiled")
+      count: countFor("unfiled") + authorCountFor("unfiled")
     }
   ];
 
@@ -1233,7 +1240,7 @@ function renderSubprojects() {
           <span></span>
           <div>
             <strong>${escapeHtml(item.title || "Colección")}</strong>
-            <small>${escapeHtml(countFor(item.id))} lectura(s) · ${escapeHtml(item.status || "active")}</small>
+            <small>${escapeHtml(countFor(item.id))} lectura(s) · ${escapeHtml(authorCountFor(item.id))} autor(es) · ${escapeHtml(item.status || "active")}</small>
           </div>
           <div class="subproject-card-actions">
             <button type="button" data-subproject-edit="${escapeHtml(item.id)}">Editar</button>
