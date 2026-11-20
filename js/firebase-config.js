@@ -1,10 +1,10 @@
 export const FIREBASE_CONFIG = Object.freeze({
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyBNCwpa3bTMBUIC6GSXTDmoFpqik4W0yzs",
+  authDomain: "investigacion-filosofica.firebaseapp.com",
+  projectId: "investigacion-filosofica",
+  storageBucket: "investigacion-filosofica.firebasestorage.app",
+  messagingSenderId: "1020802513809",
+  appId: "1:1020802513809:web:9ef743ff0b5a1654873830"
 });
 
 export function isFirebaseConfigured() {
