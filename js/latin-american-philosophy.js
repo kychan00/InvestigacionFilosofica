@@ -1,4 +1,7 @@
 import { searchPhilosophy } from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
+import {
+  createAuthorSaveButton
+} from "./public-save-controls.js";
 
 const INVENTORY_URL = "./src/data/latin-american-philosophers-metadata.json";
 const MANIFEST_URL = "./src/data/philosopher-works/manifest.json";
@@ -111,6 +114,36 @@ function canonicalId(value) {
   return String(value).padStart(4, "0");
 }
 
+function latinAuthorPayload(author) {
+  const numericId = author?.author_id ?? author?.id;
+  const name = author?.canonical_name || author?.name || "Autor";
+  return {
+    id: `latin-american-philosopher-${numericId}`,
+    displayName: name,
+    name,
+    alternateNames: author?.alternate_names || [],
+    sourceType: "latin-american-philosophy",
+    sourcePage: `filosofia-latinoamericana.html#autor-${canonicalId(numericId)}`
+  };
+}
+
+function bindAuthorCardOpen(card, id) {
+  card.setAttribute("role", "button");
+  card.tabIndex = 0;
+
+  const open = event => {
+    if (event?.target?.closest?.("[data-private-save]")) return;
+    openAuthorDialog(id);
+  };
+
+  card.addEventListener("click", open);
+  card.addEventListener("keydown", event => {
+    if (event.target !== card || !["Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    open(event);
+  });
+}
+
 function humanize(value) {
   return String(value || "")
     .replaceAll("_", " ")
@@ -134,11 +167,10 @@ function filteredAuthors() {
 
 function makeAuthorCard(author) {
   const seeded = authorHasSeed(author);
-  const card = document.createElement(seeded ? "button" : "article");
+  const card = document.createElement("article");
   card.className = `author-card${seeded ? " author-card--interactive" : ""}`;
 
   if (seeded) {
-    card.type = "button";
     card.dataset.authorId = String(author.id);
     card.setAttribute("aria-label", `Abrir ficha de ${author.name}`);
   }
@@ -154,14 +186,19 @@ function makeAuthorCard(author) {
       <span class="author-state ${seeded ? "seeded" : "pending"}">
         ${seeded ? "ficha bibliográfica" : "Sin ficha"}
       </span>
-      <span class="author-card-open" aria-hidden="true">Abrir →</span>
+      <span class="author-card-open" aria-hidden="true">${seeded ? "Abrir →" : ""}</span>
     </div>
   `;
   card.querySelector("h3").textContent = author.name;
   card.querySelector(".author-card-monogram").textContent = dossierMonogram(author.name);
 
   if (seeded) {
-    card.addEventListener("click", () => openAuthorDialog(author.id));
+    bindAuthorCardOpen(card, author.id);
+    const save = createAuthorSaveButton(
+      latinAuthorPayload(author),
+      { label: "Guardar filósofo en mi archivo" }
+    );
+    if (save) card.append(save);
   }
 
   return card;
@@ -264,8 +301,7 @@ function makeMiniAuthor(record) {
   const metrics = explorerCardMetrics(record);
   const keywords = recordKeywords(record);
 
-  const card = document.createElement("button");
-  card.type = "button";
+  const card = document.createElement("article");
   card.className = `mini-author author-profile-card period-${period.id}`;
   card.dataset.authorId = String(record.author_id);
   card.setAttribute("aria-label", `Abrir ficha de ${record.canonical_name}`);
@@ -309,7 +345,14 @@ function makeMiniAuthor(record) {
     chipBox.append(chip);
   }
 
-  card.addEventListener("click", () => openAuthorDialog(record.author_id));
+  bindAuthorCardOpen(card, record.author_id);
+
+  const save = createAuthorSaveButton(
+    latinAuthorPayload(record),
+    { label: "Guardar filósofo en mi archivo" }
+  );
+  if (save) card.append(save);
+
   return card;
 }
 
