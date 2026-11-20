@@ -25,7 +25,7 @@
 
   <link rel="stylesheet" href="./css/app.css">
   <link rel="stylesheet" href="./css/theme.css?v=20261109-author-timeline-v2">
-  <link rel="stylesheet" href="./css/profile.css?v=20261120-project-workspace-v2">
+  <link rel="stylesheet" href="./css/profile.css?v=20261120-author-identity-v3">
 </head>
 
 <body class="profile-page profile-auth-pending">
@@ -315,8 +315,17 @@
                   <span class="profile-kicker">AUTORES</span>
                   <h3>Voces presentes en la bibliografía</h3>
                 </div>
-                <p>Se construye automáticamente a partir de las obras del proyecto y la colección seleccionada.</p>
+                <p>
+                  Reúne autores añadidos por usted y voces detectadas en las lecturas de la colección seleccionada.
+                </p>
               </header>
+              <div
+                id="project-identity-review"
+                class="project-identity-review"
+                role="status"
+                aria-live="polite"
+                hidden
+              ></div>
               <div id="project-author-list" class="project-author-list"></div>
             </section>
 
@@ -551,6 +560,6 @@
   </main>
 
   <script type="module" src="./js/theme.js?v=20261120-account-v1"></script>
-  <script type="module" src="./js/profile.js?v=20261120-project-workspace-v2"></script>
+  <script type="module" src="./js/profile.js?v=20261120-author-identity-v3"></script>
 </body>
 </html>
