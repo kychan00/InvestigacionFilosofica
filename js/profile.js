@@ -1333,6 +1333,7 @@ profileSettingsForm.addEventListener("submit", async event => {
   profileSaveButton.setAttribute("aria-busy", "true");
   profileSaveButton.textContent = "Guardando…";
   profileSaveStatus.textContent = "";
+  profileSaveStatus.classList.remove("is-error");
 
   try {
     await updateUserProfileDocument(currentUser.uid, {
