@@ -772,7 +772,7 @@ function mergedSavedAuthors() {
     .sort((a, b) => a.name.localeCompare(b.name, "es"));
 }
 
-function renderProjectStats() {function renderProjectStats() {
+function renderProjectStats() {
   if (!projectDetailStats) return;
   const authors = projectAuthorsFromWorks(projectWorks, projectAuthors);
   projectDetailStats.innerHTML = [
@@ -1402,7 +1402,7 @@ function renderAuthors() {
   }).join("");
 }
 
-function fillProfileForm() {function fillProfileForm() {
+function fillProfileForm() {
   profileSettingsForm.elements.displayName.value =
     currentProfile?.displayName ||
     currentUser?.displayName ||
