@@ -173,7 +173,7 @@ test("authentication is a dedicated philosophical page, not a modal", () => {
   assert.match(page, /Cuenta de investigación/);
   assert.match(page, /La Escuela de Atenas/);
   assert.match(page, /Cuenta mínima, investigación privada/);
-  assert.match(css, /\.auth-layout/);
+  assert.match(css, /\.auth-shell/);
   assert.match(css, /url\("\.\.\/assets\/hero-school-athens\.jpg"\)/);
   assert.doesNotMatch(account, /aria-modal|role="dialog"/);
 });
