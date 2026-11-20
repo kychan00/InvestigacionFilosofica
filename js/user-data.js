@@ -189,7 +189,7 @@ export async function updateUserProfileDocument(uid, changes) {
     accentColor: /^#[0-9a-f]{6}$/i.test(changes.accentColor || "")
       ? changes.accentColor
       : "#0f62fe",
-    profileShell: ["default", "territory"].includes(changes.profileShell)
+    profileShell: ["default", "territory", "marginalia"].includes(changes.profileShell)
       ? changes.profileShell
       : "default",
     updatedAt: serverTimestamp()
