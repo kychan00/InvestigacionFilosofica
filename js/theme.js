@@ -1,3 +1,5 @@
+import "./account-menu.js";
+
 const STORAGE_KEY =
   "investigacion-filosofica-theme";
 
