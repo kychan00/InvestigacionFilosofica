@@ -403,7 +403,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261120-profile-bootstrap-v5/);
+  assert.match(page, /profile\.js\?v=20261120-existing-card-system-v1/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {

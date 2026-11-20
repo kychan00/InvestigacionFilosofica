@@ -149,52 +149,92 @@ let unsubscribeIdentityDecisions = null;
 
 const PROJECT_CARD_STYLES = [
   {
-    id: "archive",
-    label: "Archivo",
-    note: "Ficha académica limpia, equilibrada y documental.",
-    mark: "A"
+    id: "default",
+    label: "Investigación",
+    note: "La ficha base del motor de Investigación Filosófica: sobria, clara y documental.",
+    mark: "Φ"
   },
   {
-    id: "paper",
-    label: "Papel",
-    note: "Hoja de lectura cálida con ritmo de cuaderno y margen editorial.",
+    id: "protrepsis",
+    label: "Protrepsis",
+    note: "Papel editorial cálido, lomo de archivo y ritmo tipográfico de la revista.",
     mark: "P"
   },
   {
-    id: "index",
-    label: "Índice",
-    note: "Ficha compacta de catálogo para proyectos con muchas lecturas.",
-    mark: "I"
-  },
-  {
-    id: "folio",
-    label: "Folio",
-    note: "Composición tipográfica amplia para títulos que merecen respirar.",
-    mark: "F"
-  },
-  {
-    id: "night",
-    label: "Nocturna",
-    note: "Contraste oscuro para destacar una lectura central del proyecto.",
-    mark: "N"
-  },
-  {
-    id: "signal",
-    label: "Señal",
-    note: "Acento gráfico fuerte para textos clave, hallazgos o pivotes.",
+    id: "sincronia",
+    label: "Sincronía",
+    note: "Ficha-estampilla con papel crema, marco cromático y acentos editoriales.",
     mark: "S"
+  },
+  {
+    id: "quadripartita",
+    label: "Quadripartita Ratio",
+    note: "Estampilla bibliográfica en cobalto, papel blanco y composición de archivo.",
+    mark: "Q"
+  },
+  {
+    id: "thesis",
+    label: "Tesis",
+    note: "Ficha institucional limpia con barra azul, metadatos compactos y lectura directa.",
+    mark: "T"
+  },
+  {
+    id: "author-archive",
+    label: "Archivo de autor",
+    note: "Dossier bibliográfico con rail lateral, numeración y composición de ficha de autor.",
+    mark: "A"
   }
 ];
 
+const LEGACY_PROJECT_CARD_STYLE_MAP = {
+  archive: "default",
+  paper: "protrepsis",
+  index: "default",
+  folio: "author-archive",
+  night: "sincronia",
+  signal: "quadripartita"
+};
+
 function projectCardStyle(value) {
-  return PROJECT_CARD_STYLES.some(style => style.id === value)
-    ? value
-    : "archive";
+  const raw = String(value || "").trim();
+  const normalized = LEGACY_PROJECT_CARD_STYLE_MAP[raw] || raw;
+  return PROJECT_CARD_STYLES.some(style => style.id === normalized)
+    ? normalized
+    : "default";
 }
 
 function projectCardStyleMeta(value) {
   const id = projectCardStyle(value);
   return PROJECT_CARD_STYLES.find(style => style.id === id) || PROJECT_CARD_STYLES[0];
+}
+
+function libraryCardStyle(work) {
+  const source = [
+    work?.journal,
+    work?.source,
+    work?.sourceName,
+    work?.type,
+    ...(Array.isArray(work?.providers) ? work.providers : [])
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  if (source.includes("protrepsis")) return "protrepsis";
+  if (source.includes("sincronia")) return "sincronia";
+  if (source.includes("quadripartita")) return "quadripartita";
+  if (source.includes("tesis") || source.includes("thesis")) return "thesis";
+  if (
+    source.includes("filosofia latinoamericana") ||
+    source.includes("archivo de autor") ||
+    source.includes("author archive")
+  ) {
+    return "author-archive";
+  }
+
+  return "default";
 }
 
 function escapeHtml(value) {
@@ -1404,9 +1444,13 @@ function renderLibrary() {
     const doiUrl = work.doi ? safeUrl(`https://doi.org/${work.doi}`) : "";
     const tags = (work.tags || []).slice(0, 8);
     const memberships = membershipsForWork(work.id);
+    const cardStyle = libraryCardStyle(work);
 
     return `
-      <article class="library-card ${work.privateOnly ? "is-private" : ""}">
+      <article
+        class="library-card ${work.privateOnly ? "is-private" : ""}"
+        data-card-style="${escapeHtml(cardStyle)}"
+      >
         <div>
           <div class="library-card-meta">
             ${work.privateOnly
@@ -1842,7 +1886,7 @@ function renderProjectWorks() {
         </div>
         <strong class="project-work-title">${escapeHtml(work.title || "Obra")}</strong>
         <small class="project-work-authors">${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
-        ${work.abstract ? `<p class="project-work-abstract">${escapeHtml(compact(work.abstract, style === "index" ? 120 : 220))}</p>` : ""}
+        ${work.abstract ? `<p class="project-work-abstract">${escapeHtml(compact(work.abstract, style === "thesis" ? 160 : 220))}</p>` : ""}
         <div class="project-work-tags">
           ${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join("")}
         </div>

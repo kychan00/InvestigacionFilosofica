@@ -3074,3 +3074,493 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================================================
+   PRIVATE LIBRARY · EXISTING SITE CARD IDENTITIES
+   Reuses the visual languages already present in the public
+   archive instead of maintaining a parallel invented catalog.
+   ========================================================= */
+
+.card-catalog-preview[data-preview-style="default"] {
+  border-left: 4px solid #806f58;
+  border-radius: 4px 18px 18px 4px;
+  background:
+    linear-gradient(145deg, rgba(112,95,72,.055), transparent 46%),
+    #fcfaf6;
+  color: #20201f;
+  box-shadow: 0 10px 24px rgba(35,31,27,.07);
+}
+
+.card-catalog-preview[data-preview-style="default"] i {
+  color: #706048;
+}
+
+.card-catalog-preview[data-preview-style="protrepsis"] {
+  padding-left: 46px;
+  border-color: #d1c5b4;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, #ece2d3 0 30px, #d1c5b4 30px 31px, #faf7f1 31px);
+  color: #202823;
+  box-shadow: 5px 6px 0 rgba(62,45,28,.08);
+}
+
+.card-catalog-preview[data-preview-style="protrepsis"]::before {
+  content: "P";
+  position: absolute;
+  top: 18px;
+  left: 7px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  background: #1c3027;
+  color: #f4eee1;
+  font: 500 11px/1 Georgia, serif;
+}
+
+.card-catalog-preview[data-preview-style="protrepsis"] i {
+  color: #0f62fe;
+}
+
+.card-catalog-preview[data-preview-style="protrepsis"] strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.card-catalog-preview[data-preview-style="sincronia"] {
+  padding: 25px 23px;
+  border: 10px solid #2a5268;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 7px 4px, #2a5268 0 2px, transparent 2.5px) 0 0 / 14px 8px repeat-x,
+    radial-gradient(circle at 7px 4px, #2a5268 0 2px, transparent 2.5px) 0 100% / 14px 8px repeat-x,
+    #f5efdf;
+  color: #152932;
+  box-shadow: 6px 7px 0 rgba(18,35,47,.12);
+}
+
+.card-catalog-preview[data-preview-style="sincronia"]::after {
+  content: "SINCRONÍA · ARCHIVO";
+  position: absolute;
+  right: 17px;
+  bottom: 14px;
+  color: #b74432;
+  font: 700 7px/1.2 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .08em;
+}
+
+.card-catalog-preview[data-preview-style="sincronia"] i {
+  color: #b74432;
+}
+
+.card-catalog-preview[data-preview-style="quadripartita"] {
+  padding: 26px 24px;
+  border: 12px solid #2939c8;
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(80deg, rgba(41,57,200,.025) 0 1px, transparent 1px 6px),
+    #fbfbf5;
+  color: #17204b;
+  box-shadow: none;
+}
+
+.card-catalog-preview[data-preview-style="quadripartita"]::before {
+  content: "QUADRIPARTITA / RATIO";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #2939c8;
+  font: 700 6px/1 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .08em;
+}
+
+.card-catalog-preview[data-preview-style="quadripartita"] i {
+  color: #2939c8;
+}
+
+.card-catalog-preview[data-preview-style="thesis"] {
+  border: 1px solid #d7d7d7;
+  border-left: 4px solid #0f62fe;
+  border-radius: 0;
+  background: #fff;
+  color: #161616;
+  box-shadow: none;
+}
+
+.card-catalog-preview[data-preview-style="thesis"] i {
+  color: #0f62fe;
+}
+
+.card-catalog-preview[data-preview-style="thesis"] strong {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.card-catalog-preview[data-preview-style="author-archive"] {
+  padding-left: 88px;
+  border: 1px solid rgba(35,45,39,.27);
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, #243b34 0 68px, rgba(35,45,39,.24) 68px 69px, #f7f1e4 69px);
+  color: #202823;
+  box-shadow: 5px 6px 0 rgba(35,45,39,.1);
+}
+
+.card-catalog-preview[data-preview-style="author-archive"]::before {
+  content: "OBRA\A 01";
+  white-space: pre;
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  color: #ead9a6;
+  font: 800 8px/1.45 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .05em;
+}
+
+.card-catalog-preview[data-preview-style="author-archive"] i {
+  color: #8c364c;
+}
+
+:is(.project-work-card, .library-card)[data-card-style] {
+  --source-card-accent: var(--profile-accent, #0f62fe);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+:is(.project-work-card, .library-card)[data-card-style]:hover {
+  transform: translateY(-3px);
+}
+
+/* Investigación Filosófica · standard public result card */
+:is(.project-work-card, .library-card)[data-card-style="default"] {
+  border: 1px solid rgba(42,37,31,.12);
+  border-left: 4px solid #806f58;
+  border-radius: 4px 20px 20px 4px;
+  background:
+    linear-gradient(150deg, rgba(112,95,72,.055), transparent 44%),
+    rgba(252,250,246,.96);
+  color: #20201f;
+  box-shadow: 0 12px 30px rgba(35,31,27,.06);
+}
+
+:is(.project-work-card, .library-card)[data-card-style="default"]:hover {
+  border-color: rgba(42,37,31,.22);
+  box-shadow: 0 20px 54px rgba(35,31,27,.1);
+}
+
+/* Protrepsis · archival editorial folio */
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"] {
+  padding-left: 55px;
+  border: 1px solid #d1c5b4;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, #ece2d3 0 34px, #d1c5b4 34px 35px, #faf7f1 35px);
+  color: #202823;
+  box-shadow: 0 5px 20px rgba(62,45,28,.07);
+}
+
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"]::before {
+  content: "P";
+  position: absolute;
+  top: 18px;
+  left: 7px;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  background: #1c3027;
+  color: #f4eee1;
+  font: 500 13px/1 Georgia, serif;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"]::after {
+  content: "PROTREPSIS";
+  position: absolute;
+  left: 10px;
+  bottom: 19px;
+  color: #645f57;
+  font: 700 6px/1 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .08em;
+  writing-mode: vertical-rl;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"] h3,
+.project-work-card[data-card-style="protrepsis"] .project-work-title {
+  color: #202823;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"] p,
+.project-work-card[data-card-style="protrepsis"] .project-work-authors,
+.project-work-card[data-card-style="protrepsis"] .project-work-abstract {
+  color: #645f57;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"] :is(.library-card-meta span, .library-card-tags span, .project-work-meta span, .project-work-tags span) {
+  border-color: #d1c5b4;
+  background: #ece2d3;
+  color: #645f57;
+}
+
+/* Sincronía · editorial stamp */
+:is(.project-work-card, .library-card)[data-card-style="sincronia"] {
+  padding: 30px 27px 27px;
+  border: 11px solid #2a5268;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 7px 4px, #2a5268 0 2.5px, transparent 3px) 0 0 / 14px 8px repeat-x,
+    radial-gradient(circle at 7px 4px, #2a5268 0 2.5px, transparent 3px) 0 100% / 14px 8px repeat-x,
+    repeating-linear-gradient(0deg, rgba(20,42,50,.018) 0 1px, transparent 1px 4px),
+    #f5efdf;
+  color: #152932;
+  box-shadow: 7px 8px 0 rgba(18,35,47,.13);
+}
+
+:is(.project-work-card, .library-card)[data-card-style="sincronia"]::before {
+  content: "SINCRONÍA";
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  color: #2a5268;
+  font: 800 7px/1 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .1em;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="sincronia"]::after {
+  content: "ARCHIVO · UDEG";
+  position: absolute;
+  right: 14px;
+  bottom: 9px;
+  color: #b74432;
+  font: 800 6px/1 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .08em;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="sincronia"] h3,
+.project-work-card[data-card-style="sincronia"] .project-work-title {
+  color: #152932;
+  font-family: var(--pg-serif, Georgia, serif);
+  font-weight: 500;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="sincronia"] p,
+.project-work-card[data-card-style="sincronia"] .project-work-authors,
+.project-work-card[data-card-style="sincronia"] .project-work-abstract {
+  color: #42575f;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="sincronia"] :is(.library-card-meta span, .library-card-tags span, .project-work-meta span, .project-work-tags span) {
+  border-color: rgba(42,82,104,.35);
+  background: transparent;
+  color: #2a5268;
+}
+
+/* Quadripartita Ratio · cobalt bibliographic stamp */
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"] {
+  padding: 32px 28px 28px;
+  border: 13px solid #2939c8;
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(80deg, rgba(41,57,200,.022) 0 1px, transparent 1px 6px),
+    #fbfbf5;
+  color: #17204b;
+  box-shadow: none;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"]::before {
+  content: "QUADRIPARTITA / RATIO";
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  color: #2939c8;
+  font: 700 7px/1 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .09em;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"]::after {
+  content: "ARGUMENTUM · UDEG";
+  position: absolute;
+  right: 14px;
+  bottom: 9px;
+  color: #2939c8;
+  font: 700 6px/1 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .07em;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"] h3,
+.project-work-card[data-card-style="quadripartita"] .project-work-title {
+  color: #17204b;
+  font-family: var(--pg-serif, Georgia, serif);
+  font-weight: 500;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"] p,
+.project-work-card[data-card-style="quadripartita"] .project-work-authors,
+.project-work-card[data-card-style="quadripartita"] .project-work-abstract {
+  color: #525969;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"] :is(.library-card-meta span, .library-card-tags span, .project-work-meta span, .project-work-tags span) {
+  border-color: #bac1e3;
+  background: #f3f4fa;
+  color: #2939c8;
+}
+
+/* Tesis · institutional repository result */
+:is(.project-work-card, .library-card)[data-card-style="thesis"] {
+  border: 1px solid var(--theme-line, #d7d7d7);
+  border-left: 3px solid #0f62fe;
+  border-radius: 0;
+  background: var(--theme-surface, #fff);
+  color: var(--theme-text, #161616);
+  box-shadow: none;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="thesis"] h3,
+.project-work-card[data-card-style="thesis"] .project-work-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="thesis"] :is(.library-card-meta span, .project-work-meta span) {
+  color: #0f62fe;
+}
+
+/* Author archive · dossier bibliography */
+:is(.project-work-card, .library-card)[data-card-style="author-archive"] {
+  padding-left: 112px;
+  border: 1px solid rgba(35,45,39,.27);
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, #243b34 0 88px, rgba(35,45,39,.24) 88px 89px, #f7f1e4 89px);
+  color: #202823;
+  box-shadow: 5px 6px 0 rgba(35,45,39,.1);
+}
+
+:is(.project-work-card, .library-card)[data-card-style="author-archive"]::before {
+  content: "OBRA\A ARCHIVO";
+  white-space: pre;
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  color: #ead9a6;
+  font: 800 8px/1.5 var(--pg-mono, ui-monospace, monospace);
+  letter-spacing: .06em;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="author-archive"]::after {
+  content: "Φ";
+  position: absolute;
+  left: 20px;
+  bottom: 17px;
+  color: #8c364c;
+  font: 400 30px/1 Georgia, serif;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="author-archive"] h3,
+.project-work-card[data-card-style="author-archive"] .project-work-title {
+  color: #202823;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+:is(.project-work-card, .library-card)[data-card-style="author-archive"] p,
+.project-work-card[data-card-style="author-archive"] .project-work-authors,
+.project-work-card[data-card-style="author-archive"] .project-work-abstract {
+  color: #5b625e;
+}
+
+/* Keep controls legible on the stable paper surfaces used by journal identities. */
+:is(.project-work-card, .library-card)[data-card-style="sincronia"] :is(button, select),
+:is(.project-work-card, .library-card)[data-card-style="quadripartita"] :is(button, select),
+:is(.project-work-card, .library-card)[data-card-style="protrepsis"] :is(button, select),
+:is(.project-work-card, .library-card)[data-card-style="author-archive"] :is(button, select) {
+  color: inherit;
+}
+
+.project-work-card[data-card-style="sincronia"] .project-work-style-button,
+.project-work-card[data-card-style="quadripartita"] .project-work-style-button,
+.project-work-card[data-card-style="protrepsis"] .project-work-style-button,
+.project-work-card[data-card-style="author-archive"] .project-work-style-button {
+  background: rgba(255,255,255,.76);
+}
+
+html[data-theme="dark"] :is(.project-work-card, .library-card)[data-card-style="default"],
+html[data-theme="dark"] :is(.project-work-card, .library-card)[data-card-style="thesis"] {
+  background: var(--theme-surface, #262626);
+  color: var(--theme-text, #f4f4f4);
+}
+
+/* Journal cards intentionally keep their original paper-like surfaces in dark mode,
+   matching the public Protrepsis, Sincronía and Quadripartita identities. */
+html[data-theme="dark"] :is(.project-work-card, .library-card)[data-card-style="protrepsis"] {
+  background:
+    linear-gradient(90deg, #30372f 0 34px, #4b5048 34px 35px, #292d27 35px);
+  border-color: #4b5048;
+  color: #f1ecdf;
+}
+
+html[data-theme="dark"] :is(.project-work-card, .library-card)[data-card-style="protrepsis"] h3,
+html[data-theme="dark"] .project-work-card[data-card-style="protrepsis"] .project-work-title {
+  color: #f1ecdf;
+}
+
+html[data-theme="dark"] :is(.project-work-card, .library-card)[data-card-style="protrepsis"] p,
+html[data-theme="dark"] .project-work-card[data-card-style="protrepsis"] :is(.project-work-authors, .project-work-abstract) {
+  color: #c8beae;
+}
+
+@media (max-width: 680px) {
+  :is(.project-work-card, .library-card)[data-card-style="protrepsis"] {
+    padding-left: 43px;
+    background:
+      linear-gradient(90deg, #ece2d3 0 27px, #d1c5b4 27px 28px, #faf7f1 28px);
+  }
+
+  html[data-theme="dark"] :is(.project-work-card, .library-card)[data-card-style="protrepsis"] {
+    background:
+      linear-gradient(90deg, #30372f 0 27px, #4b5048 27px 28px, #292d27 28px);
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="protrepsis"]::before {
+    left: 4px;
+    width: 18px;
+    height: 18px;
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="protrepsis"]::after {
+    left: 7px;
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="sincronia"] {
+    padding: 27px 18px 23px;
+    border-width: 8px;
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="quadripartita"] {
+    padding: 29px 18px 23px;
+    border-width: 9px;
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="author-archive"] {
+    padding-left: 70px;
+    background:
+      linear-gradient(90deg, #243b34 0 52px, rgba(35,45,39,.24) 52px 53px, #f7f1e4 53px);
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="author-archive"]::before {
+    left: 9px;
+    font-size: 6px;
+  }
+
+  :is(.project-work-card, .library-card)[data-card-style="author-archive"]::after {
+    left: 12px;
+    font-size: 24px;
+  }
+
+  .card-catalog-preview[data-preview-style="author-archive"] {
+    padding-left: 72px;
+    background:
+      linear-gradient(90deg, #243b34 0 54px, rgba(35,45,39,.24) 54px 55px, #f7f1e4 55px);
+  }
+}
