@@ -573,6 +573,20 @@ function renderProjectWorks() {
         ${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}
         ${work.privateOnly ? " · entrada privada" : ""}
       </small>
+      <select
+        data-project-work-subproject="${escapeHtml(work.id)}"
+        aria-label="Subproyecto de esta obra"
+      >
+        <option value="">Sin subproyecto</option>
+        ${subprojects.map(item => `
+          <option
+            value="${escapeHtml(item.id)}"
+            ${work.subprojectId === item.id ? "selected" : ""}
+          >
+            ${escapeHtml(item.title)}
+          </option>
+        `).join("")}
+      </select>
       <button type="button" data-project-work-remove="${escapeHtml(work.id)}">
         Quitar del proyecto
       </button>
@@ -738,11 +752,18 @@ function drawProjectAtlas() {
         ? radius
         : radius * (.56 + (index % 3) * .19);
 
+    const subproject = subprojects.find(
+      item => item.id === work.subprojectId
+    );
+
     return {
       work,
       x: centerX + Math.cos(angle * 1.07) * ring,
       y: centerY + Math.sin(angle) * ring,
-      r: work.privateOnly ? 9 : 8
+      r: work.privateOnly ? 9 : 8,
+      color:
+        subproject?.color ||
+        (work.privateOnly ? accentColor : baseColor)
     };
   });
 
@@ -788,15 +809,14 @@ function drawProjectAtlas() {
     context.beginPath();
     context.arc(node.x, node.y, node.r + 5, 0, Math.PI * 2);
     context.fillStyle = colorWithAlpha(
-      node.work.privateOnly ? accentColor : baseColor,
+      node.color,
       .12
     );
     context.fill();
 
     context.beginPath();
     context.arc(node.x, node.y, node.r, 0, Math.PI * 2);
-    context.fillStyle =
-      node.work.privateOnly ? accentColor : baseColor;
+    context.fillStyle = node.color;
     context.fill();
 
     context.strokeStyle = dark ? "#101214" : "#ffffff";
@@ -1130,6 +1150,25 @@ savedAuthorList.addEventListener("click", async event => {
   if (!author) return;
 
   await deleteSavedAuthor(currentUser.uid, author.id);
+});
+
+projectWorkList.addEventListener("change", async event => {
+  const select = event.target.closest("[data-project-work-subproject]");
+  if (!select || !currentUser || !selectedProjectId) return;
+
+  const work = projectWorks.find(
+    item => item.id === select.dataset.projectWorkSubproject
+  );
+  if (!work) return;
+
+  await attachWorkToProject(
+    currentUser.uid,
+    selectedProjectId,
+    work,
+    {
+      subprojectId: select.value
+    }
+  );
 });
 
 projectWorkList.addEventListener("click", async event => {
