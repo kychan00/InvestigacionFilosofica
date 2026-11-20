@@ -76,6 +76,49 @@ test("profile workspace supports projects, subprojects and a private atlas", () 
   assert.match(page, /Agregar trabajo que no existe en el motor/);
 });
 
+test("registered articles theses journals and Latin American philosophers expose private save controls", () => {
+  const helper = read("js/public-save-controls.js");
+  const articles = read("js/articles.js");
+  const thesis = read("js/thesis-demo.js");
+  const journals = read("js/journal-page.js");
+  const latin = read("js/latin-american-philosophy.js");
+
+  assert.match(helper, /hasVerifiedAuthHint\(\)/);
+  assert.match(helper, /research-library:save-work/);
+  assert.match(helper, /research-library:save-author/);
+  assert.match(articles, /createWorkSaveButton/);
+  assert.match(thesis, /createWorkSaveButton/);
+  assert.match(journals, /createWorkSaveButton/);
+  assert.match(latin, /createAuthorSaveButton/);
+
+  for (const source of [articles, thesis, journals, latin, helper]) {
+    assert.doesNotMatch(
+      source,
+      /firebase-firestore\.js|from "\.\/firebase-client\.js"/
+    );
+  }
+});
+
+test("project authors can be added explicitly and identity decisions persist privately", () => {
+  const data = read("js/user-data.js");
+  const profile = read("js/profile.js");
+  const page = read("perfil.html");
+
+  assert.match(data, /attachAuthorToProject/);
+  assert.match(data, /detachAuthorFromProject/);
+  assert.match(data, /subscribeProjectAuthors/);
+  assert.match(data, /saveAuthorIdentityDecision/);
+  assert.match(data, /authorIdentityDecisions/);
+
+  assert.match(profile, /data-author-attach/);
+  assert.match(profile, /data-project-author-pin/);
+  assert.match(profile, /nextIdentityReviewCandidate/);
+  assert.match(profile, /sameTitle|sharedTitle/);
+  assert.match(profile, /data-identity-decision="same"/);
+  assert.match(profile, /data-identity-decision="different"/);
+  assert.match(page, /id="project-identity-review"/);
+});
+
 test("project workspace hides configuration behind organization controls", () => {
   const page = read("perfil.html");
   const profile = read("js/profile.js");
@@ -119,7 +162,7 @@ test("normalized work identifiers survive library to project moves", () => {
 
   assert.match(data, /existingNormalizedId/);
   assert.match(data, /\["public-engine", "private-user-entry"\]/);
-  assert.match(data, /for \(const childCollection of \["subprojects", "works"\]\)/);
+  assert.match(data, /for \(const childCollection of \["subprojects", "works", "authors"\]\)/);
 });
 
 test("new browser modules parse as JavaScript", () => {
@@ -129,6 +172,7 @@ test("new browser modules parse as JavaScript", () => {
     "js/user-data.js",
     "js/account-menu.js",
     "js/auth-session-hint.js",
+    "js/public-save-controls.js",
     "js/auth-page.js",
     "js/profile.js"
   ];
