@@ -235,3 +235,55 @@ test("artistic auth combines local School of Athens with the Socrates overlay", 
   assert.match(page, /Socrates_transparent\.svg/);
   assert.match(css, /mix-blend-mode:\s*multiply/);
 });
+
+
+test("private profile is a panel-based philosophical pinboard", () => {
+  const page = read("perfil.html");
+  const css = read("css/profile.css");
+  const profile = read("js/profile.js");
+
+  assert.match(page, /class="profile-pinboard"/);
+  assert.match(page, /data-profile-panel/);
+  assert.match(page, /id="profile-gate" class="profile-gate" hidden/);
+  assert.match(page, /id="profile-loading"/);
+  assert.match(css, /columns:\s*4 270px/);
+  assert.match(css, /\.profile-pin-quote/);
+  assert.match(css, /\.profile-cover-art/);
+  assert.match(profile, /function setActivePanel/);
+  assert.doesNotMatch(profile, /new IntersectionObserver/);
+});
+
+test("personal accent controls the whole private profile and previews live", () => {
+  const css = read("css/profile.css");
+  const profile = read("js/profile.js");
+
+  assert.match(css, /--profile-accent:\s*#0f62fe/);
+  assert.match(css, /var\(--profile-accent\)/);
+  assert.doesNotMatch(css, /--profile-blue:/);
+  assert.match(profile, /document\.body\.style\.setProperty\("--profile-accent"/);
+  assert.match(profile, /profileSettingsForm\.addEventListener\("input"/);
+  assert.match(profile, /applyProfileAccent\(event\.target\.value\)/);
+});
+
+test("private profile does not flash the login gate for authenticated users", () => {
+  const page = read("perfil.html");
+  const profile = read("js/profile.js");
+
+  assert.match(page, /class="profile-page profile-auth-pending"/);
+  assert.match(page, /id="profile-gate"[^>]*hidden/);
+  assert.match(page, /id="profile-workspace"[^>]*hidden/);
+  assert.match(profile, /await getUserProfile\(user\.uid\)/);
+  assert.match(profile, /showWorkspace\(\)/);
+  assert.match(profile, /loading\.hidden = true/);
+});
+
+test("profile avoids scroll repaint triggers and hidden atlas redraws", () => {
+  const css = read("css/profile.css");
+  const profile = read("js/profile.js");
+
+  assert.doesNotMatch(css, /backdrop-filter/);
+  assert.doesNotMatch(profile, /behavior:\s*"smooth"/);
+  assert.doesNotMatch(profile, /IntersectionObserver/);
+  assert.match(profile, /atlasCanvas\.offsetParent === null/);
+  assert.match(profile, /requestAnimationFrame\(drawProjectAtlas\)/);
+});
