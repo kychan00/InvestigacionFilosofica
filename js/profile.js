@@ -10,6 +10,7 @@ import {
 } from "./firebase-client.js";
 
 import {
+  attachAuthorToProject,
   attachWorkToProject,
   createProject,
   createSubproject,
@@ -17,11 +18,16 @@ import {
   deleteProject,
   deleteSavedAuthor,
   deleteSubproject,
+  detachAuthorFromProject,
   detachWorkFromProject,
   ensureUserProfile,
   getUserProfile,
+  saveAuthor,
+  saveAuthorIdentityDecision,
   saveLibraryWork,
+  subscribeAuthorIdentityDecisions,
   subscribeLibrary,
+  subscribeProjectAuthors,
   subscribeProjectWorks,
   subscribeProjects,
   subscribeSavedAuthors,
@@ -91,6 +97,7 @@ const atlasCanvas = document.querySelector("#project-atlas");
 const atlasNote = document.querySelector("#project-atlas-note");
 const projectWorkList = document.querySelector("#project-work-list");
 const projectAuthorList = document.querySelector("#project-author-list");
+const projectIdentityReview = document.querySelector("#project-identity-review");
 const projectWorkNote = document.querySelector("#project-work-note");
 
 const manualWorkForm = document.querySelector("#manual-work-form");
@@ -113,7 +120,10 @@ let activeSubprojectFilter = "all";
 let pendingProjectSelectionId = "";
 let subprojects = [];
 let projectWorks = [];
+let projectAuthors = [];
+let identityDecisions = [];
 const projectWorkIndex = new Map();
+const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
 let assignmentProjectSignature = "";
 let assignmentUnsubscribers = [];
@@ -123,6 +133,8 @@ let unsubscribeLibrary = null;
 let unsubscribeAuthors = null;
 let unsubscribeSubprojects = null;
 let unsubscribeProjectWorks = null;
+let unsubscribeProjectAuthors = null;
+let unsubscribeIdentityDecisions = null;
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -213,7 +225,9 @@ function stopRealtimeListeners() {
     unsubscribeLibrary,
     unsubscribeAuthors,
     unsubscribeSubprojects,
-    unsubscribeProjectWorks
+    unsubscribeProjectWorks,
+    unsubscribeProjectAuthors,
+    unsubscribeIdentityDecisions
   ]) {
     if (typeof unsubscribe === "function") unsubscribe();
   }
@@ -224,6 +238,7 @@ function stopRealtimeListeners() {
   assignmentUnsubscribers = [];
   assignmentProjectSignature = "";
   projectWorkIndex.clear();
+  projectAuthorIndex.clear();
   projectSubprojectIndex.clear();
 
   unsubscribeProjects = null;
@@ -231,6 +246,8 @@ function stopRealtimeListeners() {
   unsubscribeAuthors = null;
   unsubscribeSubprojects = null;
   unsubscribeProjectWorks = null;
+  unsubscribeProjectAuthors = null;
+  unsubscribeIdentityDecisions = null;
 }
 
 function showGate(message, {
