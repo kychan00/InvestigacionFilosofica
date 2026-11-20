@@ -21,6 +21,11 @@ import {
   saveLibraryWork
 } from "./user-data.js";
 
+import {
+  clearVerifiedAuthHint,
+  markVerifiedAuthHint
+} from "./auth-session-hint.js";
+
 const PENDING_KEY = "research-pending-save-v1";
 const RETURN_KEY = "research-auth-return-v1";
 
@@ -122,6 +127,7 @@ async function finishSignIn(user) {
   await user.reload();
 
   if (!user.emailVerified) {
+    clearVerifiedAuthHint();
     await signOut(auth);
     throw new Error(
       "Verifique su correo antes de iniciar sesión. Revise el mensaje de Investigación Filosófica."
@@ -129,6 +135,7 @@ async function finishSignIn(user) {
   }
 
   await ensureUserProfile(user);
+  markVerifiedAuthHint();
   await completePendingSave(user);
 
   const destination = safeReturnUrl();
@@ -146,6 +153,7 @@ async function googleFlow() {
 
   const credential = await signInWithPopup(auth, provider);
   await ensureUserProfile(credential.user);
+  markVerifiedAuthHint();
   await completePendingSave(credential.user);
 
   const destination = safeReturnUrl();
@@ -200,6 +208,7 @@ registerForm.addEventListener("submit", async event => {
     });
 
     await sendEmailVerification(credential.user);
+    clearVerifiedAuthHint();
     await signOut(auth);
 
     setMode("login");
@@ -267,10 +276,13 @@ if (!firebaseReady()) {
 
   if (auth.currentUser?.emailVerified) {
     await ensureUserProfile(auth.currentUser);
+    markVerifiedAuthHint();
     await completePendingSave(auth.currentUser);
     const destination = safeReturnUrl();
     sessionStorage.removeItem(RETURN_KEY);
     location.replace(destination);
+  } else {
+    clearVerifiedAuthHint();
   }
 }
 

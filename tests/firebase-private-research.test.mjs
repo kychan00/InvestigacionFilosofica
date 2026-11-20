@@ -90,6 +90,7 @@ test("new browser modules parse as JavaScript", () => {
     "js/firebase-client.js",
     "js/user-data.js",
     "js/account-menu.js",
+    "js/auth-session-hint.js",
     "js/auth-page.js",
     "js/profile.js"
   ];
@@ -183,7 +184,7 @@ test("account dock uses a progressive-enhancement link and mounts once", () => {
   const account = read("js/account-menu.js");
 
   assert.match(account, /<a[\s\S]*class="account-trigger"/);
-  assert.match(account, /href="\$\{authUrl\("login"\)\}"/);
+  assert.match(account, /hasVerifiedAuthHint\(\) \? siteUrl\("perfil\.html"\) : authUrl\("login"\)/);
   assert.match(account, /data-research-account-dock/);
   assert.match(account, /document\.querySelector\([\s\S]*data-research-account-dock/);
   assert.match(account, /export\s*\{[\s\S]*authUrl,[\s\S]*navigateToAuth/);
@@ -308,4 +309,54 @@ test("profile settings has an explicit back action", () => {
 
   assert.match(page, /← Volver a mi investigación/);
   assert.match(profile, /settingsBackButton\.addEventListener\("click"/);
+});
+
+
+test("save bookmarks are rendered only with a verified local session hint", () => {
+  const app = read("js/app.js");
+  const hint = read("js/auth-session-hint.js");
+
+  assert.match(app, /hasVerifiedAuthHint\(\)/);
+  assert.match(app, /function renderWorkSaveControl/);
+  assert.match(app, /function renderAuthorSaveControl/);
+  assert.match(app, /data-save-icon/);
+  assert.match(app, /save-bookmark-shape/);
+  assert.doesNotMatch(app, />\s*Guardar autor\s*</);
+  assert.doesNotMatch(app, />\s*Guardar\s*</);
+
+  assert.match(hint, /research-auth-verified-v1/);
+  assert.match(hint, /verified:\s*true/);
+  assert.doesNotMatch(hint, /firebase/);
+});
+
+test("verified auth hint is created on login and cleared on logout", () => {
+  const auth = read("js/auth-page.js");
+  const profile = read("js/profile.js");
+  const account = read("js/account-menu.js");
+
+  assert.match(auth, /markVerifiedAuthHint\(\)/);
+  assert.match(auth, /clearVerifiedAuthHint\(\)/);
+  assert.match(profile, /markVerifiedAuthHint\(\)/);
+  assert.match(profile, /clearVerifiedAuthHint\(\)/);
+  assert.match(account, /clearVerifiedAuthHint\(\)/);
+  assert.match(account, /markVerifiedAuthHint\(\)/);
+});
+
+test("bookmark save state never replaces the icon with text", () => {
+  const account = read("js/account-menu.js");
+  const css = read("css/account.css");
+
+  assert.match(account, /function isSaveIcon/);
+  assert.match(account, /classList\.add\("is-saved"\)/);
+  assert.match(account, /setAttribute\("aria-label", "Guardado"\)/);
+  assert.match(css, /\.research-save-button\.is-saved/);
+  assert.match(css, /\.save-bookmark-shape/);
+  assert.match(css, /width:\s*34px/);
+});
+
+test("multiple author cards save the selected author identity", () => {
+  const app = read("js/app.js");
+
+  assert.match(app, /data-save-author-index/);
+  assert.match(app, /identities\?\.\[Number\(authorIndex\)\]/);
 });

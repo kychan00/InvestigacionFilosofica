@@ -75,6 +75,71 @@ import {
   selectQwen3BrowserQ8Candidates
 } from "../src/ai/qwen3-browser-q8-contract.js";
 
+import {
+  hasVerifiedAuthHint
+} from "./auth-session-hint.js";
+
+
+function bookmarkSaveSvg() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        class="save-bookmark-shape"
+        d="M7 4.75c0-.97.78-1.75 1.75-1.75h6.5C16.22 3 17 3.78 17 4.75V21l-5-3.35L7 21V4.75Z"
+      ></path>
+    </svg>
+  `;
+}
+
+function renderWorkSaveControl(item) {
+  if (!hasVerifiedAuthHint()) return "";
+
+  return `
+    <button
+      type="button"
+      class="research-save-button research-save-icon"
+      data-save-work-id="${escapeHtml(recordId(item))}"
+      data-save-icon
+      aria-label="Guardar obra en mi biblioteca"
+      title="Guardar en mi biblioteca"
+    >
+      ${bookmarkSaveSvg()}
+    </button>
+  `;
+}
+
+function renderAuthorSaveControl(index = null) {
+  if (!hasVerifiedAuthHint()) return "";
+
+  const indexAttribute =
+    Number.isInteger(index)
+      ? ` data-save-author-index="${index}"`
+      : "";
+
+  return `
+    <button
+      type="button"
+      class="author-save-button author-save-icon"
+      data-save-author
+      data-save-icon
+      ${indexAttribute}
+      aria-label="Guardar autor"
+      title="Guardar autor"
+    >
+      ${bookmarkSaveSvg()}
+    </button>
+  `;
+}
+
 
 const form =
   document.querySelector(
@@ -3192,6 +3257,7 @@ function renderResult(
       class="result-card"
       data-rank="${index + 1}"
     >
+      ${renderWorkSaveControl(item)}
 
       <div
         class="result-visual"
@@ -3422,17 +3488,6 @@ function renderResult(
           >
             Ver ficha
           </button>
-
-          <button
-            type="button"
-            class="research-save-button"
-            data-save-work-id="${escapeHtml(
-              recordId(item)
-            )}"
-          >
-            Guardar
-          </button>
-
 
           ${
             institutionalLinks.length
@@ -5692,6 +5747,7 @@ function renderAuthorResolution(
 
               return `
                 <article class="author-profile-card">
+                  ${renderAuthorSaveControl(index)}
                   <span class="author-profile-query">
                     ${escapeHtml(identity.input)}
                   </span>
@@ -5870,6 +5926,7 @@ function renderAuthorResolution(
       class="author-resolution is-resolved"
       aria-label="Identidad del autor"
     >
+      ${renderAuthorSaveControl()}
       <div>
         ${
           currentResponse?.authorOnly &&
@@ -5965,14 +6022,6 @@ function renderAuthorResolution(
             `
             : ""
         }
-
-        <button
-          type="button"
-          class="author-save-button"
-          data-save-author
-        >
-          Guardar autor
-        </button>
 
         <span>
           Corpus filosófico del proyecto
@@ -6257,10 +6306,18 @@ document.addEventListener(
       return;
     }
 
+    const authorIndex =
+      authorButton.dataset.saveAuthorIndex;
+
     const author =
-      currentResponse
-        ?.authorResolution
-        ?.author;
+      authorIndex !== undefined
+        ? currentResponse
+            ?.authorResolution
+            ?.identities?.[Number(authorIndex)]
+            ?.author
+        : currentResponse
+            ?.authorResolution
+            ?.author;
 
     if (!author) {
       return;

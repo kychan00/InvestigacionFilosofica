@@ -31,6 +31,11 @@ import {
   updateUserProfileDocument
 } from "./user-data.js";
 
+import {
+  clearVerifiedAuthHint,
+  markVerifiedAuthHint
+} from "./auth-session-hint.js";
+
 import "./account-menu.js";
 
 const loading = document.querySelector("#profile-loading");
@@ -939,6 +944,7 @@ function drawProjectAtlas() {
 
 async function loadPrivateWorkspace(user) {
   currentUser = user;
+  markVerifiedAuthHint();
 
   await ensureUserProfile(user);
   currentProfile = await getUserProfile(user.uid);
@@ -1401,6 +1407,7 @@ profileSettingsForm.addEventListener("input", event => {
 async function leavePrivateWorkspace() {
   try {
     await signOut(auth);
+    clearVerifiedAuthHint();
   } catch (error) {
     console.error("No se pudo cerrar la sesión.", error);
   }
@@ -1422,6 +1429,7 @@ const resizeObserver = new ResizeObserver(scheduleAtlasDraw);
 if (atlasCanvas) resizeObserver.observe(atlasCanvas);
 
 if (!firebaseReady()) {
+  clearVerifiedAuthHint();
   showGate(
     "La interfaz está instalada, pero este despliegue todavía no tiene un proyecto Firebase configurado. Añada firebaseConfig para activar cuentas y datos privados."
   );
@@ -1436,6 +1444,7 @@ if (!firebaseReady()) {
     projectWorks = [];
 
     if (!user) {
+      clearVerifiedAuthHint();
       currentUser = null;
       currentProfile = null;
       showGate(
@@ -1447,6 +1456,7 @@ if (!firebaseReady()) {
     await user.reload();
 
     if (!user.emailVerified) {
+      clearVerifiedAuthHint();
       currentUser = null;
       currentProfile = null;
       showGate(
