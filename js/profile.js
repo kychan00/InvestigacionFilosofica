@@ -824,7 +824,9 @@ function mergedSavedAuthors() {
       wikipediaUrl:
         group.savedRecords.find(record => record.wikipediaUrl)?.wikipediaUrl || "",
       sourceType:
-        group.savedRecords.find(record => record.sourceType)?.sourceType || ""
+        group.savedRecords.find(record => record.sourceType)?.sourceType || "",
+      sourcePage:
+        group.savedRecords.find(record => record.sourcePage)?.sourcePage || ""
     }))
     .sort((a, b) => a.name.localeCompare(b.name, "es"));
 }
