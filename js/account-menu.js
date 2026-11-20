@@ -31,7 +31,7 @@ function ensureStylesheet() {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = siteUrl("css/account.css?v=20261120-account-dock-v3");
+  link.href = siteUrl("css/account.css?v=20261120-private-bookmark-v1");
   link.dataset.accountStyles = "";
   document.head.append(link);
 }
