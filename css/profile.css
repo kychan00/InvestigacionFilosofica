@@ -683,6 +683,19 @@
   line-height: 1.45;
 }
 
+.project-work-card select {
+  width: 100%;
+  min-height: 36px;
+  margin: 0 0 8px;
+  border: 1px solid var(--theme-line, #c6c6c6);
+  border-radius: 0;
+  background: var(--theme-page, #f4f4f4);
+  color: inherit;
+  padding: 0 9px;
+  font-family: var(--pg-mono, ui-monospace, monospace);
+  font-size: 9px;
+}
+
 .library-list,
 .saved-author-list {
   display: grid;
