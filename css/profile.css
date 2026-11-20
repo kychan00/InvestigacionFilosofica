@@ -3141,7 +3141,7 @@
 }
 
 .card-catalog-preview[data-preview-style="sincronia"]::after {
-  content: "SINCRONÍA · ARCHIVO";
+  content: "ESTAMPA · ARCHIVO";
   position: absolute;
   right: 17px;
   bottom: 14px;
@@ -3166,7 +3166,7 @@
 }
 
 .card-catalog-preview[data-preview-style="quadripartita"]::before {
-  content: "QUADRIPARTITA / RATIO";
+  content: "SERIE / COBALTO";
   position: absolute;
   top: 10px;
   right: 12px;
@@ -3273,7 +3273,7 @@
 }
 
 :is(.project-work-card, .library-card)[data-card-style="protrepsis"]::after {
-  content: "PROTREPSIS";
+  content: "MARGINALIA";
   position: absolute;
   left: 10px;
   bottom: 19px;
@@ -3317,7 +3317,7 @@
 }
 
 :is(.project-work-card, .library-card)[data-card-style="sincronia"]::before {
-  content: "SINCRONÍA";
+  content: "ESTAMPA";
   position: absolute;
   top: 10px;
   left: 16px;
@@ -3327,7 +3327,7 @@
 }
 
 :is(.project-work-card, .library-card)[data-card-style="sincronia"]::after {
-  content: "ARCHIVO · UDEG";
+  content: "SERIE · BIBLIOGRÁFICA";
   position: absolute;
   right: 14px;
   bottom: 9px;
@@ -3368,7 +3368,7 @@
 }
 
 :is(.project-work-card, .library-card)[data-card-style="quadripartita"]::before {
-  content: "QUADRIPARTITA / RATIO";
+  content: "SERIE / COBALTO";
   position: absolute;
   top: 10px;
   left: 16px;
@@ -3378,7 +3378,7 @@
 }
 
 :is(.project-work-card, .library-card)[data-card-style="quadripartita"]::after {
-  content: "ARGUMENTUM · UDEG";
+  content: "FICHA · COBALTO";
   position: absolute;
   right: 14px;
   bottom: 9px;
