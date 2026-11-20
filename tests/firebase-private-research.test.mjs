@@ -103,9 +103,14 @@ test("new browser modules parse as JavaScript", () => {
   }
 });
 
-test("account menu is mounted from the shared theme module", () => {
+test("account menu loads without blocking critical navigation or theme code", () => {
   const theme = read("js/theme.js");
-  assert.match(theme, /^import "\.\/account-menu\.js";/);
+  const menu = read("js/mobile-site-menu.js");
+
+  assert.doesNotMatch(theme, /^import "\.\/account-menu\.js";/);
+  assert.doesNotMatch(menu, /^import "\.\/account-menu\.js";/);
+  assert.match(theme, /void import\("\.\/account-menu\.js"\)/);
+  assert.match(menu, /void import\("\.\/account-menu\.js"\)/);
 });
 
 test("Firebase browser SDK version is pinned consistently", () => {
@@ -117,4 +122,16 @@ test("Firebase browser SDK version is pinned consistently", () => {
   ]) {
     assert.match(read(file), /firebasejs\/13\.3\.0\//);
   }
+});
+
+
+test("Firebase production configuration is present and Auth uses Spanish", () => {
+  const config = read("js/firebase-config.js");
+  const client = read("js/firebase-client.js");
+
+  assert.match(config, /projectId:\s*"investigacion-filosofica"/);
+  assert.match(config, /authDomain:\s*"investigacion-filosofica\.firebaseapp\.com"/);
+  assert.match(config, /apiKey:\s*"[^"]+"/);
+  assert.match(config, /appId:\s*"[^"]+"/);
+  assert.match(client, /auth\.languageCode\s*=\s*"es"/);
 });
