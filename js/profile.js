@@ -1304,7 +1304,9 @@ function renderLibrary() {
 function renderAuthors() {
   renderMetrics();
 
-  if (!savedAuthors.length) {
+  const authors = mergedSavedAuthors();
+
+  if (!authors.length) {
     savedAuthorList.innerHTML = `
       <div class="profile-empty">
         Todavía no ha guardado autores desde el archivo.
@@ -1313,19 +1315,27 @@ function renderAuthors() {
     return;
   }
 
-  savedAuthorList.innerHTML = savedAuthors.map(author => {
+  savedAuthorList.innerHTML = authors.map(author => {
     const orcid = author.orcid
-      ? safeUrl(String(author.orcid).startsWith("http") ? author.orcid : `https://orcid.org/${author.orcid}`)
+      ? safeUrl(String(author.orcid).startsWith("http")
+        ? author.orcid
+        : `https://orcid.org/${author.orcid}`)
       : "";
     const wikipedia = safeUrl(author.wikipediaUrl);
     const memberships = membershipsForAuthor(author);
     const workCount = memberships.reduce((sum, item) => sum + item.count, 0);
+    const explicitProjects = new Set(
+      memberships.filter(item => item.explicit).map(item => item.projectId)
+    );
 
     return `
       <article class="author-card">
         <div>
           <span class="profile-kicker">AUTOR GUARDADO</span>
           <h3>${escapeHtml(author.name || "Autor")}</h3>
+          ${author.aliases.length
+            ? `<p class="author-aliases">También aparece como: ${escapeHtml(author.aliases.join(" · "))}</p>`
+            : ""}
           <p>${escapeHtml(compact(author.biography || "Identidad bibliográfica guardada.", 260))}</p>
 
           <div class="author-project-usage">
@@ -1334,10 +1344,11 @@ function renderAuthors() {
                   <span class="project-usage-badge">
                     <b>${escapeHtml(item.projectTitle)}</b>
                     ${item.subprojectTitle ? `<small> / ${escapeHtml(item.subprojectTitle)}</small>` : ""}
-                    <em>${escapeHtml(item.count)} obra(s)</em>
+                    ${item.explicit ? "<em>autor añadido</em>" : ""}
+                    ${item.count ? `<em>${escapeHtml(item.count)} obra(s)</em>` : ""}
                   </span>
                 `).join("")
-              : '<span class="project-usage-empty">Todavía no aparece en una lectura de sus proyectos</span>'}
+              : '<span class="project-usage-empty">Todavía no está vinculado a sus proyectos</span>'}
           </div>
 
           <div class="library-card-tags">
@@ -1346,13 +1357,28 @@ function renderAuthors() {
             ${wikipedia ? `<a href="${escapeHtml(wikipedia)}" target="_blank" rel="noopener noreferrer">Biografía ↗</a>` : ""}
           </div>
         </div>
-        <button type="button" data-author-delete="${escapeHtml(author.id)}">Quitar</button>
+
+        <div class="author-card-actions">
+          <select data-author-project="${escapeHtml(author.id)}" aria-label="Proyecto destino para este autor">
+            <option value="">Añadir a proyecto…</option>
+            ${projects.map(project => `
+              <option value="${escapeHtml(project.id)}">
+                ${explicitProjects.has(project.id) ? "✓ " : ""}${escapeHtml(project.title)}
+              </option>
+            `).join("")}
+          </select>
+          <button type="button" data-author-attach="${escapeHtml(author.id)}">Añadir al proyecto</button>
+          <button
+            type="button"
+            data-author-delete="${escapeHtml(author.documentIds.join("|"))}"
+          >Quitar</button>
+        </div>
       </article>
     `;
   }).join("");
 }
 
-function fillProfileForm() {
+function fillProfileForm() {function fillProfileForm() {
   profileSettingsForm.elements.displayName.value =
     currentProfile?.displayName ||
     currentUser?.displayName ||
@@ -1439,42 +1465,149 @@ function renderProjectWorks() {
   renderProjectStats();
 }
 
+function projectAuthorPayload(author) {
+  const source =
+    author.saved ||
+    author.explicitRecords?.[0] ||
+    {};
+
+  return {
+    name: author.name,
+    displayName: author.name,
+    id: source.sourceId || source.id || normalizedPersonName(author.name),
+    sourceId: source.sourceId || source.id || "",
+    orcid: author.orcid || source.orcid || "",
+    biography: source.biography || "",
+    wikipediaUrl: source.wikipediaUrl || "",
+    alternateNames: author.aliases || []
+  };
+}
+
+function projectAuthorRenderKey(author) {
+  return normalizedPersonName(author.name);
+}
+
+function currentProjectAuthorByKey(key) {
+  return projectAuthorsFromWorks().find(author => {
+    const variants = new Set([
+      normalizedPersonName(author.name),
+      ...(author.aliases || []).map(normalizedPersonName)
+    ]);
+    return variants.has(key);
+  }) || null;
+}
+
+function renderIdentityReview() {
+  if (!projectIdentityReview) return;
+
+  const candidate = nextIdentityReviewCandidate();
+  if (!candidate) {
+    projectIdentityReview.hidden = true;
+    projectIdentityReview.innerHTML = "";
+    return;
+  }
+
+  projectIdentityReview.hidden = false;
+  projectIdentityReview.innerHTML = `
+    <div class="identity-review-mark" aria-hidden="true">≈</div>
+    <div class="identity-review-copy">
+      <span class="profile-kicker">REVISIÓN DE IDENTIDAD</span>
+      <h4>¿Son la misma persona?</h4>
+      <p>
+        <strong>${escapeHtml(candidate.leftName)}</strong>
+        <span>↔</span>
+        <strong>${escapeHtml(candidate.rightName)}</strong>
+      </p>
+      <small>${escapeHtml(candidate.evidence)}</small>
+    </div>
+    <div class="identity-review-actions">
+      <button type="button" data-identity-decision="same">Sí, unir identidad</button>
+      <button type="button" data-identity-decision="different">No, mantener separadas</button>
+    </div>
+  `;
+
+  projectIdentityReview.dataset.leftName = candidate.leftName;
+  projectIdentityReview.dataset.rightName = candidate.rightName;
+  projectIdentityReview.dataset.canonicalName = candidate.canonicalName;
+}
+
 function renderProjectAuthors() {
   if (!projectAuthorList) return;
   const authors = projectAuthorsFromWorks();
 
+  renderIdentityReview();
+
   if (!authors.length) {
     projectAuthorList.innerHTML = `
       <div class="profile-empty project-view-empty">
-        Esta vista todavía no tiene autores porque no contiene lecturas.
+        Esta vista todavía no tiene autores. Puede añadirlos desde “Autores” o incorporar lecturas.
       </div>
     `;
     return;
   }
 
   projectAuthorList.innerHTML = authors.map(author => {
-    const orcid = author.saved?.orcid
-      ? safeUrl(String(author.saved.orcid).startsWith("http")
-        ? author.saved.orcid
-        : `https://orcid.org/${author.saved.orcid}`)
+    const orcid = author.orcid
+      ? safeUrl(String(author.orcid).startsWith("http")
+        ? author.orcid
+        : `https://orcid.org/${author.orcid}`)
       : "";
+    const explicit = author.explicitRecords.length > 0;
+    const key = projectAuthorRenderKey(author);
+    const selectedSubproject = author.explicitRecords[0]?.subprojectId || "";
+
+    let label = "AUTOR EN LA BIBLIOGRAFÍA";
+    if (explicit && author.count) label = "AUTOR AÑADIDO · PRESENTE EN LECTURAS";
+    else if (explicit) label = "AUTOR AÑADIDO";
+    else if (author.saved) label = "AUTOR GUARDADO · PRESENTE EN LECTURAS";
 
     return `
       <article class="project-author-card">
-        <span class="profile-kicker">${author.saved ? "AUTOR GUARDADO" : "AUTOR EN LA BIBLIOGRAFÍA"}</span>
+        <span class="profile-kicker">${label}</span>
         <h4>${escapeHtml(author.name)}</h4>
+        ${author.aliases.length
+          ? `<p class="project-author-aliases">Unificado con: ${escapeHtml(author.aliases.join(" · "))}</p>`
+          : ""}
         <strong>${escapeHtml(author.count)}</strong>
         <small>obra${author.count === 1 ? "" : "s"} en esta vista</small>
         <div class="project-author-titles">
           ${author.works.slice(0, 4).map(work => `<span>${escapeHtml(compact(work.title, 78))}</span>`).join("")}
         </div>
         ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
+
+        <div class="project-author-actions">
+          ${explicit ? `
+            <select
+              data-project-author-subproject="${escapeHtml(key)}"
+              aria-label="Colección de este autor"
+            >
+              <option value="">Sin colección</option>
+              ${subprojects.map(item => `
+                <option value="${escapeHtml(item.id)}" ${selectedSubproject === item.id ? "selected" : ""}>
+                  ${escapeHtml(item.title)}
+                </option>
+              `).join("")}
+            </select>
+            <button type="button" data-project-author-remove="${escapeHtml(key)}">
+              Quitar autor del proyecto
+            </button>
+          ` : `
+            <button type="button" data-project-author-pin="${escapeHtml(key)}">
+              Añadir autor al proyecto
+            </button>
+          `}
+          ${author.saved ? "" : `
+            <button type="button" data-project-author-save="${escapeHtml(key)}">
+              Guardar en mi archivo
+            </button>
+          `}
+        </div>
       </article>
     `;
   }).join("");
 }
 
-const STOPWORDS = new Set([
+const STOPWORDS = new Set([const STOPWORDS = new Set([
   "para","como","con","por","una","uno","unos","unas","del","las","los",
   "que","sus","sin","sobre","entre","desde","this","that","with","from",
   "the","and","for","into","dans","les","des","une","und","der","die","das",
