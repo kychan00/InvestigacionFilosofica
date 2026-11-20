@@ -210,3 +210,28 @@ test("account dock keeps Firebase lazy until a private save action", () => {
   assert.match(account, /import\("\.\/firebase-client\.js"\)/);
   assert.match(account, /import\("\.\/user-data\.js"\)/);
 });
+
+
+test("artistic auth keeps Socrates as a visible second layer", () => {
+  const page = read("auth/index.html");
+  const css = read("css/auth.css");
+  const auth = read("js/auth-page.js");
+
+  assert.match(page, /class="auth-socrates"/);
+  assert.match(page, /Socrates_transparent\.svg/);
+  assert.match(page, /SÓCRATES \/ 1875/);
+  assert.match(page, /Wilhelm Meyer/);
+  assert.match(css, /\.auth-socrates\.is-loaded/);
+  assert.match(css, /font:\s*700 clamp\(40px, 4\.2vw, 62px\)/);
+  assert.match(auth, /revealSocrates/);
+});
+
+test("artistic auth combines local School of Athens with the Socrates overlay", () => {
+  const page = read("auth/index.html");
+  const css = read("css/auth.css");
+
+  assert.match(css, /url\("\.\.\/assets\/hero-school-athens\.jpg"\)/);
+  assert.match(page, /La Escuela de Atenas/);
+  assert.match(page, /Socrates_transparent\.svg/);
+  assert.match(css, /mix-blend-mode:\s*multiply/);
+});
