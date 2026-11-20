@@ -5,6 +5,12 @@ on:
     paths:
       - "index.html"
       - "auth/**"
+      - "perfil.html"
+      - "js/profile.js"
+      - "js/firebase-client.js"
+      - "js/user-data.js"
+      - "tests/firebase-private-research.test.mjs"
+      - "scripts/qa/profile-bootstrap-smoke.mjs"
       - "js/account-menu.js"
       - "js/auth-page.js"
       - "filosofia-latinoamericana.html"
@@ -169,6 +175,9 @@ jobs:
           done
           cat /tmp/mobile-ui-http.log
           exit 1
+      - name: Verify private profile bootstrap never hangs
+        run: node scripts/qa/profile-bootstrap-smoke.mjs
+
       - name: Check phone, tablet and desktop geometry
         run: node scripts/qa/mobile-ui-smoke.mjs
 
@@ -223,6 +232,7 @@ jobs:
           name: mobile-ui-screenshots
           path: |
             artifacts/mobile-ui/
+            artifacts/profile-bootstrap/
             artifacts/latin-american-philosophy/
             artifacts/thesis-demo-ui/
             artifacts/thesis-atlas-ui/
