@@ -170,6 +170,21 @@ body.site-menu-open .account-dock {
   padding-right: 42px;
 }
 
+.journal-card {
+  position: relative;
+}
+
+.journal-card > .research-save-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 9;
+}
+
+.journal-card:has(> .research-save-button) .journal-card-pins {
+  padding-right: 42px;
+}
+
 .author-resolution.is-resolved,
 .author-profile-card {
   position: relative;
