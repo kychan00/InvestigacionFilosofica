@@ -19,14 +19,14 @@ function ensureStylesheet() {
 }
 
 function personIcon() {
-  return \`
+  return `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
       aria-hidden="true">
       <circle cx="12" cy="8" r="3.5"></circle>
       <path d="M5.5 20c.6-4 2.7-6.2 6.5-6.2s5.9 2.2 6.5 6.2"></path>
     </svg>
-  \`;
+  `;
 }
 
 function friendlyAuthError(error) {
@@ -64,14 +64,14 @@ ensureStylesheet();
 
 const dock = document.createElement("div");
 dock.className = "account-dock";
-dock.innerHTML = \`
+dock.innerHTML = `
   <button
     class="account-trigger"
     type="button"
     aria-label="Cuenta de investigación"
     aria-expanded="false"
   >
-    \${personIcon()}
+    ${personIcon()}
   </button>
 
   <section
@@ -79,7 +79,7 @@ dock.innerHTML = \`
     aria-label="Cuenta de investigación"
     hidden
   ></section>
-\`;
+`;
 
 const dialog = document.createElement("section");
 dialog.className = "auth-dialog";
@@ -87,7 +87,7 @@ dialog.hidden = true;
 dialog.setAttribute("role", "dialog");
 dialog.setAttribute("aria-modal", "true");
 dialog.setAttribute("aria-labelledby", "auth-dialog-title");
-dialog.innerHTML = \`
+dialog.innerHTML = `
   <button class="auth-dialog-backdrop" type="button" data-auth-close aria-label="Cerrar"></button>
   <div class="auth-dialog-panel">
     <header class="auth-dialog-head">
@@ -157,7 +157,7 @@ dialog.innerHTML = \`
 
     <p class="auth-status" data-auth-status aria-live="polite"></p>
   </div>
-\`;
+`;
 
 const toast = document.createElement("div");
 toast.className = "account-toast";
@@ -208,7 +208,7 @@ function setAuthTab(mode) {
 
 function avatarMarkup(user) {
   if (user?.photoURL) {
-    return \`<img src="\${user.photoURL.replace(/"/g, "&quot;")}" alt="">\`;
+    return `<img src="${user.photoURL.replace(/"/g, "&quot;")}" alt="">`;
   }
 
   const initial = (user?.displayName || user?.email || "Φ")
@@ -216,12 +216,12 @@ function avatarMarkup(user) {
     .charAt(0)
     .toUpperCase();
 
-  return \`<span>\${initial}</span>\`;
+  return `<span>${initial}</span>`;
 }
 
 function renderPanel() {
   if (!currentUser) {
-    panel.innerHTML = \`
+    panel.innerHTML = `
       <span class="account-panel-kicker">ESPACIO PERSONAL</span>
       <h2>Su investigación, guardada.</h2>
       <p>
@@ -232,35 +232,35 @@ function renderPanel() {
         <button class="account-action is-primary" type="button" data-open-login>Login</button>
         <button class="account-action" type="button" data-open-register>Registro</button>
       </div>
-    \`;
+    `;
     return;
   }
 
-  panel.innerHTML = \`
+  panel.innerHTML = `
     <span class="account-panel-kicker">SESIÓN ACTIVA</span>
     <div class="account-profile-summary">
-      <span class="account-profile-avatar">\${avatarMarkup(currentUser)}</span>
+      <span class="account-profile-avatar">${avatarMarkup(currentUser)}</span>
       <span class="account-profile-copy">
-        <strong>\${(currentUser.displayName || "Investigador").replace(/</g, "&lt;")}</strong>
-        <small>\${(currentUser.email || "").replace(/</g, "&lt;")}</small>
+        <strong>${(currentUser.displayName || "Investigador").replace(/</g, "&lt;")}</strong>
+        <small>${(currentUser.email || "").replace(/</g, "&lt;")}</small>
       </span>
     </div>
     <div class="account-panel-actions">
-      <a class="account-action is-primary" href="\${href("perfil.html")}">Perfil y proyectos</a>
-      <a class="account-action" href="\${href("perfil.html#biblioteca")}">Biblioteca guardada</a>
+      <a class="account-action is-primary" href="${href("perfil.html")}">Perfil y proyectos</a>
+      <a class="account-action" href="${href("perfil.html#biblioteca")}">Biblioteca guardada</a>
       <button class="account-action" type="button" data-sign-out>Cerrar sesión</button>
     </div>
-  \`;
+  `;
 }
 
 function updateTrigger() {
   trigger.classList.toggle("is-authenticated", Boolean(currentUser));
   trigger.innerHTML = currentUser
-    ? \`<span class="account-trigger-initial">\${(
+    ? `<span class="account-trigger-initial">${(
         currentUser.displayName ||
         currentUser.email ||
         "Φ"
-      ).trim().charAt(0).toUpperCase()}</span>\`
+      ).trim().charAt(0).toUpperCase()}</span>`
     : personIcon();
 
   trigger.setAttribute(
