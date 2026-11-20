@@ -1,8 +1,37 @@
-import {
-  clearVerifiedAuthHint,
-  hasVerifiedAuthHint,
-  markVerifiedAuthHint
-} from "./auth-session-hint.js";
+const AUTH_HINT_KEY = "research-auth-verified-v1";
+
+function hasVerifiedAuthHint() {
+  try {
+    const raw = localStorage.getItem(AUTH_HINT_KEY);
+    if (!raw) return false;
+    const value = JSON.parse(raw);
+    return value?.verified === true;
+  } catch {
+    return false;
+  }
+}
+
+function markVerifiedAuthHint() {
+  try {
+    localStorage.setItem(
+      AUTH_HINT_KEY,
+      JSON.stringify({
+        verified: true,
+        updatedAt: Date.now()
+      })
+    );
+  } catch {
+    // Firebase sigue siendo la fuente real de autenticación.
+  }
+}
+
+function clearVerifiedAuthHint() {
+  try {
+    localStorage.removeItem(AUTH_HINT_KEY);
+  } catch {
+    // No bloquear la navegación por storage.
+  }
+}
 
 const SITE_ROOT = new URL("../", import.meta.url);
 
