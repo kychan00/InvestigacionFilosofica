@@ -541,7 +541,7 @@ export async function updateProjectWorkPresentation(
     projectWorkRef(uid, projectId, workId),
     {
       cardStyle: style,
-      updatedAt: serverTimestamp()
+      presentationUpdatedAt: serverTimestamp()
     }
   );
 
