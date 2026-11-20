@@ -36,6 +36,7 @@ test("manual works are explicitly separated from the public corpus", () => {
 test("dedicated auth page contains required authentication flows", () => {
   const auth = read("js/auth-page.js");
   const page = read("auth/index.html");
+  const css = read("css/auth.css");
 
   assert.match(auth, /createUserWithEmailAndPassword/);
   assert.match(auth, /signInWithEmailAndPassword/);
@@ -46,7 +47,7 @@ test("dedicated auth page contains required authentication flows", () => {
   assert.match(page, /data-mode-tab="login"/);
   assert.match(page, /data-mode-tab="register"/);
   assert.match(page, /google-mark/);
-  assert.match(page, /hero-school-athens\.jpg/);
+  assert.match(css, /hero-school-athens\.jpg/);
   assert.match(page, /dominio público/i);
 });
 
