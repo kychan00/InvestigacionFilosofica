@@ -6097,3 +6097,577 @@ html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================================================
+   PROFILE MOBILE EDITORIAL REFINEMENT · 2026-11-20
+   Compact folios, usable chapters and readable controls.
+   ========================================================= */
+
+.author-search-link {
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.author-search-link:hover {
+  color: var(--profile-accent, #0f62fe);
+  text-decoration: underline;
+}
+
+.author-search-link:focus-visible,
+.author-public-link:focus-visible {
+  outline: 3px solid var(--profile-accent, #0f62fe);
+  outline-offset: 3px;
+}
+
+.author-public-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid var(--theme-line, #d7d7d7);
+  border-radius: 8px;
+  color: var(--profile-accent, #0f62fe);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.author-public-link:hover {
+  background: color-mix(in srgb, var(--profile-accent, #0f62fe) 8%, transparent);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-search-link:hover {
+  color: var(--marginalia-clay-deep);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-search-link:focus-visible,
+.profile-page[data-profile-shell="marginalia"] .author-public-link:focus-visible {
+  outline-color: var(--marginalia-clay);
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-public-link {
+  border-color: var(--marginalia-line-strong);
+  border-radius: 4px;
+  background: var(--marginalia-paper-2);
+  color: var(--marginalia-clay-deep);
+  font-family: var(--marginalia-sans);
+  font-size: 12px;
+}
+
+.profile-page[data-profile-shell="marginalia"] .author-public-link:hover {
+  border-color: var(--marginalia-clay);
+  background: var(--marginalia-paper-3);
+}
+
+@media (max-width: 760px) {
+  .profile-page,
+  .profile-page .profile-workspace,
+  .profile-page .profile-section {
+    min-width: 0;
+  }
+
+  .profile-page .profile-brand,
+  .profile-page .profile-brand > span:last-child,
+  .profile-page .profile-topbar-actions {
+    min-width: 0;
+  }
+
+  .profile-page .profile-topbar-actions {
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  .profile-page .profile-signout {
+    min-height: 42px;
+    padding-inline: 11px;
+    white-space: nowrap;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 63px;
+    gap: 8px;
+    padding: 8px 13px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-brand {
+    gap: 9px;
+    font-size: clamp(14px, 3.7vw, 17px);
+    line-height: 1.05;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-brand small {
+    margin-top: 4px;
+    font-size: 8px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 12px max(64px, env(safe-area-inset-bottom));
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 5px;
+    box-shadow: 4px 4px 0 -2px var(--marginalia-paper-3);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art {
+    min-height: 154px;
+    border-right: 0;
+    border-bottom: 1px solid var(--marginalia-line);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art::before {
+    top: 16%;
+    right: 7%;
+    font-size: 6.6rem;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art::after {
+    top: 14px;
+    left: 37px;
+    right: 13px;
+    padding-bottom: 8px;
+    font-size: 7px;
+    letter-spacing: .06em;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art > span {
+    left: 38px;
+    right: auto;
+    bottom: 14px;
+    width: min(218px, 66%);
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.3;
+    transform: none;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-body {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 23px 19px 20px;
+    background: var(--marginalia-paper);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 13px;
+    align-items: start;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-avatar {
+    width: 54px;
+    height: 66px;
+    font-size: 25px;
+    box-shadow: 3px 4px 0 var(--marginalia-paper-3);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona-copy {
+    min-width: 0;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona-copy h1 {
+    max-width: none;
+    margin-top: 6px;
+    font-size: clamp(29px, 8vw, 42px);
+    line-height: 1;
+    letter-spacing: -.035em;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] #profile-persona-meta {
+    font-size: 10px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona-bio {
+    margin-top: 10px !important;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-note {
+    padding: 11px 12px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-note p {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-nav {
+    display: flex;
+    grid-template-columns: none;
+    gap: 2px;
+    padding: 5px 8px 6px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 8px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-nav a {
+    flex: 0 0 auto;
+    min-height: 48px;
+    gap: 7px;
+    padding: 0 13px;
+    border: 0;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-nav a span {
+    font-size: 10px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-content {
+    padding: 31px 0 65px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 9px;
+    padding: 0 4px 22px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head .profile-kicker {
+    width: fit-content;
+    max-width: 100%;
+    padding: 6px 0 0 10px;
+    font-size: 10px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head h2 {
+    max-width: 100%;
+    font-size: clamp(34px, 10vw, 48px);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-head > p,
+  .profile-page[data-profile-shell="marginalia"] .profile-section-side {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-section-side {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .profile-pinboard, .project-grid, .library-list, .saved-author-list
+  ) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin {
+    min-height: 0;
+    padding: 21px 20px 23px 35px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin h3 {
+    margin-top: 13px;
+    font-size: 31px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin p {
+    font-size: 13px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin-metric strong {
+    margin-top: 16px;
+    font-size: 58px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin-quote {
+    min-height: 208px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-pin-quote blockquote {
+    margin-top: 37px;
+    font-size: 26px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-card,
+  .profile-page[data-profile-shell="marginalia"] .project-card:nth-child(3n + 2),
+  .profile-page[data-profile-shell="marginalia"] .project-card:nth-child(4n) {
+    min-height: 0;
+    padding: 22px 20px 24px 36px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-card h3 {
+    margin: 17px 0 9px;
+    font-size: clamp(31px, 9vw, 38px);
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-card p,
+  .profile-page[data-profile-shell="marginalia"] .author-card p,
+  .profile-page[data-profile-shell="marginalia"] .library-card p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .library-card {
+    min-height: 0;
+    padding: 19px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .author-card {
+    min-height: 0;
+    padding: 20px 19px 21px 34px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .author-card h3 {
+    font-size: clamp(29px, 9vw, 36px);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-detail-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    padding: 21px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-detail-hero h2 {
+    font-size: clamp(36px, 10vw, 52px);
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .project-detail-grid,
+    .project-atlas-layout,
+    .project-settings-grid,
+    .profile-settings-layout,
+    .project-view-head,
+    .project-collections > header
+  ) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .project-panel, .project-settings, .project-atlas-panel,
+    .project-workspace-view, .project-collections
+  ) {
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .profile-form-grid, .profile-settings-form, .profile-form-inline
+  ) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .profile-form label, .profile-settings-form label
+  ) {
+    min-width: 0;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .profile-form input, .profile-form textarea, .profile-form select,
+    .profile-settings-form input, .profile-settings-form textarea,
+    .profile-settings-form select, .project-work-actions select,
+    .project-author-actions select, .author-card-actions select,
+    .library-card-actions select
+  ) {
+    box-sizing: border-box;
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-form label > span {
+    font-size: 11px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-view-switcher {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-view-switcher button {
+    flex: 1 0 auto;
+    min-height: 44px;
+    padding-inline: 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-work-list,
+  .profile-page[data-profile-shell="marginalia"] .project-author-list {
+    max-width: 100%;
+    columns: 1;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-work-card {
+    min-height: 0;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .project-work-card, .project-author-card
+  ) {
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .author-card-actions button, .library-card-actions button,
+    .project-author-actions button, .project-work-actions button,
+    .profile-quiet-button, .author-public-link
+  ) {
+    min-height: 44px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] :is(
+    .profile-settings-form .is-wide, .profile-settings-actions
+  ) {
+    grid-column: auto;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview {
+    min-height: 320px;
+    padding: 22px 20px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview::before {
+    left: 27px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-preview-avatar {
+    width: 68px;
+    height: 82px;
+    margin-top: 45px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview h3 {
+    font-size: clamp(32px, 9vw, 40px);
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-options {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-option {
+    grid-template-columns: 86px minmax(0, 1fr);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 6px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-dialog-shell {
+    max-height: calc(100dvh - 16px);
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-dialog-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 11px;
+    padding: 17px 15px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-dialog-head::before {
+    left: 15px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-dialog-head h2 {
+    font-size: clamp(28px, 8vw, 37px);
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-dialog-head > button {
+    min-width: 56px;
+    min-height: 42px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .saved-author-dialog-body {
+    padding: 16px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .author-view-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .author-view-identity h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .project-card-catalog {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .card-catalog-option {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .profile-page[data-profile-shell="marginalia"] .profile-brand small {
+    display: none;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-cover-art::after {
+    font-size: 6px;
+    letter-spacing: .01em;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-shell {
+    padding-inline: 9px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-avatar {
+    width: 46px;
+    height: 57px;
+    font-size: 23px;
+  }
+
+  .profile-page[data-profile-shell="marginalia"] .profile-persona-copy h1 {
+    font-size: clamp(27px, 8.7vw, 34px);
+  }
+}
