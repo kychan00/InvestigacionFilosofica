@@ -453,7 +453,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261120-profile-shell-marginalia-v2/);
+  assert.match(page, /profile\.js\?v=20261120-author-search-v3/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
@@ -549,4 +549,67 @@ test("multiple author cards save the selected author identity", () => {
 
   assert.match(app, /data-save-author-index/);
   assert.match(app, /identities\?\.\[Number\(authorIndex\)\]/);
+});
+
+test("saved and project authors link to the canonical public author archive", () => {
+  const profile = read("js/profile.js");
+  const begin = profile.indexOf("function authorSearchUrl(author) {");
+  const end = profile.indexOf("\nfunction withTimeout(", begin);
+  assert.ok(begin > 0 && end > begin, "Canonical author URL builder must exist");
+
+  // Exercise the real browser-neutral URL builder with saved Firestore records.
+  const authorSearchUrl = new Function(
+    "URLSearchParams",
+    profile.slice(begin, end) + "\nreturn authorSearchUrl;"
+  )(URLSearchParams);
+
+  assert.equal(
+    authorSearchUrl({
+      name: "Georg Wilhelm Friedrich Hegel",
+      savedRecords: [{ sourceId: "5110875100" }]
+    }),
+    "./?view=author&author=Georg+Wilhelm+Friedrich+Hegel&authorId=5110875100#results"
+  );
+  assert.equal(
+    authorSearchUrl({
+      name: "Georg Wilhelm Friedrich Hegel",
+      savedRecords: [{ sourceId: "https://openalex.org/A5110875100" }]
+    }),
+    "./?view=author&author=Georg+Wilhelm+Friedrich+Hegel&authorId=5110875100#results"
+  );
+  assert.equal(
+    authorSearchUrl({
+      name: "Autora sin ID validado",
+      savedRecords: [{ sourceId: "author-hash-from-firestore" }]
+    }),
+    "./?view=author&author=Autora+sin+ID+validado#results"
+  );
+  assert.equal(
+    authorSearchUrl({
+      name: "Autora de proyecto",
+      explicitRecords: [{ sourceId: "A1234567890" }]
+    }),
+    "./?view=author&author=Autora+de+proyecto&authorId=1234567890#results"
+  );
+
+  assert.match(profile, /class="author-search-link"/);
+  assert.match(profile, /class="author-public-link"/);
+  assert.match(profile, /authorSearchUrl\(author\)/);
+  assert.match(profile, /Ver obras en el buscador/);
+});
+
+test("Marginalia mobile uses compact single-column folios, usable controls and safe navigation", () => {
+  const css = read("css/profile.css");
+  const page = read("perfil.html");
+
+  assert.match(css, /PROFILE MOBILE EDITORIAL REFINEMENT/);
+  assert.match(css, /@media \(max-width: 760px\)/);
+  assert.match(css, /scroll-snap-type: x proximity/);
+  assert.match(css, /scroll-padding-inline: 8px/);
+  assert.match(css, /grid-template-columns: minmax\(0, 1fr\)/);
+  assert.match(css, /font-size: 16px/);
+  assert.match(css, /overflow-wrap: anywhere/);
+  assert.match(css, /env\(safe-area-inset-bottom\)/);
+  assert.match(page, /profile\.css\?v=20261120-marginalia-mobile-v3/);
+  assert.match(page, /profile\.js\?v=20261120-author-search-v3/);
 });
