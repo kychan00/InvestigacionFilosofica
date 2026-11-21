@@ -445,7 +445,10 @@ export function normalizeWork(work, {
           .filter(Boolean)
       )
     ).slice(0, 20),
-    sourceRecordId: compactText(work?.id || work?.openalexId, 700),
+    sourceRecordId: compactText(
+      work?.sourceRecordId || work?.openalexId || work?.id,
+      700
+    ),
     origin,
     privateOnly: Boolean(privateOnly)
   };

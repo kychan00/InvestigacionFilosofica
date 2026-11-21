@@ -4,6 +4,11 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { spawnSync } from "node:child_process";
+import {
+  savedWorkRecordUrl,
+  recordRequestFromLocation,
+  findExactRecordForDeepLink
+} from "../js/record-deeplink.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -453,7 +458,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261121-bibliographic-cards-v1/);
+  assert.match(page, /profile\.js\?v=20261121-full-ficha-v2/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
@@ -610,8 +615,8 @@ test("Marginalia mobile uses compact single-column folios, usable controls and s
   assert.match(css, /font-size: 16px/);
   assert.match(css, /overflow-wrap: anywhere/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(page, /profile\.css\?v=20261121-bibliographic-cards-v1/);
-  assert.match(page, /profile\.js\?v=20261121-bibliographic-cards-v1/);
+  assert.match(page, /profile\.css\?v=20261121-full-ficha-v2/);
+  assert.match(page, /profile\.js\?v=20261121-full-ficha-v2/);
 });
 
 
@@ -642,10 +647,10 @@ test("private work cards render real abstracts, DOI and source links in all thre
       : text;
   };
   const renderers = new Function(
-    "safeUrl", "escapeHtml", "compact",
+    "safeUrl", "escapeHtml", "compact", "savedWorkRecordUrl",
     script.slice(start, end) +
       "\nreturn { workDoi, workExternalLinks, renderWorkFicha, workTitleLink };"
-  )(safeUrl, escapeHtml, compact);
+  )(safeUrl, escapeHtml, compact, savedWorkRecordUrl);
 
   const abstract = "Sobre la experiencia y la razón. ".repeat(22) + "<script>alert(1)</script>";
   const work = {
@@ -675,6 +680,7 @@ test("private work cards render real abstracts, DOI and source links in all thre
 
   const missing = renderers.renderWorkFicha({
     title: "Registro sin abstract",
+    privateOnly: true,
     doi: "no-es-un-doi",
     referenceUrl: "javascript:alert(1)"
   });
@@ -696,12 +702,92 @@ test("journal article saves preserve available abstracts and bibliography remain
   const css = read("css/profile.css");
 
   assert.match(articles, /function articleSavePayload\(record\)[\s\S]*?abstract:\s*record\.abstract \|\| ""/);
-  assert.match(profile, /profile\.css\?v=20261121-bibliographic-cards-v1/);
-  assert.match(profile, /profile\.js\?v=20261121-bibliographic-cards-v1/);
+  assert.match(profile, /profile\.css\?v=20261121-full-ficha-v2/);
+  assert.match(profile, /profile\.js\?v=20261121-full-ficha-v2/);
   assert.match(articlesPage, /articles\.js\?v=20261121-abstract-save-v1/);
   assert.match(css, /\.work-ficha-facts/);
   assert.match(css, /\.work-ficha-abstract/);
   assert.match(css, /\.work-ficha-links/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.work-ficha-facts/);
   assert.match(css, /overflow-wrap: anywhere/);
+});
+
+
+test("saved works navigate to the EXISTING full search record modal, never the DOI by default", () => {
+  const profile = read("js/profile.js");
+  const app = read("js/app.js");
+  const page = read("perfil.html");
+  const home = read("index.html");
+  const css = read("css/profile.css");
+  const userData = read("js/user-data.js");
+
+  const saved = {
+    title: "La fenomenología del espíritu",
+    authors: [{ name: "Georg Wilhelm Friedrich Hegel" }],
+    year: 1807,
+    doi: "https://doi.org/10.1234/HEGEL",
+    sourceRecordId: "https://openalex.org/W9876543210",
+    referenceUrl: "https://example.org/record"
+  };
+  const link = savedWorkRecordUrl(saved);
+  assert.match(link, /^\.\/\?view=record&/);
+  assert.match(link, /#results$/);
+  assert.doesNotMatch(link, /doi\.org/);
+  const parsed = new URL(link, "https://kychan00.github.io/InvestigacionFilosofica/");
+  assert.equal(parsed.searchParams.get("workTitle"), saved.title);
+  assert.equal(parsed.searchParams.get("workDoi"), "10.1234/hegel");
+  assert.equal(parsed.searchParams.get("workAuthor"), "Georg Wilhelm Friedrich Hegel");
+  assert.equal(parsed.searchParams.get("workId"), saved.sourceRecordId);
+
+  const request = recordRequestFromLocation(parsed.search);
+  assert.equal(request.title, saved.title);
+  assert.equal(request.year, 1807);
+  assert.equal(recordRequestFromLocation("?view=author&author=Hegel"), null);
+  assert.equal(recordRequestFromLocation("?view=record"), null);
+
+  const actual = {
+    id: "W9876543210",
+    title: saved.title,
+    doi: "10.1234/HEGEL",
+    authors: [{ name: "Georg Wilhelm Friedrich Hegel" }],
+    abstract: "Registro recuperado realmente por búsqueda pública."
+  };
+  assert.equal(findExactRecordForDeepLink(request, [actual]), actual);
+  const different = {
+    title: saved.title,
+    doi: "10.1234/other-work",
+    authors: [{ name: "Georg Wilhelm Friedrich Hegel" }]
+  };
+  assert.equal(findExactRecordForDeepLink(request, [different]), null);
+
+  const titleRequest = recordRequestFromLocation(
+    "?view=record&workTitle=Teoría%20crítica&workAuthor=María%20García"
+  );
+  const candidate = {
+    title: "Teoría crítica",
+    authors: [{ name: "María García" }]
+  };
+  assert.equal(findExactRecordForDeepLink(titleRequest, [candidate]), candidate);
+  assert.equal(findExactRecordForDeepLink(titleRequest, [
+    candidate, { title: "Teoría crítica", authors: [{ name: "María García" }] }
+  ]), null, "ambiguous same-title records must never auto-open");
+  assert.equal(findExactRecordForDeepLink(titleRequest, [
+    { title: "Teoría crítica", authors: [{ name: "Otro autor" }] }
+  ]), null);
+
+  assert.equal(savedWorkRecordUrl({ ...saved, privateOnly: true }), "");
+  assert.match(profile, /import\s*\{\s*savedWorkRecordUrl\s*\}/);
+  assert.match(profile, /class="work-ficha-full-record"/);
+  assert.match(profile, /Ver ficha completa/);
+  assert.match(profile, /function workTitleLink\(work\)\s*\{\s*const destination = savedWorkRecordUrl\(work\)/);
+  assert.match(app, /recordRequestFromLocation\(/);
+  assert.match(app, /findExactRecordForDeepLink\(/);
+  assert.match(app, /openRecord\(original\)/);
+  assert.match(app, /await openSavedPublicRecord\(recordRequest\)/);
+  assert.match(app, /No se encontró una coincidencia bibliográfica exacta/);
+  assert.match(userData, /work\?\.sourceRecordId \|\| work\?\.openalexId \|\| work\?\.id/);
+  assert.match(page, /profile\.js\?v=20261121-full-ficha-v2/);
+  assert.match(home, /app\.js\?v=20261121-record-deeplink-v1/);
+  assert.match(home, /record-detail\.css\?v=20261121-record-deeplink-v1/);
+  assert.match(css, /\.work-ficha-links \.work-ficha-full-record/);
 });

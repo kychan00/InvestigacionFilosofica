@@ -669,3 +669,16 @@
     animation: none !important;
   }
 }
+
+
+/* Deep-linked private bookmarks never open an unverified search result. */
+.record-deeplink-unresolved {
+  max-width: 960px;
+  margin: 16px auto;
+  padding: 15px 18px;
+  border-left: 3px solid var(--theme-accent, #0f62fe);
+  background: var(--theme-surface, #f4f4f4);
+  color: var(--theme-text, #262626);
+  font-size: 14px;
+  line-height: 1.55;
+}

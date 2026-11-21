@@ -4,6 +4,8 @@ import {
   updateProfile as updateAuthProfile
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
 
+import { savedWorkRecordUrl } from "./record-deeplink.js";
+
 import {
   auth,
   firebaseReady
@@ -421,6 +423,7 @@ function workExternalLinks(work) {
 
 function renderWorkFicha(work) {
   const { doi, doiUrl, referenceUrl } = workExternalLinks(work);
+  const publicRecordUrl = savedWorkRecordUrl(work);
   const abstract = String(work?.abstract || "").replace(/\s+/g, " ").trim();
   const preview = compact(abstract, 360);
   const providers = Array.isArray(work?.providers) ? work.providers.filter(Boolean) : [];
@@ -449,6 +452,10 @@ function renderWorkFicha(work) {
     : '<p class="work-ficha-unavailable">Resumen no disponible en el registro bibliográfico.</p>';
 
   const linkHtml = [
+    publicRecordUrl
+      ? '<a class="work-ficha-full-record" href="' + escapeHtml(publicRecordUrl) +
+        '" target="_blank" rel="noopener noreferrer">Ver ficha completa <span aria-hidden="true">↗</span></a>'
+      : "",
     doiUrl
       ? '<a class="work-ficha-doi" href="' + escapeHtml(doiUrl) +
         '" target="_blank" rel="noopener noreferrer" aria-label="Abrir DOI ' +
@@ -471,12 +478,12 @@ function renderWorkFicha(work) {
 }
 
 function workTitleLink(work) {
-  const { doiUrl, referenceUrl } = workExternalLinks(work);
-  const destination = referenceUrl || doiUrl;
+  const destination = savedWorkRecordUrl(work);
   const title = escapeHtml(work?.title || "Obra sin título");
   return destination
     ? '<a class="work-ficha-title-link" href="' + escapeHtml(destination) +
-      '" target="_blank" rel="noopener noreferrer">' + title + '</a>'
+      '" target="_blank" rel="noopener noreferrer" title="Abrir ficha completa en el buscador">' +
+      title + '</a>'
     : title;
 }
 

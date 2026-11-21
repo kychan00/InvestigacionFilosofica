@@ -11,6 +11,11 @@ import {
 } from "../src/core/language.js";
 
 import {
+  recordRequestFromLocation,
+  findExactRecordForDeepLink
+} from "./record-deeplink.js";
+
+import {
   searchPhilosophy,
   searchMorePhilosophy
 } from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
@@ -9024,12 +9029,53 @@ if (qwen3OptIn) {
 }
 
 
+/**
+ * Private library deep link: recover a real federated record and invoke
+ * exactly the same "Ver ficha" renderer used by ordinary search results.
+ * Never substitute a loosely similar title or create provenance that was
+ * not returned by the public search engine.
+ */
+async function openSavedPublicRecord(request) {
+  const query = request.title || request.doi;
+  if (!query) return;
+
+  input.value = query;
+  researchWorkspace?.classList.remove("hidden");
+  status.textContent = "Recuperando la ficha bibliográfica del motor público…";
+
+  await runFederatedSearch(query);
+
+  const original = findExactRecordForDeepLink(
+    request,
+    currentResponse?.results || currentResults
+  );
+
+  if (original) {
+    openRecord(original);
+    return;
+  }
+
+  const notice = document.createElement("div");
+  notice.className = "record-deeplink-unresolved";
+  notice.setAttribute("role", "status");
+  notice.textContent =
+    "No se encontró una coincidencia bibliográfica exacta para abrir la ficha. " +
+    "Puede revisar los resultados de esta búsqueda y abrir el registro correcto desde «Ver ficha».";
+  resultsEl.prepend(notice);
+  status.textContent =
+    "No se pudo verificar el registro exacto; mostramos la búsqueda sin abrir otra obra.";
+}
+
 try {
   philosophyMap =
     await loadMap();
 
   const authorRequest =
     authorWorksRequestFromLocation(
+      window.location.search
+    );
+  const recordRequest =
+    recordRequestFromLocation(
       window.location.search
     );
 
@@ -9043,6 +9089,8 @@ try {
       null,
       authorRequest
     );
+  } else if (recordRequest) {
+    await openSavedPublicRecord(recordRequest);
   } else {
     status.textContent =
       "";
