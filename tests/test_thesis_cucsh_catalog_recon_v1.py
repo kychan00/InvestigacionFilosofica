@@ -4,6 +4,7 @@ from __future__ import annotations
 import importlib.util
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "thesis" / "probe_cucsh_thesis_catalog_v1.py"
@@ -99,6 +100,34 @@ class CucshCatalogReconV1Test(unittest.TestCase):
         self.assertIsNone(catalog.safe_catalog_url("https://evil.example/x", base_url=base))
         self.assertIsNone(catalog.safe_catalog_url("/bitstream/123", base_url=base))
         self.assertIsNone(catalog.safe_catalog_url("/download?id=1", base_url=base))
+
+
+    def test_transient_timeout_is_retried_before_scheme_fallback(self):
+        success = (
+            "<html><head><title>OK</title></head><body></body></html>",
+            "https://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis",
+            200,
+            "text/html; charset=utf-8",
+        )
+        with mock.patch.object(
+            catalog,
+            "fetch_once",
+            side_effect=[TimeoutError("timed out"), success],
+        ) as fetch_mock, mock.patch.object(catalog.time, "sleep") as sleep_mock:
+            html, final_url, status, content_type, requested, failures = catalog.fetch_with_fallback(
+                ("https://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis",)
+            )
+
+        self.assertIn("<title>OK</title>", html)
+        self.assertEqual(final_url, "https://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis")
+        self.assertEqual(status, 200)
+        self.assertEqual(content_type, "text/html; charset=utf-8")
+        self.assertEqual(requested, "https://www.biblioteca.cucsh.udg.mx/catalogo-de-tesis")
+        self.assertEqual(fetch_mock.call_count, 2)
+        sleep_mock.assert_called_once_with(catalog.FETCH_RETRY_BACKOFF_SECONDS[0])
+        self.assertEqual(len(failures), 1)
+        self.assertEqual(failures[0]["attempt"], 1)
+        self.assertTrue(failures[0]["retryable"])
 
 
 if __name__ == "__main__":
