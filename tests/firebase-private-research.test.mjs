@@ -416,10 +416,12 @@ test("full profile shell is persistent, live-previewed and keeps default persona
 
   assert.match(page, /name="profileShell" value="default"/);
   assert.match(page, /name="profileShell" value="territory"/);
+  assert.match(page, /name="profileShell" value="marginalia"/);
   assert.match(page, />Predeterminado</);
   assert.match(page, />Territorio</);
+  assert.match(page, />Marginalia</);
   assert.match(data, /profileShell:\s*"default"/);
-  assert.match(data, /\["default", "territory"\]\.includes\(changes\.profileShell\)/);
+  assert.match(data, /\["default", "territory", "marginalia"\]\.includes\(changes\.profileShell\)/);
   assert.match(profile, /function applyProfileShell/);
   assert.match(profile, /document\.body\.dataset\.profileShell = shell/);
   assert.match(profile, /event\.target\?\.name === "profileShell"/);
@@ -430,6 +432,13 @@ test("full profile shell is persistent, live-previewed and keeps default persona
   assert.match(css, /\.profile-shell-options/);
   assert.match(css, /\.profile-page\[data-profile-shell="territory"\] \.profile-cover-art/);
   assert.match(css, /\.profile-page\[data-profile-shell="territory"\] \.profile-dialog/);
+  assert.match(css, /data-profile-shell="marginalia"/);
+  assert.match(css, /--marginalia-bg:/);
+  assert.match(css, /--marginalia-serif:/);
+  assert.match(css, /data-shell-sample="marginalia"/);
+  assert.match(css, /\.profile-page\[data-profile-shell="marginalia"\] \.profile-cover/);
+  assert.match(css, /\.profile-page\[data-profile-shell="marginalia"\] \.project-grid/);
+  assert.match(css, /\.profile-page\[data-profile-shell="marginalia"\] \.profile-dialog/);
 });
 
 test("private profile bootstrap cannot hang on remote auth or Firestore", () => {
@@ -444,7 +453,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261120-profile-shell-territory-v1/);
+  assert.match(page, /profile\.js\?v=20261120-profile-shell-marginalia-v1/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
