@@ -224,10 +224,16 @@ try {
 
     const firminLink = firminCard.locator(".author-card-link");
     const firminHref = await firminLink.getAttribute("href");
-    assert.ok(
-      firminHref && firminHref.includes("view=author") &&
-      firminHref.includes(encodeURIComponent("Anténor Firmin")),
-      "Documented author cards must link to the canonical full author view"
+    const firminUrl = new URL(firminHref, page.url());
+    assert.equal(
+      firminUrl.searchParams.get("view"),
+      "author",
+      "Documented author cards must target the canonical author view"
+    );
+    assert.equal(
+      firminUrl.searchParams.get("author"),
+      "Anténor Firmin",
+      "Documented author cards must preserve the canonical author name"
     );
     assert.equal(
       await firminCard.getAttribute("role"),
