@@ -138,8 +138,7 @@ try {
           return { width: box.width, height: box.height };
         }),
         directory: rect("#author-directory"),
-        skipLink: Boolean(document.querySelector(".skip-link")),
-        dialogLabel: document.querySelector("#author-dialog")?.getAttribute("aria-labelledby")
+        skipLink: Boolean(document.querySelector(".skip-link"))
       };
     });
 
@@ -198,7 +197,6 @@ try {
         "Mobile hero actions must stay inside viewport"
       );
     }
-    assert.equal(geometry.dialogLabel, "author-dialog-title", "Author dialog must be labelled");
     for (const card of geometry.periodCards) {
       assert.ok(card.left >= -2 && card.right <= geometry.viewport + 2,
         "Period card clipped at " + width + "px: " + JSON.stringify(card));
@@ -223,116 +221,73 @@ try {
       "ARTICLE",
       "Documented author cards should support a separate private save action"
     );
+
+    const firminLink = firminCard.locator(".author-card-link");
+    const firminHref = await firminLink.getAttribute("href");
+    const firminUrl = new URL(firminHref, page.url());
+    assert.equal(
+      firminUrl.searchParams.get("view"),
+      "author",
+      "Documented author cards must target the canonical author view"
+    );
+    assert.equal(
+      firminUrl.searchParams.get("author"),
+      "Anténor Firmin",
+      "Documented author cards must preserve the canonical author name"
+    );
     assert.equal(
       await firminCard.getAttribute("role"),
-      "button",
-      "Documented author cards must remain keyboard-addressable dossier openers"
+      null,
+      "Author cards must no longer masquerade as modal buttons"
     );
-    await firminCard.click();
 
-    await page.locator("#author-dialog[open]").waitFor({ state: "visible" });
+    await firminLink.click();
+    await page.waitForURL(url =>
+      url.searchParams.get("view") === "author" &&
+      url.searchParams.get("author") === "Anténor Firmin"
+    );
     await page.waitForFunction(() =>
-      document.querySelector("#author-dialog-title")?.textContent?.includes("Anténor Firmin")
-    );
-    await page.locator("#author-dialog #author-dossier-overview")
-      .waitFor({ state: "visible" });
+      document.body.classList.contains("author-view") &&
+      document.querySelector(".author-page-hero h1")?.textContent?.includes("Firmin")
+    , null, { timeout: 18000 });
 
-    assert.equal(new URL(page.url()).hash, "#autor-0380",
-      "Opening a philosopher dossier must expose a shareable author hash");
-    assert.ok(await page.locator("#author-dialog .author-dossier-identity").count() === 1,
-      "Dossier must render an identity panel");
-    assert.ok(await page.locator("#author-dialog #author-dossier-overview").count() === 1,
-      "Dossier must render an archival overview");
-    assert.ok(await page.locator("#author-dialog .author-work-card").count() >= 1,
-      "Dossier must render complete work cards");
-    assert.ok(await page.locator("#author-dialog .author-source-card").count() >= 1,
-      "Dossier must render source cards");
-    assert.ok(await page.locator("#author-dialog .author-dossier-nav button").count() === 5,
-      "Dossier must expose its five reading sections");
     assert.equal(
-      await page.locator("#author-dialog .author-dossier-timeline-item").count(),
-      await page.locator("#author-dialog .author-work-card").count(),
-      "Dossier chronology must represent every documented work"
+      new URL(page.url()).searchParams.get("author"),
+      "Anténor Firmin",
+      "Opening a philosopher card must preserve the canonical author name in the URL"
     );
-
-    await page.locator('[data-dossier-target="author-dossier-research-section"]').click();
-    await page.locator("#author-dossier-research-section").waitFor({ state: "visible" });
-    await page.locator("[data-live-author-search]").click();
+    assert.equal(
+      new URL(page.url()).hash,
+      "#results",
+      "Canonical author navigation must land on the complete author archive"
+    );
+    assert.ok(
+      await page.locator(".author-page-hero").count() === 1,
+      "Canonical author view must render its author hero"
+    );
+    assert.ok(
+      await page.locator(".author-page-works").count() === 1,
+      "Canonical author view must render the complete works area"
+    );
     await page.waitForFunction(() =>
-      document.querySelectorAll(".author-live-result").length >= 4
-    );
-
+      document.querySelectorAll(".author-work-grid .result-card").length >= 1
+    , null, { timeout: 18000 });
     assert.ok(
-      (await page.locator(".author-live-result").first().textContent()).includes("De l'égalité des races humaines"),
-      "Federated author search must surface the mocked Firmin work"
-    );
-    assert.ok(
-      (await page.locator(".author-live-result-head strong").first().textContent()).includes("YA ESTÁ EN LA FICHA"),
-      "Federated result matching a curated title must be recognized as already curated"
-    );
-
-    const motorGeometry = await page.evaluate(() => {
-      const reader = document.querySelector(".author-dossier-reader");
-      const section = document.querySelector("#author-dossier-research-section");
-      const results = document.querySelector(".author-live-results");
-      return {
-        readerClient: reader?.clientWidth || 0,
-        readerScroll: reader?.scrollWidth || 0,
-        sectionClient: section?.clientWidth || 0,
-        sectionScroll: section?.scrollWidth || 0,
-        resultsClient: results?.clientWidth || 0,
-        resultsScroll: results?.scrollWidth || 0
-      };
-    });
-
-    assert.ok(
-      motorGeometry.readerScroll <= motorGeometry.readerClient + 2,
-      "Dossier reader must not overflow horizontally after federated results: " + JSON.stringify(motorGeometry)
-    );
-    assert.ok(
-      motorGeometry.sectionScroll <= motorGeometry.sectionClient + 2 &&
-      motorGeometry.resultsScroll <= motorGeometry.resultsClient + 2,
-      "Motor section must remain within its reading column: " + JSON.stringify(motorGeometry)
+      await page.locator(".author-work-grid .result-card").count() >= 1,
+      "Canonical author view must load author works"
     );
 
     await settlePaint(page);
     await page.screenshot({
-      path: ARTIFACTS + "/dossier-" + width + "-motor-light.png",
+      path: ARTIFACTS + "/author-" + width + "-light.png",
       animations: "disabled"
     });
 
-    assert.ok((await page.locator("#author-dossier-index").textContent()).includes("#0380"),
-      "Dossier must retain the canonical author identifier");
-
-    await settlePaint(page);
-    await page.screenshot({
-      path: ARTIFACTS + "/dossier-" + width + "-light.png",
-      animations: "disabled"
-    });
-
-    await page.locator('[data-dossier-target="author-dossier-works-section"]').click();
-    await page.locator("#author-dossier-works-section").waitFor({ state: "visible" });
-    await settlePaint(page);
-    await page.screenshot({
-      path: ARTIFACTS + "/dossier-" + width + "-works-light.png",
-      animations: "disabled"
-    });
-
-    await page.locator("#author-dialog-next").click();
+    await page.goBack({ waitUntil: "domcontentloaded" });
     await page.waitForFunction(() =>
-      document.querySelector("#author-dossier-index")?.textContent?.includes("#0381")
+      document.querySelector("#author-directory") &&
+      document.querySelector("#stat-seeded")?.textContent?.trim() !== "—"
     );
-    assert.equal(new URL(page.url()).hash, "#autor-0381",
-      "Next-author navigation must update the shareable hash");
-
-    await page.locator("#author-dialog-prev").click();
-    await page.waitForFunction(() =>
-      document.querySelector("#author-dossier-index")?.textContent?.includes("#0380")
-    );
-
-    await page.locator("#author-dialog-close").click();
-    assert.ok(!new URL(page.url()).hash.startsWith("#autor-"),
-      "Closing the dossier must restore the previous page hash");
 
     const seededTotal = Number(
       (await page.locator("#stat-seeded").textContent()).replace(/[^0-9]/g, "")
@@ -376,12 +331,17 @@ try {
     );
     assert.equal(
       await finalCard.getAttribute("role"),
-      "button",
-      "Every canonical dossier card must remain interactive"
+      null,
+      "Canonical author cards must use real links instead of modal button roles"
+    );
+    assert.equal(
+      await finalCard.locator(".author-card-link").count(),
+      1,
+      "Every canonical author card must expose one direct author link"
     );
     assert.ok(
-      (await finalCard.locator(".author-state").textContent()).includes("ficha bibliográfica"),
-      "Completed author cards must be marked as bibliographic dossiers"
+      (await finalCard.locator(".author-state").textContent()).includes("archivo bibliográfico"),
+      "Completed author cards must be marked as bibliographic archives"
     );
 
     await page.locator("#author-search").fill("");
@@ -455,21 +415,29 @@ try {
     await page.waitForFunction(() =>
       document.querySelector("#author-directory")?.textContent?.includes("Anténor Firmin")
     );
-    await page.locator("#author-directory .author-card").first().click();
-    await page.locator("#author-dialog[open]").waitFor({ state: "visible" });
-    await page.waitForFunction(() =>
-      document.querySelector("#author-dossier-index")?.textContent?.includes("#0380")
+    await page.locator("#author-directory .author-card .author-card-link").first().click();
+    await page.waitForURL(url =>
+      url.searchParams.get("view") === "author" &&
+      url.searchParams.get("author") === "Anténor Firmin"
     );
+    await page.waitForFunction(() =>
+      document.body.classList.contains("author-view") &&
+      document.querySelector(".author-page-hero h1")?.textContent?.includes("Firmin")
+    , null, { timeout: 18000 });
 
     assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
 
     await settlePaint(page);
     await page.screenshot({
-      path: ARTIFACTS + "/dossier-" + width + "-dark.png",
+      path: ARTIFACTS + "/author-" + width + "-dark.png",
       animations: "disabled"
     });
 
-    await page.locator("#author-dialog-close").click();
+    await page.goBack({ waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() =>
+      document.querySelector("#author-directory") &&
+      document.querySelector("#stat-seeded")?.textContent?.trim() !== "—"
+    );
     await page.locator("#author-search").fill("");
 
     await page.screenshot({

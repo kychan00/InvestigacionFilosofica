@@ -114,6 +114,20 @@ function canonicalId(value) {
   return String(value).padStart(4, "0");
 }
 
+function authorPageUrl(author) {
+  const name = String(
+    author?.canonical_name ||
+    author?.name ||
+    ""
+  ).trim();
+
+  const url = new URL("./index.html", window.location.href);
+  url.searchParams.set("view", "author");
+  url.searchParams.set("author", name);
+  url.hash = "results";
+  return url.toString();
+}
+
 function latinAuthorPayload(author) {
   const numericId = author?.author_id ?? author?.id;
   const name = author?.canonical_name || author?.name || "Autor";
@@ -123,25 +137,8 @@ function latinAuthorPayload(author) {
     name,
     alternateNames: author?.alternate_names || [],
     sourceType: "latin-american-philosophy",
-    sourcePage: `filosofia-latinoamericana.html#autor-${canonicalId(numericId)}`
+    sourcePage: authorPageUrl(author)
   };
-}
-
-function bindAuthorCardOpen(card, id) {
-  card.setAttribute("role", "button");
-  card.tabIndex = 0;
-
-  const open = event => {
-    if (event?.target?.closest?.("[data-private-save]")) return;
-    openAuthorDialog(id);
-  };
-
-  card.addEventListener("click", open);
-  card.addEventListener("keydown", event => {
-    if (event.target !== card || !["Enter", " "].includes(event.key)) return;
-    event.preventDefault();
-    open(event);
-  });
 }
 
 function humanize(value) {
@@ -172,28 +169,42 @@ function makeAuthorCard(author) {
 
   if (seeded) {
     card.dataset.authorId = String(author.id);
-    card.setAttribute("aria-label", `Abrir ficha de ${author.name}`);
   }
 
-  card.innerHTML = `
+  const content = document.createElement(seeded ? "a" : "div");
+  content.className = `author-card-link${seeded ? "" : " is-disabled"}`;
+
+  if (seeded) {
+    content.href = authorPageUrl(author);
+    content.setAttribute(
+      "aria-label",
+      `Abrir archivo completo de ${author.name}`
+    );
+  }
+
+  content.innerHTML = `
     <div class="author-card-topline">
       <span class="author-id">#${canonicalId(author.id)}</span>
-      <span class="author-card-kind">FICHA</span>
+      <span class="author-card-kind">${seeded ? "AUTOR" : "CATÁLOGO"}</span>
     </div>
     <span class="author-card-monogram" aria-hidden="true"></span>
     <h3></h3>
     <div class="author-card-footer">
       <span class="author-state ${seeded ? "seeded" : "pending"}">
-        ${seeded ? "ficha bibliográfica" : "Sin ficha"}
+        ${seeded ? "archivo bibliográfico" : "Sin ficha"}
       </span>
-      <span class="author-card-open" aria-hidden="true">${seeded ? "Abrir →" : ""}</span>
+      <span class="author-card-open" aria-hidden="true">
+        ${seeded ? "Ver autor →" : ""}
+      </span>
     </div>
   `;
-  card.querySelector("h3").textContent = author.name;
-  card.querySelector(".author-card-monogram").textContent = dossierMonogram(author.name);
+
+  content.querySelector("h3").textContent = author.name;
+  content.querySelector(".author-card-monogram").textContent =
+    dossierMonogram(author.name);
+  card.append(content);
 
   if (seeded) {
-    bindAuthorCardOpen(card, author.id);
     const save = createAuthorSaveButton(
       latinAuthorPayload(author),
       { label: "Guardar filósofo en mi archivo" }
@@ -304,9 +315,16 @@ function makeMiniAuthor(record) {
   const card = document.createElement("article");
   card.className = `mini-author author-profile-card period-${period.id}`;
   card.dataset.authorId = String(record.author_id);
-  card.setAttribute("aria-label", `Abrir ficha de ${record.canonical_name}`);
 
-  card.innerHTML = `
+  const link = document.createElement("a");
+  link.className = "author-profile-link";
+  link.href = authorPageUrl(record);
+  link.setAttribute(
+    "aria-label",
+    `Abrir archivo completo de ${record.canonical_name}`
+  );
+
+  link.innerHTML = `
     <div class="author-profile-topline">
       <span class="author-profile-index">#${canonicalId(record.author_id)}</span>
       <span class="author-profile-era">${period.roman}</span>
@@ -322,15 +340,15 @@ function makeMiniAuthor(record) {
       <span><b>${metrics.sources}</b> fuentes</span>
     </div>
     <div class="author-profile-chips" aria-label="Temas documentados"></div>
-    <span class="author-profile-open">Abrir dossier <i aria-hidden="true">→</i></span>
+    <span class="author-profile-open">Abrir archivo completo <i aria-hidden="true">→</i></span>
   `;
 
-  card.querySelector(".author-profile-monogram").textContent =
+  link.querySelector(".author-profile-monogram").textContent =
     dossierMonogram(record.canonical_name);
-  card.querySelector("strong").textContent = record.canonical_name;
-  card.querySelector(".author-profile-life").textContent = recordLife(record);
+  link.querySelector("strong").textContent = record.canonical_name;
+  link.querySelector(".author-profile-life").textContent = recordLife(record);
 
-  const chipBox = card.querySelector(".author-profile-chips");
+  const chipBox = link.querySelector(".author-profile-chips");
   if (keywords.length) {
     for (const keyword of keywords) {
       const chip = document.createElement("span");
@@ -345,7 +363,7 @@ function makeMiniAuthor(record) {
     chipBox.append(chip);
   }
 
-  bindAuthorCardOpen(card, record.author_id);
+  card.append(link);
 
   const save = createAuthorSaveButton(
     latinAuthorPayload(record),
@@ -1421,8 +1439,13 @@ async function init() {
     const deepLink = location.hash.match(/^#autor-(\d{4})$/);
     if (deepLink) {
       const deepLinkId = Number(deepLink[1]);
-      if (deepLinkId >= 1 && deepLinkId <= seededCount) {
-        openAuthorDialog(deepLinkId, { updateHistory: false });
+      const legacyAuthor = authors.find(
+        author => Number(author.id) === deepLinkId
+      );
+
+      if (legacyAuthor && deepLinkId <= seededCount) {
+        window.location.replace(authorPageUrl(legacyAuthor));
+        return;
       }
     }
 
@@ -1501,31 +1524,5 @@ for (const button of document.querySelectorAll("[data-period-jump]")) {
     });
   });
 }
-
-authorDialogClose?.addEventListener("click", () => closeAuthorDialog());
-authorDialogPrev?.addEventListener("click", () => navigateAuthor(-1));
-authorDialogNext?.addEventListener("click", () => navigateAuthor(1));
-authorDialogShare?.addEventListener("click", shareCurrentAuthor);
-for (const button of document.querySelectorAll("[data-dossier-target]")) {
-  button.addEventListener("click", () => {
-    const target = document.getElementById(button.dataset.dossierTarget);
-    target?.scrollIntoView({
-      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "start"
-    });
-  });
-}
-authorDialog?.addEventListener("click", event => {
-  if (event.target === authorDialog) closeAuthorDialog();
-});
-authorDialog?.addEventListener("cancel", event => {
-  event.preventDefault();
-  closeAuthorDialog();
-});
-addEventListener("popstate", () => {
-  if (!location.hash.startsWith("#autor-") && authorDialog.open) {
-    closeAuthorDialog({ restoreHistory: false });
-  }
-});
 
 init();

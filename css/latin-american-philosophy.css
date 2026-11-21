@@ -3219,3 +3219,45 @@ html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
   outline: 3px solid color-mix(in srgb, var(--latam-gold) 86%, white);
   outline-offset: 3px;
 }
+
+
+/* Navegación canónica de autor: las cards abren la vista completa de Investigación Filosófica. */
+.author-card-link,
+.author-profile-link {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+.author-card-link.is-disabled {
+  cursor: default;
+}
+
+.author-card--interactive:focus-within,
+.mini-author.author-profile-card:focus-within {
+  z-index: 2;
+}
+
+.author-card--interactive:focus-within {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--latam-gold) 12%, transparent), transparent 50%),
+    var(--latam-paper-soft);
+  border-color: color-mix(in srgb, var(--latam-gold) 62%, var(--latam-line));
+  box-shadow: 7px 8px 0 color-mix(in srgb, var(--latam-gold) 14%, transparent);
+}
+
+.mini-author.author-profile-card:focus-within {
+  filter: none;
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--period-accent) 72%, var(--latam-line));
+  box-shadow: 8px 10px 0 color-mix(in srgb, var(--period-accent) 16%, transparent);
+}
+
+.author-card-link:focus-visible,
+.author-profile-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--latam-gold) 86%, white);
+  outline-offset: 3px;
+}
