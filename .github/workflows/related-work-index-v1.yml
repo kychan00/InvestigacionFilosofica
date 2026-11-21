@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "scripts/related/**"
+      - "scripts/authority/validate-authority-batch-v1.mjs"
       - "package.json"
       - "src/core/related-work-contract.js"
       - "src/core/related-work-index-format.js"
@@ -11,7 +12,9 @@ on:
       - "tests/related-work-index-format.test.mjs"
       - "tests/related-works-resolver.test.mjs"
       - "tests/authority-work-map.test.mjs"
+      - "tests/author-authority-batch-validator.test.mjs"
       - "tests/test_related_work_index_builder.py"
+      - "tests/test_authority_work_map_validator.py"
       - "benchmark/related-works/v1/index-builder-fixture.json"
       - "docs/RELATED_WORK_INDEX_V1A.md"
       - "docs/RELATED_WORK_AUTHORITY_SIGNALS_V1.md"
@@ -21,6 +24,7 @@ on:
   pull_request:
     paths:
       - "scripts/related/**"
+      - "scripts/authority/validate-authority-batch-v1.mjs"
       - "package.json"
       - "src/core/related-work-contract.js"
       - "src/core/related-work-index-format.js"
@@ -28,7 +32,9 @@ on:
       - "tests/related-work-index-format.test.mjs"
       - "tests/related-works-resolver.test.mjs"
       - "tests/authority-work-map.test.mjs"
+      - "tests/author-authority-batch-validator.test.mjs"
       - "tests/test_related_work_index_builder.py"
+      - "tests/test_authority_work_map_validator.py"
       - "benchmark/related-works/v1/index-builder-fixture.json"
       - "docs/RELATED_WORK_INDEX_V1A.md"
       - "docs/RELATED_WORK_AUTHORITY_SIGNALS_V1.md"
@@ -62,10 +68,10 @@ jobs:
 
       - name: Validate JavaScript relation contract and compact format
         run: |
-          node --test tests/related-work-contract.test.mjs tests/related-work-index-format.test.mjs tests/related-works-resolver.test.mjs tests/authority-work-map.test.mjs
+          node --test tests/related-work-contract.test.mjs tests/related-work-index-format.test.mjs tests/related-works-resolver.test.mjs tests/authority-work-map.test.mjs tests/author-authority-batch-validator.test.mjs
 
       - name: Validate Python builder invariants
-        run: python -m unittest tests/test_related_work_index_builder.py
+        run: python -m unittest tests/test_related_work_index_builder.py tests/test_authority_work_map_validator.py
 
       - name: Build deterministic Related Work Index fixture
         run: |

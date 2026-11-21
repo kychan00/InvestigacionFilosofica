@@ -10,7 +10,9 @@ import {createReadStream} from "node:fs";
 import {createHash} from "node:crypto";
 import {resolve, join, dirname} from "node:path";
 import {fileURLToPath} from "node:url";
-import {createInterface} from "node:readline";
+import {
+  readJsonLines
+} from "./read-jsonl-v1.mjs";
 import {
   createAuthorAliasAccumulator,
   groupAggregatedAuthorProfiles,
@@ -47,19 +49,6 @@ async function readJsonMaybe(path) {
   } catch (error) {
     if (error?.code === "ENOENT") return null;
     throw error;
-  }
-}
-
-async function* readJsonLines(path) {
-  const input = createReadStream(path, {encoding: "utf8"});
-  const lines = createInterface({
-    input,
-    crlfDelay: Infinity
-  });
-
-  for await (const line of lines) {
-    if (!line.trim()) continue;
-    yield JSON.parse(line);
   }
 }
 

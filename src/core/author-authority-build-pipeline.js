@@ -421,7 +421,8 @@ export function buildAuthorityGraph({
   algorithmVersion = "identity-v1",
   datasetRevision,
   buildRevision,
-  goldExpectations = null
+  goldExpectations = null,
+  candidateRefsByMention = null
 } = {}) {
   if (!String(datasetRevision || "").trim()) {
     throw new TypeError("buildAuthorityGraph requires datasetRevision");
@@ -455,7 +456,37 @@ export function buildAuthorityGraph({
   const registryConflicts = [];
 
   for (const mention of normalizedMentions) {
-    const result = resolveAuthorMention(mention, candidates);
+    const configuredRefs = array(
+      candidateRefsByMention?.[mention.id]
+    )
+      .map(value => String(value || "").trim())
+      .filter(Boolean);
+
+    let scopedCandidates = candidates;
+
+    if (configuredRefs.length) {
+      const missingRefs = configuredRefs.filter(
+        ref => !candidateMap.has(ref)
+      );
+
+      if (missingRefs.length) {
+        throw new TypeError(
+          "Candidate hint points to unknown candidate for " +
+          mention.id +
+          ": " +
+          missingRefs.join(",")
+        );
+      }
+
+      scopedCandidates = configuredRefs.map(
+        ref => candidateMap.get(ref)
+      );
+    }
+
+    const result = resolveAuthorMention(
+      mention,
+      scopedCandidates
+    );
     const targetCandidate = result.targetRef
       ? candidateMap.get(result.targetRef)
       : null;
