@@ -610,8 +610,8 @@ test("Marginalia mobile uses compact single-column folios, usable controls and s
   assert.match(css, /font-size: 16px/);
   assert.match(css, /overflow-wrap: anywhere/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(page, /profile\.css\?v=20261120-marginalia-mobile-v3/);
-  assert.match(page, /profile\.js\?v=20261120-author-search-v3/);
+  assert.match(page, /profile\.css\?v=20261121-bibliographic-cards-v1/);
+  assert.match(page, /profile\.js\?v=20261121-bibliographic-cards-v1/);
 });
 
 
