@@ -260,6 +260,36 @@ function safeUrl(value) {
   }
 }
 
+// Reuse the public federated author archive without confusing Firestore IDs with corpus IDs.
+function authorSearchUrl(author) {
+  const name = String(author?.name || author?.displayName || "").trim();
+  if (!name) return "";
+
+  const records = [
+    ...(author.savedRecords || []),
+    ...(author.explicitRecords || []),
+    author.saved,
+    author
+  ].filter(Boolean);
+  let authorId = "";
+
+  for (const record of records) {
+    for (const candidate of [record.authorId, record.openalexId, record.sourceId]) {
+      const value = String(candidate || "").trim();
+      const match = value.match(/^(?:https?:\/\/(?:www\.)?openalex\.org\/)?A?(\d{6,15})\/?$/i);
+      if (match) {
+        authorId = match[1];
+        break;
+      }
+    }
+    if (authorId) break;
+  }
+
+  const params = new URLSearchParams({ view: "author", author: name });
+  if (authorId) params.set("authorId", authorId);
+  return `./?${params.toString()}#results`;
+}
+
 function withTimeout(promise, timeoutMs, label = "operation") {
   let timer = 0;
 
@@ -1572,6 +1602,7 @@ function renderAuthors() {
         : `https://orcid.org/${author.orcid}`)
       : "";
     const wikipedia = safeUrl(author.wikipediaUrl);
+    const authorSearch = authorSearchUrl(author);
     const memberships = membershipsForAuthor(author);
     const workCount = memberships.reduce((sum, item) => sum + item.count, 0);
     const explicitProjects = new Set(
@@ -1582,7 +1613,7 @@ function renderAuthors() {
       <article class="author-card">
         <div>
           <span class="profile-kicker">AUTOR GUARDADO</span>
-          <h3>${escapeHtml(author.name || "Autor")}</h3>
+          <h3><a class="author-search-link" href="${escapeHtml(authorSearch)}" aria-label="Buscar obras de ${escapeHtml(author.name || "Autor")} en el archivo público">${escapeHtml(author.name || "Autor")}</a></h3>
           ${author.aliases.length
             ? `<p class="author-aliases">También aparece como: ${escapeHtml(author.aliases.join(" · "))}</p>`
             : ""}
@@ -1609,6 +1640,7 @@ function renderAuthors() {
         </div>
 
         <div class="author-card-actions">
+          <a class="author-public-link" href="${escapeHtml(authorSearch)}">Ver obras en el buscador <span aria-hidden="true">↗</span></a>
           <button
             type="button"
             class="author-open-button"
@@ -1794,6 +1826,7 @@ function openSavedAuthorView(key) {
   const wikipedia = internalOrExternalUrl(
     author.wikipediaUrl || author.saved?.wikipediaUrl
   );
+  const authorSearch = authorSearchUrl(author);
   const sourcePage = internalOrExternalUrl(
     author.sourcePage ||
     author.saved?.sourcePage ||
@@ -1822,6 +1855,7 @@ function openSavedAuthorView(key) {
           : ""}
         <p class="author-view-bio">${escapeHtml(biography)}</p>
         <div class="author-view-links">
+          ${authorSearch ? `<a href="${escapeHtml(authorSearch)}">Ver obras en el buscador ↗</a>` : ""}
           ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
           ${wikipedia ? `<a href="${escapeHtml(wikipedia)}" target="_blank" rel="noopener noreferrer">Biografía ↗</a>` : ""}
           ${sourcePage ? `<a href="${escapeHtml(sourcePage)}">Abrir fuente guardada ↗</a>` : ""}
@@ -2056,6 +2090,7 @@ function renderProjectAuthors() {
     const explicit = author.explicitRecords.length > 0;
     const key = projectAuthorRenderKey(author);
     const selectedSubproject = author.explicitRecords[0]?.subprojectId || "";
+    const authorSearch = authorSearchUrl(author);
 
     let label = "AUTOR EN LA BIBLIOGRAFÍA";
     if (explicit && author.count) label = "AUTOR AÑADIDO · PRESENTE EN LECTURAS";
@@ -2065,7 +2100,7 @@ function renderProjectAuthors() {
     return `
       <article class="project-author-card">
         <span class="profile-kicker">${label}</span>
-        <h4>${escapeHtml(author.name)}</h4>
+        <h4><a class="author-search-link" href="${escapeHtml(authorSearch)}" aria-label="Buscar obras de ${escapeHtml(author.name)} en el archivo público">${escapeHtml(author.name)}</a></h4>
         ${author.aliases.length
           ? `<p class="project-author-aliases">Unificado con: ${escapeHtml(author.aliases.join(" · "))}</p>`
           : ""}
@@ -2077,6 +2112,7 @@ function renderProjectAuthors() {
         ${orcid ? `<a href="${escapeHtml(orcid)}" target="_blank" rel="noopener noreferrer">ORCID ↗</a>` : ""}
 
         <div class="project-author-actions">
+          <a class="author-public-link" href="${escapeHtml(authorSearch)}">Ver obras en el buscador <span aria-hidden="true">↗</span></a>
           <button
             type="button"
             class="author-open-button"
