@@ -415,10 +415,10 @@ function applyProfileShell(value) {
     }
   } else if (shell === "marginalia") {
     applyProfileAccent("#0f62fe");
-    if (previewAccentLabel) previewAccentLabel.textContent = "Paleta editorial · Marginalia";
+    if (previewAccentLabel) previewAccentLabel.textContent = "Terracota · salvia · latón";
     if (profileAccentHelp) {
       profileAccentHelp.textContent =
-        "Su color personal se conserva; Marginalia usa su propia paleta editorial.";
+        "Su color personal se conserva; Marginalia usa una paleta propia de papel, tinta y anotación.";
     }
   } else {
     const color =
