@@ -453,7 +453,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261120-author-search-v3/);
+  assert.match(page, /profile\.js\?v=20261121-bibliographic-cards-v1/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
@@ -610,6 +610,98 @@ test("Marginalia mobile uses compact single-column folios, usable controls and s
   assert.match(css, /font-size: 16px/);
   assert.match(css, /overflow-wrap: anywhere/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(page, /profile\.css\?v=20261120-marginalia-mobile-v3/);
-  assert.match(page, /profile\.js\?v=20261120-author-search-v3/);
+  assert.match(page, /profile\.css\?v=20261121-bibliographic-cards-v1/);
+  assert.match(page, /profile\.js\?v=20261121-bibliographic-cards-v1/);
+});
+
+
+test("private work cards render real abstracts, DOI and source links in all three views", () => {
+  const script = read("js/profile.js");
+  const start = script.indexOf("function workDoi(work) {");
+  const end = script.indexOf("function contrastForAccent(hex) {", start);
+  assert.ok(start > 0 && end > start, "Shared bibliographic renderer must exist");
+
+  const escapeHtml = value => String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+  const safeUrl = value => {
+    try {
+      const url = new URL(value);
+      return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+    } catch {
+      return "";
+    }
+  };
+  const compact = (value, max = 220) => {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    return text.length > max
+      ? text.slice(0, Math.max(0, max - 1)).trimEnd() + "…"
+      : text;
+  };
+  const renderers = new Function(
+    "safeUrl", "escapeHtml", "compact",
+    script.slice(start, end) +
+      "\nreturn { workDoi, workExternalLinks, renderWorkFicha, workTitleLink };"
+  )(safeUrl, escapeHtml, compact);
+
+  const abstract = "Sobre la experiencia y la razón. ".repeat(22) + "<script>alert(1)</script>";
+  const work = {
+    title: "Experiencia y razón",
+    abstract,
+    year: 2026,
+    type: "journal-article",
+    journal: "Protrepsis",
+    providers: ["Protrepsis", "OpenAlex"],
+    doi: "https://doi.org/10.1234/abc-123",
+    referenceUrl: "https://example.org/article"
+  };
+  const markup = renderers.renderWorkFicha(work);
+  assert.match(markup, /Publicación[\s\S]*Protrepsis/);
+  assert.match(markup, /Año[\s\S]*2026/);
+  assert.match(markup, /Fuentes[\s\S]*OpenAlex/);
+  assert.match(markup, /RESUMEN \/ ABSTRACT/);
+  assert.match(markup, /class="work-ficha-abstract-text"/);
+  assert.match(markup, /<details class="work-ficha-full">/);
+  assert.match(markup, /Leer abstract completo/);
+  assert.match(markup, /href="https:\/\/doi\.org\/10\.1234\/abc-123"/);
+  assert.match(markup, /10\.1234\/abc-123/);
+  assert.match(markup, /href="https:\/\/example\.org\/article"/);
+  assert.doesNotMatch(markup, /<script>/);
+  assert.match(markup, /&lt;script&gt;/);
+  assert.match(renderers.workTitleLink(work), /class="work-ficha-title-link"/);
+
+  const missing = renderers.renderWorkFicha({
+    title: "Registro sin abstract",
+    doi: "no-es-un-doi",
+    referenceUrl: "javascript:alert(1)"
+  });
+  assert.match(missing, /Resumen no disponible/);
+  assert.match(missing, /Sin DOI ni enlace de referencia/);
+  assert.doesNotMatch(missing, /href="/);
+
+  // The same ficha must be visible in saved library works, project works
+  // and related readings in the saved-author dossier (no separate hidden modal).
+  assert.match(script, /function renderLibrary\([\s\S]*?renderWorkFicha\(work\)/);
+  assert.match(script, /function renderProjectWorks\([\s\S]*?renderWorkFicha\(work\)/);
+  assert.match(script, /class="author-view-works"[\s\S]*?renderWorkFicha\(work\)/);
+});
+
+test("journal article saves preserve available abstracts and bibliography remains readable on phones", () => {
+  const articles = read("js/articles.js");
+  const profile = read("perfil.html");
+  const articlesPage = read("articulos.html");
+  const css = read("css/profile.css");
+
+  assert.match(articles, /function articleSavePayload\(record\)[\s\S]*?abstract:\s*record\.abstract \|\| ""/);
+  assert.match(profile, /profile\.css\?v=20261121-bibliographic-cards-v1/);
+  assert.match(profile, /profile\.js\?v=20261121-bibliographic-cards-v1/);
+  assert.match(articlesPage, /articles\.js\?v=20261121-abstract-save-v1/);
+  assert.match(css, /\.work-ficha-facts/);
+  assert.match(css, /\.work-ficha-abstract/);
+  assert.match(css, /\.work-ficha-links/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.work-ficha-facts/);
+  assert.match(css, /overflow-wrap: anywhere/);
 });

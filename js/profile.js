@@ -396,6 +396,90 @@ function compact(value, max = 220) {
     : text;
 }
 
+
+/**
+ * Visible, source-grounded bibliographic sheet reused by saved works,
+ * project readings and works listed in a saved author's dossier.
+ * Do not fabricate abstracts, DOIs or links that were never saved.
+ */
+function workDoi(work) {
+  const value = String(work?.doi || "")
+    .trim()
+    .replace(/^doi:\s*/i, "")
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, "");
+  return /^10\.\d{4,9}\/\S+$/i.test(value) ? value : "";
+}
+
+function workExternalLinks(work) {
+  const doi = workDoi(work);
+  const doiUrl = doi
+    ? safeUrl("https://doi.org/" + encodeURIComponent(doi).replace(/%2F/gi, "/"))
+    : "";
+  const referenceUrl = safeUrl(work?.referenceUrl);
+  return { doi, doiUrl, referenceUrl };
+}
+
+function renderWorkFicha(work) {
+  const { doi, doiUrl, referenceUrl } = workExternalLinks(work);
+  const abstract = String(work?.abstract || "").replace(/\s+/g, " ").trim();
+  const preview = compact(abstract, 360);
+  const providers = Array.isArray(work?.providers) ? work.providers.filter(Boolean) : [];
+  const sourceNames = providers.slice(0, 4).join(" · ") +
+    (providers.length > 4 ? " · +" + (providers.length - 4) : "");
+  const metadata = [
+    ["Publicación", work?.journal],
+    ["Tipo", work?.type],
+    ["Año", work?.year],
+    ["Fuentes", sourceNames]
+  ].filter(([, value]) => String(value ?? "").trim());
+
+  const metaHtml = metadata.length
+    ? '<div class="work-ficha-facts">' +
+        metadata.map(([label, value]) =>
+          '<span><b>' + escapeHtml(label) + '</b>' + escapeHtml(value) + '</span>'
+        ).join("") +
+      '</div>'
+    : "";
+  const abstractHtml = abstract
+    ? '<p class="work-ficha-abstract-text">' + escapeHtml(preview) + '</p>' +
+      (abstract.length > 360
+        ? '<details class="work-ficha-full"><summary>Leer abstract completo</summary>' +
+          '<p>' + escapeHtml(abstract) + '</p></details>'
+        : "")
+    : '<p class="work-ficha-unavailable">Resumen no disponible en el registro bibliográfico.</p>';
+
+  const linkHtml = [
+    doiUrl
+      ? '<a class="work-ficha-doi" href="' + escapeHtml(doiUrl) +
+        '" target="_blank" rel="noopener noreferrer" aria-label="Abrir DOI ' +
+        escapeHtml(doi) + '"><b>DOI</b><span>' + escapeHtml(doi) + '</span> ↗</a>'
+      : "",
+    referenceUrl && referenceUrl !== doiUrl
+      ? '<a href="' + escapeHtml(referenceUrl) +
+        '" target="_blank" rel="noopener noreferrer">Abrir referencia original ↗</a>'
+      : ""
+  ].filter(Boolean).join("");
+
+  return '<section class="work-ficha" aria-label="Ficha bibliográfica de la obra">' +
+    metaHtml +
+    '<div class="work-ficha-abstract"><span class="work-ficha-caption">RESUMEN / ABSTRACT</span>' +
+    abstractHtml + '</div>' +
+    (linkHtml
+      ? '<div class="work-ficha-links">' + linkHtml + '</div>'
+      : '<p class="work-ficha-unavailable work-ficha-no-link">Sin DOI ni enlace de referencia registrados.</p>') +
+    '</section>';
+}
+
+function workTitleLink(work) {
+  const { doiUrl, referenceUrl } = workExternalLinks(work);
+  const destination = referenceUrl || doiUrl;
+  const title = escapeHtml(work?.title || "Obra sin título");
+  return destination
+    ? '<a class="work-ficha-title-link" href="' + escapeHtml(destination) +
+      '" target="_blank" rel="noopener noreferrer">' + title + '</a>'
+    : title;
+}
+
 function contrastForAccent(hex) {
   const normalized = String(hex || "#0f62fe").replace("#", "");
   const safe = /^[0-9a-f]{6}$/i.test(normalized) ? normalized : "0f62fe";
@@ -1520,8 +1604,6 @@ function renderLibrary() {
 
   libraryList.innerHTML = library.map(work => {
     const authors = authorNames(work);
-    const reference = safeUrl(work.referenceUrl);
-    const doiUrl = work.doi ? safeUrl(`https://doi.org/${work.doi}`) : "";
     const tags = (work.tags || []).slice(0, 8);
     const memberships = membershipsForWork(work.id);
     const cardStyle = libraryCardStyle(work);
@@ -1540,18 +1622,12 @@ function renderLibrary() {
             ${work.type ? `<span>${escapeHtml(work.type)}</span>` : ""}
           </div>
 
-          <h3>${escapeHtml(work.title || "Obra sin título")}</h3>
-
-          <p>
-            ${escapeHtml(authors.length ? authors.join("; ") : "Autor no indicado")}
-            ${work.abstract ? " · " + escapeHtml(compact(work.abstract, 260)) : ""}
-          </p>
-
-          <div class="library-card-tags">
+          <h3>${workTitleLink(work)}</h3>
+          <p class="work-ficha-authors">${escapeHtml(authors.length ? authors.join("; ") : "Autor no indicado")}</p>
+          ${renderWorkFicha(work)}
+          ${tags.length ? `<div class="library-card-tags">
             ${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join("")}
-            ${doiUrl ? `<a href="${escapeHtml(doiUrl)}" target="_blank" rel="noopener noreferrer">DOI ↗</a>` : ""}
-            ${reference ? `<a href="${escapeHtml(reference)}" target="_blank" rel="noopener noreferrer">Referencia ↗</a>` : ""}
-          </div>
+          </div>` : ""}
 
           <div class="library-card-projects">
             ${memberships.length
@@ -1896,8 +1972,9 @@ function openSavedAuthorView(key) {
           ? works.map(work => `
               <article>
                 <span>${escapeHtml(work.year || "s. f.")}</span>
-                <strong>${escapeHtml(work.title || "Obra sin título")}</strong>
+                <strong>${workTitleLink(work)}</strong>
                 <small>${escapeHtml(work.projectNames?.join(" · ") || (work.privateOnly ? "Entrada privada" : "Biblioteca"))}</small>
+                ${renderWorkFicha(work)}
               </article>
             `).join("")
           : "<p>No hay lecturas relacionadas todavía.</p>"}
@@ -1970,9 +2047,9 @@ function renderProjectWorks() {
             Diseño · ${escapeHtml(styleMeta.label)}
           </button>
         </div>
-        <strong class="project-work-title">${escapeHtml(work.title || "Obra")}</strong>
+        <strong class="project-work-title">${workTitleLink(work)}</strong>
         <small class="project-work-authors">${escapeHtml(authorNames(work).join("; ") || "Autor no indicado")}</small>
-        ${work.abstract ? `<p class="project-work-abstract">${escapeHtml(compact(work.abstract, style === "thesis" ? 160 : 220))}</p>` : ""}
+        ${renderWorkFicha(work)}
         <div class="project-work-tags">
           ${tags.map(tag => `<span>${escapeHtml(tag)}</span>`).join("")}
         </div>

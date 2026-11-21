@@ -6671,3 +6671,250 @@ html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] {
     font-size: clamp(27px, 8.7vw, 34px);
   }
 }
+
+
+/* ---------------------------------------------------------
+   BIBLIOGRAPHIC WORK CARDS · readable abstracts and verified references
+   --------------------------------------------------------- */
+.work-ficha {
+  display: grid;
+  gap: 13px;
+  min-width: 0;
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, currentColor 21%, transparent);
+  color: inherit;
+}
+
+.work-ficha * {
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.work-ficha-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+}
+
+.work-ficha-facts > span {
+  display: block;
+  font-family: var(--pg-sans, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.work-ficha-facts > span b {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--pg-mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .065em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+.work-ficha-abstract {
+  min-width: 0;
+  padding: 12px 13px;
+  border-left: 3px solid var(--profile-accent, #0f62fe);
+  background: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.work-ficha-caption {
+  display: block;
+  margin-bottom: 7px;
+  font-family: var(--pg-mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+:is(.library-card, .project-work-card, .author-view-works article) .work-ficha p {
+  margin: 0;
+  font-family: var(--pg-sans, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.58;
+  opacity: 1;
+}
+
+.work-ficha-full {
+  margin-top: 9px;
+}
+
+.work-ficha-full summary {
+  width: fit-content;
+  max-width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: inherit;
+  font-family: var(--pg-sans, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.work-ficha-full summary::before {
+  content: "+";
+  font-family: var(--pg-mono, ui-monospace, monospace);
+}
+
+.work-ficha-full[open] summary::before {
+  content: "−";
+}
+
+.work-ficha-full > p {
+  margin-top: 8px !important;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.work-ficha-unavailable {
+  opacity: .68 !important;
+  font-style: italic;
+}
+
+.work-ficha-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.work-ficha-links a {
+  display: inline-flex;
+  flex: 1 1 175px;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 8px 11px;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  color: inherit;
+  font-family: var(--pg-sans, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.work-ficha-links a:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.work-ficha-links .work-ficha-doi {
+  flex-basis: 100%;
+  align-items: baseline;
+}
+
+.work-ficha-doi b {
+  display: inline-block;
+  flex: 0 0 auto;
+  color: var(--profile-accent, #0f62fe);
+  font-family: var(--pg-mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+.work-ficha-doi span {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.work-ficha-title-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 32%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.work-ficha-title-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.work-ficha a:focus-visible,
+.work-ficha-title-link:focus-visible,
+.work-ficha-full summary:focus-visible {
+  outline: 3px solid var(--profile-accent, #0f62fe);
+  outline-offset: 3px;
+}
+
+.work-ficha-authors {
+  margin-top: 7px !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* Keep inherited paper/ink contrasts in every private visual card style. */
+.profile-page[data-profile-shell="marginalia"] .work-ficha-abstract {
+  border-left-color: var(--marginalia-clay);
+}
+
+.profile-page[data-profile-shell="marginalia"] .work-ficha-doi b {
+  color: var(--marginalia-clay-deep);
+}
+
+.profile-page[data-profile-shell="territory"] .work-ficha-abstract {
+  border-left-color: var(--territory-accent, var(--profile-accent));
+}
+
+/* Related works can contain abstracts and must expand naturally. */
+.author-view-works article .work-ficha {
+  align-self: start;
+  margin-top: 12px;
+}
+
+:is(.project-work-card, .library-card, .author-view-works article) .work-ficha-no-link {
+  margin-top: 0;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .work-ficha {
+    gap: 11px;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .work-ficha-facts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .work-ficha-abstract {
+    padding: 11px;
+  }
+
+  :is(.library-card, .project-work-card, .author-view-works article) .work-ficha p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .work-ficha-links {
+    flex-direction: column;
+  }
+
+  .work-ficha-links a {
+    flex: 0 1 auto;
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .author-view-works {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

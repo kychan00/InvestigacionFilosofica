@@ -110,6 +110,7 @@ function articleSavePayload(record) {
     year: record.year ?? null,
     type: record.type || "journal-article",
     journal: record.journal || "Revista UdeG",
+    abstract: record.abstract || "",
     doi: record.doi || "",
     referenceUrl: recordLink(record),
     providers: [record.journal || "Artículos UdeG"],
