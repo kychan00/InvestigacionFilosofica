@@ -95,6 +95,9 @@ test("registered articles theses journals and Latin American philosophers expose
   assert.match(thesis, /createWorkSaveButton/);
   assert.match(journals, /createWorkSaveButton/);
   assert.match(latin, /createAuthorSaveButton/);
+  assert.match(latin, /createWorkSaveButton/);
+  assert.match(latin, /liveResultBookmarkPayload\(item, url\)/);
+  assert.match(latin, /className: "author-live-save-button"/);
 
   for (const source of [articles, thesis, journals, latin, helper]) {
     assert.doesNotMatch(
@@ -263,8 +266,8 @@ test("account menu loads without blocking critical navigation or theme code", ()
 
   assert.doesNotMatch(theme, /^import "\.\/account-menu\.js";/);
   assert.doesNotMatch(menu, /^import "\.\/account-menu\.js";/);
-  assert.match(theme, /void import\("\.\/account-menu\.js\?v=20261122-project-bookmarks-v1"\)/);
-  assert.match(menu, /void import\("\.\/account-menu\.js\?v=20261122-project-bookmarks-v1"\)/);
+  assert.match(theme, /void import\("\.\/account-menu\.js\?v=20261122-author-project-picker-v1"\)/);
+  assert.match(menu, /void import\("\.\/account-menu\.js\?v=20261122-author-project-picker-v1"\)/);
 });
 
 test("Firebase browser SDK version is pinned consistently", () => {
@@ -458,7 +461,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
@@ -616,7 +619,7 @@ test("Marginalia mobile uses compact single-column folios, usable controls and s
   assert.match(css, /overflow-wrap: anywhere/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.match(page, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
 });
 
 
@@ -703,8 +706,8 @@ test("journal article saves preserve available abstracts and bibliography remain
 
   assert.match(articles, /function articleSavePayload\(record\)[\s\S]*?abstract:\s*record\.abstract \|\| ""/);
   assert.match(profile, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(profile, /profile\.js\?v=20261122-project-bookmarks-v1/);
-  assert.match(articlesPage, /articles\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(profile, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(articlesPage, /articles\.js\?v=20261122-author-project-picker-v1/);
   assert.match(css, /\.work-ficha-facts/);
   assert.match(css, /\.work-ficha-abstract/);
   assert.match(css, /\.work-ficha-links/);
@@ -786,8 +789,8 @@ test("saved works navigate to the EXISTING full search record modal, never the D
   assert.match(app, /await openSavedPublicRecord\(recordRequest\)/);
   assert.match(app, /No se encontró una coincidencia bibliográfica exacta/);
   assert.match(userData, /work\?\.sourceRecordId \|\| work\?\.openalexId \|\| work\?\.id/);
-  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
-  assert.match(home, /app\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(home, /app\.js\?v=20261122-author-project-picker-v1/);
   assert.match(home, /record-detail\.css\?v=20261121-record-deeplink-v1/);
   assert.match(css, /\.work-ficha-links \.work-ficha-full-record/);
 });
@@ -875,7 +878,7 @@ test("mobile profile editor stays in one column and contains long style labels",
   assert.match(cssBlock, /grid-template-columns: 72px minmax\(0, 1fr\)/);
   assert.match(page, /Se guarda automáticamente/);
   assert.match(page, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
 });
 
 
@@ -928,6 +931,49 @@ test("saved bookmark stays clickable for unsave and project management", () => {
   assert.match(css, /\.work-save-dialog::backdrop/);
   assert.match(css, /\.work-save-projects\s*\{/);
   assert.match(css, /@media \(max-width: 620px\)/);
-  assert.match(page, /app\.js\?v=20261122-project-bookmarks-v1/);
-  assert.match(profilePage, /profile\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(page, /app\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(profilePage, /profile\.js\?v=20261122-author-project-picker-v1/);
+});
+
+
+test("authors have the same reversible project and collection picker as saved works", () => {
+  const data = read("js/user-data.js");
+  const manager = read("js/author-save-picker.js");
+  const helper = read("js/author-save-identity.js");
+  const account = read("js/account-menu.js");
+  const app = read("js/app.js");
+  const latin = read("js/latin-american-philosophy.js");
+  const controls = read("js/public-save-controls.js");
+
+  assert.match(data, /export function normalizeSavedAuthor\(author\)/);
+  assert.match(data, /export async function getSavedAuthor\(uid, authorId\)/);
+  assert.match(data, /export async function getProjectAuthorAssignments\(uid, authorId, projects\)/);
+  assert.match(manager, /runtime\.subscribeSavedAuthors\(user\.uid/);
+  assert.match(manager, /runtime\.getProjectAuthorAssignments\(user\.uid/);
+  assert.match(manager, /state\.runtime\.saveAuthor/);
+  assert.match(manager, /state\.runtime\.attachAuthorToProject/);
+  assert.match(manager, /state\.runtime\.detachAuthorFromProject/);
+  assert.match(manager, /state\.runtime\.deleteSavedAuthor/);
+  assert.match(manager, /Quitar de guardados/);
+  assert.match(manager, /new Set\(library\.flatMap\(authorSaveKeys\)\)/);
+  assert.match(manager, /MutationObserver/);
+  assert.match(manager, /data-work-picker-subproject/);
+  assert.match(helper, /function findSavedAuthor\(author, library\)/);
+  assert.match(account, /createAuthorSaveManager/);
+  assert.match(account, /authorSaveManager\.handle/);
+  assert.match(app, /data-save-author-key/);
+  assert.match(controls, /button\.dataset\.saveAuthorKey = authorSaveKey\(payload\)/);
+  assert.match(latin, /createAuthorSaveButton/);
+  assert.doesNotMatch(manager, /firebase-firestore\.js|from "\.\/firebase-client\.js"/);
+});
+
+test("thesis and journal articles continue to use the same saved-work selector", () => {
+  const thesis = read("js/thesis-demo.js");
+  const articles = read("js/articles.js");
+  const journal = read("js/journal-page.js");
+  const quadripartita = read("revistas/udg/quadripartita-ratio.html");
+  assert.match(thesis, /createWorkSaveButton/);
+  assert.match(articles, /createWorkSaveButton/);
+  assert.match(journal, /createWorkSaveButton/);
+  assert.match(quadripartita, /journal-page\.js\?v=20261122-author-project-picker-v1/);
 });

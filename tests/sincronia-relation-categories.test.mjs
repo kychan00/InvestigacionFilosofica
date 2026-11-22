@@ -111,7 +111,7 @@ test("UI separa categorías y etiquetas y mantiene filtros accesibles", async ()
   assert.match(runtime, /sincroniaKeywords/);
   assert.match(runtime, /journalId === "protrepsis" \|\| journalId === "quadripartita"/);
   assert.match(html, /sincronia-taxonomy\.css\?v=20261115-relations-v1/);
-  assert.match(html, /journal-page\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(html, /journal-page\.js\?v=20261122-author-project-picker-v1/);
   assert.match(html, /id="journal-category-all"/);
   assert.match(html, /id="journal-issue-all"/);
   assert.match(html, /Categoría de relación/);

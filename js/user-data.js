@@ -642,6 +642,19 @@ export function subscribeProjectWorks(uid, projectId, callback) {
   });
 }
 
+/** Reads one private author assignment per project; no public corpus queries. */
+export async function getProjectAuthorAssignments(uid, authorId, projects) {
+  const entries = await Promise.all(
+    (projects || []).map(async project => {
+      const snapshot = await getDoc(projectAuthorRef(uid, project.id, authorId));
+      return snapshot.exists()
+        ? [project.id, { id: snapshot.id, ...snapshot.data() }]
+        : null;
+    })
+  );
+  return new Map(entries.filter(Boolean));
+}
+
 export async function attachAuthorToProject(
   uid,
   projectId,
@@ -654,15 +667,19 @@ export async function attachAuthorToProject(
     author?.name || author?.displayName,
     300
   );
+  const isSavedAuthorId =
+    /^author-[a-z0-9-]+$/i.test(String(author?.id || ""));
   const sourceId = compactText(
-    author?.sourceId || author?.id,
+    author?.sourceId || (isSavedAuthorId ? "" : author?.id),
     500
   );
   const orcid = compactText(author?.orcid, 120);
-  const id = stableDocumentId(
-    "author",
-    orcid || sourceId || name
-  );
+  // Preserve the canonical savedAuthors ID when assigning a saved author.
+  // Rehashing an already normalized author ID would orphan project links,
+  // especially for authors that do not have an ORCID or source identifier.
+  const id = isSavedAuthorId
+    ? String(author.id)
+    : stableDocumentId("author", orcid || sourceId || name);
 
   const normalized = {
     id,
@@ -786,42 +803,63 @@ export function subscribeAuthorIdentityDecisions(uid, callback) {
   });
 }
 
-export async function saveAuthor(uid, author) {
+/** One canonical savedAuthors document, reused by any number of projects. */
+export function normalizeSavedAuthor(author) {
   const name = compactText(
     author?.displayName || author?.name,
     300
   );
-
-  const id = stableDocumentId(
+  const storedId = /^author-[a-z0-9-]+$/i.test(String(author?.id || ""))
+    ? String(author.id) : "";
+  const sourceId = compactText(
+    author?.sourceId || (storedId ? "" : author?.id),
+    500
+  );
+  const id = storedId || stableDocumentId(
     "author",
-    author?.orcid || author?.id || name
+    author?.orcid || sourceId || name
   );
 
+  return {
+    id,
+    name,
+    sourceId,
+    orcid: compactText(author?.orcid, 120),
+    biography: compactText(author?.biography, 4000),
+    wikipediaUrl: normalizeUrl(author?.wikipediaUrl),
+    alternateNames: Array.from(
+      new Set(
+        (author?.alternateNames || [])
+          .map(item => compactText(item, 300))
+          .filter(Boolean)
+      )
+    ).slice(0, 40),
+    sourceType: compactText(author?.sourceType, 120),
+    sourcePage: compactText(author?.sourcePage, 1200)
+  };
+}
+
+export async function saveAuthor(uid, author) {
+  const normalized = normalizeSavedAuthor(author);
+
   await setDoc(
-    doc(requiredDb(), "users", uid, "savedAuthors", id),
+    doc(requiredDb(), "users", uid, "savedAuthors", normalized.id),
     {
-      id,
-      name,
-      sourceId: compactText(author?.id, 500),
-      orcid: compactText(author?.orcid, 120),
-      biography: compactText(author?.biography, 4000),
-      wikipediaUrl: normalizeUrl(author?.wikipediaUrl),
-      alternateNames: Array.from(
-        new Set(
-          (author?.alternateNames || [])
-            .map(item => compactText(item, 300))
-            .filter(Boolean)
-        )
-      ).slice(0, 40),
-      sourceType: compactText(author?.sourceType, 120),
-      sourcePage: compactText(author?.sourcePage, 1200),
+      ...normalized,
       savedAt: serverTimestamp(),
       updatedAt: serverTimestamp()
     },
     { merge: true }
   );
 
-  return id;
+  return normalized.id;
+}
+
+export async function getSavedAuthor(uid, authorId) {
+  const snapshot = await getDoc(
+    doc(requiredDb(), "users", uid, "savedAuthors", authorId)
+  );
+  return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
 }
 
 export async function deleteSavedAuthor(uid, authorId) {

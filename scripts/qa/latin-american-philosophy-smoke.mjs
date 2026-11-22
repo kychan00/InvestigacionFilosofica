@@ -245,6 +245,71 @@ try {
       "Dossier selection must retain its shareable hash");
     assert.equal(await page.locator("#author-dossier-works-section").count(), 1,
       "The original dossier must render bibliographic works");
+    // Exercise live federated-result cards independently of network timing.
+    // Anonymous readers can inspect the record, but cannot see save controls.
+    const liveFixture = {
+      id: "archive-test-firmin-1885",
+      title: "De l'égalité des races humaines",
+      authors: [{ name: "Anténor Firmin" }],
+      year: 1885,
+      type: "archive-text",
+      providers: ["Internet Archive"],
+      urls: { canonical: "https://archive.org/details/firmin-test-1885" },
+      abstract: "Edición para investigación"
+    };
+    await page.evaluate(async fixture => {
+      localStorage.removeItem("research-auth-verified-v1");
+      const { renderLiveResearchResults } = await import(
+        "./js/latin-american-philosophy.js?v=20261122-author-live-bookmarks-v1"
+      );
+      const container = document.querySelector("#author-dossier-research-section");
+      const record = { canonical_name: "Anténor Firmin", alternate_names: [], works: [] };
+      const results = container.querySelector(".author-live-results");
+      const status = container.querySelector(".author-live-status");
+      window.__liveBookmarkFixture = { renderLiveResearchResults, record, results, status, fixture };
+      renderLiveResearchResults(record, { results: [fixture] }, results, status);
+    }, liveFixture);
+    assert.equal(await page.locator(".author-live-result").count(), 1,
+      "Live federated matches must render as research cards");
+    assert.equal(await page.locator(".author-live-result .research-save-button").count(), 0,
+      "Anonymous visitors must never see live-work bookmark controls");
+    assert.equal(await page.locator(".author-live-result a").first().getAttribute("href"),
+      liveFixture.urls.canonical, "The original federated source link must remain available");
+
+    // Simulate the verified-session display flag. Actual persistence is still
+    // protected by Firebase's verified currentUser check in the save manager.
+    await page.evaluate(() => {
+      localStorage.setItem("research-auth-verified-v1", JSON.stringify({
+        verified: true, updatedAt: Date.now()
+      }));
+      const { renderLiveResearchResults, record, results, status, fixture } = window.__liveBookmarkFixture;
+      renderLiveResearchResults(record, { results: [fixture] }, results, status);
+    });
+    const liveSaveButton = page.locator(".author-live-result .research-save-button");
+    assert.equal(await liveSaveButton.count(), 1,
+      "Verified readers must see one bookmark for each live work");
+    assert.equal(await liveSaveButton.getAttribute("aria-pressed"), "false");
+    assert.equal(await liveSaveButton.getAttribute("data-save-work-key"),
+      "source:archive-test-firmin-1885");
+    assert.match(await liveSaveButton.getAttribute("aria-label"), /Guardar/);
+    // The click would correctly redirect to login without a real verified
+    // Firebase user. Here we only test the UI gate; the shared picker smoke
+    // verifies actual save, multi-project assignment and unsave behavior.
+    const preparedPayload = await page.evaluate(async fixture => {
+      const { liveResultBookmarkPayload } = await import("./js/latin-american-live-work.js");
+      return liveResultBookmarkPayload(fixture, fixture.urls.canonical);
+    }, liveFixture);
+    assert.equal(preparedPayload.title, liveFixture.title);
+    assert.equal(preparedPayload.referenceUrl, liveFixture.urls.canonical,
+      "Saved records must retain a traceable original-source URL");
+    await page.evaluate(() => {
+      localStorage.removeItem("research-auth-verified-v1");
+      const { renderLiveResearchResults, record, results, status, fixture } = window.__liveBookmarkFixture;
+      renderLiveResearchResults(record, { results: [fixture] }, results, status);
+    });
+    assert.equal(await page.locator(".author-live-result .research-save-button").count(), 0,
+      "Returning to anonymous mode must not expose saved controls");
+
     const dialogBox = await page.locator("#author-dialog").boundingBox();
     assert.ok(dialogBox && dialogBox.x >= -2 && dialogBox.x + dialogBox.width <= width + 2,
       "Dossier must fit the viewport at " + width + "px: " + JSON.stringify(dialogBox));

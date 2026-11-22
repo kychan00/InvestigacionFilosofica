@@ -17,7 +17,7 @@ test("Quadripartita tiene categorías de relación y números con reinicios inde
   assert.match(page,/palabras clave editoriales se conservan literalmente/i);
   assert.match(page,/qr-postal-taxonomy/);
   assert.match(page,/quadripartita-postal-taxonomy\.css\?v=20261114-relations-v1/);
-  assert.match(page,/journal-page\.js\?v=20261120-private-save-v3/);
+  assert.match(page,/journal-page\.js\?v=20261122-author-project-picker-v1/);
   for (const path of ["protrepsis.html","sincronia.html"]) {
     const other = await readFile("revistas/udg/"+path,"utf8");
     assert.doesNotMatch(other,/quadripartita-postal-taxonomy\.css/);

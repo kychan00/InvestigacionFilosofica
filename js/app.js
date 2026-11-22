@@ -85,6 +85,7 @@ import {
 } from "./auth-session-hint.js";
 
 import { workSaveKey } from "./work-save-identity.js";
+import { authorSaveKey } from "./author-save-identity.js";
 
 
 function bookmarkSaveSvg() {
@@ -126,7 +127,7 @@ function renderWorkSaveControl(item) {
   `;
 }
 
-function renderAuthorSaveControl(index = null) {
+function renderAuthorSaveControl(index = null, author = null) {
   if (!hasVerifiedAuthHint()) return "";
 
   const indexAttribute =
@@ -139,7 +140,9 @@ function renderAuthorSaveControl(index = null) {
       type="button"
       class="author-save-button author-save-icon"
       data-save-author
+      data-save-author-key="${escapeHtml(authorSaveKey(author))}"
       data-save-icon
+      aria-pressed="false"
       ${indexAttribute}
       aria-label="Guardar autor"
       title="Guardar autor"
@@ -5756,7 +5759,7 @@ function renderAuthorResolution(
 
               return `
                 <article class="author-profile-card">
-                  ${renderAuthorSaveControl(index)}
+                  ${renderAuthorSaveControl(index, author)}
                   <span class="author-profile-query">
                     ${escapeHtml(identity.input)}
                   </span>
@@ -5935,7 +5938,7 @@ function renderAuthorResolution(
       class="author-resolution is-resolved"
       aria-label="Identidad del autor"
     >
-      ${renderAuthorSaveControl()}
+      ${renderAuthorSaveControl(null, author)}
       <div>
         ${
           currentResponse?.authorOnly &&

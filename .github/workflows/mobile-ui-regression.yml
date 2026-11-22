@@ -13,13 +13,19 @@ on:
       - "scripts/qa/profile-bootstrap-smoke.mjs"
       - "js/account-menu.js"
       - "js/work-save-picker.js"
+      - "js/author-save-picker.js"
+      - "js/author-save-identity.js"
       - "js/work-save-identity.js"
       - "js/public-save-controls.js"
       - "tests/work-save-identity.test.mjs"
       - "scripts/qa/work-save-picker-smoke.mjs"
+      - "scripts/qa/author-save-picker-smoke.mjs"
+      - "tests/author-save-identity.test.mjs"
       - "js/auth-page.js"
       - "filosofia-latinoamericana.html"
       - "js/latin-american-philosophy.js"
+      - "js/latin-american-live-work.js"
+      - "tests/latin-american-live-work.test.mjs"
       - "scripts/qa/latin-american-philosophy-smoke.mjs"
       - "tesis.html"
       - "atlas.html"
@@ -186,6 +192,9 @@ jobs:
       - name: Verify project bookmark picker and unsave on phones
         run: node scripts/qa/work-save-picker-smoke.mjs
 
+      - name: Verify author project picker and reversible bookmarks on phones
+        run: node scripts/qa/author-save-picker-smoke.mjs
+
       - name: Check phone, tablet and desktop geometry
         run: node scripts/qa/mobile-ui-smoke.mjs
 
@@ -241,6 +250,7 @@ jobs:
           path: |
             artifacts/mobile-ui/
             artifacts/work-save-picker/
+            artifacts/author-save-picker/
             artifacts/profile-bootstrap/
             artifacts/latin-american-philosophy/
             artifacts/thesis-demo-ui/
