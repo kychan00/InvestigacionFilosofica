@@ -86,6 +86,7 @@ import {
 
 import { workSaveKey } from "./work-save-identity.js";
 import { authorSaveKey } from "./author-save-identity.js";
+import { createSearchResultAutoScroll } from "./search-result-auto-scroll.js";
 
 
 function bookmarkSaveSvg() {
@@ -227,6 +228,8 @@ const researchWorkspace =
   document.querySelector(
     "#research-workspace"
   );
+
+const searchResultAutoScroll = createSearchResultAutoScroll({ results: resultsEl });
 
 const interpretationEl =
   document.querySelector(
@@ -7574,6 +7577,7 @@ function renderFilteredResults() {
 
   bindResultActions();
   bindAuthorResolutionActions();
+  searchResultAutoScroll.reveal();
 }
 
 
@@ -8132,6 +8136,7 @@ function renderProgressiveSearch(
 
   bindResultActions();
   bindAuthorResolutionActions();
+  searchResultAutoScroll.reveal();
 
   updateFilterSummary(
     currentFilteredResults.length,
@@ -8941,6 +8946,8 @@ form.addEventListener(
       .remove(
         "hidden"
       );
+
+    searchResultAutoScroll.arm();
 
     if (
       selectedSearchMode ===
