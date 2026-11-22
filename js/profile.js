@@ -142,6 +142,7 @@ const PROFILE_SHELLS = new Set(["default", "territory", "marginalia", "observato
 let profileShellSelectionRevision = 0;
 let confirmedProfileShell = "default";
 let profileShellSaveQueue = Promise.resolve();
+let profileDocumentSaveRevision = 0;
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -330,8 +331,9 @@ async function refreshVerificationOnlyWhenNeeded(user) {
   return Boolean(user?.emailVerified);
 }
 
-async function hydratePrivateProfile(user) {
+async function hydratePrivateProfile(user, attempt = 0) {
   const selectionRevisionAtStart = profileShellSelectionRevision;
+  const documentSaveRevisionAtStart = profileDocumentSaveRevision;
   try {
     let profile = await withTimeout(
       getUserProfile(user.uid),
@@ -353,7 +355,9 @@ async function hydratePrivateProfile(user) {
       );
     }
 
-    if (currentUser?.uid !== user.uid || !profile) return;
+    // Do not let a slow response from before Guardar perfil revert a newer save.
+    if (currentUser?.uid !== user.uid || !profile ||
+        profileDocumentSaveRevision !== documentSaveRevisionAtStart) return;
 
     const selectedDuringHydration =
       profileShellSelectionRevision !== selectionRevisionAtStart;
@@ -373,6 +377,17 @@ async function hydratePrivateProfile(user) {
       "El perfil privado no respondió a tiempo. El espacio continúa disponible con la identidad de la sesión.",
       error
     );
+    // Slow mobile connections must not leave a previously saved profile blank
+    // for the rest of this visit. Retry once, without blocking the workspace.
+    if (attempt === 0 && currentUser?.uid === user.uid &&
+        profileDocumentSaveRevision === documentSaveRevisionAtStart) {
+      window.setTimeout(() => {
+        if (currentUser?.uid === user.uid &&
+            profileDocumentSaveRevision === documentSaveRevisionAtStart) {
+          void hydratePrivateProfile(user, 1);
+        }
+      }, 1500);
+    }
   }
 }
 
@@ -2596,6 +2611,7 @@ async function loadPrivateWorkspace(user) {
   profileShellSelectionRevision = 0;
   confirmedProfileShell = readRememberedProfileShell(user.uid) || "default";
   profileShellSaveQueue = Promise.resolve();
+  profileDocumentSaveRevision = 0;
   currentProfile = { profileShell: confirmedProfileShell };
   markVerifiedAuthHint();
 
@@ -3257,60 +3273,88 @@ savedAuthorDialog?.addEventListener("close", () => {
 
 profileSettingsForm.addEventListener("submit", async event => {
   event.preventDefault();
-  if (!currentUser) return;
+  if (!currentUser || profileSaveButton.disabled) return;
 
+  const uid = currentUser.uid;
   const data = new FormData(profileSettingsForm);
+  const changes = {
+    displayName: data.get("displayName"),
+    institution: data.get("institution"),
+    website: data.get("website"),
+    accentColor: data.get("accentColor"),
+    profileShell: normalizeProfileShell(data.get("profileShell")),
+    bio: data.get("bio")
+  };
+  const shellRevisionAtSubmit = profileShellSelectionRevision;
+  // Invalidate any pre-save profile read: late hydration must not erase the edit.
+  profileDocumentSaveRevision += 1;
   const originalLabel = profileSaveButton.textContent;
 
   profileSaveButton.disabled = true;
   profileSaveButton.setAttribute("aria-busy", "true");
   profileSaveButton.textContent = "Guardando…";
-  profileSaveStatus.textContent = "";
+  profileSaveStatus.textContent = "Guardando en su cuenta…";
   profileSaveStatus.classList.remove("is-error");
 
   try {
-    // Prevent a separate in-flight style selection from racing full save.
-    await profileShellSaveQueue.catch(() => {});
-    await updateUserProfileDocument(currentUser.uid, {
-      displayName: data.get("displayName"),
-      institution: data.get("institution"),
-      website: data.get("website"),
-      accentColor: data.get("accentColor"),
-      profileShell: normalizeProfileShell(data.get("profileShell")),
-      bio: data.get("bio")
-    });
+    // One queue for both autosaved shell changes and the full document.
+    // A theme changed while the full save is in progress will be written last.
+    const write = profileShellSaveQueue
+      .catch(() => {})
+      .then(() => updateUserProfileDocument(uid, changes));
+    profileShellSaveQueue = write;
+    await write;
 
-    const displayName = String(data.get("displayName") || "").trim();
-    if (displayName && displayName !== currentUser.displayName) {
-      await updateAuthProfile(currentUser, { displayName });
-    }
+    if (currentUser?.uid !== uid) return;
 
-    currentProfile = await getUserProfile(currentUser.uid);
+    // The acknowledged write is the authority. Re-reading immediately can
+    // return an older cached snapshot and wrongly restore the previous theme.
+    confirmedProfileShell = changes.profileShell;
+    rememberProfileShell(uid, confirmedProfileShell);
+    const selectedAfterSubmit = profileShellSelectionRevision !== shellRevisionAtSubmit
+      ? selectedProfileShell()
+      : changes.profileShell;
+    currentProfile = {
+      ...(currentProfile || {}),
+      ...changes,
+      profileShell: selectedAfterSubmit
+    };
     fillProfileForm();
     renderIdentity();
 
-    profileSaveButton.textContent = "Guardado ✓";
-    profileSaveStatus.textContent = "Cambios guardados.";
+    const displayName = String(changes.displayName || "").trim();
+    if (displayName && displayName !== currentUser.displayName) {
+      try {
+        await updateAuthProfile(currentUser, { displayName });
+      } catch (error) {
+        // The Firestore profile is already saved; a separate Auth display-name
+        // sync must not turn that success into a false "save failed" message.
+        console.warn("El nombre se guardó en el perfil, pero Auth no se sincronizó.", error);
+      }
+    }
 
+    if (currentUser?.uid !== uid) return;
+    profileSaveButton.textContent = "Guardado ✓";
+    profileSaveStatus.textContent = "Cambios guardados en su cuenta.";
     window.setTimeout(() => {
+      if (currentUser?.uid !== uid) return;
       setActivePanel("resumen", {
         updateHash: true,
         scroll: true
       });
-
       profileSaveButton.disabled = false;
       profileSaveButton.removeAttribute("aria-busy");
       profileSaveButton.textContent = originalLabel;
       profileSaveStatus.textContent = "";
-    }, 480);
+    }, 800);
   } catch (error) {
     console.error("No se pudo guardar el perfil.", error);
-
+    if (currentUser?.uid !== uid) return;
     profileSaveButton.disabled = false;
     profileSaveButton.removeAttribute("aria-busy");
     profileSaveButton.textContent = originalLabel;
     profileSaveStatus.textContent =
-      "No fue posible guardar los cambios. Intente de nuevo.";
+      "No fue posible guardar en Firebase. Sus cambios siguen en el formulario para reintentar.";
     profileSaveStatus.classList.add("is-error");
   }
 });
