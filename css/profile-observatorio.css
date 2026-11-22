@@ -1,0 +1,824 @@
+/* =========================================================
+   OBSERVATORIO · cuarto lenguaje integral de Mi perfil
+   Carta celeste, lectura académica y geometría de ideas.
+   Aislado por data-profile-shell; los otros estilos no cambian.
+   ========================================================= */
+
+.profile-shell-sample[data-shell-sample="observatory"] {
+  border-color: #b7955d;
+  border-radius: 9px;
+  background:
+    radial-gradient(circle at 27% 30%, #e5c381 0 2px, transparent 3px),
+    radial-gradient(circle at 67% 19%, #cbdaf1 0 1px, transparent 2px),
+    radial-gradient(circle at 75% 72%, #e5c381 0 2px, transparent 3px),
+    linear-gradient(147deg, #162c4b, #071321);
+}
+.profile-shell-sample[data-shell-sample="observatory"] i {
+  width: 48px; height: 48px; left: 11px; top: 11px;
+  border: 1px solid rgba(231,197,134,.72);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 8px rgba(231,197,134,.045), 0 0 0 11px rgba(231,197,134,.11);
+}
+.profile-shell-sample[data-shell-sample="observatory"] i::before {
+  content: "✦"; position: absolute; inset: 0;
+  display: grid; place-items: center; color: #e3c388;
+  font: 27px/1 Georgia, serif;
+}
+.profile-shell-sample[data-shell-sample="observatory"] b {
+  left: 44px; top: 24px; width: 56px; height: 1px;
+  background: linear-gradient(90deg,#dfbe81,transparent);
+  transform: rotate(-24deg);
+}
+.profile-shell-sample[data-shell-sample="observatory"] em {
+  right: 12px; bottom: 9px; width: 27px; height: 10px;
+  border-top: 1px solid #9bbbdc;
+  border-bottom: 1px solid #9bbbdc;
+  opacity: .85;
+}
+
+/* Variables also feed the inherited unthemed components and public cards. */
+.profile-page[data-profile-shell="observatory"] {
+  --obs-canvas: #e8edf3;
+  --obs-surface: #ffffff;
+  --obs-surface-alt: #f3f7fb;
+  --obs-ink: #182c44;
+  --obs-muted: #4d647e;
+  --obs-line: #b4c5d6;
+  --obs-night: #0b1a30;
+  --obs-navy: #1c3656;
+  --obs-blue: #214e7f;
+  --obs-gold: #c4a06b;
+  --obs-gold-text: #74511f;
+  --obs-glow: rgba(17,49,86,.1);
+  --obs-serif: Georgia, "Times New Roman", serif;
+  --obs-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --obs-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --theme-page: var(--obs-canvas);
+  --theme-surface: var(--obs-surface);
+  --theme-text: var(--obs-ink);
+  --theme-text-soft: var(--obs-muted);
+  --theme-line: var(--obs-line);
+  --profile-radius-xl: 22px;
+  --profile-radius-lg: 13px;
+  --profile-radius-md: 9px;
+  --profile-shadow: 0 16px 38px var(--obs-glow);
+  --profile-shadow-hover: 0 18px 42px rgba(17,49,86,.17);
+  min-height: 100vh;
+  color: var(--obs-ink);
+  background:
+    radial-gradient(circle at 80% 12%, rgba(61,99,148,.08), transparent 35rem),
+    linear-gradient(rgba(54,91,132,.035) 1px, transparent 1px) 0 0 / 100% 44px,
+    var(--obs-canvas);
+  font-family: var(--obs-sans);
+}
+html[data-theme="dark"] .profile-page[data-profile-shell="observatory"] {
+  --obs-canvas: #071321;
+  --obs-surface: #10223a;
+  --obs-surface-alt: #172d47;
+  --obs-ink: #f0f5fa;
+  --obs-muted: #c1d0df;
+  --obs-line: #3b526d;
+  --obs-night: #06101f;
+  --obs-navy: #172b47;
+  --obs-blue: #a0c7ef;
+  --obs-gold: #e4c187;
+  --obs-gold-text: #e4c187;
+  --obs-glow: rgba(0,0,0,.31);
+  --profile-shadow: 0 16px 44px rgba(0,0,0,.29);
+  --profile-shadow-hover: 0 18px 48px rgba(0,0,0,.42);
+  background:
+    radial-gradient(circle at 80% 12%, rgba(83,128,183,.10), transparent 32rem),
+    linear-gradient(rgba(177,205,237,.025) 1px, transparent 1px) 0 0 / 100% 44px,
+    var(--obs-canvas);
+}
+
+.profile-page[data-profile-shell="observatory"] .profile-topbar {
+  border-bottom: 1px solid var(--obs-line);
+  background: var(--obs-surface);
+  box-shadow: 0 4px 22px var(--obs-glow);
+}
+.profile-page[data-profile-shell="observatory"] .profile-brand {
+  color: var(--obs-ink);
+  font-family: var(--obs-serif);
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-brand small {
+  color: var(--obs-muted);
+  font-family: var(--obs-mono);
+  letter-spacing: .13em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-brand-mark {
+  border: 1px solid var(--obs-gold);
+  border-radius: 50%;
+  background: var(--obs-night);
+  color: #f0d9ad;
+  box-shadow: inset 0 0 0 5px rgba(239,213,160,.06);
+}
+.profile-page[data-profile-shell="observatory"] .profile-topbar-links a,
+.profile-page[data-profile-shell="observatory"] .profile-signout {
+  color: var(--obs-muted);
+  font-family: var(--obs-mono);
+  font-size: 10px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-topbar-links a:hover,
+.profile-page[data-profile-shell="observatory"] .profile-signout:hover {
+  color: var(--obs-blue);
+  background: var(--obs-surface-alt);
+}
+.profile-page[data-profile-shell="observatory"] .profile-signout {
+  border-color: var(--obs-line);
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell {
+  width: min(1420px,100%);
+  padding-block: 26px 72px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-loading {
+  color: var(--obs-muted);
+}
+.profile-page[data-profile-shell="observatory"] .profile-loading-mark {
+  border-color: var(--obs-gold);
+  background: var(--obs-night);
+  color: #f0d9ad;
+}
+.profile-page[data-profile-shell="observatory"] .profile-gate {
+  border-color: var(--obs-line);
+  border-radius: 19px;
+  background: var(--obs-surface);
+}
+.profile-page[data-profile-shell="observatory"] .profile-gate-art {
+  min-height: 440px;
+  background:
+    radial-gradient(circle at 36% 40%, transparent 0 18%, rgba(224,188,124,.45) 18.2% 18.4%, transparent 18.6% 27%, rgba(224,188,124,.22) 27.2% 27.4%, transparent 27.6%),
+    radial-gradient(circle at 35% 25%,#efddad 0 2px,transparent 3px),
+    radial-gradient(circle at 70% 51%,#efddad 0 2px,transparent 3px),
+    linear-gradient(145deg,#1a365b,#071321);
+}
+.profile-page[data-profile-shell="observatory"] .profile-gate-copy h1,
+.profile-page[data-profile-shell="observatory"] .profile-section-head h2 {
+  color: var(--obs-ink);
+  font-family: var(--obs-serif);
+  letter-spacing: -.045em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-gate-copy p,
+.profile-page[data-profile-shell="observatory"] .profile-section-head > p {
+  color: var(--obs-muted);
+  font-size: 13px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-gate button,
+.profile-page[data-profile-shell="observatory"] .profile-primary-button {
+  min-height: 45px;
+  border: 1px solid var(--obs-gold);
+  border-radius: 7px;
+  background: var(--obs-night);
+  color: #f5e5c6;
+  font-family: var(--obs-mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+.profile-page[data-profile-shell="observatory"] .profile-gate button:hover,
+.profile-page[data-profile-shell="observatory"] .profile-primary-button:hover {
+  background: #1b3658;
+  box-shadow: 0 8px 24px var(--obs-glow);
+}
+
+/* The cover uses a hand-built star chart: no images, motion or JS. */
+.profile-page[data-profile-shell="observatory"] .profile-cover {
+  overflow: hidden;
+  border: 1px solid var(--obs-line);
+  border-radius: 18px;
+  background: var(--obs-night);
+  box-shadow: var(--profile-shadow);
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-art {
+  isolation: isolate;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(222,186,125,.35);
+  background:
+    radial-gradient(circle at 13% 32%, #f0d8a4 0 2px, transparent 3px),
+    radial-gradient(circle at 31% 19%, #adcaed 0 1px, transparent 2px),
+    radial-gradient(circle at 44% 63%, #d7c29b 0 2px, transparent 3px),
+    radial-gradient(circle at 71% 16%, #d7c29b 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 73%, #adcaed 0 2px, transparent 3px),
+    radial-gradient(circle at 92% 28%, #f0d8a4 0 1px, transparent 2px),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(137,181,220,.075) 34px 35px),
+    repeating-linear-gradient(90deg, transparent 0 34px, rgba(137,181,220,.075) 34px 35px),
+    radial-gradient(ellipse at 72% 50%, #214467, #0b1a30 76%);
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-art::before {
+  content: "Φ";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 72%;
+  width: 235px;
+  height: 235px;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(229,196,138,.55);
+  border-radius: 50%;
+  box-shadow: 0 0 0 27px rgba(229,196,138,.07), 0 0 0 56px rgba(229,196,138,.055);
+  color: #f0d7a6;
+  font: 120px/1 var(--obs-serif);
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-art::after {
+  content: "OBSERVATORIO   /   CARTA DE INVESTIGACIÓN";
+  position: absolute;
+  inset: 22px auto auto 24px;
+  height: auto;
+  z-index: 1;
+  color: #e9d4ac;
+  background: none;
+  font: 600 10px/1.4 var(--obs-mono);
+  letter-spacing: .16em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-art > span {
+  max-width: min(450px,80%);
+  padding: 13px 17px;
+  border: 1px solid rgba(230,199,142,.55);
+  border-radius: 3px;
+  background: rgba(7,19,33,.85);
+  color: #e8e6df;
+  font: italic 17px/1.35 var(--obs-serif);
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-body {
+  align-items: center;
+  gap: 28px;
+  padding: 29px 35px 25px;
+  background: linear-gradient(125deg,#112843,#071727);
+  color: #f3f6f9;
+}
+.profile-page[data-profile-shell="observatory"] .profile-avatar {
+  border: 2px solid #dcb777;
+  background: #1e456e;
+  color: #f3e4c2;
+  box-shadow: 0 0 0 7px rgba(220,183,119,.1);
+}
+.profile-page[data-profile-shell="observatory"] .profile-persona-copy h1 {
+  color: #f6f5f2;
+  font-family: var(--obs-serif);
+  font-size: clamp(33px,4.6vw,59px);
+}
+.profile-page[data-profile-shell="observatory"] .profile-persona-copy > p,
+.profile-page[data-profile-shell="observatory"] .profile-persona-bio {
+  color: #cbd9e8;
+}
+.profile-page[data-profile-shell="observatory"] .profile-persona-bio {
+  font-size: 16px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-note {
+  border-left: 1px solid #d2aa6d;
+  padding-left: 19px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-note-index,
+.profile-page[data-profile-shell="observatory"] .profile-cover .profile-kicker {
+  color: #edcc8d;
+}
+.profile-page[data-profile-shell="observatory"] .profile-cover-note p {
+  color: #d5e1ec;
+  font-size: 12px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-nav {
+  gap: 0;
+  padding: 0 27px 20px;
+  border-top: 1px solid rgba(201,175,128,.25);
+  background: #081729;
+}
+.profile-page[data-profile-shell="observatory"] .profile-nav a {
+  min-height: 52px;
+  padding: 0 18px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #bfcee0;
+  font: 600 11px/1.2 var(--obs-mono);
+}
+.profile-page[data-profile-shell="observatory"] .profile-nav a span {
+  color: #ddbd80;
+}
+.profile-page[data-profile-shell="observatory"] .profile-nav a:hover,
+.profile-page[data-profile-shell="observatory"] .profile-nav a.is-active {
+  transform: none;
+  border-color: #e5c383;
+  background: rgba(224,187,123,.09);
+  color: #fff6e7;
+  box-shadow: none;
+}
+.profile-page[data-profile-shell="observatory"] .profile-kicker,
+.profile-page[data-profile-shell="observatory"] .profile-pin-label {
+  color: var(--obs-gold-text);
+  font-family: var(--obs-mono);
+  font-size: 10px;
+  letter-spacing: .13em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-section-head {
+  padding: 24px 6px 24px;
+  border-bottom: 1px solid var(--obs-line);
+  margin-bottom: 22px;
+}
+
+/* Pinned findings are plates; collections form a legible atlas grid. */
+.profile-page[data-profile-shell="observatory"] :is(.profile-pinboard,.project-grid,.library-list,.saved-author-list) {
+  columns: unset;
+  display: grid;
+  align-items: stretch;
+  gap: 17px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.profile-page[data-profile-shell="observatory"] :is(.profile-pin,.project-card,.library-card,.author-card) {
+  width: auto;
+  min-width: 0;
+  height: auto;
+  min-height: 220px;
+  margin: 0;
+  display: block;
+  break-inside: auto;
+  overflow: hidden;
+  border: 1px solid var(--obs-line);
+  border-radius: 12px;
+  background: var(--obs-surface);
+  color: var(--obs-ink);
+  box-shadow: 0 8px 23px var(--obs-glow);
+}
+.profile-page[data-profile-shell="observatory"] :is(.profile-pin,.project-card,.library-card,.author-card):hover {
+  transform: translateY(-2px);
+  border-color: var(--obs-gold);
+  box-shadow: var(--profile-shadow-hover);
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin {
+  position: relative;
+  min-height: 226px;
+  padding: 27px;
+  background:
+    linear-gradient(180deg, var(--obs-surface) 0 85%, var(--obs-surface-alt)),
+    var(--obs-surface);
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin::before {
+  content: "✦";
+  position: absolute;
+  right: 25px; top: 19px;
+  color: var(--obs-gold-text);
+  font: 25px/1 Georgia, serif;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin h3,
+.profile-page[data-profile-shell="observatory"] .project-card h3,
+.profile-page[data-profile-shell="observatory"] .library-card h3,
+.profile-page[data-profile-shell="observatory"] .author-card h3 {
+  color: var(--obs-ink);
+  font-family: var(--obs-serif);
+  font-weight: 400;
+  letter-spacing: -.025em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin h3 {
+  font-size: clamp(29px,3vw,39px);
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin p,
+.profile-page[data-profile-shell="observatory"] :is(.project-card,.library-card,.author-card) p {
+  color: var(--obs-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin button {
+  color: var(--obs-blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin-metric strong {
+  color: var(--obs-blue);
+  font-family: var(--obs-serif);
+  font-size: clamp(56px,6vw,84px);
+  font-weight: 400;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin-quote,
+.profile-page[data-profile-shell="observatory"] .profile-pin-atlas {
+  background: linear-gradient(145deg,#122b49,#08182c);
+  color: #f5eee0;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin-quote::before,
+.profile-page[data-profile-shell="observatory"] .profile-pin-atlas::before {
+  color: #edcd92;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin-quote :is(blockquote,p,h3),
+.profile-page[data-profile-shell="observatory"] .profile-pin-atlas :is(p,h3) {
+  color: #f0eee8;
+}
+.profile-page[data-profile-shell="observatory"] .profile-pin-quote .profile-pin-label,
+.profile-page[data-profile-shell="observatory"] .profile-pin-atlas .profile-pin-label {
+  color: #edcd92;
+}
+.profile-page[data-profile-shell="observatory"] .profile-mini-atlas {
+  background: radial-gradient(circle at center,rgba(226,192,133,.22),rgba(17,40,67,.1) 65%);
+}
+.profile-page[data-profile-shell="observatory"] .profile-mini-atlas i {
+  background: #edca88;
+  box-shadow: 0 0 0 5px rgba(226,192,133,.12);
+}
+.profile-page[data-profile-shell="observatory"] .profile-color-orbit {
+  border-color: var(--obs-line);
+}
+
+/* Project details, book records and controls retain their behavior. */
+.profile-page[data-profile-shell="observatory"] :is(
+  .profile-editor,.project-panel,.project-atlas-panel,.project-detail-hero,
+  .profile-settings-preview,.profile-settings-form,.project-collection-card,
+  .project-author-card,.project-work-card,.subproject-card,.profile-empty,
+  .project-view-empty,.project-settings
+) {
+  border-color: var(--obs-line);
+  border-radius: 12px;
+  background: var(--obs-surface);
+  color: var(--obs-ink);
+  box-shadow: 0 7px 20px var(--obs-glow);
+}
+.profile-page[data-profile-shell="observatory"] .profile-editor > summary,
+.profile-page[data-profile-shell="observatory"] .profile-editor summary {
+  color: var(--obs-blue);
+  font-size: 13px;
+}
+.profile-page[data-profile-shell="observatory"] :is(.project-card,.library-card,.author-card) :is(small,span),
+.profile-page[data-profile-shell="observatory"] :is(.project-panel,.project-atlas-panel,.project-detail-hero) p {
+  color: inherit;
+}
+.profile-page[data-profile-shell="observatory"] .project-card::after {
+  background: var(--obs-gold);
+}
+.profile-page[data-profile-shell="observatory"] .project-card-keywords span,
+.profile-page[data-profile-shell="observatory"] .library-card-tags span,
+.profile-page[data-profile-shell="observatory"] .project-work-tags span {
+  border: 1px solid var(--obs-line);
+  background: var(--obs-surface-alt);
+  color: var(--obs-blue);
+}
+.profile-page[data-profile-shell="observatory"] :is(.project-detail-hero h2,.project-panel h3,.project-atlas-panel h3) {
+  color: var(--obs-ink);
+  font-family: var(--obs-serif);
+}
+.profile-page[data-profile-shell="observatory"] .profile-form label > span,
+.profile-page[data-profile-shell="observatory"] .profile-shell-field > legend {
+  color: var(--obs-ink);
+  font-family: var(--obs-mono);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.profile-page[data-profile-shell="observatory"] :is(.profile-form input,.profile-form textarea,.profile-form select) {
+  min-width: 0;
+  border: 1px solid var(--obs-line);
+  border-radius: 7px;
+  background: var(--obs-surface-alt);
+  color: var(--obs-ink);
+}
+.profile-page[data-profile-shell="observatory"] :is(.profile-form input,.profile-form textarea,.profile-form select):focus-visible,
+.profile-page[data-profile-shell="observatory"] :is(button,a,input,textarea,select):focus-visible {
+  outline: 3px solid var(--obs-gold);
+  outline-offset: 2px;
+}
+.profile-page[data-profile-shell="observatory"] :is(
+  .profile-quiet-button,.profile-section-back,.project-detail-actions button,
+  .profile-form-actions > button:not(.profile-primary-button),
+  .profile-settings-actions > button:not(.profile-primary-button)
+) {
+  border: 1px solid var(--obs-line);
+  border-radius: 7px;
+  background: var(--obs-surface-alt);
+  color: var(--obs-blue);
+}
+.profile-page[data-profile-shell="observatory"] :is(
+  .profile-quiet-button,.profile-section-back,.project-detail-actions button
+):hover {
+  border-color: var(--obs-gold);
+  color: var(--obs-ink);
+}
+.profile-page[data-profile-shell="observatory"] .profile-section-back {
+  font-size: 12px;
+}
+.profile-page[data-profile-shell="observatory"] .project-view-switcher {
+  border-color: var(--obs-line);
+  border-radius: 8px;
+  background: var(--obs-surface-alt);
+}
+.profile-page[data-profile-shell="observatory"] .project-view-switcher button {
+  border-radius: 6px;
+  color: var(--obs-muted);
+}
+.profile-page[data-profile-shell="observatory"] .project-view-switcher button.is-active {
+  background: var(--obs-night);
+  color: #f5e9d2;
+}
+.profile-page[data-profile-shell="observatory"] :is(
+  .project-work-card,.project-author-card,.project-collection-card,
+  .library-card,.author-card
+) :is(button,a,select) {
+  color: var(--obs-blue);
+}
+.profile-page[data-profile-shell="observatory"] .library-card-actions,
+.profile-page[data-profile-shell="observatory"] .author-card-actions {
+  border-top-color: var(--obs-line);
+}
+.profile-page[data-profile-shell="observatory"] .author-open-button {
+  border-color: var(--obs-gold);
+  background: var(--obs-surface-alt);
+}
+.profile-page[data-profile-shell="observatory"] .work-ficha {
+  border-top-color: var(--obs-line);
+}
+.profile-page[data-profile-shell="observatory"] .work-ficha-abstract {
+  background: var(--obs-surface-alt);
+  color: var(--obs-ink);
+  border-color: var(--obs-line);
+}
+.profile-page[data-profile-shell="observatory"] .work-ficha-links .work-ficha-full-record {
+  background: var(--obs-surface-alt);
+  border-color: var(--obs-gold);
+  color: var(--obs-blue);
+}
+
+/* Settings: bespoke identity preview and an accessible four-style gallery. */
+.profile-page[data-profile-shell="observatory"] .profile-settings-layout {
+  min-width: 0;
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview {
+  position: relative;
+  overflow: hidden;
+  border-color: #536e8c;
+  background:
+    radial-gradient(circle at 78% 17%,#e8c886 0 2px,transparent 3px),
+    radial-gradient(circle at 22% 28%,#d3dfec 0 1px,transparent 2px),
+    radial-gradient(circle at 63% 67%,#e8c886 0 2px,transparent 3px),
+    repeating-linear-gradient(90deg,transparent 0 43px,rgba(160,194,231,.065) 43px 44px),
+    #122945;
+  color: #f3f4f4;
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview::before {
+  content: "OBSERVATORIO  /  IDENTIDAD";
+  position: absolute;
+  left: 24px; top: 21px; right: 20px;
+  color: #f2d5a3;
+  font: 600 10px/1.5 var(--obs-mono);
+  letter-spacing: .09em;
+}
+.profile-page[data-profile-shell="observatory"] .profile-preview-avatar {
+  border: 1px solid #e7c17c;
+  border-radius: 50%;
+  background: #27466a;
+  color: #f2dfb8;
+  box-shadow: 0 0 0 7px rgba(231,193,124,.09);
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview h3 {
+  color: #f2f4f8;
+  font-family: var(--obs-serif);
+  font-size: clamp(31px,3vw,43px);
+  font-weight: 400;
+  line-height: 1.07;
+  overflow-wrap: anywhere;
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview > p,
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview blockquote {
+  color: #d6e2ef;
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview blockquote {
+  font-family: var(--obs-serif);
+  font-size: 19px;
+  line-height: 1.5;
+}
+.profile-page[data-profile-shell="observatory"] .profile-preview-accent span {
+  background: #e0bb77;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(224,187,119,.12);
+}
+.profile-page[data-profile-shell="observatory"] .profile-preview-accent small {
+  color: #e0d7c5;
+  font-size: 11px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-field > p,
+.profile-page[data-profile-shell="observatory"] #profile-accent-help {
+  color: var(--obs-muted);
+  font-size: 12px;
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-options {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-option {
+  grid-template-columns: 96px minmax(0,1fr);
+  border-color: var(--obs-line);
+  border-radius: 10px;
+  background: var(--obs-surface-alt);
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-option strong {
+  color: var(--obs-ink);
+  font: 400 20px/1.2 var(--obs-serif);
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-option small {
+  color: var(--obs-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-option:has(input:checked) {
+  border-color: var(--obs-gold);
+  box-shadow: inset 0 0 0 2px var(--obs-gold);
+}
+.profile-page[data-profile-shell="observatory"] .profile-shell-option:hover {
+  border-color: var(--obs-gold);
+}
+.profile-page[data-profile-shell="observatory"] .profile-save-status {
+  color: var(--obs-ink);
+}
+
+/* Dialogs and saved-author reader belong to the selected shell. */
+.profile-page[data-profile-shell="observatory"] .profile-dialog {
+  border: 1px solid var(--obs-line);
+  border-radius: 14px;
+  background: var(--obs-surface);
+  color: var(--obs-ink);
+  box-shadow: 0 30px 80px rgba(3,13,27,.5);
+}
+.profile-page[data-profile-shell="observatory"] .profile-dialog-head {
+  border-bottom: 1px solid var(--obs-line);
+  background: var(--obs-surface-alt);
+}
+.profile-page[data-profile-shell="observatory"] .profile-dialog-head h2,
+.profile-page[data-profile-shell="observatory"] .author-view-hero h2 {
+  color: var(--obs-ink);
+  font-family: var(--obs-serif);
+}
+.profile-page[data-profile-shell="observatory"] :is(.profile-dialog-head p,.author-view-bio,.author-view-identity) {
+  color: var(--obs-muted);
+}
+.profile-page[data-profile-shell="observatory"] .author-view-monogram {
+  border: 1px solid var(--obs-gold);
+  background: var(--obs-night);
+  color: #e9d3a4;
+}
+.profile-page[data-profile-shell="observatory"] :is(.author-view-section,.author-view-works article) {
+  border-color: var(--obs-line);
+  background: var(--obs-surface);
+  color: var(--obs-ink);
+}
+.profile-page[data-profile-shell="observatory"] .author-view-links a,
+.profile-page[data-profile-shell="observatory"] .author-public-link {
+  color: var(--obs-blue);
+}
+
+/* Desktop-to-phone, overriding prior rules that mentioned only three shells. */
+@media (max-width: 1100px) {
+  .profile-page[data-profile-shell="observatory"] .profile-shell-options {
+    grid-template-columns: minmax(0,1fr);
+  }
+}
+@media (max-width: 900px) {
+  .profile-page[data-profile-shell="observatory"] .profile-cover-body,
+  .profile-page[data-profile-shell="observatory"] .profile-section-head,
+  .profile-page[data-profile-shell="observatory"] .profile-settings-layout {
+    grid-template-columns: minmax(0,1fr);
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-cover-note {
+    max-width: 590px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-settings-preview {
+    min-height: 300px;
+  }
+}
+@media (max-width: 760px) {
+  .profile-page[data-profile-shell="observatory"] .profile-topbar {
+    min-width: 0;
+    grid-template-columns: minmax(0,1fr) auto;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-brand {
+    min-width: 0;
+    gap: 9px;
+    font-size: clamp(14px,3.6vw,17px);
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-brand-mark {
+    width: 36px; height: 36px;
+    flex: 0 0 36px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 13px 12px max(60px,env(safe-area-inset-bottom));
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-cover-art {
+    min-height: 178px;
+    padding: 14px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-cover-art::before {
+    width: 105px; height: 105px;
+    left: 76%;
+    font-size: 58px;
+    box-shadow: 0 0 0 12px rgba(229,196,138,.07),0 0 0 25px rgba(229,196,138,.05);
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-cover-art::after {
+    inset: 13px auto auto 14px;
+    font-size: 8px;
+    letter-spacing: .05em;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-cover-art > span {
+    width: min(260px,79%);
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-cover-body {
+    padding: 25px 18px 21px;
+    gap: 21px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-persona {
+    grid-template-columns: 58px minmax(0,1fr);
+    gap: 13px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-avatar {
+    width: 58px; height: 58px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-persona-copy h1 {
+    font-size: clamp(29px,9vw,45px);
+    overflow-wrap: anywhere;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-nav {
+    width: 100%;
+    padding: 0 10px 5px;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-nav a {
+    flex: 0 0 auto;
+    min-height: 48px;
+    padding: 0 11px;
+    font-size: 10px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-section-head {
+    gap: 13px;
+    margin-bottom: 15px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-section-head h2 {
+    font-size: clamp(33px,9vw,49px);
+    overflow-wrap: anywhere;
+  }
+  .profile-page[data-profile-shell="observatory"] :is(
+    .profile-pinboard,.project-grid,.library-list,.saved-author-list
+  ) {
+    grid-template-columns: minmax(0,1fr);
+    gap: 13px;
+  }
+  .profile-page[data-profile-shell="observatory"] :is(
+    .profile-pin,.project-card,.library-card,.author-card
+  ) {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-settings-layout,
+  .profile-page[data-profile-shell="observatory"] .profile-settings-form,
+  .profile-page[data-profile-shell="observatory"] .profile-shell-field {
+    min-width: 0;
+    max-width: 100%;
+    grid-template-columns: minmax(0,1fr);
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-settings-form {
+    padding: 18px 15px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-settings-preview {
+    min-height: 275px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-shell-options {
+    grid-template-columns: minmax(0,1fr);
+    gap: 12px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-shell-option {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 86px minmax(0,1fr);
+    padding: 12px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-shell-option > span:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-shell-option strong {
+    font-size: clamp(17px,4.3vw,21px);
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-shell-option small {
+    font-size: 11px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-dialog {
+    width: min(100% - 16px,850px);
+    max-height: calc(100dvh - 20px);
+  }
+}
+@media (max-width: 390px) {
+  .profile-page[data-profile-shell="observatory"] .profile-shell-option {
+    grid-template-columns: 72px minmax(0,1fr);
+    gap: 10px;
+  }
+  .profile-page[data-profile-shell="observatory"] .profile-settings-preview {
+    padding-inline: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-page[data-profile-shell="observatory"] :is(
+    .profile-pin,.project-card,.library-card,.author-card,.profile-nav a
+  ) { transition: none; }
+}
