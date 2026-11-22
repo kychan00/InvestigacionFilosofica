@@ -861,7 +861,7 @@ test("profile appearance is autosaved without overwriting unsaved biographical f
   assert.match(script, /void saveSelectedProfileShell\(event\.target\.value\)/);
   assert.match(script, /readRememberedProfileShell\(user\.uid\)/);
   assert.match(script, /selectionRevisionAtStart/);
-  assert.match(script, /await profileShellSaveQueue\.catch\(\(\) => \{\}\)/);
+  assert.match(script, /const write = profileShellSaveQueue[\s\S]*?\.then\(\(\) => updateUserProfileDocument\(uid, changes\)\)/);
 });
 
 test("mobile profile editor stays in one column and contains long style labels", () => {
