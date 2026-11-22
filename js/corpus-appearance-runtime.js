@@ -2,7 +2,8 @@ import {
   CORPUS_SHELL_DEFAULT,
   corpusShellAccountKey,
   normalizeCorpusShell,
-  resolveCorpusShell
+  resolveCorpusShell,
+  isCorpusAppearanceRoute
 } from "./corpus-appearance-policy.js";
 
 /**
@@ -37,7 +38,8 @@ export function createCorpusAppearanceController({
    */
   async function enterUser(user) {
     const current = ++revision;
-    const uid = user?.emailVerified === true && typeof user?.uid === "string"
+    const uid = isCorpusAppearanceRoute(pathname, basePath) &&
+      user?.emailVerified === true && typeof user?.uid === "string"
       ? user.uid.trim() : "";
     activeUid = uid;
     if (!uid) {
