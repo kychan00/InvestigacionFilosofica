@@ -97,6 +97,20 @@ try {
         sheet.href?.includes("corpus-appearance-author-atlas.css") && sheet.cssRules.length > 0
       )
     );
+    // Populate the actual embedded Atlas from an in-repository fixture.
+    // A blank canvas is not a meaningful visual test of its color palette.
+    await page.evaluate(async () => {
+      const response = await fetch("./benchmark/research-atlas/v2/search-response-fixtures.json");
+      if (!response.ok) throw new Error("Atlas fixture unavailable");
+      const fixtures = await response.json();
+      await import("./js/research-atlas-embed.js?v=20261122-corpus-appearance-phase4");
+      window.dispatchEvent(new CustomEvent("research-atlas:search-response", {
+        detail: { phase: "partial", response: fixtures.partials[1] }
+      }));
+    });
+    await page.waitForFunction(() =>
+      document.querySelector("#research-atlas-count")?.textContent.trim() === "2"
+    );
     await page.evaluate(result => {
       document.querySelector("#research-workspace").classList.remove("hidden");
       document.querySelector("#results").innerHTML = result;
@@ -123,7 +137,7 @@ try {
         "Result horizontal overflow " + JSON.stringify({ width, mode, shell, work }));
       assert.ok(work.visualWidth > 0, "Result rank/visual must stay visible");
       if (shell !== "default") assert.notEqual(work.hero, "none");
-      await page.locator(".record-open").first().evaluate(el => el.focus());
+      await page.locator(".record-open").first().evaluate(el => el.focus({ preventScroll: true }));
 
       await page.evaluate(html => {
         const modal = document.querySelector("#record-modal");
@@ -179,6 +193,19 @@ try {
         "Author dossier outside viewport: " + JSON.stringify({ width, mode, shell, archive }));
       assert.ok(archive.scrollWidth <= width + 3, "Author dossier creates horizontal overflow");
       assert.equal(archive.timelineOverflow, "auto");
+      // Reset the viewport before each image: earlier modal interactions
+      // may scroll the document while an author fixture is being inserted.
+      const authorViewport = await page.evaluate(() => {
+        const hero = document.querySelector(".author-page-hero");
+        hero.scrollIntoView({ block: "start", behavior: "instant" });
+        window.scrollBy({ top: -56, behavior: "instant" });
+        const r = hero.getBoundingClientRect();
+        return { top: r.top, bottom: r.bottom, viewportHeight: innerHeight };
+      });
+      assert.ok(
+        authorViewport.bottom > 80 && authorViewport.top < authorViewport.viewportHeight * .55,
+        "Author hero must be visible in evidence screenshot: " + JSON.stringify(authorViewport)
+      );
       if (shot) await page.screenshot({
         path: "artifacts/corpus-appearance/author-" + shell + "-" + mode + "-" + width + ".png",
         animations: "disabled"
@@ -186,9 +213,22 @@ try {
       await page.evaluate(result => {
         document.body.classList.remove("author-view");
         document.querySelector("#results").innerHTML = result;
-        document.querySelector("#research-atlas-panel").classList.remove("hidden");
       }, result);
-
+      // Use the real switcher rather than manually unveiling an empty panel.
+      await page.locator('[data-research-view="atlas"]').click();
+      await page.waitForFunction(() =>
+        !document.querySelector("#research-atlas-panel")?.classList.contains("hidden")
+      );
+      const atlasViewport = await page.evaluate(() => {
+        const stage = document.querySelector("#research-atlas-stage");
+        stage.scrollIntoView({ block: "center", behavior: "instant" });
+        const r = stage.getBoundingClientRect();
+        return { top: r.top, bottom: r.bottom, viewportHeight: innerHeight };
+      });
+      assert.ok(atlasViewport.bottom > 100 &&
+        atlasViewport.top < atlasViewport.viewportHeight - 100,
+        "Atlas canvas must be visible in screenshot: " + JSON.stringify(atlasViewport)
+      );
       const atlas = await page.evaluate(() => {
         const root = document.querySelector("#research-atlas-panel");
         const stage = document.querySelector("#research-atlas-stage");
@@ -207,13 +247,15 @@ try {
       assert.ok(atlas.left >= -2 && atlas.right <= width + 2,
         "Embedded Atlas outside viewport: " + JSON.stringify({ width, mode, shell, atlas }));
       assert.ok(atlas.stageHeight >= 450, "Atlas canvas stage was collapsed");
+      assert.ok(atlas.list !== "none", "Populated Atlas node list should be visible");
       assert.equal(atlas.canvasTouch, "none", "Canvas pan/zoom interaction must remain available");
       if (shell !== "default") assert.match(atlas.color, /^#[\da-f]{6}$/i);
       if (shot) await page.screenshot({
         path: "artifacts/corpus-appearance/atlas-" + shell + "-" + mode + "-" + width + ".png",
         animations: "disabled"
       });
-      await page.evaluate(() => document.querySelector("#research-atlas-panel").classList.add("hidden"));
+      await page.locator('[data-research-view="results"]').click();
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
     }
 
     await page.close();
