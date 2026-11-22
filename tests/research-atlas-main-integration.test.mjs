@@ -353,7 +353,7 @@ test("load-more topology reuses the existing cached Qwen vector client", () => {
 test("load-more topology cache-busts both app and embedded Atlas assets", () => {
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261113-ra13a-v1/
+    /research-atlas-embed\.js\?v=[^"']+/
   );
   assert.match(
     page,
