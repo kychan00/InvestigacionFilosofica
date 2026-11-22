@@ -47,5 +47,5 @@ test("UG Filosofía can be searched with the shared thesis search contract", () 
 
 test("T2DH cache-bust loads the current multi-institution thesis runtime", () => {
   const html = readFileSync(new URL("../tesis.html", import.meta.url), "utf8");
-  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(html, /\.\/js\/thesis-demo\.js\?v=20261122-author-project-picker-v1/);
 });
