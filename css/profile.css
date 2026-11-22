@@ -6918,3 +6918,33 @@ html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* The primary CTA goes to the SAME full public "Ver ficha" view, not to doi.org. */
+.work-ficha-links .work-ficha-full-record {
+  flex: 1 1 100%;
+  min-height: 46px;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--profile-accent, #0f62fe) 14%, var(--theme-surface, #fff));
+  border: 1px solid color-mix(in srgb, var(--profile-accent, #0f62fe) 55%, currentColor);
+  color: inherit;
+  font-size: 13px;
+  font-weight: 750;
+}
+.work-ficha-links .work-ficha-full-record:hover {
+  background: color-mix(in srgb, var(--profile-accent, #0f62fe) 23%, var(--theme-surface, #fff));
+}
+.work-ficha-full-record span {
+  flex: 0 0 auto;
+  font-size: 17px;
+}
+.profile-page[data-profile-shell="marginalia"] .work-ficha-links .work-ficha-full-record {
+  background: color-mix(in srgb, var(--marginalia-clay) 12%, var(--marginalia-paper-2));
+  border-color: var(--marginalia-clay);
+}
+@media (max-width: 760px) {
+  .work-ficha-links .work-ficha-full-record {
+    min-height: 48px;
+    font-size: 14px;
+  }
+}
