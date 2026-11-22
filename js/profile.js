@@ -138,7 +138,7 @@ let activeWorkspaceUid = "";
 
 const PROFILE_NETWORK_TIMEOUT_MS = 4500;
 const PROFILE_BOOT_WATCHDOG_MS = 8000;
-const PROFILE_SHELLS = new Set(["default", "territory", "marginalia"]);
+const PROFILE_SHELLS = new Set(["default", "territory", "marginalia", "observatory"]);
 let profileShellSelectionRevision = 0;
 let confirmedProfileShell = "default";
 let profileShellSaveQueue = Promise.resolve();
@@ -618,6 +618,13 @@ function applyProfileShell(value) {
     if (profileAccentHelp) {
       profileAccentHelp.textContent =
         "Su color personal se conserva; Marginalia usa una paleta propia de papel, tinta y anotación.";
+    }
+  } else if (shell === "observatory") {
+    applyProfileAccent("#c4a06b");
+    if (previewAccentLabel) previewAccentLabel.textContent = "Carta celeste · azul · oro antiguo";
+    if (profileAccentHelp) {
+      profileAccentHelp.textContent =
+        "Su color personal sigue guardado; Observatorio utiliza una paleta astronómica propia.";
     }
   } else {
     const color =
