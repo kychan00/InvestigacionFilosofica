@@ -554,12 +554,21 @@ html[data-theme="dark"] .profile-page[data-profile-shell="observatory"] {
   color: #f3f4f4;
 }
 .profile-page[data-profile-shell="observatory"] .profile-settings-preview::before {
-  content: "OBSERVATORIO  /  IDENTIDAD";
+  content: "✦";
   position: absolute;
-  left: 24px; top: 21px; right: 20px;
+  right: 23px; top: 14px;
   color: #f2d5a3;
-  font: 600 10px/1.5 var(--obs-mono);
-  letter-spacing: .09em;
+  font: 30px/1 var(--obs-serif);
+  pointer-events: none;
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview::after {
+  pointer-events: none;
+  opacity: .55;
+}
+.profile-page[data-profile-shell="observatory"] .profile-settings-preview > .profile-pin-label {
+  position: relative;
+  z-index: 1;
+  color: #f2d5a3;
 }
 .profile-page[data-profile-shell="observatory"] .profile-preview-avatar {
   border: 1px solid #e7c17c;
