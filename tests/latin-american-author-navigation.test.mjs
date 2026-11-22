@@ -12,23 +12,42 @@ const script = fs.readFileSync(
   "utf8"
 );
 
-test("Latin American philosopher cards use the canonical full author view", () => {
-  assert.match(script, /function authorPageUrl\(author\)/);
-  assert.match(script, /url\.searchParams\.set\("view", "author"\)/);
-  assert.match(script, /url\.searchParams\.set\("author", name\)/);
-  assert.match(script, /url\.hash = "results"/);
+const styles = fs.readFileSync(
+  new URL("../css/latin-american-philosophy.css", import.meta.url),
+  "utf8"
+);
 
-  assert.match(script, /content\.href = authorPageUrl\(author\)/);
-  assert.match(script, /link\.href = authorPageUrl\(record\)/);
-  assert.match(script, /Abrir archivo completo/);
+test("Latin American philosopher cards open the local dossier instead of navigating to the homepage", () => {
+  assert.match(script, /function bindDossierLink\(link, id\)/);
+  assert.match(script, /link\.href = authorHash\(id\)/);
+  assert.match(script, /event\.preventDefault\(\);\s*void openAuthorDialog\(id\)/);
+  assert.match(script, /bindDossierLink\(content, author\.id\)/);
+  assert.match(script, /bindDossierLink\(link, record\.author_id\)/);
+  assert.doesNotMatch(script, /window\.location\.replace\(/);
+  assert.doesNotMatch(script, /url\.searchParams\.set\("view", "author"\)/);
 });
 
-test("Latin American philosopher page no longer renders the author modal", () => {
-  assert.doesNotMatch(page, /id="author-dialog"/);
-  assert.doesNotMatch(script, /openAuthorDialog\(id\)/);
+test("Dossier markup and interactive controls are present", () => {
+  for (const id of [
+    "author-dialog", "author-dialog-title", "author-dialog-body",
+    "author-dialog-close", "author-dialog-prev", "author-dialog-next",
+    "author-dialog-share", "author-dossier-index", "author-dossier-works"
+  ]) {
+    assert.match(page, new RegExp('id="' + id + '"'));
+  }
+  assert.match(script, /authorDialogClose\?\.addEventListener\("click"/);
+  assert.match(script, /authorDialogPrev\?\.addEventListener\("click"/);
+  assert.match(script, /authorDialogNext\?\.addEventListener\("click"/);
+  assert.match(script, /authorDialogShare\?\.addEventListener\("click"/);
+  assert.match(script, /authorDialog\?\.addEventListener\("cancel"/);
+  assert.match(styles, /@media \(max-width: 720px\)\s*\{/);
+  assert.match(styles, /\.author-dialog\s*\{\s*width: 100vw;\s*height: 100dvh/);
 });
 
-test("legacy #autor links redirect to the canonical author page", () => {
+test("Shared and saved author URLs reopen the same dossier", () => {
+  assert.match(script, /sourcePage: `filosofia-latinoamericana\.html\$\{authorHash\(numericId\)\}`/);
   assert.match(script, /location\.hash\.match\(\/\^#autor-/);
-  assert.match(script, /window\.location\.replace\(authorPageUrl\(legacyAuthor\)\)/);
+  assert.match(script, /openAuthorDialog\(deepLinkId, \{ updateHistory: false \}\)/);
+  assert.match(script, /window\.addEventListener\("hashchange", syncAuthorDialogWithLocation\)/);
+  assert.match(script, /window\.addEventListener\("popstate", syncAuthorDialogWithLocation\)/);
 });
