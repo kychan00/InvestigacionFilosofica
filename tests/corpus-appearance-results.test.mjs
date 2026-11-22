@@ -16,7 +16,7 @@ test("fase 2 agrega CSS solo a index, después de fase 1", async () => {
     "tesis.html", "atlas.html", "articulos.html",
     "filosofia-latinoamericana.html", "perfil.html", "research-atlas.html",
     "revistas/udg/protrepsis.html", "revistas/udg/sincronia.html",
-    "revistas/udg/quadripartita.html"
+    "revistas/udg/quadripartita-ratio.html"
   ]) {
     const html = await read(file);
     assert.doesNotMatch(html, /corpus-appearance-results\.css/, file);
