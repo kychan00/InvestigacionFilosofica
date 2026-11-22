@@ -672,10 +672,12 @@ export async function attachAuthorToProject(
     500
   );
   const orcid = compactText(author?.orcid, 120);
-  const id = stableDocumentId(
-    "author",
-    orcid || sourceId || name
-  );
+  // Preserve the canonical savedAuthors ID when assigning a saved author.
+  // Rehashing an already normalized author ID would orphan project links,
+  // especially for authors that do not have an ORCID or source identifier.
+  const id = /^author-[a-z0-9-]+$/i.test(String(author?.id || ""))
+    ? String(author.id)
+    : stableDocumentId("author", orcid || sourceId || name);
 
   const normalized = {
     id,
