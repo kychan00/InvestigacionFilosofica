@@ -530,6 +530,6 @@ window.addEventListener("philosophythemechange", syncThemeControls);
 markCurrentLink();
 syncThemeControls();
 
-void import("./account-menu.js?v=20261122-project-bookmarks-v1").catch(error => {
+void import("./account-menu.js?v=20261122-author-project-picker-v1").catch(error => {
   console.warn("No se pudo cargar la cuenta de investigación.", error);
 });
