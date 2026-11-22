@@ -904,6 +904,7 @@ test("saved works can be assigned to existing projects and collections without d
   assert.match(manager, /dialog\.showModal\(\)/);
   assert.match(manager, /dialog\.addEventListener\("cancel"/);
   assert.match(manager, /state\.busy/);
+  assert.match(manager, /pickerState = state;[\s\S]*?setBusy\(false\)/);
   assert.match(manager, /MutationObserver/);
   assert.match(manager, /runtime\.subscribeLibrary\(user\.uid/);
   assert.match(manager, /new Set\(library\.map\(workSaveKey\)/);
