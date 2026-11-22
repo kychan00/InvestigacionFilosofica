@@ -498,7 +498,7 @@ test("profile settings save gives feedback and returns to the private home", () 
   assert.match(profile, /profileSaveButton\.textContent = "Guardando…"/);
   assert.match(profile, /profileSaveButton\.textContent = "Guardado ✓"/);
   assert.match(profile, /setActivePanel\("resumen"/);
-  assert.match(profile, /No fue posible guardar los cambios/);
+  assert.match(profile, /No fue posible guardar en Firebase/);
 });
 
 test("profile settings has an explicit back action", () => {
