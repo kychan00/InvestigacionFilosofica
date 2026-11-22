@@ -92,7 +92,7 @@ test("la ficha conserva el contenido y foco del diálogo semántico", async () =
   assert.match(index, /aria-labelledby="record-modal-title"/);
   assert.match(index, /class="record-modal-close"/);
   assert.match(index, /data-close-record/);
-  assert.match(app, /class="record-author-link"/);
+  assert.match(app, /class="record-author-link /);
   assert.match(app, /class="cinematic-meta-card/);
   assert.match(app, /class="cinematic-provenance"/);
   assert.match(css, /:focus-visible/);
