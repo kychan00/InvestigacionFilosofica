@@ -74,5 +74,5 @@ test("se integra con las búsquedas tradicional, semántica y las respuestas pro
   const app = await readFile(new URL("../js/app.js", import.meta.url), "utf8");
   assert.match(app, /createSearchResultAutoScroll\(/u);
   assert.match(app, /searchResultAutoScroll\.arm\(\)/u);
-  assert.equal((app.match(/searchResultAutoScroll\.reveal\(\)/gu) || []).length, 2);
+  assert.equal((app.match(/searchResultAutoScroll\.reveal\(\)/gu) || []).length, 3);
 });
