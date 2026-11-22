@@ -66,7 +66,7 @@ export function createAuthorSaveManager({
 
   function syncButtons() {
     if (!libraryUid) return;
-    const saved = new Set(library.map(workSaveKey).filter(Boolean));
+    const saved = new Set(library.flatMap(authorSaveKeys));
     for (const button of document.querySelectorAll(
       ".author-save-button[data-save-author-key]"
     )) {
@@ -226,7 +226,7 @@ export function createAuthorSaveManager({
     try {
       const [projects, stored] = await Promise.all([
         runtime.listUserProjects(user.uid),
-        Promise.resolve(findSavedWork(author, library))
+        Promise.resolve(findSavedAuthor(author, library))
           .then(found => found || runtime.getSavedAuthor(user.uid, normalized.id))
       ]);
       if (pickerState !== state) return;
@@ -367,7 +367,7 @@ export function createAuthorSaveManager({
     if (trigger?.classList.contains("is-saving")) return;
     if (picker?.open) return;
     if (trigger) {
-      trigger.dataset.saveAuthorKey = workSaveKey(author);
+      trigger.dataset.saveAuthorKey = authorSaveKey(author);
       setSavingState(trigger, "Abriendo guardados…");
     }
     try {
