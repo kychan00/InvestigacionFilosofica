@@ -1,0 +1,167 @@
+/* ================================================================
+   CORPUS APPEARANCE / FASE 1
+   Solo index.html · cabecera, lienzo y zona inicial de búsqueda.
+   Fichas, resultados y autores se migrarán en fases posteriores.
+   Predeterminado no recibe reglas nuevas.
+   ================================================================ */
+
+/* TERRITORIO — cartografía, pergamino y tinta */
+html[data-theme="light"][data-corpus-shell="territory"] {
+  --corpus-page: #ece7db;
+  --corpus-ink: #27372d;
+  --corpus-muted: #4c6256;
+  --corpus-line: #adb9aa;
+  --corpus-accent: #943e2d;
+  --corpus-on-accent: #ffffff;
+  --corpus-panel: rgba(246, 242, 231, .96);
+  --corpus-hero-bg:
+    radial-gradient(circle at 81% 45%, transparent 0 13%, rgba(91, 110, 89, .18) 13.15% 13.35%, transparent 13.5% 22%, rgba(91, 110, 89, .12) 22.15% 22.35%, transparent 22.5% 32%, rgba(91, 110, 89, .09) 32.15% 32.35%, transparent 32.5%),
+    linear-gradient(112deg, #f5f0e5 0%, #e8e2d3 66%, #d2dacd 100%);
+}
+html[data-theme="dark"][data-corpus-shell="territory"] {
+  --corpus-page: #151e19;
+  --corpus-ink: #f2eddf;
+  --corpus-muted: #cbd8c4;
+  --corpus-line: #617668;
+  --corpus-accent: #e1a386;
+  --corpus-on-accent: #18221b;
+  --corpus-panel: rgba(31, 46, 35, .96);
+  --corpus-hero-bg:
+    radial-gradient(circle at 81% 45%, transparent 0 13%, rgba(175, 195, 161, .14) 13.15% 13.35%, transparent 13.5% 22%, rgba(175, 195, 161, .10) 22.15% 22.35%, transparent 22.5% 32%, rgba(175, 195, 161, .07) 32.15% 32.35%, transparent 32.5%),
+    linear-gradient(118deg, #14231c 0%, #253b2c 68%, #1b2925 100%);
+}
+
+/* MARGINALIA — hoja anotada y tipografía editorial */
+html[data-theme="light"][data-corpus-shell="marginalia"] {
+  --corpus-page: #f0e8d9;
+  --corpus-ink: #302c28;
+  --corpus-muted: #5c5650;
+  --corpus-line: #c4ac97;
+  --corpus-accent: #98543b;
+  --corpus-on-accent: #ffffff;
+  --corpus-panel: rgba(251, 246, 235, .97);
+  --corpus-hero-bg:
+    linear-gradient(90deg, transparent 0 9%, rgba(161, 78, 53, .18) 9% 9.16%, transparent 9.16%),
+    repeating-linear-gradient(180deg, transparent 0 43px, rgba(100, 102, 81, .085) 43px 44px),
+    linear-gradient(120deg, #f9f2e6, #e8dac5);
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] {
+  --corpus-page: #231f1c;
+  --corpus-ink: #f6eee1;
+  --corpus-muted: #d9c9b7;
+  --corpus-line: #796a5c;
+  --corpus-accent: #db9d7a;
+  --corpus-on-accent: #2d1f18;
+  --corpus-panel: rgba(48, 41, 35, .97);
+  --corpus-hero-bg:
+    linear-gradient(90deg, transparent 0 9%, rgba(215, 152, 125, .26) 9% 9.16%, transparent 9.16%),
+    repeating-linear-gradient(180deg, transparent 0 43px, rgba(232, 211, 179, .08) 43px 44px),
+    linear-gradient(120deg, #302823, #1f1d1a);
+}
+
+/* OBSERVATORIO — plano astronómico, azul mineral y oro antiguo */
+html[data-theme="light"][data-corpus-shell="observatory"] {
+  --corpus-page: #e8edf3;
+  --corpus-ink: #172d49;
+  --corpus-muted: #465b75;
+  --corpus-line: #9fb5cb;
+  --corpus-accent: #74511f;
+  --corpus-on-accent: #ffffff;
+  --corpus-panel: rgba(247, 251, 255, .95);
+  --corpus-hero-bg:
+    radial-gradient(circle at 73% 36%, #b8894f 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 68%, #7e99b6 0 1px, transparent 2px),
+    radial-gradient(circle at 66% 77%, #8aacc6 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 52%, transparent 0 16%, rgba(50, 90, 127, .17) 16.2% 16.35%, transparent 16.55% 26%, rgba(50, 90, 127, .11) 26.15% 26.3%, transparent 26.5%),
+    linear-gradient(112deg, #f3f8fc, #d8e5f0);
+}
+html[data-theme="dark"][data-corpus-shell="observatory"] {
+  --corpus-page: #071321;
+  --corpus-ink: #f0f5fc;
+  --corpus-muted: #c3d5e8;
+  --corpus-line: #60758c;
+  --corpus-accent: #e0bd80;
+  --corpus-on-accent: #0c1c2d;
+  --corpus-panel: rgba(18, 37, 60, .96);
+  --corpus-hero-bg:
+    radial-gradient(circle at 73% 36%, #efcf8b 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 68%, #9bbbdc 0 1px, transparent 2px),
+    radial-gradient(circle at 66% 77%, #9bbbdc 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 52%, transparent 0 16%, rgba(209, 182, 124, .25) 16.2% 16.35%, transparent 16.55% 26%, rgba(209, 182, 124, .15) 26.15% 26.3%, transparent 26.5%),
+    linear-gradient(112deg, #071321, #162e4b);
+}
+
+/* Scope selector explicitly excludes the author view until phase 4. */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) {
+  background: var(--corpus-page);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .hero-shell {
+  background: var(--corpus-hero-bg);
+  color: var(--corpus-ink);
+  border-bottom: 1px solid var(--corpus-line);
+  box-shadow: none;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) :is(
+  .philo-brand,
+  .philo-mark,
+  .hero-shell h1,
+  .hero-marginalia strong,
+  .hero-shell .eyebrow
+) {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) :is(
+  .philo-brand-subtitle,
+  .philo-nav-links a,
+  .hero-shell .lead,
+  .hero-thesis,
+  .hero-marginalia,
+  .hero-sources
+) {
+  color: var(--corpus-muted);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) :is(
+  .philo-nav,
+  .philo-mark,
+  .hero-thesis,
+  .hero-sources,
+  .hero-marginalia,
+  .search-mode-switch
+) {
+  border-color: var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .hero-shell .search-panel {
+  background: var(--corpus-panel);
+  border-left-color: var(--corpus-accent);
+  border-color: var(--corpus-line);
+  border-left: 3px solid var(--corpus-accent);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .07);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .theme-switch button[aria-pressed="true"] {
+  background: var(--corpus-accent);
+  color: var(--corpus-on-accent);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .philo-mark {
+  background: transparent;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) :is(
+  .philo-brand,
+  .philo-nav-links a,
+  .theme-switch button
+):focus-visible {
+  outline: 2px solid var(--corpus-accent);
+  outline-offset: 3px;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .site-mobile-toolbar-mark {
+  color: var(--corpus-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body,
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) .hero-shell {
+    transition: none;
+  }
+}
+
+/* All decorative changes above avoid transforms, fixed positions,
+   width/height mutations and extra scroll observers on mobile. */
