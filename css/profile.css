@@ -6948,3 +6948,242 @@ html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] {
     font-size: 14px;
   }
 }
+
+
+/* =========================================================
+   MOBILE PROFILE EDITOR · prevent card/title overflow
+   The old <=1180px two-column rule overrode the <=900px
+   one-column selector. Keep all three visual shells usable.
+   ========================================================= */
+@media (max-width: 760px) {
+  .profile-page #mi-perfil,
+  .profile-page #mi-perfil .profile-settings-layout,
+  .profile-page #mi-perfil .profile-settings-form,
+  .profile-page #mi-perfil .profile-shell-field {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .profile-page .profile-settings-layout,
+  .profile-page[data-profile-shell="territory"] .profile-settings-layout,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .profile-page .profile-settings-preview,
+  .profile-page[data-profile-shell="territory"] .profile-settings-preview,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    padding: 24px 20px 21px;
+    box-sizing: border-box;
+    isolation: isolate;
+  }
+
+  .profile-page .profile-settings-preview::before,
+  .profile-page .profile-settings-preview::after {
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .profile-page .profile-settings-preview::after {
+    width: 120px;
+    height: 120px;
+    right: -32px;
+    bottom: -46px;
+    border-width: 17px;
+  }
+
+  .profile-page .profile-preview-avatar,
+  .profile-page[data-profile-shell="territory"] .profile-preview-avatar,
+  .profile-page[data-profile-shell="marginalia"] .profile-preview-avatar {
+    flex: 0 0 auto;
+    width: 76px;
+    height: 76px;
+    margin-top: 27px;
+    box-sizing: border-box;
+  }
+
+  .profile-page .profile-settings-preview h3,
+  .profile-page[data-profile-shell="territory"] .profile-settings-preview h3,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview h3 {
+    max-width: 100%;
+    min-width: 0;
+    margin: 16px 0 7px;
+    font-size: clamp(26px, 7vw, 38px);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .profile-page .profile-settings-preview > p,
+  .profile-page .profile-settings-preview blockquote {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-settings-preview > p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .profile-page .profile-settings-preview blockquote,
+  .profile-page[data-profile-shell="territory"] .profile-settings-preview blockquote,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview blockquote {
+    margin: 15px 0 0;
+    font-size: clamp(14px, 3.8vw, 18px);
+    line-height: 1.4;
+  }
+
+  .profile-page .profile-preview-accent {
+    position: relative;
+    inset: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+    margin-top: 19px;
+    gap: 10px;
+  }
+
+  .profile-page .profile-preview-accent > span {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .profile-page .profile-preview-accent small {
+    flex: 1 1 145px;
+    min-width: 0;
+    font-size: 10px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-settings-form,
+  .profile-page[data-profile-shell="territory"] .profile-settings-form,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-form {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 18px 16px;
+  }
+
+  .profile-page .profile-settings-form .profile-shell-field.is-wide {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .profile-page .profile-shell-field > legend {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-shell-field > p {
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Stronger and later than the old <=1180px two-column rule. */
+  .profile-page .profile-shell-options,
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-options {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+  }
+
+  .profile-page .profile-shell-option,
+  .profile-page[data-profile-shell="territory"] .profile-shell-option,
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-option {
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: 13px;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 13px;
+  }
+
+  .profile-page .profile-shell-option > span:last-child {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-shell-option strong,
+  .profile-page[data-profile-shell="territory"] .profile-shell-option strong,
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-option strong {
+    display: block;
+    max-width: 100%;
+    font-size: clamp(17px, 4.3vw, 21px);
+    line-height: 1.16;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-shell-option small,
+  .profile-page[data-profile-shell="territory"] .profile-shell-option small,
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-option small {
+    display: block;
+    max-width: 100%;
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.48;
+    letter-spacing: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-shell-option .profile-shell-sample {
+    width: 100%;
+    height: 83px;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .profile-page .profile-shell-option:focus-within {
+    outline: 2px solid var(--profile-accent, #0f62fe);
+    outline-offset: 3px;
+  }
+}
+
+@media (max-width: 390px) {
+  .profile-page .profile-shell-option,
+  .profile-page[data-profile-shell="territory"] .profile-shell-option,
+  .profile-page[data-profile-shell="marginalia"] .profile-shell-option {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 10px;
+    padding: 11px;
+  }
+
+  .profile-page .profile-settings-preview,
+  .profile-page[data-profile-shell="territory"] .profile-settings-preview,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview {
+    padding-inline: 17px;
+  }
+
+  .profile-page .profile-settings-preview h3,
+  .profile-page[data-profile-shell="territory"] .profile-settings-preview h3,
+  .profile-page[data-profile-shell="marginalia"] .profile-settings-preview h3 {
+    font-size: clamp(25px, 7vw, 32px);
+  }
+}
