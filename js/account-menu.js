@@ -1,3 +1,5 @@
+import { createWorkSaveManager } from "./work-save-picker.js";
+
 const AUTH_HINT_KEY = "research-auth-verified-v1";
 
 function hasVerifiedAuthHint() {
@@ -60,7 +62,7 @@ function ensureStylesheet() {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = siteUrl("css/account.css?v=20261120-corpus-save-v3");
+  link.href = siteUrl("css/account.css?v=20261122-project-bookmarks-v1");
   link.dataset.accountStyles = "";
   document.head.append(link);
 }
@@ -204,10 +206,10 @@ function setSavingState(button, text = "Guardando…") {
   button.textContent = text;
 }
 
-function setSavedState(button, text = "Guardada") {
+function setSavedState(button, text = "Guardada", allowToggle = false) {
   if (!button) return;
 
-  button.disabled = true;
+  button.disabled = !allowToggle;
   button.removeAttribute("aria-busy");
   button.dataset.saved = "true";
 
@@ -216,6 +218,11 @@ function setSavedState(button, text = "Guardada") {
     button.classList.add("is-saved");
     button.setAttribute("aria-label", "Guardado");
     button.title = "Guardado";
+    if (allowToggle) {
+      button.setAttribute("aria-label", "Administrar guardado y proyectos");
+      button.setAttribute("aria-pressed", "true");
+      button.title = "Administrar guardado y proyectos";
+    }
     return;
   }
 
@@ -227,9 +234,13 @@ function restoreButton(button, fallback = "Guardar") {
 
   button.disabled = false;
   button.removeAttribute("aria-busy");
+  delete button.dataset.saved;
 
   if (isSaveIcon(button)) {
     button.classList.remove("is-saving", "is-saved");
+    if (button.classList.contains("research-save-button")) {
+      button.setAttribute("aria-pressed", "false");
+    }
     const label = button.dataset.originalLabel || fallback;
     button.setAttribute("aria-label", label);
     button.title = label;
@@ -296,43 +307,25 @@ window.addEventListener("research-account:open", event => {
   navigateToAuth(mode);
 });
 
-window.addEventListener("research-library:save-work", async event => {
-  const work = event.detail?.work;
-  const sourceButton = event.detail?.trigger;
-
-  if (!work) {
-    console.warn("Se solicitó guardar una obra sin datos.");
-    return;
-  }
-
-  try {
-    setSavingState(sourceButton);
-
+const workSaveManager = createWorkSaveManager({
+  getWorkspace: async () => {
     const runtime = await loadRuntime();
-    const user = await getVerifiedUser(runtime);
+    return { runtime, user: await getVerifiedUser(runtime) };
+  },
+  onSignInRequired: work => {
+    stagePendingAction("work", work);
+    navigateToAuth("login");
+  },
+  setSavingState,
+  setSavedState,
+  restoreButton,
+  showToast: message => showToast(toast, message)
+});
 
-    if (!user) {
-      restoreButton(sourceButton);
-      stagePendingAction("work", work);
-      navigateToAuth("login");
-      return;
-    }
+workSaveManager.start(hasVerifiedAuthHint());
 
-    await runtime.saveLibraryWork(user.uid, work, {
-      origin: "public-engine",
-      privateOnly: false
-    });
-
-    setSavedState(sourceButton, "Guardada");
-    showToast(
-      toast,
-      "Obra guardada en su biblioteca privada."
-    );
-  } catch (error) {
-    console.error("No fue posible guardar la obra.", error);
-    restoreButton(sourceButton, "Guardar");
-    showToast(toast, "No fue posible guardar la obra.");
-  }
+window.addEventListener("research-library:save-work", event => {
+  void workSaveManager.handle(event.detail || {});
 });
 
 window.addEventListener("research-library:save-author", async event => {

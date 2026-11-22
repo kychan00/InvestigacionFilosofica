@@ -108,6 +108,6 @@ applyTheme(
 );
 
 
-void import("./account-menu.js").catch(error => {
+void import("./account-menu.js?v=20261122-project-bookmarks-v1").catch(error => {
   console.warn("No se pudo cargar la cuenta de investigación.", error);
 });

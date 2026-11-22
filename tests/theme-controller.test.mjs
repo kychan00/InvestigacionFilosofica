@@ -44,7 +44,7 @@ test(
 
     assert.match(
       html,
-      /theme\.js\?v=20261031-day-night-v2/u
+      /theme\.js\?v=20261122-project-bookmarks-v1/u
     );
   }
 );

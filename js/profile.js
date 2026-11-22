@@ -46,7 +46,7 @@ import {
   markVerifiedAuthHint
 } from "./auth-session-hint.js";
 
-import "./account-menu.js";
+import "./account-menu.js?v=20261122-project-bookmarks-v1";
 
 const loading = document.querySelector("#profile-loading");
 const gate = document.querySelector("#profile-gate");

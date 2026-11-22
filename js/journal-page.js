@@ -1,7 +1,7 @@
 import { protrepsisMissingKeywordStatus } from "./protrepsis-editorial-status.js";
 import {
   createWorkSaveButton
-} from "./public-save-controls.js";
+} from "./public-save-controls.js?v=20261122-project-bookmarks-v1";
 import { JournalSemanticAtlas } from "./journal-atlas.js?v=20261113-topic-tags-v1";
 import {
   articleTopicMetadata,

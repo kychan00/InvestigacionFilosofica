@@ -2,6 +2,8 @@ import {
   hasVerifiedAuthHint
 } from "./auth-session-hint.js";
 
+import { workSaveKey } from "./work-save-identity.js";
+
 function bookmarkIcon() {
   return `
     <svg
@@ -33,6 +35,10 @@ function createSaveButton(kind, payload, {
   ].filter(Boolean).join(" ");
   button.dataset.saveIcon = "";
   button.dataset.privateSave = kind;
+  if (kind === "work") {
+    button.dataset.saveWorkKey = workSaveKey(payload);
+    button.setAttribute("aria-pressed", "false");
+  }
   button.setAttribute("aria-label", label);
   button.title = label;
   button.innerHTML = bookmarkIcon();

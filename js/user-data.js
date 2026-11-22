@@ -237,6 +237,22 @@ export function subscribeProjects(uid, callback) {
   });
 }
 
+export async function listUserProjects(uid) {
+  const snapshot = await getDocs(query(
+    userCollection(uid, "projects"),
+    orderBy("updatedAt", "desc")
+  ));
+  return snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
+}
+
+export async function listProjectSubprojects(uid, projectId) {
+  const snapshot = await getDocs(query(
+    collection(requiredDb(), "users", uid, "projects", projectId, "subprojects"),
+    orderBy("updatedAt", "desc")
+  ));
+  return snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
+}
+
 export async function createProject(uid, data) {
   const id = stableDocumentId(
     "project",
@@ -489,6 +505,11 @@ export async function saveLibraryWork(uid, work, options = {}) {
   return normalized;
 }
 
+export async function getLibraryWork(uid, workId) {
+  const snapshot = await getDoc(doc(requiredDb(), "users", uid, "library", workId));
+  return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
+}
+
 export async function deleteLibraryWork(uid, workId) {
   await deleteDoc(
     doc(requiredDb(), "users", uid, "library", workId)
@@ -509,6 +530,19 @@ export function subscribeLibrary(uid, callback) {
       }))
     );
   });
+}
+
+export async function getProjectWorkAssignments(uid, workId, projects) {
+  // Reads a single work document per project; never queries public data.
+  const entries = await Promise.all(
+    (projects || []).map(async project => {
+      const snapshot = await getDoc(projectWorkRef(uid, project.id, workId));
+      return snapshot.exists()
+        ? [project.id, { id: snapshot.id, ...snapshot.data() }]
+        : null;
+    })
+  );
+  return new Map(entries.filter(Boolean));
 }
 
 export async function attachWorkToProject(

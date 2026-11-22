@@ -1,7 +1,7 @@
 import { searchPhilosophy } from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
 import {
   createAuthorSaveButton
-} from "./public-save-controls.js";
+} from "./public-save-controls.js?v=20261122-project-bookmarks-v1";
 
 const INVENTORY_URL = "./src/data/latin-american-philosophers-metadata.json";
 const MANIFEST_URL = "./src/data/philosopher-works/manifest.json";
