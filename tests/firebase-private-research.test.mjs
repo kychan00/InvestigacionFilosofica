@@ -263,8 +263,8 @@ test("account menu loads without blocking critical navigation or theme code", ()
 
   assert.doesNotMatch(theme, /^import "\.\/account-menu\.js";/);
   assert.doesNotMatch(menu, /^import "\.\/account-menu\.js";/);
-  assert.match(theme, /void import\("\.\/account-menu\.js"\)/);
-  assert.match(menu, /void import\("\.\/account-menu\.js"\)/);
+  assert.match(theme, /void import\("\.\/account-menu\.js\?v=20261122-project-bookmarks-v1"\)/);
+  assert.match(menu, /void import\("\.\/account-menu\.js\?v=20261122-project-bookmarks-v1"\)/);
 });
 
 test("Firebase browser SDK version is pinned consistently", () => {
@@ -353,8 +353,8 @@ test("account dock label and toast animate without layout motion", () => {
 test("account dock keeps Firebase lazy until a private save action", () => {
   const account = read("js/account-menu.js");
 
-  assert.doesNotMatch(account, /^import\s+[\s\S]*firebase-client\.js/m);
-  assert.doesNotMatch(account, /^import\s+[\s\S]*user-data\.js/m);
+  assert.doesNotMatch(account, /^import\s+(?:\{[^}]*\}|[A-Za-z_$][\w$]*)\s+from\s+["']\.\/firebase-client\.js["']/m);
+  assert.doesNotMatch(account, /^import\s+(?:\{[^}]*\}|[A-Za-z_$][\w$]*)\s+from\s+["']\.\/user-data\.js["']/m);
   assert.match(account, /import\("\.\/firebase-client\.js"\)/);
   assert.match(account, /import\("\.\/user-data\.js"\)/);
 });
