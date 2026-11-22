@@ -7471,6 +7471,7 @@ function renderFilteredResults() {
     bindAuthorWorkBrowser();
     bindAuthorResolutionActions();
     bindResultActions();
+    searchResultAutoScroll.reveal();
     return;
   }
 
