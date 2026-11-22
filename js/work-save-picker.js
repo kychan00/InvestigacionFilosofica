@@ -212,6 +212,9 @@ export function createWorkSaveManager({
       busy: false
     };
     pickerState = state;
+    // The dialog is reused: saving disabled every control on the previous
+    // opening. Restore them before loading a different or previously saved work.
+    setBusy(false);
     dialog.querySelector("#work-save-dialog-title").textContent = "Guardar obra";
     dialog.querySelector("[data-work-picker-title]").textContent =
       work.title || "Obra sin título";
