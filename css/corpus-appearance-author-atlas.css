@@ -307,6 +307,9 @@ html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view
   box-shadow: inset 0 -3px var(--corpus-author-label);
 }
 html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-count {
+  color: var(--corpus-author-label);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-tab.is-active .research-view-count {
   color: #ffffff;
 }
 html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
@@ -381,6 +384,10 @@ html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view
 html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-actions input {
   background: var(--corpus-author-card);
   color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-actions input::placeholder {
+  color: var(--corpus-muted);
+  opacity: 1;
 }
 html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
   .research-atlas-actions button,
