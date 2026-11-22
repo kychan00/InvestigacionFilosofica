@@ -128,7 +128,7 @@ try {
       button.addEventListener("click", () => void manager.handle({ work, trigger: button }));
     });
 
-    const bookmark = page.locator("#bookmark-test-card .research-save-button");
+    const bookmark = page.locator("#bookmark-test-card .research-save-button").first();
     await bookmark.click();
     await page.locator("[data-work-picker-project][value='project-two']").waitFor();
 
