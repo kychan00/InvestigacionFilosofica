@@ -778,18 +778,21 @@ function cssColor(name, fallback) {
 }
 
 function palette() {
+  // Phase 4: visual-only theme tokens read from <html>. The fallback is
+  // byte-for-byte the previous graph palette for Predeterminado/guests.
+  // Never derive topology, positions or author identity from these colors.
   return {
-    ink: cssColor("--pg-black", "#161616"),
-    white: cssColor("--pg-white", "#ffffff"),
-    line: cssColor("--pg-line", "#c6c6c6"),
-    blue: cssColor("--pg-blue", "#0f62fe"),
-    cyan: "#33b1ff",
-    green: "#42be65",
-    purple: "#8a3ffc",
-    yellow: "#f1c21b",
-    red: "#fa4d56",
-    focusAuthor: "#ee5396",
-    muted: cssColor("--pg-muted", "#6f6f6f")
+    ink: cssColor("--corpus-atlas-ink", cssColor("--pg-black", "#161616")),
+    white: cssColor("--corpus-atlas-work-fill", cssColor("--pg-white", "#ffffff")),
+    line: cssColor("--corpus-atlas-edge", cssColor("--pg-line", "#c6c6c6")),
+    blue: cssColor("--corpus-atlas-blue", cssColor("--pg-blue", "#0f62fe")),
+    cyan: cssColor("--corpus-atlas-cyan", "#33b1ff"),
+    green: cssColor("--corpus-atlas-green", "#42be65"),
+    purple: cssColor("--corpus-atlas-purple", "#8a3ffc"),
+    yellow: cssColor("--corpus-atlas-yellow", "#f1c21b"),
+    red: cssColor("--corpus-atlas-red", "#fa4d56"),
+    focusAuthor: cssColor("--corpus-atlas-author", "#ee5396"),
+    muted: cssColor("--corpus-atlas-muted", cssColor("--pg-muted", "#6f6f6f"))
   };
 }
 
@@ -1602,7 +1605,7 @@ new MutationObserver(() => {
 
 new MutationObserver(requestDraw).observe(document.documentElement, {
   attributes: true,
-  attributeFilter: ["data-theme"]
+  attributeFilter: ["data-theme", "data-corpus-shell"]
 });
 
 window.addEventListener("resize", requestDraw);
