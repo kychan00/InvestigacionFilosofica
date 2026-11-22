@@ -897,7 +897,7 @@ test("saved works can be assigned to existing projects and collections without d
   assert.match(manager, /state\.runtime\.attachWorkToProject/);
   assert.match(manager, /state\.runtime\.detachWorkFromProject/);
   assert.match(manager, /state\.runtime\.deleteLibraryWork/);
-  assert.match(manager, /"Quitar de guardados"/);
+  assert.match(manager, /Quitar de guardados/);
   assert.match(manager, /data-work-picker-project/);
   assert.match(manager, /data-work-picker-subproject/);
   assert.match(manager, /data-work-picker-feedback/);
