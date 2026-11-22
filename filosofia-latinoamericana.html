@@ -24,7 +24,7 @@
     })();
   </script>
   <title>Filósofos latinoamericanos · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261120-direct-author-navigation-v1">
+  <link rel="stylesheet" href="./css/latin-american-philosophy.css?v=20261122-restore-author-dossier-v1">
   <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body class="latam-body">
@@ -292,6 +292,60 @@
     <div class="ornament-frame ornament-frame-bottom" aria-hidden="true"><span>✦</span><span>❦</span><span>✦</span></div>
   </div>
 
+
+  <dialog id="author-dialog" class="author-dialog author-dossier" aria-labelledby="author-dialog-title">
+    <div class="author-dialog-shell">
+      <header class="author-dossier-toolbar">
+        <div>
+          <span id="author-dossier-index">ARCHIVO / #0000</span>
+          <small id="author-dossier-status">FICHA BIBLIOGRÁFICA</small>
+        </div>
+        <div class="author-dossier-actions" role="group" aria-label="Navegación de la ficha">
+          <button id="author-dialog-prev" type="button" aria-label="Filósofo anterior">← <span>Anterior</span></button>
+          <button id="author-dialog-share" type="button" aria-label="Copiar enlace de esta ficha">Compartir</button>
+          <button id="author-dialog-next" type="button" aria-label="Filósofo siguiente"><span>Siguiente</span> →</button>
+          <button id="author-dialog-close" class="author-dialog-close" type="button" aria-label="Cerrar ficha">×</button>
+        </div>
+      </header>
+
+      <div class="author-dossier-layout">
+        <aside class="author-dossier-identity" aria-label="Identidad del filósofo">
+          <div class="author-dossier-period">
+            <span id="author-dossier-period-roman">I</span>
+            <small id="author-dossier-period-label">ÉPOCA</small>
+          </div>
+          <div id="author-dossier-monogram" class="author-dossier-monogram" aria-hidden="true">Φ</div>
+
+          <p class="author-dossier-kicker">FILÓSOFOS LATINOAMERICANOS</p>
+          <h2 id="author-dialog-title">Autor</h2>
+          <p id="author-dialog-life" class="author-dialog-life"></p>
+          <div id="author-dossier-aliases" class="author-dossier-aliases" hidden></div>
+
+          <dl class="author-dossier-metrics">
+            <div><dt>Obras</dt><dd id="author-dossier-works">0</dd></div>
+            <div><dt>Contribuciones</dt><dd id="author-dossier-contributions">0</dd></div>
+            <div><dt>Fuentes</dt><dd id="author-dossier-sources">0</dd></div>
+          </dl>
+
+          <p id="author-dossier-coverage" class="author-dossier-coverage"></p>
+        </aside>
+
+        <article class="author-dossier-reader">
+          <nav class="author-dossier-nav" aria-label="Secciones de la ficha">
+            <button type="button" data-dossier-target="author-dossier-overview">Panorama</button>
+            <button type="button" data-dossier-target="author-dossier-works-section">Obras</button>
+            <button type="button" data-dossier-target="author-dossier-research-section">Motor</button>
+            <button type="button" data-dossier-target="author-dossier-sources-section">Fuentes</button>
+            <button type="button" data-dossier-target="author-dossier-notes-section">Notas</button>
+          </nav>
+
+          <div id="author-dialog-body" class="author-dialog-body">
+            <p class="author-dialog-loading">Seleccione un autor para abrir su dossier.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </dialog>
 
   <script type="module" src="./js/theme.js?v=20261122-author-project-picker-v1"></script>
   <script type="module" src="./js/latin-american-philosophy.js?v=20261122-author-project-picker-v1"></script>

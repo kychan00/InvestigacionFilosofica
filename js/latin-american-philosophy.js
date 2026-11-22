@@ -114,18 +114,15 @@ function canonicalId(value) {
   return String(value).padStart(4, "0");
 }
 
-function authorPageUrl(author) {
-  const name = String(
-    author?.canonical_name ||
-    author?.name ||
-    ""
-  ).trim();
-
-  const url = new URL("./index.html", window.location.href);
-  url.searchParams.set("view", "author");
-  url.searchParams.set("author", name);
-  url.hash = "results";
-  return url.toString();
+// Preserve a shareable URL and the native open-in-new-tab behavior.
+function bindDossierLink(link, id) {
+  link.href = authorHash(id);
+  link.addEventListener("click", event => {
+    if (event.defaultPrevented || event.button !== 0 ||
+        event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    void openAuthorDialog(id);
+  });
 }
 
 function latinAuthorPayload(author) {
@@ -137,7 +134,7 @@ function latinAuthorPayload(author) {
     name,
     alternateNames: author?.alternate_names || [],
     sourceType: "latin-american-philosophy",
-    sourcePage: authorPageUrl(author)
+    sourcePage: `filosofia-latinoamericana.html${authorHash(numericId)}`
   };
 }
 
@@ -175,10 +172,10 @@ function makeAuthorCard(author) {
   content.className = `author-card-link${seeded ? "" : " is-disabled"}`;
 
   if (seeded) {
-    content.href = authorPageUrl(author);
+    bindDossierLink(content, author.id);
     content.setAttribute(
       "aria-label",
-      `Abrir archivo completo de ${author.name}`
+      `Abrir ficha de ${author.name}`
     );
   }
 
@@ -194,7 +191,7 @@ function makeAuthorCard(author) {
         ${seeded ? "archivo bibliográfico" : "Sin ficha"}
       </span>
       <span class="author-card-open" aria-hidden="true">
-        ${seeded ? "Ver autor →" : ""}
+        ${seeded ? "Abrir ficha →" : ""}
       </span>
     </div>
   `;
@@ -318,10 +315,10 @@ function makeMiniAuthor(record) {
 
   const link = document.createElement("a");
   link.className = "author-profile-link";
-  link.href = authorPageUrl(record);
+  bindDossierLink(link, record.author_id);
   link.setAttribute(
     "aria-label",
-    `Abrir archivo completo de ${record.canonical_name}`
+    `Abrir ficha de ${record.canonical_name}`
   );
 
   link.innerHTML = `
@@ -340,7 +337,7 @@ function makeMiniAuthor(record) {
       <span><b>${metrics.sources}</b> fuentes</span>
     </div>
     <div class="author-profile-chips" aria-label="Temas documentados"></div>
-    <span class="author-profile-open">Abrir archivo completo <i aria-hidden="true">→</i></span>
+    <span class="author-profile-open">Abrir dossier <i aria-hidden="true">→</i></span>
   `;
 
   link.querySelector(".author-profile-monogram").textContent =
@@ -1364,8 +1361,10 @@ async function openAuthorDialog(id, { updateHistory = true } = {}) {
 
   try {
     const record = await fetchAuthorRecord(numericId);
+    if (currentAuthorId !== numericId || !authorDialog.open) return;
     renderAuthorDialog(record);
   } catch (error) {
+    if (currentAuthorId !== numericId || !authorDialog.open) return;
     console.error(error);
     authorDialogBody.innerHTML =
       '<p class="author-dialog-empty">No fue posible cargar este dossier en este momento.</p>';
@@ -1439,13 +1438,8 @@ async function init() {
     const deepLink = location.hash.match(/^#autor-(\d{4})$/);
     if (deepLink) {
       const deepLinkId = Number(deepLink[1]);
-      const legacyAuthor = authors.find(
-        author => Number(author.id) === deepLinkId
-      );
-
-      if (legacyAuthor && deepLinkId <= seededCount) {
-        window.location.replace(authorPageUrl(legacyAuthor));
-        return;
+      if (deepLinkId >= 1 && deepLinkId <= seededCount) {
+        void openAuthorDialog(deepLinkId, { updateHistory: false });
       }
     }
 
@@ -1524,5 +1518,43 @@ for (const button of document.querySelectorAll("[data-period-jump]")) {
     });
   });
 }
+
+authorDialogClose?.addEventListener("click", () => closeAuthorDialog());
+authorDialogPrev?.addEventListener("click", () => navigateAuthor(-1));
+authorDialogNext?.addEventListener("click", () => navigateAuthor(1));
+authorDialogShare?.addEventListener("click", shareCurrentAuthor);
+
+for (const button of document.querySelectorAll("[data-dossier-target]")) {
+  button.addEventListener("click", () => {
+    const target = document.getElementById(button.dataset.dossierTarget);
+    target?.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start"
+    });
+  });
+}
+
+authorDialog?.addEventListener("click", event => {
+  if (event.target === authorDialog) closeAuthorDialog();
+});
+authorDialog?.addEventListener("cancel", event => {
+  event.preventDefault();
+  closeAuthorDialog();
+});
+
+function syncAuthorDialogWithLocation() {
+  const match = location.hash.match(/^#autor-(\d{4})$/);
+  const id = match ? Number(match[1]) : null;
+  if (id && id >= 1 && id <= seededCount) {
+    if (!authorDialog.open || currentAuthorId !== id) {
+      void openAuthorDialog(id, { updateHistory: false });
+    }
+  } else if (authorDialog?.open) {
+    closeAuthorDialog({ restoreHistory: false });
+  }
+}
+
+window.addEventListener("hashchange", syncAuthorDialogWithLocation);
+window.addEventListener("popstate", syncAuthorDialogWithLocation);
 
 init();
