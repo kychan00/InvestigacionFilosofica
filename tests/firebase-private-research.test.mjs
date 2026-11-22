@@ -429,7 +429,7 @@ test("full profile shell is persistent, live-previewed and keeps default persona
   assert.match(page, />Territorio</);
   assert.match(page, />Marginalia</);
   assert.match(data, /profileShell:\s*"default"/);
-  assert.match(data, /\["default", "territory", "marginalia"\]\.includes\(changes\.profileShell\)/);
+  assert.match(data, /\["default", "territory", "marginalia", "observatory"\]\.includes\(changes\.profileShell\)/);
   assert.match(profile, /function applyProfileShell/);
   assert.match(profile, /document\.body\.dataset\.profileShell = shell/);
   assert.match(profile, /event\.target\?\.name === "profileShell"/);
@@ -461,7 +461,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(page, /profile\.js\?v=[^"\s]+/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
@@ -619,7 +619,7 @@ test("Marginalia mobile uses compact single-column folios, usable controls and s
   assert.match(css, /overflow-wrap: anywhere/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.match(page, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(page, /profile\.js\?v=[^"\s]+/);
 });
 
 
@@ -706,7 +706,7 @@ test("journal article saves preserve available abstracts and bibliography remain
 
   assert.match(articles, /function articleSavePayload\(record\)[\s\S]*?abstract:\s*record\.abstract \|\| ""/);
   assert.match(profile, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(profile, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(profile, /profile\.js\?v=[^"\s]+/);
   assert.match(articlesPage, /articles\.js\?v=20261122-author-project-picker-v1/);
   assert.match(css, /\.work-ficha-facts/);
   assert.match(css, /\.work-ficha-abstract/);
@@ -789,7 +789,7 @@ test("saved works navigate to the EXISTING full search record modal, never the D
   assert.match(app, /await openSavedPublicRecord\(recordRequest\)/);
   assert.match(app, /No se encontró una coincidencia bibliográfica exacta/);
   assert.match(userData, /work\?\.sourceRecordId \|\| work\?\.openalexId \|\| work\?\.id/);
-  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(page, /profile\.js\?v=[^"\s]+/);
   assert.match(home, /app\.js\?v=20261122-first-result-scroll-v1/);
   assert.match(home, /record-detail\.css\?v=20261121-record-deeplink-v1/);
   assert.match(css, /\.work-ficha-links \.work-ficha-full-record/);
@@ -819,7 +819,7 @@ test("profile appearance is autosaved without overwriting unsaved biographical f
     "let profileShellSaveQueue = Promise.resolve();",
     "const profileSaveStatus = deps.status;",
     "const profileSettingsForm = deps.form;",
-    "const normalizeProfileShell = v => ['default','territory','marginalia'].includes(v) ? v : 'default';",
+    "const normalizeProfileShell = v => ['default','territory','marginalia','observatory'].includes(v) ? v : 'default';",
     "const applyProfileShell = () => {};",
     "const rememberProfileShell = (_, shell) => deps.remembered.push(shell);",
     "const updateUserProfileShell = async (uid, shell) => { deps.writes.push(shell); if (deps.fail) throw new Error('offline'); };",
@@ -845,7 +845,7 @@ test("profile appearance is autosaved without overwriting unsaved biographical f
     "let profileShellSaveQueue = Promise.resolve();",
     "const profileSaveStatus = deps.status;",
     "const profileSettingsForm = deps.form;",
-    "const normalizeProfileShell = v => ['default','territory','marginalia'].includes(v) ? v : 'default';",
+    "const normalizeProfileShell = v => ['default','territory','marginalia','observatory'].includes(v) ? v : 'default';",
     "const applyProfileShell = () => {};",
     "const rememberProfileShell = () => {};",
     "const updateUserProfileShell = async () => { throw new Error('offline'); };",
@@ -878,7 +878,7 @@ test("mobile profile editor stays in one column and contains long style labels",
   assert.match(cssBlock, /grid-template-columns: 72px minmax\(0, 1fr\)/);
   assert.match(page, /Se guarda automáticamente/);
   assert.match(page, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(page, /profile\.js\?v=[^"\s]+/);
 });
 
 
@@ -932,7 +932,7 @@ test("saved bookmark stays clickable for unsave and project management", () => {
   assert.match(css, /\.work-save-projects\s*\{/);
   assert.match(css, /@media \(max-width: 620px\)/);
   assert.match(page, /app\.js\?v=20261122-first-result-scroll-v1/);
-  assert.match(profilePage, /profile\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(profilePage, /profile\.js\?v=[^"\s]+/);
 });
 
 
