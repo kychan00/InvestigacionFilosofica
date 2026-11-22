@@ -157,7 +157,7 @@ html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html[data-corpus-shell]:not([data-corpus-shell="default"]) body,
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view),
   html[data-corpus-shell]:not([data-corpus-shell="default"]) .hero-shell {
     transition: none;
   }
