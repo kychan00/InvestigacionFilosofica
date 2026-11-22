@@ -19,6 +19,9 @@ async function prepareFixture(page) {
     )
   );
 
+  // Match production: account-menu.js loads these bookmark styles at runtime.
+  await page.addStyleTag({ url: new URL("css/account.css", BASE).href });
+
   await page.evaluate(() => {
     const workspace = document.querySelector("#research-workspace");
     const filters = document.querySelector("#filters");
@@ -73,6 +76,14 @@ async function prepareFixture(page) {
     ].join("");
 
     const first = results.querySelector(".result-card");
+    // Reproduce the logged-in search card in the iPhone screenshot.
+    first.insertAdjacentHTML("afterbegin",
+      '<button type="button" class="research-save-button research-save-icon" ' +
+      'data-save-icon data-save-work-id="test-hegel" ' +
+      'aria-label="Guardar obra en mi biblioteca">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path ' +
+      'd="M7 4.75V21l5-3.35L17 21V4.75Z"></path></svg></button>'
+    );
     first.querySelector(".result-rank").textContent = "1";
     first.querySelector(".result-initial").textContent = "G";
     first.querySelector(".relevance-pill").textContent = "Autor";
@@ -179,6 +190,7 @@ try {
         result: find(".result-card"),
         recordButton: find(".record-open"),
         resultTile: find(".result-card .result-visual"),
+        saveButton: find(".result-card > .research-save-button"),
         resultContent: find(".result-card .result-content"),
         score: find(".result-card .score-panel"),
         scoreNumber: find(".result-card .score-panel .score"),
@@ -243,6 +255,18 @@ try {
         JSON.stringify(values.resultTile)
     );
     assert.ok(values.rankVisualDisplay !== "none", "Rank tile must remain visible");
+    assert.ok(values.saveButton.height >= 44 && values.saveButton.width >= 44,
+      "Bookmark needs a 44px tap target on mobile: " + JSON.stringify(values.saveButton));
+    assert.ok(
+      values.saveButton.right <= values.resultTile.left - 8,
+      "Bookmark overlaps the result number at " + width + "px: " +
+        JSON.stringify({ bookmark: values.saveButton, number: values.resultTile })
+    );
+    assert.ok(
+      values.saveButton.left >= values.result.left &&
+        values.resultTile.right <= values.result.right,
+      "Bookmark and rank must remain inside the result card"
+    );
     assert.ok(
       values.score.top >= values.resultContent.bottom - 2 &&
         values.score.right <= values.result.right + 2,
