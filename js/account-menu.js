@@ -1,4 +1,5 @@
 import { createWorkSaveManager } from "./work-save-picker.js";
+import { createAuthorSaveManager } from "./author-save-picker.js";
 
 const AUTH_HINT_KEY = "research-auth-verified-v1";
 
@@ -62,7 +63,7 @@ function ensureStylesheet() {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = siteUrl("css/account.css?v=20261122-project-bookmarks-v1");
+  link.href = siteUrl("css/account.css?v=20261122-author-project-picker-v1");
   link.dataset.accountStyles = "";
   document.head.append(link);
 }
@@ -328,40 +329,25 @@ window.addEventListener("research-library:save-work", event => {
   void workSaveManager.handle(event.detail || {});
 });
 
-window.addEventListener("research-library:save-author", async event => {
-  const author = event.detail?.author;
-  const sourceButton = event.detail?.trigger;
-
-  if (!author) {
-    console.warn("Se solicitó guardar un autor sin datos.");
-    return;
-  }
-
-  try {
-    setSavingState(sourceButton);
-
+const authorSaveManager = createAuthorSaveManager({
+  getWorkspace: async () => {
     const runtime = await loadRuntime();
-    const user = await getVerifiedUser(runtime);
+    return { runtime, user: await getVerifiedUser(runtime) };
+  },
+  onSignInRequired: author => {
+    stagePendingAction("author", author);
+    navigateToAuth("login");
+  },
+  setSavingState,
+  setSavedState,
+  restoreButton,
+  showToast: message => showToast(toast, message)
+});
 
-    if (!user) {
-      restoreButton(sourceButton, "Guardar autor");
-      stagePendingAction("author", author);
-      navigateToAuth("login");
-      return;
-    }
+authorSaveManager.start(hasVerifiedAuthHint());
 
-    await runtime.saveAuthor(user.uid, author);
-
-    setSavedState(sourceButton, "Guardado");
-    showToast(
-      toast,
-      "Autor guardado en su espacio privado."
-    );
-  } catch (error) {
-    console.error("No fue posible guardar el autor.", error);
-    restoreButton(sourceButton, "Guardar autor");
-    showToast(toast, "No fue posible guardar el autor.");
-  }
+window.addEventListener("research-library:save-author", event => {
+  void authorSaveManager.handle(event.detail || {});
 });
 
 export {
