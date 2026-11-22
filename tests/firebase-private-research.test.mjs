@@ -790,7 +790,7 @@ test("saved works navigate to the EXISTING full search record modal, never the D
   assert.match(app, /No se encontró una coincidencia bibliográfica exacta/);
   assert.match(userData, /work\?\.sourceRecordId \|\| work\?\.openalexId \|\| work\?\.id/);
   assert.match(page, /profile\.js\?v=20261122-author-project-picker-v1/);
-  assert.match(home, /app\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(home, /app\.js\?v=20261122-first-result-scroll-v1/);
   assert.match(home, /record-detail\.css\?v=20261121-record-deeplink-v1/);
   assert.match(css, /\.work-ficha-links \.work-ficha-full-record/);
 });
@@ -931,7 +931,7 @@ test("saved bookmark stays clickable for unsave and project management", () => {
   assert.match(css, /\.work-save-dialog::backdrop/);
   assert.match(css, /\.work-save-projects\s*\{/);
   assert.match(css, /@media \(max-width: 620px\)/);
-  assert.match(page, /app\.js\?v=20261122-author-project-picker-v1/);
+  assert.match(page, /app\.js\?v=20261122-first-result-scroll-v1/);
   assert.match(profilePage, /profile\.js\?v=20261122-author-project-picker-v1/);
 });
 
