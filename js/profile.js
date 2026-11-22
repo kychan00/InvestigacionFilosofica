@@ -37,7 +37,8 @@ import {
   updateProject,
   updateProjectWorkPresentation,
   updateSubproject,
-  updateUserProfileDocument
+  updateUserProfileDocument,
+  updateUserProfileShell
 } from "./user-data.js";
 
 import {
@@ -138,6 +139,9 @@ let activeWorkspaceUid = "";
 const PROFILE_NETWORK_TIMEOUT_MS = 4500;
 const PROFILE_BOOT_WATCHDOG_MS = 8000;
 const PROFILE_SHELLS = new Set(["default", "territory", "marginalia"]);
+let profileShellSelectionRevision = 0;
+let confirmedProfileShell = "default";
+let profileShellSaveQueue = Promise.resolve();
 const projectWorkIndex = new Map();
 const projectAuthorIndex = new Map();
 const projectSubprojectIndex = new Map();
@@ -327,6 +331,7 @@ async function refreshVerificationOnlyWhenNeeded(user) {
 }
 
 async function hydratePrivateProfile(user) {
+  const selectionRevisionAtStart = profileShellSelectionRevision;
   try {
     let profile = await withTimeout(
       getUserProfile(user.uid),
@@ -350,7 +355,17 @@ async function hydratePrivateProfile(user) {
 
     if (currentUser?.uid !== user.uid || !profile) return;
 
+    const selectedDuringHydration =
+      profileShellSelectionRevision !== selectionRevisionAtStart;
+    const selectedShell = selectedProfileShell();
     currentProfile = profile;
+    if (selectedDuringHydration) {
+      // A remote read must not undo a style chosen while it was loading.
+      currentProfile.profileShell = selectedShell;
+    } else {
+      confirmedProfileShell = normalizeProfileShell(profile.profileShell);
+      rememberProfileShell(user.uid, confirmedProfileShell);
+    }
     fillProfileForm();
     renderIdentity();
   } catch (error) {
@@ -513,6 +528,69 @@ function normalizeProfileShell(value) {
   return PROFILE_SHELLS.has(String(value || ""))
     ? String(value)
     : "default";
+}
+
+/* Remember only the visual choice, scoped to the authenticated account. */
+function readRememberedProfileShell(uid) {
+  if (!uid) return "";
+  try {
+    const value = localStorage.getItem(`if:profile-shell:${uid}`);
+    return PROFILE_SHELLS.has(value) ? value : "";
+  } catch {
+    return "";
+  }
+}
+
+function rememberProfileShell(uid, shell) {
+  if (!uid) return;
+  try {
+    localStorage.setItem(`if:profile-shell:${uid}`, normalizeProfileShell(shell));
+  } catch {
+    // A private browser may block storage; Firestore remains authoritative.
+  }
+}
+
+async function saveSelectedProfileShell(value) {
+  const uid = currentUser?.uid;
+  if (!uid) return;
+
+  const shell = normalizeProfileShell(value);
+  const revision = ++profileShellSelectionRevision;
+  currentProfile = { ...(currentProfile || {}), profileShell: shell };
+  applyProfileShell(shell);
+  profileSaveStatus.classList.remove("is-error");
+  profileSaveStatus.textContent = "Guardando estilo elegido…";
+
+  // Serialize rapid changes so the last selection is the final Firestore
+  // value, regardless of network response ordering.
+  const write = profileShellSaveQueue
+    .catch(() => {})
+    .then(() => updateUserProfileShell(uid, shell));
+  profileShellSaveQueue = write;
+
+  try {
+    await write;
+    if (currentUser?.uid !== uid) return;
+
+    confirmedProfileShell = shell;
+    rememberProfileShell(uid, shell);
+    if (revision === profileShellSelectionRevision) {
+      profileSaveStatus.classList.remove("is-error");
+      profileSaveStatus.textContent = "Estilo guardado. Se conservará al volver a entrar.";
+    }
+  } catch (error) {
+    console.error("No se pudo guardar el estilo del perfil.", error);
+    if (currentUser?.uid !== uid || revision !== profileShellSelectionRevision) return;
+
+    // Do not leave an unsaved theme marked as permanent.
+    const fallback = confirmedProfileShell;
+    currentProfile = { ...(currentProfile || {}), profileShell: fallback };
+    profileSettingsForm.elements.profileShell.value = fallback;
+    applyProfileShell(fallback);
+    profileSaveStatus.textContent =
+      "No se pudo guardar el estilo. Se restauró la última opción guardada.";
+    profileSaveStatus.classList.add("is-error");
+  }
 }
 
 function selectedProfileShell() {
@@ -2508,7 +2586,10 @@ async function loadPrivateWorkspace(user) {
 
   activeWorkspaceUid = user.uid;
   currentUser = user;
-  currentProfile = null;
+  profileShellSelectionRevision = 0;
+  confirmedProfileShell = readRememberedProfileShell(user.uid) || "default";
+  profileShellSaveQueue = Promise.resolve();
+  currentProfile = { profileShell: confirmedProfileShell };
   markVerifiedAuthHint();
 
   stopRealtimeListeners();
@@ -3181,6 +3262,8 @@ profileSettingsForm.addEventListener("submit", async event => {
   profileSaveStatus.classList.remove("is-error");
 
   try {
+    // Prevent a separate in-flight style selection from racing full save.
+    await profileShellSaveQueue.catch(() => {});
     await updateUserProfileDocument(currentUser.uid, {
       displayName: data.get("displayName"),
       institution: data.get("institution"),
@@ -3230,6 +3313,12 @@ settingsBackButton.addEventListener("click", () => {
     updateHash: true,
     scroll: true
   });
+});
+
+profileSettingsForm.addEventListener("change", event => {
+  if (event.target?.name === "profileShell") {
+    void saveSelectedProfileShell(event.target.value);
+  }
 });
 
 profileSettingsForm.addEventListener("input", event => {
