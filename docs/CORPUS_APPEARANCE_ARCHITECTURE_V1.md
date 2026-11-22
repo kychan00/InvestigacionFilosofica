@@ -47,3 +47,15 @@ El tema elegido desde «Mi perfil» (Predeterminado, Territorio, Marginalia u Ob
 - **Rollback**: quitar el aplicador visual sin revertir el perfil ni los datos; Predeterminado conserva el aspecto previo.
 
 **La fase 0 es deliberadamente inerte:** el módulo puro no se importa todavía en producción. La próxima fase conectará sesión, CSS y sincronización sin poner en riesgo el buscador.
+
+## Fase 1: estado de integración
+
+Los módulos de navegador `js/corpus-appearance.js` y `js/corpus-appearance-runtime.js` conectan la selección **únicamente al index**. El buscador conserva inmediatamente Predeterminado en el HTML inicial y solo habilita el puente Firebase si existe un indicio local reciente de sesión; el indicio jamás se usa como identidad ni para leer una clave por UID.
+
+Después de obtener un usuario realmente verificado por Firebase Auth, la interfaz aplica la caché visual de su UID y valida en segundo plano el perfil de Firestore. La lectura remota tiene límite de tiempo y está separada del render del corpus. `storage` mantiene coherencia entre pestañas y descarta respuestas remotas antiguas al cambiar de cuenta o de tema.
+
+La hoja `css/corpus-appearance.css` contiene tokens y tratamientos visuales limitados al lienzo, cabecera, navegación y panel inicial de búsqueda. Predeterminado sigue exactamente con su CSS previo. No se modifican tarjetas, fichas, autores, Atlas, controles de desplazamiento ni sus algoritmos.
+
+Pruebas: `tests/corpus-appearance-policy.test.mjs` y `tests/corpus-appearance-runtime.test.mjs`, además del preflight completo existente. Los casos automatizados comprueban cuentas A/B, logout, almacenamiento bloqueado, modo invitado, lectura remota tardía, actualización desde otra pestaña, raíces GitHub Pages y páginas excluidas.
+
+**Dependencia de integración:** PR fase 1 sobre la rama de fase 0 mientras el PR #382 siga sin integrar. Fusionar primero #382 en `main` y luego reorientar la fase 1 a `main`, sin activar merge automático.
