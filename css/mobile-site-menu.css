@@ -689,3 +689,14 @@ html[data-theme="light"] .site-menu-link-icon {
     width: 34px;
   }
 }
+
+/* Keep the first search result visible below the fixed mobile toolbar. */
+.research-workspace #results > .result-card {
+  scroll-margin-top: 20px;
+}
+
+@media (max-width: 820px) {
+  .research-workspace #results > .result-card {
+    scroll-margin-top: calc(var(--site-mobile-toolbar-height, 58px) + env(safe-area-inset-top, 0px) + 12px);
+  }
+}
