@@ -95,6 +95,9 @@ test("registered articles theses journals and Latin American philosophers expose
   assert.match(thesis, /createWorkSaveButton/);
   assert.match(journals, /createWorkSaveButton/);
   assert.match(latin, /createAuthorSaveButton/);
+  assert.match(latin, /createWorkSaveButton/);
+  assert.match(latin, /liveResultBookmarkPayload\(item, url\)/);
+  assert.match(latin, /className: "author-live-save-button"/);
 
   for (const source of [articles, thesis, journals, latin, helper]) {
     assert.doesNotMatch(

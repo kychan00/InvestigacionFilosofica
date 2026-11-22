@@ -24,6 +24,8 @@ on:
       - "js/auth-page.js"
       - "filosofia-latinoamericana.html"
       - "js/latin-american-philosophy.js"
+      - "js/latin-american-live-work.js"
+      - "tests/latin-american-live-work.test.mjs"
       - "scripts/qa/latin-american-philosophy-smoke.mjs"
       - "tesis.html"
       - "atlas.html"

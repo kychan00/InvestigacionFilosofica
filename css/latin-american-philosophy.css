@@ -1799,6 +1799,45 @@ html[data-theme="dark"] .author-live-result {
 .author-live-result-foot a:focus-visible {
   color: var(--dossier-accent);
 }
+.author-live-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
+}
+.author-live-result-actions .author-live-save-button {
+  position: static;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--dossier-paper-ink) 35%, transparent);
+  border-radius: 9px;
+  background: var(--dossier-paper);
+  color: var(--dossier-paper-ink);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.author-live-result-actions .author-live-save-button:hover,
+.author-live-result-actions .author-live-save-button:focus-visible {
+  border-color: var(--dossier-accent);
+  color: var(--dossier-accent);
+  background: var(--dossier-paper);
+}
+.author-live-result-actions .author-live-save-button.is-saved {
+  border-color: #0f62fe;
+  background: #0f62fe;
+  color: white;
+}
+.author-live-result-actions .author-live-save-button svg {
+  width: 19px;
+  height: 19px;
+}
 .author-live-empty {
   grid-column: 1 / -1;
   padding: 24px;
@@ -1979,8 +2018,16 @@ html[data-theme="dark"] .author-live-result {
   }
   .author-live-result-foot {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
+  }
+  .author-live-result-foot > span {
+    text-align: left;
+  }
+  .author-live-result-actions {
+    margin-left: auto;
   }
 
   .author-dialog {

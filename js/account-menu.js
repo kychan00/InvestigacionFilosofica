@@ -239,7 +239,7 @@ function restoreButton(button, fallback = "Guardar") {
 
   if (isSaveIcon(button)) {
     button.classList.remove("is-saving", "is-saved");
-    if (button.classList.contains("research-save-button")) {
+    if (button.matches(".research-save-button, .author-save-button")) {
       button.setAttribute("aria-pressed", "false");
     }
     const label = button.dataset.originalLabel || fallback;

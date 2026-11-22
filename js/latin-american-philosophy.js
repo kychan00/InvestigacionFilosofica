@@ -1,7 +1,9 @@
 import { searchPhilosophy } from "../src/core/search-engine.js?v=20261112-orcid-production-v2";
 import {
-  createAuthorSaveButton
+  createAuthorSaveButton,
+  createWorkSaveButton
 } from "./public-save-controls.js?v=20261122-author-project-picker-v1";
+import { liveResultBookmarkPayload } from "./latin-american-live-work.js";
 
 const INVENTORY_URL = "./src/data/latin-american-philosophers-metadata.json";
 const MANIFEST_URL = "./src/data/philosopher-works/manifest.json";
@@ -1003,7 +1005,7 @@ function providerLabel(item) {
   return [...new Set(item.providers || [])].join(" · ") || "Fuente federada";
 }
 
-function renderLiveResearchResults(record, response, resultsEl, statusEl) {
+export function renderLiveResearchResults(record, response, resultsEl, statusEl) {
   const ranked = (response?.results || [])
     .map(item => ({ item, match: authorMatchScore(item, record) }))
     .filter(entry => entry.match >= 78)
@@ -1059,14 +1061,26 @@ function renderLiveResearchResults(record, response, resultsEl, statusEl) {
     foot.append(confidence);
 
     const url = liveResultUrl(item);
+    const actions = document.createElement("div");
+    actions.className = "author-live-result-actions";
     if (url) {
       const link = document.createElement("a");
       link.href = url;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.textContent = "Abrir registro ↗";
-      foot.append(link);
+      actions.append(link);
     }
+
+    // Use the same private-library picker as general search, theses and journals.
+    // The shared helper only creates this action for a verified login hint;
+    // the picker verifies the actual Firebase user before any write.
+    const save = createWorkSaveButton(liveResultBookmarkPayload(item, url), {
+      label: `Guardar «${String(item.title || "obra").slice(0, 150)}» en mi investigación`,
+      className: "author-live-save-button"
+    });
+    if (save) actions.append(save);
+    if (actions.childElementCount) foot.append(actions);
 
     card.append(head, title);
     if (meta.textContent) card.append(meta);
