@@ -192,6 +192,11 @@ try {
       [...document.querySelectorAll("#bookmark-test-card .research-save-button")]
         .every(button => button.classList.contains("is-saved"))
     );
+    // Remove the duplicate fixture before testing the original button: both
+    // were absolutely positioned at the same coordinate solely for this test.
+    await page.evaluate(() => {
+      document.querySelectorAll("#bookmark-test-card .research-save-button")[1]?.remove();
+    });
 
     // Clicking again exposes the option to un-save. Removing from projects is
     // explicit and confirmed rather than silently erasing research structure.
