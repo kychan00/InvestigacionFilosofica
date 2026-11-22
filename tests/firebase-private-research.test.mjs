@@ -498,7 +498,7 @@ test("profile settings save gives feedback and returns to the private home", () 
   assert.match(profile, /profileSaveButton\.textContent = "Guardando…"/);
   assert.match(profile, /profileSaveButton\.textContent = "Guardado ✓"/);
   assert.match(profile, /setActivePanel\("resumen"/);
-  assert.match(profile, /No fue posible guardar los cambios/);
+  assert.match(profile, /No fue posible guardar en Firebase/);
 });
 
 test("profile settings has an explicit back action", () => {
@@ -861,7 +861,7 @@ test("profile appearance is autosaved without overwriting unsaved biographical f
   assert.match(script, /void saveSelectedProfileShell\(event\.target\.value\)/);
   assert.match(script, /readRememberedProfileShell\(user\.uid\)/);
   assert.match(script, /selectionRevisionAtStart/);
-  assert.match(script, /await profileShellSaveQueue\.catch\(\(\) => \{\}\)/);
+  assert.match(script, /const write = profileShellSaveQueue[\s\S]*?\.then\(\(\) => updateUserProfileDocument\(uid, changes\)\)/);
 });
 
 test("mobile profile editor stays in one column and contains long style labels", () => {
