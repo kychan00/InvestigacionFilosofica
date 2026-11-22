@@ -202,6 +202,25 @@ export async function updateUserProfileDocument(uid, changes) {
   );
 }
 
+/**
+ * Persist just the visual shell when a researcher picks a style.
+ * Do not overwrite unsaved name, bio or institution fields.
+ */
+export async function updateUserProfileShell(uid, profileShell) {
+  const normalized = ["default", "territory", "marginalia"].includes(profileShell)
+    ? profileShell
+    : "default";
+  await setDoc(
+    userRef(uid),
+    {
+      profileShell: normalized,
+      updatedAt: serverTimestamp()
+    },
+    { merge: true }
+  );
+  return normalized;
+}
+
 export function subscribeProjects(uid, callback) {
   const ref = query(
     userCollection(uid, "projects"),
