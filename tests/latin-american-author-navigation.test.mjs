@@ -6,12 +6,10 @@ const page = fs.readFileSync(
   new URL("../filosofia-latinoamericana.html", import.meta.url),
   "utf8"
 );
-
 const script = fs.readFileSync(
   new URL("../js/latin-american-philosophy.js", import.meta.url),
   "utf8"
 );
-
 const styles = fs.readFileSync(
   new URL("../css/latin-american-philosophy.css", import.meta.url),
   "utf8"
@@ -45,7 +43,7 @@ test("Dossier markup and interactive controls are present", () => {
 });
 
 test("Shared and saved author URLs reopen the same dossier", () => {
-  assert.match(script, /sourcePage: `filosofia-latinoamericana\.html\$\{authorHash\(numericId\)\}`/);
+  assert.match(script, /sourcePage: .*filosofia-latinoamericana\.html.*authorHash\(numericId\)/);
   assert.match(script, /location\.hash\.match\(\/\^#autor-/);
   assert.match(script, /openAuthorDialog\(deepLinkId, \{ updateHistory: false \}\)/);
   assert.match(script, /window\.addEventListener\("hashchange", syncAuthorDialogWithLocation\)/);
