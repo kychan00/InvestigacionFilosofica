@@ -189,7 +189,7 @@ export async function updateUserProfileDocument(uid, changes) {
     accentColor: /^#[0-9a-f]{6}$/i.test(changes.accentColor || "")
       ? changes.accentColor
       : "#0f62fe",
-    profileShell: ["default", "territory", "marginalia"].includes(changes.profileShell)
+    profileShell: ["default", "territory", "marginalia", "observatory"].includes(changes.profileShell)
       ? changes.profileShell
       : "default",
     updatedAt: serverTimestamp()
@@ -207,7 +207,7 @@ export async function updateUserProfileDocument(uid, changes) {
  * Do not overwrite unsaved name, bio or institution fields.
  */
 export async function updateUserProfileShell(uid, profileShell) {
-  const normalized = ["default", "territory", "marginalia"].includes(profileShell)
+  const normalized = ["default", "territory", "marginalia", "observatory"].includes(profileShell)
     ? profileShell
     : "default";
   await setDoc(
