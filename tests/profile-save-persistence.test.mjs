@@ -124,9 +124,7 @@ test("a late hydration response cannot replace a profile already being saved", a
   const start = script.indexOf("async function hydratePrivateProfile(user, attempt = 0) {");
   const end = script.indexOf("\nfunction timestampValue(", start);
   assert.ok(start > 0 && end > start);
-  let resolveRemote;
-  let filled = 0;
-  let rendered = 0;
+  const hooks = { resolveRemote: null, filled: 0, rendered: 0 };
   const result = new Function("deps", [
     "let currentUser = { uid: 'u1' };",
     "let currentProfile = { displayName: 'Latest', profileShell: 'observatory' };",
@@ -146,21 +144,17 @@ test("a late hydration response cannot replace a profile already being saved", a
     "const console = { warn() {} };",
     script.slice(start, end),
     "return { hydratePrivateProfile, changeRevision: () => { profileDocumentSaveRevision++; }, profile: () => currentProfile };"
-  ].join("\n"))({
-    resolveRemote: resolve => { resolveRemote = resolve; },
-    get filled() { return filled; }, set filled(value) { filled = value; },
-    get rendered() { return rendered; }, set rendered(value) { rendered = value; }
-  });
+  ].join("\n"))(hooks);
   // A request was started while the old profile was authoritative.
   const pending = result.hydratePrivateProfile({ uid: "u1" });
   await Promise.resolve();
   result.changeRevision();
-  resolveRemote({ profileShell: "default", displayName: "Old" });
+  hooks.resolveRemote({ profileShell: "default", displayName: "Old" });
   await pending;
   assert.equal(result.profile().displayName, "Latest");
   assert.equal(result.profile().profileShell, "observatory");
-  assert.equal(filled, 0);
-  assert.equal(rendered, 0);
+  assert.equal(hooks.filled, 0);
+  assert.equal(hooks.rendered, 0);
 });
 
 test("full save cannot be falsely reported as failed by Firebase Auth display-name sync", () => {
