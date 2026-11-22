@@ -1,6 +1,6 @@
 # Auditoría final · Apariencia del corpus (fase 5)
 
-**PR único:** [#382](https://github.com/kychan00/InvestigacionFilosofica/pull/382)  
+**PR único:** [#382](https://github.com/kychan00/InvestigacionFilosofica/pull/382)
 **Estado de integración:** rama de trabajo; sin merge a `main`.
 
 ## Alcance entregado
