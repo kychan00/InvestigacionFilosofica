@@ -1,0 +1,250 @@
+/*
+ * CORPUS APPEARANCE · FASE 3 / FICHA BIBLIOGRÁFICA
+ *
+ * ONLY the federated #record-modal inside index.html.
+ * No modal HTML, scroll, layout or event handler is modified.
+ * The record-folio-polish.css --rf-* contract remains the source of
+ * truth for the document's layout and CSS properties.
+ */
+
+/* TERRITORIO · pergamino cartográfico */
+html[data-theme="light"][data-corpus-shell="territory"] #record-modal {
+  --rf-overlay: rgba(14, 27, 20, .78);
+  --rf-panel: #f6f0e4;
+  --rf-surface: #eee5d5;
+  --rf-surface-raised: #e3d8c6;
+  --rf-surface-inset: #fffaf0;
+  --rf-hover: #e6dccd;
+  --rf-border: #bcae99;
+  --rf-border-strong: #887c6d;
+  --rf-text: #26382d;
+  --rf-text-soft: #425548;
+  --rf-text-muted: #526554;
+  --rf-link: #8c3928;
+  --rf-link-hover: #682818;
+  --rf-accent: #943e2d;
+  --rf-accent-hover: #793123;
+  --rf-focus: #943e2d;
+  --rf-button: #31463a;
+  --rf-button-hover: #40594a;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #ffffff;
+  --rf-hero-map:
+    radial-gradient(circle at 86% 45%, transparent 0 16%, rgba(66, 90, 71, .13) 16.15% 16.4%, transparent 16.55% 26%, rgba(66, 90, 71, .09) 26.15% 26.4%, transparent 26.55%),
+    linear-gradient(115deg, #f2e9d8, #e2e6d9);
+}
+html[data-theme="dark"][data-corpus-shell="territory"] #record-modal {
+  --rf-overlay: rgba(4, 10, 7, .87);
+  --rf-panel: #19281e;
+  --rf-surface: #26372c;
+  --rf-surface-raised: #354b3b;
+  --rf-surface-inset: #15251b;
+  --rf-hover: #344d3b;
+  --rf-border: #607866;
+  --rf-border-strong: #a0b19e;
+  --rf-text: #f1eddf;
+  --rf-text-soft: #d6e0cf;
+  --rf-text-muted: #c0d1bb;
+  --rf-link: #f5b899;
+  --rf-link-hover: #ffdbbf;
+  --rf-accent: #e1a386;
+  --rf-accent-hover: #efbd9f;
+  --rf-focus: #ffdbbf;
+  --rf-button: #405d4a;
+  --rf-button-hover: #547760;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #18251b;
+  --rf-hero-map:
+    radial-gradient(circle at 86% 45%, transparent 0 16%, rgba(195, 215, 182, .15) 16.15% 16.4%, transparent 16.55% 26%, rgba(195, 215, 182, .1) 26.15% 26.4%, transparent 26.55%),
+    linear-gradient(115deg, #1b3224, #283c2e);
+}
+
+/* MARGINALIA · papel de estudio, tinta y anotación */
+html[data-theme="light"][data-corpus-shell="marginalia"] #record-modal {
+  --rf-overlay: rgba(30, 23, 18, .78);
+  --rf-panel: #f9f1e4;
+  --rf-surface: #f0e3d2;
+  --rf-surface-raised: #e7d5bd;
+  --rf-surface-inset: #fffbf2;
+  --rf-hover: #eadac7;
+  --rf-border: #c3a994;
+  --rf-border-strong: #917d6b;
+  --rf-text: #342c27;
+  --rf-text-soft: #5c5047;
+  --rf-text-muted: #6a5b50;
+  --rf-link: #8e4932;
+  --rf-link-hover: #6b321f;
+  --rf-accent: #98543b;
+  --rf-accent-hover: #773e2b;
+  --rf-focus: #98543b;
+  --rf-button: #4a3930;
+  --rf-button-hover: #644b3d;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #ffffff;
+  --rf-hero-map:
+    linear-gradient(90deg, transparent 9%, rgba(159, 78, 55, .17) 9.1% 9.25%, transparent 9.35%),
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(120, 104, 82, .10) 38px 39px),
+    linear-gradient(110deg, #f9ead8, #ecdbc5);
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] #record-modal {
+  --rf-overlay: rgba(8, 6, 5, .88);
+  --rf-panel: #2c2521;
+  --rf-surface: #3a302a;
+  --rf-surface-raised: #514037;
+  --rf-surface-inset: #26201c;
+  --rf-hover: #4d3c31;
+  --rf-border: #806d5b;
+  --rf-border-strong: #aa9581;
+  --rf-text: #f6eee1;
+  --rf-text-soft: #e3d1c0;
+  --rf-text-muted: #d2baa9;
+  --rf-link: #f1b995;
+  --rf-link-hover: #fbd3b2;
+  --rf-accent: #db9d7a;
+  --rf-accent-hover: #edb48e;
+  --rf-focus: #fbd3b2;
+  --rf-button: #634c3e;
+  --rf-button-hover: #775c48;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #2d1f18;
+  --rf-hero-map:
+    linear-gradient(90deg, transparent 9%, rgba(222, 163, 120, .22) 9.1% 9.25%, transparent 9.35%),
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(227, 208, 182, .085) 38px 39px),
+    linear-gradient(110deg, #342a24, #47382d);
+}
+
+/* OBSERVATORIO · archivo astronómico en azul y latón */
+html[data-theme="light"][data-corpus-shell="observatory"] #record-modal {
+  --rf-overlay: rgba(6, 18, 35, .78);
+  --rf-panel: #f2f7fb;
+  --rf-surface: #e5edf6;
+  --rf-surface-raised: #d3e3ef;
+  --rf-surface-inset: #ffffff;
+  --rf-hover: #dbe7f2;
+  --rf-border: #adc1d5;
+  --rf-border-strong: #758ca3;
+  --rf-text: #172d49;
+  --rf-text-soft: #3e5771;
+  --rf-text-muted: #4a6278;
+  --rf-link: #78521e;
+  --rf-link-hover: #5a3b12;
+  --rf-accent: #74511f;
+  --rf-accent-hover: #593c16;
+  --rf-focus: #74511f;
+  --rf-button: #203c5d;
+  --rf-button-hover: #31547d;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #ffffff;
+  --rf-hero-map:
+    radial-gradient(circle at 85% 21%, #a17b47 0 2px, transparent 3px),
+    radial-gradient(circle at 73% 77%, #6489ab 0 1px, transparent 2px),
+    radial-gradient(circle at 79% 48%, transparent 0 16%, rgba(58, 92, 127, .18) 16.1% 16.35%, transparent 16.5% 26%, rgba(58, 92, 127, .1) 26.1% 26.35%, transparent 26.5%),
+    linear-gradient(110deg, #f1f7fc, #d6e5f0);
+}
+html[data-theme="dark"][data-corpus-shell="observatory"] #record-modal {
+  --rf-overlay: rgba(2, 8, 18, .9);
+  --rf-panel: #10233a;
+  --rf-surface: #1d3550;
+  --rf-surface-raised: #2b4564;
+  --rf-surface-inset: #0b1d32;
+  --rf-hover: #294668;
+  --rf-border: #58728e;
+  --rf-border-strong: #94aac2;
+  --rf-text: #f1f5fc;
+  --rf-text-soft: #c8d9ec;
+  --rf-text-muted: #bad0e5;
+  --rf-link: #f3d6a3;
+  --rf-link-hover: #ffe8c0;
+  --rf-accent: #e0bd80;
+  --rf-accent-hover: #f1d7a4;
+  --rf-focus: #ffe3a7;
+  --rf-button: #315779;
+  --rf-button-hover: #436e94;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #0c1c2d;
+  --rf-hero-map:
+    radial-gradient(circle at 85% 21%, #e8c98e 0 2px, transparent 3px),
+    radial-gradient(circle at 73% 77%, #a2c3e2 0 1px, transparent 2px),
+    radial-gradient(circle at 79% 48%, transparent 0 16%, rgba(210, 180, 120, .25) 16.1% 16.35%, transparent 16.5% 26%, rgba(210, 180, 120, .14) 26.1% 26.35%, transparent 26.5%),
+    linear-gradient(110deg, #10253e, #1b3855);
+}
+
+/*
+ * Contractually scoped overrides. The modal remains a dialog with its
+ * existing 48px controls, scroll container, grid and open/close events.
+ */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .record-cinematic-hero {
+  background: var(--rf-hero-map) !important;
+  color: var(--rf-text) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .record-cinematic-title {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -.02em !important;
+  color: var(--rf-text) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .cinematic-section-heading h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal :is(
+  .record-level-pill,
+  .section-number,
+  .cinematic-action.primary
+) {
+  background: var(--rf-accent) !important;
+  border-color: var(--rf-accent) !important;
+  color: var(--rf-on-accent) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .cinematic-action.primary:is(:hover, :active) {
+  background: var(--rf-accent-hover) !important;
+  border-color: var(--rf-accent-hover) !important;
+  color: var(--rf-on-accent) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .cinematic-score-track > span {
+  background: linear-gradient(90deg, var(--rf-accent), color-mix(in srgb, var(--rf-accent) 50%, var(--rf-text))) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .cinematic-abstract {
+  border-left-color: var(--rf-accent);
+  color: var(--rf-text-soft) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .record-author-link {
+  color: var(--rf-link) !important;
+  text-decoration-color: var(--rf-link);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .record-author-link:hover {
+  color: var(--rf-link-hover) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .institution-icon {
+  background: var(--rf-button) !important;
+  color: var(--rf-button-text) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .record-modal-close:is(:hover, :active) {
+  border-color: var(--rf-focus) !important;
+  background: var(--rf-hover) !important;
+  color: var(--rf-text) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal :is(
+  a,
+  button,
+  summary
+):focus-visible {
+  outline-color: var(--rf-focus) !important;
+}
+
+/* High contrast belongs to the operating system, not to the theme palette. */
+@media (forced-colors: active) {
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal .record-cinematic-hero {
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) #record-modal :is(
+    .record-level-pill,
+    .section-number,
+    .cinematic-action.primary
+  ) {
+    background: ButtonFace !important;
+    color: ButtonText !important;
+    border-color: ButtonText !important;
+  }
+}
