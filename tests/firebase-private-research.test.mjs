@@ -931,3 +931,46 @@ test("saved bookmark stays clickable for unsave and project management", () => {
   assert.match(page, /app\.js\?v=20261122-author-project-picker-v1/);
   assert.match(profilePage, /profile\.js\?v=20261122-author-project-picker-v1/);
 });
+
+
+test("authors have the same reversible project and collection picker as saved works", () => {
+  const data = read("js/user-data.js");
+  const manager = read("js/author-save-picker.js");
+  const helper = read("js/author-save-identity.js");
+  const account = read("js/account-menu.js");
+  const app = read("js/app.js");
+  const latin = read("js/latin-american-philosophy.js");
+  const controls = read("js/public-save-controls.js");
+
+  assert.match(data, /export function normalizeSavedAuthor\(author\)/);
+  assert.match(data, /export async function getSavedAuthor\(uid, authorId\)/);
+  assert.match(data, /export async function getProjectAuthorAssignments\(uid, authorId, projects\)/);
+  assert.match(manager, /runtime\.subscribeSavedAuthors\(user\.uid/);
+  assert.match(manager, /runtime\.getProjectAuthorAssignments\(user\.uid/);
+  assert.match(manager, /state\.runtime\.saveAuthor/);
+  assert.match(manager, /state\.runtime\.attachAuthorToProject/);
+  assert.match(manager, /state\.runtime\.detachAuthorFromProject/);
+  assert.match(manager, /state\.runtime\.deleteSavedAuthor/);
+  assert.match(manager, /Quitar de guardados/);
+  assert.match(manager, /new Set\(library\.flatMap\(authorSaveKeys\)\)/);
+  assert.match(manager, /MutationObserver/);
+  assert.match(manager, /data-work-picker-subproject/);
+  assert.match(helper, /function findSavedAuthor\(author, library\)/);
+  assert.match(account, /createAuthorSaveManager/);
+  assert.match(account, /authorSaveManager\.handle/);
+  assert.match(app, /data-save-author-key/);
+  assert.match(controls, /button\.dataset\.saveAuthorKey = authorSaveKey\(payload\)/);
+  assert.match(latin, /createAuthorSaveButton/);
+  assert.doesNotMatch(manager, /firebase-firestore\.js|from "\.\/firebase-client\.js"/);
+});
+
+test("thesis and journal articles continue to use the same saved-work selector", () => {
+  const thesis = read("js/thesis-demo.js");
+  const articles = read("js/articles.js");
+  const journal = read("js/journal-page.js");
+  const quadripartita = read("revistas/udg/quadripartita-ratio.html");
+  assert.match(thesis, /createWorkSaveButton/);
+  assert.match(articles, /createWorkSaveButton/);
+  assert.match(journal, /createWorkSaveButton/);
+  assert.match(quadripartita, /journal-page\.js\?v=20261122-author-project-picker-v1/);
+});
