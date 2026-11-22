@@ -3,6 +3,7 @@ import {
 } from "./auth-session-hint.js";
 
 import { workSaveKey } from "./work-save-identity.js";
+import { authorSaveKey } from "./author-save-identity.js";
 
 function bookmarkIcon() {
   return `
@@ -37,8 +38,10 @@ function createSaveButton(kind, payload, {
   button.dataset.privateSave = kind;
   if (kind === "work") {
     button.dataset.saveWorkKey = workSaveKey(payload);
-    button.setAttribute("aria-pressed", "false");
+  } else {
+    button.dataset.saveAuthorKey = authorSaveKey(payload);
   }
+  button.setAttribute("aria-pressed", "false");
   button.setAttribute("aria-label", label);
   button.title = label;
   button.innerHTML = bookmarkIcon();
