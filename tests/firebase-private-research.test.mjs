@@ -458,7 +458,7 @@ test("private profile bootstrap cannot hang on remote auth or Firestore", () => 
   assert.doesNotMatch(profile, /await user\.reload\(\);/);
   assert.match(profile, /showWorkspace\(\);[\s\S]*void hydratePrivateProfile\(user\)/);
   assert.match(profile, /Firebase Auth tardó en emitir el estado inicial/);
-  assert.match(page, /profile\.js\?v=20261122-profile-mobile-autosave-v1/);
+  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
 });
 
 test("private profile does not flash the login gate for authenticated users", () => {
@@ -616,7 +616,7 @@ test("Marginalia mobile uses compact single-column folios, usable controls and s
   assert.match(css, /overflow-wrap: anywhere/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.match(page, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(page, /profile\.js\?v=20261122-profile-mobile-autosave-v1/);
+  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
 });
 
 
@@ -703,8 +703,8 @@ test("journal article saves preserve available abstracts and bibliography remain
 
   assert.match(articles, /function articleSavePayload\(record\)[\s\S]*?abstract:\s*record\.abstract \|\| ""/);
   assert.match(profile, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(profile, /profile\.js\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(articlesPage, /articles\.js\?v=20261121-abstract-save-v1/);
+  assert.match(profile, /profile\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(articlesPage, /articles\.js\?v=20261122-project-bookmarks-v1/);
   assert.match(css, /\.work-ficha-facts/);
   assert.match(css, /\.work-ficha-abstract/);
   assert.match(css, /\.work-ficha-links/);
@@ -786,8 +786,8 @@ test("saved works navigate to the EXISTING full search record modal, never the D
   assert.match(app, /await openSavedPublicRecord\(recordRequest\)/);
   assert.match(app, /No se encontró una coincidencia bibliográfica exacta/);
   assert.match(userData, /work\?\.sourceRecordId \|\| work\?\.openalexId \|\| work\?\.id/);
-  assert.match(page, /profile\.js\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(home, /app\.js\?v=20261121-record-deeplink-v1/);
+  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(home, /app\.js\?v=20261122-project-bookmarks-v1/);
   assert.match(home, /record-detail\.css\?v=20261121-record-deeplink-v1/);
   assert.match(css, /\.work-ficha-links \.work-ficha-full-record/);
 });
@@ -875,5 +875,58 @@ test("mobile profile editor stays in one column and contains long style labels",
   assert.match(cssBlock, /grid-template-columns: 72px minmax\(0, 1fr\)/);
   assert.match(page, /Se guarda automáticamente/);
   assert.match(page, /profile\.css\?v=20261122-profile-mobile-autosave-v1/);
-  assert.match(page, /profile\.js\?v=20261122-profile-mobile-autosave-v1/);
+  assert.match(page, /profile\.js\?v=20261122-project-bookmarks-v1/);
+});
+
+
+test("saved works can be assigned to existing projects and collections without duplicating library records", () => {
+  const data = read("js/user-data.js");
+  const manager = read("js/work-save-picker.js");
+  const helper = read("js/work-save-identity.js");
+  const app = read("js/app.js");
+  const publicControls = read("js/public-save-controls.js");
+
+  assert.match(data, /export async function listUserProjects\(uid\)/);
+  assert.match(data, /export async function listProjectSubprojects\(uid, projectId\)/);
+  assert.match(data, /export async function getLibraryWork\(uid, workId\)/);
+  assert.match(data, /export async function getProjectWorkAssignments\(uid, workId, projects\)/);
+  assert.match(data, /getDoc\(projectWorkRef\(uid, project\.id, workId\)\)/);
+  assert.match(manager, /runtime\.listUserProjects\(user\.uid\)/);
+  assert.match(manager, /runtime\.listProjectSubprojects\(user\.uid, project\.id\)/);
+  assert.match(manager, /state\.runtime\.saveLibraryWork/);
+  assert.match(manager, /state\.runtime\.attachWorkToProject/);
+  assert.match(manager, /state\.runtime\.detachWorkFromProject/);
+  assert.match(manager, /state\.runtime\.deleteLibraryWork/);
+  assert.match(manager, /"Quitar de guardados"/);
+  assert.match(manager, /data-work-picker-project/);
+  assert.match(manager, /data-work-picker-subproject/);
+  assert.match(manager, /data-work-picker-feedback/);
+  assert.match(manager, /dialog\.showModal\(\)/);
+  assert.match(manager, /dialog\.addEventListener\("cancel"/);
+  assert.match(manager, /state\.busy/);
+  assert.match(manager, /MutationObserver/);
+  assert.match(manager, /runtime\.subscribeLibrary\(user\.uid/);
+  assert.match(manager, /new Set\(library\.map\(workSaveKey\)/);
+  assert.match(helper, /function workSaveKey\(work\)/);
+  assert.match(app, /data-save-work-key/);
+  assert.match(publicControls, /button\.dataset\.saveWorkKey = workSaveKey\(payload\)/);
+  assert.doesNotMatch(manager, /firebase-firestore\.js|from "\.\/firebase-client\.js"/);
+});
+
+test("saved bookmark stays clickable for unsave and project management", () => {
+  const account = read("js/account-menu.js");
+  const css = read("css/account.css");
+  const page = read("index.html");
+  const profilePage = read("perfil.html");
+  assert.match(account, /function setSavedState\(button, text = "Guardada", allowToggle = false\)/);
+  assert.match(account, /button\.disabled = !allowToggle/);
+  assert.match(account, /button\.setAttribute\("aria-pressed", "true"\)/);
+  assert.match(account, /button\.setAttribute\("aria-pressed", "false"\)/);
+  assert.match(account, /createWorkSaveManager/);
+  assert.match(account, /workSaveManager\.handle\(event\.detail \|\| \{\}\)/);
+  assert.match(css, /\.work-save-dialog::backdrop/);
+  assert.match(css, /\.work-save-projects\s*\{/);
+  assert.match(css, /@media \(max-width: 620px\)/);
+  assert.match(page, /app\.js\?v=20261122-project-bookmarks-v1/);
+  assert.match(profilePage, /profile\.js\?v=20261122-project-bookmarks-v1/);
 });
