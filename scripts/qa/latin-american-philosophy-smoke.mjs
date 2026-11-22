@@ -224,58 +224,30 @@ try {
 
     const firminLink = firminCard.locator(".author-card-link");
     const firminHref = await firminLink.getAttribute("href");
-    const firminUrl = new URL(firminHref, page.url());
-    assert.equal(
-      firminUrl.searchParams.get("view"),
-      "author",
-      "Documented author cards must target the canonical author view"
-    );
-    assert.equal(
-      firminUrl.searchParams.get("author"),
-      "Anténor Firmin",
-      "Documented author cards must preserve the canonical author name"
-    );
+    assert.match(firminHref, /^#autor-\d{4}$/,
+      "Author cards must link to shareable local dossier hashes");
     assert.equal(
       await firminCard.getAttribute("role"),
       null,
-      "Author cards must no longer masquerade as modal buttons"
+      "Author cards must keep an accessible native link separate from save"
     );
 
     await firminLink.click();
-    await page.waitForURL(url =>
-      url.searchParams.get("view") === "author" &&
-      url.searchParams.get("author") === "Anténor Firmin"
-    );
     await page.waitForFunction(() =>
-      document.body.classList.contains("author-view") &&
-      document.querySelector(".author-page-hero h1")?.textContent?.includes("Firmin")
+      document.querySelector("#author-dialog")?.open &&
+      document.querySelector("#author-dialog-title")?.textContent?.includes("Firmin") &&
+      document.querySelector("#author-dossier-works-section")
     , null, { timeout: 18000 });
 
-    assert.equal(
-      new URL(page.url()).searchParams.get("author"),
-      "Anténor Firmin",
-      "Opening a philosopher card must preserve the canonical author name in the URL"
-    );
-    assert.equal(
-      new URL(page.url()).hash,
-      "#results",
-      "Canonical author navigation must land on the complete author archive"
-    );
-    assert.ok(
-      await page.locator(".author-page-hero").count() === 1,
-      "Canonical author view must render its author hero"
-    );
-    assert.ok(
-      await page.locator(".author-page-works").count() === 1,
-      "Canonical author view must render the complete works area"
-    );
-    await page.waitForFunction(() =>
-      document.querySelectorAll(".author-work-grid .result-card").length >= 1
-    , null, { timeout: 18000 });
-    assert.ok(
-      await page.locator(".author-work-grid .result-card").count() >= 1,
-      "Canonical author view must load author works"
-    );
+    assert.equal(new URL(page.url()).pathname, new URL(PAGE_URL).pathname,
+      "Opening the dossier must not navigate away from the Latin American archive");
+    assert.equal(new URL(page.url()).hash, firminHref,
+      "Dossier selection must retain its shareable hash");
+    assert.equal(await page.locator("#author-dossier-works-section").count(), 1,
+      "The original dossier must render bibliographic works");
+    const dialogBox = await page.locator("#author-dialog").boundingBox();
+    assert.ok(dialogBox && dialogBox.x >= -2 && dialogBox.x + dialogBox.width <= width + 2,
+      "Dossier must fit the viewport at " + width + "px: " + JSON.stringify(dialogBox));
 
     await settlePaint(page);
     await page.screenshot({
@@ -283,13 +255,20 @@ try {
       animations: "disabled"
     });
 
-    await page.goBack({ waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() =>
-      document.querySelector("#author-directory") &&
-      document.querySelector("#stat-seeded")?.textContent?.trim() !== "—"
-    );
+    await page.locator("#author-dialog-close").click();
+    assert.equal(await page.locator("#author-dialog").evaluate(dialog => dialog.open), false,
+      "Closing the dossier must restore the archive beneath it");
 
-    const seededTotal = Number(
+    await page.goto(PAGE_URL + firminHref, { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() =>
+      document.querySelector("#author-dialog")?.open &&
+      document.querySelector("#author-dialog-title")?.textContent?.includes("Firmin")
+    , null, { timeout: 18000 });
+    assert.equal(new URL(page.url()).pathname, new URL(PAGE_URL).pathname,
+      "Opening a shared dossier link must not redirect to the homepage");
+    await page.locator("#author-dialog-close").click();
+
+        const seededTotal = Number(
       (await page.locator("#stat-seeded").textContent()).replace(/[^0-9]/g, "")
     );
     assert.ok(seededTotal >= 380, "Seeded corpus should include Anténor Firmin");
@@ -416,15 +395,13 @@ try {
       document.querySelector("#author-directory")?.textContent?.includes("Anténor Firmin")
     );
     await page.locator("#author-directory .author-card .author-card-link").first().click();
-    await page.waitForURL(url =>
-      url.searchParams.get("view") === "author" &&
-      url.searchParams.get("author") === "Anténor Firmin"
-    );
     await page.waitForFunction(() =>
-      document.body.classList.contains("author-view") &&
-      document.querySelector(".author-page-hero h1")?.textContent?.includes("Firmin")
+      document.querySelector("#author-dialog")?.open &&
+      document.querySelector("#author-dialog-title")?.textContent?.includes("Firmin") &&
+      document.querySelector("#author-dossier-works-section")
     , null, { timeout: 18000 });
-
+    assert.equal(new URL(page.url()).pathname, new URL(PAGE_URL).pathname,
+      "Dark-theme author dossier must stay on this page");
     assert.deepEqual(pageErrors, [], "Page must not emit uncaught JS errors");
 
     await settlePaint(page);
@@ -433,12 +410,8 @@ try {
       animations: "disabled"
     });
 
-    await page.goBack({ waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() =>
-      document.querySelector("#author-directory") &&
-      document.querySelector("#stat-seeded")?.textContent?.trim() !== "—"
-    );
-    await page.locator("#author-search").fill("");
+    await page.locator("#author-dialog-close").click();
+        await page.locator("#author-search").fill("");
 
     await page.screenshot({
       path: ARTIFACTS + "/archive-" + width + "-dark.png",
