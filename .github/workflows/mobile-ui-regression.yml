@@ -12,6 +12,11 @@ on:
       - "tests/firebase-private-research.test.mjs"
       - "scripts/qa/profile-bootstrap-smoke.mjs"
       - "js/account-menu.js"
+      - "js/work-save-picker.js"
+      - "js/work-save-identity.js"
+      - "js/public-save-controls.js"
+      - "tests/work-save-identity.test.mjs"
+      - "scripts/qa/work-save-picker-smoke.mjs"
       - "js/auth-page.js"
       - "filosofia-latinoamericana.html"
       - "js/latin-american-philosophy.js"
@@ -178,6 +183,9 @@ jobs:
       - name: Verify private profile bootstrap never hangs
         run: node scripts/qa/profile-bootstrap-smoke.mjs
 
+      - name: Verify project bookmark picker and unsave on phones
+        run: node scripts/qa/work-save-picker-smoke.mjs
+
       - name: Check phone, tablet and desktop geometry
         run: node scripts/qa/mobile-ui-smoke.mjs
 
@@ -232,6 +240,7 @@ jobs:
           name: mobile-ui-screenshots
           path: |
             artifacts/mobile-ui/
+            artifacts/work-save-picker/
             artifacts/profile-bootstrap/
             artifacts/latin-american-philosophy/
             artifacts/thesis-demo-ui/
