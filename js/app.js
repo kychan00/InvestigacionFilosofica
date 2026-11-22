@@ -84,6 +84,8 @@ import {
   hasVerifiedAuthHint
 } from "./auth-session-hint.js";
 
+import { workSaveKey } from "./work-save-identity.js";
+
 
 function bookmarkSaveSvg() {
   return `
@@ -113,8 +115,10 @@ function renderWorkSaveControl(item) {
       type="button"
       class="research-save-button research-save-icon"
       data-save-work-id="${escapeHtml(recordId(item))}"
+      data-save-work-key="${escapeHtml(workSaveKey(item))}"
       data-save-icon
       aria-label="Guardar obra en mi biblioteca"
+      aria-pressed="false"
       title="Guardar en mi biblioteca"
     >
       ${bookmarkSaveSvg()}
