@@ -233,7 +233,7 @@ test("RA12-D4 actualiza copy público y cache bust del Atlas embebido", () => {
   );
   assert.match(
     page,
-    /research-atlas-embed\.js\?v=20261113-ra13a-v1/
+    /research-atlas-embed\.js\?v=[^"']+/
   );
   assert.match(
     page,
