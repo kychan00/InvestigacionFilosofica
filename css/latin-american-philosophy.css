@@ -3221,7 +3221,7 @@ html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
 }
 
 
-/* Navegación canónica de autor: las cards abren la vista completa de Investigación Filosófica. */
+/* Enlaces a dosieres: abren la ficha local y conservan enlaces accesibles y compartibles. */
 .author-card-link,
 .author-profile-link {
   display: flex;
