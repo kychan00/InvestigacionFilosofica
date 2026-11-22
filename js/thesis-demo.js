@@ -1,6 +1,6 @@
 import {
   createWorkSaveButton
-} from "./public-save-controls.js";
+} from "./public-save-controls.js?v=20261122-project-bookmarks-v1";
 import {
   PAGE_SIZE,
   approvedInstitutionalUrl,
