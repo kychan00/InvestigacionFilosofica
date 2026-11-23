@@ -61,7 +61,7 @@ test("Marginalia: única hoja posterior a Territorio, sin filtrarse a rutas ni o
   }
   for (const page of ["tesis.html","articulos.html","filosofia-latinoamericana.html",
     "perfil.html","research-atlas.html","revistas/udg/protrepsis.html",
-    "revistas/udg/sincronia.html","revistas/udg/quadripartita.html"]) {
+    "revistas/udg/sincronia.html","revistas/udg/quadripartita-ratio.html"]) {
     assert.ok(!(await load(page)).includes("corpus-appearance-polish-marginalia.css"),
       "Theme must not leak into " + page);
   }
