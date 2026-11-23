@@ -260,6 +260,25 @@ try {
       assert.ok(work.scrollWidth <= width + 3,
         "Result horizontal overflow " + JSON.stringify({ width, mode, shell, work }));
       assert.ok(work.visualWidth > 0, "Result rank/visual must stay visible");
+
+      if (shell === "territory" && width <= 820) {
+        const rankSpace = await page.evaluate(() => {
+          const card = document.querySelector("#results > .result-card");
+          const title = card.querySelector(".result-title-row");
+          const badge = card.querySelector(".result-visual");
+          const gap = badge.getBoundingClientRect().left -
+            title.getBoundingClientRect().right;
+          return {
+            rightInset: parseFloat(getComputedStyle(title).paddingInlineEnd),
+            badgeLeft: badge.getBoundingClientRect().left,
+            titleRight: title.getBoundingClientRect().right,
+            gap
+          };
+        });
+        assert.ok(rankSpace.rightInset >= 54,
+          "Mobile Territory title must reserve rank space: " + JSON.stringify(rankSpace));
+      }
+
       if (shell !== "default") assert.notEqual(work.hero, "none");
       if (shell === "territory" && (width === 390 || width === 1280)) {
         await page.locator("#results > .result-card").first().screenshot({

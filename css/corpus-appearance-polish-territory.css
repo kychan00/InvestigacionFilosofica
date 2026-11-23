@@ -646,6 +646,18 @@ html[data-corpus-shell="territory"] :is(
   outline-offset: 3px;
 }
 
+/* Mobile: reserve the existing top-right rank and (for members) bookmark
+ * without changing their hit targets, stacking, or the result grid.
+ */
+@media (max-width: 820px) {
+  html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card .result-title-row {
+    padding-inline-end: 54px;
+  }
+  html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card:has(> .research-save-button) .result-title-row {
+    padding-inline-end: 110px;
+  }
+}
+
 /* Modo de alto contraste: respetar los colores del sistema. */
 @media (forced-colors: active) {
   html[data-corpus-shell="territory"] :is(
