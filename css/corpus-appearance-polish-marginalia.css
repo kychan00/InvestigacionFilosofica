@@ -303,6 +303,30 @@ html[data-corpus-shell="marginalia"] .account-dock .account-trigger-label {
   color: var(--corpus-ink);
 }
 
+/* EDITORIAL DESKTOP FILTER REFLOW START
+ * At ordinary laptop widths five equal-height filter columns truncate
+ * actual values ("Sin límite", "Relevancia"). Reflow only the Marginalia
+ * consultation panel: three filters, then two broad filters. All touch
+ * breakpoints, control heights and keyboard navigation remain unchanged.
+ */
+@media (min-width: 821px) and (max-width: 1599px) {
+  html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-filter-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-filter-grid > label:nth-child(-n+3) {
+    grid-column: span 2;
+  }
+  html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-filter-grid > label:nth-child(n+4) {
+    grid-column: span 3;
+  }
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) :is(
+  .hero-shell .eyebrow, .hero-sources
+) {
+  text-shadow: none !important;
+}
+/* EDITORIAL DESKTOP FILTER REFLOW END */
+
 /* RESULTADOS · fichas de catálogo, no tarjetas de software. */
 html[data-corpus-shell="marginalia"] body:not(.author-view) .search-filter-grid label {
   background: var(--marginalia-subtle) !important;

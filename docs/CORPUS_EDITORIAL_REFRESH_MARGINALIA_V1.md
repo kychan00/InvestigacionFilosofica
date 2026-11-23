@@ -35,3 +35,6 @@ el margen textual junto a la numeración y marcador móvil (como Territorio).
 
 - Inspección visual de capturas reales: se reforzó la especificidad de la acción «Ver ficha» para que siempre use tinta editorial, no el rosa claro del CSS genérico, en ambos modos. El smoke verifica fondo/tinta calculados del CTA.
 - El fixture ahora emite `philosophythemechange` para sincronizar los botones Claro/Oscuro del menú con las capturas, evitando la selección visual obsoleta que mostraba el test.
+
+- Revisión del hero a 1280 px: los cinco filtros heredados en una línea comprimían y recortaban «Sin límite» y «Relevancia». Marginalia ahora usa 3 filtros en una fila y 2 más anchos en la segunda, exclusivamente entre 821–1599 px. Se comprueban dos filas, seis pistas, ancho mínimo de campos y ausencia de desbordamiento. El resto de responsive se conserva.
+- Se eliminó el sombreado de texto heredado en el rótulo editorial y la línea de fuentes, que restaba nitidez a la lectura.

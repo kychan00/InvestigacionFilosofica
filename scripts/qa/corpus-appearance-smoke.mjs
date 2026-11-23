@@ -296,6 +296,26 @@ try {
           mode === "light" ? "rgb(53, 70, 80)" : "rgb(101, 66, 61)",
           "Marginalia primary result action must use editorial ink, not pale generic accent");
         assert.equal(p.recordActionInk, "rgb(255, 255, 255)");
+        if (width === 1280) {
+          const filters = await page.evaluate(() => {
+            const grid = document.querySelector(".hero-shell .search-filter-grid");
+            const labels = [...grid.querySelectorAll(":scope > label")];
+            const fields = [...grid.querySelectorAll(":scope > label > :is(select, input)")];
+            return {
+              columns: getComputedStyle(grid).gridTemplateColumns.split(" ").length,
+              rows: labels.map(label => Math.round(label.getBoundingClientRect().top)),
+              fieldWidths: fields.map(field => field.getBoundingClientRect().width),
+              overflow: grid.scrollWidth - grid.clientWidth
+            };
+          });
+          assert.equal(filters.columns, 6, "Editorial filter grid must use six tracks");
+          assert.equal(new Set(filters.rows).size, 2,
+            "Five filters must read as three plus two: " + JSON.stringify(filters));
+          assert.ok(filters.fieldWidths.every(w => w >= 95),
+            "Filter values must fit without clipping: " + JSON.stringify(filters));
+          assert.ok(filters.overflow <= 1, "Filter grid must not create horizontal overflow");
+        }
+
         const trigger = width <= 820 ? ".site-menu-toggle" : ".site-desktop-menu-toggle";
         await page.locator(trigger).click();
         await page.locator(".site-menu-drawer.is-open").waitFor();
