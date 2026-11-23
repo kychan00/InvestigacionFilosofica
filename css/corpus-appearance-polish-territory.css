@@ -191,19 +191,142 @@ html[data-corpus-shell="territory"] body:not(.author-view) .hero-marginalia stro
 }
 
 /* El menú móvil y la navegación se integran al cuaderno, sin cambiar tamaños. */
-html[data-corpus-shell="territory"] body:not(.author-view) .site-mobile-toolbar,
-html[data-corpus-shell="territory"] body:not(.author-view) .philo-nav {
+html[data-corpus-shell="territory"] .site-mobile-toolbar,
+html[data-corpus-shell="territory"] .philo-nav {
   background-color: var(--territory-surface);
   border-color: var(--territory-border);
   color: var(--corpus-ink);
 }
-html[data-corpus-shell="territory"] body:not(.author-view) .site-mobile-toolbar :is(a, button),
-html[data-corpus-shell="territory"] body:not(.author-view) .philo-nav :is(a, button) {
+html[data-corpus-shell="territory"] .site-mobile-toolbar :is(a, button),
+html[data-corpus-shell="territory"] .philo-nav :is(a, button) {
   color: var(--corpus-ink);
 }
-html[data-corpus-shell="territory"] body:not(.author-view) .site-mobile-toolbar-mark,
-html[data-corpus-shell="territory"] body:not(.author-view) .philo-mark {
+html[data-corpus-shell="territory"] .site-mobile-toolbar-mark,
+html[data-corpus-shell="territory"] .philo-mark {
   color: var(--territory-caption);
+}
+
+
+/* Navegación transversal: la ficha de autor también usa el mismo encabezado.
+ * Reemplazamos el azul de Carbon SOLO dentro de index.html en Territorio.
+ */
+html[data-corpus-shell="territory"] .site-mobile-toolbar .site-mobile-toolbar-mark,
+html[data-corpus-shell="territory"] .site-mobile-toolbar .site-menu-toggle {
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] .site-mobile-toolbar .site-menu-toggle {
+  background: var(--territory-subtle);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .philo-nav-links a::before {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] .site-desktop-rail {
+  background: var(--territory-surface);
+  border-right-color: var(--territory-border);
+  color: var(--corpus-ink);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-corpus-shell="territory"] .site-desktop-menu-label,
+html[data-corpus-shell="territory"] .site-desktop-menu-toggle {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer {
+  --site-nav-blue: var(--territory-action);
+  --site-nav-blue-soft: var(--territory-caption);
+  --site-nav-ink: var(--corpus-ink);
+  --site-nav-muted: var(--corpus-muted);
+  --site-nav-border: var(--territory-border);
+  background: var(--territory-surface);
+  border-right-color: var(--territory-border);
+  color: var(--corpus-ink);
+  box-shadow: 20px 0 50px var(--territory-shadow);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link,
+  .site-menu-branch,
+  .site-menu-footer,
+  .site-menu-theme,
+  .site-menu-disclosure-symbol,
+  .site-menu-close
+) {
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-close,
+  .site-menu-link-icon,
+  .site-menu-link-copy strong
+) {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link-copy small,
+  .site-menu-footer-label
+) {
+  color: var(--corpus-muted);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-kicker,
+  .site-menu-link-index,
+  .site-menu-link-arrow,
+  .site-menu-link-leading,
+  .site-menu-disclosure-symbol
+) {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link[data-menu-level="2"],
+  .site-menu-link[data-menu-level="3"],
+  .site-menu-branch[data-menu-level="2"] > .site-menu-branch-toggle
+) {
+  background: var(--territory-subtle);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link:hover,
+  .site-menu-link:focus-visible,
+  .site-menu-link.is-current,
+  .site-menu-link[data-menu-level="2"]:hover,
+  .site-menu-link[data-menu-level="2"]:focus-visible,
+  .site-menu-link[data-menu-level="2"].is-current,
+  .site-menu-link[data-menu-level="3"]:hover,
+  .site-menu-link[data-menu-level="3"]:focus-visible,
+  .site-menu-link[data-menu-level="3"].is-current,
+  .site-menu-branch-toggle:hover,
+  .site-menu-branch-toggle:focus-visible,
+  .site-menu-branch-toggle[aria-expanded="true"]
+) {
+  background: var(--territory-quiet);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link:hover .site-menu-link-icon,
+  .site-menu-link.is-current .site-menu-link-icon,
+  .site-menu-branch-toggle:hover .site-menu-link-icon,
+  .site-menu-branch-toggle[aria-expanded="true"] .site-menu-link-icon
+) {
+  color: var(--territory-caption);
+  filter: none;
+}
+html[data-corpus-shell="territory"] .site-menu-drawer .site-menu-footer {
+  background: var(--territory-subtle);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer .site-menu-theme button {
+  color: var(--corpus-ink);
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer .site-menu-theme button[aria-pressed="true"] {
+  background: var(--territory-action);
+  color: var(--territory-action-ink);
+}
+html[data-corpus-shell="territory"] :is(
+  .site-desktop-menu-toggle,
+  .site-menu-toggle,
+  .site-menu-drawer a,
+  .site-menu-drawer button,
+  .philo-nav-links a
+):focus-visible {
+  outline: 2px solid var(--territory-focus) !important;
+  outline-offset: 3px;
 }
 
 /* Herramientas, filtros y resultados: capas de papel, no cajas de colores. */

@@ -41,6 +41,15 @@ test("Territorio editorial: claro y oscuro cumplen contraste AA en texto y CTA",
         mode + " " + foreground + "/" + background + " no alcanza WCAG AA");
     }
     assert.ok(contrast(p["--territory-art-ink"], mode === "light" ? "#213a2e" : "#1c3026") >= 4.5);
+    for (const [foreground, background] of [
+      ["--territory-caption", "--territory-surface"],
+      ["--territory-caption", "--corpus-page"],
+      ["--corpus-muted", "--territory-surface"],
+      ["--territory-action-ink", "--territory-action-hover"]
+    ]) {
+      assert.ok(contrast(p[foreground], p[background]) >= 4.5,
+        mode + " insuficiente contraste de navegación: " + foreground + " / " + background);
+    }
   }
 });
 
@@ -75,4 +84,16 @@ test("Territorio editorial respeta geometría, scroll y gestos del Atlas", async
   assert.match(atlas, /touch-action: none/);
   const base = await load("css/author-timeline.css");
   assert.match(base, /overflow-x: auto/);
+});
+
+test("Territorio editorial aplica la misma navegación al autor y elimina los acentos azules", async () => {
+  const css = await load(sheet);
+  assert.match(css, /html\[data-corpus-shell="territory"\] \.site-mobile-toolbar,/);
+  assert.match(css, /html\[data-corpus-shell="territory"\] \.philo-nav/);
+  assert.match(css, /html\[data-corpus-shell="territory"\] \.site-menu-drawer/);
+  assert.match(css, /html\[data-corpus-shell="territory"\] \.site-desktop-rail/);
+  assert.match(css, /\.philo-nav-links a::before/);
+  assert.match(css, /\.site-menu-theme button\[aria-pressed="true"\]/);
+  assert.match(css, /\.site-menu-drawer :is\(/);
+  assert.doesNotMatch(css, /\.site-mobile-toolbar,\s*\nhtml\[data-corpus-shell="territory"\] body:not\(\.author-view\)/);
 });

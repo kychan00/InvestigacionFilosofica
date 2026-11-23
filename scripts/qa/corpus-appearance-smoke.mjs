@@ -123,6 +123,48 @@ try {
         document.documentElement.dataset.corpusShell = shell;
       }, { mode, shell });
 
+
+      if (shell === "territory") {
+        const editorial = await page.evaluate(() => {
+          const paint = selector => {
+            const element = document.querySelector(selector);
+            if (!element) throw new Error("Territory missing UI: " + selector);
+            const style = getComputedStyle(element);
+            return { background: style.backgroundColor, color: style.color };
+          };
+          return {
+            panel: paint(".hero-shell .search-panel"),
+            navigation: paint(".philo-nav"),
+            mobileToolbar: paint(".site-mobile-toolbar"),
+            desktopRail: paint(".site-desktop-rail"),
+            drawer: paint(".site-menu-drawer"),
+            menuToggle: paint(".site-menu-toggle"),
+            firstNavigationMarker: getComputedStyle(
+              document.querySelector(".philo-nav-links a"), "::before"
+            ).color
+          };
+        });
+        const surface = mode === "light" ? "rgb(255, 252, 245)" : "rgb(34, 51, 42)";
+        const ink = mode === "light" ? "rgb(37, 55, 47)" : "rgb(242, 238, 227)";
+        const caption = mode === "light" ? "rgb(112, 66, 50)" : "rgb(237, 193, 158)";
+        for (const key of ["panel", "navigation", "mobileToolbar", "desktopRail", "drawer"]) {
+          assert.equal(editorial[key].background, surface,
+            "Territory navigation/surface mismatch: " + JSON.stringify({ key, width, mode, editorial }));
+        }
+        for (const key of ["mobileToolbar", "drawer", "menuToggle"]) {
+          assert.equal(editorial[key].color, ink,
+            "Territory ink mismatch: " + JSON.stringify({ key, width, mode, editorial }));
+        }
+        assert.equal(editorial.firstNavigationMarker, caption,
+          "Territory navigation marker must not keep Carbon blue");
+        if (width === 390 || width === 1280) {
+          await page.locator(".hero-shell").screenshot({
+            path: "artifacts/corpus-appearance/landing-territory-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+        }
+      }
+
       const work = await page.evaluate(() => {
         const visual = document.querySelector("#results .result-visual");
         return {
@@ -193,6 +235,15 @@ try {
         "Author dossier outside viewport: " + JSON.stringify({ width, mode, shell, archive }));
       assert.ok(archive.scrollWidth <= width + 3, "Author dossier creates horizontal overflow");
       assert.equal(archive.timelineOverflow, "auto");
+
+      if (shell === "territory") {
+        const toolbarColor = await page.evaluate(() =>
+          getComputedStyle(document.querySelector(".site-mobile-toolbar")).backgroundColor
+        );
+        assert.equal(toolbarColor, mode === "light" ? "rgb(255, 252, 245)" : "rgb(34, 51, 42)",
+          "Author dossier toolbar must inherit the same Territory palette");
+      }
+
       // Reset the viewport before each image: earlier modal interactions
       // may scroll the document while an author fixture is being inserted.
       const authorViewport = await page.evaluate(() => {
