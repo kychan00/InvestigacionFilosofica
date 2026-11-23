@@ -1,0 +1,707 @@
+/*
+ * TERRITORIO / EDICIÓN EDITORIAL V1
+ * Capa posterior a las fases 0–5. Exclusiva del corpus principal index.html.
+ * No altera búsquedas, DOM, Firebase, geometría táctil ni los otros temas.
+ *
+ * Dirección de arte: atlas académico contemporáneo. Papel mineral, tinta
+ * botánica, acentos de encuadernación terracota y cartografía silenciosa.
+ */
+
+/* Paletas semánticas, en lugar de recolorear elementos uno por uno. */
+html[data-theme="light"][data-corpus-shell="territory"] {
+  --corpus-page: #f5f2ea;
+  --corpus-ink: #25372f;
+  --corpus-muted: #526459;
+  --corpus-line: #bbc6b8;
+  --corpus-accent: #7a4534;
+  --corpus-on-accent: #ffffff;
+  --corpus-panel: #fffcf5;
+  --corpus-record-surface: #fffcf5;
+  --corpus-record-subtle: #efeee5;
+  --corpus-record-border: #bbc6b8;
+  --corpus-record-title: #25372f;
+  --corpus-record-muted: #526459;
+  --corpus-record-accent: #7a4534;
+  --corpus-card-visual:
+    repeating-radial-gradient(ellipse at 73% 35%, transparent 0 22px, rgba(230, 217, 188, .12) 23px 24px, transparent 25px 46px),
+    linear-gradient(145deg, #355544, #213a2e);
+  --corpus-hero-bg:
+    repeating-radial-gradient(ellipse at 85% 42%, transparent 0 48px, rgba(67, 96, 76, .07) 49px 50px, transparent 51px 89px),
+    linear-gradient(114deg, #f8f5ee 0%, #f1eee5 66%, #e6eae0 100%);
+  --territory-surface: #fffcf5;
+  --territory-subtle: #efeee5;
+  --territory-quiet: #e4e9df;
+  --territory-border: #bbc6b8;
+  --territory-stroke: #778d7b;
+  --territory-action: #2e4c3c;
+  --territory-action-hover: #213e30;
+  --territory-action-ink: #ffffff;
+  --territory-caption: #704232;
+  --territory-art-ink: #f7f3e7;
+  --territory-shadow: rgba(40, 56, 44, .08);
+  --territory-field: #e9ede5;
+  --territory-grid: rgba(56, 85, 65, .10);
+  --territory-focus: #7a4534;
+  --corpus-author-card: #fffcf5;
+  --corpus-author-muted: #ebeee5;
+  --corpus-author-tint: #f3e6d8;
+  --corpus-author-action: #2e4c3c;
+  --corpus-author-action-hover: #213e30;
+  --corpus-author-label: #704232;
+  --corpus-atlas-ink: #25372f;
+  --corpus-atlas-work-fill: #fffcf5;
+  --corpus-atlas-edge: #839484;
+  --corpus-atlas-blue: #7a4534;
+  --corpus-atlas-cyan: #3d7186;
+  --corpus-atlas-green: #3c6a4d;
+  --corpus-atlas-purple: #655e88;
+  --corpus-atlas-yellow: #795a2c;
+  --corpus-atlas-red: #944b46;
+  --corpus-atlas-author: #8a4c6c;
+  --corpus-atlas-muted: #526459;
+}
+html[data-theme="dark"][data-corpus-shell="territory"] {
+  --corpus-page: #14211b;
+  --corpus-ink: #f2eee3;
+  --corpus-muted: #c1d0c2;
+  --corpus-line: #637968;
+  --corpus-accent: #e8b893;
+  --corpus-on-accent: #243228;
+  --corpus-panel: #22332a;
+  --corpus-record-surface: #22332a;
+  --corpus-record-subtle: #1a2c23;
+  --corpus-record-border: #637968;
+  --corpus-record-title: #f2eee3;
+  --corpus-record-muted: #c1d0c2;
+  --corpus-record-accent: #e8b893;
+  --corpus-card-visual:
+    repeating-radial-gradient(ellipse at 73% 35%, transparent 0 22px, rgba(236, 213, 178, .11) 23px 24px, transparent 25px 46px),
+    linear-gradient(145deg, #395a48, #1c3026);
+  --corpus-hero-bg:
+    repeating-radial-gradient(ellipse at 85% 42%, transparent 0 48px, rgba(195, 213, 186, .08) 49px 50px, transparent 51px 89px),
+    linear-gradient(112deg, #16251e 0%, #1e3328 66%, #283a30 100%);
+  --territory-surface: #22332a;
+  --territory-subtle: #1a2c23;
+  --territory-quiet: #2e4537;
+  --territory-border: #637968;
+  --territory-stroke: #9aaf9b;
+  --territory-action: #754331;
+  --territory-action-hover: #884c36;
+  --territory-action-ink: #ffffff;
+  --territory-caption: #edc19e;
+  --territory-art-ink: #f7f1e3;
+  --territory-shadow: rgba(0, 0, 0, .22);
+  --territory-field: #192b22;
+  --territory-grid: rgba(187, 209, 189, .10);
+  --territory-focus: #edc19e;
+  --corpus-author-card: #22332a;
+  --corpus-author-muted: #304639;
+  --corpus-author-tint: #433c31;
+  --corpus-author-action: #754331;
+  --corpus-author-action-hover: #884c36;
+  --corpus-author-label: #edc19e;
+  --corpus-atlas-ink: #f2eee3;
+  --corpus-atlas-work-fill: #f2eee3;
+  --corpus-atlas-edge: #92a894;
+  --corpus-atlas-blue: #e8b893;
+  --corpus-atlas-cyan: #9ac9d8;
+  --corpus-atlas-green: #a2d1aa;
+  --corpus-atlas-purple: #c3b1e1;
+  --corpus-atlas-yellow: #e6ce9d;
+  --corpus-atlas-red: #f0b1a6;
+  --corpus-atlas-author: #efb1ce;
+  --corpus-atlas-muted: #c1d0c2;
+}
+
+/* Encabezado y consulta. La cartografía se lee como marca de agua. */
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell {
+  background: var(--corpus-hero-bg) !important;
+  background-blend-mode: normal;
+  box-shadow: inset 0 -1px var(--territory-border);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell::before {
+  background: linear-gradient(90deg, transparent 0 79%, var(--territory-grid) 79.06% 79.13%, transparent 79.2%);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell::after {
+  color: var(--territory-grid);
+}
+html[data-corpus-shell="territory"] .hero-shell h1,
+html[data-corpus-shell="territory"] body.author-view .author-page h1 {
+  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -.048em;
+  text-wrap: balance;
+}
+html[data-corpus-shell="territory"] :is(
+  .hero-shell .eyebrow,
+  .hero-thesis span,
+  .hero-sources span,
+  .hero-shell .search-panel::before,
+  .research-workspace::before
+) {
+  color: var(--territory-caption) !important;
+  letter-spacing: .15em;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel {
+  background: var(--territory-surface) !important;
+  border-color: var(--territory-border);
+  border-left-color: var(--corpus-accent);
+  border-radius: 4px;
+  box-shadow: 0 18px 46px var(--territory-shadow);
+  backdrop-filter: none;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel::before {
+  content: "CUADERNO DE CONSULTA / 01";
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-form {
+  background: var(--territory-border);
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-form :is(input, select) {
+  background: var(--territory-subtle);
+  color: var(--corpus-ink);
+  -webkit-text-fill-color: var(--corpus-ink);
+}
+/* #search-depth retained an old ID-based white-pill background, overriding
+ * the themed select in dark mode and rendering nearly white text on white.
+ * Match its ID, retain the native dropdown interaction and restore contrast.
+ */
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell #search-depth {
+  background: var(--territory-subtle) !important;
+  color: var(--corpus-ink) !important;
+  -webkit-text-fill-color: var(--corpus-ink);
+  border: 1px solid var(--territory-stroke);
+  border-bottom: 2px solid var(--corpus-accent);
+  border-radius: 0;
+}
+html[data-theme="dark"][data-corpus-shell="territory"] .hero-shell #search-depth {
+  color-scheme: dark;
+}
+html[data-theme="light"][data-corpus-shell="territory"] .hero-shell #search-depth {
+  color-scheme: light;
+}
+/* Small Carbon blue accents must not interrupt the cartographic palette. */
+html[data-corpus-shell="territory"] body:not(.author-view) .eyebrow::before,
+html[data-corpus-shell="territory"] body:not(.author-view) .search-mode-option.is-active::after {
+  background: var(--corpus-accent);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .search-mode-option span,
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-sources span:nth-child(even) {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel::before {
+  color: var(--territory-caption) !important;
+}
+html[data-corpus-shell="territory"] .account-dock .account-trigger {
+  border-color: var(--territory-border);
+  background: var(--territory-surface);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .account-dock .account-trigger:is(:hover, :focus-visible) {
+  border-color: var(--territory-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--territory-focus) 24%, transparent);
+  outline: 2px solid var(--territory-focus);
+  outline-offset: 2px;
+}
+html[data-corpus-shell="territory"] .account-dock .account-trigger-label {
+  border-color: var(--territory-border);
+  background: var(--territory-surface);
+  color: var(--corpus-ink);
+}
+
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-form input::placeholder {
+  color: var(--corpus-muted);
+  -webkit-text-fill-color: var(--corpus-muted);
+  opacity: 1;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-form button {
+  background: var(--territory-action);
+  color: var(--territory-action-ink);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-form button:hover {
+  background: var(--territory-action-hover);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .search-mode-option.is-active {
+  background: var(--territory-quiet);
+  color: var(--corpus-ink) !important;
+  border-bottom-color: var(--corpus-accent);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) :is(
+  .hero-thesis,
+  .hero-marginalia,
+  .hero-sources
+) {
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-marginalia strong {
+  color: var(--corpus-ink);
+}
+
+/* El menú móvil y la navegación se integran al cuaderno, sin cambiar tamaños. */
+html[data-corpus-shell="territory"] .site-mobile-toolbar,
+html[data-corpus-shell="territory"] .philo-nav {
+  background-color: var(--territory-surface);
+  border-color: var(--territory-border);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .site-mobile-toolbar :is(a, button),
+html[data-corpus-shell="territory"] .philo-nav :is(a, button) {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .site-mobile-toolbar-mark,
+html[data-corpus-shell="territory"] .philo-mark {
+  color: var(--territory-caption);
+}
+
+
+/* Navegación transversal: la ficha de autor también usa el mismo encabezado.
+ * Reemplazamos el azul de Carbon SOLO dentro de index.html en Territorio.
+ */
+html[data-corpus-shell="territory"] .site-mobile-toolbar .site-mobile-toolbar-mark,
+html[data-corpus-shell="territory"] .site-mobile-toolbar .site-menu-toggle {
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] .site-mobile-toolbar .site-menu-toggle {
+  background: var(--territory-subtle);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .philo-nav-links a::before {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] .site-desktop-rail {
+  background: var(--territory-surface);
+  border-right-color: var(--territory-border);
+  color: var(--corpus-ink);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-corpus-shell="territory"] .site-desktop-menu-label,
+html[data-corpus-shell="territory"] .site-desktop-menu-toggle {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer {
+  --site-nav-blue: var(--territory-action);
+  --site-nav-blue-soft: var(--territory-caption);
+  --site-nav-ink: var(--corpus-ink);
+  --site-nav-muted: var(--corpus-muted);
+  --site-nav-border: var(--territory-border);
+  background: var(--territory-surface);
+  border-right-color: var(--territory-border);
+  color: var(--corpus-ink);
+  box-shadow: 20px 0 50px var(--territory-shadow);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link,
+  .site-menu-branch,
+  .site-menu-footer,
+  .site-menu-theme,
+  .site-menu-disclosure-symbol,
+  .site-menu-close
+) {
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-close,
+  .site-menu-link-icon,
+  .site-menu-link-copy strong
+) {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link-copy small,
+  .site-menu-footer-label
+) {
+  color: var(--corpus-muted);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-kicker,
+  .site-menu-link-index,
+  .site-menu-link-arrow,
+  .site-menu-link-leading,
+  .site-menu-disclosure-symbol
+) {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link[data-menu-level="2"],
+  .site-menu-link[data-menu-level="3"],
+  .site-menu-branch[data-menu-level="2"] > .site-menu-branch-toggle
+) {
+  background: var(--territory-subtle);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link:hover,
+  .site-menu-link:focus-visible,
+  .site-menu-link.is-current,
+  .site-menu-link[data-menu-level="2"]:hover,
+  .site-menu-link[data-menu-level="2"]:focus-visible,
+  .site-menu-link[data-menu-level="2"].is-current,
+  .site-menu-link[data-menu-level="3"]:hover,
+  .site-menu-link[data-menu-level="3"]:focus-visible,
+  .site-menu-link[data-menu-level="3"].is-current,
+  .site-menu-branch-toggle:hover,
+  .site-menu-branch-toggle:focus-visible,
+  .site-menu-branch-toggle[aria-expanded="true"]
+) {
+  background: var(--territory-quiet);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer :is(
+  .site-menu-link:hover .site-menu-link-icon,
+  .site-menu-link.is-current .site-menu-link-icon,
+  .site-menu-branch-toggle:hover .site-menu-link-icon,
+  .site-menu-branch-toggle[aria-expanded="true"] .site-menu-link-icon
+) {
+  color: var(--territory-caption);
+  filter: none;
+}
+html[data-corpus-shell="territory"] .site-menu-drawer .site-menu-footer {
+  background: var(--territory-subtle);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer .site-menu-theme button {
+  color: var(--corpus-ink);
+  border-color: var(--territory-border);
+}
+html[data-corpus-shell="territory"] .site-menu-drawer .site-menu-theme button[aria-pressed="true"] {
+  background: var(--territory-action);
+  color: var(--territory-action-ink);
+}
+html[data-corpus-shell="territory"] :is(
+  .site-desktop-menu-toggle,
+  .site-menu-toggle,
+  .site-menu-drawer a,
+  .site-menu-drawer button,
+  .philo-nav-links a
+):focus-visible {
+  outline: 2px solid var(--territory-focus) !important;
+  outline-offset: 3px;
+}
+
+/* Herramientas, filtros y resultados: capas de papel, no cajas de colores. */
+html[data-corpus-shell="territory"] body:not(.author-view) .search-filter-grid label {
+  background: var(--territory-subtle) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .search-filter-grid :is(select, input) {
+  background: var(--territory-surface) !important;
+  border-color: var(--territory-border);
+  border-bottom-color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .research-workspace {
+  background: var(--territory-surface) !important;
+  border-top-color: var(--corpus-accent) !important;
+  border-radius: 4px;
+  box-shadow: 0 18px 52px var(--territory-shadow);
+}
+/* Existing results CSS applies !important borders with higher specificity.
+ * Target the workspace ID to preserve Territorio's editorial accent.
+ */
+html[data-corpus-shell="territory"] body:not(.author-view) #research-workspace {
+  border-top-color: var(--corpus-accent) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .research-workspace::before {
+  content: "ARCHIVO / REGISTROS Y CONEXIONES";
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .research-workspace .workspace-sidebar {
+  background: var(--territory-subtle) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .research-workspace :is(
+  .filter-grid input,
+  .filter-grid select,
+  .filter-reset,
+  .export-button,
+  .chip
+) {
+  background: var(--territory-surface) !important;
+  border-color: var(--territory-border);
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) :is(
+  .research-view-tab.is-active,
+  .search-mode-option.is-active,
+  #results .result-card h2
+) {
+  font-feature-settings: "kern" 1;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .research-view-tab.is-active {
+  background: var(--territory-action) !important;
+  border-color: var(--territory-action);
+  box-shadow: inset 0 -3px var(--territory-caption);
+  color: var(--territory-action-ink) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .research-view-tab.is-active .research-view-count {
+  color: var(--territory-action-ink) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card {
+  background: var(--territory-surface) !important;
+  border-color: var(--territory-border) !important;
+  box-shadow: none;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card .result-links {
+  background: transparent !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card:hover {
+  background: var(--territory-subtle) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card::before {
+  background: var(--corpus-accent);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card h2 {
+  color: var(--corpus-ink) !important;
+  font-family: "Iowan Old Style", "Baskerville", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.16;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-visual {
+  background: var(--corpus-card-visual) !important;
+  color: var(--territory-art-ink) !important;
+  border-color: var(--territory-stroke);
+  border-radius: 3px;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-visual :is(
+  .result-initial, .result-rank, .result-visual-caption
+) {
+  color: var(--territory-art-ink) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card :is(
+  .provider, .relevance-pill, .score-panel .score
+) {
+  background: var(--territory-subtle) !important;
+  border-color: var(--territory-border) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card .meta a,
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card .record-open {
+  text-decoration-color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card .result-links .record-open,
+html[data-corpus-shell="territory"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more) {
+  background: var(--territory-action) !important;
+  border-color: var(--territory-action) !important;
+  color: var(--territory-action-ink) !important;
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card .result-links .record-open:hover,
+html[data-corpus-shell="territory"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more):hover {
+  background: var(--territory-action-hover) !important;
+}
+
+/* Ficha completa: misma gramática de cuaderno, mejor jerarquía tipográfica. */
+html[data-theme="light"][data-corpus-shell="territory"] #record-modal {
+  --rf-overlay: rgba(18, 32, 24, .82);
+  --rf-panel: #f5f2ea;
+  --rf-surface: #eaece4;
+  --rf-surface-raised: #e0e7dc;
+  --rf-surface-inset: #fffcf5;
+  --rf-hover: #e0e7dc;
+  --rf-border: #a8b8a6;
+  --rf-border-strong: #788d7b;
+  --rf-text: #25372f;
+  --rf-text-soft: #435b4b;
+  --rf-text-muted: #526459;
+  --rf-link: #704232;
+  --rf-link-hover: #543021;
+  --rf-accent: #7a4534;
+  --rf-accent-hover: #643627;
+  --rf-focus: #7a4534;
+  --rf-button: #2e4c3c;
+  --rf-button-hover: #213e30;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #ffffff;
+  --rf-hero-map: var(--corpus-hero-bg);
+}
+html[data-theme="dark"][data-corpus-shell="territory"] #record-modal {
+  --rf-overlay: rgba(5, 12, 8, .90);
+  --rf-panel: #192b22;
+  --rf-surface: #2a3e32;
+  --rf-surface-raised: #344b3b;
+  --rf-surface-inset: #22332a;
+  --rf-hover: #344b3b;
+  --rf-border: #637968;
+  --rf-border-strong: #a0b4a3;
+  --rf-text: #f2eee3;
+  --rf-text-soft: #d0dbcc;
+  --rf-text-muted: #c1d0c2;
+  --rf-link: #edc19e;
+  --rf-link-hover: #ffddbc;
+  --rf-accent: #e8b893;
+  --rf-accent-hover: #f1c6a2;
+  --rf-focus: #edc19e;
+  --rf-button: #754331;
+  --rf-button-hover: #884c36;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #243228;
+  --rf-hero-map: var(--corpus-hero-bg);
+}
+html[data-corpus-shell="territory"] #record-modal .record-cinematic-title,
+html[data-corpus-shell="territory"] #record-modal .cinematic-section-heading h3 {
+  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -.025em;
+}
+html[data-corpus-shell="territory"] #record-modal .record-cinematic-hero {
+  background: var(--rf-hero-map) !important;
+  border-color: var(--rf-border);
+}
+html[data-corpus-shell="territory"] #record-modal :is(
+  .cinematic-meta-card,
+  .cinematic-quick-grid > div,
+  .cinematic-author-card,
+  .cinematic-score-card
+) {
+  border-color: var(--rf-border);
+  background: var(--rf-surface-inset);
+  box-shadow: 0 5px 18px var(--territory-shadow);
+}
+html[data-corpus-shell="territory"] #record-modal .cinematic-abstract {
+  background: var(--rf-surface-inset);
+  border-left-color: var(--rf-accent);
+  color: var(--rf-text-soft);
+}
+html[data-corpus-shell="territory"] #record-modal .cinematic-action.primary {
+  box-shadow: none;
+}
+
+/* Expedientes y cronologías: evitar fondos contradictorios. */
+html[data-corpus-shell="territory"] body.author-view {
+  background: var(--corpus-page);
+}
+html[data-corpus-shell="territory"] body.author-view .author-page-hero {
+  background: var(--corpus-hero-bg) !important;
+  border-color: var(--territory-border);
+  border-radius: 4px;
+  box-shadow: 0 15px 42px var(--territory-shadow);
+}
+html[data-corpus-shell="territory"] body.author-view .author-page-hero::before {
+  color: var(--territory-caption);
+  letter-spacing: .15em;
+}
+html[data-corpus-shell="territory"] body.author-view :is(
+  .author-page-metrics,
+  .author-analysis-card,
+  .author-page-taxonomy,
+  .author-work-browser,
+  .author-archive-discovery,
+  .author-collaboration-summary,
+  .author-academic-profile
+) {
+  background: var(--territory-surface) !important;
+  border-color: var(--territory-border) !important;
+  border-radius: 4px;
+  box-shadow: 0 7px 25px var(--territory-shadow);
+}
+html[data-corpus-shell="territory"] body.author-view .author-work-grid .result-card {
+  background: var(--territory-surface) !important;
+  border-color: var(--territory-border) !important;
+}
+html[data-corpus-shell="territory"] body.author-view .author-work-grid .result-card .result-visual {
+  background: var(--corpus-card-visual) !important;
+  color: var(--territory-art-ink) !important;
+}
+html[data-corpus-shell="territory"] body.author-view .author-work-grid .result-card :is(.result-initial, .result-rank) {
+  color: var(--territory-art-ink) !important;
+}
+/* Author archive: the old input's semi-transparent UA placeholder and green
+ * focus icon were difficult to read against the dark editorial field.
+ */
+html[data-corpus-shell="territory"] body.author-view .author-work-search-field input::placeholder {
+  color: var(--corpus-muted);
+  -webkit-text-fill-color: var(--corpus-muted);
+  opacity: 1;
+}
+html[data-corpus-shell="territory"] body.author-view .author-work-search-field:focus-within {
+  border-color: var(--territory-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--territory-focus) 20%, transparent);
+}
+
+html[data-corpus-shell="territory"] body.author-view .author-page #author-timeline-root {
+  --tl-card: var(--territory-surface);
+  --tl-surface: var(--territory-surface);
+  --tl-soft: var(--territory-subtle);
+  --tl-line: var(--territory-border);
+  --tl-blue: var(--territory-action);
+  --tl-blue-label: var(--territory-caption);
+  border-color: var(--territory-border);
+}
+
+/* Atlas incrustado: campo cartográfico legible, controles diferenciados. */
+html[data-corpus-shell="territory"] body:not(.author-view) #research-atlas-panel {
+  background: var(--territory-surface);
+  border-color: var(--territory-border);
+  box-shadow: 0 8px 30px var(--territory-shadow);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #research-atlas-panel .research-atlas-stage {
+  background-color: var(--territory-field);
+  background-image:
+    linear-gradient(var(--territory-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--territory-grid) 1px, transparent 1px);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-detail,
+  .research-atlas-accessible,
+  .research-atlas-tooltip,
+  .research-atlas-list button
+) {
+  background: var(--territory-surface);
+  border-color: var(--territory-border);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-actions button,
+  .research-atlas-zoom-controls button,
+  .research-atlas-node-action.primary
+) {
+  background: var(--territory-action);
+  border-color: var(--territory-action);
+  color: var(--territory-action-ink);
+}
+html[data-corpus-shell="territory"] :is(
+  .hero-shell input, .hero-shell select, .hero-shell button,
+  .research-workspace button, .research-workspace input, .research-workspace select,
+  #record-modal button, #record-modal a, #record-modal summary,
+  .author-page button, .author-page a, #research-atlas-panel button
+):focus-visible {
+  outline: 2px solid var(--territory-focus) !important;
+  outline-offset: 3px;
+}
+
+/* Mobile: reserve the existing top-right rank and (for members) bookmark
+ * without changing their hit targets, stacking, or the result grid.
+ */
+@media (max-width: 820px) {
+  html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card .result-title-row {
+    padding-inline-end: 54px;
+  }
+  html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card:has(> .research-save-button) .result-title-row {
+    padding-inline-end: 110px;
+  }
+}
+
+/* Modo de alto contraste: respetar los colores del sistema. */
+@media (forced-colors: active) {
+  html[data-corpus-shell="territory"] :is(
+    .hero-shell .search-panel,
+    .research-workspace,
+    #record-modal .record-cinematic-hero,
+    body.author-view .author-page-hero,
+    #research-atlas-panel
+  ) {
+    background: Canvas !important;
+    color: CanvasText !important;
+    border-color: CanvasText !important;
+    box-shadow: none !important;
+  }
+  html[data-corpus-shell="territory"] :is(
+    .hero-shell .search-form button,
+    #results .result-links .record-open,
+    #research-atlas-panel button
+  ) {
+    background: ButtonFace !important;
+    color: ButtonText !important;
+    border-color: ButtonText !important;
+  }
+}
+
+/* Las animaciones y gestos son los existentes: no agregamos motion. */
+@media (prefers-reduced-motion: reduce) {
+  html[data-corpus-shell="territory"] :is(.hero-shell, .research-workspace, .result-card) {
+    transition: none !important;
+  }
+}

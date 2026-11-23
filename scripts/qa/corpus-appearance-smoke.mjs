@@ -118,10 +118,134 @@ try {
 
     for (const mode of MODES) for (const shell of THEMES) {
       await page.evaluate(({ mode, shell }) => {
+        // Every visual state starts from the public-search layout. The fixture
+        // temporarily enables author-view later and must never leak it.
+        document.body.classList.remove("author-view");
         document.documentElement.dataset.theme = mode;
         document.documentElement.style.colorScheme = mode;
         document.documentElement.dataset.corpusShell = shell;
       }, { mode, shell });
+
+
+      if (shell === "territory") {
+        // The base theme uses 240ms background/border transitions. Read the
+        // final computed colors, not the previous frame of an active transition.
+        await page.waitForFunction(({ surface, accent }) => {
+          const panel = document.querySelector(".hero-shell .search-panel");
+          const workspace = document.querySelector("#research-workspace");
+          return panel && workspace &&
+            getComputedStyle(panel).backgroundColor === surface &&
+            getComputedStyle(workspace).borderTopColor === accent;
+        }, {
+          surface: mode === "light" ? "rgb(255, 252, 245)" : "rgb(34, 51, 42)",
+          accent: mode === "light" ? "rgb(122, 69, 52)" : "rgb(232, 184, 147)"
+        }, { timeout: 3000 });
+
+        const editorial = await page.evaluate(() => {
+          const paint = selector => {
+            const element = document.querySelector(selector);
+            if (!element) throw new Error("Territory missing UI: " + selector);
+            const style = getComputedStyle(element);
+            return { background: style.backgroundColor, color: style.color };
+          };
+          return {
+            panel: paint(".hero-shell .search-panel"),
+            bodyClass: document.body.className,
+            panelMatches: document.querySelector(".hero-shell .search-panel").matches(
+              'html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel'
+            ),
+            navigation: paint(".philo-nav"),
+            mobileToolbar: paint(".site-mobile-toolbar"),
+            desktopRail: paint(".site-desktop-rail"),
+            drawer: paint(".site-menu-drawer"),
+            workspaceTop: getComputedStyle(
+              document.querySelector("#research-workspace")
+            ).borderTopColor,
+            menuToggle: paint(".site-menu-toggle"),
+            firstNavigationMarker: getComputedStyle(
+              document.querySelector(".philo-nav-links a"), "::before"
+            ).color
+          };
+        });
+        const surface = mode === "light" ? "rgb(255, 252, 245)" : "rgb(34, 51, 42)";
+        const ink = mode === "light" ? "rgb(37, 55, 47)" : "rgb(242, 238, 227)";
+        const caption = mode === "light" ? "rgb(112, 66, 50)" : "rgb(237, 193, 158)";
+        for (const key of ["panel", "navigation", "mobileToolbar", "desktopRail", "drawer"]) {
+          assert.equal(editorial[key].background, surface,
+            "Territory navigation/surface mismatch: " + JSON.stringify({ key, width, mode, editorial }));
+        }
+        for (const key of ["mobileToolbar", "drawer", "menuToggle"]) {
+          assert.equal(editorial[key].color, ink,
+            "Territory ink mismatch: " + JSON.stringify({ key, width, mode, editorial }));
+        }
+        assert.equal(editorial.firstNavigationMarker, caption,
+          "Territory navigation marker must not keep Carbon blue");
+
+        const searchControls = await page.evaluate(() => {
+          const depth = document.querySelector("#search-depth");
+          const modeTab = document.querySelector(".search-mode-option.is-active");
+          const label = document.querySelector(".hero-shell .search-panel");
+          const account = document.querySelector(".account-trigger");
+          return {
+            depthBackground: getComputedStyle(depth).backgroundColor,
+            depthText: getComputedStyle(depth).color,
+            depthRadius: getComputedStyle(depth).borderTopLeftRadius,
+            activeUnderline: getComputedStyle(modeTab,"::after").backgroundColor,
+            caption: getComputedStyle(label,"::before").color,
+            accountBorder: getComputedStyle(account).borderTopColor
+          };
+        });
+        const controlBackground = mode === "light" ? "rgb(239, 238, 229)" : "rgb(26, 44, 35)";
+        const accountBorder = mode === "light" ? "rgb(187, 198, 184)" : "rgb(99, 121, 104)";
+        const expectedAccent = mode === "light" ? "rgb(122, 69, 52)" : "rgb(232, 184, 147)";
+        assert.equal(searchControls.depthBackground, controlBackground,
+          "Search depth selector must not inherit an unthemed white pill: " + JSON.stringify({ width, mode, searchControls }));
+        assert.equal(searchControls.depthText, ink, "Search depth selector has low-contrast text");
+        assert.equal(searchControls.depthRadius, "0px", "Search depth selector has old rounded geometry");
+        assert.equal(searchControls.activeUnderline, expectedAccent, "Old blue search-mode active underline");
+        assert.equal(searchControls.caption, caption, "Old blue search-panel caption");
+        assert.equal(searchControls.accountBorder, accountBorder, "Account control has old blue border");
+
+        assert.equal(editorial.workspaceTop,
+          mode === "light" ? "rgb(122, 69, 52)" : "rgb(232, 184, 147)",
+          "Territory workspace accent must win over old !important borders");
+
+        // Verify the real menu action, not merely computed styles of a hidden drawer.
+        const navTrigger = width <= 820
+          ? ".site-menu-toggle"
+          : ".site-desktop-menu-toggle";
+        await page.locator(navTrigger).click();
+        await page.locator(".site-menu-drawer.is-open").waitFor();
+        const openMenuPaint = await page.evaluate(() => {
+          const drawer = document.querySelector(".site-menu-drawer");
+          return {
+            background: getComputedStyle(drawer).backgroundColor,
+            inert: drawer.inert,
+            hidden: drawer.getAttribute("aria-hidden")
+          };
+        });
+        assert.equal(openMenuPaint.background, surface);
+        assert.equal(openMenuPaint.inert, false);
+        assert.equal(openMenuPaint.hidden, "false");
+        if (width === 390 || width === 1280) {
+          await page.locator(".site-menu-drawer").screenshot({
+            path: "artifacts/corpus-appearance/navigation-territory-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+        }
+        await page.locator(".site-menu-close").click();
+        await page.waitForFunction(() => {
+          const menu = document.querySelector(".site-menu-drawer");
+          return menu?.inert === true && menu.getAttribute("aria-hidden") === "true";
+        });
+
+        if (width === 390 || width === 1280) {
+          await page.locator(".hero-shell").screenshot({
+            path: "artifacts/corpus-appearance/landing-territory-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+        }
+      }
 
       const work = await page.evaluate(() => {
         const visual = document.querySelector("#results .result-visual");
@@ -136,7 +260,32 @@ try {
       assert.ok(work.scrollWidth <= width + 3,
         "Result horizontal overflow " + JSON.stringify({ width, mode, shell, work }));
       assert.ok(work.visualWidth > 0, "Result rank/visual must stay visible");
+
+      if (shell === "territory" && width <= 820) {
+        const rankSpace = await page.evaluate(() => {
+          const card = document.querySelector("#results > .result-card");
+          const title = card.querySelector(".result-title-row");
+          const badge = card.querySelector(".result-visual");
+          const gap = badge.getBoundingClientRect().left -
+            title.getBoundingClientRect().right;
+          return {
+            rightInset: parseFloat(getComputedStyle(title).paddingInlineEnd),
+            badgeLeft: badge.getBoundingClientRect().left,
+            titleRight: title.getBoundingClientRect().right,
+            gap
+          };
+        });
+        assert.ok(rankSpace.rightInset >= 54,
+          "Mobile Territory title must reserve rank space: " + JSON.stringify(rankSpace));
+      }
+
       if (shell !== "default") assert.notEqual(work.hero, "none");
+      if (shell === "territory" && (width === 390 || width === 1280)) {
+        await page.locator("#results > .result-card").first().screenshot({
+          path: "artifacts/corpus-appearance/results-territory-" + mode + "-" + width + ".png",
+          animations: "disabled"
+        });
+      }
       await page.locator(".record-open").first().evaluate(el => el.focus({ preventScroll: true }));
 
       await page.evaluate(html => {
@@ -193,6 +342,33 @@ try {
         "Author dossier outside viewport: " + JSON.stringify({ width, mode, shell, archive }));
       assert.ok(archive.scrollWidth <= width + 3, "Author dossier creates horizontal overflow");
       assert.equal(archive.timelineOverflow, "auto");
+      if (shell === "territory") {
+        const searchInput = await page.evaluate(() => {
+          const input = document.querySelector(".author-work-search-field input");
+          const root = document.querySelector(".author-work-search-field");
+          return {
+            placeholderColor: getComputedStyle(input,"::placeholder").color,
+            placeholderOpacity: getComputedStyle(input,"::placeholder").opacity,
+            focusBorder: getComputedStyle(root).borderTopColor
+          };
+        });
+        const mutedColor = mode === "light" ? "rgb(82, 100, 89)" : "rgb(193, 208, 194)";
+        assert.equal(searchInput.placeholderColor, mutedColor,
+          "Author search placeholder must be readable: " + JSON.stringify({ mode, width, searchInput }));
+        assert.equal(searchInput.placeholderOpacity, "1");
+        assert.equal(searchInput.focusBorder,
+          mode === "light" ? "rgb(187, 198, 184)" : "rgb(99, 121, 104)");
+      }
+
+
+      if (shell === "territory") {
+        const toolbarColor = await page.evaluate(() =>
+          getComputedStyle(document.querySelector(".site-mobile-toolbar")).backgroundColor
+        );
+        assert.equal(toolbarColor, mode === "light" ? "rgb(255, 252, 245)" : "rgb(34, 51, 42)",
+          "Author dossier toolbar must inherit the same Territory palette");
+      }
+
       // Reset the viewport before each image: earlier modal interactions
       // may scroll the document while an author fixture is being inserted.
       const authorViewport = await page.evaluate(() => {
