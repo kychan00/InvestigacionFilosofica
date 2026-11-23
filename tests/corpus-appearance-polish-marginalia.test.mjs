@@ -69,7 +69,7 @@ test("Marginalia: única hoja posterior a Territorio, sin filtrarse a rutas ni o
 
 test("Marginalia: preserva estructura, scroll, gestos y no agrega listeners", async () => {
   const css = await load(sheet);
-  const start = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW START"); 
+  const start = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW START");
   const end = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW END */", start);
   assert.ok(start >= 0 && end > start, "Desktop filter exception must stay documented");
   const reflow = css.slice(start, end);
