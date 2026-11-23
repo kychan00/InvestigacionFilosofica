@@ -231,9 +231,7 @@ html[data-corpus-shell="marginalia"] :is(
 ) {
   color: var(--corpus-ink);
 }
-html[data-corpus-shell="marginalia"] :is(
-  .site-mobile-toolbar-mark, .philo-mark, .philo-nav-links a::before
-) {
+html[data-corpus-shell="marginalia"] :is(.site-mobile-toolbar-mark, .philo-mark) {
   color: var(--marginalia-caption);
 }
 html[data-corpus-shell="marginalia"] .philo-nav-links a::before { color: var(--marginalia-caption); }
