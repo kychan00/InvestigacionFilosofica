@@ -435,6 +435,9 @@ html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-ca
   border-color: var(--territory-border) !important;
   box-shadow: none;
 }
+html[data-corpus-shell="territory"] body:not(.author-view) #results .result-card .result-links {
+  background: transparent !important;
+}
 html[data-corpus-shell="territory"] body:not(.author-view) #results > .result-card:hover {
   background: var(--territory-subtle) !important;
 }
@@ -595,6 +598,22 @@ html[data-corpus-shell="territory"] body.author-view .author-work-grid .result-c
 html[data-corpus-shell="territory"] body.author-view .author-work-grid .result-card :is(.result-initial, .result-rank) {
   color: var(--territory-art-ink) !important;
 }
+/* Author archive: the old input's semi-transparent UA placeholder and green
+ * focus icon were difficult to read against the dark editorial field.
+ */
+html[data-corpus-shell="territory"] body.author-view .author-work-search-field input::placeholder {
+  color: var(--corpus-muted);
+  -webkit-text-fill-color: var(--corpus-muted);
+  opacity: 1;
+}
+html[data-corpus-shell="territory"] body.author-view .author-work-search-field > span {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] body.author-view .author-work-search-field:focus-within {
+  border-color: var(--territory-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--territory-focus) 20%, transparent);
+}
+
 html[data-corpus-shell="territory"] body.author-view .author-page #author-timeline-root {
   --tl-card: var(--territory-surface);
   --tl-surface: var(--territory-surface);

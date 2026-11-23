@@ -107,3 +107,11 @@ test("Territorio editorial corrige selector de profundidad y acentos heredados",
   assert.match(css, /\.search-mode-option\.is-active::after\s*\{[^}]*background: var\(--corpus-accent\)/);
   assert.match(css, /\.account-dock \.account-trigger:is\(:hover, :focus-visible\)/);
 });
+
+
+test("Territorio preserva contraste de búsqueda en autor y limpia franja de enlaces", async () => {
+  const css = await load(sheet);
+  assert.match(css, /body\.author-view \.author-work-search-field input::placeholder\s*\{/);
+  assert.match(css, /body\.author-view \.author-work-search-field:focus-within/);
+  assert.match(css, /#results \.result-card \.result-links\s*\{[^}]*background: transparent !important;/);
+});

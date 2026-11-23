@@ -43,3 +43,5 @@ Esta entrega no presupone cambios en los demás temas.
 - Auditoría de capturas: corregida la regla antigua `#search-depth` (fondo blanco/texto pálido en oscuro); botón de profundidad y caret nativo conservan su comportamiento, con contraste adecuado. Eliminados los acentos azules residuales de subrayado activo, cuenta y rótulos editoriales. Las pruebas de navegador comprueban sus colores calculados y el radio de borde.
 
 - Ajuste de lectura en móviles: se reserva espacio al final del encabezado de la tarjeta para la numeración y, si existe, para el marcador de guardado. Se mantienen los tamaños y posiciones de ambos controles; la prueba comprueba el espaciado aplicado en el título.
+
+- Auditoría del expediente de autor: placeholder con tinta de contraste completo, iconografía y estado de foco en cobre, para evitar que el campo de búsqueda se pierda en modo oscuro. En resultados, se elimina únicamente el fondo que prolongaba la barra de acciones a lo ancho de la tarjeta, sin alterar dimensiones de botones ni su comportamiento.

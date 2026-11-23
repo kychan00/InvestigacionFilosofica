@@ -342,6 +342,24 @@ try {
         "Author dossier outside viewport: " + JSON.stringify({ width, mode, shell, archive }));
       assert.ok(archive.scrollWidth <= width + 3, "Author dossier creates horizontal overflow");
       assert.equal(archive.timelineOverflow, "auto");
+      if (shell === "territory") {
+        const searchInput = await page.evaluate(() => {
+          const input = document.querySelector(".author-work-search-field input");
+          const root = document.querySelector(".author-work-search-field");
+          return {
+            placeholderColor: getComputedStyle(input,"::placeholder").color,
+            placeholderOpacity: getComputedStyle(input,"::placeholder").opacity,
+            iconColor: getComputedStyle(root.querySelector("span")).color
+          };
+        });
+        const mutedColor = mode === "light" ? "rgb(82, 100, 89)" : "rgb(193, 208, 194)";
+        const captionColor = mode === "light" ? "rgb(112, 66, 50)" : "rgb(237, 193, 158)";
+        assert.equal(searchInput.placeholderColor, mutedColor,
+          "Author search placeholder must be readable: " + JSON.stringify({ mode, width, searchInput }));
+        assert.equal(searchInput.placeholderOpacity, "1");
+        assert.equal(searchInput.iconColor, captionColor);
+      }
+
 
       if (shell === "territory") {
         const toolbarColor = await page.evaluate(() =>
