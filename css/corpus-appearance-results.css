@@ -1,0 +1,313 @@
+/*
+ * CORPUS APPEARANCE · FASE 2 / RESULTADOS Y FILTROS
+ *
+ * Exclusivamente index.html y SOLO cuando el tema de Mi perfil no es default.
+ * Preserva las dimensiones, grids, scroll, sticky y acciones táctiles existentes.
+ * No afecta .author-view, los modales ni el Atlas: fases posteriores.
+ *
+ * Orden de carga: posterior a mobile-layout.css, theme.css y fase 1.
+ * Algunas declaraciones usan !important para superar los colores de Carbon
+ * establecidos por las reglas móviles, SIN sobreescribir su geometría.
+ */
+
+/* Identidad visual por encima de la paleta claro/oscuro de la fase 1. */
+html[data-corpus-shell="territory"] {
+  --corpus-folio-heading: Georgia, "Times New Roman", serif;
+  --corpus-card-visual:
+    radial-gradient(circle at 50% 40%, transparent 0 20%, rgba(69, 101, 77, .21) 20.3% 20.8%, transparent 21% 31%, rgba(69, 101, 77, .13) 31.3% 31.8%, transparent 32%),
+    linear-gradient(140deg, #d9dfcf, #e9e0cf);
+}
+html[data-theme="dark"][data-corpus-shell="territory"] {
+  --corpus-card-visual:
+    radial-gradient(circle at 50% 40%, transparent 0 20%, rgba(199, 218, 180, .24) 20.3% 20.8%, transparent 21% 31%, rgba(199, 218, 180, .15) 31.3% 31.8%, transparent 32%),
+    linear-gradient(140deg, #263c2d, #18271f);
+}
+html[data-corpus-shell="marginalia"] {
+  --corpus-folio-heading: Georgia, "Times New Roman", serif;
+  --corpus-card-visual:
+    linear-gradient(90deg, transparent 13%, rgba(146, 75, 53, .22) 13.25% 13.75%, transparent 14%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(125, 101, 77, .14) 27px 28px),
+    linear-gradient(145deg, #f5e8d7, #e7d4bd);
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] {
+  --corpus-card-visual:
+    linear-gradient(90deg, transparent 13%, rgba(208, 153, 116, .32) 13.25% 13.75%, transparent 14%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(205, 175, 142, .13) 27px 28px),
+    linear-gradient(145deg, #463a2d, #29231f);
+}
+html[data-corpus-shell="observatory"] {
+  --corpus-folio-heading: Georgia, "Times New Roman", serif;
+  --corpus-card-visual:
+    radial-gradient(circle at 24% 32%, #ae8454 0 2px, transparent 3px),
+    radial-gradient(circle at 76% 26%, #5c85ab 0 1px, transparent 2px),
+    radial-gradient(circle at 69% 78%, #8aa5c5 0 2px, transparent 3px),
+    radial-gradient(circle at 54% 50%, transparent 0 24%, rgba(76, 117, 150, .23) 24.2% 24.6%, transparent 24.8% 40%, rgba(76, 117, 150, .13) 40.2% 40.6%, transparent 40.8%),
+    linear-gradient(145deg, #e3edf6, #c8dae9);
+}
+html[data-theme="dark"][data-corpus-shell="observatory"] {
+  --corpus-card-visual:
+    radial-gradient(circle at 24% 32%, #e7c68a 0 2px, transparent 3px),
+    radial-gradient(circle at 76% 26%, #a9cce9 0 1px, transparent 2px),
+    radial-gradient(circle at 69% 78%, #e7c68a 0 2px, transparent 3px),
+    radial-gradient(circle at 54% 50%, transparent 0 24%, rgba(225, 191, 133, .37) 24.2% 24.6%, transparent 24.8% 40%, rgba(225, 191, 133, .15) 40.2% 40.6%, transparent 40.8%),
+    linear-gradient(145deg, #142d48, #081a30);
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) {
+  --corpus-record-surface: var(--corpus-panel);
+  --corpus-record-subtle: var(--corpus-page);
+  --corpus-record-border: var(--corpus-line);
+  --corpus-record-title: var(--corpus-ink);
+  --corpus-record-muted: var(--corpus-muted);
+  --corpus-record-accent: var(--corpus-accent);
+}
+
+/* Formulario, delimitadores y filtros de búsqueda */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-filter-grid {
+  border-color: var(--corpus-record-border);
+  background: var(--corpus-record-border);
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-filter-grid label {
+  background: var(--corpus-record-subtle) !important;
+  color: var(--corpus-record-title) !important;
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-filter-grid :is(select, input) {
+  border-color: var(--corpus-record-border);
+  border-bottom-color: var(--corpus-record-accent);
+  background: var(--corpus-record-surface) !important;
+  color: var(--corpus-record-title) !important;
+  -webkit-text-fill-color: var(--corpus-record-title);
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-filter-grid input::placeholder {
+  color: var(--corpus-record-muted) !important;
+  -webkit-text-fill-color: var(--corpus-record-muted);
+  opacity: 1;
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) :is(
+  .search-filters-heading h2,
+  .search-filters-heading p,
+  .search-filters-heading span,
+  .search-filter-footer .filter-count,
+  .search-mode-note,
+  .search-engine-indicator
+) {
+  color: var(--corpus-record-title) !important;
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-mode-option {
+  color: var(--corpus-record-title) !important;
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-mode-option.is-active {
+  background: var(--corpus-record-surface);
+  border-color: var(--corpus-record-border);
+  color: var(--corpus-record-title) !important;
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .search-filters #filter-reset {
+  border-color: var(--corpus-record-border) !important;
+  color: var(--corpus-record-title) !important;
+}
+
+/* Workspace: colores nuevos, geometría heredada */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace {
+  border-color: var(--corpus-record-border) !important;
+  background: var(--corpus-record-surface) !important;
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace .workspace-sidebar {
+  border-right-color: var(--corpus-record-border);
+  background: var(--corpus-record-subtle);
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace .workspace-main {
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace :is(
+  .filters h2,
+  .filter-grid label,
+  .filter-count,
+  .stat,
+  .stats strong,
+  .research-view-tab
+) {
+  color: var(--corpus-record-title) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace .filter-grid :is(select, input) {
+  border-color: var(--corpus-record-border);
+  background: var(--corpus-record-surface);
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace :is(
+  .filter-reset,
+  .export-button
+) {
+  border-color: var(--corpus-record-border);
+  background: var(--corpus-record-subtle);
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace :is(
+  .filter-reset,
+  .export-button,
+  .filter-grid select,
+  .filter-grid input
+):focus-visible {
+  outline: 2px solid var(--corpus-record-accent);
+  outline-offset: 2px;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace :is(
+  .stats,
+  .interpretation,
+  .chip,
+  .research-view-tab,
+  .source-notice
+) {
+  border-color: var(--corpus-record-border);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace .chip {
+  background: var(--corpus-record-subtle) !important;
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-tab.is-active {
+  color: var(--corpus-record-accent) !important;
+  border-bottom-color: var(--corpus-record-accent);
+}
+
+/* Result cards: scope strictly to #results, never .author-work-grid */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results > .result-card {
+  border-color: var(--corpus-record-border) !important;
+  border-left-color: var(--corpus-record-accent) !important;
+  background: var(--corpus-record-surface) !important;
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results > .result-card:hover {
+  background: var(--corpus-record-surface) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-visual {
+  background: var(--corpus-card-visual);
+  color: var(--corpus-record-title);
+  border-color: var(--corpus-record-border);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-visual::before {
+  border-color: var(--corpus-record-border);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card h2 {
+  color: var(--corpus-record-title) !important;
+  font-family: var(--corpus-folio-heading);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card :is(
+  .meta,
+  .result-abstract,
+  .explain,
+  .explanation summary,
+  .score-panel > span
+) {
+  color: var(--corpus-record-muted) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .meta a {
+  color: var(--corpus-record-title) !important;
+  text-decoration-color: var(--corpus-record-accent);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card :is(
+  .provider,
+  .relevance-pill,
+  .score-panel .score
+) {
+  border-color: var(--corpus-record-border) !important;
+  background: var(--corpus-record-subtle) !important;
+  color: var(--corpus-record-title) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card :is(
+  .score-panel,
+  .explanation
+) {
+  border-color: var(--corpus-record-border);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .score-meter {
+  accent-color: var(--corpus-record-accent);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-links {
+  background: var(--corpus-record-border);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-links .record-open {
+  border-color: var(--corpus-record-accent) !important;
+  background: var(--corpus-record-accent) !important;
+  color: var(--corpus-on-accent) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-links .institutional-card-link {
+  border-color: var(--corpus-record-title) !important;
+  background: var(--corpus-record-title) !important;
+  color: var(--corpus-record-subtle) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-links :is(
+  .result-secondary-link,
+  .result-open-link,
+  .result-doi-link
+) {
+  border-color: var(--corpus-record-border) !important;
+  background: var(--corpus-record-subtle) !important;
+  color: var(--corpus-record-title) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-links :is(
+  button,
+  a
+):focus-visible {
+  outline: 2px solid var(--corpus-record-accent) !important;
+  outline-offset: 3px;
+}
+
+/* Loading, pagination and source notices. Do not change display/grid/min-height. */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .workspace-main :is(
+  .search-loading-card,
+  .source-notice,
+  .load-more-wrap,
+  .fetch-more-wrap
+) {
+  border-color: var(--corpus-record-border) !important;
+  background: var(--corpus-record-subtle) !important;
+  color: var(--corpus-record-title);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .workspace-main :is(
+  .fetch-more,
+  .load-more
+) {
+  border-color: var(--corpus-record-accent) !important;
+  background: var(--corpus-record-accent) !important;
+  color: var(--corpus-on-accent) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .workspace-main :is(
+  .fetch-more,
+  .load-more
+):focus-visible {
+  outline: 2px solid var(--corpus-record-title);
+  outline-offset: 3px;
+}
+
+/* The last mobile geometry rules remain authoritative: only rank colors
+   and visual backgrounds change, never coordinates/size/spacing. */
+@media (max-width: 820px) {
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-visual {
+    background: var(--corpus-record-title);
+    color: var(--corpus-record-subtle);
+  }
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-rank {
+    color: var(--corpus-record-subtle);
+  }
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results .result-card .result-links {
+    background: transparent;
+  }
+}
+
+/* On forced-colors surfaces the browser must control contrast and outlines. */
+@media (forced-colors: active) {
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-workspace,
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #results > .result-card {
+    border-color: CanvasText !important;
+    background: Canvas !important;
+    color: CanvasText;
+  }
+}

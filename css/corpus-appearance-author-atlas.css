@@ -1,0 +1,442 @@
+/*
+ * CORPUS APPEARANCE · FASE 4 / ARCHIVO DE AUTOR Y ATLAS INCRUSTADO
+ * Solo index.html (incluido ?view=author). Respeta la geometría, el
+ * desplazamiento de cronología y las herramientas táctiles del canvas.
+ * Ninguna regla afecta #record-modal, #udeg-modal ni atlas.html.
+ *
+ * Los tokens --profile-* ya son la fuente de color de author-visibility-repair;
+ * --tl-* son la fuente de color de author-timeline.
+ * --corpus-atlas-* alimenta tanto el CSS del panel como palette() en el canvas.
+ */
+
+/* Thematic additions to the six phase-one color schemes. */
+html[data-theme="light"][data-corpus-shell="territory"] {
+  --corpus-author-card: #fffaf0;
+  --corpus-author-muted: #e7e1d3;
+  --corpus-author-action: #943e2d;
+  --corpus-author-action-hover: #793123;
+  --corpus-author-label: #823526;
+  --corpus-author-tint: #eee0d2;
+  --corpus-atlas-ink: #26382d;
+  --corpus-atlas-work-fill: #fffaf0;
+  --corpus-atlas-edge: #778c75;
+  --corpus-atlas-blue: #943e2d;
+  --corpus-atlas-cyan: #587f98;
+  --corpus-atlas-green: #497650;
+  --corpus-atlas-purple: #74649b;
+  --corpus-atlas-yellow: #87602f;
+  --corpus-atlas-red: #b04f45;
+  --corpus-atlas-author: #a13f71;
+  --corpus-atlas-muted: #506756;
+}
+html[data-theme="dark"][data-corpus-shell="territory"] {
+  --corpus-author-card: #25382b;
+  --corpus-author-muted: #344c3b;
+  --corpus-author-action: #83432c;
+  --corpus-author-action-hover: #66341f;
+  --corpus-author-label: #f5b899;
+  --corpus-author-tint: #3e4e3d;
+  --corpus-atlas-ink: #f1eddf;
+  --corpus-atlas-work-fill: #f1eddf;
+  --corpus-atlas-edge: #8ba38b;
+  --corpus-atlas-blue: #e1a386;
+  --corpus-atlas-cyan: #8fc5da;
+  --corpus-atlas-green: #91c29c;
+  --corpus-atlas-purple: #c6a7f2;
+  --corpus-atlas-yellow: #f1cd8a;
+  --corpus-atlas-red: #f3a394;
+  --corpus-atlas-author: #f1a1c2;
+  --corpus-atlas-muted: #c3d5c5;
+}
+html[data-theme="light"][data-corpus-shell="marginalia"] {
+  --corpus-author-card: #fffbf2;
+  --corpus-author-muted: #eadcca;
+  --corpus-author-action: #98543b;
+  --corpus-author-action-hover: #773e2b;
+  --corpus-author-label: #85432f;
+  --corpus-author-tint: #f0dfcc;
+  --corpus-atlas-ink: #342c27;
+  --corpus-atlas-work-fill: #fffbf2;
+  --corpus-atlas-edge: #a48a77;
+  --corpus-atlas-blue: #98543b;
+  --corpus-atlas-cyan: #52888b;
+  --corpus-atlas-green: #637d51;
+  --corpus-atlas-purple: #865c91;
+  --corpus-atlas-yellow: #9a6a25;
+  --corpus-atlas-red: #b34c48;
+  --corpus-atlas-author: #9251a1;
+  --corpus-atlas-muted: #6a5b50;
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] {
+  --corpus-author-card: #372c26;
+  --corpus-author-muted: #503e33;
+  --corpus-author-action: #81452e;
+  --corpus-author-action-hover: #683726;
+  --corpus-author-label: #f1b995;
+  --corpus-author-tint: #543e34;
+  --corpus-atlas-ink: #f6eee1;
+  --corpus-atlas-work-fill: #f6eee1;
+  --corpus-atlas-edge: #aa947c;
+  --corpus-atlas-blue: #db9d7a;
+  --corpus-atlas-cyan: #8bc7cb;
+  --corpus-atlas-green: #a1c89d;
+  --corpus-atlas-purple: #dbb0ed;
+  --corpus-atlas-yellow: #f0c782;
+  --corpus-atlas-red: #f4a3a0;
+  --corpus-atlas-author: #f1a3cf;
+  --corpus-atlas-muted: #dec7b3;
+}
+html[data-theme="light"][data-corpus-shell="observatory"] {
+  --corpus-author-card: #ffffff;
+  --corpus-author-muted: #dfe9f3;
+  --corpus-author-action: #74511f;
+  --corpus-author-action-hover: #593c16;
+  --corpus-author-label: #67491f;
+  --corpus-author-tint: #e5ebf5;
+  --corpus-atlas-ink: #172d49;
+  --corpus-atlas-work-fill: #ffffff;
+  --corpus-atlas-edge: #849bb5;
+  --corpus-atlas-blue: #74511f;
+  --corpus-atlas-cyan: #3776a5;
+  --corpus-atlas-green: #3e745d;
+  --corpus-atlas-purple: #735f9e;
+  --corpus-atlas-yellow: #99691f;
+  --corpus-atlas-red: #a34d5c;
+  --corpus-atlas-author: #a32c68;
+  --corpus-atlas-muted: #465b75;
+}
+html[data-theme="dark"][data-corpus-shell="observatory"] {
+  --corpus-author-card: #18314e;
+  --corpus-author-muted: #2a4867;
+  --corpus-author-action: #74511f;
+  --corpus-author-action-hover: #624319;
+  --corpus-author-label: #f3d6a3;
+  --corpus-author-tint: #253e5c;
+  --corpus-atlas-ink: #f1f5fc;
+  --corpus-atlas-work-fill: #f1f5fc;
+  --corpus-atlas-edge: #829bb8;
+  --corpus-atlas-blue: #e0bd80;
+  --corpus-atlas-cyan: #8cccf0;
+  --corpus-atlas-green: #91d8ba;
+  --corpus-atlas-purple: #c7adf7;
+  --corpus-atlas-yellow: #f5dd9c;
+  --corpus-atlas-red: #ffa7b5;
+  --corpus-atlas-author: #f5a6ca;
+  --corpus-atlas-muted: #bbd1e8;
+}
+
+/* AUTHOR DOSSIER: the existing profile skin depends on these variables.
+ * Set on body.author-view so it does not recolor public result cards.
+ */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view {
+  --profile-page: var(--corpus-page);
+  --profile-panel: var(--corpus-author-card);
+  --profile-card: var(--corpus-author-card);
+  --profile-muted-panel: var(--corpus-author-muted);
+  --profile-ink: var(--corpus-ink);
+  --profile-subtle: var(--corpus-muted);
+  --profile-muted: var(--corpus-muted);
+  --profile-outline: var(--corpus-line);
+  --profile-action: var(--corpus-author-action);
+  --profile-action-hover: var(--corpus-author-action-hover);
+  --profile-secondary: var(--corpus-author-action);
+  --profile-secondary-hover: var(--corpus-author-action-hover);
+  --profile-blue-label: var(--corpus-author-label);
+  --theme-page: var(--corpus-page);
+  --theme-surface: var(--corpus-author-card);
+  --theme-surface-2: var(--corpus-author-muted);
+  --theme-text: var(--corpus-ink);
+  --theme-text-soft: var(--corpus-muted);
+  --theme-line: var(--corpus-line);
+  color: var(--corpus-ink);
+}
+
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .hero-shell {
+  background: var(--corpus-hero-bg) !important;
+  color: var(--corpus-ink) !important;
+  box-shadow: none;
+  border-bottom: 1px solid var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .philo-brand,
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .philo-mark,
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .philo-brand-subtitle {
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page-hero {
+  border-color: var(--corpus-line);
+  background: var(--corpus-hero-bg) !important;
+  color: var(--corpus-ink) !important;
+  box-shadow: 0 14px 38px color-mix(in srgb, var(--corpus-ink) 8%, transparent);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page-hero::after {
+  color: color-mix(in srgb, var(--corpus-ink) 8%, transparent);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view :is(
+  .author-page-hero h1,
+  .author-page-biography,
+  .author-page-back,
+  .author-page-eyebrow,
+  .author-page-evidence
+) {
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page-evidence a {
+  color: var(--corpus-author-label) !important;
+  border-color: var(--corpus-line);
+  background: var(--corpus-author-card);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page-seal {
+  border-color: var(--corpus-line);
+  background: var(--corpus-author-tint);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page-seal :is(span, small) {
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view :is(
+  .author-page-metrics,
+  .author-analysis-card,
+  .author-page-taxonomy,
+  .author-work-browser,
+  .author-archive-discovery,
+  .author-collaboration-summary,
+  .author-academic-profile,
+  .author-page-source-summary > div
+) {
+  border-color: var(--corpus-line) !important;
+  background: var(--corpus-author-card) !important;
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-search-field {
+  border-color: var(--corpus-line);
+  background: var(--corpus-author-muted);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-search-field input {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view :is(
+  .author-work-search label,
+  .author-work-alphabet > span,
+  .author-work-search small
+) {
+  color: var(--corpus-muted) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-alphabet button {
+  background: var(--corpus-author-card);
+  color: var(--corpus-ink);
+  border-color: var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-alphabet button.is-active {
+  background: var(--profile-action);
+  color: #ffffff;
+  border-color: var(--profile-action);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-grid .result-card .result-visual {
+  background: var(--corpus-ink) !important;
+  color: var(--corpus-author-card) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-grid .result-card .result-initial,
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-grid .result-card .result-rank {
+  color: var(--corpus-author-card) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-work-grid .result-card h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view :is(
+  .author-work-grid a,
+  .author-work-browser button,
+  .author-page-back,
+  .author-evidence a,
+  .author-biography-details summary
+):focus-visible {
+  outline: 2px solid var(--corpus-author-label) !important;
+  outline-offset: 3px;
+}
+
+/* TIMELINE: the chronology keeps the same horizontal scroll, snap positions,
+ * expansion mechanics and button sizes. Only its palette is replaced.
+ */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page #author-timeline-root {
+  --tl-ink: var(--corpus-ink);
+  --tl-subtle: var(--corpus-muted);
+  --tl-muted: var(--corpus-muted);
+  --tl-blue: var(--corpus-author-action);
+  --tl-blue-label: var(--corpus-author-label);
+  --tl-line: var(--corpus-line);
+  --tl-surface: var(--corpus-author-card);
+  --tl-card: var(--corpus-author-card);
+  --tl-soft: var(--corpus-author-muted);
+  --tl-blue-soft: var(--corpus-author-tint);
+  --tl-shadow: color-mix(in srgb, var(--corpus-ink) 8%, transparent);
+  border-color: var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page .author-timeline-period.is-active {
+  outline: 1px solid var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page :is(
+  .author-timeline-period,
+  .author-timeline-work,
+  .author-timeline-more,
+  .author-biography-details > summary
+):focus-visible {
+  outline: 2px solid var(--corpus-author-label) !important;
+  outline-offset: 3px;
+}
+
+/* EMBEDDED ATLAS ONLY: not the independent thesis/research Atlas pages.
+ * The canvas itself reads the --corpus-atlas-* tokens from <html>.
+ */
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) :is(
+  .research-view-switch,
+  #research-atlas-panel
+) {
+  border-color: var(--corpus-line);
+  background: var(--corpus-author-card);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-tab {
+  border-color: var(--corpus-line);
+  background: var(--corpus-author-card);
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-tab.is-active {
+  background: var(--corpus-author-action);
+  color: #ffffff !important;
+  box-shadow: inset 0 -3px var(--corpus-author-label);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-count {
+  color: var(--corpus-author-label);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) .research-view-tab.is-active .research-view-count {
+  color: #ffffff;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-embed-head,
+  .research-atlas-stage,
+  .research-atlas-accessible,
+  .research-atlas-actions,
+  .research-atlas-layer-switches,
+  .research-atlas-detail-meta,
+  .research-atlas-node-actions,
+  .research-atlas-list,
+  .research-atlas-zoom-controls
+) {
+  border-color: var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-embed-head,
+  .research-atlas-detail,
+  .research-atlas-accessible,
+  .research-atlas-layer-switches label,
+  .research-atlas-tooltip,
+  .research-atlas-detail-meta > div,
+  .research-atlas-list button,
+  .research-atlas-author-key
+) {
+  background: var(--corpus-author-card);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-embed-head h2,
+  .research-atlas-detail-title,
+  .research-atlas-detail > strong,
+  .research-atlas-why h3,
+  .research-atlas-relations h3,
+  .research-atlas-relation,
+  .research-atlas-list strong
+) {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-embed-head p,
+  .research-atlas-detail > p,
+  .research-atlas-sync-status,
+  .research-atlas-stage-status,
+  .research-atlas-tooltip span,
+  .research-atlas-detail-meta span,
+  .research-atlas-accessible p,
+  .research-atlas-relation span,
+  .research-atlas-list span
+) {
+  color: var(--corpus-muted);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-kicker,
+  .research-atlas-detail-mark
+) {
+  color: var(--corpus-author-label);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-stage {
+  background-color: var(--corpus-author-muted);
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--corpus-line) 32%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--corpus-line) 32%, transparent) 1px, transparent 1px);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-tooltip {
+  border-color: var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-detail-meta > div,
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-relation {
+  border-color: var(--corpus-line);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-actions input {
+  background: var(--corpus-author-card);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-actions input::placeholder {
+  color: var(--corpus-muted);
+  opacity: 1;
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-actions button,
+  .research-atlas-zoom-controls button,
+  .research-atlas-node-action.primary
+) {
+  background: var(--corpus-author-action);
+  color: #ffffff;
+  border-color: var(--corpus-author-action);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-node-action:not(.primary),
+  .research-atlas-author-link,
+  .research-atlas-why,
+  .research-atlas-author-key
+) {
+  border-color: var(--corpus-line);
+  background: var(--corpus-author-card);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-why,
+  .research-atlas-detail-meta > div,
+  .research-atlas-list button[aria-current="true"]
+) {
+  border-left-color: var(--corpus-author-action);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-list button[aria-current="true"] {
+  background: var(--corpus-author-tint);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel .research-atlas-author-key i {
+  background: var(--corpus-atlas-author);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--corpus-atlas-author) 18%, transparent);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel input[type="checkbox"] {
+  accent-color: var(--corpus-author-action);
+}
+html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel :is(
+  button, a, input
+):focus-visible {
+  outline: 2px solid var(--corpus-author-label);
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body.author-view .author-page-hero,
+  html[data-corpus-shell]:not([data-corpus-shell="default"]) body:not(.author-view) #research-atlas-panel {
+    background: Canvas !important;
+    color: CanvasText !important;
+    border-color: CanvasText;
+  }
+}
