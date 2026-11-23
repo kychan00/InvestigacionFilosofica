@@ -44,4 +44,4 @@ Esta entrega no presupone cambios en los demás temas.
 
 - Ajuste de lectura en móviles: se reserva espacio al final del encabezado de la tarjeta para la numeración y, si existe, para el marcador de guardado. Se mantienen los tamaños y posiciones de ambos controles; la prueba comprueba el espaciado aplicado en el título.
 
-- Auditoría del expediente de autor: placeholder con tinta de contraste completo, iconografía y estado de foco en cobre, para evitar que el campo de búsqueda se pierda en modo oscuro. En resultados, se elimina únicamente el fondo que prolongaba la barra de acciones a lo ancho de la tarjeta, sin alterar dimensiones de botones ni su comportamiento.
+- Auditoría del expediente de autor: placeholder con tinta de contraste completo, estado de foco en cobre, para evitar que el campo de búsqueda se pierda en modo oscuro. En resultados, se elimina únicamente el fondo que prolongaba la barra de acciones a lo ancho de la tarjeta, sin alterar dimensiones de botones ni su comportamiento.

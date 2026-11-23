@@ -606,9 +606,6 @@ html[data-corpus-shell="territory"] body.author-view .author-work-search-field i
   -webkit-text-fill-color: var(--corpus-muted);
   opacity: 1;
 }
-html[data-corpus-shell="territory"] body.author-view .author-work-search-field > span {
-  color: var(--territory-caption);
-}
 html[data-corpus-shell="territory"] body.author-view .author-work-search-field:focus-within {
   border-color: var(--territory-focus);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--territory-focus) 20%, transparent);

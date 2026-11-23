@@ -349,15 +349,15 @@ try {
           return {
             placeholderColor: getComputedStyle(input,"::placeholder").color,
             placeholderOpacity: getComputedStyle(input,"::placeholder").opacity,
-            iconColor: getComputedStyle(root.querySelector("span")).color
+            focusBorder: getComputedStyle(root).borderTopColor
           };
         });
         const mutedColor = mode === "light" ? "rgb(82, 100, 89)" : "rgb(193, 208, 194)";
-        const captionColor = mode === "light" ? "rgb(112, 66, 50)" : "rgb(237, 193, 158)";
         assert.equal(searchInput.placeholderColor, mutedColor,
           "Author search placeholder must be readable: " + JSON.stringify({ mode, width, searchInput }));
         assert.equal(searchInput.placeholderOpacity, "1");
-        assert.equal(searchInput.iconColor, captionColor);
+        assert.equal(searchInput.focusBorder,
+          mode === "light" ? "rgb(187, 198, 184)" : "rgb(99, 121, 104)");
       }
 
 
