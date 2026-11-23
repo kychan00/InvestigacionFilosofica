@@ -22,7 +22,7 @@
     })();
   </script>
   <title>Acerca de · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/about.css?v=20261123-contacto-kofi-v2">
+  <link rel="stylesheet" href="./css/about.css?v=20261123-contacto-mp-v3">
   <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
 </head>
 <body>
@@ -676,7 +676,7 @@
       </section>
 
 
-      <section class="about-support" id="apoyar" aria-labelledby="support-title" data-kofi-url="">
+      <section class="about-support" id="apoyar" aria-labelledby="support-title" data-payment-url="">
         <div class="about-support-heading">
           <p class="section-label">SOSTENER EL ACCESO ABIERTO</p>
           <h2 id="support-title">La investigación se comparte. Su continuidad también puede apoyarse.</h2>
@@ -688,28 +688,29 @@
         </div>
         <div class="about-support-panel">
           <div class="about-support-panel-top">
-            <span class="about-support-symbol" aria-hidden="true">☕</span>
-            <span class="about-support-platform">APOYO VOLUNTARIO · KO-FI</span>
+            <span class="about-support-symbol" aria-hidden="true">MX$</span>
+            <span class="about-support-platform">APOYO VOLUNTARIO · MERCADO PAGO</span>
           </div>
           <h3>Un gesto de apoyo, nunca una condición de acceso.</h3>
           <p>
-            No hay importes obligatorios, suscripciones necesarias ni ventajas exclusivas.
-            Los recursos públicos seguirán disponibles para todas las personas,
-            hayan contribuido o no.
+            Usted decide cuánto aportar en pesos mexicanos. No hay suscripciones necesarias
+            ni ventajas exclusivas. Los recursos públicos seguirán disponibles
+            para todas las personas, hayan contribuido o no.
           </p>
-          <a id="about-kofi-link" class="about-support-action" href="#apoyar" target="_blank"
+          <a id="about-mercadopago-link" class="about-support-action" href="#apoyar" target="_blank"
              rel="noopener noreferrer"
-             aria-label="Apoyar Investigación Filosófica en Ko-fi (abre en otra pestaña)" hidden>
-            Apoyar en Ko-fi <span aria-hidden="true">↗</span>
+             aria-label="Apoyar Investigación Filosófica con Mercado Pago (abre en otra pestaña)" hidden>
+            Apoyar con Mercado Pago <span aria-hidden="true">↗</span>
           </a>
-          <p class="about-support-pending" id="about-kofi-pending">
-            La opción para realizar aportaciones se habilitará cuando esté disponible
-            el enlace oficial del proyecto en Ko-fi.
+          <p class="about-support-pending" id="about-mercadopago-pending">
+            La opción para aportar en pesos mexicanos se habilitará cuando esté disponible
+            el enlace oficial de Mercado Pago con monto abierto.
           </p>
           <p class="about-support-disclosure">
-            Las aportaciones no son un requisito para usar el sitio ni constituyen pagos
-            por servicios. No se emiten comprobantes de donativos deducibles de impuestos.
-            Los pagos, una vez habilitados, se realizarán fuera de este sitio mediante Ko-fi.
+            Las aportaciones no son requisito para usar el sitio ni otorgan ventajas exclusivas.
+            No se emiten comprobantes de donativos deducibles de impuestos.
+            Las cantidades recibidas están sujetas al tratamiento fiscal que corresponda.
+            Los pagos, una vez habilitados, se realizarán fuera de este sitio mediante Mercado Pago.
           </p>
         </div>
       </section>
@@ -729,25 +730,25 @@
 
 
   <script>
-    // Active el enlace publicando la URL de su perfil de Ko-fi en
-    // data-kofi-url de #apoyar. Nunca se adivina la cuenta receptora.
+    // Active el apoyo voluntario únicamente cuando exista un enlace de pago
+    // real de monto abierto de Mercado Pago. No se adivina la cuenta receptora.
     (() => {
       const section = document.getElementById("apoyar");
-      const link = document.getElementById("about-kofi-link");
-      const pending = document.getElementById("about-kofi-pending");
-      const rawUrl = section?.dataset.kofiUrl?.trim();
+      const link = document.getElementById("about-mercadopago-link");
+      const pending = document.getElementById("about-mercadopago-pending");
+      const rawUrl = section?.dataset.paymentUrl?.trim();
       if (!link || !pending || !rawUrl) return;
       try {
         const url = new URL(rawUrl);
-        const parts = url.pathname.split("/").filter(Boolean);
-        const validProfile = parts.length === 1 && /^[a-z0-9_-]+$/i.test(parts[0]);
-        if (url.protocol !== "https:" || url.hostname !== "ko-fi.com" ||
-            !validProfile || url.username || url.password) return;
+        const allowedHosts = new Set(["link.mercadopago.com.mx", "mpago.la"]);
+        const validPath = /^\/[A-Za-z0-9_-]+\/?$/.test(url.pathname);
+        if (url.protocol !== "https:" || !allowedHosts.has(url.hostname) ||
+            !validPath || url.username || url.password || url.port) return;
         link.href = url.href;
         link.hidden = false;
         pending.hidden = true;
       } catch {
-        // Si la URL no es válida, no se muestra un enlace de pago incorrecto.
+        // No mostrar un enlace de cobro si su dirección es inválida.
       }
     })();
   </script>
