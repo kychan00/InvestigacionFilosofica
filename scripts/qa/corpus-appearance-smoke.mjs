@@ -138,6 +138,9 @@ try {
             mobileToolbar: paint(".site-mobile-toolbar"),
             desktopRail: paint(".site-desktop-rail"),
             drawer: paint(".site-menu-drawer"),
+            workspaceTop: getComputedStyle(
+              document.querySelector("#research-workspace")
+            ).borderTopColor,
             menuToggle: paint(".site-menu-toggle"),
             firstNavigationMarker: getComputedStyle(
               document.querySelector(".philo-nav-links a"), "::before"
@@ -157,6 +160,39 @@ try {
         }
         assert.equal(editorial.firstNavigationMarker, caption,
           "Territory navigation marker must not keep Carbon blue");
+        assert.equal(editorial.workspaceTop,
+          mode === "light" ? "rgb(122, 69, 52)" : "rgb(232, 184, 147)",
+          "Territory workspace accent must win over old !important borders");
+
+        // Verify the real menu action, not merely computed styles of a hidden drawer.
+        const navTrigger = width <= 820
+          ? ".site-menu-toggle"
+          : ".site-desktop-menu-toggle";
+        await page.locator(navTrigger).click();
+        await page.locator(".site-menu-drawer.is-open").waitFor();
+        const openMenuPaint = await page.evaluate(() => {
+          const drawer = document.querySelector(".site-menu-drawer");
+          return {
+            background: getComputedStyle(drawer).backgroundColor,
+            inert: drawer.inert,
+            hidden: drawer.getAttribute("aria-hidden")
+          };
+        });
+        assert.equal(openMenuPaint.background, surface);
+        assert.equal(openMenuPaint.inert, false);
+        assert.equal(openMenuPaint.hidden, "false");
+        if (width === 390 || width === 1280) {
+          await page.locator(".site-menu-drawer").screenshot({
+            path: "artifacts/corpus-appearance/navigation-territory-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+        }
+        await page.locator(".site-menu-close").click();
+        await page.waitForFunction(() => {
+          const menu = document.querySelector(".site-menu-drawer");
+          return menu?.inert === true && menu.getAttribute("aria-hidden") === "true";
+        });
+
         if (width === 390 || width === 1280) {
           await page.locator(".hero-shell").screenshot({
             path: "artifacts/corpus-appearance/landing-territory-" + mode + "-" + width + ".png",
@@ -179,6 +215,12 @@ try {
         "Result horizontal overflow " + JSON.stringify({ width, mode, shell, work }));
       assert.ok(work.visualWidth > 0, "Result rank/visual must stay visible");
       if (shell !== "default") assert.notEqual(work.hero, "none");
+      if (shell === "territory" && (width === 390 || width === 1280)) {
+        await page.locator("#results > .result-card").first().screenshot({
+          path: "artifacts/corpus-appearance/results-territory-" + mode + "-" + width + ".png",
+          animations: "disabled"
+        });
+      }
       await page.locator(".record-open").first().evaluate(el => el.focus({ preventScroll: true }));
 
       await page.evaluate(html => {

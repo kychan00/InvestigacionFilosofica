@@ -344,6 +344,12 @@ html[data-corpus-shell="territory"] body:not(.author-view) .research-workspace {
   border-radius: 4px;
   box-shadow: 0 18px 52px var(--territory-shadow);
 }
+/* Existing results CSS applies !important borders with higher specificity.
+ * Target the workspace ID to preserve Territorio's editorial accent.
+ */
+html[data-corpus-shell="territory"] body:not(.author-view) #research-workspace {
+  border-top-color: var(--corpus-accent) !important;
+}
 html[data-corpus-shell="territory"] body:not(.author-view) .research-workspace::before {
   content: "ARCHIVO / REGISTROS Y CONEXIONES";
 }

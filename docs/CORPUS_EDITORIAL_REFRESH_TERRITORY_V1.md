@@ -36,3 +36,6 @@ Esta entrega no presupone cambios en los demás temas.
 - La suite Playwright ahora verifica superficies y tinta calculadas en la portada, navegación, menú y barra lateral. También captura `landing-territory-{light|dark}-{390|1280}.png` (cuatro capturas adicionales).
 - Se añadió validación de contraste para leyendas, menú y hover de acciones, sin cambiar ninguna geometría, gesto ni script funcional.
 - Se mantiene la revisión visual de capturas y Safari/Android físicos como paso manual independiente.
+
+- Se detectó una colisión de especificidad con el borde superior del espacio de resultados; ahora gana el acento editorial de Territorio. El navegador comprueba el color calculado.
+- El smoke abre y cierra el menú real en móvil y escritorio, verifica `inert` y `aria-hidden`, y guarda capturas del menú y de la tarjeta de resultados para 390/1280 px en ambos modos.
