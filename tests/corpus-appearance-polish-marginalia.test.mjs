@@ -68,7 +68,7 @@ test("Marginalia: única hoja posterior a Territorio, sin filtrarse a rutas ni o
 });
 
 test("Marginalia: preserva estructura, scroll, gestos y no agrega listeners", async () => {
-  const css = (await load(sheet)).replace(/\/\*[\s\S]*?\*\//g,"");
+  const css = await load(sheet);
   const start = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW START"); 
   const end = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW END */", start);
   assert.ok(start >= 0 && end > start, "Desktop filter exception must stay documented");
@@ -77,7 +77,8 @@ test("Marginalia: preserva estructura, scroll, gestos y no agrega listeners", as
   assert.match(reflow, /grid-template-columns: repeat\(6, minmax\(0, 1fr\)\)/);
   assert.match(reflow, /nth-child\(-n\+3\)/);
   assert.match(reflow, /nth-child\(n\+4\)/);
-  const safe = css.slice(0, start) + css.slice(end + "/* EDITORIAL DESKTOP FILTER REFLOW END */".length);
+  const safe = (css.slice(0, start) + css.slice(end + "/* EDITORIAL DESKTOP FILTER REFLOW END */".length))
+    .replace(/\/\*[\s\S]*?\*\//g,"");
   assert.doesNotMatch(safe,/(?:^|[;{]\s*)(?:position|display|inset|top|right|bottom|left|width|height|min-width|min-height|max-width|max-height|grid-template(?:-columns|-rows)?|grid-column|grid-row|overflow(?:-x|-y)?|transform|margin|z-index|scroll-behavior|touch-action|pointer-events)\s*:/m);
   assert.doesNotMatch(css,/@keyframes|@import|url\(/);
   assert.match(css,/@media \(forced-colors: active\)/);
