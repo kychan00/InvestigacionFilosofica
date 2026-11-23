@@ -124,6 +124,11 @@ try {
         document.documentElement.dataset.theme = mode;
         document.documentElement.style.colorScheme = mode;
         document.documentElement.dataset.corpusShell = shell;
+        // Update the actual menu aria-pressed indicators after the fixture
+        // changes root theme without pressing an interface button.
+        window.dispatchEvent(new CustomEvent("philosophythemechange", {
+          detail: { theme: mode }
+        }));
       }, { mode, shell });
 
 
@@ -273,7 +278,9 @@ try {
             selectText: color("#search-depth"),
             account: color(".account-trigger"),
             note: getComputedStyle(document.querySelector(".hero-shell .search-panel"), "::before").color,
-            activeUnderline: getComputedStyle(document.querySelector(".search-mode-option.is-active"), "::after").backgroundColor
+            activeUnderline: getComputedStyle(document.querySelector(".search-mode-option.is-active"), "::after").backgroundColor,
+            recordAction: getComputedStyle(document.querySelector("#results .result-card .result-links .record-open")).backgroundColor,
+            recordActionInk: getComputedStyle(document.querySelector("#results .result-card .result-links .record-open")).color
           };
         });
         for (const key of ["panel", "toolbar", "nav", "rail", "drawer"]) {
@@ -285,6 +292,10 @@ try {
         assert.equal(p.account, ink);
         assert.equal(p.note, caption);
         assert.equal(p.activeUnderline, accent);
+        assert.equal(p.recordAction,
+          mode === "light" ? "rgb(53, 70, 80)" : "rgb(101, 66, 61)",
+          "Marginalia primary result action must use editorial ink, not pale generic accent");
+        assert.equal(p.recordActionInk, "rgb(255, 255, 255)");
         const trigger = width <= 820 ? ".site-menu-toggle" : ".site-desktop-menu-toggle";
         await page.locator(trigger).click();
         await page.locator(".site-menu-drawer.is-open").waitFor();

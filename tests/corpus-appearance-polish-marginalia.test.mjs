@@ -88,5 +88,6 @@ test("Marginalia: protege selector dark y elimina marcas azules heredadas", asyn
   assert.match(css,/\.search-mode-option\.is-active::after\s*\{[^}]*background: var\(--corpus-accent\)/);
   assert.match(css,/\.site-menu-theme button\[aria-pressed="true"\]\s*\{/);
   assert.match(css,/#results \.result-card \.result-links\s*\{[^}]*background: transparent !important;/);
+  assert.match(css,/html\[data-theme\]\[data-corpus-shell="marginalia"\] body:not\(\.author-view\) #results \.result-card \.result-links \.record-open/);
   assert.match(css,/body\.author-view \.author-work-search-field input::placeholder/);
 });

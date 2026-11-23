@@ -381,14 +381,17 @@ html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-car
 html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links {
   background: transparent !important;
 }
-html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links .record-open,
-html[data-corpus-shell="marginalia"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more) {
+/* The phase-2 generic .record-open rule has a :not() specificity bonus.
+ * A theme attribute ensures this late layer actually wins on both color modes.
+ */
+html[data-theme][data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links .record-open,
+html[data-theme][data-corpus-shell="marginalia"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more) {
   background: var(--marginalia-action) !important;
   color: var(--marginalia-action-ink) !important;
   border-color: var(--marginalia-action) !important;
 }
-html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links .record-open:hover,
-html[data-corpus-shell="marginalia"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more):hover {
+html[data-theme][data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links .record-open:hover,
+html[data-theme][data-corpus-shell="marginalia"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more):hover {
   background: var(--marginalia-action-hover) !important;
 }
 

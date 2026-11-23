@@ -32,3 +32,6 @@ el margen textual junto a la numeración y marcador móvil (como Territorio).
 - PENDIENTE manual: Safari iOS, Android físico y persistencia Firebase entre cuentas.
 
 **No hacer merge sin aprobación del propietario.**
+
+- Inspección visual de capturas reales: se reforzó la especificidad de la acción «Ver ficha» para que siempre use tinta editorial, no el rosa claro del CSS genérico, en ambos modos. El smoke verifica fondo/tinta calculados del CTA.
+- El fixture ahora emite `philosophythemechange` para sincronizar los botones Claro/Oscuro del menú con las capturas, evitando la selección visual obsoleta que mostraba el test.
