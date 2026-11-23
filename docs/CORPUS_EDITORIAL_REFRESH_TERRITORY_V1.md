@@ -39,3 +39,5 @@ Esta entrega no presupone cambios en los demás temas.
 
 - Se detectó una colisión de especificidad con el borde superior del espacio de resultados; ahora gana el acento editorial de Territorio. El navegador comprueba el color calculado.
 - El smoke abre y cierra el menú real en móvil y escritorio, verifica `inert` y `aria-hidden`, y guarda capturas del menú y de la tarjeta de resultados para 390/1280 px en ambos modos.
+
+- Auditoría de capturas: corregida la regla antigua `#search-depth` (fondo blanco/texto pálido en oscuro); botón de profundidad y caret nativo conservan su comportamiento, con contraste adecuado. Eliminados los acentos azules residuales de subrayado activo, cuenta y rótulos editoriales. Las pruebas de navegador comprueban sus colores calculados y el radio de borde.

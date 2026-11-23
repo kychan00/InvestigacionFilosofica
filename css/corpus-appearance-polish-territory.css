@@ -162,6 +162,53 @@ html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-f
   color: var(--corpus-ink);
   -webkit-text-fill-color: var(--corpus-ink);
 }
+/* #search-depth retained an old ID-based white-pill background, overriding
+ * the themed select in dark mode and rendering nearly white text on white.
+ * Match its ID, retain the native dropdown interaction and restore contrast.
+ */
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell #search-depth {
+  background: var(--territory-subtle) !important;
+  color: var(--corpus-ink) !important;
+  -webkit-text-fill-color: var(--corpus-ink);
+  border: 1px solid var(--territory-stroke);
+  border-bottom: 2px solid var(--corpus-accent);
+  border-radius: 0;
+}
+html[data-theme="dark"][data-corpus-shell="territory"] .hero-shell #search-depth {
+  color-scheme: dark;
+}
+html[data-theme="light"][data-corpus-shell="territory"] .hero-shell #search-depth {
+  color-scheme: light;
+}
+/* Small Carbon blue accents must not interrupt the cartographic palette. */
+html[data-corpus-shell="territory"] body:not(.author-view) .eyebrow::before,
+html[data-corpus-shell="territory"] body:not(.author-view) .search-mode-option.is-active::after {
+  background: var(--corpus-accent);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .search-mode-option span,
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-sources span:nth-child(even) {
+  color: var(--territory-caption);
+}
+html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel::before {
+  color: var(--territory-caption) !important;
+}
+html[data-corpus-shell="territory"] .account-dock .account-trigger {
+  border-color: var(--territory-border);
+  background: var(--territory-surface);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="territory"] .account-dock .account-trigger:is(:hover, :focus-visible) {
+  border-color: var(--territory-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--territory-focus) 24%, transparent);
+  outline: 2px solid var(--territory-focus);
+  outline-offset: 2px;
+}
+html[data-corpus-shell="territory"] .account-dock .account-trigger-label {
+  border-color: var(--territory-border);
+  background: var(--territory-surface);
+  color: var(--corpus-ink);
+}
+
 html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-form input::placeholder {
   color: var(--corpus-muted);
   -webkit-text-fill-color: var(--corpus-muted);

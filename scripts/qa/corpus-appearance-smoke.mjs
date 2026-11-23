@@ -180,6 +180,32 @@ try {
         }
         assert.equal(editorial.firstNavigationMarker, caption,
           "Territory navigation marker must not keep Carbon blue");
+
+        const searchControls = await page.evaluate(() => {
+          const depth = document.querySelector("#search-depth");
+          const modeTab = document.querySelector(".search-mode-option.is-active");
+          const label = document.querySelector(".hero-shell .search-panel");
+          const account = document.querySelector(".account-trigger");
+          return {
+            depthBackground: getComputedStyle(depth).backgroundColor,
+            depthText: getComputedStyle(depth).color,
+            depthRadius: getComputedStyle(depth).borderTopLeftRadius,
+            activeUnderline: getComputedStyle(modeTab,"::after").backgroundColor,
+            caption: getComputedStyle(label,"::before").color,
+            accountBorder: getComputedStyle(account).borderTopColor
+          };
+        });
+        const controlBackground = mode === "light" ? "rgb(239, 238, 229)" : "rgb(26, 44, 35)";
+        const accountBorder = mode === "light" ? "rgb(187, 198, 184)" : "rgb(99, 121, 104)";
+        const expectedAccent = mode === "light" ? "rgb(122, 69, 52)" : "rgb(232, 184, 147)";
+        assert.equal(searchControls.depthBackground, controlBackground,
+          "Search depth selector must not inherit an unthemed white pill: " + JSON.stringify({ width, mode, searchControls }));
+        assert.equal(searchControls.depthText, ink, "Search depth selector has low-contrast text");
+        assert.equal(searchControls.depthRadius, "0px", "Search depth selector has old rounded geometry");
+        assert.equal(searchControls.activeUnderline, expectedAccent, "Old blue search-mode active underline");
+        assert.equal(searchControls.caption, caption, "Old blue search-panel caption");
+        assert.equal(searchControls.accountBorder, accountBorder, "Account control has old blue border");
+
         assert.equal(editorial.workspaceTop,
           mode === "light" ? "rgb(122, 69, 52)" : "rgb(232, 184, 147)",
           "Territory workspace accent must win over old !important borders");

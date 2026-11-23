@@ -97,3 +97,13 @@ test("Territorio editorial aplica la misma navegación al autor y elimina los ac
   assert.match(css, /\.site-menu-drawer :is\(/);
   assert.doesNotMatch(css, /\.site-mobile-toolbar,\s*\nhtml\[data-corpus-shell="territory"\] body:not\(\.author-view\)/);
 });
+
+
+test("Territorio editorial corrige selector de profundidad y acentos heredados", async () => {
+  const css = await load(sheet);
+  assert.match(css, /\.hero-shell #search-depth\s*\{/);
+  assert.match(css, /#search-depth\s*\{[^}]*background: var\(--territory-subtle\) !important;/);
+  assert.match(css, /#search-depth\s*\{[^}]*-webkit-text-fill-color: var\(--corpus-ink\)/);
+  assert.match(css, /\.search-mode-option\.is-active::after\s*\{[^}]*background: var\(--corpus-accent\)/);
+  assert.match(css, /\.account-dock \.account-trigger:is\(:hover, :focus-visible\)/);
+});
