@@ -138,6 +138,43 @@ try {
           return {
             panel: paint(".hero-shell .search-panel"),
             bodyClass: document.body.className,
+            panelDebug: (() => {
+              const element = document.querySelector(".hero-shell .search-panel");
+              const style = getComputedStyle(element);
+              const rules = [];
+              const walk = (items, sheet) => {
+                for (const item of items) {
+                  if (item.cssRules) walk(item.cssRules, sheet);
+                  if (!item.selectorText || !item.style?.getPropertyValue("background")) continue;
+                  try {
+                    if (element.matches(item.selectorText)) {
+                      rules.push({
+                        sheet, selector: item.selectorText,
+                        background: item.style.getPropertyValue("background"),
+                        priority: item.style.getPropertyPriority("background")
+                      });
+                    }
+                  } catch {}
+                }
+              };
+              for (const sheet of document.styleSheets) {
+                try { walk(sheet.cssRules, sheet.href?.split("/").at(-1) || "inline"); } catch {}
+              }
+              return {
+                inline: element.getAttribute("style"),
+                surface: style.getPropertyValue("--territory-surface").trim(),
+                matched: rules.slice(-14)
+              };
+            })(),
+            workspaceDebug: (() => {
+              const el = document.querySelector("#research-workspace");
+              const style = getComputedStyle(el);
+              return {
+                inline: el.getAttribute("style"),
+                accent: style.getPropertyValue("--corpus-accent").trim(),
+                surface: style.getPropertyValue("--territory-surface").trim()
+              };
+            })(),
             panelMatches: document.querySelector(".hero-shell .search-panel").matches(
               'html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel'
             ),
