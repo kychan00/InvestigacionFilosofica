@@ -247,6 +247,81 @@ try {
         }
       }
 
+      if (shell === "marginalia") {
+        // 240 ms transition on the underlying theme: inspect the settled
+        // colors, not the previous frame.
+        const surface = mode === "light" ? "rgb(252, 250, 244)" : "rgb(43, 42, 42)";
+        const ink = mode === "light" ? "rgb(41, 45, 48)" : "rgb(242, 236, 228)";
+        const subtle = mode === "light" ? "rgb(232, 229, 221)" : "rgb(52, 51, 50)";
+        const accent = mode === "light" ? "rgb(120, 64, 57)" : "rgb(225, 173, 154)";
+        const caption = mode === "light" ? "rgb(112, 59, 54)" : "rgb(231, 180, 161)";
+        await page.waitForFunction(({ surface, accent }) =>
+          getComputedStyle(document.querySelector(".hero-shell .search-panel")).backgroundColor === surface &&
+          getComputedStyle(document.querySelector("#research-workspace")).borderTopColor === accent,
+          { surface, accent }, { timeout: 3000 }
+        );
+        const p = await page.evaluate(() => {
+          const color = selector => getComputedStyle(document.querySelector(selector)).color;
+          const bg = selector => getComputedStyle(document.querySelector(selector)).backgroundColor;
+          return {
+            panel: bg(".hero-shell .search-panel"),
+            toolbar: bg(".site-mobile-toolbar"),
+            nav: bg(".philo-nav"),
+            rail: bg(".site-desktop-rail"),
+            drawer: bg(".site-menu-drawer"),
+            select: bg("#search-depth"),
+            selectText: color("#search-depth"),
+            account: color(".account-trigger"),
+            note: getComputedStyle(document.querySelector(".hero-shell .search-panel"), "::before").color,
+            activeUnderline: getComputedStyle(document.querySelector(".search-mode-option.is-active"), "::after").backgroundColor
+          };
+        });
+        for (const key of ["panel", "toolbar", "nav", "rail", "drawer"]) {
+          assert.equal(p[key], surface,
+            "Marginalia surface mismatch: " + JSON.stringify({ width, mode, key, p }));
+        }
+        assert.equal(p.select, subtle, "Marginalia select inherited an unthemed white background");
+        assert.equal(p.selectText, ink, "Marginalia select low contrast");
+        assert.equal(p.account, ink);
+        assert.equal(p.note, caption);
+        assert.equal(p.activeUnderline, accent);
+        const trigger = width <= 820 ? ".site-menu-toggle" : ".site-desktop-menu-toggle";
+        await page.locator(trigger).click();
+        await page.locator(".site-menu-drawer.is-open").waitFor();
+        const open = await page.evaluate(() => {
+          const drawer = document.querySelector(".site-menu-drawer");
+          return {
+            hidden: drawer.getAttribute("aria-hidden"),
+            inert: drawer.inert,
+            color: getComputedStyle(drawer).backgroundColor
+          };
+        });
+        assert.equal(open.hidden, "false");
+        assert.equal(open.inert, false);
+        assert.equal(open.color, surface);
+        if (width === 390 || width === 1280) {
+          await page.locator(".site-menu-drawer").screenshot({
+            path: "artifacts/corpus-appearance/navigation-marginalia-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+        }
+        await page.locator(".site-menu-close").click();
+        await page.waitForFunction(() => {
+          const drawer = document.querySelector(".site-menu-drawer");
+          return drawer.inert && drawer.getAttribute("aria-hidden") === "true";
+        });
+        if (width === 390 || width === 1280) {
+          await page.locator(".hero-shell").screenshot({
+            path: "artifacts/corpus-appearance/landing-marginalia-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+          await page.locator("#results > .result-card").first().screenshot({
+            path: "artifacts/corpus-appearance/results-marginalia-" + mode + "-" + width + ".png",
+            animations: "disabled"
+          });
+        }
+      }
+
       const work = await page.evaluate(() => {
         const visual = document.querySelector("#results .result-visual");
         return {
@@ -367,6 +442,20 @@ try {
         );
         assert.equal(toolbarColor, mode === "light" ? "rgb(255, 252, 245)" : "rgb(34, 51, 42)",
           "Author dossier toolbar must inherit the same Territory palette");
+      }
+
+      if (shell === "marginalia") {
+        const dossier = await page.evaluate(() => {
+          const input = document.querySelector(".author-work-search-field input");
+          return {
+            toolbar: getComputedStyle(document.querySelector(".site-mobile-toolbar")).backgroundColor,
+            placeholder: getComputedStyle(input, "::placeholder").color,
+            placeholderOpacity: getComputedStyle(input, "::placeholder").opacity
+          };
+        });
+        assert.equal(dossier.toolbar, mode === "light" ? "rgb(252, 250, 244)" : "rgb(43, 42, 42)");
+        assert.equal(dossier.placeholder, mode === "light" ? "rgb(85, 93, 97)" : "rgb(195, 187, 178)");
+        assert.equal(dossier.placeholderOpacity, "1");
       }
 
       // Reset the viewport before each image: earlier modal interactions

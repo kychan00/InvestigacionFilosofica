@@ -1,0 +1,600 @@
+/*
+ * MARGINALIA · EDICIÓN CRÍTICA / FASE 2 DEL REDISEÑO EDITORIAL
+ *
+ * Solo index.html: buscador, resultados, modal bibliográfico, archivo de
+ * autor, línea temporal y Atlas incrustado. No toca fuentes, ranking, Firebase,
+ * estados/gestos táctiles ni geometría de componentes existentes.
+ *
+ * Libro académico contemporáneo, no cuaderno rayado: papel marfil, tinta
+ * grafito, marcas de revisión granate y una pauta marginal discreta.
+ */
+html[data-theme="light"][data-corpus-shell="marginalia"] {
+  --corpus-page: #f1eee7;
+  --corpus-ink: #292d30;
+  --corpus-muted: #555d61;
+  --corpus-line: #afb3b0;
+  --corpus-accent: #784039;
+  --corpus-on-accent: #ffffff;
+  --corpus-panel: #fcfaf4;
+  --corpus-record-surface: #fcfaf4;
+  --corpus-record-subtle: #e8e5dd;
+  --corpus-record-border: #afb3b0;
+  --corpus-record-title: #292d30;
+  --corpus-record-muted: #555d61;
+  --corpus-record-accent: #784039;
+  --corpus-folio-heading: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
+  --corpus-hero-bg:
+    linear-gradient(90deg, transparent 0 7.4%, rgba(120, 64, 57, .24) 7.45% 7.54%, transparent 7.6%),
+    linear-gradient(130deg, #f8f5ed, #f0ece3 72%, #e6e7e2);
+  --corpus-card-visual:
+    linear-gradient(90deg, transparent 0 12%, rgba(226, 190, 165, .38) 12.2% 12.6%, transparent 12.8%),
+    linear-gradient(150deg, #434f54, #29333c);
+  --corpus-author-card: #fcfaf4;
+  --corpus-author-muted: #e8e5dd;
+  --corpus-author-tint: #efe2dc;
+  --corpus-author-action: #354650;
+  --corpus-author-action-hover: #263842;
+  --corpus-author-label: #703b36;
+  --corpus-atlas-ink: #292d30;
+  --corpus-atlas-work-fill: #fcfaf4;
+  --corpus-atlas-edge: #9f9c94;
+  --corpus-atlas-blue: #784039;
+  --corpus-atlas-cyan: #356e82;
+  --corpus-atlas-green: #496c57;
+  --corpus-atlas-purple: #67577d;
+  --corpus-atlas-yellow: #806029;
+  --corpus-atlas-red: #9f5050;
+  --corpus-atlas-author: #81496e;
+  --corpus-atlas-muted: #555d61;
+  --marginalia-surface: #fcfaf4;
+  --marginalia-subtle: #e8e5dd;
+  --marginalia-field: #eeeae2;
+  --marginalia-quiet: #dedbd3;
+  --marginalia-border: #afb3b0;
+  --marginalia-strong-border: #858e91;
+  --marginalia-caption: #703b36;
+  --marginalia-action: #354650;
+  --marginalia-action-hover: #263842;
+  --marginalia-action-ink: #ffffff;
+  --marginalia-art-ink: #f7eee3;
+  --marginalia-art-bg: #29333c;
+  --marginalia-focus: #784039;
+  --marginalia-shadow: rgba(41, 45, 48, .08);
+  --marginalia-grid: rgba(77, 76, 70, .09);
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] {
+  --corpus-page: #1b1d1e;
+  --corpus-ink: #f2ece4;
+  --corpus-muted: #c3bbb2;
+  --corpus-line: #787671;
+  --corpus-accent: #e1ad9a;
+  --corpus-on-accent: #292323;
+  --corpus-panel: #2b2a2a;
+  --corpus-record-surface: #2b2a2a;
+  --corpus-record-subtle: #343332;
+  --corpus-record-border: #787671;
+  --corpus-record-title: #f2ece4;
+  --corpus-record-muted: #c3bbb2;
+  --corpus-record-accent: #e1ad9a;
+  --corpus-folio-heading: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
+  --corpus-hero-bg:
+    linear-gradient(90deg, transparent 0 7.4%, rgba(225, 173, 154, .24) 7.45% 7.54%, transparent 7.6%),
+    linear-gradient(130deg, #202224, #262527 72%, #302a2b);
+  --corpus-card-visual:
+    linear-gradient(90deg, transparent 0 12%, rgba(207, 149, 126, .38) 12.2% 12.6%, transparent 12.8%),
+    linear-gradient(150deg, #53413a, #3b3431);
+  --corpus-author-card: #2b2a2a;
+  --corpus-author-muted: #343332;
+  --corpus-author-tint: #493632;
+  --corpus-author-action: #65423d;
+  --corpus-author-action-hover: #754d46;
+  --corpus-author-label: #e7b4a1;
+  --corpus-atlas-ink: #f2ece4;
+  --corpus-atlas-work-fill: #f2ece4;
+  --corpus-atlas-edge: #afaca3;
+  --corpus-atlas-blue: #e1ad9a;
+  --corpus-atlas-cyan: #9bcad5;
+  --corpus-atlas-green: #aacbb0;
+  --corpus-atlas-purple: #cbb9e4;
+  --corpus-atlas-yellow: #e8cb96;
+  --corpus-atlas-red: #eaa9a9;
+  --corpus-atlas-author: #e0abcf;
+  --corpus-atlas-muted: #c3bbb2;
+  --marginalia-surface: #2b2a2a;
+  --marginalia-subtle: #343332;
+  --marginalia-field: #212324;
+  --marginalia-quiet: #413b3a;
+  --marginalia-border: #787671;
+  --marginalia-strong-border: #a5a099;
+  --marginalia-caption: #e7b4a1;
+  --marginalia-action: #65423d;
+  --marginalia-action-hover: #754d46;
+  --marginalia-action-ink: #ffffff;
+  --marginalia-art-ink: #f5ede3;
+  --marginalia-art-bg: #3b3431;
+  --marginalia-focus: #e1ad9a;
+  --marginalia-shadow: rgba(0, 0, 0, .23);
+  --marginalia-grid: rgba(207, 196, 180, .08);
+}
+
+/* PORTADA · pauta apenas perceptible, tipografía de edición crítica. */
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+  background: var(--corpus-hero-bg) !important;
+  box-shadow: inset 0 -1px var(--marginalia-border);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell::before {
+  background:
+    linear-gradient(90deg, transparent 0 7.4%, var(--marginalia-grid) 7.45% 7.55%, transparent 7.6%),
+    linear-gradient(180deg, transparent 0 93%, var(--marginalia-grid) 93.08% 93.2%, transparent 93.3%);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell::after {
+  content: "¶";
+  color: var(--marginalia-grid);
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+html[data-corpus-shell="marginalia"] :is(
+  .hero-shell h1, .author-page h1, #results .result-card h2,
+  #record-modal .record-cinematic-title, #record-modal .cinematic-section-heading h3,
+  .author-timeline-heading h2
+) {
+  font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+html[data-corpus-shell="marginalia"] :is(
+  .hero-shell .eyebrow,
+  .hero-shell .search-panel::before,
+  .hero-sources span,
+  .research-workspace::before,
+  .author-page-eyebrow
+) {
+  color: var(--marginalia-caption) !important;
+  letter-spacing: .12em;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .eyebrow::before {
+  background: var(--corpus-accent);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-marginalia {
+  border-left-color: var(--corpus-accent);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-panel {
+  background: var(--marginalia-surface) !important;
+  border-color: var(--marginalia-border);
+  border-left: 3px solid var(--corpus-accent);
+  border-radius: 2px;
+  box-shadow: 0 16px 42px var(--marginalia-shadow);
+  backdrop-filter: none;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-panel::before {
+  content: "APARATO DE CONSULTA / 01";
+  color: var(--marginalia-caption) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-form {
+  background: var(--marginalia-border);
+  border-color: var(--marginalia-border);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-form :is(input, select) {
+  background: var(--marginalia-subtle);
+  color: var(--corpus-ink);
+  -webkit-text-fill-color: var(--corpus-ink);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell #search-depth {
+  background: var(--marginalia-subtle) !important;
+  border: 1px solid var(--marginalia-strong-border);
+  border-bottom: 2px solid var(--corpus-accent);
+  border-radius: 0;
+  color: var(--corpus-ink) !important;
+  -webkit-text-fill-color: var(--corpus-ink);
+}
+html[data-theme="light"][data-corpus-shell="marginalia"] #search-depth { color-scheme: light; }
+html[data-theme="dark"][data-corpus-shell="marginalia"] #search-depth { color-scheme: dark; }
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-form input::placeholder {
+  color: var(--corpus-muted);
+  -webkit-text-fill-color: var(--corpus-muted);
+  opacity: 1;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-form button {
+  background: var(--marginalia-action);
+  color: var(--marginalia-action-ink);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell .search-form button:hover {
+  background: var(--marginalia-action-hover);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .search-mode-option.is-active {
+  background: var(--marginalia-subtle);
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .search-mode-option.is-active::after {
+  background: var(--corpus-accent);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .search-mode-option span,
+html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-sources span:nth-child(even) {
+  color: var(--marginalia-caption);
+}
+
+/* NAVEGACIÓN · el mismo libro para el buscador y el expediente de autor. */
+html[data-corpus-shell="marginalia"] :is(.site-mobile-toolbar, .philo-nav, .site-desktop-rail) {
+  background-color: var(--marginalia-surface);
+  border-color: var(--marginalia-border);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="marginalia"] .site-desktop-rail {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-corpus-shell="marginalia"] :is(
+  .site-mobile-toolbar a, .site-mobile-toolbar button,
+  .philo-nav a, .philo-nav button,
+  .site-desktop-menu-label, .site-desktop-menu-toggle
+) {
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="marginalia"] :is(
+  .site-mobile-toolbar-mark, .philo-mark, .philo-nav-links a::before
+) {
+  color: var(--marginalia-caption);
+}
+html[data-corpus-shell="marginalia"] .philo-nav-links a::before { color: var(--marginalia-caption); }
+html[data-corpus-shell="marginalia"] .site-menu-toggle {
+  background: var(--marginalia-subtle);
+  color: var(--corpus-ink);
+  border-color: var(--marginalia-border);
+}
+html[data-corpus-shell="marginalia"] .site-menu-drawer {
+  --site-nav-blue: var(--marginalia-action);
+  --site-nav-blue-soft: var(--marginalia-caption);
+  --site-nav-ink: var(--corpus-ink);
+  --site-nav-muted: var(--corpus-muted);
+  --site-nav-border: var(--marginalia-border);
+  background: var(--marginalia-surface);
+  color: var(--corpus-ink);
+  border-right-color: var(--marginalia-border);
+  box-shadow: 18px 0 50px var(--marginalia-shadow);
+}
+html[data-corpus-shell="marginalia"] .site-menu-drawer :is(
+  .site-menu-link, .site-menu-branch, .site-menu-footer,
+  .site-menu-theme, .site-menu-disclosure-symbol, .site-menu-close
+) {
+  border-color: var(--marginalia-border);
+}
+html[data-corpus-shell="marginalia"] .site-menu-drawer :is(
+  .site-menu-close, .site-menu-link-icon, .site-menu-link-copy strong
+) { color: var(--corpus-ink); }
+html[data-corpus-shell="marginalia"] .site-menu-drawer :is(
+  .site-menu-link-copy small, .site-menu-footer-label
+) { color: var(--corpus-muted); }
+html[data-corpus-shell="marginalia"] .site-menu-drawer :is(
+  .site-menu-kicker, .site-menu-link-index, .site-menu-link-arrow,
+  .site-menu-link-leading, .site-menu-disclosure-symbol
+) { color: var(--marginalia-caption); }
+html[data-corpus-shell="marginalia"] .site-menu-drawer :is(
+  .site-menu-link[data-menu-level="2"],
+  .site-menu-link[data-menu-level="3"],
+  .site-menu-branch[data-menu-level="2"] > .site-menu-branch-toggle,
+  .site-menu-footer
+) { background: var(--marginalia-subtle); }
+html[data-corpus-shell="marginalia"] .site-menu-drawer :is(
+  .site-menu-link:hover, .site-menu-link:focus-visible, .site-menu-link.is-current,
+  .site-menu-branch-toggle:hover, .site-menu-branch-toggle:focus-visible,
+  .site-menu-branch-toggle[aria-expanded="true"]
+) { background: var(--marginalia-quiet); }
+html[data-corpus-shell="marginalia"] .site-menu-drawer .site-menu-theme button {
+  color: var(--corpus-ink);
+  border-color: var(--marginalia-border);
+}
+html[data-corpus-shell="marginalia"] .site-menu-drawer .site-menu-theme button[aria-pressed="true"] {
+  color: var(--marginalia-action-ink);
+  background: var(--marginalia-action);
+}
+html[data-corpus-shell="marginalia"] .account-dock .account-trigger {
+  background: var(--marginalia-surface);
+  border-color: var(--marginalia-border);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="marginalia"] .account-dock .account-trigger:is(:hover, :focus-visible) {
+  border-color: var(--marginalia-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--marginalia-focus) 22%, transparent);
+  outline: 2px solid var(--marginalia-focus);
+  outline-offset: 2px;
+}
+html[data-corpus-shell="marginalia"] .account-dock .account-trigger-label {
+  background: var(--marginalia-surface);
+  border-color: var(--marginalia-border);
+  color: var(--corpus-ink);
+}
+
+/* RESULTADOS · fichas de catálogo, no tarjetas de software. */
+html[data-corpus-shell="marginalia"] body:not(.author-view) .search-filter-grid label {
+  background: var(--marginalia-subtle) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .search-filter-grid :is(input, select) {
+  background: var(--marginalia-surface) !important;
+  border-color: var(--marginalia-border);
+  border-bottom-color: var(--corpus-accent);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .research-workspace {
+  background: var(--marginalia-surface) !important;
+  border-radius: 2px;
+  box-shadow: 0 14px 38px var(--marginalia-shadow);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #research-workspace {
+  border-top-color: var(--corpus-accent) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .research-workspace::before {
+  content: "BIBLIOTECA DE TRABAJO / FICHAS Y RELACIONES";
+  color: var(--marginalia-caption) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .research-workspace .workspace-sidebar {
+  background: var(--marginalia-subtle) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .research-workspace :is(
+  .filter-grid input, .filter-grid select, .filter-reset, .export-button, .chip
+) {
+  background: var(--marginalia-surface) !important;
+  border-color: var(--marginalia-border);
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .research-view-tab.is-active {
+  background: var(--marginalia-action) !important;
+  border-color: var(--marginalia-action);
+  box-shadow: inset 0 -3px var(--marginalia-caption);
+  color: var(--marginalia-action-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) .research-view-tab.is-active .research-view-count {
+  color: var(--marginalia-action-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results > .result-card {
+  background: var(--marginalia-surface) !important;
+  border-color: var(--marginalia-border) !important;
+  border-left-color: var(--corpus-accent) !important;
+  box-shadow: none;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results > .result-card:hover {
+  background: var(--marginalia-subtle) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card::before {
+  background: var(--corpus-accent);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card h2 {
+  font-family: var(--corpus-folio-heading);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--corpus-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-visual {
+  background: var(--corpus-card-visual) !important;
+  color: var(--marginalia-art-ink) !important;
+  border-color: var(--marginalia-strong-border);
+  border-radius: 2px;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-visual :is(
+  .result-initial, .result-rank, .result-visual-caption
+) {
+  color: var(--marginalia-art-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card :is(
+  .provider, .relevance-pill, .score-panel .score
+) {
+  background: var(--marginalia-subtle) !important;
+  border-color: var(--marginalia-border) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links {
+  background: transparent !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links .record-open,
+html[data-corpus-shell="marginalia"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more) {
+  background: var(--marginalia-action) !important;
+  color: var(--marginalia-action-ink) !important;
+  border-color: var(--marginalia-action) !important;
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-card .result-links .record-open:hover,
+html[data-corpus-shell="marginalia"] body:not(.author-view) .workspace-main :is(.fetch-more, .load-more):hover {
+  background: var(--marginalia-action-hover) !important;
+}
+
+/* FICHA COMPLETA · jerarquía de lectura y notas bibliográficas. */
+html[data-theme="light"][data-corpus-shell="marginalia"] #record-modal {
+  --rf-overlay: rgba(26, 29, 30, .78);
+  --rf-panel: #f1eee7;
+  --rf-surface: #e8e5dd;
+  --rf-surface-raised: #dedbd3;
+  --rf-surface-inset: #fcfaf4;
+  --rf-hover: #dedbd3;
+  --rf-border: #afb3b0;
+  --rf-border-strong: #858e91;
+  --rf-text: #292d30;
+  --rf-text-soft: #464e52;
+  --rf-text-muted: #555d61;
+  --rf-link: #703b36;
+  --rf-link-hover: #542824;
+  --rf-accent: #784039;
+  --rf-accent-hover: #63312d;
+  --rf-focus: #784039;
+  --rf-button: #354650;
+  --rf-button-hover: #263842;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #ffffff;
+  --rf-hero-map: var(--corpus-hero-bg);
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] #record-modal {
+  --rf-overlay: rgba(7, 8, 9, .9);
+  --rf-panel: #1b1d1e;
+  --rf-surface: #343332;
+  --rf-surface-raised: #413b3a;
+  --rf-surface-inset: #2b2a2a;
+  --rf-hover: #413b3a;
+  --rf-border: #787671;
+  --rf-border-strong: #a5a099;
+  --rf-text: #f2ece4;
+  --rf-text-soft: #d6ccc3;
+  --rf-text-muted: #c3bbb2;
+  --rf-link: #e7b4a1;
+  --rf-link-hover: #f4c9b8;
+  --rf-accent: #e1ad9a;
+  --rf-accent-hover: #f0c5b1;
+  --rf-focus: #e1ad9a;
+  --rf-button: #65423d;
+  --rf-button-hover: #754d46;
+  --rf-button-text: #ffffff;
+  --rf-on-accent: #292323;
+  --rf-hero-map: var(--corpus-hero-bg);
+}
+html[data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero {
+  background: var(--rf-hero-map) !important;
+  border-color: var(--rf-border);
+}
+html[data-corpus-shell="marginalia"] #record-modal :is(
+  .record-cinematic-title, .cinematic-section-heading h3
+) {
+  font-family: var(--corpus-folio-heading) !important;
+  font-weight: 500 !important;
+}
+html[data-corpus-shell="marginalia"] #record-modal :is(
+  .cinematic-meta-card, .cinematic-quick-grid > div,
+  .cinematic-author-card, .cinematic-score-card
+) {
+  background: var(--rf-surface-inset);
+  border-color: var(--rf-border);
+  box-shadow: 0 3px 14px var(--marginalia-shadow);
+}
+html[data-corpus-shell="marginalia"] #record-modal .cinematic-abstract {
+  background: var(--rf-surface-inset);
+  border-left-color: var(--rf-accent);
+  color: var(--rf-text-soft);
+}
+html[data-corpus-shell="marginalia"] #record-modal .cinematic-action.primary {
+  box-shadow: none;
+}
+
+/* ARCHIVO DE AUTOR Y CRONOLOGÍA · misma tipografía y papel. */
+html[data-corpus-shell="marginalia"] body.author-view {
+  background: var(--corpus-page);
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-page-hero {
+  background: var(--corpus-hero-bg) !important;
+  border: 1px solid var(--marginalia-border);
+  border-left: 3px solid var(--corpus-accent);
+  border-radius: 2px;
+  box-shadow: 0 12px 36px var(--marginalia-shadow);
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-page-hero::before {
+  color: var(--marginalia-caption);
+}
+html[data-corpus-shell="marginalia"] body.author-view :is(
+  .author-page-metrics, .author-analysis-card, .author-page-taxonomy,
+  .author-work-browser, .author-archive-discovery,
+  .author-collaboration-summary, .author-academic-profile
+) {
+  background: var(--marginalia-surface) !important;
+  border-color: var(--marginalia-border) !important;
+  border-radius: 2px;
+  box-shadow: 0 6px 20px var(--marginalia-shadow);
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-work-grid .result-card {
+  background: var(--marginalia-surface) !important;
+  border-color: var(--marginalia-border) !important;
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-work-grid .result-card .result-visual {
+  background: var(--corpus-card-visual) !important;
+  color: var(--marginalia-art-ink) !important;
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-work-grid .result-card :is(
+  .result-initial, .result-rank
+) { color: var(--marginalia-art-ink) !important; }
+html[data-corpus-shell="marginalia"] body.author-view .author-work-search-field input::placeholder {
+  color: var(--corpus-muted);
+  -webkit-text-fill-color: var(--corpus-muted);
+  opacity: 1;
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-work-search-field:focus-within {
+  border-color: var(--marginalia-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--marginalia-focus) 18%, transparent);
+}
+html[data-corpus-shell="marginalia"] body.author-view .author-page #author-timeline-root {
+  --tl-card: var(--marginalia-surface);
+  --tl-surface: var(--marginalia-surface);
+  --tl-soft: var(--marginalia-subtle);
+  --tl-line: var(--marginalia-border);
+  --tl-blue: var(--marginalia-action);
+  --tl-blue-label: var(--marginalia-caption);
+  border-color: var(--marginalia-border);
+}
+
+/* ATLAS DEL BUSCADOR · campos y controles con tinta de edición, sin alterar canvas. */
+html[data-corpus-shell="marginalia"] body:not(.author-view) #research-atlas-panel {
+  background: var(--marginalia-surface);
+  border-color: var(--marginalia-border);
+  box-shadow: 0 8px 26px var(--marginalia-shadow);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #research-atlas-panel .research-atlas-stage {
+  background-color: var(--marginalia-field);
+  background-image:
+    linear-gradient(var(--marginalia-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--marginalia-grid) 1px, transparent 1px);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-detail, .research-atlas-accessible,
+  .research-atlas-tooltip, .research-atlas-list button
+) {
+  background: var(--marginalia-surface);
+  border-color: var(--marginalia-border);
+  color: var(--corpus-ink);
+}
+html[data-corpus-shell="marginalia"] body:not(.author-view) #research-atlas-panel :is(
+  .research-atlas-actions button, .research-atlas-zoom-controls button,
+  .research-atlas-node-action.primary
+) {
+  background: var(--marginalia-action);
+  border-color: var(--marginalia-action);
+  color: var(--marginalia-action-ink);
+}
+html[data-corpus-shell="marginalia"] :is(
+  .hero-shell input, .hero-shell select, .hero-shell button,
+  .research-workspace button, .research-workspace input, .research-workspace select,
+  #record-modal button, #record-modal a, #record-modal summary,
+  .author-page button, .author-page a, #research-atlas-panel button,
+  .site-menu-drawer a, .site-menu-drawer button,
+  .site-mobile-toolbar a, .site-mobile-toolbar button,
+  .site-desktop-menu-toggle
+):focus-visible {
+  outline: 2px solid var(--marginalia-focus) !important;
+  outline-offset: 3px;
+}
+
+/* La numeración/guardado comparten esquina en móvil. Reservar SOLO el texto. */
+@media (max-width: 820px) {
+  html[data-corpus-shell="marginalia"] body:not(.author-view) #results > .result-card .result-title-row {
+    padding-inline-end: 54px;
+  }
+  html[data-corpus-shell="marginalia"] body:not(.author-view) #results > .result-card:has(> .research-save-button) .result-title-row {
+    padding-inline-end: 110px;
+  }
+}
+
+@media (forced-colors: active) {
+  html[data-corpus-shell="marginalia"] :is(
+    .hero-shell .search-panel, .research-workspace,
+    #record-modal .record-cinematic-hero,
+    body.author-view .author-page-hero, #research-atlas-panel
+  ) {
+    background: Canvas !important;
+    color: CanvasText !important;
+    border-color: CanvasText !important;
+    box-shadow: none !important;
+  }
+  html[data-corpus-shell="marginalia"] :is(
+    .hero-shell .search-form button, #results .record-open,
+    #research-atlas-panel button
+  ) {
+    background: ButtonFace !important;
+    color: ButtonText !important;
+    border-color: ButtonText !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-corpus-shell="marginalia"] :is(.hero-shell, .research-workspace, .result-card) {
+    transition: none !important;
+  }
+}
