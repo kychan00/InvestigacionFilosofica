@@ -118,6 +118,9 @@ try {
 
     for (const mode of MODES) for (const shell of THEMES) {
       await page.evaluate(({ mode, shell }) => {
+        // Every visual state starts from the public-search layout. The fixture
+        // temporarily enables author-view later and must never leak it.
+        document.body.classList.remove("author-view");
         document.documentElement.dataset.theme = mode;
         document.documentElement.style.colorScheme = mode;
         document.documentElement.dataset.corpusShell = shell;
@@ -134,6 +137,10 @@ try {
           };
           return {
             panel: paint(".hero-shell .search-panel"),
+            bodyClass: document.body.className,
+            panelMatches: document.querySelector(".hero-shell .search-panel").matches(
+              'html[data-corpus-shell="territory"] body:not(.author-view) .hero-shell .search-panel'
+            ),
             navigation: paint(".philo-nav"),
             mobileToolbar: paint(".site-mobile-toolbar"),
             desktopRail: paint(".site-desktop-rail"),
