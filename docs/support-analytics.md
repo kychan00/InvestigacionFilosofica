@@ -32,4 +32,3 @@ Los pagos realizados y sus importes se concilian por separado en Mercado Pago. N
 La tabla está en el esquema privado con RLS. El rol anon únicamente puede insertar las columnas event_type y source y ejecutar el RPC de escritura con SECURITY INVOKER. No tiene SELECT, UPDATE o DELETE. No se usa una clave privilegiada en el cliente.
 
 Migración aplicada en el proyecto: 20261124052006_private_support_analytics. Validación SQL: dos inserciones bajo rol anon dentro de una transacción revertida; cero filas de prueba persistentes. RLS activo, sin lectura para anon o authenticated, sin capacidad del rol anon de asignar la fecha y sin alertas de seguridad de Supabase en la revisión.
-
