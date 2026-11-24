@@ -700,3 +700,17 @@ html[data-theme="light"] .site-menu-link-icon {
     scroll-margin-top: calc(var(--site-mobile-toolbar-height, 58px) + env(safe-area-inset-top, 0px) + 12px);
   }
 }
+
+/* Apoyo voluntario: integrado en el menú compartido, sin banners ni superposiciones. */
+.site-menu-link.site-menu-support {
+  margin: 10px 12px 14px;
+  width: calc(100% - 24px);
+  min-height: 66px;
+  padding: 12px 14px;
+  border: 1px solid rgba(120,169,255,.55);
+  background: rgba(15,98,254,.09);
+}
+.site-menu-link.site-menu-support .site-menu-link-icon { color: #a6c8ff; }
+.site-menu-link.site-menu-support:hover,
+.site-menu-link.site-menu-support:focus-visible,
+.site-menu-link.site-menu-support.is-current { background: rgba(15,98,254,.20); }
