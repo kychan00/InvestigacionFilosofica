@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - "index.html"
+      - "apoyar.html"
+      - "acerca.html"
+      - "tests/support-page.test.mjs"
+      - "scripts/qa/support-page-smoke.mjs"
       - "auth/**"
       - "perfil.html"
       - "js/profile.js"
