@@ -251,12 +251,16 @@ jobs:
       - name: Verify Quadripartita cobalt postal taxonomy selection and independent resets
         run: node scripts/qa/quadripartita-postal-taxonomy-smoke.mjs
 
+      - name: Verify support page and global navigation
+        run: node scripts/qa/support-page-smoke.mjs
+
       - name: Upload responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mobile-ui-screenshots
           path: |
+            artifacts/support-page/
             artifacts/mobile-ui/
             artifacts/work-save-picker/
             artifacts/author-save-picker/
