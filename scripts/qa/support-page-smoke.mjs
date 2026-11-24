@@ -49,5 +49,32 @@ try {
     await page.waitForURL("**/apoyar.html?origen=acerca");
     assert.equal(await page.locator(".support-pay-link").getAttribute("href"),paymentUrl);
   } finally { await page.close(); }
+  const analyticsPage = await browser.newPage({viewport:{width:390,height:844}});
+  try {
+    const events = [];
+    await analyticsPage.addInitScript(() => {
+      Object.defineProperty(navigator,"globalPrivacyControl",{get:()=>false});
+      Object.defineProperty(navigator,"doNotTrack",{get:()=>null});
+    });
+    await analyticsPage.route("**/*", async route => {
+      if (route.request().url().endsWith("/rest/v1/rpc/log_support_event")) {
+        events.push(route.request().postDataJSON());
+        return route.fulfill({status:204,headers:{"access-control-allow-origin":"*"}});
+      }
+      return route.request().url().startsWith(base) ? route.continue() : route.abort();
+    });
+    await analyticsPage.goto(new URL("acerca.html",base).href,{waitUntil:"domcontentloaded"});
+    await analyticsPage.locator(".site-menu-support").waitFor({state:"attached"});
+    await analyticsPage.locator(".about-support-more").click();
+    await analyticsPage.waitForURL("**/apoyar.html?origen=acerca");
+    await analyticsPage.locator(".site-menu-support").waitFor({state:"attached"});
+    await analyticsPage.locator(".support-pay-link").evaluate(link => {
+      link.addEventListener("click",event=>event.preventDefault(),{once:true});
+      link.click();
+    });
+    await analyticsPage.waitForTimeout(500);
+    assert.deepEqual(events.map(e=>e.p_event_type).sort(),["checkout_click","entry_click","page_view"]);
+    assert.ok(events.every(e=>e.p_source==="acerca" && Object.keys(e).length===2));
+  } finally { await analyticsPage.close(); }
 } finally { await browser.close(); }
 console.log("Support page: 10 viewport/theme combinations and About navigation verified.");
