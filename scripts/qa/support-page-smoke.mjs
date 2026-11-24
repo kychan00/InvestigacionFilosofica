@@ -58,8 +58,15 @@ try {
     });
     await analyticsPage.route("**/*", async route => {
       if (route.request().url().endsWith("/rest/v1/rpc/log_support_event")) {
+        const headers = {
+          "access-control-allow-origin":"*",
+          "access-control-allow-methods":"POST, OPTIONS",
+          "access-control-allow-headers":"apikey, content-type"
+        };
+        if (route.request().method()==="OPTIONS") return route.fulfill({status:204,headers});
+        assert.equal(route.request().method(),"POST");
         events.push(route.request().postDataJSON());
-        return route.fulfill({status:204,headers:{"access-control-allow-origin":"*"}});
+        return route.fulfill({status:204,headers});
       }
       return route.request().url().startsWith(base) ? route.continue() : route.abort();
     });
@@ -72,7 +79,9 @@ try {
       link.addEventListener("click",event=>event.preventDefault(),{once:true});
       link.click();
     });
-    await analyticsPage.waitForTimeout(500);
+    for (let attempt = 0; events.length < 3 && attempt < 50; attempt++) {
+      await analyticsPage.waitForTimeout(100);
+    }
     assert.deepEqual(events.map(e=>e.p_event_type).sort(),["checkout_click","entry_click","page_view"]);
     assert.ok(events.every(e=>e.p_source==="acerca" && Object.keys(e).length===2));
   } finally { await analyticsPage.close(); }
