@@ -1,3 +1,5 @@
+import { initSupportAnalytics } from "./support-analytics.js?v=20261123-v1";
+
 const MOBILE_MENU_BREAKPOINT = 820;
 const STORAGE_KEY = "investigacion-filosofica-theme";
 const SITE_ROOT = new URL("../", import.meta.url);
@@ -205,6 +207,8 @@ function makeLink(item, level) {
   if (item.kind === "support") {
     link.classList.add("site-menu-support");
     link.href = item.href + "?origen=menu";
+    link.dataset.supportEvent = "entry_click";
+    link.dataset.supportSource = "menu";
   }
 
   const leading = createElement("span", "site-menu-link-leading");
@@ -544,6 +548,7 @@ window.addEventListener("philosophythemechange", syncThemeControls);
 
 markCurrentLink();
 syncThemeControls();
+initSupportAnalytics();
 
 void import("./account-menu.js?v=20261122-author-project-picker-v1").catch(error => {
   console.warn("No se pudo cargar la cuenta de investigación.", error);
