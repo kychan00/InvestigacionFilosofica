@@ -1,6 +1,6 @@
 /* Sostener el acceso abierto · Página independiente y aislada. */
 .support-page .support-hero,.support-page .support-main{max-width:1440px;margin:0 auto}
-.support-page .support-hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.82fr);align-items:center;gap:clamp(32px,7vw,100px);padding:clamp(64px,8vw,118px) 0}
+.support-page .support-hero{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.82fr);align-items:center;gap:clamp(32px,7vw,100px);padding:clamp(64px,8vw,118px) 0}
 .support-page .support-hero h1{max-width:850px;margin:0 0 26px;font:400 clamp(40px,5.5vw,80px)/1.04 var(--about-serif);letter-spacing:-.045em;overflow-wrap:break-word}
 .support-page .support-lead{max-width:620px;margin:0 0 24px;color:var(--hero-soft);font-size:clamp(16px,1.6vw,20px);line-height:1.7}
 .support-page .support-text-link{display:inline-block;color:#a6c8ff;text-decoration:none;border-bottom:1px solid #a6c8ff;padding-bottom:5px;font-size:14px}
