@@ -23,7 +23,7 @@
   </script>
   <title>Acerca de · Investigación Filosófica</title>
   <link rel="stylesheet" href="./css/about.css?v=20261123-contacto-mp-v3">
-  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261123-support-v1">
 </head>
 <body>
   <div class="site-mobile-toolbar">
@@ -697,20 +697,21 @@
             ni ventajas exclusivas. Los recursos públicos seguirán disponibles
             para todas las personas, hayan contribuido o no.
           </p>
-          <a id="about-mercadopago-link" class="about-support-action" href="#apoyar" target="_blank"
+          <a id="about-mercadopago-link" class="about-support-action" data-support-event="checkout_click" data-support-source="acerca" href="https://link.mercadopago.com.mx/cristianpelayo" target="_blank"
              rel="noopener noreferrer"
-             aria-label="Apoyar Investigación Filosófica con Mercado Pago (abre en otra pestaña)" hidden>
+             aria-label="Apoyar Investigación Filosófica con Mercado Pago (abre en otra pestaña)">
             Apoyar con Mercado Pago <span aria-hidden="true">↗</span>
           </a>
-          <p class="about-support-pending" id="about-mercadopago-pending">
+          <p class="about-support-pending" id="about-mercadopago-pending" hidden>
             La opción para aportar en pesos mexicanos se habilitará cuando esté disponible
             el enlace oficial de Mercado Pago con monto abierto.
           </p>
+          <p><a class="about-support-more" data-support-event="entry_click" data-support-source="acerca" href="./apoyar.html?origen=acerca">Conocer cómo apoyar el proyecto ↗</a></p>
           <p class="about-support-disclosure">
             Las aportaciones no son requisito para usar el sitio ni otorgan ventajas exclusivas.
             No se emiten comprobantes de donativos deducibles de impuestos.
             Las cantidades recibidas están sujetas al tratamiento fiscal que corresponda.
-            Los pagos, una vez habilitados, se realizarán fuera de este sitio mediante Mercado Pago.
+            Los pagos se realizan fuera de este sitio mediante Mercado Pago.
           </p>
         </div>
       </section>
@@ -754,7 +755,7 @@
   </script>
 
   <script type="module" src="./js/theme.js"></script>
-  <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261123-support-v2"></script>
   <script>
     // Los contadores bibliográficos siguen el manifiesto publicado, no el HEAD de un PR sin fusionar.
     fetch("./src/data/philosopher-works/manifest.json")
