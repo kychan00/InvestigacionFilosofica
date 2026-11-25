@@ -9,7 +9,8 @@ import {
   query,
   serverTimestamp,
   setDoc,
-  updateDoc
+  updateDoc,
+  writeBatch
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
 import {
@@ -785,6 +786,29 @@ export async function saveAuthorIdentityDecision(
   );
 
   return id;
+}
+
+// Commit a manual multi-author decision atomically, using the existing private ledger.
+export async function saveAuthorIdentityDecisions(uid, decisions) {
+  if (!Array.isArray(decisions) || !decisions.length || decisions.length > 450) {
+    throw new Error("invalid-identity-decisions");
+  }
+  const database = requiredDb();
+  const batch = writeBatch(database);
+  for (const { leftName, rightName, same, canonicalName = "" } of decisions) {
+    const id = authorIdentityDecisionId(leftName, rightName);
+    batch.set(doc(database, "users", uid, "authorIdentityDecisions", id), {
+      id,
+      leftName: compactText(leftName, 300),
+      rightName: compactText(rightName, 300),
+      leftNormalized: normalizedIdentityName(leftName),
+      rightNormalized: normalizedIdentityName(rightName),
+      same: Boolean(same),
+      canonicalName: compactText(canonicalName, 300),
+      updatedAt: serverTimestamp()
+    }, { merge: true });
+  }
+  await batch.commit();
 }
 
 export function subscribeAuthorIdentityDecisions(uid, callback) {
