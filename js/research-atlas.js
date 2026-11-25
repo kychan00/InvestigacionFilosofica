@@ -1,3 +1,4 @@
+import { bindResearchAtlasNavigation } from "./research-atlas-navigation.js?v=20261124-pinch-v1";
 import {
   ResearchAtlasLiveSession
 } from "../src/core/research-atlas-live.js?v=20261113-ra13a-v1";
@@ -115,7 +116,6 @@ let viewModel = null;
 let filterState = null;
 let selectedId = null;
 let hoveredId = null;
-let drag = null;
 let raf = null;
 let uiRunId = 0;
 
@@ -2336,197 +2336,15 @@ zoomOut.addEventListener(
 );
 
 
-canvas.addEventListener(
-  "wheel",
-  event => {
-    event.preventDefault();
-
-    zoomAt(
-      event.deltaY <
-        0
-        ? 1.13
-        : 1 /
-          1.13,
-      event.clientX,
-      event.clientY
-    );
-  },
-  {
-    passive:
-      false
+bindResearchAtlasNavigation({
+  canvas, view, metrics: canvasMetrics, draw: requestDraw,
+  hitTest, select: selectNode, minZoom: 0.55,
+  hover(node, event) {
+    hoveredId = node?.id || null;
+    if (node && event) setTooltip(node, event);
+    else tooltip.hidden = true;
   }
-);
-
-
-canvas.addEventListener(
-  "pointerdown",
-  event => {
-    canvas.setPointerCapture(
-      event.pointerId
-    );
-
-    drag = {
-      pointerId:
-        event.pointerId,
-      startX:
-        event.clientX,
-      startY:
-        event.clientY,
-      lastX:
-        event.clientX,
-      lastY:
-        event.clientY,
-      moved:
-        false
-    };
-
-    canvas.classList.add(
-      "is-dragging"
-    );
-
-    tooltip.hidden =
-      true;
-  }
-);
-
-
-canvas.addEventListener(
-  "pointermove",
-  event => {
-    if (
-      drag?.pointerId ===
-      event.pointerId
-    ) {
-      const metrics =
-        canvasMetrics();
-
-      const dx =
-        event.clientX -
-        drag.lastX;
-
-      const dy =
-        event.clientY -
-        drag.lastY;
-
-      if (
-        Math.hypot(
-          event.clientX -
-            drag.startX,
-          event.clientY -
-            drag.startY
-        ) >
-        4
-      ) {
-        drag.moved =
-          true;
-      }
-
-      view.x -=
-        dx /
-        (
-          metrics.base *
-          view.zoom
-        );
-
-      view.y -=
-        dy /
-        (
-          metrics.base *
-          view.zoom
-        );
-
-      drag.lastX =
-        event.clientX;
-
-      drag.lastY =
-        event.clientY;
-
-      requestDraw();
-      return;
-    }
-
-    const node =
-      hitTest(
-        event.clientX,
-        event.clientY
-      );
-
-    hoveredId =
-      node?.id ||
-      null;
-
-    setTooltip(
-      node,
-      event
-    );
-
-    requestDraw();
-  }
-);
-
-
-canvas.addEventListener(
-  "pointerleave",
-  () => {
-    if (!drag) {
-      hoveredId =
-        null;
-      tooltip.hidden =
-        true;
-      requestDraw();
-    }
-  }
-);
-
-
-canvas.addEventListener(
-  "pointerup",
-  event => {
-    if (
-      !drag ||
-      drag.pointerId !==
-        event.pointerId
-    ) {
-      return;
-    }
-
-    const moved =
-      drag.moved;
-
-    drag =
-      null;
-
-    canvas.classList.remove(
-      "is-dragging"
-    );
-
-    if (!moved) {
-      const node =
-        hitTest(
-          event.clientX,
-          event.clientY
-        );
-
-      if (node) {
-        selectNode(
-          node.id
-        );
-      }
-    }
-  }
-);
-
-
-canvas.addEventListener(
-  "pointercancel",
-  () => {
-    drag =
-      null;
-    canvas.classList.remove(
-      "is-dragging"
-    );
-  }
-);
+});
 
 
 window.addEventListener(
