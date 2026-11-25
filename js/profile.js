@@ -40,7 +40,7 @@ import {
   updateSubproject,
   updateUserProfileDocument,
   updateUserProfileShell
-} from "./user-data.js";
+} from "./user-data.js?v=20261124-manual-identity-v1";
 
 import {
   clearVerifiedAuthHint,
@@ -3246,6 +3246,18 @@ projectIdentityReview?.addEventListener("click", async event => {
   if (!leftName || !rightName) return;
 
   const same = button.dataset.identityDecision === "same";
+  if (same) {
+    const authors = projectAuthorsFromWorks(projectWorks, projectAuthors);
+    const left = authors.find(author => equivalentNormalizedNames(author).has(normalizedPersonName(leftName)));
+    const right = authors.find(author => equivalentNormalizedNames(author).has(normalizedPersonName(rightName)));
+    if (!left || !right || left === right) { renderIdentityReview(); return; }
+    const conflict = manualIdentityConflict([left, right]);
+    if (conflict) {
+      const evidence = projectIdentityReview.querySelector(".identity-review-copy small");
+      if (evidence) evidence.textContent = conflict;
+      return;
+    }
+  }
   const buttons = [...projectIdentityReview.querySelectorAll("button")];
   buttons.forEach(item => { item.disabled = true; });
 
