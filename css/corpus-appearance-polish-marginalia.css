@@ -686,9 +686,8 @@ html[data-theme="dark"][data-corpus-shell="marginalia"] #record-modal .record-ci
   html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
     background: Canvas !important;
   }
-  html[data-corpus-shell="marginalia"] :is(
-    .result-visual::before, #record-modal .record-cinematic-hero::after
-  ) {
+  html[data-corpus-shell="marginalia"] .result-visual::before,
+  html[data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero::after {
     background-image: none !important;
   }
 }
