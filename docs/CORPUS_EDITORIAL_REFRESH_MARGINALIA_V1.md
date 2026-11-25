@@ -38,3 +38,18 @@ el margen textual junto a la numeración y marcador móvil (como Territorio).
 
 - Revisión del hero a 1280 px: los cinco filtros heredados en una línea comprimían y recortaban «Sin límite» y «Relevancia». Marginalia ahora usa 3 filtros en una fila y 2 más anchos en la segunda, exclusivamente entre 821–1599 px. Se comprueban dos filas, seis pistas, ancho mínimo de campos y ausencia de desbordamiento. El resto de responsive se conserva.
 - Se eliminó el sombreado de texto heredado en el rótulo editorial y la línea de fuentes, que restaba nitidez a la lectura.
+
+## Sócrates como emblema editorial (CC0)
+Se incorpora el **busto de Sócrates** fotografiado por Bregi y publicado en 1911
+(`Greece from the Coming of the Hellenes to AD. 14, page 201, Socrates.jpg`).
+Wikimedia Commons identifica expresamente la imagen como **CC0 1.0 / dominio público**:
+https://commons.wikimedia.org/wiki/File:Greece_from_the_Coming_of_the_Hellenes_to_AD._14,_page_201,_Socrates.jpg
+
+La URL original permanece enlazada en una variable de CSS, sin transformación
+binaria de la obra y sin modificar el JavaScript. La portada lo presenta a la
+derecha bajo veladuras de papel/tinta, los visuales de las tarjetas muestran un
+sello discreto y el encabezado de la ficha bibliográfica usa una marca de agua.
+Todos los adornos son no interactivos; móvil, alto contraste e impresión tienen
+tratamientos diferenciados. La imagen se carga desde Wikimedia Commons, por lo
+que su disponibilidad depende de un tercero; para independencia de la web,
+conviene alojar una copia del original en el repositorio en una fase posterior.

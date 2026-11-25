@@ -296,6 +296,15 @@ try {
           mode === "light" ? "rgb(53, 70, 80)" : "rgb(101, 66, 61)",
           "Marginalia primary result action must use editorial ink, not pale generic accent");
         assert.equal(p.recordActionInk, "rgb(255, 255, 255)");
+        const socrates = await page.evaluate(() => ({
+          cover: getComputedStyle(document.querySelector(".hero-shell")).backgroundImage,
+          index: getComputedStyle(document.querySelector("#results .result-visual"), "::before").backgroundImage
+        }));
+        for (const [surface, image] of Object.entries(socrates)) {
+          assert.ok(image.includes("Socrates.jpg"),
+            "Marginalia Socrates image missing on " + surface + ": " + image);
+        }
+
         if (width === 1280) {
           const filters = await page.evaluate(() => {
             const grid = document.querySelector(".hero-shell .search-filter-grid");
@@ -399,6 +408,14 @@ try {
         document.querySelector("#record-modal-content").innerHTML = html;
         modal.classList.remove("hidden");
       }, record);
+      if (shell === "marginalia") {
+        const image = await page.evaluate(() =>
+          getComputedStyle(document.querySelector("#record-modal .record-cinematic-hero"), "::after")
+            .backgroundImage
+        );
+        assert.ok(image.includes("Socrates.jpg"),
+          "Marginalia full record hero should display the Socrates watermark");
+      }
       const folio = await page.evaluate(() => {
         const panel = document.querySelector("#record-modal .record-modal-panel");
         const close = document.querySelector("#record-modal .record-modal-close");

@@ -598,6 +598,110 @@ html[data-corpus-shell="marginalia"] :is(
   }
 }
 
+/* SOCRATES EDITORIAL STAMP START
+ * Wikimedia Commons · Greece from the Coming of the Hellenes to AD. 14,
+ * page 201, Socrates.jpg · Photo: Bregi (1911), CC0 1.0.
+ * https://commons.wikimedia.org/wiki/File:Greece_from_the_Coming_of_the_Hellenes_to_AD._14,_page_201,_Socrates.jpg
+ *
+ * The source image is unchanged: CSS-only tonal overlays. Decorative imagery
+ * does not add tab stops, overlay hits, JS or dependencies to the modal.
+ */
+html[data-corpus-shell="marginalia"] {
+  --marginalia-socrates-source: url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Greece_from_the_Coming_of_the_Hellenes_to_AD._14%2C_page_201%2C_Socrates.jpg");
+}
+/* The original School of Athens is replaced ONLY in Marginalia's landing. */
+html[data-theme="light"][data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+  background:
+    linear-gradient(90deg, rgba(248, 245, 237, .98) 0%, rgba(248, 245, 237, .92) 48%, rgba(248, 245, 237, .58) 100%),
+    var(--marginalia-socrates-source) 94% 48% / auto 79% no-repeat,
+    var(--corpus-hero-bg) !important;
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+  background:
+    linear-gradient(90deg, rgba(27, 29, 30, .99) 0%, rgba(27, 29, 30, .92) 48%, rgba(27, 29, 30, .57) 100%),
+    var(--marginalia-socrates-source) 94% 48% / auto 79% no-repeat,
+    var(--corpus-hero-bg) !important;
+}
+/* Mobile remains a reading surface: more ink over the portrait, no new layout. */
+@media (max-width: 820px) {
+  html[data-theme="light"][data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+    background:
+      linear-gradient(90deg, rgba(248, 245, 237, .96) 0%, rgba(248, 245, 237, .89) 100%),
+      var(--marginalia-socrates-source) 96% 16% / auto 46% no-repeat,
+      var(--corpus-hero-bg) !important;
+  }
+  html[data-theme="dark"][data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+    background:
+      linear-gradient(90deg, rgba(27, 29, 30, .96) 0%, rgba(27, 29, 30, .87) 100%),
+      var(--marginalia-socrates-source) 96% 16% / auto 46% no-repeat,
+      var(--corpus-hero-bg) !important;
+  }
+}
+/* Small bookplate within each search-result card, under its existing index. */
+html[data-corpus-shell="marginalia"] body:not(.author-view) #results .result-visual::before,
+html[data-corpus-shell="marginalia"] body.author-view .author-work-grid .result-visual::before {
+  background-image:
+    linear-gradient(145deg, rgba(26, 29, 31, .32), rgba(26, 29, 31, .02)),
+    var(--marginalia-socrates-source);
+  background-size: cover, cover;
+  background-position: center, center 24%;
+  background-repeat: no-repeat;
+  opacity: .46;
+  filter: grayscale(1) sepia(.2) contrast(1.22);
+  pointer-events: none;
+}
+/* Bibliographic detail: a nearly transparent marginal watermark, not a cover
+ * that would compete with titles, DOI, abstract, controls or keyboard focus.
+ */
+html[data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(32%, 270px);
+  z-index: 0;
+  pointer-events: none;
+  background: var(--marginalia-socrates-source) center 30% / cover no-repeat;
+  filter: grayscale(1) sepia(.25) contrast(1.15);
+  opacity: .13;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 52%);
+  mask-image: linear-gradient(90deg, transparent, black 52%);
+}
+html[data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero .record-hero-content {
+  position: relative;
+  z-index: 1;
+}
+html[data-theme="dark"][data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero::after {
+  opacity: .17;
+}
+@media (max-width: 620px) {
+  html[data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero::after {
+    width: 26%;
+    opacity: .08;
+  }
+}
+/* Accessibility and printing: avoid decorative photograph when systems
+ * explicitly require solid, high-contrast surfaces.
+ */
+@media (forced-colors: active) {
+  html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+    background: Canvas !important;
+  }
+  html[data-corpus-shell="marginalia"] :is(
+    .result-visual::before, #record-modal .record-cinematic-hero::after
+  ) {
+    background-image: none !important;
+  }
+}
+@media print {
+  html[data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {
+    background: none !important;
+  }
+  html[data-corpus-shell="marginalia"] #record-modal .record-cinematic-hero::after {
+    display: none;
+  }
+}
+/* SOCRATES EDITORIAL STAMP END */
+
 @media (forced-colors: active) {
   html[data-corpus-shell="marginalia"] :is(
     .hero-shell .search-panel, .research-workspace,

@@ -77,10 +77,15 @@ test("Marginalia: preserva estructura, scroll, gestos y no agrega listeners", as
   assert.match(reflow, /grid-template-columns: repeat\(6, minmax\(0, 1fr\)\)/);
   assert.match(reflow, /nth-child\(-n\+3\)/);
   assert.match(reflow, /nth-child\(n\+4\)/);
-  const safe = (css.slice(0, start) + css.slice(end + "/* EDITORIAL DESKTOP FILTER REFLOW END */".length))
+  const afterReflow = css.slice(0, start) + css.slice(end + "/* EDITORIAL DESKTOP FILTER REFLOW END */".length);
+  const artStart = afterReflow.indexOf("/* SOCRATES EDITORIAL STAMP START");
+  const artEnd = afterReflow.indexOf("/* SOCRATES EDITORIAL STAMP END */", artStart);
+  assert.ok(artStart >= 0 && artEnd > artStart, "Socrates artwork must be isolated");
+  const safe = (afterReflow.slice(0, artStart) +
+    afterReflow.slice(artEnd + "/* SOCRATES EDITORIAL STAMP END */".length))
     .replace(/\/\*[\s\S]*?\*\//g,"");
   assert.doesNotMatch(safe,/(?:^|[;{]\s*)(?:position|display|inset|top|right|bottom|left|width|height|min-width|min-height|max-width|max-height|grid-template(?:-columns|-rows)?|grid-column|grid-row|overflow(?:-x|-y)?|transform|margin|z-index|scroll-behavior|touch-action|pointer-events)\s*:/m);
-  assert.doesNotMatch(css,/@keyframes|@import|url\(/);
+  assert.doesNotMatch(safe,/@keyframes|@import|url\(/);
   assert.match(css,/@media \(forced-colors: active\)/);
   assert.match(css,/@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css,/:focus-visible/);
@@ -100,4 +105,23 @@ test("Marginalia: protege selector dark y elimina marcas azules heredadas", asyn
   assert.match(css,/#results \.result-card \.result-links\s*\{[^}]*background: transparent !important;/);
   assert.match(css,/html\[data-theme\]\[data-corpus-shell="marginalia"\] body:not\(\.author-view\) #results \.result-card \.result-links \.record-open/);
   assert.match(css,/body\.author-view \.author-work-search-field input::placeholder/);
+});
+
+
+test("Marginalia: Sócrates CC0 aparece únicamente como decoración de portada, tarjetas y ficha", async () => {
+  const css = await load(sheet);
+  const marker = "SOCRATES EDITORIAL STAMP START";
+  const art = css.slice(css.indexOf(marker), css.indexOf("SOCRATES EDITORIAL STAMP END"));
+  assert.match(art, /CC0 1\.0/);
+  const sources = art.match(/url\("https:\/\/upload\.wikimedia\.org\/[^"]+"\)/g) || [];
+  assert.equal(sources.length, 1, "Use a single verified public-domain source");
+  assert.ok(sources[0].includes("page_201%2C_Socrates.jpg"));
+  assert.match(art, /body:not\(\.author-view\) \.hero-shell/);
+  assert.match(art, /#results \.result-visual::before/);
+  assert.match(art, /#record-modal \.record-cinematic-hero::after/);
+  assert.match(art, /pointer-events: none;/);
+  assert.match(art, /@media \(max-width: 820px\)/);
+  assert.match(art, /@media \(forced-colors: active\)/);
+  assert.match(art, /@media print/);
+  assert.doesNotMatch(art, /data-corpus-shell="(?:territory|observatory|default)"/);
 });
