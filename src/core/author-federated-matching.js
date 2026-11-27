@@ -1,3 +1,4 @@
+import { classicalAuthority, classicalCreatorAlias } from "./classical-author-aliases.js";
 import {
   normalizeAuthorName,
   cleanAuthorDisplayName
@@ -63,7 +64,8 @@ function prefixedName(candidate, expected) {
 export function matchFederatedWork(work, name, {
   aliases=[],expectedOrcid=null
 }={}) {
-  const variants=normalizeAuthorAliases(name,aliases);
+  const authority=classicalAuthority(name);
+  const variants=normalizeAuthorAliases(name,[...aliases,...(authority?.searchNames||[])]);
   const knownOrcid=orcid(expectedOrcid);
   const all=splitCreatorMetadata(work?.authors||[]);
   let best=null;
@@ -71,7 +73,7 @@ export function matchFederatedWork(work, name, {
     const candidate=plain(creator.name);
     const observedOrcid=orcid(creator.orcid||creator.id);
     if(knownOrcid && observedOrcid && knownOrcid!==observedOrcid)continue;
-    const exact=variants.some(value=>candidate===plain(value));
+    const exact=variants.some(value=>candidate===plain(value)) || Boolean(authority && classicalCreatorAlias(creator.name)===authority && !observedOrcid);
     const longer=variants.some(value=>prefixedName(creator.name,value));
     // Concatenated creator strings must have explicit collective markers
     // to avoid classifying unrelated authors based on mere word overlap.
