@@ -21,7 +21,7 @@ test("fase 4 se activa solo en el corpus y se carga después de fases 1–3", as
     last = pos;
   }
   assert.equal(index.split("css/corpus-appearance-author-atlas.css").length, 2);
-  assert.match(index, /src="\.\/js\/research-atlas-embed\.js\?v=20261126-pinch-v2"/);
+  assert.match(index, /src="\.\/js\/research-atlas-embed\.js\?v=20261126-labels-v1"/);
   for (const path of [
     "tesis.html", "atlas.html", "articulos.html",
     "filosofia-latinoamericana.html", "perfil.html", "research-atlas.html",
