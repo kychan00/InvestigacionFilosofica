@@ -66,10 +66,17 @@ try{
   if(preview){
     const root=page.locator("#author-authority-preview");
     await root.locator(".authority-preview-metrics").waitFor({timeout:30000});
+    // The local institutional corpus contributes additional prefilter candidates.
+    // Assert the exact probable subset rather than treating all candidates as authorship.
+    await root.locator("select").selectOption("probable");
     assert.equal(await root.locator(".authority-preview-work").count(),4);
+    for (const row of rows) {
+      assert.equal(await root.locator(".authority-preview-work").filter({hasText:row.t}).count(),1);
+    }
     assert.equal(await root.locator(".authority-preview-metric").nth(1).locator("strong").textContent(),"4");
-    await root.locator(".authority-preview-work summary").first().click();
-    await root.getByRole("button",{name:"Abrir ficha bibliográfica"}).click();
+    const selected=root.locator(".authority-preview-work").filter({hasText:rows[2].t});
+    await selected.locator("summary").click();
+    await selected.getByRole("button",{name:"Abrir ficha bibliográfica"}).click();
     await page.locator("#record-modal").waitFor({state:"visible"});
     assert.equal(urls.length,0);
     await page.keyboard.press("Escape");
