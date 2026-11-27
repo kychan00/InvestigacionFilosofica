@@ -1,3 +1,4 @@
+import { rejectedAuthorOrcid } from "../core/author-orcid-guard.js";
 import { normalizedAuthorOrcid } from "../core/author-provenance.js";
 import { normalizeText } from "../core/parser.js";
 
@@ -663,7 +664,7 @@ function preferredProfilesFromResolution(resolution) {
 
   for (const author of authors) {
     const orcid = normalizedAuthorOrcid(author?.orcid);
-    if (!orcid || seen.has(orcid)) continue;
+    if (!orcid || seen.has(orcid) || rejectedAuthorOrcid(author?.displayName || author?.sourceDisplayName,orcid)) continue;
     seen.add(orcid);
     profiles.push({
       orcid,
@@ -683,7 +684,7 @@ function preferredProfilesFromResolution(resolution) {
 
 async function preferredOrcidProfiles(options = {}) {
   const direct = normalizedAuthorOrcid(options.preferredOrcid);
-  if (direct) {
+  if (direct && !rejectedAuthorOrcid(options.preferredName,direct)) {
     return [{
       orcid: direct,
       displayName: options.preferredName || direct,

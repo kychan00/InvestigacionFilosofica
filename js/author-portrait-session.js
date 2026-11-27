@@ -1,4 +1,4 @@
-import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=5";
+import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=6";
 
 /**
  * Exactly one transient portrait session per open author dossier. Repeated

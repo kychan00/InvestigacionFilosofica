@@ -51,6 +51,23 @@ try{
     if(url.hostname==="esm.sh"&&url.pathname.startsWith("/franc-min"))
       return route.fulfill({status:200,contentType:"application/javascript",
         body:"export function francAll(){return [];}"}); 
+    if(url.hostname==="pub.orcid.org" && url.pathname.endsWith("/record")) {
+      const profile = {
+        person: {
+          name: {
+            "given-names": {value:"Marina"},
+            "family-name": {value:"Hernández López"}
+          }
+        },
+        "activities-summary": {}
+      };
+      return route.fulfill({
+        status:200,
+        contentType:"application/json",
+        headers:{"access-control-allow-origin":"*"},
+        body:JSON.stringify(profile)
+      });
+    }
     if(url.hostname==="www.wikidata.org")
       return route.fulfill({status:200,contentType:"application/json",
         headers:{"access-control-allow-origin":"*"},
@@ -118,6 +135,7 @@ try{
   const saveAuthor=page.locator(".author-page-save-actions .author-save-button");
   if(theme==="light"){
     await saveAuthor.waitFor({state:"visible"});
+    await page.locator('.author-page-evidence a[href="' + orcid + '"]').waitFor({state:"visible",timeout:15000});
     assert.ok((await saveAuthor.boundingBox()).height>=44);
     await saveAuthor.click();
     const payload=await page.evaluate(()=>globalThis.__authorSaveFromPage);

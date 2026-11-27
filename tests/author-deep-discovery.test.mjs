@@ -71,7 +71,7 @@ test("las dos obras de Ángeles Eraña se amplían SIN red de OpenAlex",async()=
       works:[],totalGroups:0,returnedWorks:0,complete:true
     }),
     orcidProfileImpl:async()=>({
-      hasPublicProfileData:false,source:"ORCID"
+      displayName:author.displayName,hasPublicProfileData:false,source:"ORCID"
     }),
     federatedImpl:async name=>{
       federatedCalled=true;
@@ -102,7 +102,7 @@ test("el índice no disponible conserva las obras iniciales y no consume tokens"
       works:[],totalGroups:0,returnedWorks:0,complete:true
     }),
     orcidProfileImpl:async()=>({
-      hasPublicProfileData:false,source:"ORCID"
+      displayName:author.displayName,hasPublicProfileData:false,source:"ORCID"
     }),
     federatedImpl:async()=>({status:"none",works:[]})
   });

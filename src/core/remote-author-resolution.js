@@ -1,3 +1,4 @@
+import { rejectedAuthorOrcid } from "./author-orcid-guard.js";
 import {
   mergeResults
 } from "./merge-results.js?v=20261109-global-work-dedup-v3";
@@ -925,6 +926,9 @@ async function resolvedPayload(
   selected,
   options
 ) {
+  if (rejectedAuthorOrcid(selected.displayName,selected.candidate.o)) {
+    selected={...selected,candidate:{...selected.candidate,o:null}};
+  }
   const works = await authorWorks(
     context,
     selected.candidate,

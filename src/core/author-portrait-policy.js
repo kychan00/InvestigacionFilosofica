@@ -1,3 +1,4 @@
+import { sanitizeAuthorOrcid } from "./author-orcid-guard.js";
 /**
  * SIVA · Public author portrait policy. Names discover candidates, never establish identity.
  * Wikidata is an identity bridge, Commons is the media/license authority.
@@ -41,7 +42,7 @@ const HISTORICAL = Object.freeze({
   Q913: ["socrates", "sokrates", "σωκρατης"],
   Q152388: ["theodor w adorno", "theodor adorno", "theodor wiesengrund adorno", "theodor ludwig wiesengrund adorno", "adorno theodor w", "adorno theodor"],
   Q76826: ["max horkheimer", "horkheimer max"],
-  Q61078: ["walter benjamin", "benjamin walter", "walter benedix schonflies benjamin"],
+  Q61078: ["walter benjamin", "walter bendix schonflies benjamin", "walter benedix schonflies benjamin"],
   Q60030: ["herbert marcuse", "marcuse herbert"],
   Q76357: ["jurgen habermas", "habermas jurgen"],
   Q48301: ["martin heidegger", "heidegger martin"],
@@ -80,11 +81,16 @@ function normalizeDOI(value) {
 }
 export function portraitIdentity(author = {}, works = []) {
   if (!author || typeof author !== "object") return null;
+  author = sanitizeAuthorOrcid(author);
   const o = orcid(author.orcid || author.orcidId);
   const a = oa(author.openalexId || author.sourceId) || (author.catalog !== "federated" ? oa(author.id, true) : null);
   const explicitQ = qid(author.wikidataId);
-  const name = fold(author.sourceDisplayName || author.displayName);
-  const display = fold(author.displayName || author.sourceDisplayName);
+  const authorityName = value => {
+    const parts = String(value || "").split(",");
+    return fold(parts.length === 2 && parts.every(p=>p.trim()) ? parts[1]+" "+parts[0] : value);
+  };
+  const name = authorityName(author.sourceDisplayName || author.displayName);
+  const display = authorityName(author.displayName || author.sourceDisplayName);
   const hasOrcid = Boolean(author.orcid || author.orcidId);
   const curated = !explicitQ && !author.wikidataId && !hasOrcid && a &&
     author.catalog !== "federated" && name.split(" ").length >= 2
@@ -98,9 +104,9 @@ export function portraitIdentity(author = {}, works = []) {
   const evidence = a && !hasOrcid && author.catalog !== "federated"
     ? bibliographicEvidence(works,names,a) : {titles:[],dois:[]};
   const canDiscover = names.length > 0 && (evidence.titles.length >= 2 || evidence.dois.length > 0);
-  return { orcid: o, openalex: a, qid: q, historical, names, evidence, canDiscover,
+  return { orcid: o, orcidVerified: author.orcidVerified === true, openalex: a, qid: q, historical, names, evidence, canDiscover,
     queryName: String(author.displayName || author.sourceDisplayName || "").slice(0,150),
-    key: [o || "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
+    key: [o || "", author.orcidVerified ? "verified" : "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
 }
 function values(entity, property) {
   const claims = entity?.claims?.[property] || [];
@@ -121,7 +127,7 @@ export function matchesPortraitIdentity(entity, identity) {
   if (identity.orcid && o.some(id => id !== identity.orcid)) return false;
   if (identity.openalex && a.length && !a.includes(identity.openalex)) return false;
   if (identity.orcid && o.includes(identity.orcid)) return true;
-  if (identity.openalex && a.includes(identity.openalex)) return !identity.orcid || o.includes(identity.orcid);
+  if (identity.openalex && a.includes(identity.openalex)) return !identity.orcid || o.includes(identity.orcid) || (identity.orcidVerified && !o.length);
   return identity.historical && !o.length && !a.length;
 }
 function apiURL(base, params) {
