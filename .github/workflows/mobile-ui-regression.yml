@@ -91,6 +91,10 @@ on:
       - "scripts/qa/mobile-ui-smoke.mjs"
       - "scripts/qa/record-modal-smoke.mjs"
       - "scripts/qa/author-timeline-smoke.mjs"
+      - "scripts/qa/author-history-navigation-smoke.mjs"
+      - "src/core/author-timeline-history-identity.js"
+      - "src/core/author-intellectual-history*.js"
+      - "src/core/latin-american-*-history*.js"
       - "scripts/qa/theme-contrast-smoke.mjs"
       - "scripts/qa/corpus-appearance-smoke.mjs"
       - "tests/corpus-appearance-final-audit.test.mjs"
@@ -215,6 +219,8 @@ jobs:
         run: node scripts/qa/record-modal-smoke.mjs
       - name: Check author timeline interactions and layout
         run: node scripts/qa/author-timeline-smoke.mjs
+      - name: Verify intellectual history through real author URL resolution
+        run: node scripts/qa/author-history-navigation-smoke.mjs
       - name: Check light dark labels and sun moon controls
         run: node scripts/qa/theme-contrast-smoke.mjs
 
@@ -278,6 +284,7 @@ jobs:
             artifacts/thesis-atlas-ui/
             artifacts/record-detail/
             artifacts/author-timeline/
+            artifacts/author-history-navigation/
             artifacts/theme-contrast/
             artifacts/corpus-appearance/
             artifacts/author-profile-visibility/
