@@ -19,7 +19,7 @@ const alias={s:authorNameSignature(name),id:Number(id),
   n:name,o:"https://orcid.org/"+orcid,cw:4,w:4,c:4,k:"full"};
 
 try{
- for(const theme of ["light","dark"]){
+ for(const [theme,preview] of [["light",false],["dark",false],["light",true],["dark",true]]){
   const page=await browser.newPage({
     viewport:{width:390,height:850},isMobile:true,hasTouch:true,deviceScaleFactor:1
   });
@@ -50,6 +50,7 @@ try{
   });
   const url=new URL(BASE);
   url.searchParams.set("view","author");
+  if(preview)url.searchParams.set("authorityPreview","1");
   url.searchParams.set("author",name);
   url.searchParams.set("authorId",id);
   url.searchParams.set("authorOrcid","https://orcid.org/"+orcid);
@@ -62,6 +63,19 @@ try{
     document.querySelectorAll(".author-work-grid .result-card").length===4,
     null,{timeout:20000});
   assert.equal(urls.length,0,"Direct OpenAlex API must not be called");
+  if(preview){
+    const root=page.locator("#author-authority-preview");
+    await root.locator(".authority-preview-metrics").waitFor({timeout:30000});
+    assert.equal(await root.locator(".authority-preview-work").count(),4);
+    assert.equal(await root.locator(".authority-preview-metric").nth(1).locator("strong").textContent(),"4");
+    await root.locator(".authority-preview-work summary").first().click();
+    await root.getByRole("button",{name:"Abrir ficha bibliográfica"}).click();
+    await page.locator("#record-modal").waitFor({state:"visible"});
+    assert.equal(urls.length,0);
+    await page.keyboard.press("Escape");
+    await page.locator("#record-modal").waitFor({state:"hidden"});
+    assert.equal(await page.locator(".author-work-grid .authority-preview-card-label").count(),4);
+  }else assert.equal(await page.locator("#author-authority-preview").count(),0);
   const state=await page.evaluate(()=>{
     const cards=[...document.querySelectorAll(".author-work-grid .result-card")];
     const stats=document.querySelector("#stats");
@@ -101,7 +115,7 @@ try{
       ));
   }, null, {timeout: 10000});
   await page.screenshot({
-    path:"artifacts/author-deep-discovery/"+theme+"-profile-390.png",
+    path:"artifacts/author-deep-discovery/"+theme+(preview?"-v2":"")+"-profile-390.png",
     animations:"disabled"
   });
   await page.close();

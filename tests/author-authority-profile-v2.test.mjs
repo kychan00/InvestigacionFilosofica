@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {authorityPreviewRevision,projectAuthorityProfile,PROFILE_PREVIEW_REVISION,buildAuthorityArchiveView,summarizeAuthorityAuthorship,authorityArchiveLabel} from "../src/core/author-authority-profile-v2.js";
+import {authorityPreviewRevision,projectAuthorityProfile,PROFILE_PREVIEW_REVISION,buildAuthorityArchiveView,summarizeAuthorityAuthorship,authorityArchiveLabel,projectIdentityState} from "../src/core/author-authority-profile-v2.js";
 const row=(id,status,extra={})=>({record:{provider:"Crossref",sourceId:id,title:"Title "+id,year:2020,...extra},contributions:[{decision:{scope:"contribution",status},role:"author"}]});
 test("preview is explicit and disabled by default",()=>{
  assert.equal(authorityPreviewRevision(""),null);
@@ -68,4 +68,10 @@ test("coauthor candidates use only identified creators in a confirmed original a
  const c=structuredClone(a);c.record.sourceId="3";c.contributions[0].synthesizedCreator=true;
  const result=summarizeAuthorityAuthorship(projectAuthorityProfile({rows:[a,b,c]}).works);
  assert.deepEqual(result.collaborators,[{key:"orcid:0000-0002-1825-0097",name:"Observed",count:1}]);
+});
+
+test("identity state is never inferred from confirmed contributions",()=>{
+ assert.equal(projectIdentityState({scope:"contribution",status:"confirmed"}),"unresolved");
+ assert.equal(projectIdentityState(null),"unresolved");
+ assert.equal(projectIdentityState({scope:"identity",status:"ambiguous"}),"ambiguous");
 });

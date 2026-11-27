@@ -22,11 +22,11 @@ try{
   });
   const root=page.locator(".author-authority-preview");
   await root.scrollIntoViewIfNeeded();
-  assert.equal(await root.locator("details").count(),12);
+  assert.equal(await root.locator(".authority-preview-work").count(),12);
   await root.getByRole("button",{name:"Mostrar más atribuciones"}).click();
-  assert.equal(await root.locator("details").count(),15);
+  assert.equal(await root.locator(".authority-preview-work").count(),15);
   await root.locator("select").selectOption("ambiguous");
-  assert.equal(await root.locator("details").count(),1);
+  assert.equal(await root.locator(".authority-preview-work").count(),1);
   await root.locator(".authority-preview-work summary").click();
   await root.getByText("Membresía del índice filosófico",{exact:false}).waitFor();
   await root.getByRole("button",{name:"Abrir ficha bibliográfica"}).click();

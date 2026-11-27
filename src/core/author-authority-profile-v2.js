@@ -45,6 +45,10 @@ function documentKeys(work){
 }
 
 const stateOf=c=>c?.decision?.scope==="contribution"&&PROFILE_STATES.includes(c.decision.status)?c.decision.status:"unresolved";
+// A contribution decision must never imply a human identity decision.
+export function projectIdentityState(decision){
+ return decision?.scope==="identity"&&PROFILE_STATES.includes(decision.status)?decision.status:"unresolved";
+}
 function workState(states){
  if(states.includes("ambiguous")||(states.includes("rejected")&&(states.includes("confirmed")||states.includes("probable"))))return "ambiguous";
  if(states.includes("confirmed"))return "confirmed";
@@ -80,11 +84,13 @@ function el(doc,tag,txt,cls){
  if(cls)node.className=cls;
  return node;
 }
-export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=null,onOpenWork}={}){
+export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=null,onOpenWork,identityDecision=null}={}){
  if(!root)return;
  const d=root.ownerDocument;
  root.replaceChildren();
  root.append(el(d,"p","Author Profile V2 · evaluación experimental","authority-preview-kicker"),el(d,"h2","Evidencia bibliográfica"),el(d,"p","Se evalúan atribuciones al perfil seleccionado, no se certifica la identidad de la persona. El archivo habitual, la cronología y sus estadísticas siguen siendo los originales."));
+ const identityState=projectIdentityState(identityDecision);
+ root.append(el(d,"p","Identidad humana V2: "+singular[identityState]+". La evaluación bibliográfica es independiente.","authority-preview-identity"));
  if(loading||!shadow||shadow.error){
   const status=el(d,"p",loading?"Evaluando las fuentes recuperadas…":shadow?.error?"Evaluación no disponible. El archivo habitual sigue accesible.":"Todavía no hay evidencia evaluada.");
   status.setAttribute("role","status");root.append(status);return;
