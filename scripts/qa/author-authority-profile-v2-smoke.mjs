@@ -11,12 +11,14 @@ try{
   await page.goto(base,{waitUntil:"domcontentloaded"});
   await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes("author-authority-profile-v2.css")));
   await page.evaluate(async()=>{
-   const {mountAuthorAuthorityPreview}=await import("./src/core/author-authority-profile-v2.js");
+   const {mountAuthorAuthorityPreview,buildAuthorityArchiveView}=await import("./src/core/author-authority-profile-v2.js");
    document.body.classList.add("author-view");
    const workspace=document.querySelector("#research-workspace");workspace.classList.remove("hidden");
    const results=document.querySelector("#results");results.innerHTML='<article class="author-page"><section class="author-authority-preview"></section></article>';
    const rows=Array.from({length:15},(_,i)=>({record:{provider:"OpenAlex Philosophy",sourceId:"W"+i,title:"Obra "+i+" "+("título muy extenso ".repeat(5)),year:2020},contributions:[{rawName:"Nombre de prueba",role:"author",decision:{scope:"contribution",status:i===0?"ambiguous":"probable"},evidence:[{kind:"snapshot-author-membership",reliability:"asserted",polarity:"supports"}]}]}));
-   mountAuthorAuthorityPreview(results.querySelector("section"),{shadow:{rows}});
+   const legacy=[{id:"W0",providers:["OpenAlex Philosophy"],title:"Original"}];
+   window.authorityOpened=null;
+   mountAuthorAuthorityPreview(results.querySelector("section"),{shadow:{rows},archive:buildAuthorityArchiveView({rows},legacy),onOpenWork:work=>{window.authorityOpened=work.id;}});
   });
   const root=page.locator(".author-authority-preview");
   await root.scrollIntoViewIfNeeded();
@@ -25,8 +27,12 @@ try{
   assert.equal(await root.locator("details").count(),15);
   await root.locator("select").selectOption("ambiguous");
   assert.equal(await root.locator("details").count(),1);
-  await root.locator("summary").click();
+  await root.locator(".authority-preview-work summary").click();
   await root.getByText("Membresía del índice filosófico",{exact:false}).waitFor();
+  await root.getByRole("button",{name:"Abrir ficha bibliográfica"}).click();
+  assert.equal(await page.evaluate(()=>window.authorityOpened),"W0");
+  await root.getByText("Ver distribución cronológica",{exact:false}).click();
+  await root.getByText("2020 · 0 confirmadas · 14 probables",{exact:true}).waitFor();
   for(const theme of ["light","dark"]){
    await page.evaluate(theme=>{document.documentElement.dataset.theme=theme;document.body.dataset.theme=theme;},theme);
    const geometry=await root.evaluate(el=>({width:el.clientWidth,scroll:el.scrollWidth,viewport:innerWidth,right:el.getBoundingClientRect().right}));

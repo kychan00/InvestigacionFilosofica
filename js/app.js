@@ -62,7 +62,7 @@ import {
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-authority-v2-phase5";
-import {authorityPreviewRevision,mountAuthorAuthorityPreview} from "../src/core/author-authority-profile-v2.js?v=20261127-phase5";
+import {authorityPreviewRevision,mountAuthorAuthorityPreview,buildAuthorityArchiveView,authorityArchiveLabel} from "../src/core/author-authority-profile-v2.js?v=20261127-phase5b";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -324,6 +324,7 @@ let authorArchiveOrcidSummary = null;
 let authorArchiveOrcidProfile = null;
 const authorAuthorityPreviewRevision=authorityPreviewRevision(window.location.search);
 let authorAuthorityShadow=null;
+let authorAuthorityArchive=null;
 const authorPortraitSession = createAuthorPortraitSession();
 window.addEventListener("pagehide", () => authorPortraitSession.close());
 window.addEventListener("pageshow", event => {
@@ -3453,6 +3454,7 @@ function renderResult(
 
         <div class="provider-row">
 
+          ${item.authorityPreviewLabel?`<span class="provider authority-preview-card-label">${escapeHtml(item.authorityPreviewLabel)}</span>`:""}
           ${workSources.length > 1
             ? `<span class="provider author-multiple-sources">Varias fuentes · ${workSources.length}</span>`
             : ""}
@@ -5164,6 +5166,7 @@ function showExclusiveAuthorWorks(
   resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
   if (options.resetTimeline) {
     authorAuthorityShadow=null;
+    authorAuthorityArchive=null;
     authorArchiveNotice = "";
     authorArchiveSources = [];
     authorArchiveOrcidSummary = null;
@@ -5281,6 +5284,7 @@ function restoreAuthorSourceSearch() {
   authorArchiveOrcidSummary = null;
   authorArchiveOrcidProfile = null;
   authorAuthorityShadow=null;
+  authorAuthorityArchive=null;
   authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
@@ -5743,7 +5747,7 @@ async function openExclusiveAuthorByName(
           }, authorArchiveOrcidProfile)
         }, { loading: false, preserveVisibleLimit: true });
       } catch(error) {
-        if (authorController.signal.aborted) return;
+        if (authorController.signal.aborted || currentController !== authorController) return;
         console.error("No se pudo completar el catálogo del autor:",error);
         authorArchiveLoading = false;
         authorAuthorityShadow={error:"La consulta bibliográfica no pudo completarse."};
@@ -6988,6 +6992,7 @@ function renderAuthorWorkCollection(
 
         return renderResult({
           ...item,
+          ...(authorAuthorityArchive?{authorityPreviewLabel:authorityArchiveLabel(authorAuthorityArchive.byWork.get(item))}:{}),
           collaborationKind:
             collab.kind,
           collaborationCount:
@@ -7579,6 +7584,11 @@ function renderFilteredResults() {
   if (authorOnlyResults) {
     clearAuthorIdentity();
 
+    authorAuthorityArchive=null;
+    if(authorAuthorityPreviewRevision&&!authorArchiveLoading&&authorAuthorityShadow&&!authorAuthorityShadow.error){
+      try { authorAuthorityArchive=buildAuthorityArchiveView(authorAuthorityShadow,currentResponse.results||[]); }
+      catch(error){console.warn("Authority archive projection unavailable",error);}
+    }
     resultsEl.innerHTML =
       errorHtml +
       renderAuthorPage(
@@ -7586,7 +7596,7 @@ function renderFilteredResults() {
       );
 
     if(authorAuthorityPreviewRevision){
-      try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading}); }
+      try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading,archive:authorAuthorityArchive,onOpenWork:work=>openRecord(work)}); }
       catch(error){ console.warn("Author Authority preview unavailable",error); }
     }
     void authorPortraitSession.open(currentResponse.authorResolution?.author,
