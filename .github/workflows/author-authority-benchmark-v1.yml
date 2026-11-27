@@ -5,6 +5,11 @@ on:
     paths:
       - "benchmark/author-authority/**"
       - "src/core/author-authority-benchmark.js"
+      - "src/core/author-authority-shadow-v2.js"
+      - "src/core/author-authority-resolution-v2.js"
+      - "src/core/author-authority-evidence-v2.js"
+      - "scripts/authority/run-shadow-v2.mjs"
+      - "scripts/authority/build-human-authority-audit-v1.mjs"
       - "src/core/author-authority-batch.js"
       - "src/core/author-curated-identities.js"
       - "scripts/authority/benchmark-author-authority-v1.mjs"
@@ -83,6 +88,18 @@ jobs:
       - name: Run mass Author Authority benchmark
         run: |
           npm run benchmark:authority --             --input artifacts/author-authority-benchmark-v1/input/author-index-v2             --output artifacts/author-authority-benchmark-v1/report.json
+
+      - name: Run V2 shadow on frozen 100-pair sample
+        run: |
+          node scripts/authority/run-shadow-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-benchmark-v1/report.json artifacts/author-authority-v2/snapshot
+
+      - name: Upload V2 shadow evaluation and blind review packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-shadow-snapshot
+          path: artifacts/author-authority-v2/snapshot/
+          if-no-files-found: warn
 
       - name: Upload Author Authority benchmark evidence
         if: always()
