@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "siva-live-cohort-v1",
+  "maxCandidatesPerName": 3,
+  "maxWorksPerCandidate": 100,
+  "notes": "Purposefully selected development cohort, not a random sample or independent gold. Historical reference QIDs come from existing reviewed SIVA authorities and are comparison hints, not input to the resolver. Candidate identities and actual depicted persons need review.",
+  "cases": [
+    {
+      "name": "Peter Singer",
+      "group": "contemporary"
+    },
+    {
+      "name": "David Chalmers",
+      "group": "homonym",
+      "reference": [
+        "https://consc.net/cv/",
+        "https://consc.net/all-papers/"
+      ],
+      "review": "Keep philosopher and other Chalmers profiles separate; no preassigned ORCID."
+    },
+    {
+      "name": "Rahel Jaeggi",
+      "group": "contemporary",
+      "reference": [
+        "https://doi.org/10.1177/1468795X231182636"
+      ]
+    },
+    {
+      "name": "Judith Butler",
+      "group": "contemporary"
+    },
+    {
+      "name": "Luciano Floridi",
+      "group": "contemporary"
+    },
+    {
+      "name": "Immanuel Kant",
+      "group": "historical",
+      "referenceQid": "Q9312"
+    },
+    {
+      "name": "Georg Wilhelm Friedrich Hegel",
+      "group": "historical",
+      "referenceQid": "Q9235"
+    },
+    {
+      "name": "Theodor W. Adorno",
+      "group": "historical",
+      "referenceQid": "Q152388"
+    },
+    {
+      "name": "Walter Benjamin",
+      "group": "homonym",
+      "referenceQid": "Q61078",
+      "reference": [
+        "https://doi.org/10.5194/tc-14-1779-2020"
+      ],
+      "review": "Known reversed-name ORCID conflict; never assign the registrant Benjamin Walter to the philosopher."
+    },
+    {
+      "name": "Friedrich Nietzsche",
+      "group": "historical",
+      "referenceQid": "Q9358"
+    },
+    {
+      "name": "Enrique Dussel",
+      "group": "latin-american"
+    },
+    {
+      "name": "Antonio Caso",
+      "group": "latin-american"
+    },
+    {
+      "name": "Ángeles Eraña",
+      "group": "latin-american"
+    }
+  ]
+}
