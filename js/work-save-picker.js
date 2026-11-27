@@ -234,7 +234,12 @@ export function createWorkSaveManager({
       if (pickerState !== state) return;
       state.projects = projects;
       state.stored = stored;
-      state.normalized = stored || normalized;
+      state.normalized = stored ? {
+        ...stored,
+        sourceRecordId: normalized.sourceRecordId || stored.sourceRecordId,
+        referenceUrl: normalized.referenceUrl || stored.referenceUrl,
+        recordSnapshot: normalized.recordSnapshot || stored.recordSnapshot
+      } : normalized;
 
       const [assignments, collectionEntries] = await Promise.all([
         runtime.getProjectWorkAssignments(user.uid, state.normalized.id, projects),
