@@ -22,7 +22,7 @@ export function localizeClassicalAuthor(author) {
   if(!authority)return author;
   return {...author,displayName:authority.displayName,
     sourceDisplayName:author.sourceDisplayName||author.displayName,
-    aliases:[...new Set([...authority.searchNames,...(author.aliases||[]),author.displayName,author.sourceDisplayName].filter(Boolean))],
+    aliases:[...new Set([...authority.searchNames,...(author.aliases||[]),author.displayName,author.sourceDisplayName].filter(value=>value && !/^(\S+)\s+\1$/iu.test(value)))],
     // Source QID is retained if present. Reviewed authority links enrich the
     // UI without replacing the original bibliographic identifier.
     wikidataId:authority.qid,
