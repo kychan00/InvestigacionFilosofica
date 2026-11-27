@@ -1,6 +1,6 @@
 import {DECISION_SCHEMA, validateEvidenceV2, validateDecisionV2, independentEvidenceGroups} from "./author-authority-evidence-v2.js";
 
-export const AUTHORITY_ENGINE_VERSION="2.0.0-experimental.2";
+export const AUTHORITY_ENGINE_VERSION="2.0.0-experimental.3";
 // Rules apply to the proposition's scope, not to a famous name or work list.
 // Unknown evidence types remain traceable but cannot establish identity.
 const policy={
@@ -20,6 +20,7 @@ const policy={
  portrait:{
   anchors:["verified-depicted-person","reviewed-portrait-identity"],
   strong:["authority-image-link","documented-image-caption"],
+  provisional:["authority-image-link"],
   context:["ordered-name-match"],
   veto:["verified-distinct-person","verified-image-identity-conflict"]
  }

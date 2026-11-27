@@ -270,7 +270,14 @@ export async function resolveAuthorPortrait(identity, {fetcher = fetch, signal} 
   for(const name of ordered) {
     const page=pages.find(p=>fold(p.title)===fold("File:"+name));
     const portrait=commonsPortrait(page,entity.id);
-    if(portrait)return portrait;
+    if(portrait){
+      // Preserve the exact public assertion and its source. A license and
+      // a P18 claim are not independent verification of a depicted person.
+      const exact=matchesPortraitIdentity(entity,identity);
+      const method=exact?(identity.orcid&&allValues(entity,"P496").map(orcid).includes(identity.orcid)?"orcid-bridge":
+        identity.openalex&&allValues(entity,"P10283").map(v=>oa(v)).includes(identity.openalex)?"openalex-bridge":"historical-authority"):"bibliographic-bridge";
+      return {...portrait,authorityTrace:{entityId:entity.id,entityRevision:entity.lastrevid?String(entity.lastrevid):null,authorityFile:name,commonsFile:page.title,method}};
+    }
   }
   return null;
 }

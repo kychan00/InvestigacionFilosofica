@@ -53,7 +53,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7-authority-v2";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-production-v1";
 import {
@@ -324,7 +324,7 @@ let authorArchiveOrcidProfile = null;
 const authorAuthorityPreviewRevision=authorityPreviewRevision(window.location.search);
 let authorAuthorityShadow=null;
 let authorAuthorityArchive=null;
-const authorPortraitSession = createAuthorPortraitSession();
+const authorPortraitSession = createAuthorPortraitSession({authorityRevision:authorAuthorityPreviewRevision});
 window.addEventListener("pagehide", () => authorPortraitSession.close());
 window.addEventListener("pageshow", event => {
   if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view")) {

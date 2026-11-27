@@ -1,4 +1,5 @@
-import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=7";
+import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=7-authority-preview";
+import {assessPortraitV2} from "../src/core/author-authority-portrait-v2.js";
 
 /**
  * Exactly one transient portrait session per open author dossier. Repeated
@@ -9,12 +10,13 @@ export function createAuthorPortraitSession({
   resolve=resolveAuthorPortrait, download=downloadPortrait,
   createURL=blob=>URL.createObjectURL(blob), revokeURL=url=>URL.revokeObjectURL(url),
   decode=async url=>{const img=new Image(); img.src=url; try { await img.decode(); return {width:img.naturalWidth,height:img.naturalHeight}; } finally { img.removeAttribute("src"); }},
-  timeoutMs=PORTRAIT_TIMEOUT_MS
+  timeoutMs=PORTRAIT_TIMEOUT_MS, authorityRevision=null
 }={}) {
   let session=null;
   function resetSlot(slot) {
     if(!slot) return;
     slot.removeAttribute("data-siva-ready");
+    slot.querySelector(".siva-authority-preview")?.remove();
     const figure=slot.querySelector(".siva-portrait");
     if(figure){figure.hidden=true; figure.replaceChildren();}
     const seal=slot.querySelector(".author-page-seal");
@@ -33,7 +35,20 @@ export function createAuthorPortraitSession({
     if(old.url)revokeURL(old.url);
     old.url=null;old.meta=null;old.slot=null;
   }
+  function paintAssessment(s) {
+    if(!authorityRevision||session!==s||!s.slot?.isConnected)return;
+    let label=s.slot.querySelector(".siva-authority-preview");
+    if(!label){
+      label=s.slot.ownerDocument.createElement("p");
+      label.className="siva-authority-preview";label.setAttribute("role","status");
+      s.slot.append(label);
+    }
+    const status=s.assessment?.decision?.status;
+    label.textContent=status==="probable"?"Retrato V2: atribución probable, declarada por Wikidata.":
+      status?"Retrato V2: atribución no resuelta.":"Retrato V2: evaluando evidencia.";
+  }
   function paint(s) {
+    paintAssessment(s);
     if(session!==s || !s.url || !s.meta || !s.slot?.isConnected) return;
     const figure=s.slot.querySelector(".siva-portrait");
     if(!figure || s.slot.hasAttribute("data-siva-ready")) return;
@@ -62,11 +77,17 @@ export function createAuthorPortraitSession({
       s.pendingURL=createURL(blob);
       const size=await decode(s.pendingURL);
       if(session!==s || s.controller.signal.aborted || !(size.width>0 && size.height>0 && size.width<=PORTRAIT_MAX_SIDE && size.height<=PORTRAIT_MAX_SIDE))return;
-      s.meta={...meta,width:size.width,height:size.height};s.url=s.pendingURL;s.pendingURL=null;paint(s);
+      s.meta={...meta,width:size.width,height:size.height};s.url=s.pendingURL;s.pendingURL=null;
+      if(authorityRevision){try{s.assessment=assessPortraitV2(identity,meta,authorityRevision);}catch{}}
+      paint(s);
     } catch { /* missing, unsafe, blocked, slow: retain initials, no error UI */ }
     finally {
       clearTimeout(s.timer);
       releasePending(s);
+      if(authorityRevision&&session===s&&!s.assessment){
+        try{s.assessment=assessPortraitV2(identity,null,authorityRevision);}catch{}
+        paintAssessment(s);
+      }
     }
   }
   function open(author,slot,works=[]) {
@@ -77,14 +98,16 @@ export function createAuthorPortraitSession({
       session.name=String(author.displayName||"");paint(session);return session.task;
     }
     close();
-    const s={key:identity.key,slot,name:String(author.displayName||""),controller:new AbortController(),url:null,pendingURL:null,meta:null};
+    const s={key:identity.key,slot,name:String(author.displayName||""),controller:new AbortController(),url:null,pendingURL:null,meta:null,assessment:null};
     session=s;
+    paintAssessment(s);
     s.timer=setTimeout(()=>{
       if(session===s&&!s.url){
         s.controller.abort();releasePending(s);resetSlot(s.slot);
+        if(authorityRevision){try{s.assessment=assessPortraitV2(identity,null,authorityRevision);}catch{}paintAssessment(s);}
       }
     },timeoutMs);
     s.task=load(s,identity);return s.task;
   }
-  return {open,close};
+  return {open,close,getAssessment:()=>session?.assessment||null};
 }

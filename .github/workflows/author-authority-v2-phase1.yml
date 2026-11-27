@@ -6,6 +6,10 @@ on:
       - "src/core/author-authority-evidence-v2.js"
       - "src/core/author-authority-bibliography-v2.js"
       - "src/core/author-authority-profile-v2.js"
+      - "src/core/author-authority-portrait-v2.js"
+      - "tests/author-authority-portrait-v2.test.mjs"
+      - "src/core/author-portrait-policy.js"
+      - "js/author-portrait-session.js"
       - "tests/author-authority-profile-v2.test.mjs"
       - "src/core/author-deep-discovery.js"
       - "src/core/remote-author-resolution.js"
@@ -42,6 +46,8 @@ jobs:
         run: node --test tests/author-authority-bibliography-v2.test.mjs
       - name: Test V2 profile projection
         run: node --test tests/author-authority-profile-v2.test.mjs
+      - name: Test SIVA portrait decision scope
+        run: node --test tests/author-authority-portrait-v2.test.mjs tests/author-portrait.test.mjs
       - name: Measure legacy runtime baseline
         run: node scripts/authority/audit-runtime-v2.mjs
       - name: Test shadow isolation and comparison
