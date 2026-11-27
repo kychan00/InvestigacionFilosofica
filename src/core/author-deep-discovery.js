@@ -271,8 +271,10 @@ export async function discoverAuthorArchive({
   // is not independent confirmation. Keep ordinary catalog lookup available.
   if(requestedOrcid) {
     try {
+      const timeout=AbortSignal.timeout(5000);
+      const profileSignal=signal?AbortSignal.any([signal,timeout]):timeout;
       const profile=await orcidProfileImpl(requestedOrcid,{
-        ...orcidProfileOptions,signal
+        ...orcidProfileOptions,signal:profileSignal
       });
       if(profileMatchesOrderedAuthor(author,profile)) {
         orcidProfile=profile;
@@ -283,7 +285,7 @@ export async function discoverAuthorArchive({
         errors.push("ORCID no corroborado por la identidad pública del autor.");
       }
     } catch(error) {
-      if(signal?.aborted||error?.name==="AbortError") throw error;
+      if(signal?.aborted) throw error;
       orcid=null;orcidVerification="unverified";
       errors.push("No se pudo verificar la identidad ORCID.");
     }
