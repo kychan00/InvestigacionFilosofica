@@ -1,13 +1,18 @@
 const norm=v=>String(v||"").normalize("NFKD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 function hash(value){let h=0x811c9dc5;for(const b of new TextEncoder().encode(value))h=Math.imul(h^b,0x01000193)>>>0;return h;}
-export async function buildReferenceHoldout({inventory,timeline,excludedNames=[],excludedIds=[],lookup,quotas={contemporary:60,historical:50,"latin-american":60}}){
+export async function buildReferenceHoldout({inventory,timeline,externalGroups=[],excludedNames=[],excludedIds=[],lookup,quotas={contemporary:60,historical:50,"latin-american":60}}){
  const names=new Set(excludedNames.map(norm).filter(Boolean)),ids=new Set(excludedIds.map(String));
  const cases=[],counts={contemporary:0,historical:0,"latin-american":0},diagnostics={overlap:0,lookupError:0,noCandidate:0,notEvaluatedCandidates:0};
  const refs=[
   ...timeline.filter(r=>r.region!=="latin"&&Number.isInteger(r.birth)&&r.sources?.length).map(r=>({stratum:r.birth<1900?"historical":"contemporary",name:r.names[0],names:r.names,reference:{kind:"documentary-timeline",qid:r.qid,birth:r.birth,region:r.region,sources:r.sources}})),
   ...inventory.philosophers.filter(r=>r.status==="confirmed"&&r.name&&r.id).map(r=>({stratum:"latin-american",name:r.name,names:[r.name],reference:{kind:"editorial-inventory",inventoryId:r.id,source:inventory.source}}))
  ].sort((a,b)=>hash("20261127:"+a.stratum+":"+a.name)-hash("20261127:"+b.stratum+":"+b.name)||a.name.localeCompare(b.name,"en"));
- for(const ref of refs){
+ // Preserve the already selected documentary cohort before supplementing it.
+ const additional=externalGroups.flatMap(g=>{
+  if(!["contemporary","historical"].includes(g.stratum)||!/^https:\/\//.test(g.url)||!Array.isArray(g.names))throw Error("Invalid documentary source group");
+  return g.names.map(name=>({stratum:g.stratum,name,names:[name],reference:{kind:g.stratum==="historical"?"historical-encyclopedia-entry":"academic-directory",sources:[{name:g.name,url:g.url}],basis:g.stratum==="historical"?"historical person entry":"documented current/recent academic affiliation"}}));
+ }).sort((a,b)=>hash("20261127:external:"+a.name)-hash("20261127:external:"+b.name)||a.name.localeCompare(b.name,"en"));
+ for(const ref of [...refs,...additional]){
   if(counts[ref.stratum]>=quotas[ref.stratum])continue;
   const aliases=ref.names.map(norm).filter(Boolean);
   if(!aliases.length||aliases.some(n=>names.has(n))){diagnostics.overlap++;continue;}

@@ -7,3 +7,13 @@ test("documentary reference probes preserve missing candidates and exclude overl
  assert.equal(r.diagnostics.noCandidate,1);assert.equal(r.shortfalls.historical,1);
  assert.ok(r.cases.every(c=>c.judgment===null));
 });
+
+test("external documented references supplement rather than replace the prior cohort",async()=>{
+ const result=await buildReferenceHoldout({inventory:{philosophers:[]},timeline:[{qid:"Q1",names:["Original"],region:"europe",birth:1800,sources:[{url:"https://example.org"}]}],externalGroups:[{stratum:"historical",name:"Reference catalogue",url:"https://example.org/history",names:["Additional","Original"]},{stratum:"contemporary",name:"Faculty",url:"https://example.org/faculty",names:["Current"]}],lookup:async()=>[],quotas:{historical:2,contemporary:1,"latin-american":0}});
+ assert.equal(result.cases[0].query,"Original");
+ assert.equal(result.counts.historical,2);
+ assert.equal(result.counts.contemporary,1);
+ assert.equal(result.cases.find(c=>c.query==="Current").reference.kind,"academic-directory");
+ assert.equal(result.cases.find(c=>c.query==="Current").reference.birth,undefined);
+ assert.ok(result.cases.every(c=>c.judgment===null));
+});
