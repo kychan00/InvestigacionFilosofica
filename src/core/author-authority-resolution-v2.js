@@ -36,8 +36,28 @@ function assertInput({subjectRef,scope,datasetRevision,candidateRefs,evidence}){
   if(validateEvidenceV2(e).length||e.scope!==scope||e.subjectRef!==subjectRef||!candidates.has(e.objectRef))throw new TypeError("Evidence outside resolution context");
  }
 }
-// Distinct kinds AND independent lineages are necessary for convergence.
-// A source mirrored in several catalogues is still one lineage.
+// Lineage aliases cannot turn the same source record into independent
+// corroboration. Collapse connected provenance components transitively.
+function provenanceGroups(evidence){
+ const groups=independentEvidenceGroups(evidence);
+ const parent=groups.map((_,i)=>i);
+ function root(i){while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i];}return i;}
+ const seen=new Map();
+ groups.forEach((g,i)=>{
+  for(const ref of new Set(g.assertions.flatMap(e=>e.sourceRefs))){
+   if(seen.has(ref))parent[root(i)]=root(seen.get(ref));
+   else seen.set(ref,i);
+  }
+ });
+ const merged=new Map();
+ groups.forEach((g,i)=>{
+  const k=root(i);
+  if(!merged.has(k))merged.set(k,[]);
+  merged.get(k).push(...g.assertions);
+ });
+ return [...merged.values()].map(assertions=>({assertions,polarities:[...new Set(assertions.map(e=>e.polarity))]}));
+}
+// Distinct kinds AND independent provenance components are necessary.
 function converges(groups,strongKinds){
  const usable=groups.filter(g=>!g.polarities.includes("contradicts"))
    .map(g=>new Set(g.assertions.filter(e=>e.polarity==="supports"&&trusted(e)&&strongKinds.includes(e.kind)).map(e=>e.kind)));
@@ -46,7 +66,7 @@ function converges(groups,strongKinds){
  return false;
 }
 function assess(ref,scope,evidence){
- const p=policy[scope],groups=independentEvidenceGroups(evidence);
+ const p=policy[scope],groups=provenanceGroups(evidence);
  const positive=evidence.filter(e=>e.polarity==="supports");
  const negative=evidence.filter(e=>e.polarity==="contradicts");
  const hard=negative.filter(e=>e.reliability==="verified"&&p.veto.includes(e.kind));
