@@ -1,3 +1,4 @@
+import { localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { sanitizeAuthorOrcid } from "./author-orcid-guard.js";
 /**
  * SIVA · Public author portrait policy. Names discover candidates, never establish identity.
@@ -39,7 +40,9 @@ function fold(value) {
 const HISTORICAL = Object.freeze({
   Q9312: ["immanuel kant", "kant immanuel", "emmanuel kant"],
   Q9235: ["georg wilhelm friedrich hegel", "hegel georg wilhelm friedrich"],
-  Q913: ["socrates", "sokrates", "σωκρατης"],
+  Q913: ["socrates", "sokrates", "σωκρατης", "socrates socrates"],
+  Q859: ["platon", "plato", "plato plato", "πλατων"],
+  Q868: ["aristoteles", "aristotle", "aristotle aristotle", "αριστοτελης"],
   Q152388: ["theodor w adorno", "theodor adorno", "theodor wiesengrund adorno", "theodor ludwig wiesengrund adorno", "adorno theodor w", "adorno theodor"],
   Q76826: ["max horkheimer", "horkheimer max"],
   Q61078: ["walter benjamin", "walter bendix schonflies benjamin", "walter benedix schonflies benjamin"],
@@ -81,7 +84,7 @@ function normalizeDOI(value) {
 }
 export function portraitIdentity(author = {}, works = []) {
   if (!author || typeof author !== "object") return null;
-  author = sanitizeAuthorOrcid(author);
+  author = localizeClassicalAuthor(sanitizeAuthorOrcid(author));
   const o = orcid(author.orcid || author.orcidId);
   const a = oa(author.openalexId || author.sourceId) || (author.catalog !== "federated" ? oa(author.id, true) : null);
   const explicitQ = qid(author.wikidataId);
