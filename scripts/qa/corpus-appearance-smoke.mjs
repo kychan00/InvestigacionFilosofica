@@ -133,6 +133,34 @@ try {
 
 
       if (shell === "territory") {
+        const kant = await page.evaluate(async () => {
+          const hero = getComputedStyle(document.querySelector(".hero-shell"), "::after");
+          const tile = getComputedStyle(document.querySelector("#results .result-visual"));
+          const url = [...hero.backgroundImage.matchAll(/url\("([^"]+)"\)/g)]
+            .map(m => m[1]).find(v => v.endsWith("/territory-kant.jpg"));
+          if (!url) throw new Error("Territorio: falta el retrato de portada");
+          const image = new Image();
+          image.src = url;
+          await image.decode();
+          return { local: new URL(url).origin === location.origin,
+            width: image.naturalWidth, height: image.naturalHeight,
+            coverVisible: Number(hero.opacity) > 0 && hero.display !== "none",
+            coverHits: hero.pointerEvents, tile: tile.backgroundImage };
+        });
+        assert.deepEqual({local:kant.local,width:kant.width,height:kant.height},
+          {local:true,width:677,height:845});
+        assert.ok(kant.coverVisible && kant.coverHits === "none");
+        assert.ok(kant.tile.includes("territory-kant.jpg"));
+      } else {
+        const other = await page.evaluate(() => [
+          getComputedStyle(document.querySelector(".hero-shell"), "::after").backgroundImage,
+          getComputedStyle(document.querySelector("#results .result-visual")).backgroundImage
+        ]);
+        assert.ok(other.every(value => !value.includes("territory-kant.jpg")),
+          "Kant artwork leaked into " + shell);
+      }
+
+      if (shell === "territory") {
         // The base theme uses 240ms background/border transitions. Read the
         // final computed colors, not the previous frame of an active transition.
         await page.waitForFunction(({ surface, accent }) => {
@@ -429,6 +457,15 @@ try {
         assert.ok(image.includes("marginalia-socrates.jpg"),
           "Marginalia full record hero should display the Socrates watermark");
       }
+      const kantFolio = await page.evaluate(() => {
+        const watermark = getComputedStyle(document.querySelector("#record-modal .record-cinematic-hero"), "::after");
+        return { image: watermark.backgroundImage, hits: watermark.pointerEvents,
+          opacity: Number(watermark.opacity) };
+      });
+      assert.equal(kantFolio.image.includes("territory-kant.jpg"), shell === "territory");
+      if (shell === "territory") {
+        assert.ok(kantFolio.opacity > 0 && kantFolio.hits === "none");
+      }
       const folio = await page.evaluate(() => {
         const panel = document.querySelector("#record-modal .record-modal-panel");
         const close = document.querySelector("#record-modal .record-modal-close");
@@ -462,6 +499,21 @@ try {
         document.body.classList.add("author-view");
         document.querySelector("#results").innerHTML = html;
       }, author);
+      const kantAuthor = await page.evaluate(() => {
+        const tile = document.querySelector(".author-work-grid .result-visual");
+        const rank = tile.querySelector(".result-rank");
+        const rect = tile.getBoundingClientRect();
+        return { image: getComputedStyle(tile).backgroundImage,
+          rank: getComputedStyle(rank).color, width: rect.width, height: rect.height,
+          rankDisplay: getComputedStyle(rank).display };
+      });
+      assert.equal(kantAuthor.image.includes("territory-kant.jpg"), shell === "territory",
+        "Author bookplate must follow active theme: " + JSON.stringify({ width, mode, shell, kantAuthor }));
+      if (shell === "territory") {
+        assert.equal(kantAuthor.rank, mode === "light" ? "rgb(247, 243, 231)" : "rgb(247, 241, 227)",
+          "Rank must retain readable ink over the author portrait");
+        assert.ok(kantAuthor.width > 0 && kantAuthor.height > 0 && kantAuthor.rankDisplay !== "none");
+      }
       const archive = await page.evaluate(() => {
         const root = document.querySelector(".author-page");
         const scroll = document.querySelector(".author-timeline-periods");
