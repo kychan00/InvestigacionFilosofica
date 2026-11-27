@@ -736,11 +736,13 @@ export function buildInternetArchiveSearchUrl(
         ? `(${safeQuery})`
         : "";
 
+  const languageScope=options.queryType==="author" && options.language==="es"
+    ? ' AND (language:spa OR language:es OR language:Spanish)' : "";
   url.searchParams.set(
     "q",
-    scopedQuery
+    (scopedQuery
       ? `mediatype:texts AND ${scopedQuery}`
-      : "mediatype:texts"
+      : "mediatype:texts")+languageScope
   );
 
 
