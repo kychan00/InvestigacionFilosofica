@@ -45,3 +45,15 @@ Esta entrega no presupone cambios en los demás temas.
 - Ajuste de lectura en móviles: se reserva espacio al final del encabezado de la tarjeta para la numeración y, si existe, para el marcador de guardado. Se mantienen los tamaños y posiciones de ambos controles; la prueba comprueba el espaciado aplicado en el título.
 
 - Auditoría del expediente de autor: placeholder con tinta de contraste completo, estado de foco en cobre, para evitar que el campo de búsqueda se pierda en modo oscuro. En resultados, se elimina únicamente el fondo que prolongaba la barra de acciones a lo ancho de la tarjeta, sin alterar dimensiones de botones ni su comportamiento.
+
+## Kant como emblema cartográfico · noviembre de 2026
+
+Se añade el grabado en acero **Immanuel Kant**, de J. L. Raab según Döbler, anterior a 1899. Fuente: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Immanuel_Kant_(portrait).jpg), Public Domain Mark 1.0. Original de 677 × 845 píxeles, 253745 bytes, SHA-256 `27e7705d56a9f7d1437ea99179a4580997f0bb0f6b0424d4e8001ac322ba2215`, alojado en `assets/territory-kant.jpg` sin modificaciones binarias. La veladura es exclusivamente CSS.
+
+- Portada: el retrato sustituye la antigua Φ decorativa; se conservan las curvas de nivel y la paleta verde mineral. La escala y opacidad bajan en móvil/tableta para no competir con la lectura.
+- Tarjetas de búsqueda y obras de autor: grabado integrado en la miniatura existente, con veladura oscura que mantiene el índice blanco, incluso cuando la miniatura se reduce al número móvil. La imagen no representa al autor de la obra, es un emblema fijo del tema.
+- Ficha bibliográfica: marca de agua no interactiva en el encabezado; metadatos, botones y resumen mantienen su estructura.
+- Alto contraste e impresión: se desactivan las imágenes decorativas. Sin animaciones ni peticiones externas.
+- Playwright comprueba decodificación local real, presencia en portada, tarjetas y ficha, y ausencia en los otros tres temas. Se conservan las capturas existentes a 390 y 1280 px.
+
+El flujo temporal de descarga queda eliminado del árbol final. No se modifican las fuentes bibliográficas, Firebase, los algoritmos del Atlas ni los demás temas.
