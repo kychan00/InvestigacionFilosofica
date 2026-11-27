@@ -9,8 +9,7 @@ import {
   query,
   serverTimestamp,
   setDoc,
-  updateDoc,
-  writeBatch
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
 
 import {
@@ -794,6 +793,8 @@ export async function saveAuthorIdentityDecisions(uid, decisions) {
     throw new Error("invalid-identity-decisions");
   }
   const database = requiredDb();
+  // Load the batch API only when the user confirms a manual merge.
+  const { writeBatch } = await import("https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js");
   const batch = writeBatch(database);
   for (const { leftName, rightName, same, canonicalName = "" } of decisions) {
     const id = authorIdentityDecisionId(leftName, rightName);
