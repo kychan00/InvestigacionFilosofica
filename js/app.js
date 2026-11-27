@@ -1,3 +1,4 @@
+import { classicalAuthority, localizeClassicalAuthor } from "../src/core/classical-author-aliases.js?v=1";
 import { sanitizeAuthorOrcid, rejectedAuthorOrcid, removeRejectedWorkOrcid } from "../src/core/author-orcid-guard.js?v=1";
 import {
   UDEG_LOGIN_URL
@@ -46,13 +47,13 @@ import {
   resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
-} from "../src/core/remote-author-resolution.js?v=20261127-orcid-guard-v1";
+} from "../src/core/remote-author-resolution.js?v=20261127-classical-v1";
 
 import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v6";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {
@@ -60,8 +61,8 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-orcid-guard-v1";
-import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-orcid-guard-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-classical-v1";
+import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
@@ -5155,7 +5156,7 @@ function showExclusiveAuthorWorks(
   resolution,
   options = {}
 ) {
-  const safeAuthor=sanitizeAuthorOrcid(resolution.author);
+  const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid(resolution.author));
   resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
   if (options.resetTimeline) {
     authorArchiveNotice = "";
@@ -5512,11 +5513,11 @@ async function openExclusiveAuthorByName(
       ? findCuratedAuthorIdentity(name)
       : null;
     const canonicalName =
-      curatedIdentity?.canonicalName || name;
+      curatedIdentity?.canonicalName || classicalAuthority(name)?.displayName || name;
     const proposedOrcid = identity.orcid || curatedIdentity?.orcid || null;
     const trustedOrcid = rejectedAuthorOrcid(canonicalName,proposedOrcid) ? null : proposedOrcid;
     const curatedAliases =
-      curatedIdentity?.aliases || [];
+      curatedIdentity?.aliases || classicalAuthority(name)?.searchNames || [];
     // Name-only links first resolve against the HF-derived static author index.
     // No OpenAlex API calls or credits are required.
     const foundIdentity = await findSnapshotAuthorIdentity(canonicalName, {
@@ -5578,7 +5579,7 @@ async function openExclusiveAuthorByName(
                   authorController.signal,
                 includeProfile: true,
                 profileQuery: canonicalName,
-                canonicalNames: curatedIdentity
+                canonicalNames: (curatedIdentity || classicalAuthority(name))
                   ? [canonicalName]
                   : []
               }
@@ -5639,10 +5640,10 @@ async function openExclusiveAuthorByName(
     }
 
     if (resolution.status === "resolved") {
-      const safeAuthor=sanitizeAuthorOrcid({
+      const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid({
         ...resolution.author,
         orcid:resolution.author.orcid || trustedOrcid || null
-      });
+      }));
       resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
       // Don't publish an unverified ORCID or use it for portrait lookup while
       // the registry's identity check is pending.
