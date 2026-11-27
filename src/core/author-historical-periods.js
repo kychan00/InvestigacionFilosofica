@@ -14,6 +14,12 @@ export function authorHistoricalContext(author) {
 const band=(key,label,motif)=>({key,label,motif});
 export function historicalPeriod(year,region="neutral") {
   if(!Number.isInteger(year)||year===0) return band("unknown","Sin fecha","archive");
+  // Chinese periods are not interchangeable with European historical periods.
+  if(region==="china"){
+    if(year<0)return band("china-bce","China antigua · a. C.","china");
+    const century=Math.floor((year-1)/100)+1;
+    return band("china-century-"+century,"Siglo "+century,"archive");
+  }
   if(region==="latin"){
     if(year<1492)return band("precolonial","América precolonial","precolonial");
     if(year<1800)return band("colonial","Periodo colonial","colonial");

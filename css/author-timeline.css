@@ -1099,3 +1099,6 @@ html[data-theme="dark"] .author-page #author-timeline-root {
 #author-timeline-root .author-intellectual-history-more { display:block; width:100%; min-height:44px; margin-top:6px; padding:8px; border:1px solid var(--tl-line); border-radius:9px; color:var(--tl-blue-label); background:var(--tl-card); font:600 12px/1.4 var(--pg-sans,sans-serif); cursor:pointer; overflow-wrap:anywhere; }
 #author-timeline-root .author-intellectual-history :is(button,a):focus-visible { outline:2px solid var(--tl-blue-label); outline-offset:2px; }
 @media(forced-colors:active){ #author-timeline-root .author-intellectual-history-event::before { background:CanvasText; } }
+
+/* Original schematic motif; decorative palette follows active corpus theme. */
+#author-timeline-root [data-motif="china"] { --era-accent:var(--era-red); }

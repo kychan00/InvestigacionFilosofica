@@ -34,3 +34,22 @@ Autoridades comprobadas: https://www.wikidata.org/wiki/Q9191, https://www.wikida
 - zeaElem: Enciclopedia de la Literatura en México — https://www.elem.mx/autor/datos/4322
 
 Se separa el lote de datos de la lógica del renderizado; pruebas de alias, fuentes, orden y publicación póstuma, más smoke de Zea y Arendt. La cobertura sigue siendo una selección, no una biografía exhaustiva. No se añaden llamadas externas automáticas.
+
+## Fase 3 — diversidad histórica y geográfica
+Se incorporan seis autoridades y 36 hitos (116 acumulados): Epicuro, Tomás de Aquino, Confucio, Frege, Russell y Mariátegui. Se emplean fechas tradicionales explícitas para Confucio y se distinguen los testimonios atribuidos al Comentario de Zuo de hechos incontrovertibles. No se fecha la composición de las Analectas. La cronología china conserva una banda antigua y luego siglos neutrales, sin trasladar las categorías de Renacimiento o Edad Media europea. La Summa theologiae se etiqueta como redacción inconclusa según la cronología de la fuente elegida. Se evita asignar acontecimientos del pensador peruano al homónimo Q6291218. La identidad regional china se aplica al dossier únicamente con autoridad y nombre concordantes.
+
+Fuentes y autoridades de esta fase:
+- epicurus: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/epicurus/
+- aquinas: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/aquinas/
+- confucius: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/confucius/
+- frege: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/frege/
+- russell: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/russell/
+- mariategui: Museo José Carlos Mariátegui · Ministerio de Cultura del Perú — https://mariategui.cultura.pe/index.php/biografia
+- https://www.wikidata.org/wiki/Q43216
+- https://www.wikidata.org/wiki/Q9438
+- https://www.wikidata.org/wiki/Q4604
+- https://www.wikidata.org/wiki/Q60028
+- https://www.wikidata.org/wiki/Q33760
+- https://www.wikidata.org/wiki/Q335544
+
+Validación: pruebas de seis identidades, alias, orden, tipos, fuentes, homónimo y periodización; smoke de escritura china, expansión y geometría. La revisión del lote no sustituye futuras revisiones historiográficas. No se añade ninguna llamada de red en tiempo de ejecución.

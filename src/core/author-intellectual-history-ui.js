@@ -1,5 +1,5 @@
-import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v2";
-import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v2";
+import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v3";
+import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v3";
 
 function el(tag,cls,text){
   const node=document.createElement(tag);
@@ -33,7 +33,7 @@ export function buildIntellectualHistoryPanel(author,state){
   });
   toggle.setAttribute("aria-controls",panel.id);
   const title=el("span","author-intellectual-history-toggle-copy");
-  title.append(el("strong","","Vida e historia intelectual"),el("span","",""+history.events.length+" hitos documentados"));
+  title.append(el("strong","","Vida e historia intelectual"),el("span","",history.events.length+" hitos documentados"+(history.region==="china"?" · Tradición china":"")));
   const chevron=el("span","author-intellectual-history-chevron");
   chevron.setAttribute("aria-hidden","true");
   toggle.append(title,chevron);
@@ -44,7 +44,7 @@ export function buildIntellectualHistoryPanel(author,state){
     panel.hidden=!state.bioOpen;
     panel.replaceChildren();
     if(!state.bioOpen)return;
-    panel.append(el("p","author-intellectual-history-note","Acontecimientos de la vida y fechas originales; independientes de las ediciones recuperadas en la bibliografía."));
+    panel.append(el("p","author-intellectual-history-note","Acontecimientos de la vida y fechas originales; independientes de las ediciones recuperadas en la bibliografía. Las fechas tradicionales y los testimonios textuales se señalan expresamente."));
     const entries=el("ol","author-intellectual-history-track");
     const limit=state.bioLimit||BIO_BATCH;
     for(const event of history.events.slice(0,limit)){

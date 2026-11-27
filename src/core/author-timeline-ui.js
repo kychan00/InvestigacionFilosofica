@@ -1,6 +1,7 @@
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v2";
+import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v3";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v3";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
-import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v2";
+import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v3";
 import {
   authorOrcidUrl,
   normalizedAuthorOrcid,
@@ -33,7 +34,10 @@ function stat(value, label) {
 
 function renderTimeline(root, works, state, options) {
   const { onOpenWork, loading, authorOrcid, author } = options;
-  const context = authorHistoricalContext(author);
+  const verifiedHistory = intellectualHistory(author);
+  const context = verifiedHistory?.region === "china"
+    ? {region:"china",label:"Tradición filosófica china",motif:"china"}
+    : authorHistoricalContext(author);
   const orcidUrl = authorOrcidUrl(authorOrcid);
   const model = buildAuthorTimeline(works, state.unit);
 
@@ -223,6 +227,7 @@ function motif(name){
     republic:"M3 27Q10 21 16 26Q22 21 29 27V7Q22 3 16 8Q10 3 3 7ZM16 8V26M7 11L12 13M20 13L25 11",
     nineteenth:"M3 28H29M5 25H27M8 25V10H24V25M4 10H28L16 3ZM11 12V23M16 12V23M21 12V23M4 28V30M28 28V30",
     contemporary:"M4 4H28V24H4ZM10 28H22M16 24V28M8 9H24M8 13H20M8 17H23",
+    china:"M4 7H28M7 10H25M9 12V24M23 12V24M4 26H28M13 12V24M19 12V24M3 7Q8 7 11 3H21Q24 7 29 7",
     archive:"M7 3H21L26 8V29H7ZM21 3V8H26M11 13H22M11 18H22M11 23H19"
   };
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");

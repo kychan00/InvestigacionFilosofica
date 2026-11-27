@@ -1,7 +1,9 @@
 // Reviewed intellectual-history pilot. Only original Spanish summaries,
 // not copied biographies. Identity keys are authority QIDs, not search names.
 import { PHASE2_SOURCES, PHASE2_AUTHORS } from './author-intellectual-history-phase2.js?v=20261127-v2';
+import { PHASE3_SOURCES, PHASE3_AUTHORS } from './author-intellectual-history-phase3.js?v=20261127-v3';
 const SOURCES = {
+  ...PHASE3_SOURCES,
   ...PHASE2_SOURCES,
   "plato": [
     "Stanford Encyclopedia of Philosophy",
@@ -45,6 +47,7 @@ const SOURCES = {
   ]
 };
 const AUTHORS = {
+  ...PHASE3_AUTHORS,
   ...PHASE2_AUTHORS,
   "Q859": {
     "names": [
@@ -340,7 +343,7 @@ const AUTHORS = {
   }
 };
 export const BIO_BATCH = 3;
-export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción",posthumous:"Publicación póstuma"});
+export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción",posthumous:"Publicación póstuma",award:"Reconocimiento"});
 const norm = value => String(value || "").normalize("NFD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 export function intellectualHistory(author) {
   const rawId=String(author?.wikidataId || "").trim();

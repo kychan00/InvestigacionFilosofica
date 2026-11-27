@@ -58,3 +58,32 @@ test("exact authority URIs and fallback field still require matching identity",(
   assert.equal(h.events.at(-1).type,"posthumous");
   assert.equal(h.events.at(-1).year,1978);
 });
+
+import {PHASE3_AUTHORS,PHASE3_SOURCES} from "../src/core/author-intellectual-history-phase3.js";
+import {historicalPeriod} from "../src/core/author-historical-periods.js";
+test("phase 3: authorities, names, sources, chronological ordering and no collisions",()=>{
+  let total=0;
+  for(const [id,record] of Object.entries(PHASE3_AUTHORS)){
+    assert.ok(!Object.hasOwn(PHASE2_AUTHORS,id));
+    const h=intellectualHistory({wikidataId:id,displayName:record.names[0]});
+    assert.equal(h.region,record.region);
+    assert.equal(h.events.length,record.events.length);
+    assert.deepEqual(h.events.map(e=>e.year),h.events.map(e=>e.year).sort((a,b)=>a-b));
+    assert.equal(new Set(h.events.map(e=>e.id)).size,h.events.length);
+    for(const alias of record.names)assert.equal(intellectualHistory({wikidataId:id,displayName:alias}).id,id);
+    for(const [year,date,type,title,source] of record.events){assert.ok(Number.isInteger(year)&&year!==0&&date&&title&&BIO_TYPES[type]);assert.ok(Object.hasOwn(PHASE3_SOURCES,source));assert.equal(new URL(PHASE3_SOURCES[source][1]).protocol,"https:");}
+    assert.equal(intellectualHistory({displayName:record.names[0]}),null);
+    total+=h.events.length;
+  }
+  assert.equal(total,36);
+});
+test("traditional dates, medieval composition, and homonym safety",()=>{
+  const china=intellectualHistory({wikidataId:"Q4604",displayName:"孔子"});
+  assert.match(china.events[0].date,/tradicional/);
+  assert.match(china.events[1].date,/testimonio textual/);
+  assert.equal(historicalPeriod(-509,china.region).label,"China antigua · a. C.");
+  assert.equal(historicalPeriod(1800,china.region).label,"Siglo 18");
+  const thomas=intellectualHistory({wikidataId:"Q9438",displayName:"Tomás de Aquino"});
+  assert.equal(thomas.events.find(e=>e.title.includes("Summa theologiae")).type,"composition");
+  assert.equal(intellectualHistory({wikidataId:"Q6291218",displayName:"José Carlos Mariátegui"}),null);
+});

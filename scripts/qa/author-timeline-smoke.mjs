@@ -204,6 +204,15 @@ try {
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-kind").last().textContent(),"Publicación póstuma");
     await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q4604",displayName:"孔子"},[{title:"Registro antiguo",year:-500},{title:"Edición moderna",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/tradicional/);
+    assert.equal(await eras.first().textContent(),"China antigua · a. C.");
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),4);
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q6291218",displayName:"José Carlos Mariátegui"},[{title:"Obra",year:2020}]));
+    assert.equal(await life.count(),0);
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }
