@@ -1,3 +1,4 @@
+import { sanitizeAuthorOrcid, rejectedAuthorOrcid, removeRejectedWorkOrcid } from "../src/core/author-orcid-guard.js?v=1";
 import {
   UDEG_LOGIN_URL
 } from "../src/data/institutional-sources.js";
@@ -45,13 +46,13 @@ import {
   resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
-} from "../src/core/remote-author-resolution.js?v=20261109-global-work-dedup-v3";
+} from "../src/core/remote-author-resolution.js?v=20261127-orcid-guard-v1";
 
 import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v5";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v6";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {
@@ -59,8 +60,8 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261119-archive-abbrev-v1";
-import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261031-hf-author-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-orcid-guard-v1";
+import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-orcid-guard-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
@@ -5154,6 +5155,8 @@ function showExclusiveAuthorWorks(
   resolution,
   options = {}
 ) {
+  const safeAuthor=sanitizeAuthorOrcid(resolution.author);
+  resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
   if (options.resetTimeline) {
     authorArchiveNotice = "";
     authorArchiveSources = [];
@@ -5510,8 +5513,8 @@ async function openExclusiveAuthorByName(
       : null;
     const canonicalName =
       curatedIdentity?.canonicalName || name;
-    const trustedOrcid =
-      identity.orcid || curatedIdentity?.orcid || null;
+    const proposedOrcid = identity.orcid || curatedIdentity?.orcid || null;
+    const trustedOrcid = rejectedAuthorOrcid(canonicalName,proposedOrcid) ? null : proposedOrcid;
     const curatedAliases =
       curatedIdentity?.aliases || [];
     // Name-only links first resolve against the HF-derived static author index.
@@ -5559,7 +5562,7 @@ async function openExclusiveAuthorByName(
                 id: exactId,
                 n: name,
                 o:
-                  identity.orcid || null,
+                  trustedOrcid,
                 cw: 0
               },
               {
@@ -5636,8 +5639,15 @@ async function openExclusiveAuthorByName(
     }
 
     if (resolution.status === "resolved") {
+      const safeAuthor=sanitizeAuthorOrcid({
+        ...resolution.author,
+        orcid:resolution.author.orcid || trustedOrcid || null
+      });
+      resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
+      // Don't publish an unverified ORCID or use it for portrait lookup while
+      // the registry's identity check is pending.
       showExclusiveAuthorWorks(
-        resolution,
+        {...resolution,author:{...safeAuthor,orcid:null,orcidId:null,orcidProfile:null}},
         { resetTimeline: true, loading: true }
       );
 
@@ -5649,12 +5659,12 @@ async function openExclusiveAuthorByName(
           author: {
             ...resolution.author,
             id: resolution.author.id || exactId,
-            orcid: resolution.author.orcid || identity.orcid || null
+            orcid: resolution.author.orcid || null
           },
           initialWorks: resolution.works,
           signal: authorController.signal,
           onProgress: ({
-            works,source,phase,sources,errors,orcidSummary,orcidProfile
+            works,source,phase,sources,errors,orcidSummary,orcidProfile,verifiedOrcid,orcidVerification
           }) => {
             if (
               authorController.signal.aborted ||
@@ -5664,7 +5674,7 @@ async function openExclusiveAuthorByName(
             authorArchiveSources = sources;
             authorArchiveOrcidSummary = orcidSummary;
             authorArchiveOrcidProfile =
-              orcidProfile || authorArchiveOrcidProfile;
+              orcidProfile || null;
             authorArchiveNotice =
               phase === "started"
                 ? (resolution.author?.id
@@ -5679,6 +5689,10 @@ async function openExclusiveAuthorByName(
               works,
               author: mergeAuthorOrcidProfile({
                 ...resolution.author,
+                orcid:verifiedOrcid || null,
+                orcidId:verifiedOrcid || null,
+                orcidVerified:orcidVerification==="verified",
+                orcidConflict:resolution.author.orcidConflict || orcidVerification==="conflict",
                 corpusWorks: Math.max(
                   Number(resolution.author.corpusWorks || 0),
                   works.length
@@ -5696,7 +5710,7 @@ async function openExclusiveAuthorByName(
         authorArchiveSources = deep.sources;
         authorArchiveOrcidSummary = deep.orcidSummary;
         authorArchiveOrcidProfile =
-          deep.orcidProfile || authorArchiveOrcidProfile;
+          deep.orcidProfile || null;
         authorArchiveNotice = deep.errors.length
           ? "Ampliación parcial: algunas fuentes no respondieron o su cobertura es limitada"
           : deep.snapshotComplete
@@ -5708,6 +5722,10 @@ async function openExclusiveAuthorByName(
           works: deep.works,
           author: mergeAuthorOrcidProfile({
             ...resolution.author,
+            orcid:deep.verifiedOrcid || null,
+            orcidId:deep.verifiedOrcid || null,
+            orcidVerified:deep.orcidVerification==="verified",
+            orcidConflict:resolution.author.orcidConflict || deep.orcidVerification==="conflict",
             corpusWorks: Math.max(
               Number(resolution.author.corpusWorks || 0),
               deep.works.length
@@ -5720,7 +5738,7 @@ async function openExclusiveAuthorByName(
         authorArchiveLoading = false;
         authorArchiveNotice = "Búsqueda parcial: no fue posible consultar todas las fuentes";
         showExclusiveAuthorWorks(
-          resolution,
+          {...resolution,author:{...resolution.author,orcid:null,orcidId:null,orcidProfile:null}},
           { loading: false, preserveVisibleLimit: true }
         );
       }
