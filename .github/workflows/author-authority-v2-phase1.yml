@@ -9,6 +9,9 @@ on:
       - "src/core/author-federated-matching.js"
       - "src/core/author-orcid-guard.js"
       - "scripts/authority/audit-runtime-v2.mjs"
+      - "scripts/authority/compare-runtime-shadow-v2.mjs"
+      - "src/core/author-authority-shadow-v2.js"
+      - "tests/author-authority-shadow-v2.test.mjs"
       - "tests/author-authority-v2-phase1.test.mjs"
       - "tests/author-authority-resolution-v2.test.mjs"
       - ".github/workflows/author-authority-v2-phase1.yml"
@@ -30,9 +33,15 @@ jobs:
         run: node --test tests/author-authority-resolution-v2.test.mjs
       - name: Measure legacy runtime baseline
         run: node scripts/authority/audit-runtime-v2.mjs
+      - name: Test shadow isolation and comparison
+        run: node --test tests/author-authority-shadow-v2.test.mjs
+      - name: Compare recorded regression decisions
+        run: node scripts/authority/compare-runtime-shadow-v2.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: author-authority-v2-runtime-baseline
-          path: artifacts/author-authority-v2/runtime-baseline.json
+          path: |
+            artifacts/author-authority-v2/runtime-baseline.json
+            artifacts/author-authority-v2/runtime-shadow.json
           if-no-files-found: error
