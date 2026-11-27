@@ -1,3 +1,4 @@
+import { bindResearchAtlasNavigation } from "./research-atlas-navigation.js?v=20261126-pinch-v2";
 
 import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js?v=20261113-ra13a-v1";
 import { ResearchAtlasLayoutEngine } from "../src/core/research-atlas-layout.js";
@@ -58,7 +59,7 @@ let currentQuery = "";
 let activeView = "results";
 let selectedId = null;
 let hoveredId = null;
-let drag = null;
+let navigation = null;
 let raf = null;
 let topologyGeneration = 0;
 let topologyController = null;
@@ -480,6 +481,7 @@ function decorateViewModelNodes() {
 }
 
 function resetGraph() {
+  navigation?.reset();
   topologyGeneration += 1;
   topologyController?.abort();
   topologyController = null;
@@ -741,6 +743,7 @@ function setView(nextView, options = {}) {
   const safeView = nextView === "atlas" && viewModel ? "atlas" : "results";
   activeView = safeView;
   const atlasActive = safeView === "atlas";
+  if (!atlasActive) navigation?.reset();
 
   resultsPanel.classList.toggle("hidden", atlasActive);
   atlasPanel.classList.toggle("hidden", !atlasActive);
@@ -1471,73 +1474,14 @@ fitButton.addEventListener("click", fitView);
 zoomIn.addEventListener("click", () => zoomAt(1.18));
 zoomOut.addEventListener("click", () => zoomAt(1 / 1.18));
 
-canvas.addEventListener(
-  "wheel",
-  event => {
-    if (activeView !== "atlas") return;
-    event.preventDefault();
-    zoomAt(event.deltaY < 0 ? 1.12 : 1 / 1.12, event.clientX, event.clientY);
-  },
-  { passive: false }
-);
-
-canvas.addEventListener("pointerdown", event => {
-  if (activeView !== "atlas") return;
-  canvas.setPointerCapture(event.pointerId);
-  drag = {
-    pointerId: event.pointerId,
-    startX: event.clientX,
-    startY: event.clientY,
-    lastX: event.clientX,
-    lastY: event.clientY,
-    moved: false
-  };
-  canvas.classList.add("is-dragging");
-  tooltip.classList.add("hidden");
-});
-
-canvas.addEventListener("pointermove", event => {
-  if (drag?.pointerId === event.pointerId) {
-    const metrics = canvasMetrics();
-    const dx = event.clientX - drag.lastX;
-    const dy = event.clientY - drag.lastY;
-    if (Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) > 4) {
-      drag.moved = true;
-    }
-    view.x -= dx / (metrics.base * view.zoom);
-    view.y -= dy / (metrics.base * view.zoom);
-    drag.lastX = event.clientX;
-    drag.lastY = event.clientY;
-    requestDraw();
-    return;
+navigation = bindResearchAtlasNavigation({
+  canvas, view, metrics: canvasMetrics, draw: requestDraw,
+  hitTest, select: selectNode, enabled: () => activeView === "atlas",
+  hover(node, event) {
+    hoveredId = node?.id || null;
+    if (node && event) setTooltip(node, event);
+    else tooltip.classList.add("hidden");
   }
-  const node = hitTest(event.clientX, event.clientY);
-  hoveredId = node?.id || null;
-  setTooltip(node, event);
-  requestDraw();
-});
-
-canvas.addEventListener("pointerup", event => {
-  if (!drag || drag.pointerId !== event.pointerId) return;
-  const moved = drag.moved;
-  drag = null;
-  canvas.classList.remove("is-dragging");
-  if (!moved) {
-    const node = hitTest(event.clientX, event.clientY);
-    if (node) selectNode(node.id);
-  }
-});
-
-canvas.addEventListener("pointercancel", () => {
-  drag = null;
-  canvas.classList.remove("is-dragging");
-});
-
-canvas.addEventListener("pointerleave", () => {
-  if (drag) return;
-  hoveredId = null;
-  tooltip.classList.add("hidden");
-  requestDraw();
 });
 
 atlasPanel.addEventListener("click", event => {

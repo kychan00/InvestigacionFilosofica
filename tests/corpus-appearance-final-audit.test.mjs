@@ -152,14 +152,15 @@ test("auditoría: una sola página federada carga las cuatro capas visuales", as
 });
 
 test("auditoría: scroll, zoom y accesibilidad conservan sus contratos", async () => {
-  const [results, record, atlas, atlasCSS, timeline, author, head] = await Promise.all([
+  const [results, record, atlas, atlasCSS, timeline, author, head, navigation] = await Promise.all([
     read("css/corpus-appearance-results.css"),
     read("css/corpus-appearance-records.css"),
     read("js/research-atlas-embed.js"),
     read("css/research-atlas-embed.css"),
     read("css/author-timeline.css"),
     read("css/corpus-appearance-author-atlas.css"),
-    read("js/app.js")
+    read("js/app.js"),
+    read("js/research-atlas-navigation.js")
   ]);
 
   // New styles are color/typography only. Existing JS remains the owner of
@@ -173,7 +174,10 @@ test("auditoría: scroll, zoom y accesibilidad conservan sus contratos", async (
   assert.match(atlas, /attributeFilter: \["data-theme", "data-corpus-shell"\]/);
   assert.match(atlas, /function draw\(/);
   assert.match(atlas, /function zoomAt\(/);
-  assert.match(atlas, /canvas\.addEventListener\("pointerdown"/);
+  assert.match(atlas, /navigation = bindResearchAtlasNavigation\(\{/);
+  assert.match(navigation, /canvas\.addEventListener\("pointerdown"/);
+  assert.match(navigation, /canvas\.addEventListener\("wheel"/);
+  assert.match(navigation, /canvas\.addEventListener\("pointercancel"/);
   assert.match(head, /research-library:save-work/);
   assert.match(record, /:focus-visible/);
   assert.match(author, /@media \(forced-colors: active\)/);
