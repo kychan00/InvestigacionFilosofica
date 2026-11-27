@@ -241,6 +241,14 @@ try {
     await geometry();
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q5711746",displayName:"Sebastián Salazar Bondy"},[{title:"Obra",year:2020}]));
     assert.equal(await life.count(),0);
+    // Production-shaped inputs: no synthetic QID supplied to renderer.
+    for(const c of [{"author":{"id":"5033760928","displayName":"Simone de Beauvoir"},"titles":["Le sang des autres","Segundo Sexo, Simone De Beauvoir","The Ethics of Ambiguity"],"qid":"Q7197","date":"1908"},{"author":{"catalog":"federated","displayName":"Antonio Caso Andrade","sourceDisplayName":"Antonio Caso"},"titles":["La existencia como economia como desinteres y como caridad","Positivismo, neopositivismo y fenomenología"],"qid":"Q601364","date":"1883"},{"author":{"catalog":"federated","displayName":"Confucio"},"titles":["Analectas, Confucio","Los cuatro libros"],"qid":"Q4604","date":"551"}]){
+      await page.evaluate(c=>window.__timelineFixture(c.author,c.titles.map((title,i)=>({title,year:1900+i,authors:[{name:c.author.displayName}]}))),c);
+      assert.equal(await life.count(),1,c.author.displayName+" missing historical panel");
+      await life.locator(".author-intellectual-history-toggle").click();
+      assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),new RegExp(c.date));
+      await geometry();
+    }
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }

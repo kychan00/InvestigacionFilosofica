@@ -1,3 +1,4 @@
+import { timelineHistoryAuthor } from "./author-timeline-history-identity.js?v=20261127-production-v1";
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
 import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v8";
 import { latinAmericanDossierHref } from "./latin-american-history-bridge.js?v=20261127-v6";
@@ -34,7 +35,8 @@ function stat(value, label) {
 }
 
 function renderTimeline(root, works, state, options) {
-  const { onOpenWork, loading, authorOrcid, author } = options;
+  const { onOpenWork, loading, authorOrcid } = options;
+  const author=timelineHistoryAuthor(options.author,works);
   const verifiedHistory = intellectualHistory(author);
   const regionalContexts={
     latin:{region:"latin",label:"Contexto de la filosofía latinoamericana",motif:"republic"},
@@ -44,7 +46,7 @@ function renderTimeline(root, works, state, options) {
     "jewish-mediterranean":{region:"jewish-mediterranean",label:"Tradición filosófica judía mediterránea",motif:"jewish-mediterranean"},
     india:{region:"india",label:"Tradición filosófica budista india",motif:"india"}
   };
-  const context=regionalContexts[verifiedHistory?.region]||authorHistoricalContext(author);
+  const context=regionalContexts[verifiedHistory?.region]||(verifiedHistory?.region==="europe"?{region:"europe",label:"Contexto europeo",motif:"modern"}:authorHistoricalContext(author));
   const orcidUrl = authorOrcidUrl(authorOrcid);
   const model = buildAuthorTimeline(works, state.unit);
 
