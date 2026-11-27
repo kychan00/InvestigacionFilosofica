@@ -1,3 +1,4 @@
+import { evaluateBibliographicBatches } from "./author-authority-bibliography-v2.js";
 import { localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { sanitizeAuthorOrcid, profileMatchesOrderedAuthor, removeRejectedWorkOrcid } from "./author-orcid-guard.js";
 import {
@@ -235,13 +236,19 @@ export async function discoverAuthorArchive({
   federatedOptions={},
   orcidOptions={},
   orcidRegistryOptions={},
-  orcidProfileOptions={}
+  orcidProfileOptions={},
+  authorityShadowRevision=null
 }={}) {
   author=localizeClassicalAuthor(sanitizeAuthorOrcid(author));
   initialWorks=initialWorks.map(work=>removeRejectedWorkOrcid(work,author));
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);
   const requestedOrcid=normalizedAuthorOrcid(author?.orcid);
+  const shadowBatches=[];
+  const capture=(provider,rows)=>{
+    if(!authorityShadowRevision)return;
+    shadowBatches.push({provider,works:structuredClone(Array.isArray(rows)?rows:[])});
+  };
   let orcid=requestedOrcid;
   const linkedAuthorIds=Array.isArray(author?.linkedAuthorIds)
     ? author.linkedAuthorIds : [];
@@ -301,6 +308,7 @@ export async function discoverAuthorArchive({
           authorId:id,displayName:name,orcid,linkedAuthorIds:requestedOrcid&&!orcid?[]:linkedAuthorIds,
           signal,...snapshotOptions
         });
+        capture("OpenAlex Philosophy",result.works);
         works=mergeAuthorArchives(works,result.works||[]);
         snapshotComplete=Boolean(result.complete);
         snapshotTotal=result.total;
@@ -321,7 +329,8 @@ export async function discoverAuthorArchive({
       try {
         const federated=await federatedImpl(name,{
           signal,orcid,aliases:author?.aliases||[],knownWorks:[...works],
-          limit:150,...federatedOptions
+          limit:150,...federatedOptions,
+          ...(authorityShadowRevision?{onSourceBatch:batch=>capture(batch.provider,batch.works)}:{})
         });
         if(federated.status==="resolved") {
           works=mergeAuthorArchives(works,federated.works);
@@ -344,6 +353,7 @@ export async function discoverAuthorArchive({
         const result = await orcidRegistryImpl(orcid, {
           displayName: name, signal, ...orcidRegistryOptions
         });
+        capture("ORCID",result.works);
         works = mergeAuthorArchives(works, result.works || []);
         orcidSummary = {
           totalGroups: result.totalGroups ?? (result.works || []).length,
@@ -371,6 +381,7 @@ export async function discoverAuthorArchive({
           signal, ...orcidOptions
         });
         const additions = Array.isArray(result) ? result : result.works || [];
+        capture("Crossref",additions);
         works = mergeAuthorArchives(works, additions);
         if (!sources.includes("Crossref · ORCID"))
           sources.push("Crossref · ORCID");
@@ -390,7 +401,14 @@ export async function discoverAuthorArchive({
     item.status==="rejected"&&item.reason?.name==="AbortError"))
     throw new DOMException("Aborted","AbortError");
 
+  let authorityShadow;
+  if(authorityShadowRevision){
+    // Diagnostics only: the legacy archive must never depend on V2.
+    try{authorityShadow=evaluateBibliographicBatches({author,batches:shadowBatches,datasetRevision:authorityShadowRevision,registryOrcid:orcidVerification==="verified"?orcid:null});}
+    catch(error){authorityShadow={error:String(error.message||error)};}
+  }
   return {
+    ...(authorityShadowRevision?{authorityShadow}:{}),
     works,sources:[...new Set(sources)],errors,
     snapshotComplete,snapshotTotal,orcidSummary,orcidProfile,verifiedOrcid:orcidVerification==="verified"?orcid:null,orcidVerification,
     // Curated coverage improves the archive but does not claim a universal bibliography.
