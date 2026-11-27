@@ -37,6 +37,12 @@ function dateFrom(d){
 }
 function workDate(w){
   const d=w.original_date||{},c=text(d.certainty),original=dateFrom(d),pub=year(w.first_publication_year)?w.first_publication_year:null;
+  // Explicit manifestations are historical records, not separate original works.
+  if(text(w.edition_of_work)||/^(revised_doctoral_thesis_book|revised_edition|reprint|translation)$/.test(text(w.work_type))){
+    if(original&&c)return {...original,type:"archive-edition",certainty:c};
+    if(pub)return {year:pub,date:fmt(pub),type:"archive-edition",certainty:"año consignado de la edición"};
+    return null;
+  }
   if(COMPOSITION.has(c)&&original)return {...original,type:"composition",certainty:c};
   if(c==="doctoral_dissertation"&&original)return {...original,type:"archive-thesis",certainty:c};
   if(PUBLICATION.has(c)&&original&&(!pub||pub===original.year))return {...original,type:"archive-publication",certainty:c};
@@ -55,7 +61,7 @@ export function matrixIntellectualHistory(record){
     events.push({id:"latam-"+id+"-"+key,year:dated.year,date:dated.date,type,title,
       source:direct[0]||null,additionalSources:direct.slice(1),
       evidenceScope:direct.length?"Evidencia asociada al registro":"Fuentes generales del expediente; no atribuidas individualmente al hito",
-      certainty:label(dated.certainty),role:label(role)});
+      certainty:label(dated.certainty),role:label(role),editionOf:text(row?.edition_of_work)});
   }
   for(const [field,flat,type,title] of [["born","birth_year","birth","Nacimiento"],["died","death_year","death","Fallecimiento"]]){
     const date=lifeDate(record.life?.[field],record.life?.[flat]);

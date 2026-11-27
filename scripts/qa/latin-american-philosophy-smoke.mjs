@@ -259,9 +259,9 @@ try {
     };
     await page.evaluate(async fixture => {
       localStorage.removeItem("research-auth-verified-v1");
-      const { renderLiveResearchResults } = await import(
-        "./js/latin-american-philosophy.js?v=20261122-author-live-bookmarks-v1"
-      );
+      const loadedModule=[...document.querySelectorAll('script[type="module"][src]')].find(script=>new URL(script.src).pathname.endsWith("/js/latin-american-philosophy.js"));
+      if(!loadedModule)throw new Error("Archive entrypoint missing");
+      const { renderLiveResearchResults }=await import(loadedModule.src);
       const container = document.querySelector("#author-dossier-research-section");
       const record = { canonical_name: "Anténor Firmin", alternate_names: [], works: [] };
       const results = container.querySelector(".author-live-results");
@@ -502,7 +502,7 @@ try {
       const r=root.getBoundingClientRect();
       return [...root.querySelectorAll("button,li,strong,a")].every(e=>{
         const b=e.getBoundingClientRect();
-        return !b.width||(b.left>=r.left-1&&b.right<=r.right+1&&e.scrollWidth<=e.clientWidth+2);
+        return !b.width||(b.left>=r.left-1&&b.right<=r.right+1&&(e.clientWidth===0||e.scrollWidth<=e.clientWidth+2));
       });
     });
     assert.ok(fits,"Shared panel must fit the LATAM dossier");

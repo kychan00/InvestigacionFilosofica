@@ -18,7 +18,7 @@ export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}
   return buildHistoryPanel(intellectualHistory(author),state,{archiveHref});
 }
 
-const MATRIX_TYPES={"archive-publication":"Publicación consignada","archive-record":"Fecha bibliográfica consignada","archive-thesis":"Tesis","archive-contribution":"Contribución intelectual"};
+const MATRIX_TYPES={"archive-publication":"Publicación consignada","archive-record":"Fecha bibliográfica consignada","archive-thesis":"Tesis","archive-edition":"Edición o versión de una obra previa","archive-contribution":"Contribución intelectual"};
 export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}={}){
   if(!history?.events?.length)return null;
   if(state.bioKey!==history.id){
@@ -68,6 +68,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}=
         el("span","author-intellectual-history-kind",BIO_TYPES[event.type]||MATRIX_TYPES[event.type]||"Registro")
       );
       if(event.certainty)details.append(el("span","author-intellectual-history-kind","Precisión: "+event.certainty));
+      if(event.editionOf)details.append(el("span","author-intellectual-history-kind","Vinculada a la obra "+event.editionOf+" en el expediente"));
       if(event.role)details.append(el("span","author-intellectual-history-kind","Responsabilidad: "+event.role));
       if(event.evidenceScope)details.append(el("span","author-intellectual-history-kind",event.evidenceScope));
       if(event.source){

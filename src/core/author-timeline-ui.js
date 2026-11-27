@@ -1,5 +1,5 @@
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v7";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v8";
 import { latinAmericanDossierHref } from "./latin-american-history-bridge.js?v=20261127-v6";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
 import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v4";
