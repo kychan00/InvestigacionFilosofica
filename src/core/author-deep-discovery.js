@@ -1,3 +1,4 @@
+import { reviewedAuthorEvidence, filterReviewedAuthorWorks } from "./author-reviewed-evidence.js";
 import { localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { sanitizeAuthorOrcid, profileMatchesOrderedAuthor, removeRejectedWorkOrcid } from "./author-orcid-guard.js";
 import {
@@ -5,7 +6,7 @@ import {
   resolveRemoteAuthorCandidate,
   enrichAuthorWorksWithCollaborators
 } from "./remote-author-resolution.js";
-import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261127-classical-v1";
+import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261127-evidence-v1";
 import { searchCrossrefByOrcid } from "../sources/crossref.js";
 import {
   fetchOrcidPublicWorks,
@@ -239,6 +240,9 @@ export async function discoverAuthorArchive({
 }={}) {
   author=localizeClassicalAuthor(sanitizeAuthorOrcid(author));
   initialWorks=initialWorks.map(work=>removeRejectedWorkOrcid(work,author));
+  if(author?.catalog==="federated")initialWorks=filterReviewedAuthorWorks(author.displayName,initialWorks);
+  const reviewed=reviewedAuthorEvidence(author,initialWorks);
+  if(reviewed?.orcid&&!author.orcid)author={...author,orcid:reviewed.orcid};
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);
   const requestedOrcid=normalizedAuthorOrcid(author?.orcid);
@@ -324,7 +328,7 @@ export async function discoverAuthorArchive({
           limit:150,...federatedOptions
         });
         if(federated.status==="resolved") {
-          works=mergeAuthorArchives(works,federated.works);
+          works=mergeAuthorArchives(works,filterReviewedAuthorWorks(name,federated.works));
           sources.push(...(federated.author?.catalogSources||["Crossref","Internet Archive"]));
         } else if(federated.status==="unavailable") {
           errors.push("Fuentes complementarias temporalmente no disponibles.");

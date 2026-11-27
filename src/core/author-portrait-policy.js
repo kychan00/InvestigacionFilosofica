@@ -1,3 +1,4 @@
+import { reviewedAuthorEvidence } from "./author-reviewed-evidence.js";
 import { localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { sanitizeAuthorOrcid } from "./author-orcid-guard.js";
 /**
@@ -100,16 +101,17 @@ export function portraitIdentity(author = {}, works = []) {
       ? Object.entries(HISTORICAL).find(([, names]) =>
           names.includes(name) && names.includes(display))?.[0] || null
       : null;
-  const q = explicitQ || curated;
+  const reviewed = reviewedAuthorEvidence(author,works);
+  const q = explicitQ || curated || reviewed?.qid || null;
   const historical = Boolean(q && !hasOrcid && HISTORICAL[q]?.includes(name));
-  if (!o && !a && !historical) return null;
+  if (!o && !a && !historical && !reviewed) return null;
   const names = [...new Set([name, display].filter(n=>n.split(" ").length>=2))];
-  const evidence = a && !hasOrcid && author.catalog !== "federated"
+  const evidence = a && author.catalog !== "federated" && (!hasOrcid || author.orcidVerified===true)
     ? bibliographicEvidence(works,names,a) : {titles:[],dois:[]};
   const canDiscover = names.length > 0 && (evidence.titles.length >= 2 || evidence.dois.length > 0);
-  return { orcid: o, orcidVerified: author.orcidVerified === true, openalex: a, qid: q, historical, names, evidence, canDiscover,
+  return { orcid: o, orcidVerified: author.orcidVerified === true, openalex: a, qid: q, historical, reviewed: Boolean(reviewed), names, evidence, canDiscover,
     queryName: String(author.displayName || author.sourceDisplayName || "").slice(0,150),
-    key: [o || "", author.orcidVerified ? "verified" : "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
+    key: [o || "", author.orcidVerified ? "verified" : "", a || "", q || "", historical ? name : "", reviewed ? "reviewed" : "", !historical && !reviewed && canDiscover ? "bibliography" : ""].join("|") };
 }
 function values(entity, property) {
   const claims = entity?.claims?.[property] || [];
@@ -131,7 +133,9 @@ export function matchesPortraitIdentity(entity, identity) {
   if (identity.openalex && a.length && !a.includes(identity.openalex)) return false;
   if (identity.orcid && o.includes(identity.orcid)) return true;
   if (identity.openalex && a.includes(identity.openalex)) return !identity.orcid || o.includes(identity.orcid) || (identity.orcidVerified && !o.length);
-  return identity.historical && !o.length && !a.length;
+  // Reviewed bridges use independent publication/registry evidence, not
+  // the absence of ORCID. Explicit conflicting identifiers still fail above.
+  return Boolean(identity.reviewed && identity.qid === entity.id) || (identity.historical && !o.length && !a.length);
 }
 function apiURL(base, params) {
   const url = new URL(base);
@@ -155,7 +159,8 @@ function compatibleCandidate(entity, identity) {
   if (!identity.names?.some(n=>entityNames(entity).includes(n))) return false;
   const ids=allValues(entity,"P10283").map(v=>oa(v)).filter(Boolean);
   const orcids=allValues(entity,"P496").map(orcid).filter(Boolean);
-  return (!ids.length || ids.includes(identity.openalex)) && !orcids.length;
+  return (!ids.length || ids.includes(identity.openalex)) &&
+    (!orcids.length || (identity.orcidVerified && orcids.every(o=>o===identity.orcid)));
 }
 async function bibliographicEntity(identity, candidates, fetcher, signal) {
   if (!identity.canDiscover) return null;
@@ -191,17 +196,26 @@ async function entityFor(identity, fetcher, signal) {
   if (identity.qid) {
     return verify(await get([identity.qid]));
   }
-  const prop = identity.orcid ? "P496" : "P10283";
-  const id = identity.orcid || identity.openalex.toLowerCase();
-  const query = await json(fetcher, apiURL(WD, {action:"query", list:"search", srnamespace:"0",
-    srsearch:"haswbstatement:" + prop + "=" + id, srlimit:"5", srprop:""}), signal);
-  // A truncated or ambiguous result is never resolved by ranking/name.
-  const hits = query.query?.search || [];
-  if (!query.continue && hits.length === 1 && qid(hits[0].title)) {
-    const found=await verify(await get([hits[0].title]));
-    if(found)return found;
+  const identifiers=[
+    ...(identity.orcid?[["P496",identity.orcid]]:[]),
+    ...(identity.openalex?[["P10283",identity.openalex.toLowerCase()]]:[])
+  ];
+  // Try both independent identifiers. A missing ORCID statement is not
+  // evidence that a matching OpenAlex identifier or portrait is invalid.
+  for(const [prop,id] of identifiers) {
+    const query=await json(fetcher,apiURL(WD,{action:"query",list:"search",srnamespace:"0",
+      srsearch:"haswbstatement:"+prop+"="+id,srlimit:"5",srprop:""}),signal);
+    const hits=query.query?.search||[];
+    if(query.continue || hits.length>1)return null;
+    if(hits.length===1 && qid(hits[0].title)){
+      const found=await verify(await get([hits[0].title]));
+      if(found)return found;
+      // A claimed exact identity that fails corroboration must not be
+      // silently replaced by another person's name match.
+      return null;
+    }
   }
-  if (query.continue || hits.length > 1 || !identity.canDiscover || !identity.queryName) return null;
+  if(!identity.canDiscover||!identity.queryName)return null;
   // Name search only proposes candidates; two authored works or an exact
   // authored DOI must independently corroborate identity.
   const discovered=await json(fetcher,apiURL(WD,{action:"wbsearchentities",search:identity.queryName,language:"en",uselang:"en",type:"item",limit:"5"}),signal);
