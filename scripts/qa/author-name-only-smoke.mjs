@@ -34,6 +34,13 @@ try{
     viewport:{width:390,height:850},isMobile:true,hasTouch:true,deviceScaleFactor:1
   });
   const errors=[],requests=[];
+  if(theme==="light") await page.addInitScript(()=>{
+    localStorage.setItem("research-auth-verified-v1",JSON.stringify({verified:true,updatedAt:Date.now()}));
+    window.addEventListener("research-library:save-author",event=>{
+      globalThis.__authorSaveFromPage=event.detail.author;
+      event.stopImmediatePropagation();
+    });
+  });
   page.on("pageerror",e=>errors.push(e.message));
   await page.route("**/*",route=>{
     const url=new URL(route.request().url());
@@ -108,6 +115,17 @@ try{
     null,{timeout:15000});
   assert.match(await page.locator(".author-page-hero h1").textContent(),/Marina Hernández López/);
   assert.match(await page.locator(".author-page-aliases").textContent(),/Marina Hernández/);
+  const saveAuthor=page.locator(".author-page-save-actions .author-save-button");
+  if(theme==="light"){
+    await saveAuthor.waitFor({state:"visible"});
+    assert.ok((await saveAuthor.boundingBox()).height>=44);
+    await saveAuthor.click();
+    const payload=await page.evaluate(()=>globalThis.__authorSaveFromPage);
+    assert.match(payload.displayName,/Marina Hernández López/);
+    assert.equal(String(payload.orcid).replace(/^https?:\/\/orcid\.org\//i,""),orcid.split("/").pop());
+  } else {
+    assert.equal(await saveAuthor.count(),0,"Anonymous visitors must not see private save actions");
+  }
   assert.equal(await page.locator(".author-collaboration-tag").count(),2);
   assert.equal(await page.locator(".author-individual-tag").count(),2);
   // The author page may replace the works section after aliases/collaborations

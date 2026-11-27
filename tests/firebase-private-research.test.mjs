@@ -519,7 +519,11 @@ test("save bookmarks are rendered only with a verified local session hint", () =
   assert.match(app, /function renderAuthorSaveControl/);
   assert.match(app, /data-save-icon/);
   assert.match(app, /save-bookmark-shape/);
-  assert.doesNotMatch(app, />\s*Guardar autor\s*</);
+  // Result cards retain compact icon-only controls; explicit labels are
+  // available only in the record and author-page detail actions.
+  assert.match(app, /function renderWorkSaveControl\(item, labeled = false\)/);
+  assert.match(app, /function renderAuthorSaveControl\(index = null, author = null, labeled = false\)/);
+  assert.match(app, /labeled \? '<span class="detail-save-label">/);
   assert.doesNotMatch(app, />\s*Guardar\s*</);
 
   assert.match(hint, /research-auth-verified-v1/);
@@ -976,4 +980,18 @@ test("thesis and journal articles continue to use the same saved-work selector",
   assert.match(articles, /createWorkSaveButton/);
   assert.match(journal, /createWorkSaveButton/);
   assert.match(quadripartita, /journal-page\.js\?v=20261122-author-project-picker-v1/);
+});
+
+test("detail save controls use the displayed record and its individual authors", () => {
+  const app = read("js/app.js");
+  const css = read("css/detail-save-actions.css");
+  const home = read("index.html");
+  assert.match(app, /renderRecordSaveActions\(saveWork, saveAuthors\)/);
+  assert.match(app, /openRecord\(original, saved\)/);
+  assert.match(app, /detail: \{ work: saveWork, trigger: event.currentTarget \}/);
+  assert.match(app, /saveAuthors\[Number\(button.dataset.saveAuthorIndex\)\]/);
+  assert.match(app, /author-page-save-actions[\s\S]*?renderAuthorSaveControl\(null, authorForSave\(author\), true\)/);
+  assert.match(app, /dialog.work-save-dialog\[open\]/);
+  assert.match(css, /min-height:44px/);
+  assert.match(home, /detail-save-actions\.css\?v=/);
 });
