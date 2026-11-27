@@ -1,3 +1,4 @@
+import { atlasLabelsEnabled, drawAtlasLabels } from "./research-atlas-labels.js?v=20261126-labels-v1";
 import { bindResearchAtlasNavigation } from "./research-atlas-navigation.js?v=20261126-pinch-v2";
 import {
   ResearchAtlasLiveSession
@@ -1063,6 +1064,8 @@ function draw() {
 
   const connected =
     selectedConnectedIds();
+  const labelItems = [];
+  const showLabels = atlasLabelsEnabled(view.zoom);
 
   for (
     const node of
@@ -1107,6 +1110,8 @@ function draw() {
         )
     };
 
+    if (showLabels) labelItems.push({ ...node, ...screen, ...state });
+
     if (
       node.kind ===
         "work-direct" ||
@@ -1145,6 +1150,9 @@ function draw() {
     }
   }
 
+  canvas.dataset.atlasLabels = String(drawAtlasLabels(context, labelItems, {
+    ...metrics, zoom: view.zoom, ink: colors.ink, surface: colors.surface
+  }));
   zoomReadout.textContent =
     Math.round(
       view.zoom *
@@ -2039,6 +2047,7 @@ function applyLiveUpdate(
 
 function clearAtlas() {
   navigation?.reset();
+  canvas.dataset.atlasLabels = "0";
   liveSession
     ?.cancel();
 

@@ -1,3 +1,4 @@
+import { atlasLabelsEnabled, drawAtlasLabels } from "./research-atlas-labels.js?v=20261126-labels-v1";
 import { bindResearchAtlasNavigation } from "./research-atlas-navigation.js?v=20261126-pinch-v2";
 
 import { ResearchAtlasAssembler } from "../src/core/research-atlas-assembler.js?v=20261113-ra13a-v1";
@@ -513,6 +514,7 @@ function resetGraph() {
 
 function clearCanvas() {
   if (!canvas || !context) return;
+  canvas.dataset.atlasLabels = "0";
   const metrics = canvasMetrics();
   context.setTransform(metrics.dpr, 0, 0, metrics.dpr, 0, 0);
   context.clearRect(0, 0, metrics.width, metrics.height);
@@ -941,6 +943,8 @@ function draw() {
     context.restore();
   }
 
+  const labelItems = [];
+  const showLabels = atlasLabelsEnabled(view.zoom);
   for (const node of viewModel.nodes) {
     const screen = worldToScreen(node, metrics);
     if (
@@ -954,6 +958,7 @@ function draw() {
     const connected = connectedIds.has(node.id);
     const hovered = node.id === hoveredId;
     const visible = visibleNode(node.id);
+    if (showLabels) labelItems.push({ ...node, ...screen, selected, connected, hovered, visible });
 
     context.save();
     context.globalAlpha = visible ? (selected || connected ? 1 : 0.9) : 0.06;
@@ -1011,6 +1016,10 @@ function draw() {
     context.restore();
   }
 
+  canvas.dataset.atlasLabels = String(drawAtlasLabels(context, labelItems, {
+    ...metrics, zoom: view.zoom, ink: colors.ink,
+    surface: cssColor("--corpus-author-muted", cssColor("--pg-gray-10", "#f4f4f4"))
+  }));
   zoomReadout.textContent = String(Math.round(view.zoom * 100)) + "%";
 }
 
