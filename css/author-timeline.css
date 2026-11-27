@@ -890,3 +890,44 @@ html[data-theme="dark"] .author-page #author-timeline-root {
   text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
+
+/* Mobile-first historical archive */
+.author-page #author-timeline-root { padding: clamp(14px,3vw,28px); min-width:0; }
+#author-timeline-root .author-timeline-heading { padding-bottom:12px; gap:12px; }
+#author-timeline-root .author-timeline-heading h2 { font-size:clamp(25px,4vw,37px); margin:6px 0; }
+#author-timeline-root .author-timeline-coverage { grid-template-columns:repeat(2,minmax(0,1fr)); margin-bottom:12px; }
+#author-timeline-root .author-timeline-stat { display:block; padding:9px 10px; }
+#author-timeline-root .author-timeline-stat strong { min-width:0; font-size:21px; }
+#author-timeline-root .author-timeline-stat span { margin-top:3px; overflow-wrap:anywhere; }
+#author-timeline-root [data-motif="ancient"] { --era-accent:#ad784a; }
+#author-timeline-root [data-motif="medieval"] { --era-accent:#80629e; }
+#author-timeline-root [data-motif="renaissance"] { --era-accent:#af8b49; }
+#author-timeline-root [data-motif="modern"] { --era-accent:#5483a2; }
+#author-timeline-root [data-motif="precolonial"] { --era-accent:#31877b; }
+#author-timeline-root [data-motif="colonial"] { --era-accent:#a46c4d; }
+#author-timeline-root [data-motif="republic"] { --era-accent:#698f65; }
+#author-timeline-root :is(.author-timeline-context,.author-timeline-era-header) {
+  --era-color:var(--era-accent,var(--tl-muted)); display:flex; align-items:center; gap:10px; min-width:0;
+  padding:9px 12px; border:1px solid color-mix(in srgb,var(--era-color) 35%,var(--tl-line));
+  border-radius:10px; color:var(--tl-ink);
+  background:linear-gradient(110deg,color-mix(in srgb,var(--era-color) 15%,var(--tl-card)),var(--tl-card));
+}
+#author-timeline-root .author-timeline-context { margin:0 0 12px; font-size:12px; font-weight:650; }
+#author-timeline-root .author-timeline-era-header { margin:0 0 8px; }
+#author-timeline-root .author-timeline-era-header h3 { font:600 15px/1.25 Georgia,serif; margin:0; overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-motif { width:30px; height:30px; flex:0 0 30px; color:color-mix(in srgb,var(--era-color) 75%,var(--tl-ink)); }
+#author-timeline-root .author-timeline-historical-track { display:grid; gap:14px; min-width:0; }
+#author-timeline-root .author-timeline-era { min-width:0; }
+#author-timeline-root .author-timeline-era .author-timeline-nodes { padding-left:18px; gap:7px; min-width:0; }
+#author-timeline-root .author-timeline-era .author-timeline-nodes::before { left:5px; width:2px; background:var(--era-accent,var(--tl-line)); }
+#author-timeline-root .author-timeline-era .author-timeline-node { left:-18px; width:12px; height:12px; background:var(--era-accent,var(--tl-blue)); box-shadow:none; }
+#author-timeline-root .author-timeline-era .author-timeline-work { grid-template-columns:minmax(0,1fr) 24px; gap:6px; min-width:0; min-height:52px; padding:8px 9px; transform:none; }
+#author-timeline-root .author-timeline-era .author-timeline-work-copy { min-width:0; gap:4px; }
+#author-timeline-root .author-timeline-entry-date { color:var(--tl-muted); font:700 10px/1.4 var(--pg-mono,monospace); }
+#author-timeline-root .author-timeline-era .author-timeline-provenance { min-width:0; flex-wrap:wrap; overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-era .author-timeline-provenance > span { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-era .author-timeline-arrow { width:24px; height:24px; }
+#author-timeline-root .author-timeline-progress { margin:12px 0 0; font-size:11px; color:var(--tl-muted); text-align:center; }
+#author-timeline-root .author-timeline-more { width:100%; margin:7px 0 0; min-height:44px; }
+#author-timeline-root .author-timeline-less { border-color:transparent; }
+@media(min-width:761px){#author-timeline-root .author-timeline-coverage {grid-template-columns:repeat(4,minmax(0,1fr));}}

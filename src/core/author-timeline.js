@@ -11,7 +11,7 @@ const MONTHS_ES = [
 function validYear(value) {
   if (value === null || value === undefined || value === "") return null;
   const year = Number(value);
-  return Number.isInteger(year) && year >= 1 && year <= 3000
+  return Number.isInteger(year) && year >= -10000 && year !== 0 && year <= 3000
     ? year
     : null;
 }
@@ -79,13 +79,14 @@ export function buildAuthorTimeline(
           : "m:" + year + "-" + String(month).padStart(2, "0");
 
     if (!map.has(key)) {
+      const formattedYear = year < 0 ? Math.abs(year) + " a. C." : String(year);
       const label = year === null
         ? "Sin fecha"
         : mode === "year"
-          ? String(year)
+          ? formattedYear
           : month === null
-            ? year + " · Mes no registrado"
-            : MONTHS_ES[month - 1] + " de " + year;
+            ? formattedYear + " · Mes no registrado"
+            : MONTHS_ES[month - 1] + " de " + formattedYear;
 
       map.set(key, {
         key,

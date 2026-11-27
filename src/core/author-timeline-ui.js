@@ -1,4 +1,5 @@
-import { buildAuthorTimeline } from "./author-timeline.js";
+import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
+import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js";
 import {
   authorOrcidUrl,
   normalizedAuthorOrcid,
@@ -30,7 +31,8 @@ function stat(value, label) {
 }
 
 function renderTimeline(root, works, state, options) {
-  const { onOpenWork, loading, authorOrcid } = options;
+  const { onOpenWork, loading, authorOrcid, author } = options;
+  const context = authorHistoricalContext(author);
   const orcidUrl = authorOrcidUrl(authorOrcid);
   const model = buildAuthorTimeline(works, state.unit);
   const selected = model.groups.find(group =>
@@ -49,7 +51,7 @@ function renderTimeline(root, works, state, options) {
     el(
       "p",
       "",
-      "Recorra la producción recuperada del autor a través del tiempo y abra cada obra desde su propio hito."
+      "Explore las obras recuperadas en orden cronológico. Las fechas pueden corresponder a ediciones posteriores."
     )
   );
 
@@ -62,7 +64,7 @@ function renderTimeline(root, works, state, options) {
       if (state.unit === value) return;
       state.unit = value;
       state.selectedKey = null;
-      state.visibleLimit = 60;
+      state.timelineLimit = TIMELINE_BATCH;
       renderTimeline(root, works, state, options);
     });
     control.setAttribute("aria-pressed", String(active));
@@ -115,69 +117,25 @@ function renderTimeline(root, works, state, options) {
     return;
   }
 
-  root.append(el("div", "author-timeline-track-label", "Recorrido temporal"));
-
-  const periods = el("div", "author-timeline-periods");
-  periods.setAttribute("aria-label", "Periodos de publicación");
-  let activePeriod = null;
-
-  for (const group of model.groups) {
-    const active = selected && group.key === selected.key;
-    const control = button(
-      "",
-      "author-timeline-period" + (active ? " is-active" : ""),
-      () => {
-        state.selectedKey = group.key;
-        state.visibleLimit = 60;
-        renderTimeline(root, works, state, options);
-      }
-    );
-    control.setAttribute("aria-pressed", String(Boolean(active)));
-    if (active) {
-      control.setAttribute("aria-current", "true");
-      activePeriod = control;
-    }
-
-    const marker = el("span", "author-timeline-marker");
-    marker.setAttribute("aria-hidden", "true");
-    const meta = el("span", "author-timeline-period-meta");
-    meta.append(
-      el("strong", "author-timeline-count", String(group.count)),
-      el("small", "", group.count === 1 ? "obra" : "obras")
-    );
-
-    control.append(
-      marker,
-      el("span", "author-timeline-date", group.label),
-      meta
-    );
-    periods.append(control);
+  const limit=state.timelineLimit || TIMELINE_BATCH;
+  const sections=historicalTimelineSlice(model,context,limit);
+  if(context.label){
+    const banner=el("div","author-timeline-context");
+    banner.dataset.motif=context.motif;
+    banner.append(motif(context.motif),el("span","",context.label));
+    root.append(banner);
   }
-
-  root.append(periods);
-
-  const detail = el("div", "author-timeline-detail");
-  const detailHeading = el("div", "author-timeline-detail-heading");
-  const headingCopy = el("div", "author-timeline-detail-heading-copy");
-  headingCopy.append(
-    el("span", "author-timeline-detail-eyebrow", "Periodo seleccionado"),
-    el("h3", "", selected.label)
-  );
-  detailHeading.append(
-    headingCopy,
-    el(
-      "span",
-      "",
-      selected.count.toLocaleString("es-MX") +
-        (selected.count === 1 ? " obra" : " obras")
-    )
-  );
-  detail.append(detailHeading);
-
-  const list = el("div", "author-timeline-nodes");
-  const visible = selected.nodes.slice(0, state.visibleLimit || 60);
-
-  visible.forEach((entry, position) => {
+  const track=el("div","author-timeline-historical-track");
+  track.dataset.region=context.region;
+  let shown=0;
+  for(const section of sections){
+    const block=el("section","author-timeline-era");
+    block.dataset.motif=section.motif;
+    const header=el("div","author-timeline-era-header");
+    header.append(motif(section.motif),el("h3","",section.label));
+    block.append(header);
+    const list=el("div","author-timeline-nodes");
+    for(const entry of section.entries){
     const work = entry.work;
     const control = button(
       "",
@@ -189,15 +147,9 @@ function renderTimeline(root, works, state, options) {
     const marker = el("span", "author-timeline-node");
     marker.setAttribute("aria-hidden", "true");
 
-    const ordinal = String(position + 1).padStart(
-      visible.length >= 100 ? 3 : 2,
-      "0"
-    );
-    const index = el("span", "author-timeline-work-index", ordinal);
-    index.setAttribute("aria-hidden", "true");
-
     const copy = el("span", "author-timeline-work-copy");
     copy.append(
+      el("span", "author-timeline-entry-date", entry.dateLabel),
       el("span", "author-timeline-work-name", work.title || "Sin título"),
       el("span", "author-timeline-work-type", work.type || "Obra")
     );
@@ -231,53 +183,64 @@ function renderTimeline(root, works, state, options) {
     const arrow = el("span", "author-timeline-arrow", "↗");
     arrow.setAttribute("aria-hidden", "true");
 
-    control.append(marker, index, copy, arrow);
-    list.append(control);
-  });
+    control.append(marker, copy, arrow);
 
-  detail.append(list);
-
-  const remainder = selected.count - visible.length;
-  if (remainder > 0) {
-    detail.append(button(
-      "Mostrar más obras (" + remainder.toLocaleString("es-MX") +
-        " restantes)",
-      "author-timeline-more",
-      () => {
-        state.visibleLimit = (state.visibleLimit || 60) + 60;
-        renderTimeline(root, works, state, options);
-      }
-    ));
+      control.dataset.timelinePosition=String(shown++);
+      list.append(control);
+    }
+    block.append(list);
+    track.append(block);
   }
+  root.append(track);
+  const count=el("p","author-timeline-progress",shown.toLocaleString("es-MX")+" de "+model.total.toLocaleString("es-MX")+" obras");
+  count.setAttribute("role","status");
+  root.append(count);
+  if(shown<model.total)root.append(button("Mostrar más obras · "+Math.min(TIMELINE_BATCH,model.total-shown),"author-timeline-more",()=>{
+    state.timelineLimit=limit+TIMELINE_BATCH;
+    renderTimeline(root,works,state,options);
+    root.querySelector('[data-timeline-position="'+shown+'"]')?.focus();
+  }));
+  if(shown>TIMELINE_BATCH)root.append(button("Mostrar menos","author-timeline-more author-timeline-less",()=>{
+    state.timelineLimit=TIMELINE_BATCH;
+    renderTimeline(root,works,state,options);
+    root.querySelector(".author-timeline-more")?.focus();
+  }));
+  root.append(el("p","author-timeline-method","El archivo puede ser parcial respecto de toda la producción del autor."));
+}
 
-  root.append(
-    detail,
-    el(
-      "p",
-      "author-timeline-method",
-      "Cronología construida únicamente con las fechas declaradas en los metadatos recuperados. El archivo puede ser parcial respecto de toda la producción del autor."
-    )
-  );
-
-  if (activePeriod && state.selectedKey) {
-    requestAnimationFrame(() => {
-      activePeriod.scrollIntoView({
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "auto"
-          : "smooth",
-        block: "nearest",
-        inline: "center"
-      });
-    });
-  }
+function motif(name){
+  const paths={
+    ancient:"M3 9 16 3 29 9H3M5 12H27M7 13V25M13 13V25M19 13V25M25 13V25M4 26H28M2 29H30",
+    medieval:"M5 28V14L16 3 27 14V28M10 28V17Q16 7 22 17V28M2 28H30",
+    renaissance:"M3 27H29M5 25V14Q16 2 27 14V25M11 25V15Q16 9 21 15V25",
+    modern:"M5 26H27M10 26V17L19 8M16 5 23 12M15 6 18 3 25 10 22 13M12 16Q23 16 23 25M6 20H17",
+    precolonial:"M2 28H30V24H26V19H22V14H19V9H13V14H10V19H6V24H2Z M14 14H18V28",
+    colonial:"M3 28V14H29V28M10 28V8L16 3 22 8V28M14 28V19H18V28M5 18H8M24 18H27",
+    republic:"M3 27Q10 21 16 26Q22 21 29 27V7Q22 3 16 8Q10 3 3 7ZM16 8V26M7 11L12 13M20 13L25 11",
+    archive:"M7 3H21L26 8V29H7ZM21 3V8H26M11 13H22M11 18H22M11 23H19"
+  };
+  const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  svg.setAttribute("viewBox","0 0 32 32");
+  svg.setAttribute("aria-hidden","true");
+  svg.setAttribute("focusable","false");
+  svg.classList.add("author-timeline-motif");
+  const path=document.createElementNS(svg.namespaceURI,"path");
+  path.setAttribute("d",paths[name]||paths.archive);
+  path.setAttribute("fill","none");
+  path.setAttribute("stroke","currentColor");
+  path.setAttribute("stroke-width","1.5");
+  path.setAttribute("stroke-linejoin","round");
+  path.setAttribute("stroke-linecap","round");
+  svg.append(path);
+  return svg;
 }
 
 export function mountAuthorTimeline(
   root,
   works,
   state,
-  { onOpenWork = () => {}, loading = false, authorOrcid = null } = {}
+  { onOpenWork = () => {}, loading = false, authorOrcid = null, author = null } = {}
 ) {
   if (!root) return;
-  renderTimeline(root, works, state, { onOpenWork, loading, authorOrcid });
+  renderTimeline(root, works, state, { onOpenWork, loading, authorOrcid, author });
 }

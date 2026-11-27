@@ -55,7 +55,7 @@ import {
 
 import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
 
-import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-historical-v1";
 import {
   authorOrcidUrl, normalizedAuthorOrcid, authorWorkSources,
   workHasAuthorOrcidEvidence
@@ -7586,6 +7586,7 @@ function renderFilteredResults() {
       {
         loading: authorArchiveLoading,
         authorOrcid: currentResponse.authorResolution?.author?.orcid,
+        author: currentResponse.authorResolution?.author,
         onOpenWork: index => {
           const work = currentResponse.results?.[index];
           if (work) openRecord(work);
