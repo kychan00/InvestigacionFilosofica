@@ -105,7 +105,7 @@ test("la ampliación por ORCID se integra con el índice y otras fuentes", async
       works:[],totalGroups:0,returnedWorks:0,complete:true
     }),
     orcidProfileImpl:async()=>({
-      hasPublicProfileData:false,source:"ORCID"
+      displayName:"Ana Investigadora",hasPublicProfileData:false,source:"ORCID"
     }),
     orcidSearchImpl:async id=>{
       assert.equal(id, ORCID);
