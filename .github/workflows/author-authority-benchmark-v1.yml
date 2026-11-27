@@ -13,6 +13,10 @@ on:
       - "scripts/authority/run-shadow-v2.mjs"
       - "scripts/authority/report-release-readiness-v2.mjs"
       - "scripts/authority/build-holdout-v2.mjs"
+      - "scripts/authority/build-reference-holdout-v2.mjs"
+      - "scripts/authority/audit-jsonl-integrity-v2.mjs"
+      - "src/core/author-authority-reference-holdout-v2.js"
+      - "tests/author-authority-reference-holdout-v2.test.mjs"
       - "src/core/author-authority-holdout-v2.js"
       - "tests/author-authority-holdout-v2.test.mjs"
       - "src/core/author-authority-release-v2.js"
@@ -113,6 +117,25 @@ jobs:
 
       - name: Build disjoint nominal holdout review packet
         run: node scripts/authority/build-holdout-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-benchmark-v1/report.json artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/holdout
+
+      - name: Test documentary reference holdout
+        run: node --test tests/author-authority-reference-holdout-v2.test.mjs
+
+      - name: Build documentary reference holdout
+        run: node scripts/authority/build-reference-holdout-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/holdout artifacts/author-authority-v2/reference-holdout
+
+      - name: Audit frozen work JSONL integrity (read only)
+        run: node scripts/authority/audit-jsonl-integrity-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/integrity/report.json
+
+      - name: Upload documentary reference and integrity reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-reference-and-integrity
+          path: |
+            artifacts/author-authority-v2/reference-holdout/
+            artifacts/author-authority-v2/integrity/
+          if-no-files-found: warn
 
       - name: Upload nominal holdout packet
         if: always()

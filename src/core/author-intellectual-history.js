@@ -367,3 +367,13 @@ export function intellectualHistory(author) {
   })).sort((a,b)=>a.year-b.year);
   return {id,region:record.region,events};
 }
+
+// Documentary reference inventory for offline evaluation; never used to
+// authorize a search-result identity or an image automatically.
+export function intellectualHistoryReferenceInventory(){
+ return Object.entries(AUTHORS).map(([qid,record])=>({
+  qid,names:[...record.names],region:record.region,
+  birth:record.events.find(e=>e[2]==="birth")?.[0]??null,
+  sources:[...new Set(record.events.flatMap(e=>e.slice(4)))].map(k=>({name:SOURCES[k][0],url:SOURCES[k][1]}))
+ }));
+}
