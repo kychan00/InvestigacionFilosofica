@@ -100,7 +100,7 @@ export function portraitIdentity(author = {}, works = []) {
   const canDiscover = names.length > 0 && (evidence.titles.length >= 2 || evidence.dois.length > 0);
   return { orcid: o, openalex: a, qid: q, historical, names, evidence, canDiscover,
     queryName: String(author.displayName || author.sourceDisplayName || "").slice(0,150),
-    key: [o || "", a || "", q || "", historical ? name : "", canDiscover ? "bibliography" : ""].join("|") };
+    key: [o || "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
 }
 function values(entity, property) {
   const claims = entity?.claims?.[property] || [];
