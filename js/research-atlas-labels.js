@@ -48,11 +48,14 @@ export function layoutAtlasLabels(items, { width, height, zoom, measure }) {
     const label = truncate(item.label.trim().replace(/\s+/g, " "), maxText, measureText);
     const w = Math.ceil(measureText(label)) + 8;
     const gap = 12;
+    // Above/below placements may slide horizontally near the viewport edge.
+    // They remain separated vertically from the anchor and still pass all collision checks.
+    const centeredX = Math.max(4, Math.min(width - 4 - w, item.x - w / 2));
     const positions = [
       { x: item.x + gap, y: item.y - h / 2 },
       { x: item.x - gap - w, y: item.y - h / 2 },
-      { x: item.x - w / 2, y: item.y - gap - h },
-      { x: item.x - w / 2, y: item.y + gap }
+      { x: centeredX, y: item.y - gap - h },
+      { x: centeredX, y: item.y + gap }
     ];
     for (const pos of positions) {
       const rect = { ...pos, w, h };
