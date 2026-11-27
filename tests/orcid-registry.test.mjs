@@ -15,6 +15,9 @@ const ORCID = "0000-0002-7283-8051";
 const profile = "https://orcid.org/" + ORCID;
 const emptyProfile = async () => ({
   orcid: ORCID,
+  displayName: "Mauricio Méndez Huerta",
+  givenName: "Mauricio",
+  familyName: "Méndez Huerta",
   hasPublicProfileData: false,
   source: "ORCID"
 });
@@ -146,6 +149,8 @@ test("bibliografía pública ORCID se integra con Crossref e Internet Archive si
     orcidProfileImpl:emptyProfile,
     onProgress:step=>progress.push(step)
   });
+  assert.equal(archive.verifiedOrcid,ORCID);
+  assert.equal(archive.orcidVerification,"verified");
   assert.equal(archive.orcidSummary.totalGroups,17);
   assert.equal(archive.orcidSummary.returnedWorks,17);
   assert.equal(archive.works.length,17);
@@ -291,6 +296,9 @@ test("perfil ORCID consume /record sin credenciales embebidas",async()=>{
 test("discoverAuthorArchive entrega el perfil ORCID junto a la bibliografía",async()=>{
   const authorProfile={
     orcid:ORCID,
+    displayName:"Ana Investigadora",
+    givenName:"Ana",
+    familyName:"Investigadora",
     biography:"Investigadora de prueba",
     employments:[],
     educations:[],
@@ -316,6 +324,27 @@ test("discoverAuthorArchive entrega el perfil ORCID junto a la bibliografía",as
     orcidSearchImpl:async()=>({works:[],complete:true}),
     orcidProfileImpl:async()=>authorProfile
   });
+  assert.equal(found.verifiedOrcid,ORCID);
   assert.equal(found.orcidProfile.biography,"Investigadora de prueba");
   assert.equal(found.orcidProfile.source,"ORCID");
+});
+
+test("un perfil ORCID sin nombre público no autoriza importar obras ni biografía",async()=>{
+  let requests=0;
+  const found=await discoverAuthorArchive({
+    author:{displayName:"Mauricio Méndez Huerta",orcid:ORCID},
+    initialWorks:[{title:"Obra inicial",year:2019,providers:["Crossref"]}],
+    federatedImpl:async(name,args)=>{
+      assert.equal(args.orcid,null);
+      return {status:"none",works:[]};
+    },
+    orcidProfileImpl:async()=>({orcid:ORCID,hasPublicProfileData:false,source:"ORCID"}),
+    orcidRegistryImpl:async()=>{requests++;return {works:[]}},
+    orcidSearchImpl:async()=>{requests++;return {works:[]}}
+  });
+  assert.equal(requests,0);
+  assert.equal(found.verifiedOrcid,null);
+  assert.equal(found.orcidVerification,"unverified");
+  assert.equal(found.orcidProfile,null);
+  assert.equal(found.works.length,1);
 });
