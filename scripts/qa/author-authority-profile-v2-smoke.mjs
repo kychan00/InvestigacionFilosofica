@@ -1,0 +1,39 @@
+import assert from "node:assert/strict";
+import {mkdir} from "node:fs/promises";
+import {chromium} from "playwright";
+const base=process.env.MOBILE_UI_BASE_URL||"http://127.0.0.1:4173/";
+const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
+await mkdir("artifacts/author-authority-profile-v2",{recursive:true});
+try{
+ for(const width of [320,390,768,1024,1440]){
+  const page=await browser.newPage({viewport:{width,height:900}});
+  await page.route("**/*",r=>r.request().url().startsWith(base)?r.continue():r.abort());
+  await page.goto(base,{waitUntil:"domcontentloaded"});
+  await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes("author-authority-profile-v2.css")));
+  await page.evaluate(async()=>{
+   const {mountAuthorAuthorityPreview}=await import("./src/core/author-authority-profile-v2.js");
+   document.body.classList.add("author-view");
+   const workspace=document.querySelector("#research-workspace");workspace.classList.remove("hidden");
+   const results=document.querySelector("#results");results.innerHTML='<article class="author-page"><section class="author-authority-preview"></section></article>';
+   const rows=Array.from({length:15},(_,i)=>({record:{provider:"OpenAlex Philosophy",sourceId:"W"+i,title:"Obra "+i+" "+("título muy extenso ".repeat(5)),year:2020},contributions:[{rawName:"Nombre de prueba",role:"author",decision:{scope:"contribution",status:i===0?"ambiguous":"probable"},evidence:[{kind:"snapshot-author-membership",reliability:"asserted",polarity:"supports"}]}]}));
+   mountAuthorAuthorityPreview(results.querySelector("section"),{shadow:{rows}});
+  });
+  const root=page.locator(".author-authority-preview");
+  await root.scrollIntoViewIfNeeded();
+  assert.equal(await root.locator("details").count(),12);
+  await root.getByRole("button",{name:"Mostrar más atribuciones"}).click();
+  assert.equal(await root.locator("details").count(),15);
+  await root.locator("select").selectOption("ambiguous");
+  assert.equal(await root.locator("details").count(),1);
+  await root.locator("summary").click();
+  await root.getByText("Membresía del índice filosófico",{exact:false}).waitFor();
+  for(const theme of ["light","dark"]){
+   await page.evaluate(theme=>{document.documentElement.dataset.theme=theme;document.body.dataset.theme=theme;},theme);
+   const geometry=await root.evaluate(el=>({width:el.clientWidth,scroll:el.scrollWidth,viewport:innerWidth,right:el.getBoundingClientRect().right}));
+   assert.ok(geometry.scroll<=geometry.width+2&&geometry.right<=geometry.viewport+2,JSON.stringify(geometry));
+   await root.screenshot({path:"artifacts/author-authority-profile-v2/"+width+"-"+theme+".png"});
+  }
+  await page.close();
+ }
+ console.log("Authority profile preview: 5 viewport widths, filters, pagination and evidence disclosure");
+}finally{await browser.close();}

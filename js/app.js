@@ -61,7 +61,8 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-classical-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-authority-v2-phase5";
+import {authorityPreviewRevision,mountAuthorAuthorityPreview} from "../src/core/author-authority-profile-v2.js?v=20261127-phase5";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -321,6 +322,8 @@ let authorArchiveNotice = "";
 let authorArchiveSources = [];
 let authorArchiveOrcidSummary = null;
 let authorArchiveOrcidProfile = null;
+const authorAuthorityPreviewRevision=authorityPreviewRevision(window.location.search);
+let authorAuthorityShadow=null;
 const authorPortraitSession = createAuthorPortraitSession();
 window.addEventListener("pagehide", () => authorPortraitSession.close());
 window.addEventListener("pageshow", event => {
@@ -5160,6 +5163,7 @@ function showExclusiveAuthorWorks(
   const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid(resolution.author));
   resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
   if (options.resetTimeline) {
+    authorAuthorityShadow=null;
     authorArchiveNotice = "";
     authorArchiveSources = [];
     authorArchiveOrcidSummary = null;
@@ -5276,6 +5280,7 @@ function restoreAuthorSourceSearch() {
   authorArchiveSources = [];
   authorArchiveOrcidSummary = null;
   authorArchiveOrcidProfile = null;
+  authorAuthorityShadow=null;
   authorTimelineState.selectedKey = null;
   document.title =
     "Investigación Filosófica";
@@ -5665,6 +5670,7 @@ async function openExclusiveAuthorByName(
             orcid: resolution.author.orcid || null
           },
           initialWorks: resolution.works,
+          ...(authorAuthorityPreviewRevision?{authorityShadowRevision:authorAuthorityPreviewRevision}:{}),
           signal: authorController.signal,
           onProgress: ({
             works,source,phase,sources,errors,orcidSummary,orcidProfile,verifiedOrcid,orcidVerification
@@ -5710,6 +5716,7 @@ async function openExclusiveAuthorByName(
           currentController !== authorController
         ) return;
 
+        authorAuthorityShadow=deep.authorityShadow||null;
         authorArchiveSources = deep.sources;
         authorArchiveOrcidSummary = deep.orcidSummary;
         authorArchiveOrcidProfile =
@@ -5739,6 +5746,7 @@ async function openExclusiveAuthorByName(
         if (authorController.signal.aborted) return;
         console.error("No se pudo completar el catálogo del autor:",error);
         authorArchiveLoading = false;
+        authorAuthorityShadow={error:"La consulta bibliográfica no pudo completarse."};
         authorArchiveNotice = "Búsqueda parcial: no fue posible consultar todas las fuentes";
         showExclusiveAuthorWorks(
           {...resolution,author:{...resolution.author,orcid:null,orcidId:null,orcidProfile:null}},
@@ -7354,7 +7362,7 @@ function renderAuthorPage(
                   ? "El registro ORCID público de este autor no incluye una biografía o afiliaciones. Esta ficha reúne su bibliografía y las fuentes académicas disponibles."
                   : federatedCatalog
                     ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
-                    : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+                    : authorAuthorityPreviewRevision ? "Perfil recuperado del corpus OpenAlex Philosophy; su identidad humana requiere corroboración independiente." : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
               )
             )}
           </p>
@@ -7400,6 +7408,7 @@ function renderAuthorPage(
       </header>
 
       ${renderAuthorOrcidProfile(orcidProfile, orcidUrl)}
+      ${authorAuthorityPreviewRevision?`<section id="author-authority-preview" class="author-authority-preview" aria-label="Evaluación bibliográfica experimental"></section>`:""}
 
       <section class="author-page-metrics" aria-label="Resumen del corpus del autor">
         <div>
@@ -7576,6 +7585,10 @@ function renderFilteredResults() {
         currentResponse
       );
 
+    if(authorAuthorityPreviewRevision){
+      try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading}); }
+      catch(error){ console.warn("Author Authority preview unavailable",error); }
+    }
     void authorPortraitSession.open(currentResponse.authorResolution?.author,
       resultsEl.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
 
