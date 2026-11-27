@@ -1,6 +1,7 @@
 import {readFile,mkdir,writeFile} from "node:fs/promises";
 import {resolve,dirname,relative,isAbsolute,sep} from "node:path";
 import {pathToFileURL,fileURLToPath} from "node:url";
+import {setTimeout as delay} from "node:timers/promises";
 import {findSnapshotAuthorCandidates,resolveRemoteAuthorCandidate} from "../../src/core/remote-author-resolution.js";
 import {portraitIdentity,resolveAuthorPortrait,downloadPortrait,PORTRAIT_TIMEOUT_MS,PORTRAIT_MAX_BYTES,PORTRAIT_MAX_SIDE} from "../../src/core/author-portrait-policy.js";
 import {assessPortraitV2} from "../../src/core/author-authority-portrait-v2.js";
@@ -24,6 +25,48 @@ const localFetch=async value=>{
 };
 const allowed=new Set(["www.wikidata.org","commons.wikimedia.org","upload.wikimedia.org","thumb.wikimedia.org","pub.orcid.org"]);
 const errorText=e=>String(e?.message||e).slice(0,300);
+// Serialize Wikimedia traffic and respect provider rate limits. Cache only
+// successful JSON metadata for paired comparisons within this process.
+const metadataCache=new Map();
+const cooldown=new Map();
+let requestQueue=Promise.resolve(),nextWikimediaAt=0;
+function retryAfterMs(value){
+ const seconds=Number(value);
+ if(value&&Number.isFinite(seconds)&&seconds>=0)return Math.max(30000,seconds*1000);
+ const date=Date.parse(value||"");
+ return Number.isFinite(date)?Math.max(30000,date-Date.now()):60000;
+}
+async function pacedWikimedia(u,options,entry){
+ const key=u.href;
+ const metadata=u.hostname==="www.wikidata.org"||u.hostname==="commons.wikimedia.org";
+ const task=requestQueue.then(async()=>{
+  options.signal?.throwIfAborted();
+  if(metadata&&metadataCache.has(key)){
+   entry.cacheHit=true;entry.httpStatus=200;
+   return new Response(metadataCache.get(key),{headers:{"content-type":"application/json"}});
+  }
+  if((cooldown.get(u.hostname)||0)>Date.now()){
+   entry.skipped="provider-cooldown";entry.error="HTTP 429 cooldown";
+   throw Error("Wikimedia rate-limit cooldown");
+  }
+  await delay(Math.max(0,nextWikimediaAt-Date.now()),undefined,{signal:options.signal});
+  options.signal?.throwIfAborted();
+  nextWikimediaAt=Date.now()+2500;
+  const response=await fetch(u,options);
+  entry.httpStatus=response.status;
+  if(response.status===429){
+   cooldown.set(u.hostname,Date.now()+retryAfterMs(response.headers.get("retry-after")));
+   entry.retryAfter=response.headers.get("retry-after")||null;
+  }
+  if(metadata&&response.ok){
+   const text=await response.clone().text();
+   if(text.length<=2000000&&metadataCache.size<256)metadataCache.set(key,text);
+  }
+  return response;
+ });
+ requestQueue=task.catch(()=>{});
+ return task;
+}
 function tracedFetch(trace){
  return async (value,options={})=>{
   const u=new URL(value);
@@ -33,7 +76,8 @@ function tracedFetch(trace){
   try{
    const headers=new Headers(options.headers);
    headers.set("Api-User-Agent","InvestigacionFilosofica/1.0 (https://github.com/kychan00/InvestigacionFilosofica)");
-   const response=await fetch(u,{...options,headers,redirect:"error"});
+   const requestOptions={...options,headers,redirect:"error"};
+   const response=u.hostname==="pub.orcid.org"?await fetch(u,requestOptions):await pacedWikimedia(u,requestOptions,entry);
    entry.httpStatus=response.status;
    if(!response.ok)entry.error="HTTP "+response.status;
    return response;
@@ -53,18 +97,18 @@ async function settleOrcid(author){
 async function measure(author,works,independent){
  const trace=[],started=performance.now();
  const identity=portraitIdentity(author,works,{independent});
- const finish=result=>({...result,requests:trace.length,elapsedMs:Math.round(performance.now()-started),trace});
+ const finish=result=>({...result,requests:trace.filter(t=>!t.cacheHit&&!t.skipped).length,cacheHits:trace.filter(t=>t.cacheHit).length,elapsedMs:Math.round(performance.now()-started),trace});
  if(!identity)return finish({status:"insufficient-profile"});
  const signal=AbortSignal.timeout(PORTRAIT_TIMEOUT_MS);
  try{
   const fetcher=tracedFetch(trace);
   const meta=await resolveAuthorPortrait(identity,{fetcher,signal});
-  if(!meta)return finish({status:trace.some(t=>t.error)?"provider-unavailable":"abstained"});
+  if(!meta)return finish({status:trace.some(t=>t.httpStatus===429||t.skipped==="provider-cooldown")?"rate-limited":trace.some(t=>t.error)?"provider-unavailable":"abstained"});
   const blob=await downloadPortrait(meta,{fetcher,signal});
   if(blob.size>PORTRAIT_MAX_BYTES||meta.width>PORTRAIT_MAX_SIDE||meta.height>PORTRAIT_MAX_SIDE)throw Error("Media budget exceeded");
   const assessment=assessPortraitV2(identity,meta,revision);
   return finish({status:"downloaded",bytes:blob.size,width:meta.width,height:meta.height,license:meta.license.label,source:meta.source,entityId:meta.authorityTrace?.entityId||null,method:meta.authorityTrace?.method||null,authorityTrace:meta.authorityTrace||null,decision:assessment.decision,evidence:assessment.evidence});
- }catch(error){return finish({status:signal.aborted?"timeout":"provider-or-media-error",error:errorText(error)});}
+ }catch(error){return finish({status:trace.some(t=>t.httpStatus===429||t.skipped==="provider-cooldown")?"rate-limited":signal.aborted?"timeout":"provider-or-media-error",error:errorText(error)});}
 }
 async function inspectCase(item){
  const report={...item,candidates:[],candidateCount:0,evaluatedCount:0,notEvaluated:0};
@@ -97,20 +141,16 @@ async function inspectCase(item){
  }catch(error){report.status="index-error";report.error=errorText(error);}
  return report;
 }
-// Small bounded concurrency. Never call the direct OpenAlex API or write media.
-const results=new Array(cohort.cases.length);
-let next=0;
-await Promise.all(Array.from({length:2},async()=>{
- while(next<cohort.cases.length){
-  const i=next++;
-  results[i]=await inspectCase(cohort.cases[i]);
-  console.log("SIVA_COHORT_CASE "+JSON.stringify(results[i]));
- }
-}));
+// Sequential profiles; paired routes share a bounded in-memory metadata cache.
+const results=[];
+for(const item of cohort.cases){
+ const report=await inspectCase(item);results.push(report);
+ console.log("SIVA_COHORT_CASE "+JSON.stringify(report));
+}
 const measured=results.flatMap(r=>r.candidates).filter(c=>c.status==="measured");
 const tally=mode=>Object.fromEntries([...new Set(measured.map(c=>c[mode].status))].sort().map(status=>[status,measured.filter(c=>c[mode].status===status).length]));
-const summary={names:results.length,indexCandidates:results.reduce((n,r)=>n+r.candidateCount,0),evaluatedProfiles:measured.length,notEvaluated:results.reduce((n,r)=>n+r.notEvaluated,0),legacy:tally("legacy"),experimental:tally("experimental"),gains:measured.filter(c=>c.legacy.status!=="downloaded"&&c.experimental.status==="downloaded").length,losses:measured.filter(c=>c.legacy.status==="downloaded"&&c.experimental.status!=="downloaded").length,changedEntity:measured.filter(c=>c.legacy.entityId&&c.experimental.entityId&&c.legacy.entityId!==c.experimental.entityId).length,referenceDifferences:measured.filter(c=>c.referenceComparison==="different-reference-review-required").length,humanReviewed:0};
+const summary={names:results.length,indexCandidates:results.reduce((n,r)=>n+r.candidateCount,0),evaluatedProfiles:measured.length,notEvaluated:results.reduce((n,r)=>n+r.notEvaluated,0),legacy:tally("legacy"),experimental:tally("experimental"),gains:measured.filter(c=>c.legacy.status!=="downloaded"&&c.experimental.status==="downloaded").length,losses:measured.filter(c=>c.legacy.status==="downloaded"&&c.experimental.status!=="downloaded").length,changedEntity:measured.filter(c=>c.legacy.entityId&&c.experimental.entityId&&c.legacy.entityId!==c.experimental.entityId).length,referenceDifferences:measured.filter(c=>c.referenceComparison==="different-reference-review-required").length,humanReviewed:0,rateLimited:measured.filter(c=>[c.legacy.status,c.experimental.status].includes("rate-limited")).length,experimentalDownloaded:measured.filter(c=>c.experimental.status==="downloaded").length};
 await mkdir(dirname(resolve(output)),{recursive:true});
-await writeFile(output,JSON.stringify({schemaVersion:"siva-live-cohort-report-v1",generatedAt:new Date().toISOString(),revision,release:config.release,manifestSource:manifest.source||null,limitations:["Selected nonrandom development cohort; not accuracy or gold.","Snapshot-only author work sample, not full federated dossier.","Actual HTTP metadata and downloaded bytes; browser decode is covered separately by the live provider smoke.","Different-reference entries require human adjudication; same QID does not prove the file depicts the person.","Abstention and provider failure are separate outcomes. Human review pending."],summary,results},null,2)+"\n");
+await writeFile(output,JSON.stringify({schemaVersion:"siva-live-cohort-report-v1",generatedAt:new Date().toISOString(),revision,release:config.release,manifestSource:manifest.source||null,limitations:["Selected nonrandom development cohort; not accuracy or gold.","Snapshot-only author work sample, not full federated dossier.","Actual HTTP metadata and downloaded bytes; browser decode is covered separately by the live provider smoke.","Different-reference entries require human adjudication; same QID does not prove the file depicts the person.","Abstention, rate limiting and provider failure are separate outcomes. Human review pending.","Audit requests are paced and share bounded metadata in memory; elapsed times include audit pacing and are not production latency."],summary,results},null,2)+"\n");
 console.log("SIVA_COHORT_SUMMARY "+JSON.stringify(summary));
 if(!measured.length)throw Error("No snapshot profiles could be evaluated; audit incomplete");
