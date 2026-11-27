@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "authority-reviewed-replay-v2",
+  "reviewedOn": "2026-11-27",
+  "note": "Source-inspected editorial evidence for development cases, not independent human gold. Exact record binding; not a production whitelist.",
+  "cases": [
+    {
+      "id": "chalmers-philosophy",
+      "record": {
+        "id": "chalmers-philosophy",
+        "task": "contribution",
+        "name": "David Chalmers",
+        "work": {
+          "title": "Facing Up to the Problem of Consciousness",
+          "year": 1995,
+          "authors": [
+            {
+              "name": "David Chalmers"
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "verified-authorship",
+          "polarity": "supports",
+          "sourceRefs": [
+            "https://consc.net/consciousness/",
+            "https://consc.net/cv/"
+          ],
+          "lineageKey": "reviewed-record:chalmers-philosophy",
+          "reliability": "verified",
+          "note": "Author's own publication list and CV explicitly list the 1995 paper."
+        }
+      ]
+    },
+    {
+      "id": "chalmers-1627",
+      "record": {
+        "id": "chalmers-1627",
+        "task": "contribution",
+        "name": "David Chalmers",
+        "work": {
+          "title": "De statu hominis",
+          "year": 1627,
+          "authors": [
+            {
+              "name": "David Chalmers"
+            }
+          ]
+        },
+        "note": "Reconstructed from reported catalogue collision, not raw provider payload."
+      },
+      "assertions": [
+        {
+          "kind": "verified-impossible-original-date",
+          "polarity": "contradicts",
+          "sourceRefs": [
+            "https://books.google.com/books?id=g_-IJgRsQ9EC",
+            "https://consc.net/cv/"
+          ],
+          "lineageKey": "reviewed-record:chalmers-1627",
+          "reliability": "verified",
+          "note": "Historical catalogue records the 1627 publication; philosopher's CV documents birth in 1966. This refers to the original historical work, not a later edition."
+        }
+      ]
+    },
+    {
+      "id": "jaeggi-publisher",
+      "record": {
+        "id": "jaeggi-publisher",
+        "task": "contribution",
+        "name": "Rahel Jaeggi",
+        "orcid": "0000-0003-4713-7031",
+        "work": {
+          "title": "Sharing the universal resources: Remarks on Honneth’s understanding of work",
+          "doi": "10.1177/1468795X231182636",
+          "year": 2023,
+          "authors": [
+            {
+              "name": "Rahel Jaeggi",
+              "orcid": "0000-0003-4713-7031"
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "kind": "verified-author-position-identifier",
+          "polarity": "supports",
+          "sourceRefs": [
+            "https://journals.sagepub.com/doi/10.1177/1468795X231182636"
+          ],
+          "lineageKey": "reviewed-record:jaeggi-publisher",
+          "reliability": "verified",
+          "note": "Publisher links exact DOI, named author and ORCID in the article metadata."
+        }
+      ]
+    },
+    {
+      "id": "benjamin-registrant",
+      "record": {
+        "id": "benjamin-registrant",
+        "task": "orcid",
+        "author": {
+          "displayName": "Benjamin Walter",
+          "orcid": "0000-0003-0282-8605"
+        },
+        "profile": {
+          "displayName": "Benjamin Walter",
+          "givenName": "Benjamin",
+          "familyName": "Walter"
+        }
+      },
+      "assertions": [
+        {
+          "kind": "verified-person-identifier",
+          "polarity": "supports",
+          "sourceRefs": [
+            "https://tc.copernicus.org/articles/14/1779/2020/"
+          ],
+          "lineageKey": "reviewed-record:benjamin-registrant",
+          "reliability": "verified",
+          "note": "Publisher explicitly links Benjamin Walter to the identifier in the reconstructed record."
+        }
+      ]
+    }
+  ]
+}
