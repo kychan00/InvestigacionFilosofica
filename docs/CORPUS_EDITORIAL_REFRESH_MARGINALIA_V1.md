@@ -45,11 +45,14 @@ Se incorpora el **busto de Sócrates** fotografiado por Bregi y publicado en 191
 Wikimedia Commons identifica expresamente la imagen como **CC0 1.0 / dominio público**:
 https://commons.wikimedia.org/wiki/File:Greece_from_the_Coming_of_the_Hellenes_to_AD._14,_page_201,_Socrates.jpg
 
-La URL original permanece enlazada en una variable de CSS, sin transformación
-binaria de la obra y sin modificar el JavaScript. La portada lo presenta a la
-derecha bajo veladuras de papel/tinta, los visuales de las tarjetas muestran un
-sello discreto y el encabezado de la ficha bibliográfica usa una marca de agua.
-Todos los adornos son no interactivos; móvil, alto contraste e impresión tienen
-tratamientos diferenciados. La imagen se carga desde Wikimedia Commons, por lo
-que su disponibilidad depende de un tercero; para independencia de la web,
-conviene alojar una copia del original en el repositorio en una fase posterior.
+El JPEG original se conserva sin modificaciones en `assets/marginalia-socrates.jpg`
+(331653 bytes, 1400 × 2250 px; SHA-1: `8bce16dcf0026c4fbd9a7962080f486a0c0c7a14`).
+La importación se contrastó con el checksum publicado por Wikimedia Commons.
+El sitio sirve la imagen localmente, sin solicitudes a terceros, y la prueba
+de navegador comprueba que el archivo realmente se decodifica en las
+dimensiones originales. La portada, las tarjetas y la ficha conservan el
+tratamiento editorial en claro/oscuro y los adornos no interceptan acciones.
+
+La rama se sincronizó con main tras el PR #392. Se conserva la reparación
+existente de la prueba del menú de apoyo, que espera el estado abierto
+y la visibilidad efectiva de la navegación antes de interactuar.

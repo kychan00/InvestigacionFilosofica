@@ -603,11 +603,12 @@ html[data-corpus-shell="marginalia"] :is(
  * page 201, Socrates.jpg · Photo: Bregi (1911), CC0 1.0.
  * https://commons.wikimedia.org/wiki/File:Greece_from_the_Coming_of_the_Hellenes_to_AD._14,_page_201,_Socrates.jpg
  *
+ * Original JPEG hosted locally; SHA-1 8bce16dcf0026c4fbd9a7962080f486a0c0c7a14.
  * The source image is unchanged: CSS-only tonal overlays. Decorative imagery
  * does not add tab stops, overlay hits, JS or dependencies to the modal.
  */
 html[data-corpus-shell="marginalia"] {
-  --marginalia-socrates-source: url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Greece_from_the_Coming_of_the_Hellenes_to_AD._14%2C_page_201%2C_Socrates.jpg");
+  --marginalia-socrates-source: url("../assets/marginalia-socrates.jpg");
 }
 /* The original School of Athens is replaced ONLY in Marginalia's landing. */
 html[data-theme="light"][data-corpus-shell="marginalia"] body:not(.author-view) .hero-shell {

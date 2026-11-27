@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import test from "node:test";
 
 const root = new URL("../", import.meta.url);
@@ -50,7 +51,7 @@ test("Marginalia: texto, referencias y botones satisfacen WCAG AA en ambos modos
 
 test("Marginalia: única hoja posterior a Territorio, sin filtrarse a rutas ni otros temas", async () => {
   const [css,html] = await Promise.all([load(sheet),load("index.html")]);
-  const linked = "css/corpus-appearance-polish-marginalia.css?v=20261123-marginalia-editorial-v1";
+  const linked = "css/corpus-appearance-polish-marginalia.css?v=20261126-marginalia-socrates-local-v2";
   assert.equal(html.split(linked).length - 1,1);
   assert.ok(html.indexOf(linked) > html.indexOf("css/corpus-appearance-polish-territory.css"));
   assert.doesNotMatch(css,/data-corpus-shell="(?:territory|observatory|default)"/);
@@ -113,9 +114,14 @@ test("Marginalia: Sócrates CC0 aparece únicamente como decoración de portada,
   const marker = "SOCRATES EDITORIAL STAMP START";
   const art = css.slice(css.indexOf(marker), css.indexOf("SOCRATES EDITORIAL STAMP END"));
   assert.match(art, /CC0 1\.0/);
-  const sources = art.match(/url\("https:\/\/upload\.wikimedia\.org\/[^"]+"\)/g) || [];
-  assert.equal(sources.length, 1, "Use a single verified public-domain source");
-  assert.ok(sources[0].includes("page_201%2C_Socrates.jpg"));
+  const sources = art.match(/url\("[^"]+"\)/g) || [];
+  assert.deepEqual(sources, ['url("../assets/marginalia-socrates.jpg")'],
+    "The public-domain artwork must be served locally, not from a third party");
+  const original = await readFile(new URL("assets/marginalia-socrates.jpg", root));
+  assert.equal(original.length, 331653);
+  assert.equal(createHash("sha1").update(original).digest("hex"),
+    "8bce16dcf0026c4fbd9a7962080f486a0c0c7a14", "Original Wikimedia Commons file checksum");
+  assert.equal(original.subarray(0, 2).toString("hex"), "ffd8");
   assert.match(art, /body:not\(\.author-view\) \.hero-shell/);
   assert.match(art, /#results \.result-visual::before/);
   assert.match(art, /#record-modal \.record-cinematic-hero::after/);

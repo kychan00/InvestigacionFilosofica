@@ -301,9 +301,22 @@ try {
           index: getComputedStyle(document.querySelector("#results .result-visual"), "::before").backgroundImage
         }));
         for (const [surface, image] of Object.entries(socrates)) {
-          assert.ok(image.includes("Socrates.jpg"),
+          assert.ok(image.includes("marginalia-socrates.jpg"),
             "Marginalia Socrates image missing on " + surface + ": " + image);
         }
+        const artwork = await page.evaluate(async () => {
+          const css = getComputedStyle(document.querySelector(".hero-shell")).backgroundImage;
+          const url = [...css.matchAll(/url\("([^"]+)"\)/g)]
+            .map(match => match[1]).find(value => value.endsWith("/marginalia-socrates.jpg"));
+          if (!url) throw new Error("Socrates CSS URL missing");
+          const picture = new Image();
+          picture.src = url;
+          await picture.decode();
+          return { local: new URL(url).origin === location.origin,
+            width: picture.naturalWidth, height: picture.naturalHeight };
+        });
+        assert.deepEqual(artwork, { local: true, width: 1400, height: 2250 },
+          "Socrates must actually decode from the local server, not merely match a CSS string");
 
         if (width === 1280) {
           const filters = await page.evaluate(() => {
@@ -413,7 +426,7 @@ try {
           getComputedStyle(document.querySelector("#record-modal .record-cinematic-hero"), "::after")
             .backgroundImage
         );
-        assert.ok(image.includes("Socrates.jpg"),
+        assert.ok(image.includes("marginalia-socrates.jpg"),
           "Marginalia full record hero should display the Socrates watermark");
       }
       const folio = await page.evaluate(() => {
