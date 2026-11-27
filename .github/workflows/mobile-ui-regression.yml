@@ -81,6 +81,11 @@ on:
       - "tests/ugto-philosophy-public-view.test.mjs"
       - "scripts/qa/thesis-demo-smoke.mjs"
       - "js/app.js"
+      - "js/author-portrait-session.js"
+      - "src/core/author-portrait-policy.js"
+      - "css/author-portrait.css"
+      - "tests/author-portrait.test.mjs"
+      - "scripts/qa/author-portrait-smoke.mjs"
       - "css/**"
       - "tests/mobile-carbon.test.mjs"
       - "scripts/qa/mobile-ui-smoke.mjs"
@@ -217,6 +222,9 @@ jobs:
         run: node scripts/qa/corpus-appearance-smoke.mjs
       - name: Verify author profile cards and homepage labels in both themes
         run: node scripts/qa/author-profile-visibility-smoke.mjs
+
+      - name: Verify transient author portraits and license provenance
+        run: node scripts/qa/author-portrait-smoke.mjs
       - name: Verify deep author search on a shared page in both themes
         run: node scripts/qa/author-deep-discovery-smoke.mjs
       - name: Verify name-only author URLs and live identity resolution
