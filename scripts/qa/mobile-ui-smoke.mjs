@@ -338,12 +338,22 @@ try {
 
         assert.deepEqual(
           topLevelLabels,
-          ["Investigación", "Tesis", "Filósofos latinoamericanos", "Artículos", "Acerca de"],
-          "Primary navigation must expose the simplified production information architecture"
+          ["Investigación", "Tesis", "Filósofos latinoamericanos", "Artículos", "Acerca de", "Apoyar el proyecto"],
+          "Primary navigation must expose the six production sections, including voluntary support"
         );
         assert.ok(!topLevelLabels.includes("Resultados"), "Resultados must not remain top-level");
         assert.ok(!topLevelLabels.includes("Fuentes"), "Fuentes must not remain top-level");
         assert.ok(!topLevelLabels.includes("Atlas"), "Atlas must not remain top-level");
+
+        const supportLink = page.locator(".site-menu-links > .site-menu-support");
+        assert.equal(await supportLink.count(), 1, "Support must be a single top-level item");
+        assert.equal(
+          await supportLink.getAttribute("href"),
+          new URL("apoyar.html?origen=menu", BASE).href,
+          "Support must navigate to the internal information page and preserve attribution"
+        );
+        assert.equal(await supportLink.getAttribute("data-support-event"), "entry_click");
+        assert.equal(await supportLink.getAttribute("data-support-source"), "menu");
 
         const thesisToggle = page.locator(
           ".site-menu-links > .site-menu-branch > .site-menu-branch-toggle"

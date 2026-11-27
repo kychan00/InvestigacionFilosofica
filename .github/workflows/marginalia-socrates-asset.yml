@@ -1,0 +1,28 @@
+name: Marginalia · import CC0 artwork (one-time)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/marginalia-socrates-asset.yml'
+permissions:
+  contents: read
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Retrieve and verify public-domain original
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 2 --max-time 35 --user-agent 'InvestigacionFilosofica/1.0 (public academic catalogue)' 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Greece_from_the_Coming_of_the_Hellenes_to_AD._14%2C_page_201%2C_Socrates.jpg' --output /tmp/socrates.jpg
+          echo '8bce16dcf0026c4fbd9a7962080f486a0c0c7a14  /tmp/socrates.jpg' | sha1sum --check
+          python3 - <<'PY'
+          import base64
+          from pathlib import Path
+          raw=Path('/tmp/socrates.jpg').read_bytes()
+          assert len(raw)==331653 and raw[:2]==b'\xff\xd8'
+          data=base64.b64encode(raw).decode('ascii')
+          for i in range(0,len(data),2048):
+              print('SOCRATES_ASSET_CHUNK '+str(i//2048)+' '+data[i:i+2048])
+          print('SOCRATES_ASSET_COMPLETE '+str(len(data)))
+          PY

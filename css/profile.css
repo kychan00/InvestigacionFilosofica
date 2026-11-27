@@ -7187,3 +7187,21 @@ html[data-theme="dark"] .profile-page[data-profile-shell="marginalia"] {
     font-size: clamp(25px, 7vw, 32px);
   }
 }
+
+/* Private author identity review: compact, theme-aware and touch friendly. */
+.manual-identity-review[hidden], .manual-identity-option[hidden] { display: none !important; }
+.manual-identity-review { display: grid; gap: 12px; padding: clamp(14px, 3vw, 24px); margin-bottom: 18px; border: 1px solid var(--theme-line, #aaa); background: var(--theme-surface, #fff); color: var(--theme-text, inherit); border-radius: 12px; scroll-margin-top: 120px; min-width: 0; }
+.manual-identity-review h4, .manual-identity-review p { margin: 0; overflow-wrap: anywhere; }
+.manual-identity-review h4 { font-family: var(--pg-serif, Georgia, serif); font-size: 1.4rem; }
+.manual-identity-review > label { display: grid; gap: 6px; }
+.manual-identity-review input[type="search"] { width: 100%; min-width: 0; padding: 10px; font-size: 16px; color: inherit; background: transparent; border: 1px solid var(--theme-line, #aaa); border-radius: 6px; }
+.manual-identity-options { display: grid; max-height: 22rem; overflow-y: auto; gap: 6px; overscroll-behavior: contain; }
+.manual-identity-option { display: grid; grid-template-columns: 24px minmax(0,1fr); align-items: start; gap: 10px; padding: 12px; border: 1px solid var(--theme-line, #aaa); border-radius: 6px; cursor: pointer; }
+.manual-identity-option input[type="checkbox"] { width: 20px; height: 20px; margin: 2px 0; accent-color: var(--profile-accent); }
+.manual-identity-option span { display: grid; gap: 4px; overflow-wrap: anywhere; }
+.manual-identity-option small { color: inherit; opacity: .85; line-height: 1.4; }
+.manual-identity-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.manual-identity-actions button { min-height: 44px; flex: 1 1 140px; padding: 8px 12px; border: 1px solid var(--profile-accent); border-radius: 6px; color: inherit; background: transparent; cursor: pointer; }
+.manual-identity-actions button:first-child { background: var(--profile-accent); color: var(--profile-accent-contrast, #fff); }
+.manual-identity-actions button:disabled { opacity: .55; cursor: default; }
+.project-author-actions [data-project-author-unify] { min-height: 44px; white-space: normal; }

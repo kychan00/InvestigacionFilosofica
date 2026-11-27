@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta
+    name="description"
+    content="Apoye voluntariamente la continuidad de Investigación Filosófica, un archivo académico independiente y de acceso gratuito."
+  >
+  <script>
+    (() => {
+      const key = "investigacion-filosofica-theme";
+      let saved = null;
+      try { saved = localStorage.getItem(key); } catch {}
+      const preferred = saved === "light" || saved === "dark"
+        ? saved
+        : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = preferred;
+      document.documentElement.style.colorScheme = preferred;
+    })();
+  </script>
+  <title>Apoyar el proyecto · Investigación Filosófica</title>
+  <link rel="stylesheet" href="./css/about.css?v=20261123-contacto-mp-v3">
+  <link rel="stylesheet" href="./css/support.css?v=20261123-v1">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261123-support-v1">
+</head>
+<body class="support-page">
+  <div class="site-mobile-toolbar">
+    <a class="site-mobile-toolbar-brand" href="./" aria-label="Ir a Investigación Filosófica">
+      <span class="site-mobile-toolbar-mark" aria-hidden="true">Φ</span>
+      <span class="site-mobile-toolbar-name">Investigación Filosófica</span>
+    </a>
+    <button
+      type="button"
+      class="site-menu-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="site-mobile-menu"
+    >
+      <span class="site-menu-toggle-lines" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </span>
+    </button>
+  </div>
+
+  <div class="about-page">
+    <header class="about-header">
+      <nav class="about-nav" aria-label="Navegación principal">
+        <a class="about-brand" href="./">
+          <span class="about-brand-mark" aria-hidden="true">Φ</span>
+          <span>
+            Investigación Filosófica
+            <small>Archivo vivo</small>
+          </span>
+        </a>
+
+        <div class="about-nav-links">
+          <a href="./">Investigación</a>
+          <a href="./tesis.html">Tesis</a>
+          <a href="./atlas.html">Atlas</a>
+          <a href="./acerca.html">Acerca de</a>
+          <a href="./apoyar.html" class="is-active" aria-current="page">Apoyar</a>
+        </div>
+
+        <div class="theme-switch" role="group" aria-label="Apariencia">
+          <button type="button" data-theme-choice="light" aria-label="Activar modo claro" aria-pressed="false">Claro</button>
+          <button type="button" data-theme-choice="dark" aria-label="Activar modo oscuro" aria-pressed="false">Oscuro</button>
+        </div>
+      </nav>
+
+      <div class="support-hero">
+        <div class="support-hero-copy">
+          <p class="about-eyebrow"><span></span> CONOCIMIENTO ABIERTO / INDEPENDENCIA</p>
+          <h1>El conocimiento no debería depender de la capacidad de pagarlo.</h1>
+          <p class="support-lead">Su apoyo contribuye a mantener la investigación filosófica abierta, independiente y accesible para todos.</p>
+          <a class="support-text-link" href="#destino">Conocer qué sostiene su aportación <span aria-hidden="true">↓</span></a>
+        </div>
+        <aside class="support-payment" aria-labelledby="payment-title">
+          <div class="support-payment-header"><span class="support-currency" aria-hidden="true">MX$</span><span class="support-kicker">MERCADO PAGO · MÉXICO</span></div>
+          <h2 id="payment-title">Una aportación voluntaria.</h2>
+          <p>Usted elige cuánto aportar. No se requiere una suscripción ni una cuenta en Investigación Filosófica.</p>
+          <a class="support-pay-link" data-support-event="checkout_click" data-support-source="page" href="https://link.mercadopago.com.mx/cristianpelayo" target="_blank" rel="noopener noreferrer">Realizar una aportación <span aria-hidden="true">↗</span></a>
+          <p class="support-payment-note">Pesos mexicanos · Se abre Mercado Pago en otra pestaña. Este sitio no procesa ni almacena datos de pago.</p>
+          <p class="support-payment-note">Registramos conteos de visitas y clics sin identificadores de visitantes ni datos de pago.</p>
+          <p class="support-payment-note">No se emiten comprobantes de donativos deducibles de impuestos. Las aportaciones están sujetas al tratamiento fiscal correspondiente.</p>
+        </aside>
+      </div>
+    </header>
+    <main class="support-main" id="contenido">
+      <section class="support-intro" aria-labelledby="why-title">
+        <div><p class="section-label">01 / EL VALOR DE LO ABIERTO</p><h2 id="why-title">Un archivo vivo, al servicio de la investigación.</h2></div>
+        <div><p>Investigación Filosófica reúne fuentes bibliográficas, tesis, revistas universitarias, fichas de autores y relaciones semánticas para facilitar el trabajo académico.</p><p>El proyecto es independiente y no representa oficialmente a las universidades o instituciones cuyos catálogos consulta.</p><a class="support-inline-link" href="./acerca.html">Conocer el proyecto y sus fuentes <span aria-hidden="true">↗</span></a></div>
+      </section>
+      <section class="support-impact" id="destino" aria-labelledby="impact-title">
+        <p class="section-label">02 / SOSTENIBILIDAD</p>
+        <h2 id="impact-title">¿Qué ayuda a sostener su apoyo?</h2>
+        <div class="support-impact-grid">
+          <article><span class="support-index">01 / INFRAESTRUCTURA</span><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="7" y="8" width="34" height="13"/><rect x="7" y="27" width="34" height="13"/><path d="M13 14.5h2M13 33.5h2M22 14.5h13M22 33.5h13"/></svg><h3>Mantenimiento tecnológico</h3><p>Infraestructura, disponibilidad, seguridad y mejoras de rendimiento del archivo.</p></article>
+          <article><span class="support-index">02 / BIBLIOGRAFÍA</span><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 10h12a7 7 0 0 1 7 7v22H12a7 7 0 0 1-7-7zM43 10H31a7 7 0 0 0-7 7v22h12a7 7 0 0 0 7-7zM11 18h7M11 24h7M30 18h7M30 24h7"/></svg><h3>Curación documental</h3><p>Ampliación de colecciones, comprobación de fuentes y corrección de registros bibliográficos.</p></article>
+          <article><span class="support-index">03 / DESARROLLO</span><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"/><circle cx="36" cy="12" r="5"/><circle cx="24" cy="36" r="5"/><path d="m15 16 7 15m11-15-7 15M17 12h14"/></svg><h3>Nuevas herramientas</h3><p>Mejoras a la búsqueda, los atlas, la accesibilidad y las herramientas de investigación.</p></article>
+        </div>
+        <p class="support-small">Estos son los fines previstos del apoyo, no un desglose de gastos ya realizados.</p>
+      </section>
+      <section class="support-facts" aria-labelledby="facts-title">
+        <div><p class="section-label">03 / COMPROMISO</p><h2 id="facts-title">La gratuidad no está en discusión.</h2><p>No importa si puede aportar o no. El acceso a los recursos públicos seguirá siendo gratuito.</p></div>
+        <div class="support-faq">
+          <details><summary>¿Tengo que contribuir para usar el proyecto?</summary><p>No. Las aportaciones son completamente opcionales y no condicionan el acceso, las búsquedas ni las herramientas públicas.</p></details>
+          <details><summary>¿Recibiré contenido exclusivo?</summary><p>No. El apoyo no otorga privilegios, servicios adicionales ni derechos sobre el proyecto.</p></details>
+          <details><summary>¿Cómo se realiza la aportación?</summary><p>El enlace conduce a Mercado Pago México. Allí podrá revisar el destinatario y el importe antes de confirmar. Investigación Filosófica no solicita datos bancarios.</p></details>
+          <details><summary>¿Las aportaciones son deducibles?</summary><p>No se emiten comprobantes de donativos deducibles de impuestos. El proyecto es independiente y no se presenta como donataria autorizada.</p></details>
+          <details><summary>¿Puedo apoyar sin aportar dinero?</summary><p>Sí. Compartir el archivo, señalar errores bibliográficos y enviar sugerencias también ayuda. <a href="./acerca.html#contacto">Contactar al autor.</a></p></details>
+        </div>
+      </section>
+      <section class="support-closing">
+        <span class="support-phi" aria-hidden="true">Φ</span>
+        <h2>Gracias por formar parte de esta conversación.</h2>
+        <p>La investigación crece cuando el conocimiento circula.</p>
+        <div class="support-closing-actions"><a class="support-return" href="./">Continuar investigando →</a><a class="support-inline-link" href="./acerca.html#contacto">Contactar al autor ↗</a></div>
+      </section>
+    </main>
+    <footer class="about-footer"><span>Investigación Filosófica · Archivo vivo</span><span>Código MIT · Proyecto independiente · 2026</span></footer>
+  </div>
+  <script type="module" src="./js/theme.js"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261123-support-v2"></script>
+</body>
+</html>

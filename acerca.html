@@ -22,8 +22,8 @@
     })();
   </script>
   <title>Acerca de · Investigación Filosófica</title>
-  <link rel="stylesheet" href="./css/about.css?v=20261109-v3">
-  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261112-rail-gutter-v4">
+  <link rel="stylesheet" href="./css/about.css?v=20261123-contacto-mp-v3">
+  <link rel="stylesheet" href="./css/mobile-site-menu.css?v=20261123-support-v1">
 </head>
 <body>
   <div class="site-mobile-toolbar">
@@ -626,6 +626,96 @@
         </div>
       </section>
 
+      <section class="about-contact" id="contacto" aria-labelledby="contact-title">
+        <div class="about-contact-heading">
+          <div>
+            <p class="section-label">CONTACTO / AUTOR DEL PROYECTO</p>
+            <h2 id="contact-title">La conversación también forma parte de investigar.</h2>
+          </div>
+          <div class="about-contact-intro">
+            <p class="about-contact-author">Cristian Alejandro Rodríguez Pelayo</p>
+            <p>
+              Para consultas, sugerencias, observaciones bibliográficas, propuestas de
+              colaboración o cualquier otro asunto de interés, puede comunicarse conmigo
+              a través de los siguientes canales.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-contact-grid" aria-label="Medios de contacto">
+          <a class="about-contact-card" href="mailto:cristian.pelayo.personal@gmail.com" aria-label="Enviar un correo a Cristian Alejandro Rodríguez Pelayo">
+            <span class="about-contact-card-top">
+              <span class="about-contact-monogram" aria-hidden="true">@</span>
+              <span class="about-contact-arrow" aria-hidden="true">↗</span>
+            </span>
+            <span class="about-contact-channel">CORREO ELECTRÓNICO</span>
+            <strong>cristian.pelayo.personal@gmail.com</strong>
+            <span class="about-contact-detail">Consultas y mensajes directos</span>
+          </a>
+
+          <a class="about-contact-card" href="https://www.facebook.com/share/1CHSDzGfZ1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Abrir el perfil de Facebook de Cristian en una nueva pestaña">
+            <span class="about-contact-card-top">
+              <span class="about-contact-monogram" aria-hidden="true">f</span>
+              <span class="about-contact-arrow" aria-hidden="true">↗</span>
+            </span>
+            <span class="about-contact-channel">FACEBOOK</span>
+            <strong>Conectar en Facebook</strong>
+            <span class="about-contact-detail">Visitar mi perfil</span>
+          </a>
+
+          <a class="about-contact-card" href="https://www.instagram.com/_kychan__?bqrl=ZXBndXdrc3U4YWVj&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Abrir el perfil de Instagram @_kychan__ en una nueva pestaña">
+            <span class="about-contact-card-top">
+              <span class="about-contact-monogram" aria-hidden="true">◎</span>
+              <span class="about-contact-arrow" aria-hidden="true">↗</span>
+            </span>
+            <span class="about-contact-channel">INSTAGRAM</span>
+            <strong>@_kychan__</strong>
+            <span class="about-contact-detail">Seguir la conversación</span>
+          </a>
+        </div>
+      </section>
+
+
+      <section class="about-support" id="apoyar" aria-labelledby="support-title" data-payment-url="https://link.mercadopago.com.mx/cristianpelayo">
+        <div class="about-support-heading">
+          <p class="section-label">SOSTENER EL ACCESO ABIERTO</p>
+          <h2 id="support-title">La investigación se comparte. Su continuidad también puede apoyarse.</h2>
+          <p>
+            Investigación Filosófica es una iniciativa académica independiente y de acceso gratuito.
+            Si este archivo le resulta útil, puede contribuir voluntariamente a su mantenimiento,
+            desarrollo y mejora.
+          </p>
+        </div>
+        <div class="about-support-panel">
+          <div class="about-support-panel-top">
+            <span class="about-support-symbol" aria-hidden="true">MX$</span>
+            <span class="about-support-platform">APOYO VOLUNTARIO · MERCADO PAGO</span>
+          </div>
+          <h3>Un gesto de apoyo, nunca una condición de acceso.</h3>
+          <p>
+            Usted decide cuánto aportar en pesos mexicanos. No hay suscripciones necesarias
+            ni ventajas exclusivas. Los recursos públicos seguirán disponibles
+            para todas las personas, hayan contribuido o no.
+          </p>
+          <a id="about-mercadopago-link" class="about-support-action" data-support-event="checkout_click" data-support-source="acerca" href="https://link.mercadopago.com.mx/cristianpelayo" target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Apoyar Investigación Filosófica con Mercado Pago (abre en otra pestaña)">
+            Apoyar con Mercado Pago <span aria-hidden="true">↗</span>
+          </a>
+          <p class="about-support-pending" id="about-mercadopago-pending" hidden>
+            La opción para aportar en pesos mexicanos se habilitará cuando esté disponible
+            el enlace oficial de Mercado Pago con monto abierto.
+          </p>
+          <p><a class="about-support-more" data-support-event="entry_click" data-support-source="acerca" href="./apoyar.html?origen=acerca">Conocer cómo apoyar el proyecto ↗</a></p>
+          <p class="about-support-disclosure">
+            Las aportaciones no son requisito para usar el sitio ni otorgan ventajas exclusivas.
+            No se emiten comprobantes de donativos deducibles de impuestos.
+            Las cantidades recibidas están sujetas al tratamiento fiscal que corresponda.
+            Los pagos se realizan fuera de este sitio mediante Mercado Pago.
+          </p>
+        </div>
+      </section>
+
       <section class="about-cta">
         <p class="section-label">VOLVER A INVESTIGAR</p>
         <h2>La explicación termina aquí. La pregunta empieza allá.</h2>
@@ -639,8 +729,33 @@
     </footer>
   </div>
 
+
+  <script>
+    // Active el apoyo voluntario únicamente cuando exista un enlace de pago
+    // real de monto abierto de Mercado Pago. No se adivina la cuenta receptora.
+    (() => {
+      const section = document.getElementById("apoyar");
+      const link = document.getElementById("about-mercadopago-link");
+      const pending = document.getElementById("about-mercadopago-pending");
+      const rawUrl = section?.dataset.paymentUrl?.trim();
+      if (!link || !pending || !rawUrl) return;
+      try {
+        const url = new URL(rawUrl);
+        const allowedHosts = new Set(["link.mercadopago.com.mx", "mpago.la"]);
+        const validPath = /^\/[A-Za-z0-9_-]+\/?$/.test(url.pathname);
+        if (url.protocol !== "https:" || !allowedHosts.has(url.hostname) ||
+            !validPath || url.username || url.password || url.port) return;
+        link.href = url.href;
+        link.hidden = false;
+        pending.hidden = true;
+      } catch {
+        // No mostrar un enlace de cobro si su dirección es inválida.
+      }
+    })();
+  </script>
+
   <script type="module" src="./js/theme.js"></script>
-  <script type="module" src="./js/mobile-site-menu.js?v=20261111-sidebar-icons-v3"></script>
+  <script type="module" src="./js/mobile-site-menu.js?v=20261123-support-v2"></script>
   <script>
     // Los contadores bibliográficos siguen el manifiesto publicado, no el HEAD de un PR sin fusionar.
     fetch("./src/data/philosopher-works/manifest.json")

@@ -1,3 +1,5 @@
+import { initSupportAnalytics } from "./support-analytics.js?v=20261123-v1";
+
 const MOBILE_MENU_BREAKPOINT = 820;
 const STORAGE_KEY = "investigacion-filosofica-theme";
 const SITE_ROOT = new URL("../", import.meta.url);
@@ -38,6 +40,9 @@ const MENU_ICONS = {
   info: [
     '<circle cx="12" cy="12" r="9"></circle>',
     '<path d="M12 10.5v6M12 7.5h.01"></path>'
+  ],
+  support: [
+    '<path d="M12 20.5 4.9 13.6a5.2 5.2 0 0 1 7.1-7.6 5.2 5.2 0 0 1 7.1 7.6z"></path>'
   ]
 };
 
@@ -146,6 +151,14 @@ const menuItems = [
     icon: "info",
     detail: "Proyecto, método y cifras",
     href: siteHref("acerca.html")
+  },
+  {
+    index: "06",
+    label: "Apoyar el proyecto",
+    icon: "support",
+    detail: "Contribución voluntaria",
+    href: siteHref("apoyar.html"),
+    kind: "support"
   }
 ];
 
@@ -191,6 +204,12 @@ function makeLink(item, level) {
   link.href = item.href;
   link.dataset.siteMenuHref = item.href;
   link.dataset.menuLevel = String(level);
+  if (item.kind === "support") {
+    link.classList.add("site-menu-support");
+    link.href = item.href + "?origen=menu";
+    link.dataset.supportEvent = "entry_click";
+    link.dataset.supportSource = "menu";
+  }
 
   const leading = createElement("span", "site-menu-link-leading");
   leading.append(
@@ -529,6 +548,7 @@ window.addEventListener("philosophythemechange", syncThemeControls);
 
 markCurrentLink();
 syncThemeControls();
+initSupportAnalytics();
 
 void import("./account-menu.js?v=20261122-author-project-picker-v1").catch(error => {
   console.warn("No se pudo cargar la cuenta de investigación.", error);
