@@ -1,3 +1,4 @@
+import { classicalAuthority, localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { rejectedAuthorOrcid } from "./author-orcid-guard.js";
 import {
   mergeResults
@@ -371,8 +372,10 @@ export async function findSnapshotAuthorCandidates(query, options = {}) {
   const context = createContext(options);
   const signature = authorNameSignature(query);
   if (!signature) return [];
-  const exact = await aliasCandidates(context, signature);
-  return dedupeCandidates(exact)
+  const authority=classicalAuthority(query);
+  const signatures=[...new Set([signature,...(authority?.searchNames||[]).map(authorNameSignature)])];
+  const exact=(await Promise.all(signatures.map(s=>aliasCandidates(context,s)))).flat();
+  return dedupeCandidates(authority?exact.filter(row=>classicalAuthority(row.n)===authority&&!row.o):exact)
     .filter(row => row.k === "full" || row.k === "given-first-family" ||
       row.k === "suffix" || row.k === "initial")
     .slice(0, 30);
@@ -939,7 +942,7 @@ async function resolvedPayload(
   return {
     status: "resolved",
     resolution: selected.resolution,
-    author: {
+    author: localizeClassicalAuthor({
       id: selected.candidate.id,
       displayName: selected.displayName,
       sourceDisplayName:
@@ -954,7 +957,7 @@ async function resolvedPayload(
         selected.wikipediaUrl || null,
       corpusWorks:
         selected.candidate.cw || 0
-    },
+    }),
     works
   };
 }
@@ -976,25 +979,23 @@ export async function resolveRemoteAuthor(
   const signature = authorNameSignature(query);
 
   try {
-    const direct = dedupeCandidates(
-      await aliasCandidates(
-        context,
-        signature
-      )
-    );
+    const authority=classicalAuthority(query);
+    const signatures=[...new Set([signature,...(authority?.searchNames||[]).map(authorNameSignature)])];
+    const rows=(await Promise.all(signatures.map(s=>aliasCandidates(context,s)))).flat();
+    const direct=dedupeCandidates(authority?rows.filter(row=>classicalAuthority(row.n)===authority&&!row.o):rows);
 
     const full = direct.filter(
       row =>
         row.k === "full" &&
-        authorNameSignature(row.n) ===
-          signature
+        (authority ? classicalAuthority(row.n)===authority : authorNameSignature(row.n) === signature)
     );
 
     const tokenCount =
       signature.split(" ").length;
     const directIdentity =
       dominantCandidate(full);
-    let canonicalSelection = null;
+    let canonicalSelection = authority && directIdentity ? {candidate:directIdentity,displayName:authority.displayName,resolution:"canonical-catalog"} : null;
+    if(canonicalSelection && !options.includeProfile) return resolvedPayload(context,canonicalSelection,options);
 
     for (
       const canonicalName of
@@ -1026,7 +1027,7 @@ export async function resolveRemoteAuthor(
           canonicalMatches
         );
 
-      if (canonicalIdentity) {
+      if (canonicalIdentity && !canonicalSelection) {
         canonicalSelection = {
           candidate: canonicalIdentity,
           displayName: canonicalName,
