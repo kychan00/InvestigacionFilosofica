@@ -82,7 +82,8 @@ import {
 } from "../src/ai/qwen3-browser-q8-contract.js";
 
 import {
-  hasVerifiedAuthHint
+  hasVerifiedAuthHint,
+  markVerifiedAuthHint
 } from "./auth-session-hint.js";
 
 import { workSaveKey } from "./work-save-identity.js";
@@ -110,13 +111,13 @@ function bookmarkSaveSvg() {
   `;
 }
 
-function renderWorkSaveControl(item) {
+function renderWorkSaveControl(item, labeled = false) {
   if (!hasVerifiedAuthHint()) return "";
 
   return `
     <button
       type="button"
-      class="research-save-button research-save-icon"
+      class="research-save-button research-save-icon${labeled ? " detail-save-button" : ""}"
       data-save-work-id="${escapeHtml(recordId(item))}"
       data-save-work-key="${escapeHtml(workSaveKey(item))}"
       data-save-icon
@@ -125,11 +126,12 @@ function renderWorkSaveControl(item) {
       title="Guardar en mi biblioteca"
     >
       ${bookmarkSaveSvg()}
+      ${labeled ? '<span class="detail-save-label"><span class="detail-save-idle">Guardar obra</span><span class="detail-save-active">Obra guardada</span></span>' : ""}
     </button>
   `;
 }
 
-function renderAuthorSaveControl(index = null, author = null) {
+function renderAuthorSaveControl(index = null, author = null, labeled = false) {
   if (!hasVerifiedAuthHint()) return "";
 
   const indexAttribute =
@@ -140,7 +142,7 @@ function renderAuthorSaveControl(index = null, author = null) {
   return `
     <button
       type="button"
-      class="author-save-button author-save-icon"
+      class="author-save-button author-save-icon${labeled ? " detail-save-button" : ""}"
       data-save-author
       data-save-author-key="${escapeHtml(authorSaveKey(author))}"
       data-save-icon
@@ -150,10 +152,32 @@ function renderAuthorSaveControl(index = null, author = null) {
       title="Guardar autor"
     >
       ${bookmarkSaveSvg()}
+      ${labeled ? '<span class="detail-save-label"><span class="detail-save-idle">Guardar autor</span><span class="detail-save-active">Autor guardado</span></span>' : ""}
     </button>
   `;
 }
 
+function authorForSave(author) {
+  if (typeof author === "string") return {name: author, displayName: author};
+  if (!author) return null;
+  const name = String(author.displayName || author.name || author.sourceName || "").trim();
+  if (!name) return null;
+  return {...author, name, displayName: name,
+    sourceId: author.sourceId || author.openalexId || author.id || "",
+    orcid: author.orcid || author.orcidId || "",
+    alternateNames: author.alternateNames || author.aliases || []};
+}
+
+function renderRecordSaveActions(work, authors) {
+  if (!hasVerifiedAuthHint()) return "";
+  return `<section class="detail-save-actions record-save-actions" aria-label="Guardar en mi espacio personal">
+    <div class="detail-save-heading"><span>MI ESPACIO PERSONAL</span><small>Guarde la obra o sus autores en su biblioteca y proyectos.</small></div>
+    <div class="detail-save-work">${renderWorkSaveControl(work, true)}</div>
+    ${authors.length ? `<div class="detail-save-authors">${authors.map((author,index) => `
+      <div class="detail-save-author-row"><span class="detail-save-author-name">${escapeHtml(author.name)}</span>
+        ${renderAuthorSaveControl(index, author, true)}</div>`).join("")}</div>` : ""}
+  </section>`;
+}
 
 const form =
   document.querySelector(
@@ -1645,7 +1669,9 @@ function recordMetadataCards(
 
 
 function renderRecordDetails(
-  item
+  item,
+  saveWork = item,
+  saveAuthors = (item.authors || []).map(authorForSave).filter(Boolean)
 ) {
   const institutionalLinks =
     buildInstitutionalLinks(
@@ -2144,6 +2170,7 @@ function renderRecordDetails(
 
       </header>
 
+      ${renderRecordSaveActions(saveWork, saveAuthors)}
 
       <div class="record-cinematic-layout">
 
@@ -2535,10 +2562,31 @@ function renderRecordDetails(
 
 
 function openRecord(
-  item
+  item,
+  saveWork = item
 ) {
+  const saveAuthors = (item.authors || []).map(authorForSave).filter(Boolean);
   recordModalContent.innerHTML =
-    renderRecordDetails(item);
+    renderRecordDetails(item, saveWork, saveAuthors);
+
+  // Bind to the exact displayed record, including library deep links, rather
+  // than looking up a possibly empty or unrelated search-results array.
+  recordModalContent.querySelector(".record-save-actions [data-save-work-id]")
+    ?.addEventListener("click", event => {
+      event.stopPropagation();
+      window.dispatchEvent(new CustomEvent("research-library:save-work", {
+        detail: { work: saveWork, trigger: event.currentTarget }
+      }));
+    });
+  for (const button of recordModalContent.querySelectorAll(".record-save-actions [data-save-author-index]")) {
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      const author = saveAuthors[Number(button.dataset.saveAuthorIndex)];
+      if (author) window.dispatchEvent(new CustomEvent("research-library:save-author", {
+        detail: { author, trigger: button }
+      }));
+    });
+  }
 
   recordModal
     .classList
@@ -6351,7 +6399,7 @@ document.addEventListener(
         "research-library:save-author",
         {
           detail: {
-            author,
+            author: authorForSave(author),
             trigger:
               authorButton
           }
@@ -7234,6 +7282,8 @@ function renderAuthorPage(
           </span>
 
           <h1>${escapeHtml(author.displayName)}</h1>
+
+          ${hasVerifiedAuthHint() ? `<div class="detail-save-actions author-page-save-actions" aria-label="Guardar este autor">${renderAuthorSaveControl(null, authorForSave(author), true)}</div>` : ""}
 
           <p class="author-page-biography">
             ${escapeHtml(
@@ -9078,7 +9128,8 @@ async function openSavedPublicRecord(request) {
       const original = restoreSavedPublicRecord(saved);
       if (!original) throw new Error("saved-record-unavailable");
       status.textContent = "";
-      openRecord(original);
+      markVerifiedAuthHint();
+      openRecord(original, saved);
     } catch (error) {
       console.warn("No se pudo abrir el registro guardado.", error);
       researchWorkspace?.classList.remove("hidden");
@@ -9203,7 +9254,7 @@ document.addEventListener(
   event => {
     if (
       event.key !==
-      "Escape"
+      "Escape" || document.querySelector("dialog.work-save-dialog[open]")
     ) {
       return;
     }
