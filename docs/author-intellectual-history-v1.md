@@ -53,3 +53,27 @@ Fuentes y autoridades de esta fase:
 - https://www.wikidata.org/wiki/Q335544
 
 Validación: pruebas de seis identidades, alias, orden, tipos, fuentes, homónimo y periodización; smoke de escritura china, expansión y geometría. La revisión del lote no sustituye futuras revisiones historiográficas. No se añade ninguna llamada de red en tiempo de ejecución.
+
+## Fase 4 — tradiciones tardoantigua, islámica, judía e india
+Se incorporan seis autoridades y 30 registros (146 acumulados): Agustín de Hipona, Avicena, Averroes, Maimónides, Nāgārjuna y María Zambrano. Los siglos regionales son convenciones de ordenación y no equivalencias entre historias culturales. La fecha interna de los intervalos es un ancla de orden, no una fecha exacta. Avicena tiene dos fuentes para la discrepancia 970/980. Para Nāgārjuna se registra un periodo de actividad y una obra de atribución ampliamente aceptada sin fecha exacta; no se inventan nacimiento, muerte o viajes. El número de hitos puede ser inferior a tres cuando la evidencia es escasa. No se confunden sus homónimos con el pensador budista ni se usa el QID del cráter Avicenna. Se mantiene la distinción entre redacción y edición moderna. Los motivos SVG son originales y decorativos, sin afirmar que representan edificios históricos concretos.
+
+Fuentes consultadas:
+- augustine: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/archives/sum2018/entries/augustine/
+- avicenna: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/ibn-sina/
+- avicennaNatural: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/ibn-sina-natural/
+- averroes: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/
+- maimonides: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/maimonides/
+- nagarjuna: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/archives/sum2024/entries/nagarjuna/
+- zambrano: Fundación María Zambrano — https://fundacionmariazambrano.org/
+- zambranoCVC: Centro Virtual Cervantes — https://cvc.cervantes.es/actcult/zambrano//cronologia/
+- zambranoGov: Ministerio de Cultura de España · CIDA — https://www.cultura.gob.es/cultura/areas/archivos/mc/centros/cida/4-difusion-cooperacion/4-1-guias-de-lectura/escritoras/zambrano-maria.html
+
+Autoridades:
+- https://www.wikidata.org/wiki/Q8018
+- https://www.wikidata.org/wiki/Q8011
+- https://www.wikidata.org/wiki/Q39837
+- https://www.wikidata.org/wiki/Q127398
+- https://www.wikidata.org/wiki/Q171195
+- https://www.wikidata.org/wiki/Q235134
+
+Validación: pruebas de alias, homónimos, fuentes múltiples, incertidumbre, orden y geometría para escritura árabe y cobertura escasa. No hay nuevas consultas externas automáticas.

@@ -1,5 +1,5 @@
-import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v3";
-import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v3";
+import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v4";
+import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v4";
 
 function el(tag,cls,text){
   const node=document.createElement(tag);
@@ -63,6 +63,14 @@ export function buildIntellectualHistoryPanel(author,state){
       source.rel="noopener noreferrer";
       source.setAttribute("aria-label","Consultar fuente: "+event.source.name+" — "+event.title);
       details.append(source);
+      for(const evidence of event.additionalSources||[]){
+        const alternative=el("a","author-intellectual-history-source",evidence.name+" · contraste ↗");
+        alternative.href=evidence.url;
+        alternative.target="_blank";
+        alternative.rel="noopener noreferrer";
+        alternative.setAttribute("aria-label","Consultar fuente alternativa: "+evidence.name+" — "+event.title);
+        details.append(alternative);
+      }
       item.append(details);
       entries.append(item);
     }
@@ -73,7 +81,7 @@ export function buildIntellectualHistoryPanel(author,state){
     if(limit<history.events.length)panel.append(button("Mostrar más hitos","author-intellectual-history-more",()=>{
       state.bioLimit=limit+BIO_BATCH;
       render();
-      const next=panel.querySelectorAll(".author-intellectual-history-source")[limit];
+      const next=panel.querySelectorAll(".author-intellectual-history-event")[limit]?.querySelector("a");
       next?.focus();
     }));
     if(limit>BIO_BATCH)panel.append(button("Mostrar menos hitos","author-intellectual-history-more",()=>{

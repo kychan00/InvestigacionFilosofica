@@ -87,3 +87,33 @@ test("traditional dates, medieval composition, and homonym safety",()=>{
   assert.equal(thomas.events.find(e=>e.title.includes("Summa theologiae")).type,"composition");
   assert.equal(intellectualHistory({wikidataId:"Q6291218",displayName:"José Carlos Mariátegui"}),null);
 });
+
+import {PHASE4_AUTHORS,PHASE4_SOURCES} from "../src/core/author-intellectual-history-phase4.js";
+test("phase 4: exact authorities, sparse evidence, sources and chronological order",()=>{
+  let total=0;
+  for(const [id,record] of Object.entries(PHASE4_AUTHORS)){
+    assert.ok(!Object.hasOwn(PHASE2_AUTHORS,id)&&!Object.hasOwn(PHASE3_AUTHORS,id));
+    const h=intellectualHistory({wikidataId:id,displayName:record.names[0]});
+    assert.equal(h.region,record.region);
+    assert.equal(h.events.length,record.events.length);
+    assert.deepEqual(h.events.map(e=>e.year),h.events.map(e=>e.year).sort((a,b)=>a-b));
+    assert.equal(new Set(h.events.map(e=>e.id)).size,h.events.length);
+    for(const alias of record.names)assert.equal(intellectualHistory({wikidataId:id,displayName:alias}).id,id);
+    for(const [year,date,type,title,...keys] of record.events){assert.ok(Number.isInteger(year)&&year!==0&&date&&title&&BIO_TYPES[type]);for(const source of keys){assert.ok(Object.hasOwn(PHASE4_SOURCES,source));assert.equal(new URL(PHASE4_SOURCES[source][1]).protocol,"https:");}}
+    assert.equal(intellectualHistory({displayName:record.names[0]}),null);
+    total+=h.events.length;
+  }
+  assert.equal(total,30);
+});
+test("uncertain lives and multiple evidence sources remain explicit",()=>{
+  const av=intellectualHistory({wikidataId:"Q8011",displayName:"Avicena"});
+  assert.match(av.events[0].date,/970 o 980/);
+  assert.equal(av.events[0].additionalSources.length,1);
+  assert.equal(intellectualHistory({wikidataId:"Q133605",displayName:"Avicenna"}),null);
+  const nag=intellectualHistory({wikidataId:"Q171195",displayName:"Nāgārjuna"});
+  assert.equal(nag.events.length,2);
+  assert.equal(nag.events[0].type,"floruit");
+  assert.match(nag.events[1].date,/fecha desconocida/);
+  assert.equal(intellectualHistory({wikidataId:"Q6958571",displayName:"Nagarjuna"}),null);
+  for(const region of ["roman-africa","islamicate","jewish-mediterranean","india"]){assert.equal(historicalPeriod(1200,region).label,"Siglo 12 d. C.");assert.equal(historicalPeriod(-200,region).label,"Siglo 2 a. C.");}
+});

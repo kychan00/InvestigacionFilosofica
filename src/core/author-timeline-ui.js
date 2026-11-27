@@ -1,7 +1,7 @@
-import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v3";
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v3";
+import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v4";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v4";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
-import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v3";
+import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v4";
 import {
   authorOrcidUrl,
   normalizedAuthorOrcid,
@@ -35,9 +35,14 @@ function stat(value, label) {
 function renderTimeline(root, works, state, options) {
   const { onOpenWork, loading, authorOrcid, author } = options;
   const verifiedHistory = intellectualHistory(author);
-  const context = verifiedHistory?.region === "china"
-    ? {region:"china",label:"Tradición filosófica china",motif:"china"}
-    : authorHistoricalContext(author);
+  const regionalContexts={
+    china:{region:"china",label:"Tradición filosófica china",motif:"china"},
+    "roman-africa":{region:"roman-africa",label:"Antigüedad tardía · África romana",motif:"ancient"},
+    islamicate:{region:"islamicate",label:"Tradición filosófica del mundo islámico",motif:"islamicate"},
+    "jewish-mediterranean":{region:"jewish-mediterranean",label:"Tradición filosófica judía mediterránea",motif:"jewish-mediterranean"},
+    india:{region:"india",label:"Tradición filosófica budista india",motif:"india"}
+  };
+  const context=regionalContexts[verifiedHistory?.region]||authorHistoricalContext(author);
   const orcidUrl = authorOrcidUrl(authorOrcid);
   const model = buildAuthorTimeline(works, state.unit);
 
@@ -228,6 +233,9 @@ function motif(name){
     nineteenth:"M3 28H29M5 25H27M8 25V10H24V25M4 10H28L16 3ZM11 12V23M16 12V23M21 12V23M4 28V30M28 28V30",
     contemporary:"M4 4H28V24H4ZM10 28H22M16 24V28M8 9H24M8 13H20M8 17H23",
     china:"M4 7H28M7 10H25M9 12V24M23 12V24M4 26H28M13 12V24M19 12V24M3 7Q8 7 11 3H21Q24 7 29 7",
+    islamicate:"M3 29H29M6 28V16Q6 9 16 3Q26 9 26 16V28M11 28V19Q11 13 16 9Q21 13 21 19V28M3 28H29",
+    "jewish-mediterranean":"M4 5Q9 2 16 8Q23 2 28 5V26Q23 23 16 29Q9 23 4 26ZM16 8V29M8 11L12 13M20 13L24 11",
+    india:"M3 26H29M6 23H26M8 20Q8 10 16 9Q24 10 24 20ZM16 4V9M12 7H20M5 29H27",
     archive:"M7 3H21L26 8V29H7ZM21 3V8H26M11 13H22M11 18H22M11 23H19"
   };
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");

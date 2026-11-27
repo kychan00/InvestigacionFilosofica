@@ -1102,3 +1102,8 @@ html[data-theme="dark"] .author-page #author-timeline-root {
 
 /* Original schematic motif; decorative palette follows active corpus theme. */
 #author-timeline-root [data-motif="china"] { --era-accent:var(--era-red); }
+
+/* Phase 4: neutral century bands, original architectural/book motifs. */
+#author-timeline-root [data-motif="islamicate"] { --era-accent:var(--era-green); }
+#author-timeline-root [data-motif="jewish-mediterranean"] { --era-accent:var(--era-blue); }
+#author-timeline-root [data-motif="india"] { --era-accent:var(--era-ochre); }

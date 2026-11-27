@@ -213,6 +213,18 @@ try {
     await geometry();
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q6291218",displayName:"José Carlos Mariátegui"},[{title:"Obra",year:2020}]));
     assert.equal(await life.count(),0);
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q8011",displayName:"ابن سينا"},[{title:"Edición crítica",year:1020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/970 o 980/);
+    assert.equal(await life.locator(".author-intellectual-history-event").first().locator("a").count(),2);
+    assert.equal(await eras.first().textContent(),"Siglo 11 d. C.");
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q171195",displayName:"Nāgārjuna"},[{title:"Edición moderna",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),2);
+    assert.equal(await life.getByRole("button",{name:"Mostrar más hitos"}).count(),0);
+    assert.match(await life.locator(".author-intellectual-history-date").last().textContent(),/fecha desconocida/);
+    await geometry();
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }
