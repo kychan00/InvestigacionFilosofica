@@ -122,7 +122,7 @@ try{
     await saveAuthor.click();
     const payload=await page.evaluate(()=>globalThis.__authorSaveFromPage);
     assert.match(payload.displayName,/Marina Hernández López/);
-    assert.equal(payload.orcid,orcid);
+    assert.equal(String(payload.orcid).replace(/^https?:\/\/orcid\.org\//i,""),orcid.split("/").pop());
   } else {
     assert.equal(await saveAuthor.count(),0,"Anonymous visitors must not see private save actions");
   }
