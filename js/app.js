@@ -51,7 +51,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v4";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v5";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {
@@ -323,7 +323,7 @@ const authorPortraitSession = createAuthorPortraitSession();
 window.addEventListener("pagehide", () => authorPortraitSession.close());
 window.addEventListener("pageshow", event => {
   if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view")) {
-    void authorPortraitSession.open(currentResponse.authorResolution?.author, document.querySelector(".siva-author-portrait-slot"));
+    void authorPortraitSession.open(currentResponse.authorResolution?.author, document.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
   }
 });
 let authorWorkBrowserState = {
@@ -7526,7 +7526,7 @@ function renderFilteredResults() {
       );
 
     void authorPortraitSession.open(currentResponse.authorResolution?.author,
-      resultsEl.querySelector(".siva-author-portrait-slot"));
+      resultsEl.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
 
     mountAuthorTimeline(
       resultsEl.querySelector("#author-timeline-root"),

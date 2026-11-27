@@ -1,4 +1,4 @@
-import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=4";
+import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=5";
 
 /**
  * Exactly one transient portrait session per open author dossier. Repeated
@@ -69,8 +69,8 @@ export function createAuthorPortraitSession({
       releasePending(s);
     }
   }
-  function open(author,slot) {
-    const identity=portraitIdentity(author);
+  function open(author,slot,works=[]) {
+    const identity=portraitIdentity(author,works);
     if(!identity || !slot){close();return Promise.resolve();}
     if(session?.key===identity.key){
       if(session.slot!==slot){resetSlot(session.slot);session.slot=slot;}
