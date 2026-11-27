@@ -1,3 +1,4 @@
+import { reviewedAuthorForName, reviewedAuthorEvidence, filterReviewedAuthorWorks } from "./author-reviewed-evidence.js";
 import { classicalAuthority } from "./classical-author-aliases.js";
 import { normalizeAuthorName } from "./remote-author-resolution.js";
 import { searchCrossref } from "../sources/crossref.js";
@@ -168,7 +169,8 @@ export async function resolveFederatedAuthor(name,options={}) {
   if(!original)return {status:"none",works:[]};
   const limit=Math.max(1,Math.min(150,Number(options.limit)||50));
   const authority=classicalAuthority(original);
-  const aliases=normalizeAuthorAliases(authority?.displayName||original,[...(authority?.searchNames||[]),...(options.aliases||[])]);
+  const reviewed=reviewedAuthorForName(original);
+  const aliases=normalizeAuthorAliases(authority?.displayName||original,[...(authority?.searchNames||[]),...(reviewed?.strict?reviewed.names.slice(0,3):[]),...(options.aliases||[])]);
   const maxVariants=Math.max(1,Math.min(5,Number(options.maxVariants)||4));
   const used=new Set([normalizeAuthorName(aliases[0])]);
   const first=await collectFederatedBatch([aliases[0]],options,limit);
@@ -265,7 +267,9 @@ export async function resolveFederatedAuthor(name,options={}) {
     errors.push("Varias identidades compatibles: no se agruparon autores con segundos apellidos u ORCID distintos.");
   }
 
-  const matches=mergeMatchedWorks(found);
+  const filtered=filterReviewedAuthorWorks(original,found);
+  if(filtered.length<found.length)errors.push("Se excluyeron coincidencias nominales no corroboradas por la bibliografía revisada del autor.");
+  const matches=mergeMatchedWorks(filtered);
   if(!matches.length)return {status:"none",works:[],errors};
   const credible=matches.map(work=>work.matchedAuthor)
     .filter(item=>item?.name && !item.creatorComposite &&
@@ -283,16 +287,17 @@ export async function resolveFederatedAuthor(name,options={}) {
   const observed=orcid(options.orcid) ||
     (observedOrcids.length===1?observedOrcids[0]:null);
   const catalogSources=[...new Set(matches.flatMap(work=>work.providers||[]))];
+  const corroborated=reviewedAuthorEvidence({displayName:original,sourceDisplayName:original,orcid:observed},matches);
   return {
     status:"resolved",
     resolution:"federated-author",
     author:{
       id:null,
-      displayName:authority?.displayName||preferred,
+      displayName:authority?.displayName||corroborated?.names[0]||preferred,
       sourceDisplayName:preferred,
       aliases:[...new Set([original,...aliases,...names])],
       orcid:observed?"https://orcid.org/"+observed:null,
-      wikidataId:authority?.qid||null,biography:authority?.description||null,wikipediaUrl:authority?"https://es.wikipedia.org/wiki/"+encodeURIComponent(authority.wiki):null,
+      wikidataId:authority?.qid||corroborated?.qid||null,biography:authority?.description||null,wikipediaUrl:authority?"https://es.wikipedia.org/wiki/"+encodeURIComponent(authority.wiki):null,
       corpusWorks:matches.length,catalog:"federated",catalogSources
     },
     works:matches.map((work,index)=>{
