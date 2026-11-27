@@ -1,3 +1,4 @@
+import { reviewedAuthorEvidence, filterReviewedAuthorWorks } from "../src/core/author-reviewed-evidence.js?v=1";
 import { classicalAuthority, localizeClassicalAuthor } from "../src/core/classical-author-aliases.js?v=1";
 import { sanitizeAuthorOrcid, rejectedAuthorOrcid, removeRejectedWorkOrcid } from "../src/core/author-orcid-guard.js?v=1";
 import {
@@ -53,7 +54,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v8";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {
@@ -61,14 +62,14 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-classical-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-evidence-v1";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
 import {
   resolveFederatedAuthor
-} from "../src/core/crossref-author-fallback.js?v=20261119-archive-abbrev-v1";
+} from "../src/core/crossref-author-fallback.js?v=20261127-evidence-v1";
 
 import {
   openAuthorDestination,
@@ -5158,7 +5159,8 @@ function showExclusiveAuthorWorks(
   options = {}
 ) {
   const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid(resolution.author));
-  resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
+  const works=(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor));
+  resolution={...resolution,author:safeAuthor,works:safeAuthor.catalog==="federated"?filterReviewedAuthorWorks(safeAuthor.displayName,works):works};
   if (options.resetTimeline) {
     authorArchiveNotice = "";
     authorArchiveSources = [];
