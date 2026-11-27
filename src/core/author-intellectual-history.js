@@ -29,6 +29,14 @@ const SOURCES = {
     "Stanford Encyclopedia of Philosophy",
     "https://plato.stanford.edu/entries/hegel/"
   ],
+  "hegelRight": [
+    "Cambridge University Press · David James",
+    "https://www.cambridge.org/core/books/abs/hegels-elements-of-the-philosophy-of-right/introduction-freedom-and-history-in-hegels-philosophy-of-right/8C0F3B03487083C4B01957A013B4B72A"
+  ],
+  "dusselTeaching": [
+    "Colegio de Filosofía · UNAM",
+    "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/"
+  ],
   "sor": [
     "Biblioteca Nacional de España",
     "https://www.bne.es/es/autores/juana-ines-cruz-sor"
@@ -231,10 +239,11 @@ const AUTHORS = {
         "hegel"
       ],
       [
-        1821,
-        "1821",
+        1820,
+        "1820 (portada: 1821)",
         "publication",
         "Publicación de Principios de la filosofía del derecho",
+        "hegelRight",
         "hegel"
       ],
       [
@@ -336,6 +345,7 @@ const AUTHORS = {
         "1976",
         "career",
         "Docencia de Ética y Filosofía Política en la UNAM",
+        "dusselTeaching",
         "dusselUNAM"
       ],
       [
@@ -348,6 +358,10 @@ const AUTHORS = {
     ]
   }
 };
+// Return fresh values; useful for full-catalogue validation without exposing mutable data.
+export function intellectualHistoryAuthorities(){
+  return Object.entries(AUTHORS).map(([id,record])=>({id,name:record.names[0],aliases:[...record.names]}));
+}
 export const BIO_BATCH = 3;
 export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción",posthumous:"Publicación póstuma",award:"Reconocimiento",floruit:"Periodo de actividad",revision:"Edición revisada"});
 const norm = value => String(value || "").normalize("NFD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
