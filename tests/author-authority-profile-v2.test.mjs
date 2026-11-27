@@ -75,3 +75,14 @@ test("identity state is never inferred from confirmed contributions",()=>{
  assert.equal(projectIdentityState(null),"unresolved");
  assert.equal(projectIdentityState({scope:"identity",status:"ambiguous"}),"ambiguous");
 });
+
+test("same-role material conflict is reviewable; irrelevant coauthor and other role do not negate author evidence",()=>{
+ const a=row("x","probable",{doi:"10.1234/x"});
+ const b=row("y","unresolved",{doi:"10.1234/x"});
+ b.contributions[0].identifierConflict=true;b.contributions[0].relevant=true;
+ assert.equal(projectAuthorityProfile({rows:[a,b]}).works[0].status,"ambiguous");
+ b.contributions[0].role="translator";
+ assert.equal(projectAuthorityProfile({rows:[a,b]}).works[0].status,"probable");
+ b.contributions[0].role="author";b.contributions[0].relevant=false;
+ assert.equal(projectAuthorityProfile({rows:[a,b]}).works[0].status,"probable");
+});

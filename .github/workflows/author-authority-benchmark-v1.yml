@@ -12,6 +12,9 @@ on:
       - "src/core/author-authority-evidence-v2.js"
       - "scripts/authority/run-shadow-v2.mjs"
       - "scripts/authority/report-release-readiness-v2.mjs"
+      - "scripts/authority/build-holdout-v2.mjs"
+      - "src/core/author-authority-holdout-v2.js"
+      - "tests/author-authority-holdout-v2.test.mjs"
       - "src/core/author-authority-release-v2.js"
       - "tests/author-authority-release-v2.test.mjs"
       - "scripts/authority/audit-portrait-live-v2.mjs"
@@ -106,7 +109,18 @@ jobs:
           node scripts/authority/audit-portrait-live-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/portrait-live/report.json
 
       - name: Test scientific readiness contracts
-        run: node --test tests/author-authority-release-v2.test.mjs
+        run: node --test tests/author-authority-release-v2.test.mjs tests/author-authority-holdout-v2.test.mjs
+
+      - name: Build disjoint nominal holdout review packet
+        run: node scripts/authority/build-holdout-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-benchmark-v1/report.json artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/holdout
+
+      - name: Upload nominal holdout packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-nominal-holdout
+          path: artifacts/author-authority-v2/holdout/
+          if-no-files-found: warn
 
       - name: Report V2 scientific readiness (no activation)
         run: node scripts/authority/report-release-readiness-v2.mjs artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/release/readiness.json

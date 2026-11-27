@@ -56,6 +56,15 @@ function workState(states){
  if(states.length&&states.every(s=>s==="rejected"))return "rejected";
  return "unresolved";
 }
+// A source-asserted identifier conflict is not a verified rejection. When
+// paired with positive evidence for the same role, preserve it for review.
+function scopedWorkState(contributions){
+ const relevant=contributions.filter(c=>c.relevant!==false);
+ const states=relevant.map(stateOf);
+ const positive=c=>["confirmed","probable"].includes(stateOf(c));
+ if(relevant.some(c=>c.identifierConflict===true&&relevant.some(p=>p.role===c.role&&positive(p))))return "ambiguous";
+ return workState(states);
+}
 export function projectAuthorityProfile(shadow){
  const map=new Map(),counts=Object.fromEntries(PROFILE_STATES.map(s=>[s,0]));
  let missingRecords=0,mentions=0;
@@ -65,16 +74,16 @@ export function projectAuthorityProfile(shadow){
   const doi=validDoi(record.doi);
   // Exact identifiers only; never merge editions or people by similar title.
   const key=doi?"doi:"+doi:sourceKey(record.provider,record.sourceId);
-  if(!map.has(key))map.set(key,{key,title:record.title||"",year:record.year??null,doi,records:[],states:[]});
+  if(!map.has(key))map.set(key,{key,title:record.title||"",year:record.year??null,doi,records:[],contributions:[]});
   const group=map.get(key);
   if(!group.title&&record.title)group.title=record.title;
   const contributions=arr(row.contributions);
   mentions+=contributions.length;
   if(!contributions.length)missingRecords++;
   group.records.push({provider:record.provider,sourceId:record.sourceId,ref:record.ref,title:record.title,year:record.year,revision:record.revision,rawCreators:arr(record.rawCreators),snapshotMembership:record.snapshotMembership||null,contributions,reason:row.reason});
-  group.states.push(...contributions.map(stateOf));
+  group.contributions.push(...contributions);
  }
- const works=[...map.values()].map(({states,...group})=>({...group,status:workState(states)})).sort((a,b)=>a.title.localeCompare(b.title,"es")||a.key.localeCompare(b.key));
+ const works=[...map.values()].map(({contributions,...group})=>({...group,status:scopedWorkState(contributions)})).sort((a,b)=>a.title.localeCompare(b.title,"es")||a.key.localeCompare(b.key));
  for(const w of works)counts[w.status]++;
  return {works,counts,mentions,missingRecords,diagnostics:arr(shadow?.diagnostics)};
 }
@@ -102,7 +111,7 @@ export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=n
   const tile=el(d,"div",undefined,"authority-preview-metric");
   tile.append(el(d,"strong",model.counts[state]),el(d,"span",labels[state]));metrics.append(tile);
  }
- root.append(metrics,el(d,"p",model.works.length+" agrupaciones documentales · "+model.mentions+" menciones evaluadas. Los registros sin DOI común pueden permanecer separados."));
+ root.append(metrics,el(d,"p",model.works.length+" agrupaciones de registros recuperados (no todas son obras del perfil) · "+model.mentions+" menciones de creadores evaluadas. Los registros sin DOI común pueden permanecer separados."));
  root.append(renderAuthorityAnalysis(d,analysis));
  if(model.missingRecords||model.diagnostics.length)root.append(el(d,"p","Cobertura parcial: "+model.missingRecords+" registros sin creadores o procedencia; "+model.diagnostics.length+" diagnósticos de captura."));
  const controls=el(d,"div",undefined,"authority-preview-controls");
@@ -178,7 +187,7 @@ export function summarizeAuthorityAuthorship(works=[]){
  for(const w of works){
   const entries=w.records.flatMap(r=>r.contributions.map(c=>({r,c})));
   const authors=entries.filter(({c})=>c.role==="author");
-  const authorState=workState(authors.map(({c})=>stateOf(c)));
+  const authorState=scopedWorkState(authors.map(({c})=>c));
   const supportedOther=entries.some(({c})=>c.role!=="author"&&["confirmed","probable"].includes(stateOf(c)));
   if(w.status==="rejected"){counts.rejected++;continue;}
   if(w.status==="ambiguous"||authorState==="ambiguous"){counts.review++;continue;}
@@ -202,7 +211,7 @@ export function summarizeAuthorityAuthorship(works=[]){
   for(const {r,c} of authors){
    if(stateOf(c)!=="confirmed"||c.synthesizedCreator||r.snapshotMembership)continue;
    for(const [index,creator] of r.rawCreators.entries()){
-    if(index===c.position||!creator?.name||creator.creatorComposite)continue;
+    if(index===c.position||!creator?.name||creator.creatorComposite||creator.originalCreatorStatement||r.contributions.some(other=>other.position===index&&other.relevant===true))continue;
     if(r.contributions.some(other=>other.position===index&&["confirmed","probable","ambiguous"].includes(stateOf(other))))continue;
     if(creator.role&&!/^(author|autor)$/i.test(creator.role))continue;
     if(!creator.role&&!["Crossref","OpenAlex Philosophy"].includes(providerName(r.provider)))continue;

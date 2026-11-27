@@ -39,13 +39,14 @@ function rawRecord(work,provider,revision){
  const rawCreators=original?list(work.authors):list(explicit?.authors);
  const sourceId=String(explicit?.sourceId||relevant[0]?.sourceId||(original?work.id:"")||"").trim();
  if(!sourceId||!supported.has(provider))return null;
- const membership=original&&snapshotProvider(provider)&&work.snapshotMembership?.synthesizedCreator===true?work.snapshotMembership:null;
+ const syntheticDeclared=snapshotProvider(provider)&&(work.snapshotMembership?.synthesizedCreator===true||explicit?.snapshotMembership?.synthesizedCreator===true);
+ const membership=original&&syntheticDeclared?work.snapshotMembership:null;
  const membershipId=membership?oa(membership.authorId):null;
  const membershipWork=membership?String(membership.workId||"").replace(/^W/i,""):null;
  const validMembership=Boolean(membershipId&&membershipWork&&sourceId.replace(/^https?:\/\/openalex\.org\//i,"").replace(/^W/i,"")===membershipWork);
  const ref="source:"+JSON.stringify([provider,sourceId,revision,...(validMembership?[membershipId,membership.position??null]:[])]);
  const recordDoi=doi(original?work.doi:explicit?.doi);
- return {ref,provider,sourceId,revision,doi:recordDoi,rawCreators,original,snapshotMembership:validMembership?{authorId:membershipId,workId:membershipWork,position:membership.position??null,synthesizedCreator:true}:null,
+ return {ref,provider,sourceId,revision,doi:recordDoi,rawCreators,original,syntheticDeclared,snapshotMembership:validMembership?{authorId:membershipId,workId:membershipWork,position:membership.position??null,synthesizedCreator:true}:null,
    title:String(original?work.title:explicit?.title||""),year:original?work.year??null:explicit?.year??null,
    lineageKey:recordDoi?"doi:"+recordDoi:snapshotProvider(provider)?"snapshot:"+revision:"record:"+JSON.stringify([provider,sourceId])};
 }
@@ -67,14 +68,18 @@ export function evaluateBibliographicRecord({author,work,provider,datasetRevisio
   const candidateName=ordered(p?.name||p?.displayName);
   const matchedName=Boolean(candidateName&&aliases.includes(candidateName));
   const observedId=snapshotProvider(provider)?oa(p?.id):null;
-  const synthetic=Boolean(record.snapshotMembership?.synthesizedCreator);
+  const synthetic=record.syntheticDeclared===true;
   const observedOrcid=synthetic?null:orcid(p?.orcid||p?.id);
   const composite=Boolean(p?.creatorComposite||p?.originalCreatorStatement||p?.rawCreator&&p.rawCreator!==p.name||/;|\bet al\b|\by colaboradores\b/iu.test(String(p?.name||""))||String(p?.name||"").split(",").length>2);
   const role=roleOf(p,provider);
-  const conflict=Boolean(expectedOrcid&&observedOrcid&&expectedOrcid!==observedOrcid);
+  // Other creators do not contradict the selected profile merely by having
+  // different identifiers. Relevance is scoped to this creator proposition.
+  const relevant=synthetic?Boolean(expectedId&&record.snapshotMembership?.authorId===expectedId&&observedId===expectedId):
+    Boolean(matchedName||(expectedId&&observedId===expectedId)||(expectedOrcid&&observedOrcid===expectedOrcid));
+  const conflict=Boolean(relevant&&!synthetic&&expectedOrcid&&observedOrcid&&expectedOrcid!==observedOrcid);
   if(matchedName&&!synthetic)add("ordered-name-match");
   if(conflict)add("recorded-orcid-conflict","contradicts");
-  if(!composite&&!conflict){
+  if(!composite&&!conflict&&(!synthetic||record.snapshotMembership)){
    if(snapshotProvider(provider)&&expectedId&&observedId===expectedId&&(synthetic?record.snapshotMembership.authorId===expectedId:matchedName))add("snapshot-author-membership");
    if(provider==="Crossref"&&expectedOrcid&&observedOrcid===expectedOrcid&&matchedName)add("publisher-asserted-author-identifier");
    // A public registry listing is an assertion of participation, not proof
@@ -82,9 +87,9 @@ export function evaluateBibliographicRecord({author,work,provider,datasetRevisio
    if(provider==="ORCID"&&expectedOrcid&&orcid(registryOrcid)===expectedOrcid&&observedOrcid===expectedOrcid&&matchedName)add("registry-listed-work");
   }
   const result=resolveAuthorityV2({subjectRef,scope:"contribution",datasetRevision,candidateRefs:[objectRef],evidence});
-  return {position:index,authorPosition:record.snapshotMembership?.position??null,rawName:p?.name||p?.displayName||"",synthesizedCreator:synthetic,role,composite,decision:result.decision,evidence};
+  return {position:index,authorPosition:record.snapshotMembership?.position??null,rawName:p?.name||p?.displayName||"",synthesizedCreator:synthetic,relevant,identifierConflict:conflict,role,composite,decision:result.decision,evidence};
  });
- return {record,contributions,reason:record.rawCreators.length?"evaluated":"missing-source-creators"};
+ return {record,contributions,reason:record.syntheticDeclared&&!record.snapshotMembership?"invalid-snapshot-membership":record.rawCreators.length?"evaluated":"missing-source-creators"};
 }
 export function evaluateBibliographicBatches({author,batches=[],datasetRevision,registryOrcid=null}){
  const rows=[];const seen=new Set();

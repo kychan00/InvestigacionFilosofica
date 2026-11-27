@@ -93,3 +93,25 @@ test("throwing observer does not turn a successful provider into a failed one",a
  const result=await resolveFederatedAuthor("Ana Pérez",{disableInternetArchive:true,disableCucsh:true,crossrefSearchImpl:async()=>records,onSourceBatch:()=>{throw Error("observer");}});
  assert.equal(result.status,"resolved");assert.equal(result.works.length,1);
 });
+
+test("unrelated coauthors with different ORCID do not contradict selected creator",()=>{
+ const r=evaluate("Crossref",w("Crossref","x",[{name:"Ana Pérez",orcid:author.orcid},{name:"Other Person",orcid:"0000-0001-5109-3700"}]));
+ assert.equal(r.contributions[0].decision.status,"probable");
+ assert.equal(r.contributions[1].relevant,false);
+ assert.equal(r.contributions[1].identifierConflict,false);
+ assert.deepEqual(r.contributions[1].evidence,[]);
+});
+test("invalid or merged synthetic membership cannot become ordinary positive attribution",()=>{
+ const item=w("OpenAlex Philosophy","https://openalex.org/W100",[{id:"A123",name:"Ana Pérez",orcid:author.orcid}],{snapshotMembership:{authorId:"123",workId:"999",synthesizedCreator:true}});
+ const r=evaluate("OpenAlex Philosophy",item);
+ assert.equal(r.reason,"invalid-snapshot-membership");
+ assert.equal(r.contributions[0].synthesizedCreator,true);
+ assert.equal(r.contributions[0].decision.status,"unresolved");
+ assert.deepEqual(r.contributions[0].evidence,[]);
+});
+test("same-name contradictory identifier remains relevant but asserted",()=>{
+ const r=evaluate("Crossref",w("Crossref","x",[{name:"Ana Pérez",orcid:"0000-0001-5109-3700"}]));
+ assert.equal(r.contributions[0].relevant,true);
+ assert.equal(r.contributions[0].identifierConflict,true);
+ assert.equal(r.contributions[0].decision.status,"unresolved");
+});

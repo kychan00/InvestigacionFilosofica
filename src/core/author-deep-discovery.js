@@ -1,4 +1,4 @@
-import { evaluateBibliographicBatches } from "./author-authority-bibliography-v2.js";
+import { evaluateBibliographicBatches } from "./author-authority-bibliography-v2.js?v=20261127-phase7b";
 import { localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { sanitizeAuthorOrcid, profileMatchesOrderedAuthor, removeRejectedWorkOrcid } from "./author-orcid-guard.js";
 import {
