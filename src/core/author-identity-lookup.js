@@ -1,3 +1,4 @@
+import { rejectedAuthorOrcid } from "./author-orcid-guard.js";
 import {
   authorNameSignature,
   normalizeAuthorName,
@@ -84,7 +85,12 @@ export function chooseSnapshotAuthorIdentity(name,resolution,{orcid=null}={}) {
 
   const unique=new Map();
   for(const candidate of candidates) {
-    if(expected && normalizedOrcid(candidate.o)!==expected) continue;
+    // A known bad attribution must never join reversed-name identities.
+    if(rejectedAuthorOrcid(name,candidate.o)) {
+      if(!rejectedAuthorOrcid(candidate.n,candidate.o))continue;
+      candidate.o=null;
+    }
+    if(expected && !rejectedAuthorOrcid(name,expected) && normalizedOrcid(candidate.o)!==expected) continue;
     if(!unique.has(candidate.id))unique.set(candidate.id,candidate);
   }
   const filtered=[...unique.values()];
