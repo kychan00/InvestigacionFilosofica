@@ -102,3 +102,32 @@ test("accept real Commons thumbnail CDN while enforcing exact host, path, HTTPS 
   await assert.rejects(downloadPortrait({url:bad},{fetcher:async()=>{throw Error("must not fetch");}}),/host outside/);
  }
 });
+
+test("historical corpus fallback resolves Hegel without Wikidata profile, but not unknown or contradictory identities",async()=>{
+ const author={id:"123456",displayName:"Georg Wilhelm Friedrich Hegel",sourceDisplayName:"Hegel, Georg Wilhelm Friedrich"};
+ const ident=portraitIdentity(author);
+ assert.equal(ident.qid,"Q9235");
+ assert.equal(ident.historical,true);
+ const seen=[];
+ const portrait=await resolveAuthorPortrait(ident,{fetcher:async url=>{
+  const p=new URL(url).searchParams;seen.push(p);
+  return Response.json(p.get("action")==="wbgetentities"
+    ? {entities:{Q9235:{id:"Q9235",claims:{P31:[claim({id:"Q5"})],P18:[claim("Test.jpg")]}}}}
+    : {query:{pages:{"1":file({LicenseShortName:{value:"Public domain"}})}}});
+ }});
+ assert.ok(portrait);
+ assert.equal(portrait.identity,"https://www.wikidata.org/wiki/Q9235");
+ assert.equal(seen[0].get("ids"),"Q9235");
+ assert.equal(seen.length,2,"Use reviewed QID, no name lookup");
+ for(const variant of [
+   {...author,id:undefined},
+   {...author,displayName:"Hegel"},
+   {...author,sourceDisplayName:"Other Hegel"},
+   {...author,catalog:"federated"},
+   {...author,orcid:"0000-0002-1825-0097"},
+   {...author,wikidataId:"Q123"},
+   {id:"123456",displayName:"Socrates"}
+ ])assert.notEqual(portraitIdentity(variant)?.qid,"Q9235");
+ assert.equal(portraitIdentity({id:"123456",displayName:"Socrates"}).qid,null);
+ assert.ok(!matchesPortraitIdentity({id:"Q9235",claims:{P31:[claim({id:"Q5"})],P10283:[claim("A999")]}},ident));
+});

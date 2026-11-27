@@ -31,9 +31,10 @@ function fold(value) {
   return String(value || "").normalize("NFKD").replace(/\p{M}/gu, "")
     .toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 }
-// Reviewed historical exceptions require BOTH the existing authority QID
-// and an exact canonical full name from the corpus (never a name lookup).
-// They are deliberately small until stable source identifiers are audited.
+// Reviewed historical authorities. A missing QID may be recovered only
+// for exact, distinctive full names of existing non-federated corpus authors.
+// Short names still need an independently resolved authority ID. No remote
+// name search, surname guessing, or change to bibliographic author identity.
 const HISTORICAL = Object.freeze({
   Q9312: ["immanuel kant", "kant immanuel", "emmanuel kant"],
   Q9235: ["georg wilhelm friedrich hegel", "hegel georg wilhelm friedrich"],
@@ -43,9 +44,17 @@ export function portraitIdentity(author = {}) {
   if (!author || typeof author !== "object") return null;
   const o = orcid(author.orcid || author.orcidId);
   const a = oa(author.openalexId || author.sourceId) || (author.catalog !== "federated" ? oa(author.id, true) : null);
-  const q = qid(author.wikidataId);
+  const explicitQ = qid(author.wikidataId);
   const name = fold(author.sourceDisplayName || author.displayName);
-  const historical = Boolean(q && !o && HISTORICAL[q]?.includes(name));
+  const display = fold(author.displayName || author.sourceDisplayName);
+  const hasOrcid = Boolean(author.orcid || author.orcidId);
+  const curated = !explicitQ && !author.wikidataId && !hasOrcid && a &&
+    author.catalog !== "federated" && name.split(" ").length >= 2
+      ? Object.entries(HISTORICAL).find(([, names]) =>
+          names.includes(name) && names.includes(display))?.[0] || null
+      : null;
+  const q = explicitQ || curated;
+  const historical = Boolean(q && !hasOrcid && HISTORICAL[q]?.includes(name));
   if (!o && !a && !historical) return null;
   return { orcid: o, openalex: a, qid: q, historical,
     key: [o || "", a || "", q || "", historical ? name : ""].join("|") };
