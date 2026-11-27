@@ -4,7 +4,7 @@ import {
   updateProfile as updateAuthProfile
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
 
-import { savedWorkRecordUrl } from "./record-deeplink.js";
+import { savedWorkRecordUrl } from "./record-deeplink.js?v=20261127-saved-record-v1";
 
 import {
   auth,
@@ -26,6 +26,7 @@ import {
   getUserProfile,
   saveAuthor,
   saveAuthorIdentityDecision,
+  saveAuthorIdentityDecisions,
   saveLibraryWork,
   subscribeAuthorIdentityDecisions,
   subscribeLibrary,
@@ -39,7 +40,7 @@ import {
   updateSubproject,
   updateUserProfileDocument,
   updateUserProfileShell
-} from "./user-data.js";
+} from "./user-data.js?v=20261127-saved-record-v1";
 
 import {
   clearVerifiedAuthHint,
@@ -104,6 +105,9 @@ const atlasNote = document.querySelector("#project-atlas-note");
 const projectWorkList = document.querySelector("#project-work-list");
 const projectAuthorList = document.querySelector("#project-author-list");
 const projectIdentityReview = document.querySelector("#project-identity-review");
+const manualIdentityReview = document.querySelector("#manual-identity-review");
+let manualIdentityContext = null;
+let manualIdentityBusy = false;
 const projectWorkNote = document.querySelector("#project-work-note");
 
 const manualWorkForm = document.querySelector("#manual-work-form");
@@ -512,7 +516,7 @@ function workTitleLink(work) {
   const title = escapeHtml(work?.title || "Obra sin título");
   return destination
     ? '<a class="work-ficha-title-link" href="' + escapeHtml(destination) +
-      '" target="_blank" rel="noopener noreferrer" title="Abrir ficha completa en el buscador">' +
+      '" target="_blank" rel="noopener noreferrer" title="Abrir el registro bibliográfico guardado">' +
       title + '</a>'
     : title;
 }
@@ -1007,6 +1011,14 @@ function exactProjectAuthorEntries(
 function mergeAuthorIdentityEntries(entries) {
   const keys = [...entries.keys()];
   const parent = new Map(keys.map(key => [key, key]));
+  // Keep confirmed paths even when an intermediate alias is outside this collection.
+  for (const decision of identityDecisions) {
+    if (decision.same !== true) continue;
+    for (const name of [decision.leftName, decision.rightName]) {
+      const key = normalizedPersonName(name);
+      if (key && !parent.has(key)) parent.set(key, key);
+    }
+  }
 
   const find = key => {
     let root = parent.get(key) || key;
@@ -1097,7 +1109,7 @@ function mergeAuthorIdentityEntries(entries) {
     return {
       name,
       aliases,
-      count: group.count,
+      count: group.works.length,
       works: group.works,
       explicitRecords: group.explicitRecords,
       savedRecords: group.savedRecords,
@@ -1122,9 +1134,11 @@ function projectAuthorsFromWorks(
 }
 
 function namesLookCompatible(leftName, rightName) {
-  const left = normalizedPersonName(leftName).split(" ").filter(Boolean);
-  const right = normalizedPersonName(rightName).split(" ").filter(Boolean);
-  if (left.length < 2 || right.length < 2 || left[0] !== right[0]) return false;
+  const tokens = name => normalizedPersonName(name).split(" ")
+    .filter(token => token.length > 1 && !["don", "del", "de", "dr", "sr"].includes(token) && !/^\d+$/.test(token));
+  const left = [...new Set(tokens(leftName))];
+  const right = [...new Set(tokens(rightName))];
+  if (left.length < 2 || right.length < 2) return false;
 
   const [shorter, longer] = left.length <= right.length
     ? [left, right]
@@ -1148,6 +1162,9 @@ function nextIdentityReviewCandidate() {
       const rightName = preferredCanonicalName([...right.names]);
 
       if (identityDecisionFor(leftName, rightName)) continue;
+      if (equivalentNormalizedNames({ name: leftName }).has(normalizedPersonName(rightName))) continue;
+      if (left.orcids.size && right.orcids.size &&
+          ![...left.orcids].some(orcid => right.orcids.has(orcid))) continue;
 
       const leftTitles = new Map(
         left.works.map(work => [normalizedWorkTitle(work), work.title]).filter(([key]) => key)
@@ -2250,11 +2267,161 @@ function renderIdentityReview() {
   projectIdentityReview.dataset.canonicalName = candidate.canonicalName;
 }
 
+function manualIdentityScope() {
+  return JSON.stringify([currentUser?.uid, selectedProjectId, activeSubprojectFilter]);
+}
+
+function closeManualIdentityReview() {
+  manualIdentityContext = null;
+  if (!manualIdentityReview) return;
+  manualIdentityReview.hidden = true;
+  manualIdentityReview.innerHTML = "";
+}
+
+function manualIdentityConflict(groups) {
+  const orcids = new Set(groups.flatMap(group => [
+    group.orcid,
+    ...group.explicitRecords.map(record => record.orcid),
+    ...group.savedRecords.map(record => record.orcid)
+  ]).filter(Boolean).map(value => String(value).toLowerCase()
+    .replace(/^https?:\/\/(?:www\.)?orcid\.org\//, "").replace(/\/$/, "")));
+  if (orcids.size > 1) return "Los autores tienen ORCID distintos. Revise sus identidades antes de unirlos.";
+  const variants = groups.map(equivalentNormalizedNames);
+  for (let i = 0; i < variants.length; i += 1) {
+    for (let j = i + 1; j < variants.length; j += 1) {
+      for (const decision of identityDecisions) {
+        if (decision.same !== false) continue;
+        const left = normalizedPersonName(decision.leftName);
+        const right = normalizedPersonName(decision.rightName);
+        if ((variants[i].has(left) && variants[j].has(right)) ||
+            (variants[i].has(right) && variants[j].has(left))) {
+          return "Hay una decisión anterior de mantener separados estos autores. No se modificó.";
+        }
+      }
+    }
+  }
+  return "";
+}
+
+function manualIdentityEvidence(base, candidate) {
+  const similarName = [base.name, ...base.aliases].some(left =>
+    [candidate.name, ...candidate.aliases].some(right => namesLookCompatible(left, right)));
+  const titles = new Set(base.works.map(normalizedWorkTitle).filter(Boolean));
+  const sharedTitle = candidate.works.some(work => titles.has(normalizedWorkTitle(work)));
+  return { score: Number(similarName) * 2 + Number(sharedTitle),
+    label: [similarName ? "Nombre compatible" : "", sharedTitle ? "Obra en común" : ""].filter(Boolean).join(" · ") };
+}
+
+function openManualIdentityReview(key) {
+  if (!manualIdentityReview || !currentUser || manualIdentityBusy) return;
+  const base = currentProjectAuthorByKey(key);
+  if (!base) return;
+  const candidates = projectAuthorsFromWorks().filter(author => author !== base &&
+    !equivalentNormalizedNames(base).has(normalizedPersonName(author.name)))
+    .map(author => ({ author, ...manualIdentityEvidence(base, author) }))
+    .sort((a, b) => b.score - a.score || a.author.name.localeCompare(b.author.name, "es"));
+  manualIdentityContext = { key, scope: manualIdentityScope() };
+  manualIdentityReview.hidden = false;
+  manualIdentityReview.innerHTML = `
+    <span class="profile-kicker">REVISIÓN MANUAL DE IDENTIDAD</span>
+    <h4>¿Son la misma persona?</h4>
+    <p>Autor principal: <strong>${escapeHtml(base.name)}</strong></p>
+    <p>Seleccione las variantes que pertenecen a esta persona. Las coincidencias son sugerencias, no confirmaciones.</p>
+    <label>Buscar entre los autores de esta vista
+      <input type="search" data-manual-identity-search placeholder="Nombre o variante" autocomplete="off">
+    </label>
+    <div class="manual-identity-options">
+      ${candidates.map(({ author, label }) => `
+        <label class="manual-identity-option" data-manual-identity-option
+          data-search="${escapeHtml(normalizedPersonName([author.name, ...author.aliases].join(" ")))}">
+          <input type="checkbox" value="${escapeHtml(projectAuthorRenderKey(author))}" data-manual-identity-choice>
+          <span><strong>${escapeHtml(author.name)}</strong>
+            ${label ? `<small>${escapeHtml(label)}</small>` : ""}
+            ${author.aliases.length ? `<small>${escapeHtml(author.aliases.join(" · "))}</small>` : ""}
+            ${author.orcid ? `<small>ORCID: ${escapeHtml(author.orcid)}</small>` : ""}
+            ${author.works.slice(0, 2).map(work => `<small>${escapeHtml(work.title)}</small>`).join("")}
+          </span>
+        </label>`).join("") || "<p>No hay otros autores en esta vista.</p>"}
+    </div>
+    <p data-manual-identity-status role="status" aria-live="polite"></p>
+    <div class="manual-identity-actions">
+      <button type="button" data-manual-identity-confirm disabled>Unificar seleccionados</button>
+      <button type="button" data-manual-identity-cancel>Cancelar</button>
+    </div>`;
+  manualIdentityReview.scrollIntoView({ block: "nearest" });
+  manualIdentityReview.querySelector("[data-manual-identity-search]")?.focus({ preventScroll: true });
+}
+
+manualIdentityReview?.addEventListener("input", event => {
+  if (event.target.matches("[data-manual-identity-search]")) {
+    const query = normalizedPersonName(event.target.value);
+    for (const option of manualIdentityReview.querySelectorAll("[data-manual-identity-option]")) {
+      option.hidden = !query.split(" ").every(token => option.dataset.search.includes(token));
+    }
+  }
+  const selected = manualIdentityReview.querySelectorAll("[data-manual-identity-choice]:checked").length;
+  const confirm = manualIdentityReview.querySelector("[data-manual-identity-confirm]");
+  if (confirm) {
+    confirm.disabled = manualIdentityBusy || selected === 0 || selected > 450;
+    confirm.textContent = selected ? `Unificar ${selected + 1} autores` : "Unificar seleccionados";
+  }
+});
+
+manualIdentityReview?.addEventListener("click", async event => {
+  if (manualIdentityBusy) return;
+  if (event.target.closest("[data-manual-identity-cancel]")) {
+    closeManualIdentityReview();
+    return;
+  }
+  const button = event.target.closest("[data-manual-identity-confirm]");
+  if (!button || !currentUser || !manualIdentityContext) return;
+  const status = manualIdentityReview.querySelector("[data-manual-identity-status]");
+  if (manualIdentityContext.scope !== manualIdentityScope()) {
+    closeManualIdentityReview();
+    return;
+  }
+  const base = currentProjectAuthorByKey(manualIdentityContext.key);
+  const selected = [...manualIdentityReview.querySelectorAll("[data-manual-identity-choice]:checked")];
+  const groups = selected.map(input => currentProjectAuthorByKey(input.value));
+  if (!base || !groups.length || groups.length > 450 || groups.some(group => !group)) {
+    status.textContent = "La bibliografía cambió. Abra de nuevo la revisión.";
+    return;
+  }
+  const unique = [...new Map([base, ...groups].map(group => [projectAuthorRenderKey(group), group])).values()];
+  if (unique.length < 2) {
+    status.textContent = "Las variantes ya están unificadas.";
+    return;
+  }
+  const conflict = manualIdentityConflict(unique);
+  if (conflict) { status.textContent = conflict; return; }
+  const context = manualIdentityContext;
+  const uid = currentUser.uid;
+  manualIdentityBusy = true;
+  const controls = [...manualIdentityReview.querySelectorAll("button, input")];
+  controls.forEach(control => { control.disabled = true; });
+  status.textContent = "Guardando la decisión privada…";
+  try {
+    await saveAuthorIdentityDecisions(uid, unique.slice(1).map(group => ({
+      leftName: base.name, rightName: group.name, same: true, canonicalName: base.name
+    })));
+    if (manualIdentityContext === context && manualIdentityScope() === context.scope) {
+      closeManualIdentityReview();
+    }
+  } catch (error) {
+    console.error("No fue posible unificar los autores.", error);
+    if (manualIdentityContext === context) {
+      status.textContent = "No se pudo guardar. Inténtelo nuevamente.";
+      controls.forEach(control => { control.disabled = false; });
+    }
+  } finally { manualIdentityBusy = false; }
+});
+
 function renderProjectAuthors() {
   if (!projectAuthorList) return;
   const authors = projectAuthorsFromWorks();
 
   renderIdentityReview();
+  if (manualIdentityContext && manualIdentityContext.scope !== manualIdentityScope()) closeManualIdentityReview();
 
   if (!authors.length) {
     projectAuthorList.innerHTML = `
@@ -2305,6 +2472,7 @@ function renderProjectAuthors() {
             <span aria-hidden="true">↗</span>
             Abrir ficha
           </button>
+          <button type="button" data-project-author-unify="${escapeHtml(key)}">Revisar y unificar autores</button>
           ${explicit ? `
             <select
               data-project-author-subproject="${escapeHtml(key)}"
@@ -3078,6 +3246,18 @@ projectIdentityReview?.addEventListener("click", async event => {
   if (!leftName || !rightName) return;
 
   const same = button.dataset.identityDecision === "same";
+  if (same) {
+    const authors = projectAuthorsFromWorks(projectWorks, projectAuthors);
+    const left = authors.find(author => equivalentNormalizedNames(author).has(normalizedPersonName(leftName)));
+    const right = authors.find(author => equivalentNormalizedNames(author).has(normalizedPersonName(rightName)));
+    if (!left || !right || left === right) { renderIdentityReview(); return; }
+    const conflict = manualIdentityConflict([left, right]);
+    if (conflict) {
+      const evidence = projectIdentityReview.querySelector(".identity-review-copy small");
+      if (evidence) evidence.textContent = conflict;
+      return;
+    }
+  }
   const buttons = [...projectIdentityReview.querySelectorAll("button")];
   buttons.forEach(item => { item.disabled = true; });
 
@@ -3116,6 +3296,8 @@ projectAuthorList.addEventListener("change", async event => {
 });
 
 projectAuthorList.addEventListener("click", async event => {
+  const unify = event.target.closest("[data-project-author-unify]");
+  if (unify) { openManualIdentityReview(unify.dataset.projectAuthorUnify); return; }
   const open = event.target.closest("[data-project-author-open]");
   if (open) {
     openSavedAuthorView(open.dataset.projectAuthorOpen || "");

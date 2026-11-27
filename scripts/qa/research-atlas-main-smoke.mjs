@@ -1,3 +1,4 @@
+import { checkAtlasNavigation } from "./research-atlas-navigation-check.mjs";
 import assert from "node:assert/strict";
 import {mkdir} from "node:fs/promises";
 import {chromium} from "playwright";
@@ -252,6 +253,11 @@ try {
     await page.waitForTimeout(30);
     const afterZoom = await page.locator("#research-atlas-zoom").innerText();
     assert.notEqual(afterZoom, beforeZoom);
+    await checkAtlasNavigation({
+      page, context, canvasSelector: "#research-atlas-canvas",
+      zoomSelector: "#research-atlas-zoom", detailSelector: "#research-atlas-detail",
+      touch: width < 800
+    });
 
     await page.locator("#research-view-results").click();
     assert.equal(

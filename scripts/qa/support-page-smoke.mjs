@@ -31,12 +31,28 @@ try {
         assert.equal(await faq.getAttribute("open"),"");
         const toggle=width<=820?page.locator(".site-menu-toggle"):page.locator(".site-desktop-menu-toggle");
         await toggle.click();
-        const menu = page.locator(".site-menu-support");
+        const drawer = page.locator("#site-mobile-menu");
+        const menu = drawer.locator(".site-menu-support");
+        // The drawer transitions from visibility:hidden to visible. Wait for
+        // the actual open state and visibility rather than sampling mid-frame.
+        await page.waitForFunction(() => {
+          const panel = document.querySelector("#site-mobile-menu");
+          return panel?.classList.contains("is-open") &&
+            panel.getAttribute("aria-hidden") === "false" && !panel.inert;
+        }, null, {timeout:5000});
+        await drawer.waitFor({state:"visible",timeout:5000});
+        await menu.waitFor({state:"visible",timeout:5000});
+        assert.equal(await toggle.getAttribute("aria-expanded"),"true");
         assert.equal(await menu.getAttribute("aria-current"),"page");
         await menu.scrollIntoViewIfNeeded();
-        assert.ok(await menu.isVisible());
+        // Trial click also checks stability and pointer hit testing without
+        // following the payment-support navigation or sending an event.
+        await menu.click({trial:true,timeout:5000});
+        assert.ok(await menu.isVisible(), `support menu not visible at ${width}/${theme}`);
         assert.equal(await menu.getAttribute("href"),new URL("apoyar.html?origen=menu",base).href);
         await page.keyboard.press("Escape");
+        await drawer.waitFor({state:"hidden",timeout:5000});
+        assert.equal(await toggle.getAttribute("aria-expanded"),"false");
         await page.screenshot({path:`artifacts/support-page/support-${width}-${theme}.png`,fullPage:true,animations:"disabled"});
       } finally {await page.close();}
     }

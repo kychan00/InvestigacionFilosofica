@@ -237,6 +237,58 @@ try {
     process.stdout.write("record detail " + theme + " OK " + width + "px\n");
   }
   }
+  // Exercise the real record renderer and route, not the static fixture.
+  for (const width of [390, 1280]) {
+    const page = await browser.newPage({viewport:{width,height:820}});
+    const diagnostics = [];
+    page.on("pageerror", error => diagnostics.push(String(error.stack || error)));
+    page.on("console", message => {
+      if (["error","warning"].includes(message.type())) diagnostics.push(message.text());
+    });
+    const saved = {id:"work-ser-y-tiempo-123",title:"Ser y tiempo",
+      authors:[{name:"Martin Heidegger"}],year:1927,type:"archive-text",
+      providers:["Internet Archive"],sourceRecordId:"internetarchive:ser-y-tiempo-edicion-a"};
+    await page.route("**/*", async route => {
+      const url = route.request().url();
+      const parsed = new URL(url);
+      // Match the offline language dependency fixture used by the other real
+      // application browser smokes. The saved record must not require network.
+      if (parsed.hostname === "esm.sh" && parsed.pathname.startsWith("/franc-min")) {
+        return route.fulfill({status:200,contentType:"application/javascript",
+          headers:{"access-control-allow-origin":"*"},
+          body:"export function francAll(){return [];}"});
+      }
+      if (url.startsWith(BASE) && parsed.pathname.endsWith("/js/firebase-client.js")) {
+        return route.fulfill({contentType:"text/javascript",body:
+          'export const auth={currentUser:{uid:"saved-record-test",emailVerified:true},authStateReady:async()=>{}}; export const persistenceReady=Promise.resolve(true); export const firebaseReady=()=>true;'});
+      }
+      if (url.startsWith(BASE) && new URL(url).pathname.endsWith("/js/user-data.js")) {
+        return route.fulfill({contentType:"text/javascript",body:
+          'export async function getLibraryWork(uid,id){globalThis.__savedRecordRead=[uid,id];return '+JSON.stringify(saved)+';} export function subscribeLibrary(){return ()=>{}} export function subscribeSavedAuthors(){return ()=>{}}'});
+      }
+      return url.startsWith(BASE) ? route.continue() : route.abort();
+    });
+    await page.goto(new URL("?view=record&savedWork="+saved.id,BASE).href,{waitUntil:"domcontentloaded"});
+    const modal = page.locator("#record-modal");
+    try {
+      await modal.waitFor({state:"visible",timeout:15000});
+    } catch (error) {
+      const state = await page.evaluate(() => ({
+        read:globalThis.__savedRecordRead || null,
+        status:document.querySelector("#status")?.textContent,
+        unresolved:document.querySelector(".record-deeplink-unresolved")?.textContent
+      }));
+      console.error("Saved record route diagnostics",width,JSON.stringify(state),diagnostics);
+      await page.screenshot({path:"artifacts/record-detail/saved-original-failure-"+width+".png",fullPage:true});
+      throw error;
+    }
+    assert.equal(await modal.locator("#record-modal-title").textContent().then(s=>s.trim()),saved.title);
+    assert.equal(await modal.locator('a[href="https://archive.org/details/ser-y-tiempo-edicion-a"]').count(),1);
+    assert.deepEqual(await page.evaluate(()=>globalThis.__savedRecordRead),["saved-record-test",saved.id]);
+    assert.equal(await page.locator("#results .result-card").count(),0);
+    await page.screenshot({path:"artifacts/record-detail/saved-original-"+width+".png",animations:"disabled"});
+    await page.close();
+  }
 } finally {
   await browser.close();
 }

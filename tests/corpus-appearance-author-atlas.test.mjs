@@ -21,7 +21,7 @@ test("fase 4 se activa solo en el corpus y se carga después de fases 1–3", as
     last = pos;
   }
   assert.equal(index.split("css/corpus-appearance-author-atlas.css").length, 2);
-  assert.match(index, /src="\.\/js\/research-atlas-embed\.js\?v=20261122-corpus-appearance-phase4"/);
+  assert.match(index, /src="\.\/js\/research-atlas-embed\.js\?v=20261126-pinch-v2"/);
   for (const path of [
     "tesis.html", "atlas.html", "articulos.html",
     "filosofia-latinoamericana.html", "perfil.html", "research-atlas.html",
@@ -77,6 +77,7 @@ test("la ficha de autor conserva bibliografía, cronología y navegación móvil
 test("el Atlas conserva sus herramientas y solo modifica colores y redibujado", async () => {
   const css = await read("css/corpus-appearance-author-atlas.css");
   const script = await read("js/research-atlas-embed.js");
+  const navigation = await read("js/research-atlas-navigation.js");
   const old = await read("css/research-atlas-embed.css");
   for (const selector of [
     ".research-atlas-stage", ".research-atlas-tooltip",
@@ -91,7 +92,10 @@ test("el Atlas conserva sus herramientas y solo modifica colores y redibujado", 
     "--corpus-atlas-author", "--corpus-atlas-muted"
   ]) assert.ok(script.includes('cssColor("' + token + '"'), token);
   assert.match(script, /attributeFilter: \["data-theme", "data-corpus-shell"\]/);
-  assert.match(script, /canvas\.addEventListener\("pointerdown"/);
+  assert.match(script, /import \{ bindResearchAtlasNavigation \} from "\.\/research-atlas-navigation\.js\?v=20261126-pinch-v2"/);
+  assert.match(script, /navigation = bindResearchAtlasNavigation\(\{/);
+  assert.match(navigation, /canvas\.addEventListener\("pointerdown"/);
+  assert.match(navigation, /canvas\.addEventListener\("pointercancel"/);
   assert.match(script, /function worldToScreen\(/);
   assert.match(script, /function edgeStyle\(/);
   assert.match(old, /touch-action: none/);

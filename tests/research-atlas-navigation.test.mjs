@@ -72,3 +72,15 @@ test("pinching inward and outward clamps scale", () => {
   send("pointermove", 2, 1500, 150);
   near(view.zoom, 8);
 });
+
+test("los punteros perdidos no dejan el gesto activo ni abren una ficha", () => {
+  const { send, view, selected, captured } = setup();
+  send("pointerdown", 1, 100, 150);
+  send("pointerdown", 2, 200, 150);
+  send("lostpointercapture", 2, 200, 150);
+  send("pointermove", 1, 120, 150);
+  near(view.x, -0.2);
+  send("pointerup", 1, 120, 150);
+  assert.deepEqual(selected, []);
+  assert.equal(captured.size, 0);
+});

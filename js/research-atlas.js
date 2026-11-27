@@ -1,4 +1,4 @@
-import { bindResearchAtlasNavigation } from "./research-atlas-navigation.js?v=20261124-pinch-v1";
+import { bindResearchAtlasNavigation } from "./research-atlas-navigation.js?v=20261126-pinch-v2";
 import {
   ResearchAtlasLiveSession
 } from "../src/core/research-atlas-live.js?v=20261113-ra13a-v1";
@@ -116,6 +116,7 @@ let viewModel = null;
 let filterState = null;
 let selectedId = null;
 let hoveredId = null;
+let navigation = null;
 let raf = null;
 let uiRunId = 0;
 
@@ -2037,6 +2038,7 @@ function applyLiveUpdate(
 
 
 function clearAtlas() {
+  navigation?.reset();
   liveSession
     ?.cancel();
 
@@ -2336,9 +2338,9 @@ zoomOut.addEventListener(
 );
 
 
-bindResearchAtlasNavigation({
+navigation = bindResearchAtlasNavigation({
   canvas, view, metrics: canvasMetrics, draw: requestDraw,
-  hitTest, select: selectNode, minZoom: 0.55,
+  hitTest, select: selectNode, minZoom: 0.55, enabled: () => Boolean(viewModel),
   hover(node, event) {
     hoveredId = node?.id || null;
     if (node && event) setTooltip(node, event);

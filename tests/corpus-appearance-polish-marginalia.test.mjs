@@ -1,0 +1,133 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import test from "node:test";
+
+const root = new URL("../", import.meta.url);
+const load = path => readFile(new URL(path, root), "utf8");
+const sheet = "css/corpus-appearance-polish-marginalia.css";
+
+function tokens(css, mode) {
+  const selector = 'html[data-theme="' + mode + '"][data-corpus-shell="marginalia"]';
+  const start = css.indexOf(selector + " {");
+  assert.notEqual(start, -1, "Marginalia: falta paleta " + mode);
+  const block = css.slice(start + selector.length + 2, css.indexOf("\n}", start));
+  return Object.fromEntries([...block.matchAll(/^\s*(--[\w-]+):\s*(#[0-9a-f]{6})\s*;/gim)]
+    .map(([, key, value]) => [key, value]));
+}
+function luminance(hex) {
+  const channels = hex.match(/[a-f0-9]{2}/gi).map(s => parseInt(s, 16) / 255)
+    .map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
+  return .2126 * channels[0] + .7152 * channels[1] + .0722 * channels[2];
+}
+function contrast(a,b) {
+  const x = luminance(a), y = luminance(b);
+  return (Math.max(x,y) + .05) / (Math.min(x,y) + .05);
+}
+
+test("Marginalia: texto, referencias y botones satisfacen WCAG AA en ambos modos", async () => {
+  const css = await load(sheet);
+  for (const mode of ["light", "dark"]) {
+    const p = tokens(css,mode);
+    for (const [foreground, background] of [
+      ["--corpus-ink", "--corpus-page"],
+      ["--corpus-muted", "--corpus-page"],
+      ["--corpus-ink", "--marginalia-surface"],
+      ["--corpus-muted", "--marginalia-surface"],
+      ["--marginalia-caption", "--corpus-page"],
+      ["--marginalia-caption", "--marginalia-surface"],
+      ["--corpus-record-muted", "--corpus-record-surface"],
+      ["--corpus-on-accent", "--corpus-accent"],
+      ["--marginalia-action-ink", "--marginalia-action"],
+      ["--marginalia-action-ink", "--marginalia-action-hover"],
+      ["--marginalia-art-ink", "--marginalia-art-bg"]
+    ]) {
+      assert.ok(p[foreground] && p[background], mode + " missing " + foreground + "/" + background);
+      assert.ok(contrast(p[foreground],p[background]) >= 4.5,
+        mode + ": " + foreground + " insufficient contrast against " + background);
+    }
+  }
+});
+
+test("Marginalia: única hoja posterior a Territorio, sin filtrarse a rutas ni otros temas", async () => {
+  const [css,html] = await Promise.all([load(sheet),load("index.html")]);
+  const linked = "css/corpus-appearance-polish-marginalia.css?v=20261126-marginalia-socrates-local-v2";
+  assert.equal(html.split(linked).length - 1,1);
+  assert.ok(html.indexOf(linked) > html.indexOf("css/corpus-appearance-polish-territory.css"));
+  assert.doesNotMatch(css,/data-corpus-shell="(?:territory|observatory|default)"/);
+  for (const selector of ["#search-depth","#record-modal","body.author-view","#author-timeline-root",
+    "#research-atlas-panel","#results",".site-mobile-toolbar",".site-menu-drawer",
+    ".site-desktop-rail",".account-dock"]) {
+    assert.ok(css.includes(selector), "Missing Marginalia component: " + selector);
+  }
+  for (const page of ["tesis.html","articulos.html","filosofia-latinoamericana.html",
+    "perfil.html","research-atlas.html","revistas/udg/protrepsis.html",
+    "revistas/udg/sincronia.html","revistas/udg/quadripartita-ratio.html"]) {
+    assert.ok(!(await load(page)).includes("corpus-appearance-polish-marginalia.css"),
+      "Theme must not leak into " + page);
+  }
+});
+
+test("Marginalia: preserva estructura, scroll, gestos y no agrega listeners", async () => {
+  const css = await load(sheet);
+  const start = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW START");
+  const end = css.indexOf("/* EDITORIAL DESKTOP FILTER REFLOW END */", start);
+  assert.ok(start >= 0 && end > start, "Desktop filter exception must stay documented");
+  const reflow = css.slice(start, end);
+  assert.match(reflow, /@media \(min-width: 821px\) and \(max-width: 1599px\)/);
+  assert.match(reflow, /grid-template-columns: repeat\(6, minmax\(0, 1fr\)\)/);
+  assert.match(reflow, /nth-child\(-n\+3\)/);
+  assert.match(reflow, /nth-child\(n\+4\)/);
+  const afterReflow = css.slice(0, start) + css.slice(end + "/* EDITORIAL DESKTOP FILTER REFLOW END */".length);
+  const artStart = afterReflow.indexOf("/* SOCRATES EDITORIAL STAMP START");
+  const artEnd = afterReflow.indexOf("/* SOCRATES EDITORIAL STAMP END */", artStart);
+  assert.ok(artStart >= 0 && artEnd > artStart, "Socrates artwork must be isolated");
+  const safe = (afterReflow.slice(0, artStart) +
+    afterReflow.slice(artEnd + "/* SOCRATES EDITORIAL STAMP END */".length))
+    .replace(/\/\*[\s\S]*?\*\//g,"");
+  assert.doesNotMatch(safe,/(?:^|[;{]\s*)(?:position|display|inset|top|right|bottom|left|width|height|min-width|min-height|max-width|max-height|grid-template(?:-columns|-rows)?|grid-column|grid-row|overflow(?:-x|-y)?|transform|margin|z-index|scroll-behavior|touch-action|pointer-events)\s*:/m);
+  assert.doesNotMatch(safe,/@keyframes|@import|url\(/);
+  assert.match(css,/@media \(forced-colors: active\)/);
+  assert.match(css,/@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(css,/:focus-visible/);
+  const atlas = await load("css/research-atlas-embed.css");
+  assert.match(atlas,/touch-action: none/);
+  const timeline = await load("css/author-timeline.css");
+  assert.match(timeline,/overflow-x: auto/);
+  const margin = css.match(/padding-inline-end:/g) || [];
+  assert.equal(margin.length,2,"Only safe rank/bookmark title reservation is permitted");
+});
+
+test("Marginalia: protege selector dark y elimina marcas azules heredadas", async () => {
+  const css = await load(sheet);
+  assert.match(css,/\.hero-shell #search-depth\s*\{[^}]*background: var\(--marginalia-subtle\) !important;/);
+  assert.match(css,/\.search-mode-option\.is-active::after\s*\{[^}]*background: var\(--corpus-accent\)/);
+  assert.match(css,/\.site-menu-theme button\[aria-pressed="true"\]\s*\{/);
+  assert.match(css,/#results \.result-card \.result-links\s*\{[^}]*background: transparent !important;/);
+  assert.match(css,/html\[data-theme\]\[data-corpus-shell="marginalia"\] body:not\(\.author-view\) #results \.result-card \.result-links \.record-open/);
+  assert.match(css,/body\.author-view \.author-work-search-field input::placeholder/);
+});
+
+
+test("Marginalia: Sócrates CC0 aparece únicamente como decoración de portada, tarjetas y ficha", async () => {
+  const css = await load(sheet);
+  const marker = "SOCRATES EDITORIAL STAMP START";
+  const art = css.slice(css.indexOf(marker), css.indexOf("SOCRATES EDITORIAL STAMP END"));
+  assert.match(art, /CC0 1\.0/);
+  const sources = art.match(/url\("[^"]+"\)/g) || [];
+  assert.deepEqual(sources, ['url("../assets/marginalia-socrates.jpg")'],
+    "The public-domain artwork must be served locally, not from a third party");
+  const original = await readFile(new URL("assets/marginalia-socrates.jpg", root));
+  assert.equal(original.length, 331653);
+  assert.equal(createHash("sha1").update(original).digest("hex"),
+    "8bce16dcf0026c4fbd9a7962080f486a0c0c7a14", "Original Wikimedia Commons file checksum");
+  assert.equal(original.subarray(0, 2).toString("hex"), "ffd8");
+  assert.match(art, /body:not\(\.author-view\) \.hero-shell/);
+  assert.match(art, /#results \.result-visual::before/);
+  assert.match(art, /#record-modal \.record-cinematic-hero::after/);
+  assert.match(art, /pointer-events: none;/);
+  assert.match(art, /@media \(max-width: 820px\)/);
+  assert.match(art, /@media \(forced-colors: active\)/);
+  assert.match(art, /@media print/);
+  assert.doesNotMatch(art, /data-corpus-shell="(?:territory|observatory|default)"/);
+});

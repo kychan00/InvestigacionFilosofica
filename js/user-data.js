@@ -1,3 +1,4 @@
+import { capturePublicRecord } from "./record-deeplink.js?v=20261127-saved-record-v1";
 import {
   collection,
   deleteDoc,
@@ -428,6 +429,7 @@ export function normalizeWork(work, {
     normalizeUrl(work?.referenceUrl) ||
     normalizeUrl(work?.urls?.reference) ||
     normalizeUrl(work?.urls?.primary) ||
+    normalizeUrl(work?.urls?.canonical) ||
     normalizeUrl(work?.url) ||
     normalizeUrl(work?.openAccess?.url);
 
@@ -485,7 +487,8 @@ export function normalizeWork(work, {
       700
     ),
     origin,
-    privateOnly: Boolean(privateOnly)
+    privateOnly: Boolean(privateOnly),
+    ...(privateOnly ? {} : { recordSnapshot: capturePublicRecord(work) })
   };
 }
 
@@ -785,6 +788,31 @@ export async function saveAuthorIdentityDecision(
   );
 
   return id;
+}
+
+// Commit a manual multi-author decision atomically, using the existing private ledger.
+export async function saveAuthorIdentityDecisions(uid, decisions) {
+  if (!Array.isArray(decisions) || !decisions.length || decisions.length > 450) {
+    throw new Error("invalid-identity-decisions");
+  }
+  const database = requiredDb();
+  // Load the batch API only when the user confirms a manual merge.
+  const { writeBatch } = await import("https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js");
+  const batch = writeBatch(database);
+  for (const { leftName, rightName, same, canonicalName = "" } of decisions) {
+    const id = authorIdentityDecisionId(leftName, rightName);
+    batch.set(doc(database, "users", uid, "authorIdentityDecisions", id), {
+      id,
+      leftName: compactText(leftName, 300),
+      rightName: compactText(rightName, 300),
+      leftNormalized: normalizedIdentityName(leftName),
+      rightNormalized: normalizedIdentityName(rightName),
+      same: Boolean(same),
+      canonicalName: compactText(canonicalName, 300),
+      updatedAt: serverTimestamp()
+    }, { merge: true });
+  }
+  await batch.commit();
 }
 
 export function subscribeAuthorIdentityDecisions(uid, callback) {

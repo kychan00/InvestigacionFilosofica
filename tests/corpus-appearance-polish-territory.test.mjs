@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import test from "node:test";
 
 const root = new URL("../", import.meta.url);
@@ -55,7 +56,7 @@ test("Territorio editorial: claro y oscuro cumplen contraste AA en texto y CTA",
 
 test("Territorio editorial no se filtra a otro tema ni a páginas fuera de index", async () => {
   const [css, html] = await Promise.all([load(sheet), load("index.html")]);
-  const linked = "css/corpus-appearance-polish-territory.css?v=20261122-territory-editorial-v1";
+  const linked = "css/corpus-appearance-polish-territory.css?v=20261126-territory-kant-v3";
   assert.equal(html.split(linked).length - 1, 1);
   assert.ok(html.indexOf(linked) > html.indexOf("css/corpus-appearance-author-atlas.css"));
   assert.doesNotMatch(css, /data-corpus-shell="(?:marginalia|observatory|default)"/);
@@ -77,7 +78,11 @@ test("Territorio editorial no se filtra a otro tema ni a páginas fuera de index
 
 test("Territorio editorial respeta geometría, scroll y gestos del Atlas", async () => {
   const css = await load(sheet);
-  const clean = css.replace(/\/\*[\s\S]*?\*\//g, "");
+  const start = css.indexOf("/* TERRITORY KANT PORTRAIT START");
+  const end = css.indexOf("/* TERRITORY KANT PORTRAIT END */", start);
+  assert.ok(start >= 0 && end > start);
+  const clean = (css.slice(0, start) + css.slice(end + "/* TERRITORY KANT PORTRAIT END */".length))
+    .replace(/\/\*[\s\S]*?\*\//g, "");
   assert.doesNotMatch(clean, /(?:^|[;{]\s*)(?:position|display|inset|top|right|bottom|left|width|height|min-width|min-height|max-width|max-height|grid-template(?:-columns|-rows)?|grid-column|grid-row|overflow(?:-x|-y)?|transform|margin|padding|z-index|scroll-behavior|touch-action|pointer-events)\s*:/m);
   assert.doesNotMatch(clean, /@keyframes/);
   const atlas = await load("css/research-atlas-embed.css");
@@ -114,4 +119,35 @@ test("Territorio preserva contraste de búsqueda en autor y limpia franja de enl
   assert.match(css, /body\.author-view \.author-work-search-field input::placeholder\s*\{/);
   assert.match(css, /body\.author-view \.author-work-search-field:focus-within/);
   assert.match(css, /#results \.result-card \.result-links\s*\{[^}]*background: transparent !important;/);
+});
+
+
+test("Territorio: retrato de Kant local, histórico y aislado de las identidades bibliográficas", async () => {
+  const css = await load(sheet);
+  const art = css.slice(css.indexOf("/* TERRITORY KANT PORTRAIT START"), css.indexOf("/* TERRITORY KANT PORTRAIT END */"));
+  const urls = art.match(/url\("[^"]+"\)/g) || [];
+  assert.deepEqual(urls, ['url("../assets/territory-kant.jpg")']);
+  const jpeg = await readFile(new URL("assets/territory-kant.jpg", root));
+  assert.equal(jpeg.length, 253745);
+  assert.equal(jpeg.subarray(0, 2).toString("hex"), "ffd8");
+  assert.equal(createHash("sha256").update(jpeg).digest("hex"),
+    "27e7705d56a9f7d1437ea99179a4580997f0bb0f6b0424d4e8001ac322ba2215");
+  assert.match(art, /Public Domain Mark 1\.0/);
+  assert.match(art, /body:not\(\.author-view\) \.hero-shell::after/);
+  assert.match(art, /#results \.result-visual/);
+  assert.match(art, /\.author-work-grid \.result-card \.result-visual/);
+  assert.match(art, /#record-modal \.record-cinematic-hero::after/);
+  assert.match(art, /pointer-events: none/);
+  assert.match(art, /@media \(forced-colors: active\)/);
+  assert.match(art, /@media print/);
+  assert.doesNotMatch(art, /data-corpus-shell="(?:default|marginalia|observatory)"|@keyframes|@import|touch-action|scroll-behavior/);
+});
+
+
+test("Territorio: el retrato y el índice del expediente superan la especificidad del tema genérico", async () => {
+  const css = await load(sheet);
+  const art = css.slice(css.indexOf("/* TERRITORY KANT PORTRAIT START"));
+  const selectors = art.match(/html\[data-theme\]\[data-corpus-shell="territory"\] body\.author-view \.author-work-grid \.result-card \.result-visual\s*\{/g) || [];
+  assert.equal(selectors.length, 4, "Desktop, mobile, forced colors and print must override the shared author card");
+  assert.match(art, /html\[data-theme\]\[data-corpus-shell="territory"\] body\.author-view \.author-work-grid \.result-card :is\(\.result-initial, \.result-rank, \.result-visual-caption\)\s*\{\s*color: var\(--territory-art-ink\) !important;/);
 });

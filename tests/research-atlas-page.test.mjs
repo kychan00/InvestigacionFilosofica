@@ -21,6 +21,8 @@ const renderer =
     "utf8"
   );
 
+const navigation = await readFile(new URL("../js/research-atlas-navigation.js", import.meta.url), "utf8");
+
 const live =
   await readFile(
     new URL(
@@ -199,12 +201,13 @@ test("RA13 añade la capa visible de coautoría al Atlas standalone", () => {
 
 
 test("renderer mantiene filtros, pan, zoom, cancelación y URL compartible", () => {
+  assert.match(renderer, /navigation = bindResearchAtlasNavigation\(\{/);
+  for (const event of ["pointerdown", "pointermove", "pointerup", "pointercancel", "lostpointercapture", "wheel"]) {
+    assert.ok(navigation.includes(`canvas.addEventListener("${event}"`), event);
+  }
   for (const token of [
     "ra-live-cancel",
-    "pointerdown",
-    "pointermove",
-    "pointerup",
-    "wheel",
+    "bindResearchAtlasNavigation",
     "zoomAt",
     "fitView",
     "filterResearchAtlasViewModel",

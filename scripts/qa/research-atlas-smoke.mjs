@@ -1,3 +1,4 @@
+import { checkAtlasNavigation } from "./research-atlas-navigation-check.mjs";
 import assert from "node:assert/strict";
 import {
   mkdir,
@@ -447,6 +448,11 @@ try {
       afterZoom,
       beforeZoom
     );
+    await checkAtlasNavigation({
+      page, context, canvasSelector: "#ra-canvas",
+      zoomSelector: "#ra-zoom-readout", detailSelector: "#ra-detail",
+      touch: width < 800
+    });
 
     await page.locator(
       '[data-theme-choice="light"]'
