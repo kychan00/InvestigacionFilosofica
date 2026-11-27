@@ -2,8 +2,7 @@
 // The Spanish UI displays a canonical name while retaining source metadata.
 const authorities=[
   {qid:"Q859",displayName:"Platón",aliases:["Platón","Plato","Plato Plato","Πλάτων"],searchNames:["Platón","Plato"],description:"Filósofo griego de la Antigüedad",wiki:"Platón"},
-  {qid:"Q868",displayName:"Aristóteles",aliases:["Aristóteles","Aristotle","Aristoteles","Aristotle Aristotle","Ἀριστοτέλης"],searchNames:["Aristóteles","Aristotle"],description:"Filósofo griego de la Antigüedad",wiki:"Aristóteles"},
-  {qid:"Q913",displayName:"Sócrates",aliases:["Sócrates","Socrates","Socrates Socrates","Sokrates","Σωκράτης"],searchNames:["Sócrates","Socrates"],description:"Filósofo griego de la Antigüedad",wiki:"Sócrates"}
+  {qid:"Q868",displayName:"Aristóteles",aliases:["Aristóteles","Aristotle","Aristoteles","Aristotle Aristotle","Ἀριστοτέλης"],searchNames:["Aristóteles","Aristotle"],description:"Filósofo griego de la Antigüedad",wiki:"Aristóteles"}
 ];
 const key=value=>String(value||"").normalize("NFKD").replace(/\p{M}/gu,"").toLowerCase().replace(/\s+/g," ").trim();
 export function classicalAuthority(value) {
@@ -11,7 +10,7 @@ export function classicalAuthority(value) {
   return authorities.find(a=>a.aliases.some(alias=>key(alias)===name))||null;
 }
 export function classicalAuthorAuthority(author) {
-  if(!author || author.orcid || author.orcidId) return null;
+  if(!author || author.orcid || author.orcidId || (!author.id&&!author.wikidataId)) return null;
   const visible=classicalAuthority(author.displayName);
   const source=classicalAuthority(author.sourceDisplayName||author.displayName);
   if(!visible||visible!==source||(author.wikidataId&&author.wikidataId!==visible.qid))return null;
