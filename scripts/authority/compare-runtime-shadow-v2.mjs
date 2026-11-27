@@ -30,25 +30,40 @@ export function adaptRecordedCase(c,datasetRevision){
  }
  return {subjectRef,scope,datasetRevision,candidateRefs:candidates.map(x=>x.ref),evidence};
 }
-export function compareRuntimeShadow(fixture){
+export function compareRuntimeShadow(fixture,reviewed=null){
+ if(reviewed&&(reviewed.schemaVersion!=="authority-reviewed-replay-v2"||!Array.isArray(reviewed.cases)||!reviewed.reviewedOn))throw Error("Invalid reviewed evidence");
+ const overlays=new Map((reviewed?.cases||[]).map(c=>[c.id,c]));
+ if(overlays.size!==(reviewed?.cases||[]).length||[...overlays.keys()].some(id=>!fixture.cases.some(c=>c.id===id)))throw Error("Unknown or duplicate reviewed case");
  const baseline=runRuntimeBaseline(fixture);
  const byId=new Map(baseline.results.map(r=>[r.id,r]));
  const results=fixture.cases.map(c=>{
   const {expected,kind,sources,...record}=c;
   const context=adaptRecordedCase(record,fixture.base);
   const {decision,evaluations}=resolveAuthorityV2(context);
-  return {id:c.id,task:c.task,kind,expected,legacy:byId.get(c.id).actual,actual:label(decision.status),status:decision.status,decision,evaluations,evidence:context.evidence};
+  const overlay=overlays.get(c.id);
+  let enriched=null;
+  if(overlay){
+   if(kind!=="documented"||JSON.stringify(overlay.record)!==JSON.stringify(record)||context.candidateRefs.length!==1||!Array.isArray(overlay.assertions)||!overlay.assertions.length)throw Error("Reviewed evidence binding mismatch: "+c.id);
+   const additions=overlay.assertions.map((a,i)=>({...a,schemaVersion:EVIDENCE_SCHEMA,id:context.subjectRef+":reviewed:"+i,subjectRef:context.subjectRef,objectRef:context.candidateRefs[0],scope:context.scope,revision:reviewed.reviewedOn}));
+   const allEvidence=[...context.evidence,...additions];
+   const outcome=resolveAuthorityV2({...context,evidence:allEvidence});
+   enriched={actual:label(outcome.decision.status),decision:outcome.decision,evaluations:outcome.evaluations,evidence:allEvidence};
+  }
+  return {id:c.id,task:c.task,kind,expected,legacy:byId.get(c.id).actual,actual:label(decision.status),status:decision.status,decision,evaluations,evidence:context.evidence,enriched};
  });
  const byTask=Object.fromEntries(["identity","contribution","orcid"].map(task=>{
   const rows=results.filter(r=>r.task===task);
   return [task,{legacy:measure(rows.map(r=>({...r,actual:r.legacy}))),shadow:measure(rows)}];
  }));
- return {schemaVersion:"authority-runtime-shadow-v2",base:fixture.base,scope:"reconstructed raw-record replay; no externally verified assertions supplied; not representative accuracy",byTask,results,changed:results.filter(r=>r.legacy!==r.actual).length};
+ const reviewedRows=results.filter(r=>r.enriched);
+ const reviewedComparison={count:reviewedRows.length,legacy:measure(reviewedRows.map(r=>({...r,actual:r.legacy}))),raw:measure(reviewedRows),enriched:measure(reviewedRows.map(r=>({...r,actual:r.enriched.actual})))};
+ return {schemaVersion:"authority-runtime-shadow-v2",base:fixture.base,reviewedComparison,scope:"reconstructed raw-record replay; no externally verified assertions supplied; not representative accuracy",byTask,results,changed:results.filter(r=>r.legacy!==r.actual).length};
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const fixture=JSON.parse(await readFile(new URL("../../benchmark/author-authority/v2/runtime-regressions.json",import.meta.url),"utf8"));
- const report=compareRuntimeShadow(fixture);
+ const reviewed=JSON.parse(await readFile(new URL("../../benchmark/author-authority/v2/reviewed-replay-evidence.json",import.meta.url),"utf8"));
+ const report=compareRuntimeShadow(fixture,reviewed);
  const out=resolve(process.argv[2]||"artifacts/author-authority-v2/runtime-shadow.json");
  await mkdir(dirname(out),{recursive:true});await writeFile(out,JSON.stringify(report,null,2)+"\n");
- console.log(JSON.stringify({changed:report.changed,byTask:report.byTask},null,2));
+ console.log(JSON.stringify({changed:report.changed,byTask:report.byTask,reviewedComparison:report.reviewedComparison},null,2));
 }
