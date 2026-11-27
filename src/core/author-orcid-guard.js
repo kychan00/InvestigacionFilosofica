@@ -38,13 +38,13 @@ export function profileMatchesOrderedAuthor(author,profile){
   return names.includes(expected);
 }
 export function removeRejectedWorkOrcid(work,author){
-  if(!work||!author?.orcidConflict)return work;
+  if(!work)return work;
   const clean=person=>{
     if(!person||typeof person!=="object")return person;
-    const name=person.name||person.displayName||author.displayName;
+    const name=person.name||person.displayName||author?.displayName;
     return rejectedAuthorOrcid(name,person.orcid||person.orcidId)
       ? {...person,orcid:null,orcidId:null}:person;
   };
-  return {...work,authors:(work.authors||[]).map(clean),
+  return {...work,...(Array.isArray(work.authors)?{authors:work.authors.map(clean)}:{}),
     ...(work.authorIdentity?{authorIdentity:clean(work.authorIdentity)}:{})};
 }
