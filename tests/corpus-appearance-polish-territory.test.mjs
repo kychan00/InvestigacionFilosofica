@@ -56,7 +56,7 @@ test("Territorio editorial: claro y oscuro cumplen contraste AA en texto y CTA",
 
 test("Territorio editorial no se filtra a otro tema ni a páginas fuera de index", async () => {
   const [css, html] = await Promise.all([load(sheet), load("index.html")]);
-  const linked = "css/corpus-appearance-polish-territory.css?v=20261126-territory-kant-v2";
+  const linked = "css/corpus-appearance-polish-territory.css?v=20261126-territory-kant-v3";
   assert.equal(html.split(linked).length - 1, 1);
   assert.ok(html.indexOf(linked) > html.indexOf("css/corpus-appearance-author-atlas.css"));
   assert.doesNotMatch(css, /data-corpus-shell="(?:marginalia|observatory|default)"/);
@@ -141,4 +141,13 @@ test("Territorio: retrato de Kant local, histórico y aislado de las identidades
   assert.match(art, /@media \(forced-colors: active\)/);
   assert.match(art, /@media print/);
   assert.doesNotMatch(art, /data-corpus-shell="(?:default|marginalia|observatory)"|@keyframes|@import|touch-action|scroll-behavior/);
+});
+
+
+test("Territorio: el retrato y el índice del expediente superan la especificidad del tema genérico", async () => {
+  const css = await load(sheet);
+  const art = css.slice(css.indexOf("/* TERRITORY KANT PORTRAIT START"));
+  const selectors = art.match(/html\[data-theme\]\[data-corpus-shell="territory"\] body\.author-view \.author-work-grid \.result-card \.result-visual\s*\{/g) || [];
+  assert.equal(selectors.length, 4, "Desktop, mobile, forced colors and print must override the shared author card");
+  assert.match(art, /html\[data-theme\]\[data-corpus-shell="territory"\] body\.author-view \.author-work-grid \.result-card :is\(\.result-initial, \.result-rank, \.result-visual-caption\)\s*\{\s*color: var\(--territory-art-ink\) !important;/);
 });

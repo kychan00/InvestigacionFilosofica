@@ -57,3 +57,7 @@ Se añade el grabado en acero **Immanuel Kant**, de J. L. Raab según Döbler, a
 - Playwright comprueba decodificación local real, presencia en portada, tarjetas y ficha, y ausencia en los otros tres temas. Se conservan las capturas existentes a 390 y 1280 px.
 
 El flujo temporal de descarga queda eliminado del árbol final. No se modifican las fuentes bibliográficas, Firebase, los algoritmos del Atlas ni los demás temas.
+
+### Corrección de la cascada en el expediente de autor
+
+La regresión Playwright detectó que la regla genérica `html[data-corpus-shell]:not([data-corpus-shell="default"])` de la fase 4 sobrescribía el fondo del retrato en las tarjetas de obras del expediente. Se iguala su especificidad con `[data-theme]` en los selectores exclusivos de Territorio, tanto en escritorio y móvil como en alto contraste e impresión. Se protege también el color del índice sobre el grabado y se comprueban su visibilidad y el tamaño positivo de la miniatura. No se cambian las reglas genéricas ni los otros temas.

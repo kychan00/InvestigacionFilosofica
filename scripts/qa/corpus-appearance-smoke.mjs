@@ -499,9 +499,21 @@ try {
         document.body.classList.add("author-view");
         document.querySelector("#results").innerHTML = html;
       }, author);
-      const kantAuthor = await page.evaluate(() => getComputedStyle(
-        document.querySelector(".author-work-grid .result-visual")).backgroundImage);
-      assert.equal(kantAuthor.includes("territory-kant.jpg"), shell === "territory");
+      const kantAuthor = await page.evaluate(() => {
+        const tile = document.querySelector(".author-work-grid .result-visual");
+        const rank = tile.querySelector(".result-rank");
+        const rect = tile.getBoundingClientRect();
+        return { image: getComputedStyle(tile).backgroundImage,
+          rank: getComputedStyle(rank).color, width: rect.width, height: rect.height,
+          rankDisplay: getComputedStyle(rank).display };
+      });
+      assert.equal(kantAuthor.image.includes("territory-kant.jpg"), shell === "territory",
+        "Author bookplate must follow active theme: " + JSON.stringify({ width, mode, shell, kantAuthor }));
+      if (shell === "territory") {
+        assert.equal(kantAuthor.rank, mode === "light" ? "rgb(247, 243, 231)" : "rgb(247, 241, 227)",
+          "Rank must retain readable ink over the author portrait");
+        assert.ok(kantAuthor.width > 0 && kantAuthor.height > 0 && kantAuthor.rankDisplay !== "none");
+      }
       const archive = await page.evaluate(() => {
         const root = document.querySelector(".author-page");
         const scroll = document.querySelector(".author-timeline-periods");
