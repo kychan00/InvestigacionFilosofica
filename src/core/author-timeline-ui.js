@@ -1,3 +1,4 @@
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v1";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
 import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v2";
 import {
@@ -79,6 +80,9 @@ function renderTimeline(root, works, state, options) {
   }
   heading.append(text, modes);
   root.append(heading);
+
+  const biography=buildIntellectualHistoryPanel(author,state);
+  if(biography)root.append(biography);
 
   const coverage = el("div", "author-timeline-coverage");
   coverage.setAttribute("role", "status");
