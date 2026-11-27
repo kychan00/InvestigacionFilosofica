@@ -284,8 +284,8 @@ export async function resolveFederatedAuthor(name,options={}) {
   const observedOrcids=[...new Set(matches
     .map(work=>orcid(work.matchedAuthor?.orcid||work.matchedAuthor?.id))
     .filter(Boolean))];
-  const observed=orcid(options.orcid) ||
-    (observedOrcids.length===1?observedOrcids[0]:null);
+  const observed=reviewed?.strict ? null : (orcid(options.orcid) ||
+    (observedOrcids.length===1?observedOrcids[0]:null));
   const catalogSources=[...new Set(matches.flatMap(work=>work.providers||[]))];
   const corroborated=reviewedAuthorEvidence({displayName:original,sourceDisplayName:original,orcid:observed},matches);
   return {
