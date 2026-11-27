@@ -1,0 +1,51 @@
+/* Inline library actions; never use the absolute positioning of result bookmarks. */
+.detail-save-actions {
+  --detail-save-ink: var(--corpus-ink, var(--theme-text, #161616));
+  --detail-save-surface: var(--corpus-surface, var(--theme-surface, #fff));
+  --detail-save-line: color-mix(in srgb, var(--detail-save-ink) 22%, transparent);
+  color: var(--detail-save-ink);
+  min-width: 0;
+}
+#record-modal .record-save-actions {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
+  gap: 12px 20px;
+  padding: clamp(16px, 3vw, 26px);
+  background: var(--detail-save-surface);
+  border-bottom: 1px solid var(--detail-save-line);
+}
+.detail-save-heading { display:grid; gap:5px; min-width:0; }
+.detail-save-heading > span { font: 650 11px/1.4 ui-monospace,monospace; letter-spacing:.08em; }
+.detail-save-heading > small { font-size:13px; line-height:1.45; }
+.detail-save-authors { grid-column:1/-1; display:grid; gap:6px; }
+.detail-save-author-row {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  gap:8px 16px; padding:9px 0; border-top:1px solid var(--detail-save-line);
+  min-width:0;
+}
+.detail-save-author-name { flex:1 1 12rem; min-width:0; overflow-wrap:anywhere; font-size:14px; font-weight:600; }
+.detail-save-actions .detail-save-button {
+  position:static; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  width:auto; height:auto; min-height:44px; min-width:44px; max-width:100%;
+  padding:9px 14px; border-radius:5px; box-shadow:none; backdrop-filter:none;
+  font:600 13px/1.3 system-ui,sans-serif;
+  color:var(--detail-save-ink); background:transparent; border:1px solid var(--detail-save-line);
+  cursor:pointer; white-space:normal; text-align:center;
+}
+.detail-save-actions .detail-save-button svg { width:18px; height:18px; flex:0 0 18px; }
+.detail-save-actions .detail-save-button.is-saved {
+  color:var(--detail-save-ink); background:color-mix(in srgb,var(--detail-save-ink) 12%,var(--detail-save-surface));
+  border-color:var(--detail-save-ink);
+}
+.detail-save-actions .detail-save-button:focus-visible { outline:2px solid currentColor; outline-offset:2px; }
+.detail-save-actions .detail-save-active { display:none; }
+.detail-save-actions .is-saved .detail-save-idle { display:none; }
+.detail-save-actions .is-saved .detail-save-active { display:inline; }
+.author-page-save-actions { margin:16px 0 20px; }
+@media(max-width:600px) {
+  #record-modal .record-save-actions { grid-template-columns:minmax(0,1fr); gap:12px; }
+  .detail-save-work .detail-save-button { width:100%; }
+  .detail-save-author-row { align-items:stretch; }
+  .detail-save-author-row .detail-save-button { flex:1 0 auto; }
+}
