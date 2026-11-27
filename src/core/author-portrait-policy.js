@@ -118,6 +118,16 @@ function licenseFor(value) {
   if (!m) return null;
   return {label:"CC BY"+(m[1]?"-SA":"")+" "+m[2],url:"https://creativecommons.org/licenses/by"+(m[1]?"-sa":"")+"/"+m[2]+"/",creditRequired:true};
 }
+// Commons currently returns both the original upload host and its official
+// thumbnail host. Never accept arbitrary subdomains, redirects or other wikis.
+function allowedMediaURL(value) {
+  let url;
+  try { url = new URL(value); } catch { return null; }
+  if (url.protocol !== "https:" || url.username || url.password || url.port) return null;
+  if (url.hostname === "upload.wikimedia.org" && url.pathname.startsWith("/wikipedia/commons/")) return url;
+  if (url.hostname === "thumb.wikimedia.org" && url.pathname.startsWith("/wikipedia/commons/thumb/")) return url;
+  return null;
+}
 export function commonsPortrait(page, entityId) {
   const info = page?.imageinfo?.[0];
   if (!info || !qid(entityId) || !/^File:.{1,300}$/i.test(page.title || "")) return null;
@@ -131,10 +141,8 @@ export function commonsPortrait(page, entityId) {
   const height = Number(thumbnail ? info.thumbheight : info.height);
   if (!(width > 0 && height > 0 && width <= PORTRAIT_MAX_SIDE && height <= PORTRAIT_MAX_SIDE)) return null;
   if (!MIME.has(info.thumbmime || info.mime)) return null;
-  let url;
-  try { url = new URL(info.thumburl || info.url); } catch { return null; }
-  if (url.protocol !== "https:" || url.hostname !== "upload.wikimedia.org" || url.username || url.password || url.port ||
-      !url.pathname.startsWith("/wikipedia/commons/")) return null;
+  const url = allowedMediaURL(info.thumburl || info.url);
+  if (!url) return null;
   if (!thumbnail && !(Number(info.size)>0 && Number(info.size)<=PORTRAIT_MAX_BYTES)) return null;
   return { url:url.href, width, height, license, credit:credit || "Autoría no indicada en la fuente",
     title:plain(page.title.replace(/^File:/i,"")), source:"https://commons.wikimedia.org/wiki/"+encodeURIComponent(page.title.replace(/ /g,"_")),
@@ -148,13 +156,15 @@ export async function resolveAuthorPortrait(identity, {fetcher = fetch, signal} 
   // Avoid choosing among conflicting preferred portraits automatically.
   if (files.length !== 1) return null;
   const payload = await json(fetcher, apiURL(COMMONS,{action:"query", titles:"File:"+files[0], prop:"imageinfo",
-    iiprop:"url|size|mime|extmetadata|thumbmime", iiurlwidth:"320", iiurlheight:"480", iiextmetadatalanguage:"en",
+    iiprop:"url|size|mime|extmetadata|thumbmime", iiurlwidth:"220", iiurlheight:"320", iiextmetadatalanguage:"en",
     iiextmetadatafilter:"LicenseShortName|Artist|Credit|Attribution|Restrictions|Copyrighted"}), signal);
   const pages = Object.values(payload.query?.pages || {});
   return pages.length === 1 ? commonsPortrait(pages[0],entity.id) : null;
 }
 export async function downloadPortrait(meta, {fetcher=fetch,signal}={}) {
-  const res = await fetcher(meta.url, {signal,cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer",redirect:"error"});
+  const url = allowedMediaURL(meta?.url);
+  if (!url) throw new Error("Portrait host outside media policy");
+  const res = await fetcher(url.href, {signal,cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer",redirect:"error"});
   if (!res.ok) throw new Error("Portrait download failed");
   const type = (res.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
   if (!MIME.has(type) || Number(res.headers.get("content-length")) > PORTRAIT_MAX_BYTES || !res.body?.getReader)

@@ -84,3 +84,21 @@ test("timeout cancels and frees the pending URL immediately, without restarting 
  finish({width:10,height:10});await Promise.all([task,repeated]);manager.close();
  assert.deepEqual(revoked,["blob:timeout"]);
 });
+
+
+test("accept real Commons thumbnail CDN while enforcing exact host, path, HTTPS and byte limits",async()=>{
+ const actual="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Jakob_Schlesinger_-_Hegel_1831.jpg/330px-Jakob_Schlesinger_-_Hegel_1831.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail";
+ const fixture=file({LicenseShortName:{value:"Public domain"}});
+ fixture.imageinfo[0].thumburl=actual;
+ const meta=commonsPortrait(fixture,"Q9235");
+ assert.equal(meta.url,actual);
+ assert.equal(meta.license.label,"Dominio público");
+ let fetched=false;
+ await downloadPortrait(meta,{fetcher:async(url,opts)=>{fetched=true;assert.equal(url,actual);assert.equal(opts.redirect,"error");assert.equal(opts.cache,"no-store");return new Response(new Uint8Array(3),{headers:{"content-type":"image/jpeg"}});}});
+ assert.ok(fetched);
+ for(const bad of [actual.replace("thumb.wikimedia.org","thumb.wikimedia.org.evil.test"),actual.replace("https:","http:"),actual.replace("/commons/thumb/","/en/thumb/"),actual.replace("thumb.wikimedia.org","evil@thumb.wikimedia.org"),actual.replace("thumb.wikimedia.org","thumb.wikimedia.org:8443"),actual.replace("/commons/thumb/","/commons/")]){
+  fixture.imageinfo[0].thumburl=bad;
+  assert.equal(commonsPortrait(fixture,"Q9235"),null,bad);
+  await assert.rejects(downloadPortrait({url:bad},{fetcher:async()=>{throw Error("must not fetch");}}),/host outside/);
+ }
+});

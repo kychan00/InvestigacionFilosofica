@@ -22,7 +22,7 @@ try {
       entry.entities=Object.values(data.entities||{}).map(x=>({id:x.id,orcid:(x.claims?.P496||[]).map(c=>c.mainsnak?.datavalue?.value),openalex:(x.claims?.P10283||[]).map(c=>c.mainsnak?.datavalue?.value),image:(x.claims?.P18||[]).map(c=>({rank:c.rank,file:c.mainsnak?.datavalue?.value}))}));
      }else if(action==="query"){
       const data=await response.clone().json();
-      entry.files=Object.values(data.query?.pages||{}).map(x=>({title:x.title,license:x.imageinfo?.[0]?.extmetadata?.LicenseShortName?.value,restrictions:x.imageinfo?.[0]?.extmetadata?.Restrictions?.value,width:x.imageinfo?.[0]?.thumbwidth,height:x.imageinfo?.[0]?.thumbheight,url:x.imageinfo?.[0]?.thumburl}));
+      entry.files=Object.values(data.query?.pages||{}).map(x=>({title:x.title,license:x.imageinfo?.[0]?.extmetadata?.LicenseShortName?.value,restrictions:x.imageinfo?.[0]?.extmetadata?.Restrictions?.value,copyrighted:x.imageinfo?.[0]?.extmetadata?.Copyrighted?.value,mime:x.imageinfo?.[0]?.mime,thumbmime:x.imageinfo?.[0]?.thumbmime,width:x.imageinfo?.[0]?.thumbwidth,height:x.imageinfo?.[0]?.thumbheight,url:x.imageinfo?.[0]?.thumburl}));
      }
      trace.push(entry);return response;
     }catch(error){trace.push({host:u.hostname,action,error:String(error)});throw error;}

@@ -5,6 +5,8 @@ on:
     paths:
       - '.github/workflows/siva-live-provider.yml'
       - 'scripts/qa/author-portrait-live-smoke.mjs'
+      - 'src/core/author-portrait-policy.js'
+      - 'js/author-portrait-session.js'
 permissions:
   contents: read
 jobs:

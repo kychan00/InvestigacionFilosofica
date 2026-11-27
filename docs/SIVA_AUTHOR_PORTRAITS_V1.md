@@ -19,3 +19,7 @@ Pruebas unitarias deterministas de homónimos, licencias, metadatos, límites y 
 ### Refinamiento de memoria
 
 La URL Blob provisional se revoca inmediatamente al cerrar o vencer el presupuesto, incluso si la decodificación no ha terminado. Una consulta agotada no se vuelve a lanzar por los renderizados repetidos del mismo expediente; se permite otra búsqueda al reabrirlo. La consulta exacta P10283 utiliza la forma minúscula habitual de Wikidata.
+
+### CDN de miniaturas
+
+La primera prueba externa obtuvo HTTP 200 de Wikidata y Commons para Kant, Hegel y Sócrates. Commons devolvió miniaturas en `thumb.wikimedia.org`, además del dominio histórico `upload.wikimedia.org`. Se admite exclusivamente HTTPS y rutas Commons de ambos dominios exactos, con rechazo de redirecciones, credenciales, puertos alternativos y hosts parecidos. Se solicita una miniatura de 220 × 320 como margen para los tamaños discretos del CDN, manteniendo el límite efectivo de 480 px por lado y 256 KiB. La prueba de navegador continúa exigiendo descarga y decodificación reales; no se reduce su exigencia.
