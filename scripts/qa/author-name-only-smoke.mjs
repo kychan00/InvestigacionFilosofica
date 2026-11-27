@@ -18,13 +18,13 @@ const candidate={s:authorNameSignature(name),id:Number(authorId),
 const linkedCandidate={s:authorNameSignature(name),id:Number(linkedId),
   n:"Marina Hernández López",o:orcid,cw:2,w:2,c:0,k:"given-first-family"};
 const works=[
-  ["101","Teoría crítica y filosofía",2020],
+  ["101","Critical Theory and Philosophy",2020],
   ["102","Adorno y la dialéctica",2021],
   ["103","Filosofía feminista",2023],
   ["104","Resistencia y pensamiento crítico",2024]
 ].map(([wid,t,y],index)=>({
   id:Number(index<2?authorId:linkedId),
-  wid:Number(wid),t,y,l:"es",ty:"article",
+  wid:Number(wid),t,y,l:index===0?"en":"es",ty:"article",
   co:index===0||index===3?1:0
 }));
 
@@ -127,6 +127,17 @@ try{
     "Profile must not use OpenAlex API tokens");
   const titles=await page.locator(".author-work-grid .result-card h2").allTextContents();
   for(const entry of works)assert.ok(titles.some(x=>x.includes(entry.t)));
+  // Spanish editions remain directly accessible even with mixed-language
+  // catalogues. Check the real browser control, not just the markup.
+  const spanish=page.locator('[data-author-work-language="es"]');
+  await spanish.click();
+  await page.waitForFunction(()=>document.querySelectorAll(".author-work-grid .result-card").length===3);
+  assert.equal(await spanish.getAttribute("aria-pressed"),"true");
+  assert.ok(!(await page.locator(".author-work-grid .result-card h2").allTextContents()).some(t=>t.includes("Critical Theory and Philosophy")));
+  await page.locator('[data-author-work-language=""]').click();
+  await page.waitForFunction(()=>document.querySelectorAll(".author-work-grid .result-card").length===4);
+  assert.equal(await page.locator('[data-author-work-language=""]').getAttribute("aria-pressed"),"true");
+
   await page.waitForFunction(()=>
     document.querySelector(".author-collaboration-summary")?.textContent.includes("María Pérez"),
     null,{timeout:15000});
