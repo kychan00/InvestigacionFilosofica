@@ -6,6 +6,8 @@ on:
       - "benchmark/author-authority/**"
       - "src/core/author-authority-benchmark.js"
       - "src/core/author-authority-shadow-v2.js"
+      - "src/core/author-authority-bibliography-v2.js"
+      - "src/core/remote-author-resolution.js"
       - "src/core/author-authority-resolution-v2.js"
       - "src/core/author-authority-evidence-v2.js"
       - "scripts/authority/run-shadow-v2.mjs"

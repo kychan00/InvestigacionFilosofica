@@ -4,6 +4,11 @@ on:
     paths:
       - "benchmark/author-authority/v2/**"
       - "src/core/author-authority-evidence-v2.js"
+      - "src/core/author-authority-bibliography-v2.js"
+      - "src/core/author-deep-discovery.js"
+      - "src/core/remote-author-resolution.js"
+      - "src/core/crossref-author-fallback.js"
+      - "tests/author-authority-bibliography-v2.test.mjs"
       - "src/core/author-authority-resolution-v2.js"
       - "src/core/author-authority-resolution.js"
       - "src/core/author-federated-matching.js"
@@ -31,6 +36,8 @@ jobs:
         run: node --test tests/author-authority-v2-phase1.test.mjs
       - name: Test V2 decision engine
         run: node --test tests/author-authority-resolution-v2.test.mjs
+      - name: Test V2 bibliography integration
+        run: node --test tests/author-authority-bibliography-v2.test.mjs
       - name: Measure legacy runtime baseline
         run: node scripts/authority/audit-runtime-v2.mjs
       - name: Test shadow isolation and comparison

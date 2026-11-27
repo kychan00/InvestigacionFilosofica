@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {evaluateBibliographicRecord,evaluateBibliographicBatches} from "../src/core/author-authority-bibliography-v2.js";
-import {discoverAuthorArchive} from "../src/core/author-deep-discovery.js";
+import {discoverAuthorArchive,fetchAuthorWorksFromSnapshot} from "../src/core/author-deep-discovery.js";
 import {resolveFederatedAuthor} from "../src/core/crossref-author-fallback.js";
 const datasetRevision="hf-fixture";
 const author={id:"123",displayName:"Ana Pérez",orcid:"0000-0002-1825-0097"};
@@ -64,4 +64,32 @@ test("opt-in discovery uses same providers, keeps legacy output and performs no 
  assert.equal("authorityShadow" in baseline,false);
  assert.equal(shadow.authorityShadow.counts.probable,1);
  assert.equal(shadow.authorityShadow.counts.unresolved,1);
+});
+
+
+test("snapshot captures distinct memberships before deduplication and ignores synthetic identifiers",async()=>{
+ const make=id=>w("OpenAlex Philosophy","https://openalex.org/W100",[{name:"Ana Pérez",id:"A"+id,orcid:author.orcid}],{snapshotMembership:{authorId:id,workId:"100",position:"first",synthesizedCreator:true}});
+ const batches=[];
+ const result=await fetchAuthorWorksFromSnapshot({authorId:"123",linkedAuthorIds:["456"],displayName:"Ana Pérez",enrichCollaborators:false,resolverImpl:async candidate=>({status:"resolved",author:{corpusWorks:1},works:[make(String(candidate.id))]}),onSourceBatch:b=>batches.push(structuredClone(b))});
+ assert.equal(result.works.length,1);
+ assert.equal(batches[0].works.length,2);
+ const shadow=evaluateBibliographicBatches({author,batches,datasetRevision});
+ assert.equal(shadow.rows.length,2);
+ assert.notEqual(shadow.rows[0].record.ref,shadow.rows[1].record.ref);
+ assert.deepEqual(shadow.rows.map(r=>r.contributions[0].decision.status),["probable","unresolved"]);
+ assert.deepEqual(shadow.rows[0].contributions[0].evidence.map(e=>e.kind),["snapshot-author-membership"]);
+});
+test("capture failure stays in V2 diagnostics and does not suppress legacy work",async()=>{
+ const work=w("Crossref","x",[{name:"Ana Pérez"}],{uncloneable:()=>{}});
+ const options={author:{displayName:"Ana Pérez"},federatedImpl:async(n,o)=>{o.onSourceBatch?.({provider:"Crossref",works:[work]});return {status:"resolved",works:[work]};}};
+ const base=await discoverAuthorArchive(options);
+ const shadow=await discoverAuthorArchive({...options,authorityShadowRevision:datasetRevision});
+ assert.deepEqual(shadow.works,base.works);
+ assert.deepEqual(shadow.errors,base.errors);
+ assert.equal(shadow.authorityShadow.diagnostics[0].reason,"capture-failed");
+});
+test("throwing observer does not turn a successful provider into a failed one",async()=>{
+ const records=[w("Crossref","x",[{name:"Ana Pérez"}])];
+ const result=await resolveFederatedAuthor("Ana Pérez",{disableInternetArchive:true,disableCucsh:true,crossrefSearchImpl:async()=>records,onSourceBatch:()=>{throw Error("observer");}});
+ assert.equal(result.status,"resolved");assert.equal(result.works.length,1);
 });

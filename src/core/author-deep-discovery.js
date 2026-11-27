@@ -182,7 +182,8 @@ export async function fetchAuthorWorksFromSnapshot({
   resolverImpl=resolveRemoteAuthorCandidate,
   collaboratorsImpl=enrichAuthorWorksWithCollaborators,
   enrichCollaborators=true,
-  indexOptions={}
+  indexOptions={},
+  onSourceBatch
 }={}) {
   const id=authorId(requestedId);
   if(!id) return {works:[],total:null,complete:false,pages:0,reason:"no-id"};
@@ -198,7 +199,9 @@ export async function fetchAuthorWorksFromSnapshot({
   const successful=responses.filter(response=>response?.status==="resolved");
   if(!successful.length)
     return {works:[],total:null,complete:false,pages:0,reason:"index-unavailable"};
-  let works=mergeAuthorArchives([],successful.flatMap(x=>x.works||[]))
+  const rawWorks=successful.flatMap(x=>x.works||[]);
+  try { onSourceBatch?.({provider:"OpenAlex Philosophy",works:rawWorks}); } catch {}
+  let works=mergeAuthorArchives([],rawWorks)
     .slice(0,limit);
   const total=successful.reduce((sum,response)=>
     sum+Math.max(0,Number(response.author?.corpusWorks||0)),0);
@@ -245,9 +248,14 @@ export async function discoverAuthorArchive({
   const id=authorId(author?.id);
   const requestedOrcid=normalizedAuthorOrcid(author?.orcid);
   const shadowBatches=[];
+  const shadowDiagnostics=[];
   const capture=(provider,rows)=>{
     if(!authorityShadowRevision)return;
-    shadowBatches.push({provider,works:structuredClone(Array.isArray(rows)?rows:[])});
+    try {
+      shadowBatches.push({provider,works:structuredClone(Array.isArray(rows)?rows:[])});
+    } catch(error) {
+      shadowDiagnostics.push({provider,reason:"capture-failed",message:String(error?.message||error)});
+    }
   };
   let orcid=requestedOrcid;
   const linkedAuthorIds=Array.isArray(author?.linkedAuthorIds)
@@ -304,11 +312,19 @@ export async function discoverAuthorArchive({
   if(id) {
     jobs.push((async()=>{
       try {
+        let snapshotCaptured=false;
         const result=await snapshotImpl({
           authorId:id,displayName:name,orcid,linkedAuthorIds:requestedOrcid&&!orcid?[]:linkedAuthorIds,
-          signal,...snapshotOptions
+          signal,...snapshotOptions,
+          ...(authorityShadowRevision?{onSourceBatch:batch=>{
+            snapshotCaptured=true;
+            capture(batch.provider,batch.works);
+          }}:{})
         });
-        capture("OpenAlex Philosophy",result.works);
+        if(authorityShadowRevision&&!snapshotCaptured&&snapshotImpl!==fetchAuthorWorksFromSnapshot){
+          shadowDiagnostics.push({provider:"OpenAlex Philosophy",reason:"compatibility-postmerge-capture"});
+          capture("OpenAlex Philosophy",result.works);
+        }
         works=mergeAuthorArchives(works,result.works||[]);
         snapshotComplete=Boolean(result.complete);
         snapshotTotal=result.total;
@@ -405,7 +421,8 @@ export async function discoverAuthorArchive({
   if(authorityShadowRevision){
     // Diagnostics only: the legacy archive must never depend on V2.
     try{authorityShadow=evaluateBibliographicBatches({author,batches:shadowBatches,datasetRevision:authorityShadowRevision,registryOrcid:orcidVerification==="verified"?orcid:null});}
-    catch(error){authorityShadow={error:String(error.message||error)};}
+    catch(error){authorityShadow={error:String(error?.message||error)};}
+    authorityShadow.diagnostics=shadowDiagnostics;
   }
   return {
     ...(authorityShadowRevision?{authorityShadow}:{}),

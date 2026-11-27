@@ -674,6 +674,10 @@ async function authorWorks(
           Math.max(90, 100 - index * 0.2),
         relevanceLevel: "Autor",
         retrievalMode: "author-index",
+        snapshotMembership: {
+          authorId: String(row.id), workId: String(row.wid),
+          position: row.p || null, synthesizedCreator: true
+        },
         authorPosition: row.p || null,
         coauthorCount: row.co !== null && row.co !== undefined && Number.isInteger(Number(row.co)) ? Number(row.co) : null,
         ranking: {
