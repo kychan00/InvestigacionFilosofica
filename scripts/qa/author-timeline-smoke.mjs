@@ -80,6 +80,78 @@ try {
     assert.deepEqual(await eras.allTextContents(),["Periodo colonial","Independencias y formación republicana","Construcción nacional","Periodo contemporáneo"]);
     await geometry();
     if(width===390||width===1280)await page.screenshot({path:"artifacts/author-timeline/latin-"+mode+"-"+width+".png",animations:"disabled"});
+    // Exercise the actual chronology renderer across all profile shells,
+    // including long unbroken titles and provenance labels.
+    await page.evaluate(()=>window.__timelineFixture(
+      {wikidataId:"Q1",biography:"filósofa mexicana"},
+      [{title:"Una investigación sobre las condiciones históricas de posibilidad de la filosofía latinoamericana",year:1810,type:"Capítulo de libro y contribución académica",providers:["OpenAlex Philosophy","Internet Archive","Proveedor"+ "X".repeat(90)]},
+       {title:"Obra"+ "L".repeat(160),year:1820,type:"Monografía"},
+       {title:"Otra obra",year:1890,type:"Artículo"},
+       {title:"Edición crítica",year:2020,type:"Libro"}]
+    ));
+    const paletteSignatures=new Set();
+    for(const shell of ["default","territory","marginalia","observatory"]){
+      await page.evaluate(shell=>{document.documentElement.dataset.corpusShell=shell;},shell);
+      await geometry();
+      const audit=await page.evaluate(()=>{
+        const root=document.querySelector("#author-timeline-root");
+        const rs=getComputedStyle(root);
+        const selectors=[".author-timeline-entry-date",".author-timeline-work-name",".author-timeline-work-type",".author-timeline-provenance > span",".author-timeline-era-header h3",".author-timeline-modes button",".author-timeline-stat span"];
+        const issues=[];
+        const canvas=document.createElement("canvas");
+        canvas.width=canvas.height=1;
+        const ctx=canvas.getContext("2d",{willReadFrequently:true});
+        const rgba=value=>{
+          ctx.clearRect(0,0,1,1);
+          ctx.fillStyle="#000";
+          ctx.fillStyle=value;
+          ctx.fillRect(0,0,1,1);
+          return [...ctx.getImageData(0,0,1,1).data];
+        };
+        const lum=v=>v.slice(0,3).reduce((s,c,i)=>{const n=c/255;return s+(n<=.04045?n/12.92:((n+.055)/1.055)**2.4)*[.2126,.7152,.0722][i];},0);
+        const ratio=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
+        for(const selector of selectors){
+          const matches=[...root.querySelectorAll(selector)];
+          if(!matches.length)issues.push("Missing "+selector);
+          for(const e of matches){
+            const r=e.getBoundingClientRect(), style=getComputedStyle(e);
+            const container=e.closest(".author-timeline-work,.author-timeline-era-header,.author-timeline-stat,.author-timeline-modes");
+            const b=container?.getBoundingClientRect();
+            if(b&&(r.left<b.left-1||r.right>b.right+1||r.top<b.top-1||r.bottom>b.bottom+1))issues.push("Outside parent: "+selector);
+            if(e.scrollWidth>e.clientWidth+2)issues.push("Overflow: "+selector);
+            if(parseFloat(style.fontSize)<11)issues.push("Small label: "+selector);
+            let bg=rgba(rs.getPropertyValue("--tl-surface").trim());
+            for(let p=e;p;p=p.parentElement){
+              const color=rgba(getComputedStyle(p).backgroundColor);
+              if(color[3]===255){bg=color;break;}
+              if(p===root)break;
+            }
+            const score=ratio(rgba(style.color),bg);
+            if(score<4.5)issues.push("Contrast "+score.toFixed(2)+": "+selector);
+          }
+        }
+        for(const card of root.querySelectorAll(".author-timeline-work")){
+          const date=card.querySelector(".author-timeline-entry-date").getBoundingClientRect();
+          const title=card.querySelector(".author-timeline-work-name").getBoundingClientRect();
+          const type=card.querySelector(".author-timeline-work-type").getBoundingClientRect();
+          const node=card.querySelector(".author-timeline-node").getBoundingClientRect();
+          const rail=card.parentElement;
+          const line=getComputedStyle(rail,"::before");
+          const rb=rail.getBoundingClientRect();
+          if(Math.abs(date.left-title.left)>1||Math.abs(date.left-type.left)>1||title.top<date.bottom-1||type.top<title.bottom-1)issues.push("Misaligned labels");
+          if(Math.abs((node.top+node.bottom)/2-(date.top+date.bottom)/2)>3)issues.push("Node/date misalignment");
+          if(Math.abs((node.left+node.right)/2-(rb.left+parseFloat(line.left)+parseFloat(line.width)/2))>2)issues.push("Rail/node misalignment");
+        }
+        const accent=getComputedStyle(root.querySelector(".author-timeline-era")).getPropertyValue("--era-accent").trim();
+        const expected=rs.getPropertyValue("--era-green").trim();
+        if(accent!==expected)issues.push("Era accent does not use shell palette");
+        return {issues,signature:[rs.getPropertyValue("--tl-card").trim(),rs.getPropertyValue("--tl-ink").trim(),accent].join("|")};
+      });
+      assert.deepEqual(audit.issues,[],JSON.stringify({width,mode,shell,audit}));
+      paletteSignatures.add(audit.signature);
+      if(width===390||width===1280)await page.locator("#author-timeline-root").screenshot({path:"artifacts/author-timeline/shell-"+shell+"-"+mode+"-"+width+".png",animations:"disabled"});
+    }
+    assert.equal(paletteSignatures.size,4,"All four shells must produce distinct timeline palettes");
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }

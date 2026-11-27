@@ -976,3 +976,89 @@ html[data-theme="dark"] .author-page #author-timeline-root {
   #author-timeline-root .author-timeline-era-header .author-timeline-motif { color:CanvasText; border-color:CanvasText; }
   #author-timeline-root .author-timeline-era .author-timeline-node { background:CanvasText; }
 }
+
+/* Phase 3 — historical accents inherit the active corpus palette.
+   Only decorative hues vary by era; text and controls use accessible theme tokens. */
+.author-page #author-timeline-root {
+  --era-ochre: var(--corpus-atlas-yellow,#a17a45);
+  --era-violet: var(--corpus-atlas-purple,#80629e);
+  --era-blue: var(--corpus-atlas-cyan,#5483a2);
+  --era-green: var(--corpus-atlas-green,#31877b);
+  --era-red: var(--corpus-atlas-red,#a46c4d);
+  --era-neutral: var(--corpus-atlas-edge,var(--tl-muted));
+  box-sizing:border-box;
+  background-color:var(--tl-surface);
+  container-type:inline-size;
+}
+html[data-theme="dark"] .author-page #author-timeline-root {
+  --era-ochre:var(--corpus-atlas-yellow,#d8b57b);
+  --era-violet:var(--corpus-atlas-purple,#c1a4e0);
+  --era-blue:var(--corpus-atlas-cyan,#91bfd8);
+  --era-green:var(--corpus-atlas-green,#8acbb1);
+  --era-red:var(--corpus-atlas-red,#dca78f);
+}
+#author-timeline-root [data-motif="ancient"] { --era-accent:var(--era-ochre); }
+#author-timeline-root [data-motif="medieval"] { --era-accent:var(--era-violet); }
+#author-timeline-root [data-motif="renaissance"] { --era-accent:var(--era-ochre); }
+#author-timeline-root [data-motif="modern"] { --era-accent:var(--era-blue); }
+#author-timeline-root [data-motif="precolonial"] { --era-accent:var(--era-green); }
+#author-timeline-root [data-motif="colonial"] { --era-accent:var(--era-red); }
+#author-timeline-root [data-motif="republic"] { --era-accent:var(--era-green); }
+#author-timeline-root [data-motif="nineteenth"] { --era-accent:var(--era-ochre); }
+#author-timeline-root [data-motif="contemporary"] { --era-accent:var(--era-blue); }
+#author-timeline-root [data-motif="archive"] { --era-accent:var(--era-neutral); }
+/* A consistent base behind the textures; typography never uses the era hue. */
+#author-timeline-root .author-timeline-era-header,
+#author-timeline-root .author-timeline-context {
+  --era-panel:color-mix(in srgb,var(--era-accent,var(--tl-muted)) 12%,var(--tl-card));
+  background-color:var(--era-panel);
+  background-image:repeating-linear-gradient(135deg,transparent 0 9px,color-mix(in srgb,var(--era-accent,var(--tl-muted)) 6%,transparent) 9px 10px);
+}
+#author-timeline-root .author-timeline-heading,
+#author-timeline-root .author-timeline-historical-track,
+#author-timeline-root .author-timeline-era,
+#author-timeline-root .author-timeline-era-header,
+#author-timeline-root .author-timeline-era-copy,
+#author-timeline-root .author-timeline-context,
+#author-timeline-root .author-timeline-work-copy { min-width:0; max-width:100%; }
+#author-timeline-root .author-timeline-context > span { min-width:0; overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-heading .author-section-kicker { font-size:11px; color:var(--tl-muted); overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-heading .author-section-kicker::before { flex:0 0 18px; }
+#author-timeline-root .author-timeline-stat span { font-size:11px; letter-spacing:.025em; }
+#author-timeline-root .author-timeline-stat strong { overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-modes { min-width:0; max-width:100%; grid-template-columns:repeat(2,minmax(0,1fr)); border-radius:14px; background:var(--tl-soft); }
+#author-timeline-root .author-timeline-modes button { min-width:0; min-height:44px; padding:7px 9px; white-space:normal; overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-modes button.is-active { color:var(--tl-blue-label); }
+#author-timeline-root .author-timeline-era .author-timeline-work { --node-offset:17px; align-items:start; text-align:left; }
+#author-timeline-root .author-timeline-era .author-timeline-node { top:var(--node-offset); }
+#author-timeline-root .author-timeline-era .author-timeline-nodes::before { top:17px; bottom:17px; }
+#author-timeline-root .author-timeline-entry-date { display:block; font-size:11px; line-height:16px; overflow-wrap:anywhere; color:var(--tl-muted); }
+#author-timeline-root .author-timeline-work-name { line-height:1.45; overflow-wrap:anywhere; word-break:normal; }
+#author-timeline-root .author-timeline-work-type { font-size:11px; max-width:100%; min-width:0; white-space:normal; letter-spacing:.025em; text-align:left; }
+#author-timeline-root .author-timeline-era .author-timeline-provenance { display:flex; align-items:flex-start; gap:4px; margin-top:2px; }
+#author-timeline-root .author-timeline-era .author-timeline-provenance > span { font-size:11px; min-width:0; text-align:left; align-items:flex-start; }
+#author-timeline-root .author-timeline-arrow { align-self:start; }
+#author-timeline-root .author-timeline-method,
+#author-timeline-root .author-timeline-precision { font-size:11px; overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-precision { margin:0 0 12px; }
+#author-timeline-root .author-timeline-more { color:var(--tl-blue-label); background:var(--tl-card); overflow-wrap:anywhere; }
+#author-timeline-root .author-timeline-more:hover { background:var(--tl-blue-soft); }
+#author-timeline-root .author-timeline-era .author-timeline-work:hover .author-timeline-arrow { background:var(--tl-blue-soft); color:var(--tl-blue-label); }
+#author-timeline-root :is(.author-timeline-orcid,.author-timeline-loading) { overflow-wrap:anywhere; }
+@media(min-width:1024px){
+  #author-timeline-root .author-timeline-era .author-timeline-work { --node-offset:19px; }
+  #author-timeline-root .author-timeline-era .author-timeline-nodes::before { top:19px; bottom:19px; }
+}
+@container (max-width:560px) {
+  #author-timeline-root .author-timeline-era { display:block; }
+  #author-timeline-root .author-timeline-era-header { flex-direction:row; align-items:center; justify-content:flex-start; padding:9px 12px; margin:0 0 8px; }
+  #author-timeline-root .author-timeline-era-header .author-timeline-motif { width:30px;height:30px;flex:0 0 30px;padding:3px;border-width:1px; }
+  #author-timeline-root .author-timeline-era-header h3 { font-size:15px; }
+  #author-timeline-root .author-timeline-heading { grid-template-columns:minmax(0,1fr); }
+  #author-timeline-root .author-timeline-modes { width:100%; }
+  #author-timeline-root .author-timeline-coverage { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(forced-colors:active){
+  #author-timeline-root .author-timeline-era-header,
+  #author-timeline-root .author-timeline-context { background:Canvas; color:CanvasText; }
+}

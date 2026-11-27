@@ -158,28 +158,40 @@ try {
       const timeline=await page.evaluate(()=>{
         const targets=[
           ".author-timeline-heading h2",
-          ".author-timeline-coverage",
-          ".author-timeline-period:not(.is-active)",
-          ".author-timeline-period.is-active",
-          ".author-timeline-work",
+          ".author-timeline-stat span",
+          ".author-timeline-modes button:not(.is-active)",
+          ".author-timeline-modes button.is-active",
+          ".author-timeline-era-header h3",
+          ".author-timeline-work-name",
+          ".author-timeline-entry-date",
           ".author-timeline-work-type"
         ];
+        const canvas=document.createElement("canvas");
+        canvas.width=canvas.height=1;
+        const ctx=canvas.getContext("2d",{willReadFrequently:true});
+        const rgb=value=>{
+          ctx.clearRect(0,0,1,1);
+          ctx.fillStyle=value;
+          ctx.fillRect(0,0,1,1);
+          const [r,g,b]=ctx.getImageData(0,0,1,1).data;
+          return "rgb("+r+", "+g+", "+b+")";
+        };
         return targets.map(selector=>{
-          const style=getComputedStyle(document.querySelector(selector));
-          return {selector,foreground:style.color,background:style.backgroundColor,
+          const element=document.querySelector(selector);
+          if(!element)throw Error("Missing contrast target "+selector);
+          const style=getComputedStyle(element);
+          let parent=element,bg;
+          while(parent){
+            bg=getComputedStyle(parent).backgroundColor;
+            if(bg!=="rgba(0, 0, 0, 0)"&&bg!=="transparent")break;
+            parent=parent.parentElement;
+          }
+          return {selector,foreground:rgb(style.color),background:rgb(bg),
             fontSize:style.fontSize,opacity:style.opacity};
         });
       });
-      const nonOpaque=timeline.filter(x=>x.background==="rgba(0, 0, 0, 0)");
-      // Parent-based backgrounds for nested headings and labels.
-      for(const item of nonOpaque) {
-        if(item.selector===".author-timeline-heading h2")
-          item.background=theme==="dark"?"rgb(22, 22, 22)":"rgb(255, 255, 255)";
-        if(item.selector===".author-timeline-work-type")
-          item.background=theme==="dark"?"rgb(38, 38, 38)":"rgb(255, 255, 255)";
-      }
       checkContrasts(timeline,4.5);
-      assert.equal(await page.locator(".author-timeline-work").count(),1);
+      assert.equal(await page.locator(".author-timeline-work").count(),3);
       if(width===375||width===1280)await page.screenshot({
         path:"artifacts/theme-contrast/timeline-"+theme+"-"+width+".png",
         animations:"disabled"
