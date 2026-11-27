@@ -1,3 +1,4 @@
+import { classicalAuthority, localizeClassicalAuthor } from "../src/core/classical-author-aliases.js?v=1";
 import { sanitizeAuthorOrcid, rejectedAuthorOrcid, removeRejectedWorkOrcid } from "../src/core/author-orcid-guard.js?v=1";
 import {
   UDEG_LOGIN_URL
@@ -46,13 +47,13 @@ import {
   resolveRemoteAuthor,
   resolveRemoteAuthors,
   resolveRemoteAuthorCandidate
-} from "../src/core/remote-author-resolution.js?v=20261127-orcid-guard-v1";
+} from "../src/core/remote-author-resolution.js?v=20261127-classical-v1";
 
 import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v6";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {
@@ -60,8 +61,8 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-orcid-guard-v1";
-import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-orcid-guard-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-classical-v1";
+import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
 
@@ -329,7 +330,8 @@ window.addEventListener("pageshow", event => {
 });
 let authorWorkBrowserState = {
   query: "",
-  letter: ""
+  letter: "",
+  language: ""
 };
 
 const qwen3OptIn =
@@ -5155,7 +5157,7 @@ function showExclusiveAuthorWorks(
   resolution,
   options = {}
 ) {
-  const safeAuthor=sanitizeAuthorOrcid(resolution.author);
+  const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid(resolution.author));
   resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
   if (options.resetTimeline) {
     authorArchiveNotice = "";
@@ -5169,7 +5171,8 @@ function showExclusiveAuthorWorks(
     };
     authorWorkBrowserState = {
       query: "",
-      letter: ""
+      letter: "",
+      language: ""
     };
   }
 
@@ -5512,11 +5515,11 @@ async function openExclusiveAuthorByName(
       ? findCuratedAuthorIdentity(name)
       : null;
     const canonicalName =
-      curatedIdentity?.canonicalName || name;
+      curatedIdentity?.canonicalName || classicalAuthority(name)?.displayName || name;
     const proposedOrcid = identity.orcid || curatedIdentity?.orcid || null;
     const trustedOrcid = rejectedAuthorOrcid(canonicalName,proposedOrcid) ? null : proposedOrcid;
     const curatedAliases =
-      curatedIdentity?.aliases || [];
+      curatedIdentity?.aliases || classicalAuthority(name)?.searchNames || [];
     // Name-only links first resolve against the HF-derived static author index.
     // No OpenAlex API calls or credits are required.
     const foundIdentity = await findSnapshotAuthorIdentity(canonicalName, {
@@ -5578,7 +5581,7 @@ async function openExclusiveAuthorByName(
                   authorController.signal,
                 includeProfile: true,
                 profileQuery: canonicalName,
-                canonicalNames: curatedIdentity
+                canonicalNames: (curatedIdentity || classicalAuthority(name))
                   ? [canonicalName]
                   : []
               }
@@ -5639,10 +5642,10 @@ async function openExclusiveAuthorByName(
     }
 
     if (resolution.status === "resolved") {
-      const safeAuthor=sanitizeAuthorOrcid({
+      const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid({
         ...resolution.author,
         orcid:resolution.author.orcid || trustedOrcid || null
-      });
+      }));
       resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
       // Don't publish an unverified ORCID or use it for portrait lookup while
       // the registry's identity check is pending.
@@ -6832,6 +6835,7 @@ function filterAuthorWorks(
     ).toUpperCase();
 
   return (works || []).filter(item => {
+    if(authorWorkBrowserState.language && (item?.language || "und") !== authorWorkBrowserState.language)return false;
     if (
       query &&
       !normalizeAuthorWorkLookup(
@@ -6865,6 +6869,9 @@ function renderAuthorWorkBrowser(
     works.length;
   const activeLetter =
     authorWorkBrowserState.letter;
+  const languages=[...new Set(works.map(work=>work.language||"und"))]
+    .sort((a,b)=>(a==="es"?-1:b==="es"?1:languageLabel(a).localeCompare(languageLabel(b),"es")));
+  const activeLanguage=authorWorkBrowserState.language||"";
 
   return `
     <div class="author-work-browser" aria-label="Buscar y filtrar obras del autor">
@@ -6892,6 +6899,19 @@ function renderAuthorWorkBrowser(
         </small>
       </div>
 
+      ${languages.length > 1 ? `
+        <div class="author-work-alphabet author-work-languages">
+          <span>Idioma de la edición</span>
+          <div role="group" aria-label="Filtrar obras por idioma">
+            ${["",...languages].map(language=>`
+              <button type="button" data-author-work-language="${escapeHtml(language)}"
+                class="${activeLanguage===language?"is-active":""}"
+                aria-pressed="${activeLanguage===language?"true":"false"}">
+                ${language?escapeHtml(languageLabel(language))+" ("+works.filter(work=>(work.language||"und")===language).length+")":"Todos"}
+              </button>
+            `).join("")}
+          </div>
+        </div>` : ""}
       ${letters.length > 1 ? `
         <div class="author-work-alphabet">
           <span>Índice alfabético</span>
@@ -7017,7 +7037,8 @@ function bindAuthorWorkCollectionActions() {
       () => {
         authorWorkBrowserState = {
           query: "",
-          letter: ""
+          letter: "",
+          language: ""
         };
         resetVisibleLimit();
 
@@ -7103,12 +7124,24 @@ function updateAuthorWorkCollection() {
       );
     });
 
+  document.querySelectorAll("[data-author-work-language]").forEach(button=>{
+    const active=button.dataset.authorWorkLanguage===(authorWorkBrowserState.language||"");
+    button.classList.toggle("is-active",active);
+    button.setAttribute("aria-pressed",String(active));
+  });
   bindResultActions();
   bindAuthorWorkCollectionActions();
 }
 
 
 function bindAuthorWorkBrowser() {
+  document.querySelectorAll("[data-author-work-language]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      authorWorkBrowserState.language=button.dataset.authorWorkLanguage||"";
+      resetVisibleLimit();
+      updateAuthorWorkCollection();
+    });
+  });
   document
     .querySelector(
       "#author-work-search"

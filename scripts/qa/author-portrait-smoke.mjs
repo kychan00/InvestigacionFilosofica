@@ -11,7 +11,7 @@ try {
   await page.goto(base,{waitUntil:"domcontentloaded"});
   for(const mode of ["light","dark"])for(const shell of ["default","territory","marginalia","observatory"]){
    const result=await page.evaluate(async({mode,shell})=>{
-    const {createAuthorPortraitSession}=await import("./js/author-portrait-session.js?v=20261127-siva-v6");
+    const {createAuthorPortraitSession}=await import("./js/author-portrait-session.js?v=20261127-siva-v7");
     document.body.classList.add("author-view");document.documentElement.dataset.theme=mode;document.documentElement.dataset.corpusShell=shell;
     const workspace=document.querySelector("#research-workspace");workspace.classList.remove("hidden");
     const results=document.querySelector("#results");

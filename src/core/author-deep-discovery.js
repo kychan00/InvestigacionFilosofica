@@ -1,10 +1,11 @@
+import { localizeClassicalAuthor } from "./classical-author-aliases.js";
 import { sanitizeAuthorOrcid, profileMatchesOrderedAuthor, removeRejectedWorkOrcid } from "./author-orcid-guard.js";
 import {
   normalizeAuthorName,
   resolveRemoteAuthorCandidate,
   enrichAuthorWorksWithCollaborators
 } from "./remote-author-resolution.js";
-import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261119-archive-abbrev-v1";
+import { resolveFederatedAuthor } from "./crossref-author-fallback.js?v=20261127-classical-v1";
 import { searchCrossrefByOrcid } from "../sources/crossref.js";
 import {
   fetchOrcidPublicWorks,
@@ -236,7 +237,7 @@ export async function discoverAuthorArchive({
   orcidRegistryOptions={},
   orcidProfileOptions={}
 }={}) {
-  author=sanitizeAuthorOrcid(author);
+  author=localizeClassicalAuthor(sanitizeAuthorOrcid(author));
   initialWorks=initialWorks.map(work=>removeRejectedWorkOrcid(work,author));
   const name=String(author?.displayName||author?.sourceDisplayName||"").trim();
   const id=authorId(author?.id);

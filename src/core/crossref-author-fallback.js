@@ -1,6 +1,7 @@
+import { classicalAuthority } from "./classical-author-aliases.js";
 import { normalizeAuthorName } from "./remote-author-resolution.js";
 import { searchCrossref } from "../sources/crossref.js";
-import { searchInternetArchive } from "../sources/internet-archive.js?v=20261119-author-creator-v1";
+import { searchInternetArchive } from "../sources/internet-archive.js?v=20261127-classical-language-v1";
 import { searchCucshFilosofia } from "../sources/cucsh-filosofia.js";
 import {
   normalizeAuthorAliases,
@@ -166,7 +167,8 @@ export async function resolveFederatedAuthor(name,options={}) {
   const original=String(name||"").trim();
   if(!original)return {status:"none",works:[]};
   const limit=Math.max(1,Math.min(150,Number(options.limit)||50));
-  const aliases=normalizeAuthorAliases(original,options.aliases||[]);
+  const authority=classicalAuthority(original);
+  const aliases=normalizeAuthorAliases(authority?.displayName||original,[...(authority?.searchNames||[]),...(options.aliases||[])]);
   const maxVariants=Math.max(1,Math.min(5,Number(options.maxVariants)||4));
   const used=new Set([normalizeAuthorName(aliases[0])]);
   const first=await collectFederatedBatch([aliases[0]],options,limit);
@@ -220,6 +222,30 @@ export async function resolveFederatedAuthor(name,options={}) {
     fulfilled.push({ok:true,provider:"Internet Archive",
       mode:"author-internet-archive",works:abbreviatedArchive});
   }
+  // A language-scoped pass prevents the global catalogue's first page
+  // from crowding out real Spanish editions indexed under English names.
+  // Only query reviewed classical variants; never manufacture translations.
+  if(authority && authority.qid!=="Q913" && !options.disableInternetArchive) {
+    const spanish=await Promise.all(authority.searchNames.map(async query=>{
+      try {
+        const works=await (options.archiveSearchImpl||searchInternetArchive)(
+          {query,weight:1,type:"author"},
+          {rows:Math.min(limit,50),signal:options.signal,retries:1,language:"es"}
+        );
+        return {ok:true,provider:"Internet Archive",mode:"author-internet-archive",works};
+      } catch(error) {
+        if(options.signal?.aborted||error?.name==="AbortError")throw error;
+        return {ok:false,provider:"Internet Archive",error:String(error?.message||error)};
+      }
+    }));
+    fulfilled.push(...spanish.filter(e=>e.ok));
+    errors.push(...spanish.filter(e=>!e.ok).map(e=>e.provider+" · español: "+e.error));
+    found.push(...spanish.filter(e=>e.ok).flatMap(entry=>
+      (entry.works||[]).filter(work=>work.language==="es").map(work=>
+        matchFederatedWork(work,original,{aliases,expectedOrcid:options.orcid})
+      ).filter(Boolean).map(work=>({...work,retrievalMode:entry.mode}))
+    ));
+  }
   if(!fulfilled.length)return {status:"unavailable",works:[],errors};
 
   // An incomplete name can refer to people with different second family
@@ -262,11 +288,11 @@ export async function resolveFederatedAuthor(name,options={}) {
     resolution:"federated-author",
     author:{
       id:null,
-      displayName:preferred,
+      displayName:authority?.displayName||preferred,
       sourceDisplayName:preferred,
       aliases:[...new Set([original,...aliases,...names])],
       orcid:observed?"https://orcid.org/"+observed:null,
-      wikidataId:null,biography:null,wikipediaUrl:null,
+      wikidataId:authority?.qid||null,biography:authority?.description||null,wikipediaUrl:authority?"https://es.wikipedia.org/wiki/"+encodeURIComponent(authority.wiki):null,
       corpusWorks:matches.length,catalog:"federated",catalogSources
     },
     works:matches.map((work,index)=>{
