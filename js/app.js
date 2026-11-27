@@ -12,8 +12,9 @@ import {
 
 import {
   recordRequestFromLocation,
-  findExactRecordForDeepLink
-} from "./record-deeplink.js";
+  findExactRecordForDeepLink,
+  restoreSavedPublicRecord
+} from "./record-deeplink.js?v=20261127-saved-record-v1";
 
 import {
   searchPhilosophy,
@@ -1148,6 +1149,13 @@ function renderSemanticExplanation(
 function renderExplanation(
   item
 ) {
+  if (item.savedRecordView) {
+    return '<p class="cinematic-note">' +
+      (item.legacy
+        ? "Ficha del registro guardado. Los metadatos que no se conservaron originalmente no se pueden reconstruir sin verificar la fuente."
+        : "Ficha del registro original conservado en su biblioteca. No se ha ejecutado una nueva búsqueda.") +
+      '</p>';
+  }
   if (
     item.retrievalMode ===
     "semantic"
@@ -2153,7 +2161,7 @@ function renderRecordDetails(
             </span>
 
             <div class="cinematic-score-number">
-              ${score}
+              ${item.savedRecordView && item.relevanceScore == null ? "—" : score}
             </div>
 
             <div class="cinematic-score-track">
@@ -2163,7 +2171,7 @@ function renderRecordDetails(
             </div>
 
             <div class="score-level">
-              ${escapeHtml(level)}
+              ${item.savedRecordView ? "Registro guardado" : escapeHtml(level)}
             </div>
 
           </section>
@@ -9051,6 +9059,40 @@ if (qwen3OptIn) {
  * not returned by the public search engine.
  */
 async function openSavedPublicRecord(request) {
+  if (request.privateRecord) {
+    // This ID is resolved only under the verified account's own library.
+    // Never fall back to a federated title search or another person's record.
+    try {
+      if (!request.savedId) throw new Error("invalid-saved-record");
+      const [{ auth, firebaseReady }, { getLibraryWork }] = await Promise.all([
+        import("./firebase-client.js"),
+        import("./user-data.js?v=20261127-saved-record-v1")
+      ]);
+      if (!firebaseReady() || !auth) throw new Error("account-unavailable");
+      await auth.authStateReady();
+      const user = auth.currentUser;
+      if (!user?.emailVerified) throw new Error("verified-session-required");
+      const saved = await getLibraryWork(user.uid, request.savedId);
+      if (auth.currentUser?.uid !== user.uid) throw new Error("session-changed");
+      const original = restoreSavedPublicRecord(saved);
+      if (!original) throw new Error("saved-record-unavailable");
+      status.textContent = "";
+      openRecord(original);
+    } catch (error) {
+      console.warn("No se pudo abrir el registro guardado.", error);
+      researchWorkspace?.classList.remove("hidden");
+      status.textContent = "No se pudo abrir esta ficha guardada. Compruebe su sesión y que la obra siga en su biblioteca.";
+      const notice = document.createElement("div");
+      notice.className = "record-deeplink-unresolved";
+      notice.setAttribute("role", "status");
+      const back = document.createElement("a");
+      back.href = "./perfil.html";
+      back.textContent = "Volver a mi biblioteca";
+      notice.append("No se ha iniciado ninguna búsqueda. ", back);
+      resultsEl.prepend(notice);
+    }
+    return;
+  }
   const query = request.title || request.doi;
   if (!query) return;
 
@@ -9082,9 +9124,6 @@ async function openSavedPublicRecord(request) {
 }
 
 try {
-  philosophyMap =
-    await loadMap();
-
   const authorRequest =
     authorWorksRequestFromLocation(
       window.location.search
@@ -9093,6 +9132,13 @@ try {
     recordRequestFromLocation(
       window.location.search
     );
+
+  if (recordRequest?.privateRecord && !authorRequest) {
+    // Opening an exact saved record must not depend on public catalog readiness.
+    await openSavedPublicRecord(recordRequest);
+    void loadMap().then(map => { philosophyMap = map; }).catch(console.error);
+  } else {
+    philosophyMap = await loadMap();
 
   if (authorRequest) {
     researchWorkspace
@@ -9109,6 +9155,7 @@ try {
   } else {
     status.textContent =
       "";
+  }
   }
 } catch (error) {
   console.error(error);
