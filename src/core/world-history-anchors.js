@@ -176,7 +176,7 @@ export const WORLD_HISTORY_ANCHORS = [
         "Letter to Pythocles"
       ]
     ],
-    "https://plato.stanford.edu/archives/spr2024/entries/epicurus/"
+    "https://plato.stanford.edu/entries/epicurus/"
   ],
   [
     "Q9438",
@@ -419,7 +419,7 @@ export const WORLD_HISTORY_ANCHORS = [
         "The Precious Garland"
       ]
     ],
-    "https://plato.stanford.edu/archives/fall2017/entries/nagarjuna/"
+    "https://plato.stanford.edu/archives/sum2024/entries/nagarjuna/"
   ],
   [
     "Q235134",

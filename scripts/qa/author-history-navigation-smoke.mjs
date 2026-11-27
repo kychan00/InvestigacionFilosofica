@@ -12,7 +12,7 @@ const bucket=id=>String(authorBucket(id)).padStart(4,"0");
 const cases=[
  {name:"Simone de Beauvoir",id:"5033760928",titles:["Le sang des autres","Segundo Sexo, Simone De Beauvoir","The Ethics of Ambiguity"],years:[1947,1949,1950],date:"1908"},
  {name:"Antonio Caso",creator:"Antonio Caso Andrade",titles:["La existencia como economia como desinteres y como caridad","Positivismo, neopositivismo y fenomenología"],years:[1916,1944],date:"1883",archive:"#autor-0098"},
- {name:"Confucio",titles:["Analectas, Confucio","Los cuatro libros"],years:[1900,1961],date:"551 a. C."},
+ {name:"Confucio",titles:["Analectas, Confucio","Los cuatro libros"],years:[1900,1961],negative:true},
  {name:"Antonio Caso",creator:"Antonio Caso Andrade",titles:["La existencia como economia como desinteres y como caridad","La existencia como economía, desinterés y caridad"],years:[1916,1919],negative:true}
 ];
 const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
