@@ -55,7 +55,7 @@ import {
 
 import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
 
-import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-historical-v2";
 import {
   authorOrcidUrl, normalizedAuthorOrcid, authorWorkSources,
   workHasAuthorOrcidEvidence
@@ -313,8 +313,7 @@ let currentFilteredResults = [];
 let authorSourceSearch = null;
 let authorTimelineState = {
   unit: "year",
-  selectedKey: null,
-  visibleLimit: 60
+  timelineLimit: 4
 };
 let authorArchiveLoading = false;
 let authorArchiveNotice = "";
@@ -5166,8 +5165,7 @@ function showExclusiveAuthorWorks(
     authorArchiveOrcidProfile = null;
     authorTimelineState = {
       unit: "year",
-      selectedKey: null,
-      visibleLimit: 60
+  timelineLimit: 4
     };
     authorWorkBrowserState = {
       query: "",
@@ -5276,7 +5274,7 @@ function restoreAuthorSourceSearch() {
   authorArchiveSources = [];
   authorArchiveOrcidSummary = null;
   authorArchiveOrcidProfile = null;
-  authorTimelineState.selectedKey = null;
+  authorTimelineState.timelineLimit = 4;
   document.title =
     "Investigación Filosófica";
 
@@ -7586,6 +7584,7 @@ function renderFilteredResults() {
       {
         loading: authorArchiveLoading,
         authorOrcid: currentResponse.authorResolution?.author?.orcid,
+        author: currentResponse.authorResolution?.author,
         onOpenWork: index => {
           const work = currentResponse.results?.[index];
           if (work) openRecord(work);
