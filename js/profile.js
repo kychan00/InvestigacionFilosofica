@@ -4,7 +4,7 @@ import {
   updateProfile as updateAuthProfile
 } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
 
-import { savedWorkRecordUrl } from "./record-deeplink.js";
+import { savedWorkRecordUrl } from "./record-deeplink.js?v=20261127-saved-record-v1";
 
 import {
   auth,
@@ -40,7 +40,7 @@ import {
   updateSubproject,
   updateUserProfileDocument,
   updateUserProfileShell
-} from "./user-data.js?v=20261124-manual-identity-v1";
+} from "./user-data.js?v=20261127-saved-record-v1";
 
 import {
   clearVerifiedAuthHint,
@@ -516,7 +516,7 @@ function workTitleLink(work) {
   const title = escapeHtml(work?.title || "Obra sin título");
   return destination
     ? '<a class="work-ficha-title-link" href="' + escapeHtml(destination) +
-      '" target="_blank" rel="noopener noreferrer" title="Abrir ficha completa en el buscador">' +
+      '" target="_blank" rel="noopener noreferrer" title="Abrir el registro bibliográfico guardado">' +
       title + '</a>'
     : title;
 }
