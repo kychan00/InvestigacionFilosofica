@@ -1,3 +1,4 @@
+import { LATAM_HISTORY_ANCHORS } from "./latin-american-history-anchors.js?v=20261127-latam-v1";
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
 // Documentary corroboration for this view only. Translations and editions
 // of one work count as one anchor; no external requests or identity mutation.
@@ -20,6 +21,7 @@ const anchors=[
  ["Más allá del bien y del mal","Beyond Good and Evil","Jenseits von Gut und Böse"],
  ["Así habló Zaratustra","Thus Spoke Zarathustra","Also sprach Zarathustra"],["La genealogía de la moral","On the Genealogy of Morality","Zur Genealogie der Moral"]]]
 ];
+anchors.push(...LATAM_HISTORY_ANCHORS.map(([,qid,names,titles])=>[qid,names,titles]));
 const norm=v=>String(v||"").normalize("NFD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 function creatorName(v){return norm(String(v||"").replace(/,\s*\d{1,4}[? .–—-]+\d{1,4}\s*(?:b\.?\s*c\.?\s*(?:e\.?)?|a\.?\s*c\.?)?\s*$/iu,""));}
 function oa(v){return String(v||"").match(/^(?:https?:\/\/(?:api\.)?openalex\.org\/(?:authors\/)?)?A?(\d+)$/i)?.[1]||null;}
