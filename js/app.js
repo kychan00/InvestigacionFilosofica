@@ -55,7 +55,7 @@ import {
 
 import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
 
-import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-latam-v1";
+import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-world-v1";
 import {
   authorOrcidUrl, normalizedAuthorOrcid, authorWorkSources,
   workHasAuthorOrcidEvidence

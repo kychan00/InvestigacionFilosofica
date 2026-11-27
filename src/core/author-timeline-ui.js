@@ -1,4 +1,4 @@
-import { timelineHistoryAuthor } from "./author-timeline-history-identity.js?v=20261127-latam-v1";
+import { timelineHistoryAuthor } from "./author-timeline-history-identity.js?v=20261127-world-v1";
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
 import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v8";
 import { latinAmericanDossierHref } from "./latin-american-history-bridge.js?v=20261127-v6";

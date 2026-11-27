@@ -1,3 +1,4 @@
+import { WORLD_HISTORY_ANCHORS } from "./world-history-anchors.js?v=20261127-world-v1";
 import { LATAM_HISTORY_ANCHORS } from "./latin-american-history-anchors.js?v=20261127-latam-v1";
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
 // Documentary corroboration for this view only. Translations and editions
@@ -21,9 +22,13 @@ const anchors=[
  ["Más allá del bien y del mal","Beyond Good and Evil","Jenseits von Gut und Böse"],
  ["Así habló Zaratustra","Thus Spoke Zarathustra","Also sprach Zarathustra"],["La genealogía de la moral","On the Genealogy of Morality","Zur Genealogie der Moral"]]]
 ];
-anchors.push(...LATAM_HISTORY_ANCHORS.map(([,qid,names,titles])=>[qid,names,titles]));
+anchors.push(...LATAM_HISTORY_ANCHORS.map(([,qid,names,titles])=>[qid,names,titles]), ...WORLD_HISTORY_ANCHORS.map(([qid,names,titles])=>[qid,names,titles]));
 const norm=v=>String(v||"").normalize("NFD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 function creatorName(v){return norm(String(v||"").replace(/,\s*\d{1,4}[? .–—-]+\d{1,4}\s*(?:b\.?\s*c\.?\s*(?:e\.?)?|a\.?\s*c\.?)?\s*$/iu,""));}
+function isCreator(p){
+ const role=norm(p?.role||p?.contributorRole||p?.authorRole);
+ return !role||["author","autor","autora","creator","creador","creadora","coauthor","coautor","coautora"].includes(role);
+}
 function oa(v){return String(v||"").match(/^(?:https?:\/\/(?:api\.)?openalex\.org\/(?:authors\/)?)?A?(\d+)$/i)?.[1]||null;}
 export function timelineHistoryAuthor(author,works=[]){
  if(!author||typeof author!=="object"||author.wikidataId||author.orcid||author.orcidId)return author;
@@ -37,7 +42,7 @@ export function timelineHistoryAuthor(author,works=[]){
   const i=groups.findIndex(g=>g.has(norm(work?.title)));
   if(i<0||matched.has(i)||!Array.isArray(work?.authors))continue;
   if(work.authors.some(p=>{
-   if(!names.has(creatorName(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)))return false;
+   if(!isCreator(p)||!names.has(creatorName(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)))return false;
    const id=oa(p?.openalexId||p?.sourceId||p?.id);
    return !(id&&linked.size&&!linked.has(id))&&!p?.orcid&&!p?.orcidId&&(!p?.wikidataId||p.wikidataId===qid);
   }))matched.add(i);

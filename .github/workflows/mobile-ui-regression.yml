@@ -93,6 +93,8 @@ on:
       - "scripts/qa/author-timeline-smoke.mjs"
       - "scripts/qa/author-history-navigation-smoke.mjs"
       - "src/core/author-timeline-history-identity.js"
+      - "src/core/world-history-anchors.js"
+      - "tests/world-history-anchors.test.mjs"
       - "src/core/author-intellectual-history*.js"
       - "src/core/latin-american-*-history*.js"
       - "scripts/qa/theme-contrast-smoke.mjs"
