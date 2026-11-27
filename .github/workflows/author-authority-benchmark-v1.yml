@@ -11,6 +11,9 @@ on:
       - "src/core/author-authority-resolution-v2.js"
       - "src/core/author-authority-evidence-v2.js"
       - "scripts/authority/run-shadow-v2.mjs"
+      - "scripts/authority/report-release-readiness-v2.mjs"
+      - "src/core/author-authority-release-v2.js"
+      - "tests/author-authority-release-v2.test.mjs"
       - "scripts/authority/audit-portrait-live-v2.mjs"
       - "src/core/author-portrait-policy.js"
       - "src/core/author-authority-portrait-v2.js"
@@ -101,6 +104,20 @@ jobs:
       - name: SIVA real-profile comparative audit
         run: |
           node scripts/authority/audit-portrait-live-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/portrait-live/report.json
+
+      - name: Test scientific readiness contracts
+        run: node --test tests/author-authority-release-v2.test.mjs
+
+      - name: Report V2 scientific readiness (no activation)
+        run: node scripts/authority/report-release-readiness-v2.mjs artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/release/readiness.json
+
+      - name: Upload V2 scientific readiness report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-release-readiness
+          path: artifacts/author-authority-v2/release/
+          if-no-files-found: warn
 
       - name: Upload SIVA real-profile audit
         if: always()
