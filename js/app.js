@@ -1946,7 +1946,7 @@ function renderRecordDetails(
 
 
   if (
-    sourceUnavailable &&
+    (sourceUnavailable || (item.savedRecordView && !item.urls?.canonical)) &&
     item.urls?.reference
   ) {
     accessLinks.push(`
