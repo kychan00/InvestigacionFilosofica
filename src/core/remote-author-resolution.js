@@ -932,17 +932,7 @@ async function resolvedPayload(
   if (rejectedAuthorOrcid(selected.displayName,selected.candidate.o)) {
     selected={...selected,candidate:{...selected.candidate,o:null}};
   }
-  const works = await authorWorks(
-    context,
-    selected.candidate,
-    selected.displayName,
-    options.limit || DEFAULT_WORK_LIMIT
-  );
-
-  return {
-    status: "resolved",
-    resolution: selected.resolution,
-    author: localizeClassicalAuthor({
+  const author=localizeClassicalAuthor({
       id: selected.candidate.id,
       displayName: selected.displayName,
       sourceDisplayName:
@@ -957,9 +947,9 @@ async function resolvedPayload(
         selected.wikipediaUrl || null,
       corpusWorks:
         selected.candidate.cw || 0
-    }),
-    works
-  };
+    });
+  const works = await authorWorks(context,selected.candidate,author.displayName,options.limit || DEFAULT_WORK_LIMIT);
+  return {status:"resolved",resolution:selected.resolution,author,works};
 }
 
 
@@ -1017,8 +1007,8 @@ export async function resolveRemoteAuthor(
             )
           ).filter(row =>
             row.k === "full" &&
-            authorNameSignature(row.n) ===
-              canonicalSignature
+            authorNameSignature(row.n) === canonicalSignature &&
+            (!authority || (classicalAuthority(row.n)===authority && !row.o))
           )
         );
 
@@ -1085,7 +1075,7 @@ export async function resolveRemoteAuthor(
       wikidataError = error;
     }
 
-    if (wikidata) {
+    if (wikidata && (!authority || (wikidata.wikidataId===authority.qid && !wikidata.candidate.o && classicalAuthority(wikidata.candidate.n)===authority))) {
       if (
         canonicalSelection &&
         String(
