@@ -1,6 +1,8 @@
 // Reviewed intellectual-history pilot. Only original Spanish summaries,
 // not copied biographies. Identity keys are authority QIDs, not search names.
+import { PHASE2_SOURCES, PHASE2_AUTHORS } from './author-intellectual-history-phase2.js?v=20261127-v2';
 const SOURCES = {
+  ...PHASE2_SOURCES,
   "plato": [
     "Stanford Encyclopedia of Philosophy",
     "https://plato.stanford.edu/entries/plato/"
@@ -43,6 +45,7 @@ const SOURCES = {
   ]
 };
 const AUTHORS = {
+  ...PHASE2_AUTHORS,
   "Q859": {
     "names": [
       "Platón",
@@ -337,15 +340,18 @@ const AUTHORS = {
   }
 };
 export const BIO_BATCH = 3;
-export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción"});
+export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción",posthumous:"Publicación póstuma"});
 const norm = value => String(value || "").normalize("NFD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 export function intellectualHistory(author) {
-  const id=String(author?.wikidataId || "");
+  const rawId=String(author?.wikidataId || "").trim();
+  // Accept only the canonical authority ID or its exact Wikidata URI.
+  const id=rawId.replace(/^https?:\/\/(?:www\.)?wikidata\.org\/(?:wiki|entity)\/(Q\d+)\/?$/,"$1");
   if(!/^Q\d+$/.test(id)||!Object.hasOwn(AUTHORS,id)) return null;
   const record=AUTHORS[id];
   // A QID and corroborating resolved display name are both required.
   // Never join a person or infer an event just from their surname.
-  if(!record.names.some(name=>norm(name)===norm(author.displayName)))return null;
+  const name=norm(author.displayName || author.name);
+  if(!name||!record.names.some(alias=>norm(alias)===name))return null;
   const events=record.events.map(([year,date,type,title,source],i)=>({
     id:id+"-"+i,year,date,type,title,source:{name:SOURCES[source][0],url:SOURCES[source][1]}
   })).sort((a,b)=>a.year-b.year);

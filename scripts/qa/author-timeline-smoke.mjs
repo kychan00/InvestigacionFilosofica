@@ -192,6 +192,18 @@ try {
     assert.equal(await life.count(),1,"History can be rendered without bibliographic records");
     await life.locator(".author-intellectual-history-toggle").click();
     assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/a. C./);
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q1879022",displayName:"Leopoldo Zea Aguilar"},[{title:"Edición moderna",year:2020}]));
+    assert.equal(await life.count(),1);
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    assert.equal(await life.locator(".author-intellectual-history-date").first().textContent(),"1912");
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q60025",displayName:"Hannah Arendt"},[{title:"Edición",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-kind").last().textContent(),"Publicación póstuma");
+    await geometry();
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }

@@ -1,4 +1,4 @@
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v1";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v2";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
 import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v2";
 import {

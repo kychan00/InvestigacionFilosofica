@@ -18,3 +18,19 @@ Seis autores, 32 hitos: Platón, Aristóteles, Kant, Hegel, Sor Juana y Dussel. 
 
 ## Verificación
 Pruebas unitarias de identidad, orden, incertidumbre y procedencia. Smoke de expansión 3/6/7, colapso, aislamiento del catálogo, temas y resoluciones 320/375/390/768/1280 en claro y oscuro. Sin nuevas dependencias, imágenes ni llamadas de red automáticas.
+
+## Fase 2 — ampliación curada
+Se agregan seis autoridades y 48 hitos (80 en total): Descartes, Nietzsche, Beauvoir, Arendt, Vasconcelos y Zea. Se aceptan únicamente identificadores QID o URI canónica de Wikidata con alias explícito concordante. Si displayName existe, un name alternativo no puede anular un desacuerdo. No se resuelven identidades por nombre solo. Se conserva la incertidumbre en La Flèche (1606 o 1607), la publicación por partes de Zaratustra y la publicación póstuma de La vida del espíritu. Las fechas de rectorías y cargos se muestran como intervalos. Los años de la historia intelectual no se mezclan con los registros bibliográficos.
+
+Autoridades comprobadas: https://www.wikidata.org/wiki/Q9191, https://www.wikidata.org/wiki/Q9358, https://www.wikidata.org/wiki/Q7197, https://www.wikidata.org/wiki/Q60025, https://www.wikidata.org/wiki/Q1091141, https://www.wikidata.org/wiki/Q1879022.
+
+- descartes: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/descartes/
+- nietzsche: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/nietzsche/
+- beauvoir: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/beauvoir/
+- arendt: Stanford Encyclopedia of Philosophy — https://plato.stanford.edu/entries/arendt/
+- vasconcelos: El Colegio Nacional — https://colnal.mx/integrantes/jose-vasconcelos/
+- zea: Enciclopedia Histórica y Biográfica de la Universidad de Guadalajara — https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo
+- zeaUNAM: Archivo y Taller de Historia Oral, UNAM — https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea
+- zeaElem: Enciclopedia de la Literatura en México — https://www.elem.mx/autor/datos/4322
+
+Se separa el lote de datos de la lógica del renderizado; pruebas de alias, fuentes, orden y publicación póstuma, más smoke de Zea y Arendt. La cobertura sigue siendo una selección, no una biografía exhaustiva. No se añaden llamadas externas automáticas.
