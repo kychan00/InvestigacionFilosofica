@@ -14,7 +14,7 @@ function button(label,cls,handler){
   return b;
 }
 
-export function buildIntellectualHistoryPanel(author,state){
+export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}){
   const history=intellectualHistory(author);
   if(!history)return null;
   if(state.bioKey!==history.id){
@@ -38,6 +38,11 @@ export function buildIntellectualHistoryPanel(author,state){
   chevron.setAttribute("aria-hidden","true");
   toggle.append(title,chevron);
   section.append(toggle,panel);
+  if(archiveHref){
+    const archive=el("a","author-intellectual-history-archive","Consultar ficha del archivo latinoamericano ↗");
+    archive.href=archiveHref;
+    section.append(archive);
+  }
   function render(){
     toggle.setAttribute("aria-expanded",String(Boolean(state.bioOpen)));
     chevron.textContent=state.bioOpen?"−":"+";

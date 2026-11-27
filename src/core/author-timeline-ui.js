@@ -1,5 +1,6 @@
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v5";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v6";
+import { latinAmericanDossierHref } from "./latin-american-history-bridge.js?v=20261127-v6";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
 import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v4";
 import {
@@ -91,7 +92,7 @@ function renderTimeline(root, works, state, options) {
   heading.append(text, modes);
   root.append(heading);
 
-  const biography=buildIntellectualHistoryPanel(author,state);
+  const biography=buildIntellectualHistoryPanel(author,state,{archiveHref:latinAmericanDossierHref(author)});
   if(biography)root.append(biography);
 
   const coverage = el("div", "author-timeline-coverage");

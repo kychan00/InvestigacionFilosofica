@@ -106,3 +106,20 @@ Autoridades:
 - https://www.wikidata.org/wiki/Q5711746
 
 Validación: pruebas de seis identidades, alias, orden, tipos, fuentes, edición revisada y homónimos; smoke de contexto transatlántico y fuentes múltiples. El archivo no es exhaustivo.
+
+## Fase 6 — puente con el archivo latinoamericano
+No se amplía la curaduría por duplicado. El inventario canónico existente (1,504 autores) y sus expedientes conservan sus IDs, obras, contribuciones, fechas y fuentes. Se establece un cruce explícito para los once autores de los lotes previos que ya pertenecen a la matriz. Cada cruce exige ID interno, nombre canónico y concordancia con las fechas de vida del expediente, incluidas alternativas de Sor Juana. Si cambia la identidad o su cronología, el enlace falla de manera segura hasta revisión humana. Los restantes 1,493 expedientes conservan su comportamiento original; no se les atribuyen hitos sin revisión.
+
+- #0019 ↔ Q183074 — Sor Juana Inés de la Cruz (1648 / 1651–1695)
+- #0069 ↔ Q335544 — José Carlos Mariátegui (1894–1930)
+- #0071 ↔ Q365193 — Adolfo Sánchez Vázquez (1915–2011)
+- #0074 ↔ Q891708 — Bolívar Echeverría (1941–2010)
+- #0097 ↔ Q1091141 — José Vasconcelos (1882–1959)
+- #0098 ↔ Q601364 — Antonio Caso (1883–1946)
+- #0099 ↔ Q7412445 — Samuel Ramos (1897–1959)
+- #0103 ↔ Q1879022 — Leopoldo Zea (1912–2004)
+- #0105 ↔ Q2370396 — Luis Villoro (1922–2014)
+- #0110 ↔ Q473518 — Enrique Dussel (1934–2023)
+- #0162 ↔ Q5711746 — Augusto Salazar Bondy (1925–1974)
+
+El buscador general enlaza directamente a la ficha existente; el modal del archivo llama al mismo renderer y al mismo modelo de hitos, con estado de expansión propio y paleta editorial independiente del tema del corpus. No se copian obras al archivo biográfico ni se suman sus hitos a las estadísticas bibliográficas. Se agregan pruebas contra los once JSON reales y el inventario, identidades contradictorias, navegación, expansión y geometría. El cruce es parcial; para ampliar cobertura se revisará evidencia de cada expediente, no se aplicará una equivalencia automática por nombre. No se modifica la matriz ni se introduce una consulta remota adicional.

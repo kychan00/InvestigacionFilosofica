@@ -1107,3 +1107,10 @@ html[data-theme="dark"] .author-page #author-timeline-root {
 #author-timeline-root [data-motif="islamicate"] { --era-accent:var(--era-green); }
 #author-timeline-root [data-motif="jewish-mediterranean"] { --era-accent:var(--era-blue); }
 #author-timeline-root [data-motif="india"] { --era-accent:var(--era-ochre); }
+
+#author-timeline-root .author-intellectual-history-archive {
+  display:block; width:fit-content; max-width:100%; box-sizing:border-box;
+  margin:0 12px 10px; padding:4px 0; min-height:24px;
+  color:var(--tl-blue-label); font-size:12px; line-height:1.5;
+  overflow-wrap:anywhere; text-decoration:underline; text-underline-offset:2px;
+}

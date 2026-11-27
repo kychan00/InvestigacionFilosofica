@@ -229,6 +229,7 @@ try {
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q365193",displayName:"Adolfo Sánchez Vázquez",biography:"Spanish philosopher"},[{title:"Edición",year:1967}]));
     assert.equal(await eras.first().textContent(),"Periodo contemporáneo");
     assert.match(await page.locator(".author-timeline-context").textContent(),/latinoamericana/);
+    assert.equal(await life.locator(".author-intellectual-history-archive").getAttribute("href"),"./filosofia-latinoamericana.html#autor-0071");
     await life.locator(".author-intellectual-history-toggle").click();
     assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
     await geometry();
