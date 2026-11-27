@@ -96,6 +96,7 @@ on:
       - "src/core/world-history-anchors.js"
       - "tests/world-history-anchors.test.mjs"
       - "src/core/author-intellectual-history*.js"
+      - "tests/author-history-final-integrity.test.mjs"
       - "src/core/latin-american-*-history*.js"
       - "scripts/qa/theme-contrast-smoke.mjs"
       - "scripts/qa/corpus-appearance-smoke.mjs"

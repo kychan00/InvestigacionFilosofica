@@ -1,7 +1,7 @@
 // Reviewed crosswalk between the canonical 1,504-person matrix and the
 // existing intellectual-history authorities. Not a name-based resolver.
 // Each entry was checked against the inventory and the individual dossier.
-import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
+import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-final-v1";
 const LINKS = [
   [
     19,

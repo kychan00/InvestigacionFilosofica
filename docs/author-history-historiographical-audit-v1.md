@@ -47,3 +47,16 @@ Fecha de consulta: 2026-11-27. Se cotejó el nombre del ítem de Wikidata para l
 ## Pendiente
 
 Auditoría de afirmaciones individuales y fechas de los 199 hitos, cotejo de todos los enlaces bibliográficos, comprobación visual con datos vivos. Las pruebas automatizadas de identidad son independientes de la certificación historiográfica.
+
+
+## Fase 14 · Contrastes puntuales y control de integridad
+
+- Hegel: David James, [Introduction: Freedom and History in Hegel's Philosophy of Right](https://www.cambridge.org/core/books/abs/hegels-elements-of-the-philosophy-of-right/introduction-freedom-and-history-in-hegels-philosophy-of-right/8C0F3B03487083C4B01957A013B4B72A), Cambridge University Press, distingue la publicación en 1820 de la portada de 1821. Se corrige el hito conservando ambas fechas.
+- Dussel: [Colegio de Filosofía UNAM](https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/) confirma antigüedad académica desde 1976; [PARES](https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594) respalda 1957, 1967 y exilio de 1975.
+- Confucio: [SEP, Confucius](https://plato.stanford.edu/archives/spr2024/entries/confucius/) respalda las referencias textuales de 509 y 500 a. C.; [Wikidata](https://www.wikidata.org/wiki/Q4604) registra VIAF 89664672 y encabezamientos de autoridad alternativos.
+- Villoro: [SEP México](https://www.gob.mx/sep/acciones-y-programas/luis-villoro-toranzo?state=published) respalda el nacimiento en Barcelona y filiación mexicana; [UNAM](https://filosoficas.unam.mx/sitio/sitio/sitio/luis-villoro-quinto-aniversario-luctuoso) respalda pertenencia a El Colegio Nacional y representación ante UNESCO.
+- Zambrano: [CVC](https://cvc.cervantes.es/actcult/zambrano/cronologia/) y [CIDA](https://www.cultura.gob.es/cultura/areas/archivos/mc/centros/cida/4-difusion-cooperacion/4-1-guias-de-lectura/escritoras/zambrano-maria.html) respaldan las etapas de exilio, retorno y premio.
+- Arendt: [SEP](https://plato.stanford.edu/archives/fall2024/entries/arendt/) respalda doctorado de 1929 y otros hitos biográficos.
+- Nāgārjuna: [SEP](https://plato.stanford.edu/archives/sum2024/entries/nagarjuna/) incluye las tres familias de títulos seleccionadas entre atribuciones ampliamente aceptadas.
+
+El control de integridad automatizado abarca 199/199 registros; el contraste externo en esta fase es puntual. No se adjudica una certificación historiográfica individual a los registros restantes. La prueba de navegación con datos controlados tampoco certifica disponibilidad real de proveedores.

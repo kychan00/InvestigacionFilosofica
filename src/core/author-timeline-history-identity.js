@@ -1,6 +1,6 @@
 import { WORLD_HISTORY_ANCHORS } from "./world-history-anchors.js?v=20261127-world-v1";
 import { LATAM_HISTORY_ANCHORS } from "./latin-american-history-anchors.js?v=20261127-latam-v1";
-import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
+import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-final-v1";
 // Documentary corroboration for this view only. Translations and editions
 // of one work count as one anchor; no external requests or identity mutation.
 const anchors=[
@@ -45,6 +45,7 @@ export function timelineHistoryAuthor(author,works=[]){
  const [qid,aliases,titles]=candidates[0], names=new Set(aliases.map(norm));
  const linked=new Set([oa(author.openalexId||author.sourceId||author.id),...(Array.isArray(author.linkedAuthorIds)?author.linkedAuthorIds.map(oa):[])].filter(Boolean));
  const groups=titles.map(g=>new Set(g.map(norm))), matched=new Set(), observedIds=new Set();
+ if(qid==="Q4604"&&(author.viafId||author.viaf)&&!confuciusViaf(author.viafId||author.viaf))return author;
  let confuciusCorroborated=qid==="Q4604"&&(confuciusViaf(author.viafId||author.viaf)||confuciusLifeHeading(author.sourceDisplayName)||confuciusLifeHeading(author.displayName));
  for(const work of Array.isArray(works)?works:[]){
   const i=groups.findIndex(g=>g.has(norm(work?.title)));
@@ -52,7 +53,7 @@ export function timelineHistoryAuthor(author,works=[]){
   if(work.authors.filter(p=>{
    if(!isCreator(p)||!names.has(creatorName(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)))return false;
    const id=oa(p?.openalexId||p?.sourceId||p?.id);
-   return !(id&&linked.size&&!linked.has(id))&&!p?.orcid&&!p?.orcidId&&(!p?.wikidataId||p.wikidataId===qid);
+   return !(qid==="Q4604"&&(p?.viafId||p?.viaf)&&!confuciusViaf(p.viafId||p.viaf))&&!(id&&linked.size&&!linked.has(id))&&!p?.orcid&&!p?.orcidId&&(!p?.wikidataId||p.wikidataId===qid);
   }).map(p=>{
    const id=oa(p?.openalexId||p?.sourceId||p?.id);if(id)observedIds.add(id);
    if(qid==="Q4604"&&(confuciusLifeHeading(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)||confuciusViaf(p?.viafId||p?.viaf)))confuciusCorroborated=true;
