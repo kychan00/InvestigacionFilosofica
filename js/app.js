@@ -330,7 +330,8 @@ window.addEventListener("pageshow", event => {
 });
 let authorWorkBrowserState = {
   query: "",
-  letter: ""
+  letter: "",
+  language: ""
 };
 
 const qwen3OptIn =
@@ -5170,7 +5171,8 @@ function showExclusiveAuthorWorks(
     };
     authorWorkBrowserState = {
       query: "",
-      letter: ""
+      letter: "",
+      language: ""
     };
   }
 
@@ -6833,6 +6835,7 @@ function filterAuthorWorks(
     ).toUpperCase();
 
   return (works || []).filter(item => {
+    if(authorWorkBrowserState.language && (item?.language || "und") !== authorWorkBrowserState.language)return false;
     if (
       query &&
       !normalizeAuthorWorkLookup(
@@ -6866,6 +6869,9 @@ function renderAuthorWorkBrowser(
     works.length;
   const activeLetter =
     authorWorkBrowserState.letter;
+  const languages=[...new Set(works.map(work=>work.language||"und"))]
+    .sort((a,b)=>(a==="es"?-1:b==="es"?1:languageLabel(a).localeCompare(languageLabel(b),"es")));
+  const activeLanguage=authorWorkBrowserState.language||"";
 
   return `
     <div class="author-work-browser" aria-label="Buscar y filtrar obras del autor">
@@ -6893,6 +6899,19 @@ function renderAuthorWorkBrowser(
         </small>
       </div>
 
+      ${languages.length > 1 ? `
+        <div class="author-work-alphabet author-work-languages">
+          <span>Idioma de la edición</span>
+          <div role="group" aria-label="Filtrar obras por idioma">
+            ${["",...languages].map(language=>`
+              <button type="button" data-author-work-language="${escapeHtml(language)}"
+                class="${activeLanguage===language?"is-active":""}"
+                aria-pressed="${activeLanguage===language?"true":"false"}">
+                ${language?escapeHtml(languageLabel(language))+" ("+works.filter(work=>(work.language||"und")===language).length+")":"Todos"}
+              </button>
+            `).join("")}
+          </div>
+        </div>` : ""}
       ${letters.length > 1 ? `
         <div class="author-work-alphabet">
           <span>Índice alfabético</span>
@@ -7018,7 +7037,8 @@ function bindAuthorWorkCollectionActions() {
       () => {
         authorWorkBrowserState = {
           query: "",
-          letter: ""
+          letter: "",
+          language: ""
         };
         resetVisibleLimit();
 
@@ -7104,12 +7124,24 @@ function updateAuthorWorkCollection() {
       );
     });
 
+  document.querySelectorAll("[data-author-work-language]").forEach(button=>{
+    const active=button.dataset.authorWorkLanguage===(authorWorkBrowserState.language||"");
+    button.classList.toggle("is-active",active);
+    button.setAttribute("aria-pressed",String(active));
+  });
   bindResultActions();
   bindAuthorWorkCollectionActions();
 }
 
 
 function bindAuthorWorkBrowser() {
+  document.querySelectorAll("[data-author-work-language]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      authorWorkBrowserState.language=button.dataset.authorWorkLanguage||"";
+      resetVisibleLimit();
+      updateAuthorWorkCollection();
+    });
+  });
   document
     .querySelector(
       "#author-work-search"
