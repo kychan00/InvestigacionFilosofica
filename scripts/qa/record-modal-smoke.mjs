@@ -245,8 +245,9 @@ try {
     page.on("console", message => {
       if (["error","warning"].includes(message.type())) diagnostics.push(message.text());
     });
+    await page.addInitScript(() => localStorage.setItem("research-auth-verified-v1",JSON.stringify({verified:true,updatedAt:Date.now()})));
     const saved = {id:"work-ser-y-tiempo-123",title:"Ser y tiempo",
-      authors:[{name:"Martin Heidegger"}],year:1927,type:"archive-text",
+      authors:[{name:"Martin Heidegger"},{name:"Otro autor de prueba",id:"A123"}],year:1927,type:"archive-text",
       providers:["Internet Archive"],sourceRecordId:"internetarchive:ser-y-tiempo-edicion-a"};
     await page.route("**/*", async route => {
       const url = route.request().url();
@@ -264,7 +265,16 @@ try {
       }
       if (url.startsWith(BASE) && new URL(url).pathname.endsWith("/js/user-data.js")) {
         return route.fulfill({contentType:"text/javascript",body:
-          'export async function getLibraryWork(uid,id){globalThis.__savedRecordRead=[uid,id];return '+JSON.stringify(saved)+';} export function subscribeLibrary(){return ()=>{}} export function subscribeSavedAuthors(){return ()=>{}}'});
+          'const saved='+JSON.stringify(saved)+';'+
+          'export async function getLibraryWork(uid,id){globalThis.__savedRecordRead=[uid,id];return saved;} '+
+          'export function subscribeLibrary(uid,cb){cb([saved]);return ()=>{}} '+
+          'export function subscribeSavedAuthors(uid,cb){cb([]);return ()=>{}} '+
+          'export function normalizeWork(w){globalThis.__workPickerPayload=w;return w;} '+
+          'export function normalizeSavedAuthor(a){globalThis.__authorPickerPayload=a;return {...a,id:"author-fixture"};} '+
+          'export async function listUserProjects(){return [];} '+
+          'export async function getProjectWorkAssignments(){return new Map();} '+
+          'export async function getProjectAuthorAssignments(){return new Map();} '+
+          'export async function getSavedAuthor(){return null;}'});
       }
       return url.startsWith(BASE) ? route.continue() : route.abort();
     });
@@ -286,6 +296,29 @@ try {
     assert.equal(await modal.locator('a[href="https://archive.org/details/ser-y-tiempo-edicion-a"]').count(),1);
     assert.deepEqual(await page.evaluate(()=>globalThis.__savedRecordRead),["saved-record-test",saved.id]);
     assert.equal(await page.locator("#results .result-card").count(),0);
+    const workButton=modal.locator(".record-save-actions .research-save-button");
+    const authorButtons=modal.locator(".record-save-actions .author-save-button");
+    await workButton.waitFor({state:"visible"});
+    assert.equal(await authorButtons.count(),2);
+    for (const button of [workButton,...await authorButtons.all()]) {
+      assert.ok((await button.boundingBox()).height>=44,"Accessible detail save target");
+    }
+    await workButton.click();
+    const workPicker=page.locator('dialog[open][aria-labelledby="work-save-dialog-title"]');
+    await workPicker.waitFor({state:"visible"});
+    assert.equal(await workPicker.locator("[data-work-picker-title]").textContent(),saved.title);
+    assert.equal(await page.evaluate(()=>globalThis.__workPickerPayload?.id),saved.id);
+    await page.keyboard.press("Escape");
+    await workPicker.waitFor({state:"hidden"});
+    assert.ok(await modal.isVisible(),"Closing the save picker must leave the original record open");
+    await authorButtons.nth(1).click();
+    const authorPicker=page.locator('dialog[open][aria-labelledby="author-save-dialog-title"]');
+    await authorPicker.waitFor({state:"visible"});
+    assert.equal(await authorPicker.locator("[data-work-picker-title]").textContent(),"Otro autor de prueba");
+    assert.equal(await page.evaluate(()=>globalThis.__authorPickerPayload?.sourceId),"A123");
+    await authorPicker.locator("[data-work-picker-cancel]").click();
+    await authorPicker.waitFor({state:"hidden"});
+    assert.ok(await modal.isVisible());
     await page.screenshot({path:"artifacts/record-detail/saved-original-"+width+".png",animations:"disabled"});
     await page.close();
   }
