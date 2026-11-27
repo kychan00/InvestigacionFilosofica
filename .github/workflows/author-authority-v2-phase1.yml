@@ -1,0 +1,34 @@
+name: Author Authority V2 · Phase 1
+on:
+  pull_request:
+    paths:
+      - "benchmark/author-authority/v2/**"
+      - "src/core/author-authority-evidence-v2.js"
+      - "src/core/author-authority-resolution.js"
+      - "src/core/author-federated-matching.js"
+      - "src/core/author-orcid-guard.js"
+      - "scripts/authority/audit-runtime-v2.mjs"
+      - "tests/author-authority-v2-phase1.test.mjs"
+      - ".github/workflows/author-authority-v2-phase1.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  authority-v2-baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Test contracts and offline regression runner
+        run: node --test tests/author-authority-v2-phase1.test.mjs
+      - name: Measure legacy runtime baseline
+        run: node scripts/authority/audit-runtime-v2.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: author-authority-v2-runtime-baseline
+          path: artifacts/author-authority-v2/runtime-baseline.json
+          if-no-files-found: error
