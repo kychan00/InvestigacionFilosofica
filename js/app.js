@@ -2088,7 +2088,7 @@ function renderRecordDetails(
             </span>
 
             <span class="record-score-pill">
-              ${score}/100
+              ${item.savedRecordView && item.relevanceScore == null ? "Sin puntuación guardada" : score + "/100"}
             </span>
 
             ${
@@ -2515,7 +2515,7 @@ function renderRecordDetails(
                 </span>
 
                 <h3>
-                  Por qué aparece
+                  ${item.savedRecordView ? "Registro de mi biblioteca" : "Por qué aparece"}
                 </h3>
               </div>
 
@@ -9064,11 +9064,12 @@ async function openSavedPublicRecord(request) {
     // Never fall back to a federated title search or another person's record.
     try {
       if (!request.savedId) throw new Error("invalid-saved-record");
-      const [{ auth, firebaseReady }, { getLibraryWork }] = await Promise.all([
+      const [{ auth, firebaseReady, persistenceReady }, { getLibraryWork }] = await Promise.all([
         import("./firebase-client.js"),
         import("./user-data.js?v=20261127-saved-record-v1")
       ]);
       if (!firebaseReady() || !auth) throw new Error("account-unavailable");
+      await persistenceReady;
       await auth.authStateReady();
       const user = auth.currentUser;
       if (!user?.emailVerified) throw new Error("verified-session-required");
