@@ -1114,3 +1114,8 @@ html[data-theme="dark"] .author-page #author-timeline-root {
   color:var(--tl-blue-label); font-size:12px; line-height:1.5;
   overflow-wrap:anywhere; text-decoration:underline; text-underline-offset:2px;
 }
+
+/* Keep the era illustration close to the first work, not stretched across every edition. */
+@media(min-width:1024px){
+  #author-timeline-root .author-timeline-era-header {align-self:start;justify-content:flex-start;}
+}
