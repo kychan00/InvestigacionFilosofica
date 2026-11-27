@@ -1,0 +1,40 @@
+/* SIVA: a real author portrait, independent of decorative theme emblems. */
+body.author-view .siva-author-portrait-slot {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  max-width: 100%;
+}
+body.author-view .siva-author-portrait-slot [hidden] { display: none !important; }
+body.author-view .siva-portrait {
+  box-sizing: border-box;
+  width: clamp(140px, 19vw, 224px);
+  max-width: 100%;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--corpus-line, currentColor);
+  background: var(--corpus-author-card, var(--profile-card, #fff));
+  color: var(--corpus-ink, var(--profile-ink, #161616));
+  border-radius: 4px;
+}
+body.author-view .siva-portrait img {
+  display:block;width:100%;height:auto;max-height:260px;object-fit:contain;
+  aspect-ratio:auto;border-radius:2px;
+}
+body.author-view .siva-portrait figcaption {
+  display:grid;gap:5px;font-size:12px;line-height:1.45;overflow-wrap:anywhere;margin-top:8px;
+}
+body.author-view .siva-portrait-links { display:flex;flex-wrap:wrap;gap:3px 9px; }
+body.author-view .siva-portrait a { color:inherit;text-decoration:underline;text-underline-offset:2px; }
+body.author-view .siva-portrait a:focus-visible { outline:2px solid currentColor;outline-offset:2px; }
+@media(max-width: 900px) {
+  body.author-view .siva-author-portrait-slot:not([data-siva-ready]) { display:none; }
+  body.author-view .siva-author-portrait-slot[data-siva-ready] { width:100%; }
+  body.author-view .siva-portrait:not([hidden]) {
+    display:grid;grid-template-columns:minmax(72px,104px) minmax(0,1fr);
+    gap:12px;align-items:center;width:100%;max-width:380px;
+  }
+  body.author-view .siva-portrait img { max-height:144px; }
+  body.author-view .siva-portrait figcaption { margin:0; }
+}
+@media(forced-colors:active) { body.author-view .siva-portrait { background:Canvas;color:CanvasText;border-color:CanvasText; } }

@@ -51,6 +51,8 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261126-siva-v1";
+
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {
   authorOrcidUrl, normalizedAuthorOrcid, authorWorkSources,
@@ -317,6 +319,13 @@ let authorArchiveNotice = "";
 let authorArchiveSources = [];
 let authorArchiveOrcidSummary = null;
 let authorArchiveOrcidProfile = null;
+const authorPortraitSession = createAuthorPortraitSession();
+window.addEventListener("pagehide", () => authorPortraitSession.close());
+window.addEventListener("pageshow", event => {
+  if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view")) {
+    void authorPortraitSession.open(currentResponse.authorResolution?.author, document.querySelector(".siva-author-portrait-slot"));
+  }
+});
 let authorWorkBrowserState = {
   query: "",
   letter: ""
@@ -5252,6 +5261,7 @@ function restoreAuthorSourceSearch() {
   }
 
   currentController?.abort();
+  authorPortraitSession.close();
   document.body.classList.remove(
     "author-view"
   );
@@ -7329,9 +7339,12 @@ function renderAuthorPage(
             </p>` : ""}
         </div>
 
+        <div class="siva-author-portrait-slot">
         <div class="author-page-seal" aria-hidden="true">
           <span>${escapeHtml(authorMonogram(author.displayName))}</span>
           <small>${federatedCatalog ? "Autor en catálogos" : "Autor identificado"}</small>
+        </div>
+          <figure class="siva-portrait" hidden></figure>
         </div>
       </header>
 
@@ -7512,6 +7525,9 @@ function renderFilteredResults() {
         currentResponse
       );
 
+    void authorPortraitSession.open(currentResponse.authorResolution?.author,
+      resultsEl.querySelector(".siva-author-portrait-slot"));
+
     mountAuthorTimeline(
       resultsEl.querySelector("#author-timeline-root"),
       currentResponse.results || [],
@@ -7534,6 +7550,7 @@ function renderFilteredResults() {
   }
 
 
+  authorPortraitSession.close();
   renderAuthorIdentity(
     currentResponse?.authorResolution
   );
@@ -8218,6 +8235,7 @@ async function runFederatedSearch(
     return;
   }
 
+  authorPortraitSession.close();
   document.body.classList.remove(
     "author-view"
   );
@@ -8617,6 +8635,7 @@ async function searchSemanticCompanions(
 async function runSemanticSearch(
   query
 ) {
+  authorPortraitSession.close();
   document.body.classList.remove(
     "author-view"
   );
