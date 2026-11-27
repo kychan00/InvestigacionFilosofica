@@ -49,7 +49,7 @@ test("private record route reads only the signed-in library before calling the e
   const route = app.slice(app.indexOf("async function openSavedPublicRecord"), app.indexOf("  const query = request.title || request.doi;"));
   assert.match(route,/getLibraryWork\(user.uid, request.savedId\)/);
   assert.match(route,/user\?\.emailVerified/);
-  assert.match(route,/openRecord\(original\)/);
+  assert.match(route,/openRecord\(original, saved\)/);
   assert.doesNotMatch(route,/runFederatedSearch\(/);
   assert.match(read("js/user-data.js"),/recordSnapshot: capturePublicRecord\(work\)/);
 });
