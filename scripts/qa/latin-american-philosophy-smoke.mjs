@@ -259,9 +259,9 @@ try {
     };
     await page.evaluate(async fixture => {
       localStorage.removeItem("research-auth-verified-v1");
-      const { renderLiveResearchResults } = await import(
-        "./js/latin-american-philosophy.js?v=20261122-author-live-bookmarks-v1"
-      );
+      const loadedModule=[...document.querySelectorAll('script[type="module"][src]')].find(script=>new URL(script.src).pathname.endsWith("/js/latin-american-philosophy.js"));
+      if(!loadedModule)throw new Error("Archive entrypoint missing");
+      const { renderLiveResearchResults }=await import(loadedModule.src);
       const container = document.querySelector("#author-dossier-research-section");
       const record = { canonical_name: "Anténor Firmin", alternate_names: [], works: [] };
       const results = container.querySelector(".author-live-results");
@@ -484,6 +484,49 @@ try {
       animations: "disabled"
     });
 
+    // Real matrix dossier and shared renderer: no new bibliographic records.
+    await page.goto(PAGE_URL+"#autor-0098",{waitUntil:"domcontentloaded"});
+    await page.locator("#author-dossier-history-section").waitFor({state:"visible",timeout:18000});
+    const life=page.locator("#author-dossier-history-section");
+    const toggle=life.locator(".author-intellectual-history-toggle");
+    assert.equal(await toggle.getAttribute("aria-expanded"),"false");
+    assert.equal(await page.locator("#author-dialog-title").textContent(),"Antonio Caso");
+    const originalCount=await page.locator("#author-dossier-works").textContent();
+    await toggle.click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),6);
+    assert.equal(await life.locator(".author-intellectual-history-kind").nth(4).textContent(),"Edición revisada");
+    assert.equal(await page.locator("#author-dossier-works").textContent(),originalCount);
+    const fits=await life.evaluate(root=>{
+      const r=root.getBoundingClientRect();
+      return [...root.querySelectorAll("button,li,strong,a")].every(e=>{
+        const b=e.getBoundingClientRect();
+        return !b.width||(b.left>=r.left-1&&b.right<=r.right+1&&(e.clientWidth===0||e.scrollWidth<=e.clientWidth+2));
+      });
+    });
+    assert.ok(fits,"Shared panel must fit the LATAM dossier");
+    await life.screenshot({path:ARTIFACTS+"/history-"+width+".png",animations:"disabled"});
+    await page.locator("#author-dialog-close").click();
+    await page.goto(PAGE_URL+"#autor-0001",{waitUntil:"domcontentloaded"});
+    await page.locator("#author-dossier-history-section").waitFor({state:"visible",timeout:18000});
+    assert.match(await life.textContent(),/Cronología del expediente/);
+    await toggle.click();
+    assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/c\. 1398/);
+    assert.match(await life.locator(".author-intellectual-history-kind").allTextContents().then(a=>a.join(" ")),/Contribución intelectual/);
+    assert.equal(await life.locator(".author-intellectual-history-source").count(),0,"Do not attach dossier-wide citations to an individual event");
+    await page.locator("#author-dialog-close").click();
+    await page.goto(PAGE_URL+"#autor-0380",{waitUntil:"domcontentloaded"});
+    await page.locator("#author-dossier-history-section").waitFor({state:"visible",timeout:18000});
+    await toggle.click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    assert.ok(await life.locator(".author-intellectual-history-source").count()>0);
+    await page.locator("#author-dialog-close").click();
+    await page.goto(PAGE_URL+"#autor-1187",{waitUntil:"domcontentloaded"});
+    await page.locator("#author-dossier-works-section").waitFor({state:"attached",timeout:18000});
+    assert.equal(await page.locator("#author-dossier-history-section").count(),0);
+    assert.equal(await page.locator('[data-dossier-target="author-dossier-history-section"]').isVisible(),false);
+    assert.deepEqual(pageErrors,[],"Bridge must not emit uncaught JS errors");
     await context.close();
   }
 

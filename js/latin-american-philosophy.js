@@ -4,6 +4,9 @@ import {
   createWorkSaveButton
 } from "./public-save-controls.js?v=20261122-author-project-picker-v1";
 import { liveResultBookmarkPayload } from "./latin-american-live-work.js";
+import { buildIntellectualHistoryPanel, buildHistoryPanel } from "../src/core/author-intellectual-history-ui.js?v=20261127-v8";
+import { matrixIntellectualHistory } from "../src/core/latin-american-matrix-history.js?v=20261127-v8";
+import { latinAmericanHistoryIdentity } from "../src/core/latin-american-history-bridge.js?v=20261127-v6";
 
 const INVENTORY_URL = "./src/data/latin-american-philosophers-metadata.json";
 const MANIFEST_URL = "./src/data/philosopher-works/manifest.json";
@@ -1334,6 +1337,14 @@ function renderAuthorDialog(record) {
   authorDialogBody.replaceChildren();
 
   appendOverview(record, authorDialogBody);
+  const historyAuthor=latinAmericanHistoryIdentity(record);
+  const historyPanel=historyAuthor?buildIntellectualHistoryPanel(historyAuthor,{}):buildHistoryPanel(matrixIntellectualHistory(record),{},{matrix:true});
+  const historyNav=authorDialog.querySelector('[data-dossier-target="author-dossier-history-section"]');
+  if(historyNav)historyNav.hidden=!historyPanel;
+  if(historyPanel){
+    historyPanel.id="author-dossier-history-section";
+    authorDialogBody.append(historyPanel);
+  }
   appendWorkList(record, authorDialogBody);
   appendLiveResearch(record, authorDialogBody);
   appendSources(record, authorDialogBody);
@@ -1360,6 +1371,8 @@ async function openAuthorDialog(id, { updateHistory = true } = {}) {
   authorDialogTitle.textContent = inventoryAuthor?.name || "Cargando…";
   authorDialogLife.textContent = "";
   authorDossierIndex.textContent = `ARCHIVO / #${canonicalId(numericId)}`;
+  const historyNav=authorDialog.querySelector('[data-dossier-target="author-dossier-history-section"]');
+  if(historyNav)historyNav.hidden=true;
   authorDialogBody.innerHTML =
     '<p class="author-dialog-loading">Abriendo dossier bibliográfico…</p>';
 

@@ -152,6 +152,95 @@ try {
       if(width===390||width===1280)await page.locator("#author-timeline-root").screenshot({path:"artifacts/author-timeline/shell-"+shell+"-"+mode+"-"+width+".png",animations:"disabled"});
     }
     assert.equal(paletteSignatures.size,4,"All four shells must produce distinct timeline palettes");
+    // Real renderer, pilot history must remain separate from catalogue works.
+    await page.evaluate(()=>window.__timelineFixture(
+      {wikidataId:"Q9235",displayName:"Georg Wilhelm Friedrich Hegel",biography:"German philosopher"},
+      [{title:"Edición moderna",year:2020,type:"book"}]
+    ));
+    const life=page.locator(".author-intellectual-history");
+    const toggle=life.locator(".author-intellectual-history-toggle");
+    assert.equal(await toggle.getAttribute("aria-expanded"),"false");
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),0);
+    await toggle.click();
+    assert.equal(await toggle.getAttribute("aria-expanded"),"true");
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    assert.equal(await nodes.count(),1);
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),6);
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),7);
+    await life.getByRole("button",{name:"Mostrar menos hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    for(const shell of ["default","territory","marginalia","observatory"]){
+      await page.evaluate(shell=>{document.documentElement.dataset.corpusShell=shell;},shell);
+      await geometry();
+      const issues=await life.evaluate(section=>{
+        const r=section.getBoundingClientRect();
+        return [...section.querySelectorAll("button,li,strong,a,span")].filter(e=>{
+          const b=e.getBoundingClientRect();
+          return b.width>0&&(b.left<r.left-1||b.right>r.right+1||e.scrollWidth>e.clientWidth+2&&e.clientWidth>0&&getComputedStyle(e).display!=="inline");
+        }).map(e=>e.className||e.tagName);
+      });
+      assert.deepEqual(issues,[],JSON.stringify({width,mode,shell,issues}));
+      if(width===390||width===1280)await life.screenshot({path:"artifacts/author-timeline/life-"+shell+"-"+mode+"-"+width+".png",animations:"disabled"});
+    }
+    await toggle.click();
+    assert.equal(await toggle.getAttribute("aria-expanded"),"false");
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q9235",displayName:"Otro autor"},[{title:"Otra obra",year:2020}]));
+    assert.equal(await life.count(),0);
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q859",displayName:"Platón"},[]));
+    assert.equal(await life.count(),1,"History can be rendered without bibliographic records");
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/a. C./);
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q1879022",displayName:"Leopoldo Zea Aguilar"},[{title:"Edición moderna",year:2020}]));
+    assert.equal(await life.count(),1);
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    assert.equal(await life.locator(".author-intellectual-history-date").first().textContent(),"1912");
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q60025",displayName:"Hannah Arendt"},[{title:"Edición",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-kind").last().textContent(),"Publicación póstuma");
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q4604",displayName:"孔子"},[{title:"Registro antiguo",year:-500},{title:"Edición moderna",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/tradicional/);
+    assert.equal(await eras.first().textContent(),"China antigua · a. C.");
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),4);
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q6291218",displayName:"José Carlos Mariátegui"},[{title:"Obra",year:2020}]));
+    assert.equal(await life.count(),0);
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q8011",displayName:"ابن سينا"},[{title:"Edición crítica",year:1020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/970 o 980/);
+    assert.equal(await life.locator(".author-intellectual-history-event").first().locator("a").count(),2);
+    assert.equal(await eras.first().textContent(),"Siglo 11 d. C.");
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q171195",displayName:"Nāgārjuna"},[{title:"Edición moderna",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),2);
+    assert.equal(await life.getByRole("button",{name:"Mostrar más hitos"}).count(),0);
+    assert.match(await life.locator(".author-intellectual-history-date").last().textContent(),/fecha desconocida/);
+    await geometry();
+    // Curated intellectual context takes precedence over a birthplace adjective.
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q365193",displayName:"Adolfo Sánchez Vázquez",biography:"Spanish philosopher"},[{title:"Edición",year:1967}]));
+    assert.equal(await eras.first().textContent(),"Periodo contemporáneo");
+    assert.match(await page.locator(".author-timeline-context").textContent(),/latinoamericana/);
+    assert.equal(await life.locator(".author-intellectual-history-archive").getAttribute("href"),"./filosofia-latinoamericana.html#autor-0071");
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q601364",displayName:"Antonio Caso"},[{title:"Edición",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-kind").nth(4).textContent(),"Edición revisada");
+    assert.equal(await life.locator(".author-intellectual-history-event").nth(4).locator("a").count(),2);
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q5711746",displayName:"Sebastián Salazar Bondy"},[{title:"Obra",year:2020}]));
+    assert.equal(await life.count(),0);
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }
