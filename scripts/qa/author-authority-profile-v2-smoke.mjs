@@ -33,13 +33,18 @@ try{
   assert.equal(await page.evaluate(()=>window.authorityOpened),"W0");
   await root.getByText("Ver distribución cronológica",{exact:false}).click();
   await root.getByText("2020 · 0 confirmadas · 14 probables",{exact:true}).waitFor();
-  for(const theme of ["light","dark"]){
-   await page.evaluate(theme=>{document.documentElement.dataset.theme=theme;document.body.dataset.theme=theme;},theme);
-   const geometry=await root.evaluate(el=>({width:el.clientWidth,scroll:el.scrollWidth,viewport:innerWidth,right:el.getBoundingClientRect().right}));
-   assert.ok(geometry.scroll<=geometry.width+2&&geometry.right<=geometry.viewport+2,JSON.stringify(geometry));
-   await root.screenshot({path:"artifacts/author-authority-profile-v2/"+width+"-"+theme+".png"});
+  for(const theme of ["light","dark"])for(const shell of ["default","territory","marginalia","observatory"]){
+   await page.evaluate(({theme,shell})=>{
+    document.documentElement.dataset.theme=theme;
+    document.documentElement.style.colorScheme=theme;
+    document.documentElement.dataset.corpusShell=shell;
+    window.dispatchEvent(new CustomEvent("philosophythemechange",{detail:{theme}}));
+   },{theme,shell});
+   const geometry=await root.evaluate(el=>({width:el.clientWidth,scroll:el.scrollWidth,viewport:innerWidth,right:el.getBoundingClientRect().right,left:el.getBoundingClientRect().left}));
+   assert.ok(geometry.scroll<=geometry.width+2&&geometry.right<=geometry.viewport+2&&geometry.left>=-2,JSON.stringify({width,theme,shell,geometry}));
+   if(width===390||width===1440)await root.screenshot({path:"artifacts/author-authority-profile-v2/"+width+"-"+theme+"-"+shell+".png",animations:"disabled"});
   }
   await page.close();
  }
- console.log("Authority profile preview: 5 viewport widths, filters, pagination and evidence disclosure");
+ console.log("Authority profile preview: 5 viewport widths, 4 corpus themes, both color modes, filters, pagination and evidence disclosure");
 }finally{await browser.close();}
