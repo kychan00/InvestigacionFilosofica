@@ -1,4 +1,4 @@
-import { reviewedAuthorEvidence, filterReviewedAuthorWorks } from "../src/core/author-reviewed-evidence.js?v=1";
+import { filterReviewedAuthorWorks } from "../src/core/author-reviewed-evidence.js?v=1";
 import { classicalAuthority, localizeClassicalAuthor } from "../src/core/classical-author-aliases.js?v=1";
 import { sanitizeAuthorOrcid, rejectedAuthorOrcid, removeRejectedWorkOrcid } from "../src/core/author-orcid-guard.js?v=1";
 import {
