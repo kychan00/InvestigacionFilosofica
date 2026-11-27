@@ -1,4 +1,4 @@
-import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v5";
+import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-final-v1";
 import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v4";
 
 function el(tag,cls,text){
@@ -53,7 +53,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}=
     panel.hidden=!state.bioOpen;
     panel.replaceChildren();
     if(!state.bioOpen)return;
-    panel.append(el("p","author-intellectual-history-note",matrix?"Proyección de las fechas ya consignadas en esta ficha, no una nueva curaduría biográfica. Las fuentes generales no acreditan por sí solas cada registro. Consulte la sección Fuentes para el expediente completo.":"Acontecimientos de la vida y fechas originales; independientes de las ediciones recuperadas en la bibliografía. Las fechas tradicionales y los testimonios textuales se señalan expresamente."));
+    panel.append(el("p","author-intellectual-history-note",matrix?"Proyección de las fechas ya consignadas en esta ficha, no una nueva curaduría biográfica. Las fuentes generales no acreditan por sí solas cada registro. Consulte la sección Fuentes para el expediente completo.":"Selección de acontecimientos y fechas originales, independiente de las ediciones recuperadas en la bibliografía. Las referencias pueden abarcar varios hitos; consulte cada fuente para valorar su alcance. Las fechas aproximadas, tradicionales y los testimonios textuales se señalan cuando corresponde."));
     const entries=el("ol","author-intellectual-history-track");
     const limit=state.bioLimit||BIO_BATCH;
     for(const event of history.events.slice(0,limit)){
