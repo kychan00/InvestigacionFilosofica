@@ -1,6 +1,6 @@
 import {DECISION_SCHEMA, validateEvidenceV2, validateDecisionV2, independentEvidenceGroups} from "./author-authority-evidence-v2.js";
 
-export const AUTHORITY_ENGINE_VERSION="2.0.0-experimental.1";
+export const AUTHORITY_ENGINE_VERSION="2.0.0-experimental.2";
 // Rules apply to the proposition's scope, not to a famous name or work list.
 // Unknown evidence types remain traceable but cannot establish identity.
 const policy={
@@ -14,6 +14,7 @@ const policy={
   anchors:["verified-authorship","verified-author-position-identifier","reviewed-contribution-decision"],
   strong:["authored-work-overlap","identified-coauthor-network","institutional-bibliography","publisher-authorship"],
   context:["ordered-name-match","affiliation-overlap","active-period-compatible","topic-overlap","venue-overlap"],
+  provisional:["snapshot-author-membership","registry-listed-work","publisher-asserted-author-identifier"],
   veto:["verified-author-position-conflict","verified-distinct-person","verified-impossible-original-date","verified-noncontributor","reviewed-contribution-conflict"]
  },
  portrait:{
@@ -73,17 +74,18 @@ function assess(ref,scope,evidence){
  const anchor=positive.some(e=>e.reliability==="verified"&&p.anchors.includes(e.kind));
  const convergence=converges(groups,p.strong);
  const strong=positive.some(e=>trusted(e)&&p.strong.includes(e.kind));
+ const provisional=positive.some(e=>(p.provisional||[]).includes(e.kind));
  const conflict=negative.some(e=>e.reliability==="verified"|| (trusted(e)&&p.veto.includes(e.kind)));
  let status="unresolved",reason="insufficient-evidence";
  if(hard.length){
   // Preserve contradictory verified anchors rather than deleting an identity.
   status=anchor?"ambiguous":"rejected";reason=anchor?"conflicting-verified-anchors":"verified-veto";
- }else if(conflict&&(anchor||convergence||strong)){
+ }else if(conflict&&(anchor||convergence||strong||provisional)){
   status="ambiguous";reason="material-contradiction";
  }else if(!conflict&&(anchor||convergence)){
   status="confirmed";reason=anchor?"verified-anchor":"independent-strong-convergence";
- }else if(!conflict&&strong){
-  status="probable";reason="corroborated-but-incomplete";
+ }else if(!conflict&&(strong||provisional)){
+  status="probable";reason=strong?"corroborated-but-incomplete":"source-asserted-attribution";
  }
  return {candidateRef:ref,status,reasonCodes:[reason],evidenceRefs:sortedUnique(evidence.map(e=>e.id)),independentLineages:groups.length};
 }
