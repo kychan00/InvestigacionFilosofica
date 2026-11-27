@@ -1,3 +1,4 @@
+import { capturePublicRecord } from "./record-deeplink.js?v=20261127-saved-record-v1";
 import {
   collection,
   deleteDoc,
@@ -428,6 +429,7 @@ export function normalizeWork(work, {
     normalizeUrl(work?.referenceUrl) ||
     normalizeUrl(work?.urls?.reference) ||
     normalizeUrl(work?.urls?.primary) ||
+    normalizeUrl(work?.urls?.canonical) ||
     normalizeUrl(work?.url) ||
     normalizeUrl(work?.openAccess?.url);
 
@@ -485,7 +487,8 @@ export function normalizeWork(work, {
       700
     ),
     origin,
-    privateOnly: Boolean(privateOnly)
+    privateOnly: Boolean(privateOnly),
+    ...(privateOnly ? {} : { recordSnapshot: capturePublicRecord(work) })
   };
 }
 
