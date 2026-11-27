@@ -1,5 +1,5 @@
 /**
- * SIVA · Public author portrait policy. No name search or inferred identity.
+ * SIVA · Public author portrait policy. Names discover candidates, never establish identity.
  * Wikidata is an identity bridge, Commons is the media/license authority.
  * The application code is MIT; media retains its original license.
  */
@@ -7,7 +7,7 @@ const WD = "https://www.wikidata.org/w/api.php";
 const COMMONS = "https://commons.wikimedia.org/w/api.php";
 export const PORTRAIT_MAX_BYTES = 256 * 1024;
 export const PORTRAIT_MAX_SIDE = 480;
-export const PORTRAIT_TIMEOUT_MS = 7000;
+export const PORTRAIT_TIMEOUT_MS = 12000;
 
 function orcid(value) {
   const id = String(value || "").trim().replace(/^https:\/\/(?:www\.)?orcid\.org\//i, "").replace(/\/$/, "").toUpperCase();
@@ -33,14 +33,52 @@ function fold(value) {
 }
 // Reviewed historical authorities. A missing QID may be recovered only
 // for exact, distinctive full names of existing non-federated corpus authors.
-// Short names still need an independently resolved authority ID. No remote
-// name search, surname guessing, or change to bibliographic author identity.
+// Short names still need an independently resolved authority ID. General
+// discovery below requires independent bibliographic evidence.
 const HISTORICAL = Object.freeze({
   Q9312: ["immanuel kant", "kant immanuel", "emmanuel kant"],
   Q9235: ["georg wilhelm friedrich hegel", "hegel georg wilhelm friedrich"],
-  Q913: ["socrates", "sokrates", "σωκρατης"]
+  Q913: ["socrates", "sokrates", "σωκρατης"],
+  Q152388: ["theodor w adorno", "theodor adorno", "theodor wiesengrund adorno", "theodor ludwig wiesengrund adorno", "adorno theodor w", "adorno theodor"],
+  Q76826: ["max horkheimer", "horkheimer max"],
+  Q61078: ["walter benjamin", "benjamin walter", "walter benedix schonflies benjamin"],
+  Q60030: ["herbert marcuse", "marcuse herbert"],
+  Q76357: ["jurgen habermas", "habermas jurgen"],
+  Q48301: ["martin heidegger", "heidegger martin"],
+  Q9358: ["friedrich nietzsche", "friedrich wilhelm nietzsche", "nietzsche friedrich"],
+  Q58586: ["edmund husserl", "husserl edmund"],
+  Q9391: ["ludwig wittgenstein", "ludwig josef johann wittgenstein", "wittgenstein ludwig"],
+  Q9191: ["rene descartes", "descartes rene"],
+  Q37160: ["david hume", "hume david"],
+  Q172544: ["john rawls", "john bordley rawls", "rawls john"],
+  Q81244: ["karl popper", "karl raimund popper", "popper karl"],
+  Q7197: ["simone de beauvoir", "beauvoir simone de"],
+  Q44272: ["michel foucault", "paul michel foucault", "foucault michel"],
+  Q9364: ["jean paul sartre", "sartre jean paul"],
+  Q130631: ["jacques derrida", "derrida jacques"],
+  Q34670: ["albert camus", "camus albert"],
+  Q9061: ["karl marx", "marx karl"]
 });
-export function portraitIdentity(author = {}) {
+function bibliographicEvidence(works, names, openalex) {
+  const titles = new Set();
+  const dois = new Set();
+  for (const work of (Array.isArray(works) ? works : []).slice(0, 300)) {
+    if (!Array.isArray(work?.authors) || !work.authors.some(person => {
+      const id = oa(person?.openalexId || person?.sourceId || person?.id, true);
+      return id && openalex ? id === openalex : names.includes(fold(person?.name || person?.displayName || person));
+    })) continue;
+    const title = fold(work.title);
+    if (title.length >= 12) titles.add(title);
+    const doi = normalizeDOI(work.doi);
+    if (doi) dois.add(doi);
+  }
+  return {titles:[...titles].slice(0, 100), dois:[...dois].slice(0, 100)};
+}
+function normalizeDOI(value) {
+  const doi = String(value || "").trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,"").replace(/^doi:\s*/i,"").toLowerCase();
+  return /^10\.\d{4,9}\/\S+$/.test(doi) ? doi : "";
+}
+export function portraitIdentity(author = {}, works = []) {
   if (!author || typeof author !== "object") return null;
   const o = orcid(author.orcid || author.orcidId);
   const a = oa(author.openalexId || author.sourceId) || (author.catalog !== "federated" ? oa(author.id, true) : null);
@@ -56,8 +94,13 @@ export function portraitIdentity(author = {}) {
   const q = explicitQ || curated;
   const historical = Boolean(q && !hasOrcid && HISTORICAL[q]?.includes(name));
   if (!o && !a && !historical) return null;
-  return { orcid: o, openalex: a, qid: q, historical,
-    key: [o || "", a || "", q || "", historical ? name : ""].join("|") };
+  const names = [...new Set([name, display].filter(n=>n.split(" ").length>=2))];
+  const evidence = a && !hasOrcid && author.catalog !== "federated"
+    ? bibliographicEvidence(works,names,a) : {titles:[],dois:[]};
+  const canDiscover = names.length > 0 && (evidence.titles.length >= 2 || evidence.dois.length > 0);
+  return { orcid: o, openalex: a, qid: q, historical, names, evidence, canDiscover,
+    queryName: String(author.displayName || author.sourceDisplayName || "").slice(0,150),
+    key: [o || "", a || "", q || "", historical ? name : "", canDiscover ? "bibliography" : ""].join("|") };
 }
 function values(entity, property) {
   const claims = entity?.claims?.[property] || [];
@@ -93,14 +136,51 @@ async function json(fetcher, url, signal) {
   if (value.error) throw new Error("Portrait source error");
   return value;
 }
+function entityNames(entity) {
+  return [...Object.values(entity.labels || {}).map(x=>x.value),
+    ...Object.values(entity.aliases || {}).flat().map(x=>x.value)].map(fold);
+}
+function compatibleCandidate(entity, identity) {
+  if (!qid(entity?.id) || entity.missing || (identity.qid && entity.id!==identity.qid)) return false;
+  if (!allValues(entity,"P31").some(v=>v?.id==="Q5")) return false;
+  if (!identity.names?.some(n=>entityNames(entity).includes(n))) return false;
+  const ids=allValues(entity,"P10283").map(v=>oa(v)).filter(Boolean);
+  const orcids=allValues(entity,"P496").map(orcid).filter(Boolean);
+  return (!ids.length || ids.includes(identity.openalex)) && !orcids.length;
+}
+async function bibliographicEntity(identity, candidates, fetcher, signal) {
+  if (!identity.canDiscover) return null;
+  const humans=candidates.filter(e=>compatibleCandidate(e,identity));
+  const workIds=[...new Set(humans.flatMap(e=>allValues(e,"P800").map(x=>qid(x?.id)).filter(Boolean).slice(0,12)))].slice(0,48);
+  if (!workIds.length) return null;
+  const data=await json(fetcher,apiURL(WD,{action:"wbgetentities",ids:workIds.join("|"),props:"claims|labels|aliases",languages:"en|es|de|fr|pt|it"}),signal);
+  const accepted=humans.filter(person=>{
+    const titles=new Set();
+    for (const ref of allValues(person,"P800")) {
+      const work=data.entities?.[ref?.id];
+      if (!work || !allValues(work,"P50").some(a=>a?.id===person.id)) continue;
+      if (allValues(work,"P356").map(normalizeDOI).some(d=>d && identity.evidence.dois.includes(d))) return true;
+      // Count distinct work entities, not translations/aliases of one work.
+      const title=entityNames(work).find(n=>identity.evidence.titles.includes(n));
+      if (title) titles.add(title);
+    }
+    return titles.size>=2;
+  });
+  return accepted.length===1 ? accepted[0] : null;
+}
 async function entityFor(identity, fetcher, signal) {
   const get = async ids => {
-    const data = await json(fetcher, apiURL(WD, {action:"wbgetentities", ids:ids.join("|"), props:"claims"}), signal);
-    return Object.values(data.entities || {}).filter(x => matchesPortraitIdentity(x, identity));
+    const data = await json(fetcher, apiURL(WD, {action:"wbgetentities", ids:ids.join("|"), props:identity.canDiscover?"claims|labels|aliases":"claims", ...(identity.canDiscover?{languages:"en|es|de|fr|pt|it"}:{})}), signal);
+    return Object.values(data.entities || {});
+  };
+  const verify = async candidates => {
+    const exact=candidates.filter(x=>matchesPortraitIdentity(x,identity));
+    if(exact.length===1)return exact[0];
+    if(exact.length>1)return null;
+    return bibliographicEntity(identity,candidates,fetcher,signal);
   };
   if (identity.qid) {
-    const found = await get([identity.qid]);
-    return found.length === 1 ? found[0] : null;
+    return verify(await get([identity.qid]));
   }
   const prop = identity.orcid ? "P496" : "P10283";
   const id = identity.orcid || identity.openalex.toLowerCase();
@@ -108,9 +188,17 @@ async function entityFor(identity, fetcher, signal) {
     srsearch:"haswbstatement:" + prop + "=" + id, srlimit:"5", srprop:""}), signal);
   // A truncated or ambiguous result is never resolved by ranking/name.
   const hits = query.query?.search || [];
-  if (query.continue || hits.length !== 1 || !qid(hits[0].title)) return null;
-  const found = await get([hits[0].title]);
-  return found.length === 1 ? found[0] : null;
+  if (!query.continue && hits.length === 1 && qid(hits[0].title)) {
+    const found=await verify(await get([hits[0].title]));
+    if(found)return found;
+  }
+  if (query.continue || hits.length > 1 || !identity.canDiscover || !identity.queryName) return null;
+  // Name search only proposes candidates; two authored works or an exact
+  // authored DOI must independently corroborate identity.
+  const discovered=await json(fetcher,apiURL(WD,{action:"wbsearchentities",search:identity.queryName,language:"en",uselang:"en",type:"item",limit:"5"}),signal);
+  if(discovered["search-continue"] || discovered.continue)return null;
+  const ids=[...new Set((discovered.search||[]).map(x=>qid(x.id)).filter(Boolean))];
+  return ids.length ? verify(await get(ids)) : null;
 }
 const MIME = new Set(["image/jpeg","image/png","image/webp"]);
 function plain(value) {
@@ -162,13 +250,20 @@ export async function resolveAuthorPortrait(identity, {fetcher = fetch, signal} 
   const entity = await entityFor(identity, fetcher, signal);
   if (!entity) return null;
   const files = [...new Set(values(entity,"P18").filter(v => typeof v==="string" && v.length>0 && v.length<=300))];
-  // Avoid choosing among conflicting preferred portraits automatically.
-  if (files.length !== 1) return null;
-  const payload = await json(fetcher, apiURL(COMMONS,{action:"query", titles:"File:"+files[0], prop:"imageinfo",
+  // All non-deprecated P18 claims refer to the same verified person. Try
+  // up to four, in Wikidata preferred/statement order, validating each file.
+  if (!files.length) return null;
+  const ordered=files.slice(0,4);
+  const payload = await json(fetcher, apiURL(COMMONS,{action:"query", titles:ordered.map(x=>"File:"+x).join("|"), prop:"imageinfo",
     iiprop:"url|size|mime|extmetadata|thumbmime", iiurlwidth:"220", iiurlheight:"320", iiextmetadatalanguage:"en",
     iiextmetadatafilter:"LicenseShortName|Artist|Credit|Attribution|Restrictions|Copyrighted"}), signal);
   const pages = Object.values(payload.query?.pages || {});
-  return pages.length === 1 ? commonsPortrait(pages[0],entity.id) : null;
+  for(const name of ordered) {
+    const page=pages.find(p=>fold(p.title)===fold("File:"+name));
+    const portrait=commonsPortrait(page,entity.id);
+    if(portrait)return portrait;
+  }
+  return null;
 }
 export async function downloadPortrait(meta, {fetcher=fetch,signal}={}) {
   const url = allowedMediaURL(meta?.url);
