@@ -15,6 +15,9 @@ on:
       - "scripts/authority/build-holdout-v2.mjs"
       - "scripts/authority/build-reference-holdout-v2.mjs"
       - "scripts/authority/audit-jsonl-integrity-v2.mjs"
+      - "scripts/authority/read-snapshot-jsonl.mjs"
+      - "scripts/authority/build-documentary-review-v2.mjs"
+      - "tests/author-authority-human-audit-evidence.test.mjs"
       - "src/core/author-authority-reference-holdout-v2.js"
       - "tests/author-authority-reference-holdout-v2.test.mjs"
       - "src/core/author-authority-holdout-v2.js"
@@ -123,6 +126,20 @@ jobs:
 
       - name: Build documentary reference holdout
         run: node scripts/authority/build-reference-holdout-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/holdout artifacts/author-authority-v2/reference-holdout
+
+      - name: Test canonical evidence reader
+        run: node --test tests/author-authority-human-audit-evidence.test.mjs
+
+      - name: Build documentary review packet and diagnose empty queries
+        run: node scripts/authority/build-documentary-review-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/holdout artifacts/author-authority-v2/reference-holdout artifacts/author-authority-v2/documentary-review
+
+      - name: Upload documentary review packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-documentary-review
+          path: artifacts/author-authority-v2/documentary-review/
+          if-no-files-found: warn
 
       - name: Audit frozen work JSONL integrity (read only)
         run: node scripts/authority/audit-jsonl-integrity-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/integrity/report.json

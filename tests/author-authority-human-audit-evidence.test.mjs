@@ -196,3 +196,16 @@ test("evidence pack cuarentena NDJSON malformado sin inventar evidencia",async()
   assert.match(diagnostics.samples[0].error,/JSON|string|position/i);
   assert.match(diagnostics.samples[0].preview,/fila truncada/);
 });
+
+test("snapshot reader preserves Unicode line separators and escaped newlines in titles",async()=>{
+ const root=await mkdtemp(join(tmpdir(),"authority-jsonl-reader-"));
+ const path=join(root,"works.jsonl");
+ const title="First\u2028second\u2029third\nfourth\r\nfifth";
+ await writeFile(path,JSON.stringify({id:1,wid:10,t:title})+"\r\n"+JSON.stringify({id:2,wid:11,t:"Second"})+"\n","utf8");
+ const {readSnapshotJsonl}=await import("../scripts/authority/read-snapshot-jsonl.mjs");
+ const diagnostics={invalidJsonRows:0,samples:[]},rows=[];
+ for await(const row of readSnapshotJsonl(path,{tolerant:true,diagnostics}))rows.push(row);
+ assert.equal(rows.length,2);
+ assert.equal(rows[0].t,title);
+ assert.equal(diagnostics.invalidJsonRows,0);
+});
