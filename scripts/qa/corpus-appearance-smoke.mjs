@@ -39,11 +39,11 @@ const author = [
   '<div class="author-work-grid">', result, '</div>',
   '<section id="author-timeline-root" class="author-timeline">',
   '<div class="author-timeline-heading"><h2>Archivo cronológico</h2></div>',
-  '<div class="author-timeline-periods"><button class="author-timeline-period is-active">',
-  '<span class="author-timeline-marker"></span><span class="author-timeline-date">1807</span></button>',
-  '</div><div class="author-timeline-detail"><button class="author-timeline-work">',
-  '<span class="author-timeline-work-name">Fenomenología del espíritu</span>',
-  '</button></div></section></article>'
+  '<div class="author-timeline-historical-track" data-region="europe"><section class="author-timeline-era" data-motif="republic">',
+  '<div class="author-timeline-era-header"><h3>Siglo XIX</h3></div>',
+  '<div class="author-timeline-nodes"><button class="author-timeline-work">',
+  '<span class="author-timeline-work-copy"><span class="author-timeline-entry-date">1807</span><span class="author-timeline-work-name">Fenomenología del espíritu</span></span>',
+  '</button></div></section></div></section></article>'
 ].join("");
 
 const record = [
@@ -516,20 +516,20 @@ try {
       }
       const archive = await page.evaluate(() => {
         const root = document.querySelector(".author-page");
-        const scroll = document.querySelector(".author-timeline-periods");
+        const scroll = document.querySelector(".author-timeline-historical-track");
         const hero = document.querySelector(".author-page-hero");
         const r = root.getBoundingClientRect();
         return {
           left: r.left, right: r.right,
           scrollWidth: document.documentElement.scrollWidth,
-          timelineOverflow: getComputedStyle(scroll).overflowX,
+          timelineWidth: scroll.scrollWidth, timelineClient: scroll.clientWidth,
           hero: getComputedStyle(hero).backgroundImage
         };
       });
       assert.ok(archive.left >= -2 && archive.right <= width + 2,
         "Author dossier outside viewport: " + JSON.stringify({ width, mode, shell, archive }));
       assert.ok(archive.scrollWidth <= width + 3, "Author dossier creates horizontal overflow");
-      assert.equal(archive.timelineOverflow, "auto");
+      assert.ok(archive.timelineWidth <= archive.timelineClient + 2, "Timeline horizontal overflow");
       if (shell === "territory") {
         const searchInput = await page.evaluate(() => {
           const input = document.querySelector(".author-work-search-field input");

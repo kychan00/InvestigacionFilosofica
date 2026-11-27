@@ -1,5 +1,5 @@
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
-import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js";
+import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v2";
 import {
   authorOrcidUrl,
   normalizedAuthorOrcid,
@@ -35,9 +35,6 @@ function renderTimeline(root, works, state, options) {
   const context = authorHistoricalContext(author);
   const orcidUrl = authorOrcidUrl(authorOrcid);
   const model = buildAuthorTimeline(works, state.unit);
-  const selected = model.groups.find(group =>
-    group.key === state.selectedKey
-  ) || model.groups[0] || null;
 
   root.replaceChildren();
   root.className = "author-timeline";
@@ -63,9 +60,9 @@ function renderTimeline(root, works, state, options) {
     const control = button(label, active ? "is-active" : "", () => {
       if (state.unit === value) return;
       state.unit = value;
-      state.selectedKey = null;
       state.timelineLimit = TIMELINE_BATCH;
       renderTimeline(root, works, state, options);
+      root.querySelector(".author-timeline-modes .is-active")?.focus();
     });
     control.setAttribute("aria-pressed", String(active));
     modes.append(control);
@@ -132,7 +129,10 @@ function renderTimeline(root, works, state, options) {
     const block=el("section","author-timeline-era");
     block.dataset.motif=section.motif;
     const header=el("div","author-timeline-era-header");
-    header.append(motif(section.motif),el("h3","",section.label));
+    const label=el("div","author-timeline-era-copy");
+    label.append(el("h3","",section.label));
+    const illustration=motif(section.motif);
+    header.append(illustration,label);
     block.append(header);
     const list=el("div","author-timeline-nodes");
     for(const entry of section.entries){
@@ -217,6 +217,8 @@ function motif(name){
     precolonial:"M2 28H30V24H26V19H22V14H19V9H13V14H10V19H6V24H2Z M14 14H18V28",
     colonial:"M3 28V14H29V28M10 28V8L16 3 22 8V28M14 28V19H18V28M5 18H8M24 18H27",
     republic:"M3 27Q10 21 16 26Q22 21 29 27V7Q22 3 16 8Q10 3 3 7ZM16 8V26M7 11L12 13M20 13L25 11",
+    nineteenth:"M3 28H29M5 25H27M8 25V10H24V25M4 10H28L16 3ZM11 12V23M16 12V23M21 12V23M4 28V30M28 28V30",
+    contemporary:"M4 4H28V24H4ZM10 28H22M16 24V28M8 9H24M8 13H20M8 17H23",
     archive:"M7 3H21L26 8V29H7ZM21 3V8H26M11 13H22M11 18H22M11 23H19"
   };
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");

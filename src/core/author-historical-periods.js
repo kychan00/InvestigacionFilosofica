@@ -19,16 +19,16 @@ export function historicalPeriod(year,region="neutral") {
     if(year<1800)return band("colonial","Periodo colonial","colonial");
     if(year<1850)return band("independence","Independencias y formación republicana","republic");
     if(year<1910)return band("nation","Construcción nacional","republic");
-    return band("contemporary","Periodo contemporáneo","modern");
+    return band("contemporary","Periodo contemporáneo","contemporary");
   }
   if(region==="europe"){
     if(year<0)return band("bce","Antigüedad · a. C.","ancient");
     if(year<500)return band("ancient","Antigüedad · d. C.","ancient");
     if(year<1400)return band("medieval","Edad Media","medieval");
-    if(year<1600)return band("renaissance","Renacimiento","renaissance");
+    if(year<1600)return band("renaissance","Transición medieval y Renacimiento","renaissance");
     if(year<1800)return band("early-modern","Modernidad temprana","modern");
-    if(year<1900)return band("nineteenth","Siglo XIX","republic");
-    return band("contemporary","Periodo contemporáneo","modern");
+    if(year<1900)return band("nineteenth","Siglo XIX","nineteenth");
+    return band("contemporary","Periodo contemporáneo","contemporary");
   }
   if(year<0)return band("bce","Antes de nuestra era","archive");
   if(year<1500)return band("before1500","Antes de 1500","archive");
