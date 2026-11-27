@@ -1,4 +1,4 @@
-import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v4";
+import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-v5";
 import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v4";
 
 function el(tag,cls,text){

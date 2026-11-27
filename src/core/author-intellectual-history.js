@@ -3,7 +3,9 @@
 import { PHASE2_SOURCES, PHASE2_AUTHORS } from './author-intellectual-history-phase2.js?v=20261127-v2';
 import { PHASE3_SOURCES, PHASE3_AUTHORS } from './author-intellectual-history-phase3.js?v=20261127-v3';
 import { PHASE4_SOURCES, PHASE4_AUTHORS } from './author-intellectual-history-phase4.js?v=20261127-v4';
+import { PHASE5_SOURCES, PHASE5_AUTHORS } from './author-intellectual-history-phase5.js?v=20261127-v5';
 const SOURCES = {
+  ...PHASE5_SOURCES,
   ...PHASE4_SOURCES,
   ...PHASE3_SOURCES,
   ...PHASE2_SOURCES,
@@ -49,6 +51,7 @@ const SOURCES = {
   ]
 };
 const AUTHORS = {
+  ...PHASE5_AUTHORS,
   ...PHASE4_AUTHORS,
   ...PHASE3_AUTHORS,
   ...PHASE2_AUTHORS,
@@ -346,7 +349,7 @@ const AUTHORS = {
   }
 };
 export const BIO_BATCH = 3;
-export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción",posthumous:"Publicación póstuma",award:"Reconocimiento",floruit:"Periodo de actividad"});
+export const BIO_TYPES = Object.freeze({birth:"Nacimiento",death:"Fallecimiento",career:"Trayectoria",institution:"Institución",publication:"Publicación original",composition:"Redacción",posthumous:"Publicación póstuma",award:"Reconocimiento",floruit:"Periodo de actividad",revision:"Edición revisada"});
 const norm = value => String(value || "").normalize("NFD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();
 export function intellectualHistory(author) {
   const rawId=String(author?.wikidataId || "").trim();

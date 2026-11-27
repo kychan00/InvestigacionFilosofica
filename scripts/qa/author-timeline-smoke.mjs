@@ -225,6 +225,21 @@ try {
     assert.equal(await life.getByRole("button",{name:"Mostrar más hitos"}).count(),0);
     assert.match(await life.locator(".author-intellectual-history-date").last().textContent(),/fecha desconocida/);
     await geometry();
+    // Curated intellectual context takes precedence over a birthplace adjective.
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q365193",displayName:"Adolfo Sánchez Vázquez",biography:"Spanish philosopher"},[{title:"Edición",year:1967}]));
+    assert.equal(await eras.first().textContent(),"Periodo contemporáneo");
+    assert.match(await page.locator(".author-timeline-context").textContent(),/latinoamericana/);
+    await life.locator(".author-intellectual-history-toggle").click();
+    assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q601364",displayName:"Antonio Caso"},[{title:"Edición",year:2020}]));
+    await life.locator(".author-intellectual-history-toggle").click();
+    await life.getByRole("button",{name:"Mostrar más hitos"}).click();
+    assert.equal(await life.locator(".author-intellectual-history-kind").nth(4).textContent(),"Edición revisada");
+    assert.equal(await life.locator(".author-intellectual-history-event").nth(4).locator("a").count(),2);
+    await geometry();
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q5711746",displayName:"Sebastián Salazar Bondy"},[{title:"Obra",year:2020}]));
+    assert.equal(await life.count(),0);
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }

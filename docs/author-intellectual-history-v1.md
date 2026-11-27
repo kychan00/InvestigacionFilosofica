@@ -77,3 +77,32 @@ Autoridades:
 - https://www.wikidata.org/wiki/Q235134
 
 Validación: pruebas de alias, homónimos, fuentes múltiples, incertidumbre, orden y geometría para escritura árabe y cobertura escasa. No hay nuevas consultas externas automáticas.
+
+## Fase 5 — México y América Latina
+Se incorporan seis autoridades y 53 registros (199 acumulados): Antonio Caso, Samuel Ramos, Luis Villoro, Adolfo Sánchez Vázquez, Bolívar Echeverría y Augusto Salazar Bondy. Los contextos de la historia intelectual curada prevalecen para el dossier latinoamericano frente al gentilicio de una descripción: el nacimiento en España no excluye la trayectoria de Villoro ni Sánchez Vázquez en México. No se afirma que el lugar de nacimiento sea una afiliación intelectual. Se incorpora el tipo «Edición revisada» para distinguir el ensayo de Caso de 1916 de la edición de 1919. Se mantienen años sin inferir días o meses, incluyendo el nacimiento de Ramos y Echeverría, para evitar conflictos de precisión entre fuentes. Los homónimos Alfonso Caso, Juan Villoro y Sebastián Salazar Bondy no reciben hitos de sus parientes. Se conserva la independencia de obras del corpus, sin nuevas llamadas externas.
+
+Fuentes institucionales y editoriales:
+- caso: El Colegio Nacional — https://colnal.mx/integrantes/antonio-caso/
+- casoAML: Academia Mexicana de la Lengua — https://academia.org.mx/academicos-1946/item/antonio-caso-2
+- ramos: El Colegio Nacional — https://colnal.mx/integrantes/samuel-ramos/
+- ramosIIF: Instituto de Investigaciones Filosóficas · UNAM — https://www.filosoficas.unam.mx/~bib/ramos.html
+- villoro: El Colegio Nacional — https://colnal.mx/integrantes/luis-villoro/
+- villoroIIF: Instituto de Investigaciones Filosóficas · UNAM — https://www.filosoficas.unam.mx/sitio/sitio/sitio/sitio/luis-villoro
+- sanchez: Secretaría de Cultura · México — https://www.gob.mx/cultura/prensa/adolfo-sanchez-vazquez-filosofo-autocritico-y-antidogmatico
+- sanchezPublisher: Siglo XXI Editores — https://sigloxxieditores.com.mx/autor-a/adolfo-sanchez-vazquez/
+- sanchezELM: Enciclopedia de la Literatura en México — https://www.elem.mx/autor/datos/109104
+- echeverria: Archivo Bolívar Echeverría · UNAM — https://bolivare.unam.mx/trayectoria
+- echeverriaBooks: Seminario Universitario de la Modernidad · UNAM — https://seminariomodernidad.unam.mx/index.php/component/content/article/57-modernidad-y-capitalismo-en-bolivar-echeverria?Itemid=101&catid=9
+- salazar: Fondo de Cultura Económica — https://www.fcede.es/site/es/fceespa/autoresdetalle.aspx?idAutor=2892
+- salazarDoctor: Universidade NOVA de Lisboa · Gerações Hispânicas — https://fabricadesites.fcsh.unl.pt/ghispanicas/2019/05/09/augusto-salazar-bondy/
+- salazarBook: Siglo XXI Editores — https://sigloxxieditores.com.mx/libro/existe-una-filosofia-de-nuestra-america-2/
+
+Autoridades:
+- https://www.wikidata.org/wiki/Q601364
+- https://www.wikidata.org/wiki/Q7412445
+- https://www.wikidata.org/wiki/Q2370396
+- https://www.wikidata.org/wiki/Q365193
+- https://www.wikidata.org/wiki/Q891708
+- https://www.wikidata.org/wiki/Q5711746
+
+Validación: pruebas de seis identidades, alias, orden, tipos, fuentes, edición revisada y homónimos; smoke de contexto transatlántico y fuentes múltiples. El archivo no es exhaustivo.

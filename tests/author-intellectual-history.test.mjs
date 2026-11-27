@@ -117,3 +117,31 @@ test("uncertain lives and multiple evidence sources remain explicit",()=>{
   assert.equal(intellectualHistory({wikidataId:"Q6958571",displayName:"Nagarjuna"}),null);
   for(const region of ["roman-africa","islamicate","jewish-mediterranean","india"]){assert.equal(historicalPeriod(1200,region).label,"Siglo 12 d. C.");assert.equal(historicalPeriod(-200,region).label,"Siglo 2 a. C.");}
 });
+
+import {PHASE5_AUTHORS,PHASE5_SOURCES} from "../src/core/author-intellectual-history-phase5.js";
+test("phase 5: six Latin American authorities and sourced chronology",()=>{
+  let total=0;
+  for(const [id,record] of Object.entries(PHASE5_AUTHORS)){
+    assert.ok(![PHASE2_AUTHORS,PHASE3_AUTHORS,PHASE4_AUTHORS].some(batch=>Object.hasOwn(batch,id)));
+    const h=intellectualHistory({wikidataId:id,displayName:record.names[0]});
+    assert.equal(h.region,"latin");
+    assert.equal(h.events.length,record.events.length);
+    assert.deepEqual(h.events.map(e=>e.year),h.events.map(e=>e.year).sort((a,b)=>a-b));
+    assert.equal(new Set(h.events.map(e=>e.id)).size,h.events.length);
+    for(const alias of record.names)assert.equal(intellectualHistory({wikidataId:id,displayName:alias}).id,id);
+    for(const [year,date,type,title,...keys] of record.events){assert.ok(Number.isInteger(year)&&year!==0&&date&&title&&BIO_TYPES[type]);assert.ok(keys.length);for(const key of keys){assert.ok(Object.hasOwn(PHASE5_SOURCES,key));assert.equal(new URL(PHASE5_SOURCES[key][1]).protocol,"https:");}}
+    assert.equal(intellectualHistory({displayName:record.names[0]}),null);
+    total+=h.events.length;
+  }
+  assert.equal(total,53);
+});
+test("revised editions and transatlantic careers are not confused with original editions or birth regions",()=>{
+  const caso=intellectualHistory({wikidataId:"Q601364",displayName:"Antonio Caso Andrade"});
+  assert.equal(caso.events.find(e=>e.year===1916).type,"publication");
+  assert.equal(caso.events.find(e=>e.year===1919).type,"revision");
+  assert.equal(caso.events.find(e=>e.year===1919).additionalSources.length,1);
+  assert.equal(intellectualHistory({wikidataId:"Q601364",displayName:"Alfonso Caso"}),null);
+  assert.equal(intellectualHistory({wikidataId:"Q5711746",displayName:"Sebastián Salazar Bondy"}),null);
+  assert.equal(intellectualHistory({wikidataId:"Q2370396",displayName:"Juan Villoro"}),null);
+  assert.equal(intellectualHistory({wikidataId:"Q365193",displayName:"Adolfo Sánchez Vázquez",biography:"Spanish philosopher"}).region,"latin");
+});

@@ -1,5 +1,5 @@
-import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v4";
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v4";
+import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-v5";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-v5";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
 import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v4";
 import {
@@ -36,6 +36,7 @@ function renderTimeline(root, works, state, options) {
   const { onOpenWork, loading, authorOrcid, author } = options;
   const verifiedHistory = intellectualHistory(author);
   const regionalContexts={
+    latin:{region:"latin",label:"Contexto de la filosofía latinoamericana",motif:"republic"},
     china:{region:"china",label:"Tradición filosófica china",motif:"china"},
     "roman-africa":{region:"roman-africa",label:"Antigüedad tardía · África romana",motif:"ancient"},
     islamicate:{region:"islamicate",label:"Tradición filosófica del mundo islámico",motif:"islamicate"},
