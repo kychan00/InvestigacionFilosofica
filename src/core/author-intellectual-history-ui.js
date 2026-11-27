@@ -15,15 +15,19 @@ function button(label,cls,handler){
 }
 
 export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}){
-  const history=intellectualHistory(author);
-  if(!history)return null;
+  return buildHistoryPanel(intellectualHistory(author),state,{archiveHref});
+}
+
+const MATRIX_TYPES={"archive-publication":"Publicación consignada","archive-record":"Fecha bibliográfica consignada","archive-thesis":"Tesis","archive-contribution":"Contribución intelectual"};
+export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}={}){
+  if(!history?.events?.length)return null;
   if(state.bioKey!==history.id){
     state.bioKey=history.id;
     state.bioOpen=false;
     state.bioLimit=BIO_BATCH;
   }
   const section=el("section","author-intellectual-history");
-  section.setAttribute("aria-label","Historia intelectual documentada");
+  section.setAttribute("aria-label",matrix?"Cronología del expediente":"Historia intelectual documentada");
   const panel=el("div","author-intellectual-history-body");
   panel.id="author-intellectual-history-body";
   const toggle=button("","author-intellectual-history-toggle",()=>{
@@ -33,7 +37,7 @@ export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}
   });
   toggle.setAttribute("aria-controls",panel.id);
   const title=el("span","author-intellectual-history-toggle-copy");
-  title.append(el("strong","","Vida e historia intelectual"),el("span","",history.events.length+" hitos documentados"+(history.region==="china"?" · Tradición china":"")));
+  title.append(el("strong","",matrix?"Cronología del expediente":"Vida e historia intelectual"),el("span","",history.events.length+(matrix?" registros fechados":" hitos documentados")+(history.region==="china"?" · Tradición china":"")));
   const chevron=el("span","author-intellectual-history-chevron");
   chevron.setAttribute("aria-hidden","true");
   toggle.append(title,chevron);
@@ -49,27 +53,33 @@ export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}
     panel.hidden=!state.bioOpen;
     panel.replaceChildren();
     if(!state.bioOpen)return;
-    panel.append(el("p","author-intellectual-history-note","Acontecimientos de la vida y fechas originales; independientes de las ediciones recuperadas en la bibliografía. Las fechas tradicionales y los testimonios textuales se señalan expresamente."));
+    panel.append(el("p","author-intellectual-history-note",matrix?"Proyección de las fechas ya consignadas en esta ficha, no una nueva curaduría biográfica. Las fuentes generales no acreditan por sí solas cada registro. Consulte la sección Fuentes para el expediente completo.":"Acontecimientos de la vida y fechas originales; independientes de las ediciones recuperadas en la bibliografía. Las fechas tradicionales y los testimonios textuales se señalan expresamente."));
     const entries=el("ol","author-intellectual-history-track");
     const limit=state.bioLimit||BIO_BATCH;
     for(const event of history.events.slice(0,limit)){
       const item=el("li","author-intellectual-history-event");
       item.dataset.motif=historicalPeriod(event.year,history.region).motif;
       item.id="author-intellectual-event-"+event.id;
+      item.tabIndex=-1;
       const details=el("div","author-intellectual-history-copy");
       details.append(
         el("span","author-intellectual-history-date",event.date),
         el("strong","author-intellectual-history-title",event.title),
-        el("span","author-intellectual-history-kind",BIO_TYPES[event.type])
+        el("span","author-intellectual-history-kind",BIO_TYPES[event.type]||MATRIX_TYPES[event.type]||"Registro")
       );
+      if(event.certainty)details.append(el("span","author-intellectual-history-kind","Precisión: "+event.certainty));
+      if(event.role)details.append(el("span","author-intellectual-history-kind","Responsabilidad: "+event.role));
+      if(event.evidenceScope)details.append(el("span","author-intellectual-history-kind",event.evidenceScope));
+      if(event.source){
       const source=el("a","author-intellectual-history-source",event.source.name+" ↗");
       source.href=event.source.url;
       source.target="_blank";
       source.rel="noopener noreferrer";
       source.setAttribute("aria-label","Consultar fuente: "+event.source.name+" — "+event.title);
       details.append(source);
+      }
       for(const evidence of event.additionalSources||[]){
-        const alternative=el("a","author-intellectual-history-source",evidence.name+" · contraste ↗");
+        const alternative=el("a","author-intellectual-history-source",evidence.name+(matrix?" ↗":" · contraste ↗"));
         alternative.href=evidence.url;
         alternative.target="_blank";
         alternative.rel="noopener noreferrer";
@@ -86,8 +96,8 @@ export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}
     if(limit<history.events.length)panel.append(button("Mostrar más hitos","author-intellectual-history-more",()=>{
       state.bioLimit=limit+BIO_BATCH;
       render();
-      const next=panel.querySelectorAll(".author-intellectual-history-event")[limit]?.querySelector("a");
-      next?.focus();
+      const next=panel.querySelectorAll(".author-intellectual-history-event")[limit];
+      (next?.querySelector("a")||next)?.focus();
     }));
     if(limit>BIO_BATCH)panel.append(button("Mostrar menos hitos","author-intellectual-history-more",()=>{
       state.bioLimit=BIO_BATCH;

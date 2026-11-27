@@ -4,7 +4,8 @@ import {
   createWorkSaveButton
 } from "./public-save-controls.js?v=20261122-author-project-picker-v1";
 import { liveResultBookmarkPayload } from "./latin-american-live-work.js";
-import { buildIntellectualHistoryPanel } from "../src/core/author-intellectual-history-ui.js?v=20261127-v6";
+import { buildIntellectualHistoryPanel, buildHistoryPanel } from "../src/core/author-intellectual-history-ui.js?v=20261127-v7";
+import { matrixIntellectualHistory } from "../src/core/latin-american-matrix-history.js?v=20261127-v7";
 import { latinAmericanHistoryIdentity } from "../src/core/latin-american-history-bridge.js?v=20261127-v6";
 
 const INVENTORY_URL = "./src/data/latin-american-philosophers-metadata.json";
@@ -1337,7 +1338,7 @@ function renderAuthorDialog(record) {
 
   appendOverview(record, authorDialogBody);
   const historyAuthor=latinAmericanHistoryIdentity(record);
-  const historyPanel=historyAuthor?buildIntellectualHistoryPanel(historyAuthor,{}):null;
+  const historyPanel=historyAuthor?buildIntellectualHistoryPanel(historyAuthor,{}):buildHistoryPanel(matrixIntellectualHistory(record),{},{matrix:true});
   const historyNav=authorDialog.querySelector('[data-dossier-target="author-dossier-history-section"]');
   if(historyNav)historyNav.hidden=!historyPanel;
   if(historyPanel){
