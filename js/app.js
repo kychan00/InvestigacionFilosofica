@@ -53,7 +53,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7-authority-v2";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7-authority-v2-6b";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-production-v1";
 import {
@@ -327,7 +327,7 @@ let authorAuthorityArchive=null;
 const authorPortraitSession = createAuthorPortraitSession({authorityRevision:authorAuthorityPreviewRevision});
 window.addEventListener("pagehide", () => authorPortraitSession.close());
 window.addEventListener("pageshow", event => {
-  if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view")) {
+  if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view") && (!authorAuthorityPreviewRevision||!authorArchiveLoading)) {
     void authorPortraitSession.open(currentResponse.authorResolution?.author, document.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
   }
 });
@@ -7597,8 +7597,10 @@ function renderFilteredResults() {
       try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading,archive:authorAuthorityArchive,onOpenWork:work=>openRecord(work)}); }
       catch(error){ console.warn("Author Authority preview unavailable",error); }
     }
-    void authorPortraitSession.open(currentResponse.authorResolution?.author,
-      resultsEl.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
+    if(!authorAuthorityPreviewRevision||!authorArchiveLoading){
+      void authorPortraitSession.open(currentResponse.authorResolution?.author,
+        resultsEl.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
+    }else authorPortraitSession.close();
 
     mountAuthorTimeline(
       resultsEl.querySelector("#author-timeline-root"),

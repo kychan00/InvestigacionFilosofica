@@ -63,12 +63,21 @@ const HISTORICAL = Object.freeze({
   Q34670: ["albert camus", "camus albert"],
   Q9061: ["karl marx", "marx karl"]
 });
-function bibliographicEvidence(works, names, openalex) {
+function bibliographicEvidence(works, names, openalex, strict=false) {
   const titles = new Set();
   const dois = new Set();
   for (const work of (Array.isArray(works) ? works : []).slice(0, 300)) {
     if (!Array.isArray(work?.authors) || !work.authors.some(person => {
       const id = oa(person?.openalexId || person?.sourceId || person?.id, true);
+      if(strict){
+        // A name alone, an editor, or a compound creator is not authorship.
+        if(!id||id!==openalex||person?.creatorComposite||person?.originalCreatorStatement)return false;
+        const role=String(person?.role||person?.contributorRole||"").toLowerCase();
+        if(role&&!/^(author|autor|autora)$/.test(role))return false;
+        const membership=work.snapshotMembership;
+        if(membership?.synthesizedCreator&&oa(membership.authorId,true)!==openalex)return false;
+        return names.includes(fold(person?.name||person?.displayName));
+      }
       return id && openalex ? id === openalex : names.includes(fold(person?.name || person?.displayName || person));
     })) continue;
     const title = fold(work.title);
@@ -82,7 +91,7 @@ function normalizeDOI(value) {
   const doi = String(value || "").trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,"").replace(/^doi:\s*/i,"").toLowerCase();
   return /^10\.\d{4,9}\/\S+$/.test(doi) ? doi : "";
 }
-export function portraitIdentity(author = {}, works = []) {
+export function portraitIdentity(author = {}, works = [], {independent=false}={}) {
   if (!author || typeof author !== "object") return null;
   author = localizeClassicalAuthor(sanitizeAuthorOrcid(author));
   const o = orcid(author.orcid || author.orcidId);
@@ -104,12 +113,12 @@ export function portraitIdentity(author = {}, works = []) {
   const historical = Boolean(q && !hasOrcid && HISTORICAL[q]?.includes(name));
   if (!o && !a && !historical) return null;
   const names = [...new Set([name, display].filter(n=>n.split(" ").length>=2))];
-  const evidence = a && !hasOrcid && author.catalog !== "federated"
-    ? bibliographicEvidence(works,names,a) : {titles:[],dois:[]};
+  const evidence = a && (independent||!hasOrcid) && author.catalog !== "federated"
+    ? bibliographicEvidence(works,names,a,independent) : {titles:[],dois:[]};
   const canDiscover = names.length > 0 && (evidence.titles.length >= 2 || evidence.dois.length > 0);
-  return { orcid: o, orcidVerified: author.orcidVerified === true, openalex: a, qid: q, historical, names, evidence, canDiscover,
+  return { orcid: o, orcidVerified: author.orcidVerified === true, openalex: a, qid: q, historical, names, evidence, canDiscover, independent,
     queryName: String(author.displayName || author.sourceDisplayName || "").slice(0,150),
-    key: [o || "", author.orcidVerified ? "verified" : "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
+    key: [o || "", author.orcidVerified ? "verified" : "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : "", ...(independent?["independent",JSON.stringify(names),JSON.stringify(evidence)]:[])].join("|") };
 }
 function values(entity, property) {
   const claims = entity?.claims?.[property] || [];
@@ -155,6 +164,7 @@ function compatibleCandidate(entity, identity) {
   if (!identity.names?.some(n=>entityNames(entity).includes(n))) return false;
   const ids=allValues(entity,"P10283").map(v=>oa(v)).filter(Boolean);
   const orcids=allValues(entity,"P496").map(orcid).filter(Boolean);
+  if(identity.independent)return (!ids.length||ids.every(id=>id===identity.openalex))&&(!identity.orcid||orcids.every(id=>id===identity.orcid))&&(!identity.orcid||identity.orcidVerified||!orcids.length);
   return (!ids.length || ids.includes(identity.openalex)) && !orcids.length;
 }
 async function bibliographicEntity(identity, candidates, fetcher, signal) {
@@ -176,6 +186,60 @@ async function bibliographicEntity(identity, candidates, fetcher, signal) {
     return titles.size>=2;
   });
   return accepted.length===1 ? accepted[0] : null;
+}
+// Experimental routes: absence of an ORCID statement is not a conflict.
+function independentExact(entity,identity){
+  if(!qid(entity?.id)||entity.missing||(identity.qid&&entity.id!==identity.qid)||
+    !allValues(entity,"P31").some(v=>v?.id==="Q5"))return null;
+  const ids=allValues(entity,"P10283").map(v=>oa(v)).filter(Boolean);
+  const orcids=allValues(entity,"P496").map(orcid).filter(Boolean);
+  if((identity.openalex&&ids.some(id=>id!==identity.openalex))||
+     (identity.orcid&&orcids.some(id=>id!==identity.orcid)))return null;
+  const nameMatch=identity.names.some(n=>entityNames(entity).includes(n));
+  if(identity.orcidVerified&&identity.orcid&&orcids.includes(identity.orcid)&&nameMatch)return "orcid-bridge";
+  if(identity.openalex&&ids.includes(identity.openalex)&&nameMatch)return "openalex-bridge";
+  if(identity.historical&&entity.id===identity.qid&&!ids.length&&!orcids.length)return "historical-authority";
+  return null;
+}
+async function independentEntityFor(identity,fetcher,signal){
+  const get=async ids=>Object.values((await json(fetcher,apiURL(WD,{action:"wbgetentities",ids:ids.join("|"),props:"claims|labels|aliases",languages:"en|es|de|fr|pt|it"}),signal)).entities||{});
+  const verify=async candidates=>{
+    const matches=candidates.map(entity=>({entity,method:independentExact(entity,identity)})).filter(x=>x.method);
+    if(matches.length>1)return null;
+    // A second corroborated person is a conflict, even if one has an exact ID.
+    const other=await bibliographicEntity(identity,candidates.filter(e=>!matches.some(x=>x.entity.id===e.id)),fetcher,signal);
+    if(matches.length&&other)return null;
+    if(matches.length)return matches[0];
+    return other?{entity:other,method:"bibliographic-bridge"}:null;
+  };
+  if(identity.qid)return verify(await get([identity.qid]));
+  const routes=[];
+  if(identity.orcid)routes.push(["P496",identity.orcid]);
+  if(identity.openalex)routes.push(["P10283",identity.openalex.toLowerCase()]);
+  const results=await Promise.all(routes.map(async ([prop,id])=>{
+    try{
+      const data=await json(fetcher,apiURL(WD,{action:"query",list:"search",srnamespace:"0",srsearch:"haswbstatement:"+prop+"="+id,srlimit:"5",srprop:""}),signal);
+      const hits=data.query?.search||[];
+      if(data.continue||hits.length>1)return {ambiguous:true,ids:[]};
+      return {ids:hits.map(h=>qid(h.title)).filter(Boolean)};
+    }catch(error){if(signal?.aborted||error?.name==="AbortError")throw error;return {ids:[]};}
+  }));
+  if(results.some(r=>r.ambiguous))return null;
+  const ids=[...new Set(results.flatMap(r=>r.ids))];
+  // Conflicting public identifier routes cannot be reconciled by name or rank.
+  if(ids.length>1)return null;
+  if(ids.length){
+    const candidates=await get(ids);
+    const exact=await verify(candidates);
+    if(exact)return exact;
+    // An unresolved identifier hit is not permission to substitute another person.
+    return null;
+  }
+  if(!identity.canDiscover||!identity.queryName)return null;
+  const discovered=await json(fetcher,apiURL(WD,{action:"wbsearchentities",search:identity.queryName,language:"en",uselang:"en",type:"item",limit:"5"}),signal);
+  if(discovered["search-continue"]||discovered.continue)return null;
+  const proposed=[...new Set((discovered.search||[]).map(x=>qid(x.id)).filter(Boolean))];
+  return proposed.length?verify(await get(proposed)):null;
 }
 async function entityFor(identity, fetcher, signal) {
   const get = async ids => {
@@ -256,7 +320,8 @@ export function commonsPortrait(page, entityId) {
 }
 export async function resolveAuthorPortrait(identity, {fetcher = fetch, signal} = {}) {
   if (!identity) return null;
-  const entity = await entityFor(identity, fetcher, signal);
+  const independent=identity.independent?await independentEntityFor(identity,fetcher,signal):null;
+  const entity=identity.independent?independent?.entity:await entityFor(identity,fetcher,signal);
   if (!entity) return null;
   const files = [...new Set(values(entity,"P18").filter(v => typeof v==="string" && v.length>0 && v.length<=300))];
   // All non-deprecated P18 claims refer to the same verified person. Try
@@ -274,8 +339,8 @@ export async function resolveAuthorPortrait(identity, {fetcher = fetch, signal} 
       // Preserve the exact public assertion and its source. A license and
       // a P18 claim are not independent verification of a depicted person.
       const exact=matchesPortraitIdentity(entity,identity);
-      const method=exact?(identity.orcid&&allValues(entity,"P496").map(orcid).includes(identity.orcid)?"orcid-bridge":
-        identity.openalex&&allValues(entity,"P10283").map(v=>oa(v)).includes(identity.openalex)?"openalex-bridge":"historical-authority"):"bibliographic-bridge";
+      const method=independent?.method||(exact?(identity.orcid&&allValues(entity,"P496").map(orcid).includes(identity.orcid)?"orcid-bridge":
+        identity.openalex&&allValues(entity,"P10283").map(v=>oa(v)).includes(identity.openalex)?"openalex-bridge":"historical-authority"):"bibliographic-bridge");
       return {...portrait,authorityTrace:{entityId:entity.id,entityRevision:entity.lastrevid?String(entity.lastrevid):null,authorityFile:name,commonsFile:page.title,method}};
     }
   }

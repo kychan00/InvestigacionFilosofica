@@ -1,4 +1,4 @@
-import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=7-authority-preview";
+import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=7-authority-preview-6b";
 import {assessPortraitV2} from "../src/core/author-authority-portrait-v2.js";
 
 /**
@@ -91,7 +91,7 @@ export function createAuthorPortraitSession({
     }
   }
   function open(author,slot,works=[]) {
-    const identity=portraitIdentity(author,works);
+    const identity=portraitIdentity(author,works,{independent:Boolean(authorityRevision)});
     if(!identity || !slot){close();return Promise.resolve();}
     if(session?.key===identity.key){
       if(session.slot!==slot){resetSlot(session.slot);session.slot=slot;}
