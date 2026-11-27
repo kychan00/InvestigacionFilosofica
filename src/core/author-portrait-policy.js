@@ -104,9 +104,9 @@ export function portraitIdentity(author = {}, works = []) {
   const evidence = a && !hasOrcid && author.catalog !== "federated"
     ? bibliographicEvidence(works,names,a) : {titles:[],dois:[]};
   const canDiscover = names.length > 0 && (evidence.titles.length >= 2 || evidence.dois.length > 0);
-  return { orcid: o, openalex: a, qid: q, historical, names, evidence, canDiscover,
+  return { orcid: o, orcidVerified: author.orcidVerified === true, openalex: a, qid: q, historical, names, evidence, canDiscover,
     queryName: String(author.displayName || author.sourceDisplayName || "").slice(0,150),
-    key: [o || "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
+    key: [o || "", author.orcidVerified ? "verified" : "", a || "", q || "", historical ? name : "", !historical && canDiscover ? "bibliography" : ""].join("|") };
 }
 function values(entity, property) {
   const claims = entity?.claims?.[property] || [];
@@ -127,7 +127,7 @@ export function matchesPortraitIdentity(entity, identity) {
   if (identity.orcid && o.some(id => id !== identity.orcid)) return false;
   if (identity.openalex && a.length && !a.includes(identity.openalex)) return false;
   if (identity.orcid && o.includes(identity.orcid)) return true;
-  if (identity.openalex && a.includes(identity.openalex)) return !identity.orcid || o.includes(identity.orcid);
+  if (identity.openalex && a.includes(identity.openalex)) return !identity.orcid || o.includes(identity.orcid) || (identity.orcidVerified && !o.length);
   return identity.historical && !o.length && !a.length;
 }
 function apiURL(base, params) {
