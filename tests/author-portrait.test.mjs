@@ -131,3 +131,54 @@ test("historical corpus fallback resolves Hegel without Wikidata profile, but no
  assert.equal(portraitIdentity({id:"123456",displayName:"Socrates"}).qid,null);
  assert.ok(!matchesPortraitIdentity({id:"Q9235",claims:{P31:[claim({id:"Q5"})],P10283:[claim("A999")]}},ident));
 });
+
+test("Adorno resolves without a linked Wikidata profile, keeping the Commons license",async()=>{
+ const ident=portraitIdentity({id:"123456",displayName:"Theodor W. Adorno",sourceDisplayName:"Adorno, Theodor W."});
+ assert.equal(ident.qid,"Q152388");
+ const portrait=await resolveAuthorPortrait(ident,{fetcher:async url=>{
+  const p=new URL(url).searchParams;
+  return Response.json(p.get("action")==="wbgetentities"
+   ? {entities:{Q152388:{id:"Q152388",claims:{P31:[claim({id:"Q5"})],P18:[claim("Test.jpg")]}}}}
+   : {query:{pages:{"1":file({LicenseShortName:{value:"CC BY-SA 3.0"}})}}});
+ }});
+ assert.equal(portrait.license.label,"CC BY-SA 3.0");
+});
+test("unlisted author requires independent works evidence, not just a matching name",async()=>{
+ const author={id:"456",displayName:"Example Philosopher"};
+ const works=[{title:"The ethics of evidence",authors:[{id:"A456",name:author.displayName}]},
+  {title:"Knowledge and interpretation",authors:[{id:"A456",name:author.displayName}]}];
+ const person=(id,refs)=>({id,labels:{en:{value:author.displayName}},claims:{P31:[claim({id:"Q5"})],
+  P800:refs.map(id=>claim({id})),P18:[claim("Test.jpg")]}});
+ const work=(id,title,owner)=>({id,labels:{en:{value:title}},claims:{P50:[claim({id:owner})]}});
+ const makeFetcher=({ambiguous=false,unrelated=false,truncate=false}={})=>async(url)=>{
+  const p=new URL(url).searchParams;
+  if(p.get("list")==="search")return Response.json({query:{search:[]}});
+  if(p.get("action")==="wbsearchentities")return Response.json({search:[{id:"Q101"},{id:"Q102"}],...(truncate?{"search-continue":5}:{})});
+  if(p.get("action")==="wbgetentities"){
+   if(p.get("ids")==="Q101|Q102")return Response.json({entities:{Q101:person("Q101",["Q201","Q202"]),Q102:person("Q102",["Q203","Q204"])}});
+   return Response.json({entities:{
+    Q201:work("Q201",works[0].title,unrelated?"Q999":"Q101"),
+    Q202:work("Q202",works[1].title,"Q101"),
+    Q203:work("Q203",ambiguous?works[0].title:"Other work about philosophy","Q102"),
+    Q204:work("Q204",ambiguous?works[1].title:"Another unrelated book","Q102")
+   }});
+  }
+  return Response.json({query:{pages:{"1":file()}}});
+ };
+ const identity=portraitIdentity(author,works);
+ assert.equal(identity.canDiscover,true);
+ assert.equal((await resolveAuthorPortrait(identity,{fetcher:makeFetcher()})).identity,"https://www.wikidata.org/wiki/Q101");
+ for(const opts of [{ambiguous:true},{unrelated:true},{truncate:true}])
+  assert.equal(await resolveAuthorPortrait(identity,{fetcher:makeFetcher(opts)}),null);
+ assert.equal(await resolveAuthorPortrait(portraitIdentity(author,works.slice(0,1)),{fetcher:makeFetcher()}),null);
+ assert.equal(portraitIdentity(author,works.map(w=>({...w,authors:[{id:"A999",name:author.displayName}]}))).canDiscover,false);
+});
+test("multiple images of verified person may fall through to a compatible licensed file",async()=>{
+ const person=human({P18:[claim("Restricted.jpg"),claim("Test.jpg")]});
+ const denied=file({LicenseShortName:{value:"CC BY-NC 4.0"}});denied.title="File:Restricted.jpg";
+ const portrait=await resolveAuthorPortrait(portraitIdentity({orcid:id,wikidataId:"Q123"}),{fetcher:async url=>{
+  const p=new URL(url).searchParams;
+  return Response.json(p.get("action")==="wbgetentities"?{entities:{Q123:person}}:{query:{pages:{"1":denied,"2":file()}}});
+ }});
+ assert.equal(portrait.title,"Test.jpg");
+});
