@@ -64,11 +64,23 @@ test("late decode is revoked after author close; no stale image",async()=>{
  const manager=createAuthorPortraitSession({resolve:async()=>({}),download:async()=>new Blob(["x"]),createURL:()=>"blob:late",revokeURL:x=>revoked.push(x),
  decode:()=>{started();return new Promise(r=>finish=r);}});
  const task=manager.open({orcid:id},{isConnected:false,querySelector:()=>null,removeAttribute(){}});
- await ready;manager.close();finish({width:10,height:10});await task;assert.deepEqual(revoked,["blob:late"]);
+ await ready;manager.close();assert.deepEqual(revoked,["blob:late"],"release before pending decode settles");finish({width:10,height:10});await task;assert.deepEqual(revoked,["blob:late"]);
 });
 test("app integration closes portrait at all three author exits and pagehide",async()=>{
  const app=await readFile(new URL("../js/app.js",import.meta.url),"utf8");
  assert.match(app,/authorPortraitSession\.open\(currentResponse\.authorResolution\?\.author/);
  assert.equal((app.match(/authorPortraitSession\.close\(\);\s*document\.body\.classList\.remove\(\s*"author-view"/g)||[]).length,3);
  assert.match(app,/addEventListener\("pagehide", \(\) => authorPortraitSession\.close\(\)\)/);
+});
+
+test("timeout cancels and frees the pending URL immediately, without restarting on a rerender",async()=>{
+ let finish,requests=0,signal;const revoked=[];
+ const manager=createAuthorPortraitSession({timeoutMs:15,resolve:async(_,o)=>{requests++;signal=o.signal;return {};},download:async()=>new Blob(["x"]),createURL:()=>"blob:timeout",revokeURL:x=>revoked.push(x),decode:()=>new Promise(r=>finish=r)});
+ const slot={isConnected:false,querySelector:()=>null,removeAttribute(){}};
+ const task=manager.open({orcid:id},slot);
+ await new Promise(r=>setTimeout(r,40));
+ assert.equal(signal.aborted,true);assert.deepEqual(revoked,["blob:timeout"]);
+ const repeated=manager.open({orcid:id},slot);assert.equal(requests,1);
+ finish({width:10,height:10});await Promise.all([task,repeated]);manager.close();
+ assert.deepEqual(revoked,["blob:timeout"]);
 });

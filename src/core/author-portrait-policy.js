@@ -94,7 +94,7 @@ async function entityFor(identity, fetcher, signal) {
     return found.length === 1 ? found[0] : null;
   }
   const prop = identity.orcid ? "P496" : "P10283";
-  const id = identity.orcid || identity.openalex;
+  const id = identity.orcid || identity.openalex.toLowerCase();
   const query = await json(fetcher, apiURL(WD, {action:"query", list:"search", srnamespace:"0",
     srsearch:"haswbstatement:" + prop + "=" + id, srlimit:"5", srprop:""}), signal);
   // A truncated or ambiguous result is never resolved by ranking/name.

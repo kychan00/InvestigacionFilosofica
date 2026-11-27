@@ -15,3 +15,7 @@ V1: Wikidata + Commons, con ORCID/OpenAlex como claves. Adaptadores futuros: Eur
 ## Validación
 
 Pruebas unitarias deterministas de homónimos, licencias, metadatos, límites y cancelación; smoke Playwright con respuestas simuladas, temas y dispositivos, cierre y cambio de autor. La prueba externa de disponibilidad real de Commons/CORS y dispositivos físicos debe distinguirse de la simulación. Documentación de APIs: https://www.wikidata.org/wiki/Wikidata:Data_access y https://www.mediawiki.org/wiki/API:Imageinfo.
+
+### Refinamiento de memoria
+
+La URL Blob provisional se revoca inmediatamente al cerrar o vencer el presupuesto, incluso si la decodificación no ha terminado. Una consulta agotada no se vuelve a lanzar por los renderizados repetidos del mismo expediente; se permite otra búsqueda al reabrirlo. La consulta exacta P10283 utiliza la forma minúscula habitual de Wikidata.

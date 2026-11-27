@@ -51,7 +51,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261126-siva-v1";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261126-siva-v2";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261112-author-orcid-v1";
 import {

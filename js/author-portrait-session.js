@@ -1,4 +1,4 @@
-import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=1";
+import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=2";
 
 /**
  * Exactly one transient portrait session per open author dossier. Repeated
@@ -20,19 +20,23 @@ export function createAuthorPortraitSession({
     const seal=slot.querySelector(".author-page-seal");
     if(seal)seal.hidden=false;
   }
+  function releasePending(s) {
+    if(s.pendingURL){const url=s.pendingURL;s.pendingURL=null;revokeURL(url);}
+  }
   function close() {
     const old=session; session=null;
     if(!old)return;
     clearTimeout(old.timer);
     old.controller.abort();
     resetSlot(old.slot);
+    releasePending(old);
     if(old.url)revokeURL(old.url);
     old.url=null;old.meta=null;old.slot=null;
   }
   function paint(s) {
     if(session!==s || !s.url || !s.meta || !s.slot?.isConnected) return;
     const figure=s.slot.querySelector(".siva-portrait");
-    if(!figure) return;
+    if(!figure || s.slot.hasAttribute("data-siva-ready")) return;
     const doc=figure.ownerDocument;
     const img=doc.createElement("img");
     img.src=s.url;img.alt="Retrato de "+s.name;img.decoding="async";
@@ -50,20 +54,19 @@ export function createAuthorPortraitSession({
     figure.hidden=false;s.slot.setAttribute("data-siva-ready","");
   }
   async function load(s,identity) {
-    let url=null;
     try {
       const meta=await resolve(identity,{signal:s.controller.signal});
       if(!meta || session!==s || s.controller.signal.aborted)return;
       const blob=await download(meta,{signal:s.controller.signal});
       if(session!==s || s.controller.signal.aborted)return;
-      url=createURL(blob);
-      const size=await decode(url);
+      s.pendingURL=createURL(blob);
+      const size=await decode(s.pendingURL);
       if(session!==s || s.controller.signal.aborted || !(size.width>0 && size.height>0 && size.width<=PORTRAIT_MAX_SIDE && size.height<=PORTRAIT_MAX_SIDE))return;
-      s.meta={...meta,width:size.width,height:size.height};s.url=url;url=null;paint(s);
+      s.meta={...meta,width:size.width,height:size.height};s.url=s.pendingURL;s.pendingURL=null;paint(s);
     } catch { /* missing, unsafe, blocked, slow: retain initials, no error UI */ }
     finally {
       clearTimeout(s.timer);
-      if(url)revokeURL(url);
+      releasePending(s);
     }
   }
   function open(author,slot) {
@@ -74,9 +77,13 @@ export function createAuthorPortraitSession({
       session.name=String(author.displayName||"");paint(session);return session.task;
     }
     close();
-    const s={key:identity.key,slot,name:String(author.displayName||""),controller:new AbortController(),url:null,meta:null};
+    const s={key:identity.key,slot,name:String(author.displayName||""),controller:new AbortController(),url:null,pendingURL:null,meta:null};
     session=s;
-    s.timer=setTimeout(()=>{if(session===s&&!s.url)close();},timeoutMs);
+    s.timer=setTimeout(()=>{
+      if(session===s&&!s.url){
+        s.controller.abort();releasePending(s);resetSlot(s.slot);
+      }
+    },timeoutMs);
     s.task=load(s,identity);return s.task;
   }
   return {open,close};
