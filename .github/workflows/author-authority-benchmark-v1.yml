@@ -19,6 +19,9 @@ on:
       - "scripts/authority/audit-jsonl-integrity-v2.mjs"
       - "scripts/authority/read-snapshot-jsonl.mjs"
       - "scripts/authority/build-documentary-review-v2.mjs"
+      - "scripts/authority/build-scoped-review-v2.mjs"
+      - "src/core/author-authority-scoped-review-v2.js"
+      - "tests/author-authority-scoped-review-v2.test.mjs"
       - "tests/author-authority-human-audit-evidence.test.mjs"
       - "src/core/author-authority-reference-holdout-v2.js"
       - "tests/author-authority-reference-holdout-v2.test.mjs"
@@ -134,6 +137,20 @@ jobs:
 
       - name: Build documentary review packet and diagnose empty queries
         run: node scripts/authority/build-documentary-review-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/holdout artifacts/author-authority-v2/reference-holdout artifacts/author-authority-v2/documentary-review
+
+      - name: Test scoped documentary review contracts
+        run: node --test tests/author-authority-scoped-review-v2.test.mjs
+
+      - name: Build contribution and portrait review packets
+        run: node scripts/authority/build-scoped-review-v2.mjs artifacts/author-authority-v2/documentary-review artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/scoped-review
+
+      - name: Upload scoped documentary review packets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-scoped-review
+          path: artifacts/author-authority-v2/scoped-review/
+          if-no-files-found: warn
 
       - name: Upload documentary review packet
         if: always()
