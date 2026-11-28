@@ -88,3 +88,22 @@ test("bibliographic recovery remains available with ORCID and requires exact loc
   assert.equal(portraitIdentity(selected,altered,{independent:true}).canDiscover,false);
  }
 });
+
+test("preview session rejects unbound media before download and releases stale sessions",async()=>{
+ const {createAuthorPortraitSession}=await import("../js/author-portrait-session.js");
+ const slot={isConnected:false,querySelector:()=>null,removeAttribute(){}};
+ let downloads=0,urls=0;
+ const session=createAuthorPortraitSession({authorityRevision:"fixture",resolve:async()=>({...meta,authorityTrace:{...meta.authorityTrace,commonsFile:"File:Tést.jpg"}}),download:async()=>{downloads++;return new Blob(["fixture"]);},createURL:()=>{urls++;return "blob:fixture";},revokeURL:()=>{}});
+ await session.open({id:"123",displayName:"Example Philosopher"},slot);
+ assert.equal(downloads,0);assert.equal(urls,0);
+ assert.equal(session.getAssessment().decision.status,"unresolved");
+ session.close();assert.equal(session.getAssessment(),null);
+ await session.open({displayName:"Unidentified"},slot);
+ assert.equal(session.getAssessment().decision.status,"unresolved");session.close();
+});
+test("failed identifier route is not treated as empty evidence",async()=>{
+ const fixture=routeFixture();
+ const fetcher=async url=>{const p=new URL(url).searchParams;if(p.get("srsearch")?.includes("P496="))return new Response("",{status:429});return fixture.fetcher(url);};
+ assert.equal(await resolveAuthorPortrait(portraitIdentity(selected,[],{independent:true}),{fetcher}),null);
+ assert.ok(!fixture.calls.some(p=>p.get("prop")==="imageinfo"));
+});

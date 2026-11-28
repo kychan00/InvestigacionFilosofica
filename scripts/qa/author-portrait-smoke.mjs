@@ -29,11 +29,17 @@ try {
       visible:rect.width>0&&rect.height>0,overflow:document.documentElement.scrollWidth>innerWidth+3,
       browserBytes:blob.size,authorityStatus:manager.getAssessment()?.decision.status,authorityLabel:slot.querySelector(".siva-authority-preview")?.textContent};
     manager.close();report.closed=!slot.querySelector("img")&&!slot.hasAttribute("data-siva-ready")&&!slot.querySelector(".siva-authority-preview")&&manager.getAssessment()===null;report.revokes=revokes;report.abort=abort;
+    let deniedDownloads=0;
+    const denied=createAuthorPortraitSession({authorityRevision:"fixture",resolve:async()=>({identity:"https://www.wikidata.org/wiki/Q123"}),download:async()=>{deniedDownloads++;return blob;}});
+    slot=fixture();await denied.open(identity,slot);
+    report.unresolvedVisible=slot.querySelector(".siva-authority-preview")?.getBoundingClientRect().height>0;
+    report.unresolvedNoImage=!slot.querySelector("img")&&deniedDownloads===0;
+    denied.close();
     return report;
    },{mode,shell});
    assert.ok(result.ready&&result.same&&result.visible&&!result.overflow,JSON.stringify({width,mode,shell,result}));
    assert.equal(result.authorityStatus,"probable");assert.match(result.authorityLabel,/atribución probable/);
-   assert.equal(result.requests,1);assert.equal(result.revokes,1);assert.ok(result.closed&&result.abort);
+   assert.equal(result.requests,1);assert.equal(result.revokes,1);assert.ok(result.closed&&result.abort);assert.ok(result.unresolvedVisible&&result.unresolvedNoImage);
    assert.ok(result.license.includes("CC BY 4.0")&&result.source.includes("commons.wikimedia.org"));
   }
   await page.close();

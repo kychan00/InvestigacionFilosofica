@@ -167,17 +167,18 @@ function compatibleCandidate(entity, identity) {
   if(identity.independent)return (!ids.length||ids.every(id=>id===identity.openalex))&&(!identity.orcid||orcids.every(id=>id===identity.orcid))&&(!identity.orcid||identity.orcidVerified||!orcids.length);
   return (!ids.length || ids.includes(identity.openalex)) && !orcids.length;
 }
-async function bibliographicEntity(identity, candidates, fetcher, signal) {
-  if (!identity.canDiscover) return null;
+async function bibliographicMatches(identity, candidates, fetcher, signal) {
+  if (!identity.canDiscover) return [];
   const humans=candidates.filter(e=>compatibleCandidate(e,identity));
   const workIds=[...new Set(humans.flatMap(e=>allValues(e,"P800").map(x=>qid(x?.id)).filter(Boolean).slice(0,12)))].slice(0,48);
-  if (!workIds.length) return null;
+  if (!workIds.length) return [];
   const data=await json(fetcher,apiURL(WD,{action:"wbgetentities",ids:workIds.join("|"),props:"claims|labels|aliases",languages:"en|es|de|fr|pt|it"}),signal);
   const accepted=humans.filter(person=>{
-    const titles=new Set();
+    const titles=new Set(),seenWorks=new Set();
     for (const ref of allValues(person,"P800")) {
       const work=data.entities?.[ref?.id];
-      if (!work || !allValues(work,"P50").some(a=>a?.id===person.id)) continue;
+      if (!work || seenWorks.has(ref?.id) || !allValues(work,"P50").some(a=>a?.id===person.id)) continue;
+      seenWorks.add(ref.id);
       if (allValues(work,"P356").map(normalizeDOI).some(d=>d && identity.evidence.dois.includes(d))) return true;
       // Count distinct work entities, not translations/aliases of one work.
       const title=entityNames(work).find(n=>identity.evidence.titles.includes(n));
@@ -185,7 +186,11 @@ async function bibliographicEntity(identity, candidates, fetcher, signal) {
     }
     return titles.size>=2;
   });
-  return accepted.length===1 ? accepted[0] : null;
+  return accepted;
+}
+async function bibliographicEntity(identity,candidates,fetcher,signal){
+ const accepted=await bibliographicMatches(identity,candidates,fetcher,signal);
+ return accepted.length===1?accepted[0]:null;
 }
 // Experimental routes: absence of an ORCID statement is not a conflict.
 function independentExact(entity,identity){
@@ -207,10 +212,10 @@ async function independentEntityFor(identity,fetcher,signal){
     const matches=candidates.map(entity=>({entity,method:independentExact(entity,identity)})).filter(x=>x.method);
     if(matches.length>1)return null;
     // A second corroborated person is a conflict, even if one has an exact ID.
-    const other=await bibliographicEntity(identity,candidates.filter(e=>!matches.some(x=>x.entity.id===e.id)),fetcher,signal);
-    if(matches.length&&other)return null;
+    const others=await bibliographicMatches(identity,candidates.filter(e=>!matches.some(x=>x.entity.id===e.id)),fetcher,signal);
+    if(others.length>1||(matches.length&&others.length))return null;
     if(matches.length)return matches[0];
-    return other?{entity:other,method:"bibliographic-bridge"}:null;
+    return others.length?{entity:others[0],method:"bibliographic-bridge"}:null;
   };
   if(identity.qid)return verify(await get([identity.qid]));
   const routes=[];
@@ -222,9 +227,9 @@ async function independentEntityFor(identity,fetcher,signal){
       const hits=data.query?.search||[];
       if(data.continue||hits.length>1)return {ambiguous:true,ids:[]};
       return {ids:hits.map(h=>qid(h.title)).filter(Boolean)};
-    }catch(error){if(signal?.aborted||error?.name==="AbortError")throw error;return {ids:[]};}
+    }catch(error){if(signal?.aborted||error?.name==="AbortError")throw error;return {unavailable:true,ids:[]};}
   }));
-  if(results.some(r=>r.ambiguous))return null;
+  if(results.some(r=>r.ambiguous||r.unavailable))return null;
   const ids=[...new Set(results.flatMap(r=>r.ids))];
   // Conflicting public identifier routes cannot be reconciled by name or rank.
   if(ids.length>1)return null;
@@ -333,7 +338,8 @@ export async function resolveAuthorPortrait(identity, {fetcher = fetch, signal} 
     iiextmetadatafilter:"LicenseShortName|Artist|Credit|Attribution|Restrictions|Copyrighted"}), signal);
   const pages = Object.values(payload.query?.pages || {});
   for(const name of ordered) {
-    const page=pages.find(p=>fold(p.title)===fold("File:"+name));
+    const fileKey=v=>{const s=String(v||"").normalize("NFC").replace(/^File:/i,"").replace(/_/g," ").trim();return s?s[0].toUpperCase()+s.slice(1):"";};
+    const page=pages.find(p=>identity.independent?fileKey(p.title)===fileKey(name):fold(p.title)===fold("File:"+name));
     const portrait=commonsPortrait(page,entity.id);
     if(portrait){
       // Preserve the exact public assertion and its source. A license and

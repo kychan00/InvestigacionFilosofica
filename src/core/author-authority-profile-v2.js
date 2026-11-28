@@ -124,14 +124,20 @@ export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=n
  controls.append(label,filter,search);root.append(controls);
  const list=el(d,"div",undefined,"authority-preview-list");
  const count=el(d,"p");count.setAttribute("aria-live","polite");
- const more=el(d,"button","Mostrar más atribuciones","authority-preview-more");more.type="button";
- root.append(count,list,more);
- let limit=12;
+ const previous=el(d,"button","Atribuciones anteriores","authority-preview-more");previous.type="button";
+ const more=el(d,"button","Siguientes atribuciones","authority-preview-more");more.type="button";
+ const pages=el(d,"div",undefined,"authority-preview-controls");pages.append(previous,more);
+ root.append(count,list,pages);
+ const pageSize=12;
+ let offset=0;
+ // Normalize titles once per mounted dossier, not on every keystroke.
+ const searchable=model.works.map(w=>({work:w,title:w.title.toLocaleLowerCase("es")}));
  function render(){
   const query=search.value.trim().toLocaleLowerCase("es");
-  const found=model.works.filter(w=>(filter.value==="all"||w.status===filter.value)&&(!query||w.title.toLocaleLowerCase("es").includes(query)));
+  const found=searchable.filter(({work,title})=>(filter.value==="all"||work.status===filter.value)&&(!query||title.includes(query))).map(x=>x.work);
+  offset=Math.min(offset,Math.max(0,Math.floor((found.length-1)/pageSize)*pageSize));
   list.replaceChildren();
-  for(const work of found.slice(0,limit)){
+  for(const work of found.slice(offset,offset+pageSize)){
    const detail=el(d,"details",undefined,"authority-preview-work");
    const summary=el(d,"summary");
    summary.append(el(d,"strong",work.title||"Registro sin título"),el(d,"span",singular[work.status]+(work.year!=null?" · "+work.year:""),"authority-preview-state"));
@@ -169,12 +175,13 @@ export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=n
    });
    list.append(detail);
   }
-  count.textContent=found.length?"Mostrando "+Math.min(found.length,limit)+" de "+found.length+" registros.":"No hay registros en este filtro.";
-  more.hidden=found.length<=limit;
+  count.textContent=found.length?"Mostrando "+(offset+1)+"–"+Math.min(found.length,offset+pageSize)+" de "+found.length+" registros.":"No hay registros en este filtro.";
+  previous.hidden=offset===0;more.hidden=offset+pageSize>=found.length;
  }
- filter.addEventListener("change",()=>{limit=12;render();});
- search.addEventListener("input",()=>{limit=12;render();});
- more.addEventListener("click",()=>{limit+=12;render();});
+ filter.addEventListener("change",()=>{offset=0;render();});
+ search.addEventListener("input",()=>{offset=0;render();});
+ previous.addEventListener("click",()=>{offset=Math.max(0,offset-pageSize);render();});
+ more.addEventListener("click",()=>{offset+=pageSize;render();});
  render();
 }
 

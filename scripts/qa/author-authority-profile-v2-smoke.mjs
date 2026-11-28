@@ -23,8 +23,10 @@ try{
   const root=page.locator(".author-authority-preview");
   await root.scrollIntoViewIfNeeded();
   assert.equal(await root.locator(".authority-preview-work").count(),12);
-  await root.getByRole("button",{name:"Mostrar más atribuciones"}).click();
-  assert.equal(await root.locator(".authority-preview-work").count(),15);
+  await root.getByRole("button",{name:"Siguientes atribuciones"}).click();
+  assert.equal(await root.locator(".authority-preview-work").count(),3);
+  await root.getByRole("button",{name:"Atribuciones anteriores"}).click();
+  assert.equal(await root.locator(".authority-preview-work").count(),12);
   await root.locator("select").selectOption("ambiguous");
   assert.equal(await root.locator(".authority-preview-work").count(),1);
   await root.locator(".authority-preview-work summary").click();

@@ -28,6 +28,7 @@ const errorText=e=>String(e?.message||e).slice(0,300);
 // Serialize Wikimedia traffic and respect provider rate limits. Cache only
 // successful JSON metadata for paired comparisons within this process.
 const metadataCache=new Map();
+const metadataBudget=8*1024*1024;let metadataBytes=0;
 const cooldown=new Map();
 let requestQueue=Promise.resolve(),nextWikimediaAt=0;
 function retryAfterMs(value){
@@ -60,7 +61,8 @@ async function pacedWikimedia(u,options,entry){
   }
   if(metadata&&response.ok){
    const text=await response.clone().text();
-   if(text.length<=2000000&&metadataCache.size<256)metadataCache.set(key,text);
+   const bytes=Buffer.byteLength(text,"utf8");
+   if(bytes<=512*1024&&metadataCache.size<64&&metadataBytes+bytes<=metadataBudget){metadataCache.set(key,text);metadataBytes+=bytes;}
   }
   return response;
  });

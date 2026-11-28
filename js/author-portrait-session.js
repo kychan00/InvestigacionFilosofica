@@ -1,4 +1,4 @@
-import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=7-authority-preview-6b";
+import { portraitIdentity, resolveAuthorPortrait, downloadPortrait, PORTRAIT_TIMEOUT_MS, PORTRAIT_MAX_SIDE } from "../src/core/author-portrait-policy.js?v=8-authority-preview-7c";
 import {assessPortraitV2} from "../src/core/author-authority-portrait-v2.js";
 
 /**
@@ -16,6 +16,7 @@ export function createAuthorPortraitSession({
   function resetSlot(slot) {
     if(!slot) return;
     slot.removeAttribute("data-siva-ready");
+    slot.removeAttribute("data-siva-preview");
     slot.querySelector(".siva-authority-preview")?.remove();
     const figure=slot.querySelector(".siva-portrait");
     if(figure){figure.hidden=true; figure.replaceChildren();}
@@ -37,6 +38,7 @@ export function createAuthorPortraitSession({
   }
   function paintAssessment(s) {
     if(!authorityRevision||session!==s||!s.slot?.isConnected)return;
+    s.slot.setAttribute("data-siva-preview","");
     let label=s.slot.querySelector(".siva-authority-preview");
     if(!label){
       label=s.slot.ownerDocument.createElement("p");
@@ -72,13 +74,21 @@ export function createAuthorPortraitSession({
     try {
       const meta=await resolve(identity,{signal:s.controller.signal});
       if(!meta || session!==s || s.controller.signal.aborted)return;
+      // In preview, assess the authority assertion before requesting bytes.
+      // An unresolved attribution must never be displayed as a portrait.
+      if(authorityRevision){
+        s.assessment=assessPortraitV2(identity,meta,authorityRevision);
+        if(!["probable","confirmed"].includes(s.assessment.decision.status)){paintAssessment(s);return;}
+        // Keep the assessment provisional until media validation succeeds.
+        s.assessment=null;
+      }
       const blob=await download(meta,{signal:s.controller.signal});
       if(session!==s || s.controller.signal.aborted)return;
       s.pendingURL=createURL(blob);
       const size=await decode(s.pendingURL);
       if(session!==s || s.controller.signal.aborted || !(size.width>0 && size.height>0 && size.width<=PORTRAIT_MAX_SIDE && size.height<=PORTRAIT_MAX_SIDE))return;
+      if(authorityRevision){s.assessment=assessPortraitV2(identity,meta,authorityRevision);if(!["probable","confirmed"].includes(s.assessment.decision.status))return;}
       s.meta={...meta,width:size.width,height:size.height};s.url=s.pendingURL;s.pendingURL=null;
-      if(authorityRevision){try{s.assessment=assessPortraitV2(identity,meta,authorityRevision);}catch{}}
       paint(s);
     } catch { /* missing, unsafe, blocked, slow: retain initials, no error UI */ }
     finally {
@@ -92,7 +102,15 @@ export function createAuthorPortraitSession({
   }
   function open(author,slot,works=[]) {
     const identity=portraitIdentity(author,works,{independent:Boolean(authorityRevision)});
-    if(!identity || !slot){close();return Promise.resolve();}
+    if(!slot){close();return Promise.resolve();}
+    if(!identity){
+      close();
+      if(authorityRevision){
+        const s={key:null,slot,controller:new AbortController(),url:null,pendingURL:null,meta:null,assessment:assessPortraitV2(null,null,authorityRevision),task:Promise.resolve()};
+        session=s;paintAssessment(s);return s.task;
+      }
+      return Promise.resolve();
+    }
     if(session?.key===identity.key){
       if(session.slot!==slot){resetSlot(session.slot);session.slot=slot;}
       session.name=String(author.displayName||"");paint(session);return session.task;
