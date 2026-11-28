@@ -61,8 +61,8 @@ function workState(states){
 function scopedWorkState(contributions){
  const relevant=contributions.filter(c=>c.relevant!==false);
  const states=relevant.map(stateOf);
- const positive=c=>["confirmed","probable"].includes(stateOf(c));
- if(relevant.some(c=>c.identifierConflict===true&&relevant.some(p=>p.role===c.role&&positive(p))))return "ambiguous";
+ const positiveRoles=new Set(relevant.filter(c=>["confirmed","probable"].includes(stateOf(c))).map(c=>c.role));
+ if(relevant.some(c=>c.identifierConflict===true&&positiveRoles.has(c.role)))return "ambiguous";
  return workState(states);
 }
 export function projectAuthorityProfile(shadow){

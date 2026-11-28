@@ -103,6 +103,7 @@ on:
       - "tests/corpus-appearance-final-audit.test.mjs"
       - "scripts/qa/author-profile-visibility-smoke.mjs"
       - "scripts/qa/author-authority-profile-v2-smoke.mjs"
+      - "scripts/qa/author-authority-stress-v2.mjs"
       - "src/core/author-authority-profile-v2.js"
       - "scripts/qa/author-deep-discovery-smoke.mjs"
       - "scripts/qa/author-name-only-smoke.mjs"
@@ -238,6 +239,8 @@ jobs:
         run: node scripts/qa/author-authority-profile-v2-smoke.mjs
       - name: Verify transient author portraits and license provenance
         run: node scripts/qa/author-portrait-smoke.mjs
+      - name: Stress test bounded authority archive and transient portraits
+        run: node scripts/qa/author-authority-stress-v2.mjs
       - name: Verify deep author search on a shared page in both themes
         run: node scripts/qa/author-deep-discovery-smoke.mjs
       - name: Verify name-only author URLs and live identity resolution
