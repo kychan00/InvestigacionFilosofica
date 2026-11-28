@@ -21,7 +21,8 @@
           "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El año 429 a. C. es aproximado; la fuente no permite tratarlo como fecha exacta."
     },
     {
       "id": "Q859-1",
@@ -42,7 +43,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El intervalo 387–383 a. C. es una datación aproximada de la formación de la Academia, no un acto fundacional de fecha exacta."
     },
     {
       "id": "Q859-2",
@@ -126,7 +128,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fecha corresponde al inicio de la tutoría; su duración es discutida."
     },
     {
       "id": "Q868-3",
@@ -210,7 +213,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La docencia de 1755 comenzó sin salario fijo; no equivale a la obtención de una cátedra."
     },
     {
       "id": "Q9312-2",
@@ -231,7 +235,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La primera edición de 1781 se distingue de la segunda, de 1787."
     },
     {
       "id": "Q9312-3",
@@ -336,7 +341,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se distingue la finalización del manuscrito hacia finales de 1806 de la publicación en 1807."
     },
     {
       "id": "Q9235-2",
@@ -420,11 +426,14 @@
         },
         {
           "url": "https://plato.stanford.edu/entries/hegel/",
-          "locator": "§1 y §3 distinguen las dos convenciones de fecha.",
-          "access": "legacy-unclassified"
+          "locator": "§1 utiliza 1821; §3.1, clasificación de las obras publicadas, utiliza 1820. SEP no explica por sí sola la diferencia; David James en Cambridge distingue la fecha de portada y la publicación probable.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La portada indica 1821; David James considera probable que la publicación efectiva fuera en 1820. SEP utiliza ambas fechas en secciones distintas."
     },
     {
       "id": "Q9235-6",
@@ -466,7 +475,8 @@
           "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las fuentes conservan 1648 y 1651 como posibles años de nacimiento; no se impone una fecha única."
     },
     {
       "id": "Q183074-1",
@@ -523,7 +533,8 @@
           "access": "direct"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1691 es la fecha de redacción, no una afirmación sobre la primera edición impresa."
     },
     {
       "id": "Q183074-4",
@@ -564,7 +575,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/",
           "locator": "Semblanza: origen en La Paz, Mendoza, 24 de diciembre de 1934; apertura directa 502.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -589,7 +605,12 @@
         {
           "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
           "locator": "Ficha de autoridad: licenciatura por la Universidad Nacional de Cuyo en 1957; apertura directa 429.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -622,11 +643,17 @@
           "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
           "locator": "Ficha de autoridad: obtención del doctorado en 1967.",
           "access": "indexed",
-          "checkedOn": "2026-11-27"
+          "checkedOn": "2026-11-27",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
         }
       ],
       "resolution": "Se conserva 1967 como fecha respaldada por el CV y el artículo. No se ha reabierto el documento que sugería 1966; no se presume que esa variante sea una errata.",
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El CV consultado y el artículo de Gandarilla respaldan 1967. Un resultado indexado anterior sugería 1966; no se reabrió ese documento y no se presume una errata."
     },
     {
       "id": "Q473518-3",
@@ -648,7 +675,12 @@
         {
           "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
           "locator": "Ficha de autoridad: exilio en México en 1975; apertura directa 429.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -673,7 +705,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/",
           "locator": "Semblanza docente: ética y filosofía política; antigüedad desde 1976; apertura directa 502.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -692,7 +729,12 @@
         {
           "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
           "locator": "Ficha de autoridad: muerte en Ciudad de México en 2023; apertura directa 429.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
         },
         {
           "url": "https://unamglobal.unam.mx/global_revista/fallece-el-filosofo-enrique-dussel/",
@@ -743,7 +785,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fuente conserva 1606 y 1607 como posibles años de ingreso."
     },
     {
       "id": "Q9191-2",
@@ -785,7 +828,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fecha de 1641 corresponde a la primera edición latina; hubo una segunda edición en 1642."
     },
     {
       "id": "Q9191-4",
@@ -974,7 +1018,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1883–1885 corresponde a la publicación por partes de la obra, no a una edición única."
     },
     {
       "id": "Q9358-6",
@@ -1121,7 +1166,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La revista fue una iniciativa colectiva, no una fundación exclusiva de Beauvoir."
     },
     {
       "id": "Q7197-4",
@@ -1245,9 +1291,31 @@
           "access": "direct",
           "previousAccess": "legacy-unclassified",
           "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.hannaharendt.net/index.php/han/en/vitaArendt/index",
+          "locator": "Vita basada en la cronología de Ursula Ludz, entrada noviembre de 1928: examen doctoral en Heidelberg bajo Karl Jaspers; publicación de la tesis en 1929.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.dhm.de/lemo/biografie/hannah-arendt",
+          "locator": "Deutsches Historisches Museum, cronología LeMO, entrada 1928: doctorado sobre el concepto de amor en Agustín en Heidelberg bajo Jaspers.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "SEP sitúa el doctorado en 1929; la cronología de Ursula Ludz y LeMO documentan el examen doctoral en 1928. La tesis se publicó en 1929 según la cronología de Ludz. Es necesario distinguir ambos acontecimientos antes de publicar.",
+      "publicationReview": {
+        "status": "correction-required",
+        "reason": "Distinguir el examen doctoral de noviembre de 1928 de la publicación de la tesis en 1929; conservar el ID y actualizar matriz y ledger coordinadamente antes de la integración pública.",
+        "proposed": {
+          "year": 1928,
+          "date": "1928 (tesis publicada en 1929)",
+          "title": "Doctorado sobre el concepto de amor en Agustín"
+        }
+      }
     },
     {
       "id": "Q60025-2",
@@ -1394,7 +1462,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Edición póstuma de 1978: pensar y querer fueron los dos volúmenes terminados; el proyecto sobre juzgar quedó inconcluso."
     },
     {
       "id": "Q1091141-0",
@@ -1676,7 +1745,12 @@
         {
           "url": "https://ww1.udg.mx/es/grados-honorificos/leopoldo-zea-aguilar",
           "locator": "Acuerdo de otorgamiento del grado honorífico.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -1742,7 +1816,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se conserva el intervalo 307–306 a. C. para el regreso y la escuela del Jardín."
     },
     {
       "id": "Q43216-2",
@@ -1889,7 +1964,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La obra quedó inconclusa. El suplemento fue compilado por discípulos a partir de materiales anteriores."
     },
     {
       "id": "Q9438-6",
@@ -1952,7 +2028,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fecha y el lugar se transmiten por tradición textual; no constituyen una constatación contemporánea."
     },
     {
       "id": "Q4604-1",
@@ -1973,7 +2050,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Es una atribución del Comentario de Zuo, no una comprobación biográfica independiente."
     },
     {
       "id": "Q4604-2",
@@ -1994,7 +2072,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El acontecimiento procede del Comentario de Zuo y se presenta como testimonio textual."
     },
     {
       "id": "Q4604-3",
@@ -2015,7 +2094,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "479 a. C. pertenece a la cronología tradicional."
     },
     {
       "id": "Q60028-0",
@@ -2120,7 +2200,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Los años 1893 y 1903 corresponden a dos volúmenes de Grundgesetze, no a Grundlagen (1884)."
     },
     {
       "id": "Q60028-5",
@@ -2204,7 +2285,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se distingue el descubrimiento en 1901 de la comunicación a Frege en 1902."
     },
     {
       "id": "Q33760-3",
@@ -2267,7 +2349,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Los tres volúmenes de Principia Mathematica, con Whitehead, aparecieron en 1910, 1912 y 1913."
     },
     {
       "id": "Q33760-6",
@@ -2568,7 +2651,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las versiones de SEP ofrecen intervalos aproximados distintos: 397–401 y 396–400."
     },
     {
       "id": "Q8018-5",
@@ -2596,7 +2680,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las versiones de SEP ofrecen intervalos aproximados distintos: 413–427 y 412–426."
     },
     {
       "id": "Q8018-6",
@@ -2645,7 +2730,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La entrada biográfica de SEP sitúa el nacimiento en los años 970, posiblemente antes; otra entrada emplea 980. El año exacto permanece incierto."
     },
     {
       "id": "Q8011-1",
@@ -2771,7 +2857,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se distingue la primera redacción aproximada de las revisiones posteriores."
     },
     {
       "id": "Q39837-2",
@@ -2792,7 +2879,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1163–1184 es el reinado del patrocinador, no una fecha exacta del encargo."
     },
     {
       "id": "Q39837-3",
@@ -2813,7 +2901,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La ubicación del fallecimiento se presenta en la fuente como uno de los relatos biográficos."
     },
     {
       "id": "Q127398-0",
@@ -2834,7 +2923,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1138 es la fecha empleada por la fuente consultada."
     },
     {
       "id": "Q127398-1",
@@ -2939,7 +3029,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "150–250 d. C. es un periodo aproximado de actividad; no fija fechas exactas de nacimiento y muerte."
     },
     {
       "id": "Q171195-1",
@@ -2960,7 +3051,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La obra se atribuye ampliamente a Nāgārjuna, pero la fuente no fija un año de composición. El año numérico del inventario es un ancla de ordenación."
     },
     {
       "id": "Q235134-0",
@@ -3072,8 +3164,10 @@
         },
         {
           "url": "https://cvc.cervantes.es/actcult/zambrano/cronologia/",
-          "locator": "Resultado indexado: encabezado 1940–1953, etapas americanas; apertura directa redirigió a mantenimiento el día de consulta.",
-          "access": "indexed"
+          "locator": "Centro Virtual Cervantes, cronología introductoria, periodo 1940–1953: etapas del exilio americano, con estancias sucesivas en México, Cuba, Puerto Rico y Cuba. La apertura anterior redirigió a mantenimiento; ahora accesible.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         },
         {
           "url": "https://www.fpa.es/es/premios-princesa-de-asturias/premiados/1981-maria-zambrano/?texto=trayectoria",
@@ -3083,7 +3177,7 @@
         }
       ],
       "accessLevel": "direct-recorded",
-      "editorialNote": "1940–1953 señala etapas posteriores del exilio iniciado en 1939, no residencia continua en un país. El enlace del CVC sigue redirigiendo a mantenimiento; se conserva como indexado."
+      "editorialNote": "1940–1953 señala etapas posteriores del exilio iniciado en 1939, no residencia continua en un país. La cronología del CVC está ahora accesible directamente."
     },
     {
       "id": "Q235134-4",
@@ -3106,7 +3200,12 @@
         {
           "url": "https://www.cultura.gob.es/cultura/areas/archivos/mc/centros/cida/4-difusion-cooperacion/4-1-guias-de-lectura/escritoras/zambrano-maria.html",
           "locator": "Resultado indexado: regreso a España en 1984; apertura directa agotó tiempo.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -3125,7 +3224,12 @@
         {
           "url": "https://www.cultura.gob.es/premiado/mostrarDetalleAction.do?cache=init&id=1007223&language=es&layout=premioMiguelCervantesLibro&prev_layout=premioMiguelCervantesLibro",
           "locator": "Resultado indexado del Ministerio de Cultura, ficha de premiada: Premio Cervantes 1988; apertura directa devolvió 429.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
         },
         {
           "url": "https://mariazambrano.org/biografia.html",
@@ -3198,9 +3302,22 @@
           "url": "https://colnal.mx/integrantes/antonio-caso/",
           "locator": "Trayectoria: integrante del Ateneo de la Juventud en 1909.",
           "access": "direct"
+        },
+        {
+          "url": "https://www.elem.mx/estgrp/datos/4",
+          "locator": "Enciclopedia de la Literatura en México, párrafo sobre fundación del 28 de octubre de 1909 y presidencia de Caso durante el primer año.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.cultura.gob.mx/noticias/libros-revistas-y-literatura/2417-el-ateneo-de-la-juventud-marco-un-antes-y-un-despues-en-la-historia-cultural-de-mexico.html",
+          "locator": "Comunicado 1834/2009, párrafos sobre liderazgo de Caso en la convocatoria y sesión fundacional de 1909; distingue antecedentes asociativos y composición discutida del grupo.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fundación formal del Ateneo se sitúa el 28 de octubre de 1909, después de las actividades de la Sociedad de Conferencias. Caso fue su primer presidente."
     },
     {
       "id": "Q601364-2",
@@ -3254,12 +3371,19 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/mtro-antonio-caso/",
           "locator": "Semblanza: elaboración de la obra capital entre 1916 y 1919.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://tesiunamdocumentos.dgb.unam.mx/ptd2019/agosto/0794942/0794942.pdf",
-          "locator": "Fragmento indexado de tesis UNAM: segunda edición de 1919 y ampliación de contenido; PDF no inspeccionado integralmente.",
-          "access": "indexed"
+          "locator": "Carlos Tapia Segura, El concepto de historia en la filosofía de Antonio Caso (1906–1926), tesis doctoral UNAM, 2019, cap. 4, §I, p. impresa 149 (PDF p. 155), primer párrafo y notas 262–263: ampliación de la edición de 1916 y estructura de la segunda de 1919. Texto y página visual consultados.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         },
         {
           "url": "https://filosofiamexicana.org/2013/06/24/la-existencia-como-economia-como-desinteres-y-como-caridad-resena/",
@@ -3274,7 +3398,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La segunda edición de 1919 amplía el ensayo de 1916 e incorpora el tratamiento del desinterés. La tesis de Tapia Segura, p. 149, documenta la ampliación; no se afirma comparación íntegra propia de ambos originales."
     },
     {
       "id": "Q601364-5",
@@ -3348,7 +3473,12 @@
           "url": "https://academia.org.mx/academicos-1946/item/antonio-caso-2",
           "locator": "Semblanza: miembro fundador de El Colegio Nacional en 1943.",
           "access": "indexed",
-          "checkedOn": "2026-11-27"
+          "checkedOn": "2026-11-27",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 403"
+          }
         },
         {
           "url": "https://colnal.mx/integrantes/antonio-caso/",
@@ -3382,7 +3512,12 @@
           "url": "https://catalogonacionalmhi.inah.gob.mx/consulta_publica/detalle/13503",
           "locator": "Ficha del sepulcro: lugar y fecha coincidentes; apertura directa 502.",
           "access": "indexed",
-          "checkedOn": "2026-11-27"
+          "checkedOn": "2026-11-27",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         }
       ],
       "resolution": "Lugar y año corroborados.",
@@ -3582,7 +3717,12 @@
         {
           "url": "https://www.gob.mx/sep/acciones-y-programas/luis-villoro-toranzo",
           "locator": "Semblanza SEP coincide en lugar, fecha y filiación.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 403"
+          }
         }
       ],
       "accessLevel": "direct-recorded"
@@ -3601,7 +3741,12 @@
         {
           "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
           "locator": "Obras destacadas: Los grandes momentos del indigenismo en México, 1950.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
         },
         {
           "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
@@ -3664,7 +3809,12 @@
         {
           "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
           "locator": "Obras destacadas: Creer, saber, conocer, 1982.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
         },
         {
           "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
@@ -3673,7 +3823,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El libro de 1982 se distingue del artículo homónimo del mismo año."
     },
     {
       "id": "Q2370396-5",
@@ -3708,7 +3859,12 @@
         {
           "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
           "locator": "Bibliografía: El poder y el valor, 1997.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
         },
         {
           "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
@@ -3739,7 +3895,12 @@
         {
           "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
           "locator": "Bibliografía: Estado plural, pluralidad de culturas, 1998.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
         },
         {
           "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
@@ -3763,8 +3924,10 @@
       "evidence": [
         {
           "url": "https://filosoficas.unam.mx/sitio/sitio/sitio/luis-villoro-sexto-aniversario-luctuoso",
-          "locator": "Conmemoración del sexto aniversario luctuoso en 2020, consistente con 2014.",
-          "access": "indexed"
+          "locator": "Instituto de Investigaciones Filosóficas UNAM, anuncio del sexto aniversario luctuoso y actividad del 5 de marzo de 2020, fecha de actualización: corroboración indirecta de 2014; la semblanza biográfica directa registra el fallecimiento.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         },
         {
           "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
@@ -3789,7 +3952,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: nacimiento en Algeciras en 1915.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://www.elem.mx/autor/datos/109104",
@@ -3814,7 +3982,12 @@
         {
           "url": "https://www.gob.mx/cultura/prensa/adolfo-sanchez-vazquez-filosofo-autocritico-y-antidogmatico",
           "locator": "Semblanza: llegada a Veracruz en el Sinaia el 13 de junio de 1939; apertura 403.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 403"
+          }
         },
         {
           "url": "https://marxismocritico.com/2013/05/03/entrevita-a-adolfo-sanchez-vazquez/",
@@ -3839,7 +4012,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: El pulso ardiendo, poesía, 1942.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
@@ -3864,7 +4042,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: regreso a Ciudad de México en 1943 y continuación de estudios filosóficos.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://ve.scielo.org/scielo.php?lang=es&pid=S1315-52162006000300009&script=sci_arttext",
@@ -3889,7 +4072,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Obra estética: Las ideas estéticas de Marx, 1965.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
@@ -3914,7 +4102,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Obra filosófica: Filosofía de la praxis, 1967.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
@@ -3939,7 +4132,12 @@
         {
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Obra estética: Estética y marxismo, 1970.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
@@ -3985,7 +4183,12 @@
         {
           "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: fallecimiento en Ciudad de México el 8 de julio de 2011; apertura 502.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
         },
         {
           "url": "https://www.elem.mx/autor/datos/109104",
@@ -4256,7 +4459,12 @@
         {
           "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/revsanmarcos/1.12.pdf",
           "locator": "Fragmento indexado de revista San Marcos: doctorado en 1953; PDF no inspeccionado integralmente.",
-          "access": "indexed"
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "límite de tamaño de respuesta (29 MB)"
+          }
         },
         {
           "url": "https://repositorioletrascorpus.unmsm.edu.pe/items/17f8f1b9-a21f-4609-9c75-d3bbe11bca49",
@@ -4271,7 +4479,8 @@
           "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "direct-recorded"
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El repositorio institucional documenta la tesis doctoral de 1953. Se consultó su ficha de metadatos, no el facsímil."
     },
     {
       "id": "Q5711746-3",
@@ -4579,5 +4788,20 @@
     "direct-recorded": 199,
     "legacy-unclassified": 0,
     "indexed-only": 0
+  },
+  "consolidation": {
+    "reviewedOn": "2026-11-27",
+    "phase": "06B.6",
+    "scope": "Revisión global de títulos y fechas contra los localizadores registrados; reintento de referencias residuales. No nueva lectura integral de cada fuente ni certificación externa.",
+    "referenceAccessSummary": {
+      "direct": 224,
+      "indexed": 26,
+      "legacy-unclassified": 0
+    },
+    "residualUniqueUrls": 15,
+    "editorialNoteCount": 41,
+    "publicationCorrections": [
+      "Q60025-1"
+    ]
   }
 }
