@@ -1,4 +1,4 @@
-import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-final-v1";
+import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-history-evidence-v1";
 import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v4";
 
 function el(tag,cls,text){
@@ -14,6 +14,96 @@ function button(label,cls,handler){
   return b;
 }
 
+let publicEvidencePromise;
+function loadPublicEvidence(){
+  if(!publicEvidencePromise){
+    publicEvidencePromise=import("./author-history-public-v1.js?v=20261127-history-evidence-v1")
+      .then(module=>module.publicHistoryEvidence)
+      .catch(error=>{publicEvidencePromise=undefined;throw error;});
+  }
+  return publicEvidencePromise;
+}
+const sourceLabels={
+  "plato.stanford.edu":"Stanford Encyclopedia of Philosophy",
+  "iep.utm.edu":"Internet Encyclopedia of Philosophy",
+  "www.cambridge.org":"Cambridge University Press",
+  "www.cervantesvirtual.com":"Biblioteca Virtual Miguel de Cervantes",
+  "cvc.cervantes.es":"Centro Virtual Cervantes",
+  "colnal.mx":"El Colegio Nacional",
+  "enciclopedia.udg.mx":"Enciclopedia UdeG",
+  "sites.google.com":"Archivo y Taller de Historia Oral · UNAM",
+  "filosoficas.unam.mx":"Instituto de Investigaciones Filosóficas · UNAM",
+  "dianoia.filosoficas.unam.mx":"Diánoia · UNAM",
+  "bibliotecavirtual.clacso.org.ar":"CLACSO",
+  "biblioteca.clacso.edu.ar":"CLACSO",
+  "www.hannaharendt.net":"HannahArendt.net · Vita",
+  "www.dhm.de":"Deutsches Historisches Museum · LeMO",
+  "filosofiamexicana.org":"Centro de Estudios de Filosofía Mexicana",
+  "tesiunamdocumentos.dgb.unam.mx":"Repositorio de tesis · UNAM",
+  "mariazambrano.org":"Glosario María Zambrano",
+  "bolivare.unam.mx":"Archivo Bolívar Echeverría · UNAM",
+  "unamglobal.unam.mx":"UNAM Global",
+  "www.fpa.es":"Fundación Princesa de Asturias"
+};
+function sourceLink(url,label,title){
+  const link=el("a","author-intellectual-history-source",label+" ↗");
+  link.href=url;link.target="_blank";link.rel="noopener noreferrer";
+  link.setAttribute("aria-label","Consultar fuente: "+label+" — "+title);
+  return link;
+}
+function appendOriginalSources(parent,event,matrix=false){
+  for(const [index,evidence] of [event.source,...(event.additionalSources||[])].filter(Boolean).entries()){
+    parent.append(sourceLink(evidence.url,evidence.name+(!matrix&&index?" · contraste":""),event.title));
+  }
+}
+function buildEvidenceDisclosure(event,history,state){
+  const disclosure=el("details","author-history-evidence");
+  const summary=el("summary","author-history-evidence-summary","Contexto y fuentes");
+  const body=el("div","author-history-evidence-body");
+  body.setAttribute("aria-live","polite");
+  disclosure.append(summary,body);
+  let loaded=false,loading=false;
+  async function load(){
+    if(loaded||loading)return;
+    loading=true;
+    body.replaceChildren(el("p","author-history-evidence-text","Cargando referencias…"));
+    try{
+      const data=await loadPublicEvidence();
+      const record=data.entries[event.id];
+      if(!record?.sources?.length)throw Error("Missing evidence");
+      body.replaceChildren();
+      if(record.note){
+        body.append(el("strong","author-history-evidence-label","Nota historiográfica"),el("p","author-history-evidence-text",record.note));
+      }
+      body.append(el("strong","author-history-evidence-label","Referencias consultadas"));
+      const list=el("ul","author-history-evidence-list");
+      for(const [index,locator] of record.sources){
+        const url=data.urls[index];
+        const host=new URL(url).hostname;
+        const item=el("li","author-history-evidence-reference");
+        item.append(sourceLink(url,sourceLabels[host]||host,event.title),el("p","author-history-evidence-text",locator));
+        list.append(item);
+      }
+      body.append(list);
+      loaded=true;
+    }catch{
+      body.replaceChildren(el("p","author-history-evidence-text","No se pudieron cargar las notas y referencias editoriales. Puede cerrar y volver a abrir este apartado. Referencias originales del inventario:"));
+      appendOriginalSources(body,event);
+    }finally{loading=false;}
+  }
+  disclosure.addEventListener("toggle",()=>{
+    if(state.bioKey!==history.id||!disclosure.isConnected)return;
+    const ids=new Set(state.bioEvidenceOpen||[]);
+    if(disclosure.open){ids.add(event.id);void load();}else ids.delete(event.id);
+    state.bioEvidenceOpen=[...ids];
+  });
+  if((state.bioEvidenceOpen||[]).includes(event.id)){
+    disclosure.open=true;
+    void load();
+  }
+  return disclosure;
+}
+
 export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}){
   return buildHistoryPanel(intellectualHistory(author),state,{archiveHref,identityContext:author?.historyIdentityContext});
 }
@@ -25,6 +115,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,i
     state.bioKey=history.id;
     state.bioOpen=false;
     state.bioLimit=BIO_BATCH;
+    state.bioEvidenceOpen=[];
   }
   const section=el("section","author-intellectual-history");
   section.setAttribute("aria-label",matrix?"Cronología del expediente":"Historia intelectual documentada");
@@ -32,7 +123,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,i
   panel.id="author-intellectual-history-body";
   const toggle=button("","author-intellectual-history-toggle",()=>{
     state.bioOpen=!state.bioOpen;
-    if(!state.bioOpen)state.bioLimit=BIO_BATCH;
+    if(!state.bioOpen){state.bioLimit=BIO_BATCH;state.bioEvidenceOpen=[];}
     render();
   });
   toggle.setAttribute("aria-controls",panel.id);
@@ -53,7 +144,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,i
     panel.hidden=!state.bioOpen;
     panel.replaceChildren();
     if(!state.bioOpen)return;
-    panel.append(el("p","author-intellectual-history-note",matrix?"Proyección de las fechas ya consignadas en esta ficha, no una nueva curaduría biográfica. Las fuentes generales no acreditan por sí solas cada registro. Consulte la sección Fuentes para el expediente completo.":"Selección de acontecimientos y fechas originales, independiente de las ediciones recuperadas en la bibliografía. Las referencias pueden abarcar varios hitos; consulte cada fuente para valorar su alcance. Las fechas aproximadas, tradicionales y los testimonios textuales se señalan cuando corresponde."));
+    panel.append(el("p","author-intellectual-history-note",matrix?"Proyección de las fechas ya consignadas en esta ficha, no una nueva curaduría biográfica. Las fuentes generales no acreditan por sí solas cada registro. Consulte la sección Fuentes para el expediente completo.":"Selección de acontecimientos y fechas originales, independiente de las ediciones recuperadas en la bibliografía. Abra «Contexto y fuentes» para consultar las referencias de cada hito y los matices disponibles. El contraste editorial no equivale a revisión por pares. Las fechas aproximadas, tradicionales y los testimonios textuales se señalan cuando corresponde."));
     if(identityContext==="confucius-reviewed-catalogue"){
       const note=el("p","author-intellectual-history-note","Identificación contextual: el catálogo atribuye las Analectas a un nombre histórico reconocido por autoridades bibliográficas. Esto no confirma la autoría de todas las obras ni convierte los Cuatro Libros en una obra independiente de Confucio. ");
       const source=el("a","author-intellectual-history-source","Autoridad Getty ULAN ↗");
@@ -77,21 +168,10 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,i
       if(event.editionOf)details.append(el("span","author-intellectual-history-kind","Vinculada a la obra "+event.editionOf+" en el expediente"));
       if(event.role)details.append(el("span","author-intellectual-history-kind","Responsabilidad: "+event.role));
       if(event.evidenceScope)details.append(el("span","author-intellectual-history-kind",event.evidenceScope));
-      if(event.source){
-      const source=el("a","author-intellectual-history-source",event.source.name+" ↗");
-      source.href=event.source.url;
-      source.target="_blank";
-      source.rel="noopener noreferrer";
-      source.setAttribute("aria-label","Consultar fuente: "+event.source.name+" — "+event.title);
-      details.append(source);
-      }
-      for(const evidence of event.additionalSources||[]){
-        const alternative=el("a","author-intellectual-history-source",evidence.name+(matrix?" ↗":" · contraste ↗"));
-        alternative.href=evidence.url;
-        alternative.target="_blank";
-        alternative.rel="noopener noreferrer";
-        alternative.setAttribute("aria-label","Consultar fuente alternativa: "+evidence.name+" — "+event.title);
-        details.append(alternative);
+      if(!matrix&&/^Q\d+$/.test(history.id)&&event.id.startsWith(history.id+"-")){
+        details.append(buildEvidenceDisclosure(event,history,state));
+      }else{
+        appendOriginalSources(details,event,matrix);
       }
       item.append(details);
       entries.append(item);

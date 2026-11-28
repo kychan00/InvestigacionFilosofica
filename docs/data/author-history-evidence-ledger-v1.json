@@ -1278,8 +1278,8 @@
       "id": "Q60025-1",
       "qid": "Q60025",
       "author": "Hannah Arendt",
-      "year": 1929,
-      "date": "1929",
+      "year": 1928,
+      "date": "1928 (tesis publicada en 1929)",
       "type": "career",
       "title": "Doctorado sobre el concepto de amor en Agustín",
       "status": "contrasted",
@@ -1306,15 +1306,21 @@
         }
       ],
       "accessLevel": "direct-recorded",
-      "editorialNote": "SEP sitúa el doctorado en 1929; la cronología de Ursula Ludz y LeMO documentan el examen doctoral en 1928. La tesis se publicó en 1929 según la cronología de Ludz. Es necesario distinguir ambos acontecimientos antes de publicar.",
+      "editorialNote": "La cronología de Ursula Ludz y LeMO sitúan el examen doctoral en noviembre de 1928; la tesis se publicó en 1929. SEP emplea 1929 para el doctorado. Se distinguen examen y publicación sin eliminar la discrepancia.",
       "publicationReview": {
-        "status": "correction-required",
+        "status": "corrected",
         "reason": "Distinguir el examen doctoral de noviembre de 1928 de la publicación de la tesis en 1929; conservar el ID y actualizar matriz y ledger coordinadamente antes de la integración pública.",
         "proposed": {
           "year": 1928,
           "date": "1928 (tesis publicada en 1929)",
           "title": "Doctorado sobre el concepto de amor en Agustín"
-        }
+        },
+        "previous": {
+          "year": 1929,
+          "date": "1929",
+          "title": "Doctorado sobre el concepto de amor en Agustín"
+        },
+        "appliedOn": "2026-11-27"
       }
     },
     {
@@ -4800,8 +4806,6 @@
     },
     "residualUniqueUrls": 15,
     "editorialNoteCount": 41,
-    "publicationCorrections": [
-      "Q60025-1"
-    ]
+    "publicationCorrections": []
   }
 }

@@ -99,3 +99,15 @@ test("editorial consolidation reconciles reference access, notes and publication
  assert.ok(arendt.evidence.some(e=>e.access==="direct"&&e.url.includes("hannaharendt.net")));
  assert.ok(arendt.publicationReview?.status==="correction-required"||arendt.year===1928);
 });
+
+test("Arendt canonical correction preserves the stable milestone and distinguishes publication",()=>{
+ const a=ledger.entries.find(r=>r.id==="Q60025-1");
+ assert.equal(a.year,1928);
+ assert.match(a.date,/1928.*1929/);
+ assert.equal(a.publicationReview.status,"corrected");
+ assert.equal(a.publicationReview.previous.year,1929);
+ assert.deepEqual(ledger.consolidation.publicationCorrections,[]);
+ const e=intellectualHistory({wikidataId:"Q60025",displayName:"Hannah Arendt"}).events.find(e=>e.id===a.id);
+ assert.equal(e.year,1928);assert.equal(e.date,a.date);
+ assert.match(e.source.url,/hannaharendt\.net/);
+});
