@@ -1,0 +1,4811 @@
+{
+  "schemaVersion": 1,
+  "scope": "Contraste editorial de cada hito; no certificación externa ni revisión por pares.",
+  "entries": [
+    {
+      "id": "Q859-0",
+      "qid": "Q859",
+      "author": "Platón",
+      "year": -429,
+      "date": "c. 429 a. C.",
+      "type": "birth",
+      "title": "Nacimiento de Platón",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/plato/",
+          "locator": "Introducción de la edición de verano de 2024: año de nacimiento 429 a. C. con signo de incertidumbre; no se afirma una fecha exacta.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El año 429 a. C. es aproximado; la fuente no permite tratarlo como fecha exacta."
+    },
+    {
+      "id": "Q859-1",
+      "qid": "Q859",
+      "author": "Platón",
+      "year": -387,
+      "date": "387–383 a. C. (aprox.)",
+      "type": "institution",
+      "title": "Formación de la Academia ateniense",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://iep.utm.edu/plato-academy/",
+          "locator": "IEP, sección sobre fundación, antes de Location and Funding: intervalo convencional 387–383 a. C.; la institución se consolidó gradualmente y no tuvo una fecha fundacional formal conocida.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El intervalo 387–383 a. C. es una datación aproximada de la formación de la Academia, no un acto fundacional de fecha exacta."
+    },
+    {
+      "id": "Q859-2",
+      "qid": "Q859",
+      "author": "Platón",
+      "year": -347,
+      "date": "347 a. C.",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/plato/",
+          "locator": "SEP, introducción, edición verano 2024: muerte en 347 a. C.; el signo de duda corresponde al nacimiento.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q868-0",
+      "qid": "Q868",
+      "author": "Aristóteles",
+      "year": -384,
+      "date": "384 a. C.",
+      "type": "birth",
+      "title": "Nacimiento de Aristóteles",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/aristotle/#AriLif",
+          "locator": "SEP, §1 Aristotle’s Life, primer párrafo: nacimiento en Estagira en 384 a. C.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q868-1",
+      "qid": "Q868",
+      "author": "Aristóteles",
+      "year": -347,
+      "date": "347 a. C.",
+      "type": "career",
+      "title": "Deja la Academia tras la muerte de Platón",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/aristotle/#AriLif",
+          "locator": "SEP, §1, segundo párrafo: vinculado a la Academia hasta la muerte de Platón en 347 a. C.; después viajó a Assos.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q868-2",
+      "qid": "Q868",
+      "author": "Aristóteles",
+      "year": -343,
+      "date": "343 a. C.",
+      "type": "career",
+      "title": "Se traslada a Pella como tutor de Alejandro",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/aristotle/#AriLif",
+          "locator": "SEP, §1, párrafo sobre Filipo de Macedonia: traslado de Lesbos a Pella en 343 a. C. para instruir a Alejandro; duración de la tutoría discutida.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fecha corresponde al inicio de la tutoría; su duración es discutida."
+    },
+    {
+      "id": "Q868-3",
+      "qid": "Q868",
+      "author": "Aristóteles",
+      "year": -335,
+      "date": "335 a. C.",
+      "type": "institution",
+      "title": "Establece su escuela en el Liceo de Atenas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/aristotle/#AriLif",
+          "locator": "SEP, §1, párrafo sobre retorno a Atenas en 335 a. C. y creación de su escuela en el recinto de Apolo Licio.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q868-4",
+      "qid": "Q868",
+      "author": "Aristóteles",
+      "year": -322,
+      "date": "322 a. C.",
+      "type": "death",
+      "title": "Fallecimiento en Calcis",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/aristotle/#AriLif",
+          "locator": "SEP, §1, último párrafo: retirada a Calcis tras salir de Atenas en 323 a. C. y muerte allí en 322 a. C.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9312-0",
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "year": 1724,
+      "date": "1724",
+      "type": "birth",
+      "title": "Nacimiento en Königsberg",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2016/entries/kant/",
+          "locator": "SEP, primavera 2016, §1 Life and works, primer párrafo: nacimiento el 22 de abril de 1724 en Königsberg.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9312-1",
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "year": 1755,
+      "date": "1755",
+      "type": "career",
+      "title": "Comienza a enseñar en la Universidad de Königsberg",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2016/entries/kant/",
+          "locator": "SEP, §1, párrafos sobre regreso a Königsberg en 1754 y habilitación de 1755: docencia en la Albertina desde 1755, sin salario fijo.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La docencia de 1755 comenzó sin salario fijo; no equivale a la obtención de una cátedra."
+    },
+    {
+      "id": "Q9312-2",
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "year": 1781,
+      "date": "1781",
+      "type": "publication",
+      "title": "Primera edición de Crítica de la razón pura",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2016/entries/kant/",
+          "locator": "SEP, introducción: dos ediciones de la primera Crítica, 1781 y 1787, en ese orden.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La primera edición de 1781 se distingue de la segunda, de 1787."
+    },
+    {
+      "id": "Q9312-3",
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "year": 1788,
+      "date": "1788",
+      "type": "publication",
+      "title": "Publicación de Crítica de la razón práctica",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2016/entries/kant/",
+          "locator": "SEP, introducción: segunda Crítica, Crítica de la razón práctica, 1788.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9312-4",
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "year": 1790,
+      "date": "1790",
+      "type": "publication",
+      "title": "Publicación de Crítica del juicio",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2016/entries/kant/",
+          "locator": "SEP, introducción: tercera Crítica, Crítica de la facultad de juzgar (Crítica del juicio), 1790.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9312-5",
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "year": 1804,
+      "date": "1804",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2016/entries/kant/",
+          "locator": "SEP, §1, último párrafo antes de §2: fallecimiento el 12 de febrero de 1804.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9235-0",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1770,
+      "date": "1770",
+      "type": "birth",
+      "title": "Nacimiento de Hegel",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "SEP, §1 Life, Work, and Influence, primer párrafo: nacimiento en Stuttgart en 1770.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9235-1",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1807,
+      "date": "1807",
+      "type": "publication",
+      "title": "Publicación de Fenomenología del espíritu",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "SEP, §1, párrafo sobre el manuscrito terminado hacia finales de 1806: publicación de Fenomenología del espíritu en 1807.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se distingue la finalización del manuscrito hacia finales de 1806 de la publicación en 1807."
+    },
+    {
+      "id": "Q9235-2",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1816,
+      "date": "1816",
+      "type": "career",
+      "title": "Cátedra de filosofía en Heidelberg",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "SEP, §1, párrafo sobre retorno a la universidad: nombramiento en Heidelberg en 1816.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9235-3",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1817,
+      "date": "1817",
+      "type": "publication",
+      "title": "Primera edición de Enciclopedia de las ciencias filosóficas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "SEP, §1, párrafo siguiente al nombramiento universitario: publicación de la Enciclopedia en 1817 y versiones posteriores durante la etapa berlinesa.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9235-4",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1818,
+      "date": "1818",
+      "type": "career",
+      "title": "Cátedra de filosofía en Berlín",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "SEP, §1, párrafo sobre retorno a la universidad: aceptación de la cátedra de Berlín en 1818.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9235-5",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1820,
+      "date": "1820 (portada: 1821)",
+      "type": "publication",
+      "title": "Publicación de Principios de la filosofía del derecho",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cambridge.org/core/books/abs/hegels-elements-of-the-philosophy-of-right/introduction-freedom-and-history-in-hegels-philosophy-of-right/8C0F3B03487083C4B01957A013B4B72A",
+          "locator": "Resumen de la introducción de David James: fecha de portada 1821 y probable publicación efectiva 1820.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "§1 utiliza 1821; §3.1, clasificación de las obras publicadas, utiliza 1820. SEP no explica por sí sola la diferencia; David James en Cambridge distingue la fecha de portada y la publicación probable.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La portada indica 1821; David James considera probable que la publicación efectiva fuera en 1820. SEP utiliza ambas fechas en secciones distintas."
+    },
+    {
+      "id": "Q9235-6",
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "year": 1831,
+      "date": "1831",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/hegel/",
+          "locator": "SEP, §1, párrafo sobre Filosofía del derecho y etapa berlinesa: fallecimiento en 1831.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q183074-0",
+      "qid": "Q183074",
+      "author": "Sor Juana Inés de la Cruz",
+      "year": 1648,
+      "date": "1648 o 1651 (discutido)",
+      "type": "birth",
+      "title": "Nacimiento de Sor Juana",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia/",
+          "locator": "Cronología, fila 1648, columna Vida y obra: presenta 1648 como posible y conserva 1651 como alternativa.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las fuentes conservan 1648 y 1651 como posibles años de nacimiento; no se impone una fecha única."
+    },
+    {
+      "id": "Q183074-1",
+      "qid": "Q183074",
+      "author": "Sor Juana Inés de la Cruz",
+      "year": 1689,
+      "date": "1689",
+      "type": "publication",
+      "title": "Publicación de Inundación castálida en España",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1689: edición madrileña de Inundación castálida.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q183074-2",
+      "qid": "Q183074",
+      "author": "Sor Juana Inés de la Cruz",
+      "year": 1690,
+      "date": "1690",
+      "type": "publication",
+      "title": "Carta atenagórica",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1690: publicación de Carta atenagórica por el obispo de Puebla.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q183074-3",
+      "qid": "Q183074",
+      "author": "Sor Juana Inés de la Cruz",
+      "year": 1691,
+      "date": "1691",
+      "type": "composition",
+      "title": "Redacción de Respuesta a Sor Filotea de la Cruz",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1691: composición de Respuesta a Sor Filotea; el hito no afirma una fecha de primera edición.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1691 es la fecha de redacción, no una afirmación sobre la primera edición impresa."
+    },
+    {
+      "id": "Q183074-4",
+      "qid": "Q183074",
+      "author": "Sor Juana Inés de la Cruz",
+      "year": 1695,
+      "date": "1695",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1695: muerte el 17 de abril.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q473518-0",
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "year": 1934,
+      "date": "1934",
+      "type": "birth",
+      "title": "Nacimiento en La Paz, Mendoza",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://revistas.unlp.edu.ar/CTyP/article/download/16056/15487?inline=1",
+          "locator": "Primer párrafo: nacimiento en La Paz, Mendoza, en diciembre de 1934.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/",
+          "locator": "Semblanza: origen en La Paz, Mendoza, 24 de diciembre de 1934; apertura directa 502.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q473518-1",
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "year": 1957,
+      "date": "1957",
+      "type": "career",
+      "title": "Licenciatura en Filosofía en la Universidad Nacional de Cuyo",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bibliotecavirtual.clacso.org.ar/ar/libros/dussel/data/generes.pdf",
+          "locator": "p. 1, Títulos, fila 1957: licenciatura en Filosofía, Universidad Nacional del Cuyo.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: licenciatura por la Universidad Nacional de Cuyo en 1957; apertura directa 429.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q473518-2",
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "year": 1967,
+      "date": "1967",
+      "type": "career",
+      "title": "Doctorado en Historia en la Sorbona",
+      "status": "contrasted",
+      "previousReviewIssue": "PARES atribuye el doctorado a 1967, pero el resultado indexado de un CV del archivo Dussel consigna 1966. Requiere cotejo de documento original y fecha de obtención.",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bibliotecavirtual.clacso.org.ar/ar/libros/dussel/data/generes.pdf",
+          "locator": "p. 1, apartado Títulos, fila 1967. Currículum del autor, inspección del texto y de la página.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://revistas.unlp.edu.ar/CTyP/article/download/16056/15487?inline=1",
+          "locator": "Gandarilla (2023), párrafo sobre los estudios europeos, segundo doctorado de Historia en 1967.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: obtención del doctorado en 1967.",
+          "access": "indexed",
+          "checkedOn": "2026-11-27",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
+        }
+      ],
+      "resolution": "Se conserva 1967 como fecha respaldada por el CV y el artículo. No se ha reabierto el documento que sugería 1966; no se presume que esa variante sea una errata.",
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El CV consultado y el artículo de Gandarilla respaldan 1967. Un resultado indexado anterior sugería 1966; no se reabrió ese documento y no se presume una errata."
+    },
+    {
+      "id": "Q473518-3",
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "year": 1975,
+      "date": "1975",
+      "type": "career",
+      "title": "Exilio en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://revistas.unlp.edu.ar/CTyP/article/download/16056/15487?inline=1",
+          "locator": "Párrafos sobre el exilio: partida de Argentina en agosto de 1975 y elección de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: exilio en México en 1975; apertura directa 429.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q473518-4",
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "year": 1976,
+      "date": "1976",
+      "type": "career",
+      "title": "Docencia de Ética y Filosofía Política en la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bibliotecavirtual.clacso.org.ar/ar/libros/dussel/data/generes.pdf",
+          "locator": "p. 1, Actividades docentes: desde 1976, Ética y Filosofía Política en Colegio de Filosofía UNAM.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/",
+          "locator": "Semblanza docente: ética y filosofía política; antigüedad desde 1976; apertura directa 502.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q473518-5",
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "year": 2023,
+      "date": "2023",
+      "type": "death",
+      "title": "Fallecimiento en Ciudad de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: muerte en Ciudad de México en 2023; apertura directa 429.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
+        },
+        {
+          "url": "https://unamglobal.unam.mx/global_revista/fallece-el-filosofo-enrique-dussel/",
+          "locator": "Nota institucional del 6 de noviembre de 2023, primer párrafo: muerte el 5 de noviembre en Ciudad de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9191-0",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1596,
+      "date": "1596",
+      "type": "birth",
+      "title": "Nacimiento en La Haye",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "§1.1, primer párrafo: nacimiento en La Haye, Touraine, el 31 de marzo de 1596.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9191-1",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1606,
+      "date": "1606 o 1607",
+      "type": "career",
+      "title": "Ingreso en el colegio de La Flèche",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "§1.1, párrafo sobre el colegio jesuita: ingreso en 1606 o 1607, sin elegir arbitrariamente un año.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fuente conserva 1606 y 1607 como posibles años de ingreso."
+    },
+    {
+      "id": "Q9191-2",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1637,
+      "date": "1637",
+      "type": "publication",
+      "title": "Discurso del método",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "Introducción, lista de obras publicadas en vida: Discurso en francés, 1637, acompañado de tres ensayos.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9191-3",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1641,
+      "date": "1641",
+      "type": "publication",
+      "title": "Meditaciones metafísicas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "Introducción: edición latina de 1641; segunda edición de 1642.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fecha de 1641 corresponde a la primera edición latina; hubo una segunda edición en 1642."
+    },
+    {
+      "id": "Q9191-4",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1644,
+      "date": "1644",
+      "type": "publication",
+      "title": "Principios de la filosofía",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "Introducción: Principios en latín, 1644.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9191-5",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1649,
+      "date": "1649",
+      "type": "publication",
+      "title": "Las pasiones del alma",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "Introducción y §1.5: tratado de las pasiones publicado en francés en 1649.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9191-6",
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "year": 1650,
+      "date": "1650",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/descartes/",
+          "locator": "§1.5, último párrafo: fallecimiento el 11 de febrero de 1650.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-0",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1844,
+      "date": "1844",
+      "type": "birth",
+      "title": "Nacimiento en Röcken",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, primer párrafo: nacimiento en Röcken el 15 de octubre de 1844.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-1",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1869,
+      "date": "1869",
+      "type": "career",
+      "title": "Nombramiento en filología clásica en Basilea",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, primer párrafo: nombramiento en filología clásica en Basilea en mayo de 1869.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-2",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1872,
+      "date": "1872",
+      "type": "publication",
+      "title": "El nacimiento de la tragedia",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, párrafo sobre el primer libro: publicación en 1872.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-3",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1878,
+      "date": "1878",
+      "type": "publication",
+      "title": "Humano, demasiado humano",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, párrafo sobre el trabajo desarrollado durante su licencia: publicación en 1878.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-4",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1879,
+      "date": "1879",
+      "type": "career",
+      "title": "Renuncia a la cátedra de Basilea",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, párrafo sobre la salud y renuncia: abandono de la cátedra en 1879.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-5",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1883,
+      "date": "1883–1885",
+      "type": "publication",
+      "title": "Publicación por partes de Así habló Zaratustra",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, lista de obras maduras y bibliografía, abreviatura Z: intervalo 1883–1885; no corresponde a una edición única.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1883–1885 corresponde a la publicación por partes de la obra, no a una edición única."
+    },
+    {
+      "id": "Q9358-6",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1886,
+      "date": "1886",
+      "type": "publication",
+      "title": "Más allá del bien y del mal",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, lista de obras maduras: 1886.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-7",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1887,
+      "date": "1887",
+      "type": "publication",
+      "title": "La genealogía de la moral",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "§1, lista de obras maduras: 1887.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9358-8",
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "year": 1900,
+      "date": "1900",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/nietzsche/",
+          "locator": "Introducción: intervalo vital 1844–1900.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-0",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1908,
+      "date": "1908",
+      "type": "birth",
+      "title": "Nacimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "§1, primer párrafo: nacimiento en París el 9 de enero de 1908.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-1",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1929,
+      "date": "1929",
+      "type": "career",
+      "title": "Supera la agrégation de filosofía",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "§1, párrafos sobre estudios en la Sorbona y examen competitivo: agrégation de filosofía en 1929, aprobada a los 21 años.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-2",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1944,
+      "date": "1944",
+      "type": "publication",
+      "title": "Pirro y Cineas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "§1, párrafo sobre obras de 1941–1946: primer ensayo filosófico de 1944.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-3",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1945,
+      "date": "1945",
+      "type": "institution",
+      "title": "Participa en la fundación de Les Temps modernes",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "§1, párrafo sobre la revista: cofundación en 1945 con otros intelectuales, entre ellos Sartre y Merleau-Ponty.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La revista fue una iniciativa colectiva, no una fundación exclusiva de Beauvoir."
+    },
+    {
+      "id": "Q7197-4",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1947,
+      "date": "1947",
+      "type": "publication",
+      "title": "Para una moral de la ambigüedad",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "§1, párrafo sobre obras de 1941–1946: ensayo ético de 1947.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-5",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1949,
+      "date": "1949",
+      "type": "publication",
+      "title": "El segundo sexo",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "Introducción y §1: publicación de El segundo sexo en 1949, con extractos en Les Temps Modernes.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-6",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1970,
+      "date": "1970",
+      "type": "publication",
+      "title": "La vejez",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "Introducción: obra sobre la vejez de 1970.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7197-7",
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "year": 1986,
+      "date": "1986",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/beauvoir/",
+          "locator": "Introducción: intervalo vital 1908–1986.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-0",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1906,
+      "date": "1906",
+      "type": "birth",
+      "title": "Nacimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "§1, primer párrafo: nacimiento en Hannover en 1906.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-1",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1928,
+      "date": "1928 (tesis publicada en 1929)",
+      "type": "career",
+      "title": "Doctorado sobre el concepto de amor en Agustín",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "§1, segundo párrafo, y bibliografía LA: tesis sobre el amor en Agustín bajo Jaspers, fechada en 1929 por SEP.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.hannaharendt.net/index.php/han/en/vitaArendt/index",
+          "locator": "Vita basada en la cronología de Ursula Ludz, entrada noviembre de 1928: examen doctoral en Heidelberg bajo Karl Jaspers; publicación de la tesis en 1929.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.dhm.de/lemo/biografie/hannah-arendt",
+          "locator": "Deutsches Historisches Museum, cronología LeMO, entrada 1928: doctorado sobre el concepto de amor en Agustín en Heidelberg bajo Jaspers.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La cronología de Ursula Ludz y LeMO sitúan el examen doctoral en noviembre de 1928; la tesis se publicó en 1929. SEP emplea 1929 para el doctorado. Se distinguen examen y publicación sin eliminar la discrepancia.",
+      "publicationReview": {
+        "status": "corrected",
+        "reason": "Distinguir el examen doctoral de noviembre de 1928 de la publicación de la tesis en 1929; conservar el ID y actualizar matriz y ledger coordinadamente antes de la integración pública.",
+        "proposed": {
+          "year": 1928,
+          "date": "1928 (tesis publicada en 1929)",
+          "title": "Doctorado sobre el concepto de amor en Agustín"
+        },
+        "previous": {
+          "year": 1929,
+          "date": "1929",
+          "title": "Doctorado sobre el concepto de amor en Agustín"
+        },
+        "appliedOn": "2026-11-27"
+      }
+    },
+    {
+      "id": "Q60025-2",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1933,
+      "date": "1933",
+      "type": "career",
+      "title": "Sale de Alemania y se establece en París",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "§1, tercer párrafo: salida de Alemania en 1933 y traslado a París tras pasar por Praga y Ginebra.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-3",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1941,
+      "date": "1941",
+      "type": "career",
+      "title": "Emigra a Nueva York",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "§1, cuarto párrafo: emigración de Francia a Nueva York en 1941.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-4",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1951,
+      "date": "1951",
+      "type": "publication",
+      "title": "Los orígenes del totalitarismo",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "Introducción y bibliografía OT: primera publicación en 1951.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-5",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1958,
+      "date": "1958",
+      "type": "publication",
+      "title": "La condición humana",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "Introducción y bibliografía HC: publicación en 1958.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-6",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1963,
+      "date": "1963",
+      "type": "publication",
+      "title": "Sobre la revolución",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "Bibliografía OR: primera edición 1963; segunda revisada, 1965.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-7",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1975,
+      "date": "1975",
+      "type": "death",
+      "title": "Fallecimiento en Nueva York",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "§1, primer párrafo: fallecimiento en Nueva York en 1975.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60025-8",
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "year": 1978,
+      "date": "1978",
+      "type": "posthumous",
+      "title": "Publicación póstuma de La vida del espíritu",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/arendt/",
+          "locator": "§1, párrafo sobre obra final, y bibliografía LM: publicación póstuma de 1978; pensar y querer completados, juzgar inconcluso.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Edición póstuma de 1978: pensar y querer fueron los dos volúmenes terminados; el proyecto sobre juzgar quedó inconcluso."
+    },
+    {
+      "id": "Q1091141-0",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1882,
+      "date": "1882",
+      "type": "birth",
+      "title": "Nacimiento en Oaxaca",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Semblanza institucional, párrafo biográfico inicial: nacimiento el 27 de febrero de 1882 en la ciudad de Oaxaca.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1091141-1",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1920,
+      "date": "1920–1921",
+      "type": "career",
+      "title": "Rectoría de la Universidad Nacional de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Párrafo de cargos: rectoría de junio de 1920 a octubre de 1921.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1091141-2",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1921,
+      "date": "1921–1924",
+      "type": "career",
+      "title": "Titular de la Secretaría de Educación Pública",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Párrafo de cargos: titular de Educación Pública entre 1921 y 1924.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1091141-3",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1925,
+      "date": "1925",
+      "type": "publication",
+      "title": "La raza cósmica",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Semblanza inicial y párrafo de obras destacadas: La raza cósmica, 1925.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1091141-4",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1929,
+      "date": "1929",
+      "type": "publication",
+      "title": "Tratado de metafísica",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Párrafo de obras destacadas: Tratado de metafísica, 1929.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1091141-5",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1943,
+      "date": "1943",
+      "type": "institution",
+      "title": "Miembro fundador de El Colegio Nacional",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Ingreso fundador de 15 de mayo de 1943.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1091141-6",
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "year": 1959,
+      "date": "1959",
+      "type": "death",
+      "title": "Fallecimiento en Ciudad de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Cierre de semblanza: muerte en Ciudad de México el 30 de junio de 1959.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-0",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1912,
+      "date": "1912",
+      "type": "birth",
+      "title": "Nacimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Biografía, primer párrafo: nacimiento el 30 de junio de 1912 en México, Distrito Federal.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-1",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1943,
+      "date": "1943",
+      "type": "career",
+      "title": "Maestría en Filosofía por la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea",
+          "locator": "Semblanza del Archivo y Taller de Historia Oral de la FFyL: párrafo sobre el grado de maestro en Filosofía de 1943 y tesis sobre el positivismo en México; formación en la UNAM.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-2",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1943,
+      "date": "1943",
+      "type": "publication",
+      "title": "El positivismo en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Bibliografía: El positivismo en México, 1943.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-3",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1944,
+      "date": "1944",
+      "type": "publication",
+      "title": "Apogeo y decadencia del positivismo en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Bibliografía: Apogeo y decadencia del positivismo en México, 1944.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-4",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1952,
+      "date": "1952",
+      "type": "publication",
+      "title": "La filosofía como compromiso",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Bibliografía: La filosofía como compromiso, 1952.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-5",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1966,
+      "date": "1966–1970",
+      "type": "career",
+      "title": "Dirección de la Facultad de Filosofía y Letras de la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea",
+          "locator": "Semblanza del Archivo y Taller de Historia Oral: párrafo de cargos universitarios; dirección de la Facultad entre 1966 y 1970.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-6",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 1994,
+      "date": "1994",
+      "type": "career",
+      "title": "Doctorado honoris causa de la Universidad de Guadalajara",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Biografía UdeG, párrafo de reconocimientos inmediatamente anterior al fallecimiento: doctorado honoris causa otorgado el 26 de mayo de 1994.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        },
+        {
+          "url": "https://ww1.udg.mx/es/grados-honorificos/leopoldo-zea-aguilar",
+          "locator": "Acuerdo de otorgamiento del grado honorífico.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q1879022-7",
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "year": 2004,
+      "date": "2004",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Biografía UdeG, último párrafo antes de Juicios y testimonios: fallecimiento el 9 de junio de 2004 en Ciudad de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q43216-0",
+      "qid": "Q43216",
+      "author": "Epicuro",
+      "year": -341,
+      "date": "341 a. C.",
+      "type": "birth",
+      "title": "Nacimiento de Epicuro",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/epicurus/#Lif",
+          "locator": "§2, primeros dos párrafos: nacimiento en 341 a. C., inferido de la cronología de Diógenes Laercio X.1.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q43216-1",
+      "qid": "Q43216",
+      "author": "Epicuro",
+      "year": -307,
+      "date": "307–306 a. C.",
+      "type": "institution",
+      "title": "Regresa a Atenas y establece su escuela del Jardín",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/epicurus/#Lif",
+          "locator": "§2, párrafo sobre Mitilene y Lámpsaco: regreso a Atenas en 307/306 a. C. y adquisición del terreno del Jardín.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se conserva el intervalo 307–306 a. C. para el regreso y la escuela del Jardín."
+    },
+    {
+      "id": "Q43216-2",
+      "qid": "Q43216",
+      "author": "Epicuro",
+      "year": -270,
+      "date": "270 a. C.",
+      "type": "death",
+      "title": "Fallecimiento en Atenas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/epicurus/#Lif",
+          "locator": "§2, mismo párrafo: permaneció en Atenas hasta morir en 270 a. C.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-0",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1225,
+      "date": "c. 1225",
+      "type": "birth",
+      "title": "Nacimiento cerca de Aquino",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1, primer párrafo: nacimiento cerca de Aquino hacia 1225.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-1",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1248,
+      "date": "1248",
+      "type": "career",
+      "title": "Estudios en Colonia bajo la dirección de Alberto Magno",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1, párrafo sobre estudios de filosofía: enviado a Colonia en 1248 bajo Alberto Magno.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-2",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1252,
+      "date": "1252–1256",
+      "type": "composition",
+      "title": "Redacción de De ente et essentia",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "Bibliografía A3, On Being and Essence: 1252–56, durante su etapa de bachiller en París.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-3",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1256,
+      "date": "1256–1259",
+      "type": "career",
+      "title": "Primera etapa como maestro de teología en París",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1, párrafo sobre doctorado y magisterio: cátedra dominica de teología en París de 1256 a 1259.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-4",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1259,
+      "date": "1259–1265",
+      "type": "composition",
+      "title": "Redacción de Summa contra gentiles",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "Bibliografía A1, Summa contra gentiles: 1259–65.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-5",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1267,
+      "date": "1267–1273 (inconclusa)",
+      "type": "composition",
+      "title": "Redacción de Summa theologiae",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "Bibliografía A1, Summa theologiae: 1267–73, inconclusa tras III, cuestión 90. §1.2 distingue el suplemento preparado por discípulos con textos previos.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La obra quedó inconclusa. El suplemento fue compilado por discípulos a partir de materiales anteriores."
+    },
+    {
+      "id": "Q9438-6",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1268,
+      "date": "1268–1272",
+      "type": "career",
+      "title": "Segunda etapa de enseñanza en París",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1, párrafos sobre segundo magisterio: retorno en 1268 y salida hacia Nápoles en 1272.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q9438-7",
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "year": 1274,
+      "date": "1274",
+      "type": "death",
+      "title": "Fallecimiento en la abadía de Fossanova",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1, párrafo sobre últimos años: falleció en la abadía cisterciense de Fossanova el 7 de marzo de 1274.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q4604-0",
+      "qid": "Q4604",
+      "author": "Confucio",
+      "year": -551,
+      "date": "551 a. C. (tradicional)",
+      "type": "birth",
+      "title": "Nacimiento en Zou según la tradición",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2024/entries/confucius/",
+          "locator": "§2, párrafo sobre Zou: el comentario Gongyang fecha el nacimiento en 551 a. C.; tradición textual, no acta contemporánea.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fecha y el lugar se transmiten por tradición textual; no constituyen una constatación contemporánea."
+    },
+    {
+      "id": "Q4604-1",
+      "qid": "Q4604",
+      "author": "Confucio",
+      "year": -509,
+      "date": "509 a. C. (testimonio textual)",
+      "type": "career",
+      "title": "El Comentario de Zuo lo identifica como director de correcciones en Lu",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2024/entries/confucius/",
+          "locator": "§2, párrafo sobre los cargos en Lu: la entrada de 509 a. C. del comentario Zuo le atribuye el cargo Sikou.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Es una atribución del Comentario de Zuo, no una comprobación biográfica independiente."
+    },
+    {
+      "id": "Q4604-2",
+      "qid": "Q4604",
+      "author": "Confucio",
+      "year": -500,
+      "date": "500 a. C. (testimonio textual)",
+      "type": "career",
+      "title": "El Comentario de Zuo le atribuye una función ritual en la recepción de un dignatario de Qi",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2024/entries/confucius/",
+          "locator": "§2, mismo párrafo: la entrada de 500 a. C. del comentario Zuo le atribuye asistencia ritual al gobernante ante un visitante de Qi.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El acontecimiento procede del Comentario de Zuo y se presenta como testimonio textual."
+    },
+    {
+      "id": "Q4604-3",
+      "qid": "Q4604",
+      "author": "Confucio",
+      "year": -479,
+      "date": "479 a. C. (tradicional)",
+      "type": "death",
+      "title": "Fallecimiento según la cronología tradicional",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2024/entries/confucius/",
+          "locator": "Introducción: intervalo vital 551–479 a. C. expresamente tradicional.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "479 a. C. pertenece a la cronología tradicional."
+    },
+    {
+      "id": "Q60028-0",
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "year": 1848,
+      "date": "1848",
+      "type": "birth",
+      "title": "Nacimiento en Wismar",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/frege/",
+          "locator": "§1, primer párrafo: CV de habilitación de 1874 citado por la SEP documenta nacimiento en Wismar el 8 de noviembre de 1848.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60028-1",
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "year": 1874,
+      "date": "1874",
+      "type": "career",
+      "title": "Habilitación en la Universidad de Jena",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/frege/",
+          "locator": "§1, párrafo sobre Habilitationsschrift: 1874; comienza como Privatdozent en Jena.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60028-2",
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "year": 1879,
+      "date": "1879",
+      "type": "publication",
+      "title": "Publicación de Conceptografía (Begriffsschrift)",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/frege/",
+          "locator": "§1 y bibliografía A: publicación del primer libro, Begriffsschrift, 1879.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60028-3",
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "year": 1884,
+      "date": "1884",
+      "type": "publication",
+      "title": "Los fundamentos de la aritmética",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/frege/",
+          "locator": "§1, párrafo sobre el segundo libro: Grundlagen der Arithmetik, 1884.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q60028-4",
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "year": 1893,
+      "date": "1893 y 1903",
+      "type": "publication",
+      "title": "Los dos volúmenes de Las leyes fundamentales de la aritmética",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/frege/",
+          "locator": "§1 y bibliografía A: Grundgesetze der Arithmetik, volúmenes de 1893 y 1903; obra distinta de Grundlagen de 1884.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Los años 1893 y 1903 corresponden a dos volúmenes de Grundgesetze, no a Grundlagen (1884)."
+    },
+    {
+      "id": "Q60028-5",
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "year": 1925,
+      "date": "1925",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/frege/",
+          "locator": "§1, último párrafo: fallecimiento en Bad Kleinen el 26 de julio de 1925.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q33760-0",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1872,
+      "date": "1872",
+      "type": "birth",
+      "title": "Nacimiento en Trelleck, Gales",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§1, cronología, fila 1872: nacimiento el 18 de mayo en Trelleck, Monmouthshire.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q33760-1",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1890,
+      "date": "1890",
+      "type": "career",
+      "title": "Ingreso en Trinity College, Cambridge",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§1, cronología, fila 1890: ingreso a Trinity College.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q33760-2",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1901,
+      "date": "1901",
+      "type": "career",
+      "title": "Descubrimiento de la paradoja de Russell",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§1, cronología, filas 1901 y 1902: descubrimiento de la paradoja y posterior correspondencia con Frege.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se distingue el descubrimiento en 1901 de la comunicación a Frege en 1902."
+    },
+    {
+      "id": "Q33760-3",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1903,
+      "date": "1903",
+      "type": "publication",
+      "title": "Los principios de las matemáticas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§2 y §4: The Principles of Mathematics, 1903.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q33760-4",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1905,
+      "date": "1905",
+      "type": "publication",
+      "title": "Sobre la denotación (On Denoting)",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§4 y bibliografía primaria: artículo On Denoting, Mind 14, 1905.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q33760-5",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1910,
+      "date": "1910–1913",
+      "type": "publication",
+      "title": "Publicación de Principia Mathematica con Alfred North Whitehead",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§2 y bibliografía primaria: Principia Mathematica con Whitehead, volúmenes 1910, 1912 y 1913.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Los tres volúmenes de Principia Mathematica, con Whitehead, aparecieron en 1910, 1912 y 1913."
+    },
+    {
+      "id": "Q33760-6",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1950,
+      "date": "1950",
+      "type": "award",
+      "title": "Premio Nobel de Literatura",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§1, cronología, fila 1950: Premio Nobel de Literatura.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q33760-7",
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "year": 1970,
+      "date": "1970",
+      "type": "death",
+      "title": "Fallecimiento en Gales",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/russell/",
+          "locator": "§1, cronología, fila 1970: fallecimiento en Penrhyndeudraeth, Gales, el 2 de febrero.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-0",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1894,
+      "date": "1894",
+      "type": "birth",
+      "title": "Nacimiento en Moquegua, Perú",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: nacimiento en Moquegua el 14 de junio de 1894.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-1",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1919,
+      "date": "1919",
+      "type": "career",
+      "title": "Viaje a Europa y acercamiento al marxismo",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: traslado forzado a Europa en 1919, contacto con el marxismo.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-2",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1923,
+      "date": "1923",
+      "type": "career",
+      "title": "Regreso al Perú y vinculación con la Universidad Popular Manuel González Prada",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: regreso en 1923 y actividad en la Universidad Popular Manuel González Prada.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-3",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1925,
+      "date": "1925",
+      "type": "publication",
+      "title": "La escena contemporánea",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: primer libro en 1925.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-4",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1926,
+      "date": "1926",
+      "type": "institution",
+      "title": "Fundación de la revista Amauta",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: aparición de Amauta en 1926.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-5",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1928,
+      "date": "1928",
+      "type": "publication",
+      "title": "Siete ensayos de interpretación de la realidad peruana",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: Siete ensayos, 1928.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q335544-6",
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "year": 1930,
+      "date": "1930",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: fallecimiento el 14 de abril de 1930.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8018-0",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 354,
+      "date": "354",
+      "type": "birth",
+      "title": "Nacimiento en Tagaste, en el norte de África romano",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§1, primer párrafo: nacimiento en Tagaste, África romana, el 13 de noviembre de 354.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8018-1",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 383,
+      "date": "383",
+      "type": "career",
+      "title": "Traslado a Roma para enseñar retórica",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2018/entries/augustine/",
+          "locator": "§1 Context, versión verano 2018, párrafo biográfico sobre docencia: traslado a Roma en 383 tras enseñar retórica en África; luego consiguió el cargo de Milán.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://plato.stanford.edu/archives/spr2019/entries/augustine/",
+          "locator": "§1 Context, versión primavera 2019, mismo pasaje: viaje a Roma en 383 en busca de mejores alumnos, seguido de la etapa milanesa.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.uecf.net/books/augustine-in-his-own-words/chapter580.html",
+          "locator": "Augustine in His Own Words, sección Chronology, Early Career: docencia en Roma en 383–384; nombramiento en Milán en 384. Reproducción digital de la cronología.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las versiones SEP 2018/2019 sitúan Roma en 383; la vigente sitúa Milán en 383. Una cronología independiente de Augustine in His Own Words, consultada en reproducción digital, respalda Roma 383–384 y Milán 384. Se conserva la fecha del hito y se documenta la discrepancia."
+    },
+    {
+      "id": "Q8018-2",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 386,
+      "date": "386–387 (aprox.)",
+      "type": "composition",
+      "title": "Redacción de Contra los académicos y otros diálogos de Casiciaco",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§2, primer párrafo sobre diálogos filosóficos: obras de Casiciaco en 386/387, entre ellas Contra Academicos.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8018-3",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 387,
+      "date": "387",
+      "type": "career",
+      "title": "Bautismo en Milán por Ambrosio",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§1, párrafo sobre conversión: bautismo por Ambrosio en Pascua de 387 después de la estancia en Casiciaco.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8018-4",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 397,
+      "date": "397–401 (aprox.)",
+      "type": "composition",
+      "title": "Redacción de Confesiones",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2018/entries/augustine/",
+          "locator": "Bibliografía, Selected Latin Texts and Critical Editions: Confessiones, ca. 397–401.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§2, párrafo sobre tratados mayores: Confessiones, ca. 396–400, con referencia a Toom 2020; variante que debe conservarse.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las versiones de SEP ofrecen intervalos aproximados distintos: 397–401 y 396–400."
+    },
+    {
+      "id": "Q8018-5",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 413,
+      "date": "413–427 (aprox.)",
+      "type": "composition",
+      "title": "Redacción de La ciudad de Dios",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2018/entries/augustine/",
+          "locator": "Bibliografía, Selected Latin Texts and Critical Editions: De Civitate Dei, ca. 413–427.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§2, párrafo sobre De civitate dei: comienzo en 412 y conclusión en 426, con referencia a Meconi 2021; variante.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Las versiones de SEP ofrecen intervalos aproximados distintos: 413–427 y 412–426."
+    },
+    {
+      "id": "Q8018-6",
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "year": 430,
+      "date": "430",
+      "type": "death",
+      "title": "Fallecimiento en Hipona",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§1, primer y último párrafo: muerte el 28 de agosto de 430, durante el asedio de Hipona.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8011-0",
+      "qid": "Q8011",
+      "author": "Avicena",
+      "year": 970,
+      "date": "c. 970 o 980 (según la fuente)",
+      "type": "birth",
+      "title": "Nacimiento de Ibn Sina; las dataciones académicas difieren",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1, párrafo sobre Afshana: nacimiento en los años 970, quizá tan temprano como 964; no se determina año exacto. Revisión de 2025.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina-natural/",
+          "locator": "Introducción de Ibn Sina’s Natural Philosophy, revisión marzo 2025: emplea la cronología 980–1037; discrepancia entre entradas de SEP.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La entrada biográfica de SEP sitúa el nacimiento en los años 970, posiblemente antes; otra entrada emplea 980. El año exacto permanece incierto."
+    },
+    {
+      "id": "Q8011-1",
+      "qid": "Q8011",
+      "author": "Avicena",
+      "year": 999,
+      "date": "c. 999–1012",
+      "type": "career",
+      "title": "Salida de Bujará y estancia en Gurganj",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1, párrafos sobre caída de los samánidas y desplazamientos: salida de Bujará en torno a 999, Gurganj 999?–1012.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8011-2",
+      "qid": "Q8011",
+      "author": "Avicena",
+      "year": 1015,
+      "date": "1015–c. 1024",
+      "type": "career",
+      "title": "Etapa en Hamadán",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1, itinerario tras Gurganj: Hamadán 1015–1024?, final aproximado.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8011-3",
+      "qid": "Q8011",
+      "author": "Avicena",
+      "year": 1024,
+      "date": "c. 1024–1037",
+      "type": "career",
+      "title": "Etapa en Isfahán, bajo el patrocinio de ʿAlāʾ al-Dawla",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1, itinerario y párrafo sobre la corte: Isfahán 1024?–1037 bajo ʿAlāʾ-ad-Dawla.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q8011-4",
+      "qid": "Q8011",
+      "author": "Avicena",
+      "year": 1037,
+      "date": "1037",
+      "type": "death",
+      "title": "Fallecimiento de Avicena",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1, último párrafo: muerte y sepultura en Hamadán en 1037.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q39837-0",
+      "qid": "Q39837",
+      "author": "Averroes",
+      "year": 1126,
+      "date": "1126",
+      "type": "birth",
+      "title": "Nacimiento de Ibn Rushd en Córdoba",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "§1.1, primer párrafo: nacimiento en Córdoba en 1126; distingue al filósofo de su abuelo homónimo.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q39837-1",
+      "qid": "Q39837",
+      "author": "Averroes",
+      "year": 1161,
+      "date": "c. 1161; revisiones posteriores",
+      "type": "composition",
+      "title": "Primera redacción del compendio de la Metafísica de Aristóteles",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "Bibliografía A, Metaphysics, Epitome: composición hacia 1161; revisiones hacia 1180 y comienzos de la década de 1190.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "Se distingue la primera redacción aproximada de las revisiones posteriores."
+    },
+    {
+      "id": "Q39837-2",
+      "qid": "Q39837",
+      "author": "Averroes",
+      "year": 1163,
+      "date": "1163–1184 (reinado)",
+      "type": "career",
+      "title": "Durante el reinado de Abū Yaʿqūb Yūsuf recibe el encargo de comentar a Aristóteles",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "§1.1, párrafo sobre los círculos gobernantes: el encargo se atribuye a Abū Yaʿqūb Yūsuf; 1163–1184 es el reinado, no una datación exacta del encuentro.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1163–1184 es el reinado del patrocinador, no una fecha exacta del encargo."
+    },
+    {
+      "id": "Q39837-3",
+      "qid": "Q39837",
+      "author": "Averroes",
+      "year": 1198,
+      "date": "1198",
+      "type": "death",
+      "title": "Fallecimiento en Marrakech",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "§1.1, último párrafo: uno de los relatos sitúa su muerte en Marrakech en 1198; conservar atribución testimonial.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La ubicación del fallecimiento se presenta en la fuente como uno de los relatos biográficos."
+    },
+    {
+      "id": "Q127398-0",
+      "qid": "Q127398",
+      "author": "Maimónides",
+      "year": 1138,
+      "date": "1138 (según SEP)",
+      "type": "birth",
+      "title": "Nacimiento en Córdoba",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1, primer párrafo: nacimiento en Córdoba en 1138, según la datación empleada en esta entrada.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1138 es la fecha empleada por la fuente consultada."
+    },
+    {
+      "id": "Q127398-1",
+      "qid": "Q127398",
+      "author": "Maimónides",
+      "year": 1160,
+      "date": "1160",
+      "type": "career",
+      "title": "Llegada de su familia a Fez",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1, segundo párrafo: llegada de la familia a Fez en 1160 después de abandonar Córdoba.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q127398-2",
+      "qid": "Q127398",
+      "author": "Maimónides",
+      "year": 1168,
+      "date": "1168",
+      "type": "composition",
+      "title": "Conclusión del Comentario a la Mishná",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1, segundo párrafo: finalización del Comentario a la Mishná en 1168.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q127398-3",
+      "qid": "Q127398",
+      "author": "Maimónides",
+      "year": 1190,
+      "date": "1190",
+      "type": "composition",
+      "title": "Conclusión de Guía de perplejos",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1, párrafo sobre Guide of the Perplexed: conclusión en 1190.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q127398-4",
+      "qid": "Q127398",
+      "author": "Maimónides",
+      "year": 1204,
+      "date": "1204",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "Introducción: intervalo vital 1138–1204.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q171195-0",
+      "qid": "Q171195",
+      "author": "Nāgārjuna",
+      "year": 150,
+      "date": "c. 150–250 d. C.",
+      "type": "floruit",
+      "title": "Actividad de Nāgārjuna como monje budista, probablemente en el sur de India",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/nagarjuna/",
+          "locator": "Introducción y §1, primer párrafo: monje budista activo aproximadamente entre 150 y 250 d. C., probablemente en el sur de India; escasez de datos biográficos precisos.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "150–250 d. C. es un periodo aproximado de actividad; no fija fechas exactas de nacimiento y muerte."
+    },
+    {
+      "id": "Q171195-1",
+      "qid": "Q171195",
+      "author": "Nāgārjuna",
+      "year": 150,
+      "date": "Durante su vida; fecha desconocida",
+      "type": "composition",
+      "title": "Mūlamadhyamakakārikā: obra central de atribución ampliamente aceptada, sin fecha precisa",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2024/entries/nagarjuna/",
+          "locator": "§1, lista de obras argumentativas, primer elemento: Mūlamadhyamakakārikā, obra central de atribución ampliamente aceptada; no se proporciona año de composición. El ancla de ordenación no equivale a fecha de redacción.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La obra se atribuye ampliamente a Nāgārjuna, pero la fuente no fija un año de composición. El año numérico del inventario es un ancla de ordenación."
+    },
+    {
+      "id": "Q235134-0",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1904,
+      "date": "1904",
+      "type": "birth",
+      "title": "Nacimiento en Vélez-Málaga",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/europeistas_espanoles/cronologia_de_maria_zambrano/",
+          "locator": "Encabezado de la cronología de María Paz Pando Ballesteros: nacimiento en Vélez-Málaga en 1904.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.fpa.es/es/premios-princesa-de-asturias/premiados/1981-maria-zambrano/?texto=trayectoria",
+          "locator": "Trayectoria, primer párrafo: Vélez-Málaga, 1904; Madrid, 1991.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La ficha bibliográfica de la UCM consultada para Filosofía y poesía contiene 1907 en su encabezado, frente a 1904 en la cronología de Pando Ballesteros y la Fundación Princesa de Asturias. Se conserva 1904; el dato aislado no se presenta como controversia historiográfica establecida."
+    },
+    {
+      "id": "Q235134-1",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1939,
+      "date": "1939",
+      "type": "career",
+      "title": "Inicio del exilio republicano y llegada a México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/europeistas_espanoles/cronologia_de_maria_zambrano/",
+          "locator": "Entradas 1939 y 1939–1953: inicio del exilio en enero de 1939 y estancias americanas.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://portalcientifico.uned.es/documentos/67e6f85b3f806d20a93a1fd8",
+          "locator": "Ficha institucional de López Sáenz (Aurora 26, 2025), resumen: estancia de nueve meses en Morelia en 1939; se consultó el resumen, no el artículo completo.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://mariazambrano.org/biografia.html",
+          "locator": "Secciones 1936–1939 y 1939–1984: salida de España en enero de 1939, viaje a París y posterior docencia en México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q235134-2",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1939,
+      "date": "1939",
+      "type": "publication",
+      "title": "Filosofía y poesía",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://biblioteca.ucm.es/fsl/edm-maria-zambrano/",
+          "locator": "Lista Obras: Filosofía y poesía de 1939 y reediciones. El encabezado biográfico de esta página tiene un año de nacimiento discrepante (1907), por lo que no se usa para ese dato.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://books.google.com/books/about/Filosof%C3%ADa_y_poes%C3%ADa.html?id=UwhLAAAAIAAJ",
+          "locator": "Ficha bibliográfica del ejemplar: Publicaciones de la Universidad Michoacana, 1939, 157 páginas; metadatos, no lectura del ejemplar completo.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q235134-3",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1940,
+      "date": "1940–1953",
+      "type": "career",
+      "title": "Etapas del exilio americano entre México, Cuba y Puerto Rico",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/europeistas_espanoles/cronologia_de_maria_zambrano/",
+          "locator": "Entrada 1939–1953: residencias en México, La Habana y Puerto Rico. El intervalo general empieza en 1939; la ficha 1940–1953 se refiere a etapas posteriores, no al inicio.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://cvc.cervantes.es/actcult/zambrano/cronologia/",
+          "locator": "Centro Virtual Cervantes, cronología introductoria, periodo 1940–1953: etapas del exilio americano, con estancias sucesivas en México, Cuba, Puerto Rico y Cuba. La apertura anterior redirigió a mantenimiento; ahora accesible.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.fpa.es/es/premios-princesa-de-asturias/premiados/1981-maria-zambrano/?texto=trayectoria",
+          "locator": "Trayectoria, párrafos sobre exilio: México desde 1939, etapa cubana 1940–1953, cursos en Puerto Rico, traslado a Roma en 1953.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "1940–1953 señala etapas posteriores del exilio iniciado en 1939, no residencia continua en un país. La cronología del CVC está ahora accesible directamente."
+    },
+    {
+      "id": "Q235134-4",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1984,
+      "date": "1984",
+      "type": "career",
+      "title": "Regreso a España tras el exilio",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariazambrano.org/biografia.html",
+          "locator": "Biografía GloMa, sección 1939–1984 El largo exilio, primer párrafo: regreso a España en 1984.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        },
+        {
+          "url": "https://www.cultura.gob.es/cultura/areas/archivos/mc/centros/cida/4-difusion-cooperacion/4-1-guias-de-lectura/escritoras/zambrano-maria.html",
+          "locator": "Resultado indexado: regreso a España en 1984; apertura directa agotó tiempo.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q235134-5",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1988,
+      "date": "1988",
+      "type": "award",
+      "title": "Premio Miguel de Cervantes",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cultura.gob.es/premiado/mostrarDetalleAction.do?cache=init&id=1007223&language=es&layout=premioMiguelCervantesLibro&prev_layout=premioMiguelCervantesLibro",
+          "locator": "Resultado indexado del Ministerio de Cultura, ficha de premiada: Premio Cervantes 1988; apertura directa devolvió 429.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 429"
+          }
+        },
+        {
+          "url": "https://mariazambrano.org/biografia.html",
+          "locator": "Biografía GloMa, sección 1984–1991 El regreso: párrafo sobre la fundación de 1987 y el Premio Cervantes al año siguiente, 1988.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q235134-6",
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "year": 1991,
+      "date": "1991",
+      "type": "death",
+      "title": "Fallecimiento en Madrid",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/europeistas_espanoles/cronologia_de_maria_zambrano/",
+          "locator": "Encabezado de la cronología: fallecimiento en Madrid, 1991.",
+          "access": "direct",
+          "previousAccess": "legacy-unclassified",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-0",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1883,
+      "date": "1883",
+      "type": "birth",
+      "title": "Nacimiento en Ciudad de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.centrolombardo.edu.mx/antonio-caso-1883-1946/",
+          "locator": "Primer párrafo: nacimiento en Ciudad de México en 1883.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Semblanza: nacimiento en Ciudad de México en 1883.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-1",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1909,
+      "date": "1909",
+      "type": "institution",
+      "title": "Participación en la fundación del Ateneo de la Juventud",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Trayectoria: integrante del Ateneo de la Juventud en 1909.",
+          "access": "direct"
+        },
+        {
+          "url": "https://www.elem.mx/estgrp/datos/4",
+          "locator": "Enciclopedia de la Literatura en México, párrafo sobre fundación del 28 de octubre de 1909 y presidencia de Caso durante el primer año.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.cultura.gob.mx/noticias/libros-revistas-y-literatura/2417-el-ateneo-de-la-juventud-marco-un-antes-y-un-despues-en-la-historia-cultural-de-mexico.html",
+          "locator": "Comunicado 1834/2009, párrafos sobre liderazgo de Caso en la convocatoria y sesión fundacional de 1909; distingue antecedentes asociativos y composición discutida del grupo.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La fundación formal del Ateneo se sitúa el 28 de octubre de 1909, después de las actividades de la Sociedad de Conferencias. Caso fue su primer presidente."
+    },
+    {
+      "id": "Q601364-2",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1912,
+      "date": "1912",
+      "type": "institution",
+      "title": "Cofundación de la Universidad Popular Mexicana",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Trayectoria: fundación de la Universidad Popular Mexicana en 1912 con otros ateneístas.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-3",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1916,
+      "date": "1916",
+      "type": "publication",
+      "title": "Primera versión de su ensayo sobre la existencia",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Bibliografía: primera versión de La existencia, 1916.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-4",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1919,
+      "date": "1919",
+      "type": "revision",
+      "title": "Edición ampliada de La existencia como economía, desinterés y caridad",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/mtro-antonio-caso/",
+          "locator": "Semblanza: elaboración de la obra capital entre 1916 y 1919.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://tesiunamdocumentos.dgb.unam.mx/ptd2019/agosto/0794942/0794942.pdf",
+          "locator": "Carlos Tapia Segura, El concepto de historia en la filosofía de Antonio Caso (1906–1926), tesis doctoral UNAM, 2019, cap. 4, §I, p. impresa 149 (PDF p. 155), primer párrafo y notas 262–263: ampliación de la edición de 1916 y estructura de la segunda de 1919. Texto y página visual consultados.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://filosofiamexicana.org/2013/06/24/la-existencia-como-economia-como-desinteres-y-como-caridad-resena/",
+          "locator": "Tania Ortiz Guadarrama, reseña de Obras completas, tomo III, UNAM, 1972; párrafos sobre la primera edición de 1916 y segunda de 1919: esta incorpora el desinterés como tercer orden de la existencia y amplía el tratamiento de la ciencia, juego y virtudes. Distingue tercera edición de 1943.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://books.google.com/books?hl=es&id=QF4ZAAAAMAAJ",
+          "locator": "Información bibliográfica del ejemplar digitalizado procedente de la Universidad de Michigan: Ediciones México Moderno, 1919, 153 páginas. Metadatos del ejemplar, no comparación íntegra de ediciones.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "La segunda edición de 1919 amplía el ensayo de 1916 e incorpora el tratamiento del desinterés. La tesis de Tapia Segura, p. 149, documenta la ampliación; no se afirma comparación íntegra propia de ambos originales."
+    },
+    {
+      "id": "Q601364-5",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1921,
+      "date": "1921–1923",
+      "type": "career",
+      "title": "Rectoría de la Universidad Nacional de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Cargos: rectoría 1921–1923, además de una etapa en 1920.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-6",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1924,
+      "date": "1924",
+      "type": "publication",
+      "title": "El problema de México y la ideología nacional",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Bibliografía: El problema de México y la ideología nacional, 1924.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-7",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1941,
+      "date": "1941",
+      "type": "publication",
+      "title": "La persona humana y el Estado totalitario",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Bibliografía: La persona humana y el Estado totalitario, 1941.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-8",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1943,
+      "date": "1943",
+      "type": "institution",
+      "title": "Miembro fundador de El Colegio Nacional",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://academia.org.mx/academicos-1946/item/antonio-caso-2",
+          "locator": "Semblanza: miembro fundador de El Colegio Nacional en 1943.",
+          "access": "indexed",
+          "checkedOn": "2026-11-27",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 403"
+          }
+        },
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Semblanza, después de la introducción: miembro fundador el 15 de mayo de 1943.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q601364-9",
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "year": 1946,
+      "date": "1946",
+      "type": "death",
+      "title": "Fallecimiento en Ciudad de México",
+      "status": "contrasted",
+      "previousReviewIssue": "El año 1946 está respaldado; falta contrastar explícitamente el lugar en la fuente consultada.",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.centrolombardo.edu.mx/antonio-caso-1883-1946/",
+          "locator": "Primer párrafo biográfico: falleció en la misma ciudad de nacimiento, Ciudad de México, el 6 de marzo de 1946.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://catalogonacionalmhi.inah.gob.mx/consulta_publica/detalle/13503",
+          "locator": "Ficha del sepulcro: lugar y fecha coincidentes; apertura directa 502.",
+          "access": "indexed",
+          "checkedOn": "2026-11-27",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        }
+      ],
+      "resolution": "Lugar y año corroborados.",
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-0",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1897,
+      "date": "1897",
+      "type": "birth",
+      "title": "Nacimiento en Zitácuaro, Michoacán",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Nacimiento en Zitácuaro en 1897.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-1",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1919,
+      "date": "1919",
+      "type": "career",
+      "title": "Ingreso en la Escuela Nacional de Altos Estudios",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Formación: ingreso en la Escuela Nacional de Altos Estudios en 1919.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-2",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1934,
+      "date": "1934",
+      "type": "publication",
+      "title": "El perfil del hombre y la cultura en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Bibliografía: El perfil del hombre y la cultura en México, 1934.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-3",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1940,
+      "date": "1940",
+      "type": "publication",
+      "title": "Hacia un nuevo humanismo",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Bibliografía: Hacia un nuevo humanismo, 1940.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-4",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1941,
+      "date": "1941",
+      "type": "institution",
+      "title": "Establecimiento de la cátedra de Historia de la Filosofía en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Trayectoria: establecimiento de la cátedra de Historia de la Filosofía en México en 1941.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-5",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1943,
+      "date": "1943",
+      "type": "publication",
+      "title": "Historia de la filosofía en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Bibliografía: Historia de la filosofía en México, 1943.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-6",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1945,
+      "date": "1945–1952",
+      "type": "career",
+      "title": "Dirección de la Facultad de Filosofía y Letras de la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Cargos: dirección de FFyL 1945–1952.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-7",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1952,
+      "date": "1952",
+      "type": "institution",
+      "title": "Ingreso a El Colegio Nacional",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Ingreso a El Colegio Nacional el 17 de septiembre de 1952.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q7412445-8",
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "year": 1959,
+      "date": "1959",
+      "type": "death",
+      "title": "Fallecimiento en Ciudad de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Semblanza, último párrafo antes del discurso de ingreso: fallecimiento en Ciudad de México el 20 de junio de 1959.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-0",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1922,
+      "date": "1922",
+      "type": "birth",
+      "title": "Nacimiento en Barcelona, de padres mexicanos",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
+          "locator": "Semblanza, primer párrafo: Barcelona, 3 de noviembre de 1922, de padres mexicanos.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.gob.mx/sep/acciones-y-programas/luis-villoro-toranzo",
+          "locator": "Semblanza SEP coincide en lugar, fecha y filiación.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 403"
+          }
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-1",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1950,
+      "date": "1950",
+      "type": "publication",
+      "title": "Los grandes momentos del indigenismo en México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
+          "locator": "Obras destacadas: Los grandes momentos del indigenismo en México, 1950.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Hurtado, Diánoia 69(93), 2024, Citas: edición de El Colegio de México, 1950, con el título indicado.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-2",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1971,
+      "date": "1971",
+      "type": "career",
+      "title": "Ingreso al Instituto de Investigaciones Filosóficas de la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.juntadegobierno.unam.mx/integrante/luis-villoro-toranzo",
+          "locator": "Trayectoria: investigador del Instituto desde 1971.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-3",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1978,
+      "date": "1978",
+      "type": "institution",
+      "title": "Ingreso a El Colegio Nacional",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.juntadegobierno.unam.mx/integrante/luis-villoro-toranzo",
+          "locator": "Trayectoria: miembro de El Colegio Nacional desde 1978.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-4",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1982,
+      "date": "1982",
+      "type": "publication",
+      "title": "Creer, saber, conocer",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
+          "locator": "Obras destacadas: Creer, saber, conocer, 1982.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Citas: entrada Villoro 1982a, libro de Siglo XXI; 1982b es un artículo distinto.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El libro de 1982 se distingue del artículo homónimo del mismo año."
+    },
+    {
+      "id": "Q2370396-5",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1983,
+      "date": "1983–1987",
+      "type": "career",
+      "title": "Representación de México ante la UNESCO en París",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.juntadegobierno.unam.mx/integrante/luis-villoro-toranzo",
+          "locator": "Cargos: embajador ante UNESCO en París, 1983–1987.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-6",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1997,
+      "date": "1997",
+      "type": "publication",
+      "title": "El poder y el valor. Fundamentos de una ética política",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
+          "locator": "Bibliografía: El poder y el valor, 1997.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Citas: entrada Villoro 1997, El poder y el valor, Fondo de Cultura Económica.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
+          "locator": "Publicaciones, lista de libros: título y subtítulo Fundamentos de una ética política.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-7",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 1998,
+      "date": "1998",
+      "type": "publication",
+      "title": "Estado plural, pluralidad de culturas",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
+          "locator": "Bibliografía: Estado plural, pluralidad de culturas, 1998.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "tiempo de espera agotado"
+          }
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Citas: entrada Villoro 1998, Estado plural, pluralidad de culturas, UNAM y Paidós.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q2370396-8",
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "year": 2014,
+      "date": "2014",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://filosoficas.unam.mx/sitio/sitio/sitio/luis-villoro-sexto-aniversario-luctuoso",
+          "locator": "Instituto de Investigaciones Filosóficas UNAM, anuncio del sexto aniversario luctuoso y actividad del 5 de marzo de 2020, fecha de actualización: corroboración indirecta de 2014; la semblanza biográfica directa registra el fallecimiento.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
+          "locator": "Semblanza, último párrafo antes de Publicaciones: muerte el 5 de marzo de 2014.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-0",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1915,
+      "date": "1915",
+      "type": "birth",
+      "title": "Nacimiento en Algeciras, España",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: nacimiento en Algeciras en 1915.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://www.elem.mx/autor/datos/109104",
+          "locator": "Semblanza biográfica, párrafo que empieza con el nacimiento: Algeciras, España, 1915. Se conserva solamente el año en la matriz.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-1",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1939,
+      "date": "1939",
+      "type": "career",
+      "title": "Exilio en México; llegada a Veracruz a bordo del Sinaia",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.gob.mx/cultura/prensa/adolfo-sanchez-vazquez-filosofo-autocritico-y-antidogmatico",
+          "locator": "Semblanza: llegada a Veracruz en el Sinaia el 13 de junio de 1939; apertura 403.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 403"
+          }
+        },
+        {
+          "url": "https://marxismocritico.com/2013/05/03/entrevita-a-adolfo-sanchez-vazquez/",
+          "locator": "Entrevista de Teresa Rodríguez de Lecea, primera respuesta: testimonio del propio filósofo sobre llegada a Veracruz el 13 de junio de 1939 a bordo del Sinaia; se consultó una reproducción de la entrevista.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-2",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1942,
+      "date": "1942",
+      "type": "publication",
+      "title": "El pulso ardiendo, libro de poesía",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: El pulso ardiendo, poesía, 1942.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, sección Poesía: primera publicación en Morelia, Voces, 1942; distingue ediciones posteriores.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-3",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1943,
+      "date": "1943",
+      "type": "career",
+      "title": "Retoma sus estudios filosóficos en la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: regreso a Ciudad de México en 1943 y continuación de estudios filosóficos.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://ve.scielo.org/scielo.php?lang=es&pid=S1315-52162006000300009&script=sci_arttext",
+          "locator": "Artículo El humanismo teórico-práctico de Adolfo Sánchez Vásquez, sección Evolución filosófica: regreso a Ciudad de México en 1943 y continuación de estudios en FFyL UNAM.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-4",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1965,
+      "date": "1965",
+      "type": "publication",
+      "title": "Las ideas estéticas de Marx",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Obra estética: Las ideas estéticas de Marx, 1965.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: México, Era, 1965.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-5",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1967,
+      "date": "1967",
+      "type": "publication",
+      "title": "Filosofía de la praxis",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Obra filosófica: Filosofía de la praxis, 1967.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: México, Grijalbo, 1967.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-6",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1970,
+      "date": "1970",
+      "type": "publication",
+      "title": "Estética y marxismo",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Obra estética: Estética y marxismo, 1970.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: México, Era, 1970.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-7",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 1983,
+      "date": "1983",
+      "type": "publication",
+      "title": "Ensayos marxistas sobre filosofía e ideología",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: Barcelona, Océano, 1983.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q365193-8",
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "year": 2011,
+      "date": "2011",
+      "type": "death",
+      "title": "Fallecimiento en Ciudad de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: fallecimiento en Ciudad de México el 8 de julio de 2011; apertura 502.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "HTTP 502"
+          }
+        },
+        {
+          "url": "https://www.elem.mx/autor/datos/109104",
+          "locator": "Semblanza, párrafo biográfico que comienza con el nacimiento: muerte el 8 de julio de 2011 en Ciudad de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-0",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1941,
+      "date": "1941",
+      "type": "birth",
+      "title": "Nacimiento en Riobamba, Ecuador",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: nacimiento en Riobamba, 1941.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-1",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1962,
+      "date": "1962–1966",
+      "type": "career",
+      "title": "Estudios de filosofía en la Universidad Libre de Berlín",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: estudios en Freie Universität Berlin entre 1962 y 1966.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-2",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1968,
+      "date": "1968",
+      "type": "career",
+      "title": "Traslado a México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: traslado a México en 1968.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-3",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1974,
+      "date": "1974",
+      "type": "career",
+      "title": "Licenciatura en Filosofía por la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: licenciatura en filosofía en la UNAM en 1974.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-4",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1986,
+      "date": "1986",
+      "type": "publication",
+      "title": "El discurso crítico de Marx",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/2/",
+          "locator": "Obras: El discurso crítico de Marx, Era, 1986.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-5",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1995,
+      "date": "1995",
+      "type": "publication",
+      "title": "Las ilusiones de la modernidad",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/2/",
+          "locator": "Obras: Las ilusiones de la modernidad, UNAM/El Equilibrista, 1995.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-6",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1998,
+      "date": "1998",
+      "type": "publication",
+      "title": "La modernidad de lo barroco",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/la-modernidad-de-lo-barroco",
+          "locator": "Ficha de la obra, referencia inmediatamente anterior al índice: México, Ediciones Era, 1998.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-7",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 1998,
+      "date": "1998",
+      "type": "publication",
+      "title": "Valor de uso y utopía",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/2/",
+          "locator": "Obras: Valor de uso y utopía, Siglo XXI, 1998.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-8",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 2008,
+      "date": "2008",
+      "type": "award",
+      "title": "Reconocimiento como profesor emérito de la UNAM",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Reconocimientos: profesor emérito de la UNAM, 2008.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q891708-9",
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "year": 2010,
+      "date": "2010",
+      "type": "death",
+      "title": "Fallecimiento en Ciudad de México",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: fallecimiento en Ciudad de México en 2010.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q5711746-0",
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "year": 1925,
+      "date": "1925",
+      "type": "birth",
+      "title": "Nacimiento en Lima, Perú",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://biblioteca.clacso.edu.ar/Peru/idi-uch/20210618080927/El_Concepto_Alienacion_Augusto_Salazar_Bondy.pdf",
+          "locator": "Andrés Espíritu Avila, El concepto de alienación según Augusto Salazar Bondy (2014), cap. I, §1 Formación, inicio: nacimiento en Lima el 8 de diciembre de 1925. Texto del PDF abierto; imagen de página no disponible por restricción de acceso.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://cybertesis.unmsm.edu.pe/backend/api/core/bitstreams/4fb6647c-84d9-484e-b86c-1b811d0f4927/content",
+          "locator": "Ricardo Licla Meza, La definición de filosofía en Augusto Salazar Bondy, tesis UNMSM, cap. I, §1.1 Biografía, p. impresa 7 (página PDF 10), primer párrafo; confirma Lima, 8 de diciembre de 1925, con referencia a UNMSM (2002). Texto y página visual comprobados.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q5711746-1",
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "year": 1950,
+      "date": "1950",
+      "type": "career",
+      "title": "Grado en Humanidades por la Universidad de San Marcos",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
+          "locator": "Sección de bibliografía básica: identifica la tesis de bachiller en Humanidades de 1950.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://ulibros.com/aproximacion-a-unanue-y-la-ilustracion-peruana-crxn2.html",
+          "locator": "Ficha editorial de la UNMSM en el catálogo EULAC, descripción: tesis de bachiller sustentada en San Marcos en 1950.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q5711746-2",
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "year": 1953,
+      "date": "1953",
+      "type": "career",
+      "title": "Doctorado en Filosofía en San Marcos",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/revsanmarcos/1.12.pdf",
+          "locator": "Fragmento indexado de revista San Marcos: doctorado en 1953; PDF no inspeccionado integralmente.",
+          "access": "indexed",
+          "lastAccessAttempt": {
+            "date": "2026-11-27",
+            "outcome": "unavailable",
+            "detail": "límite de tamaño de respuesta (29 MB)"
+          }
+        },
+        {
+          "url": "https://repositorioletrascorpus.unmsm.edu.pe/items/17f8f1b9-a21f-4609-9c75-d3bbe11bca49",
+          "locator": "Ficha institucional de tesis de filosofía: fecha 1953, autor Augusto Salazar Bondy, editor UNMSM, colección de doctorado. Consulta de metadatos, no del facsímil.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
+          "locator": "Párrafo sobre formación y premios: tesis de 1953 titulada Ensayo sobre la distinción entre el ser irreal y el ser ideal.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded",
+      "editorialNote": "El repositorio institucional documenta la tesis doctoral de 1953. Se consultó su ficha de metadatos, no el facsímil."
+    },
+    {
+      "id": "Q5711746-3",
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "year": 1954,
+      "date": "1954",
+      "type": "career",
+      "title": "Inicio de su docencia en la Universidad de San Marcos",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.fcede.es/site/es/fceespa/autoresdetalle.aspx?idAutor=2892",
+          "locator": "Semblanza: ingreso como catedrático en San Marcos, 1954.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q5711746-4",
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "year": 1968,
+      "date": "1968",
+      "type": "publication",
+      "title": "¿Existe una filosofía de nuestra América?",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://sigloxxieditores.com.mx/libro/existe-una-filosofia-de-nuestra-america-2/",
+          "locator": "Ficha del editor: año de edición 1968.",
+          "access": "direct"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    },
+    {
+      "id": "Q5711746-5",
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "year": 1974,
+      "date": "1974",
+      "type": "death",
+      "title": "Fallecimiento",
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
+          "locator": "Encabezado y entradilla de 6 de febrero de 2024: conmemoración de cincuenta años de su fallecimiento; años biográficos 1925–1974.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        }
+      ],
+      "accessLevel": "direct-recorded"
+    }
+  ],
+  "authorityChecks": [
+    {
+      "qid": "Q859",
+      "author": "Platón",
+      "observedPageTitle": "Plato",
+      "url": "https://www.wikidata.org/wiki/Q859",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q868",
+      "author": "Aristóteles",
+      "observedPageTitle": "Aristotle",
+      "url": "https://www.wikidata.org/wiki/Q868",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q9312",
+      "author": "Immanuel Kant",
+      "observedPageTitle": "Immanuel Kant",
+      "url": "https://www.wikidata.org/wiki/Q9312",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q9235",
+      "author": "Georg Wilhelm Friedrich Hegel",
+      "observedPageTitle": "Georg Wilhelm Friedrich Hegel",
+      "url": "https://www.wikidata.org/wiki/Q9235",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q183074",
+      "author": "Sor Juana Inés de la Cruz",
+      "observedPageTitle": "Sor Juana Inés",
+      "url": "https://www.wikidata.org/wiki/Q183074",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q473518",
+      "author": "Enrique Dussel",
+      "observedPageTitle": "Enrique Dussel",
+      "url": "https://www.wikidata.org/wiki/Q473518",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q9191",
+      "author": "René Descartes",
+      "observedPageTitle": "René Descartes",
+      "url": "https://www.wikidata.org/wiki/Q9191",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q9358",
+      "author": "Friedrich Nietzsche",
+      "observedPageTitle": "Friedrich Nietzsche",
+      "url": "https://www.wikidata.org/wiki/Q9358",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q7197",
+      "author": "Simone de Beauvoir",
+      "observedPageTitle": "Simone de Beauvoir",
+      "url": "https://www.wikidata.org/wiki/Q7197",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q60025",
+      "author": "Hannah Arendt",
+      "observedPageTitle": "Hannah Arendt",
+      "url": "https://www.wikidata.org/wiki/Q60025",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q1091141",
+      "author": "José Vasconcelos",
+      "observedPageTitle": "José Vasconcelos",
+      "url": "https://www.wikidata.org/wiki/Q1091141",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q1879022",
+      "author": "Leopoldo Zea",
+      "observedPageTitle": "Leopoldo Zea",
+      "url": "https://www.wikidata.org/wiki/Q1879022",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q43216",
+      "author": "Epicuro",
+      "observedPageTitle": "Epicurus",
+      "url": "https://www.wikidata.org/wiki/Q43216",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q9438",
+      "author": "Tomás de Aquino",
+      "observedPageTitle": "Thomas Aquinas",
+      "url": "https://www.wikidata.org/wiki/Q9438",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q4604",
+      "author": "Confucio",
+      "observedPageTitle": "Confucius",
+      "url": "https://www.wikidata.org/wiki/Q4604",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q60028",
+      "author": "Gottlob Frege",
+      "observedPageTitle": "Gottlob Frege",
+      "url": "https://www.wikidata.org/wiki/Q60028",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q33760",
+      "author": "Bertrand Russell",
+      "observedPageTitle": "Bertrand Russell",
+      "url": "https://www.wikidata.org/wiki/Q33760",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q335544",
+      "author": "José Carlos Mariátegui",
+      "observedPageTitle": "José Carlos Mariátegui",
+      "url": "https://www.wikidata.org/wiki/Q335544",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q8018",
+      "author": "Agustín de Hipona",
+      "observedPageTitle": "Augustine of Hippo",
+      "url": "https://www.wikidata.org/wiki/Q8018",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q8011",
+      "author": "Avicena",
+      "observedPageTitle": "Avicenna",
+      "url": "https://www.wikidata.org/wiki/Q8011",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q39837",
+      "author": "Averroes",
+      "observedPageTitle": "Averroes",
+      "url": "https://www.wikidata.org/wiki/Q39837",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q127398",
+      "author": "Maimónides",
+      "observedPageTitle": "Moshe ben Maimon",
+      "url": "https://www.wikidata.org/wiki/Q127398",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q171195",
+      "author": "Nāgārjuna",
+      "observedPageTitle": "Nagarjuna",
+      "url": "https://www.wikidata.org/wiki/Q171195",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q235134",
+      "author": "María Zambrano",
+      "observedPageTitle": "María Zambrano",
+      "url": "https://www.wikidata.org/wiki/Q235134",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q601364",
+      "author": "Antonio Caso",
+      "observedPageTitle": "Antonio Caso",
+      "url": "https://www.wikidata.org/wiki/Q601364",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q7412445",
+      "author": "Samuel Ramos",
+      "observedPageTitle": "Samuel Ramos",
+      "url": "https://www.wikidata.org/wiki/Q7412445",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q2370396",
+      "author": "Luis Villoro",
+      "observedPageTitle": "Luis Villoro",
+      "url": "https://www.wikidata.org/wiki/Q2370396",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q365193",
+      "author": "Adolfo Sánchez Vázquez",
+      "observedPageTitle": "Adolfo Sánchez Vázquez",
+      "url": "https://www.wikidata.org/wiki/Q365193",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q891708",
+      "author": "Bolívar Echeverría",
+      "observedPageTitle": "Bolívar Echeverría",
+      "url": "https://www.wikidata.org/wiki/Q891708",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    },
+    {
+      "qid": "Q5711746",
+      "author": "Augusto Salazar Bondy",
+      "observedPageTitle": "Augusto Salazar Bondy",
+      "url": "https://www.wikidata.org/wiki/Q5711746",
+      "checkedOn": "2026-11-27",
+      "scope": "page-title-match"
+    }
+  ],
+  "accessSummary": {
+    "direct-recorded": 199,
+    "legacy-unclassified": 0,
+    "indexed-only": 0
+  },
+  "consolidation": {
+    "reviewedOn": "2026-11-27",
+    "phase": "06B.6",
+    "scope": "Revisión global de títulos y fechas contra los localizadores registrados; reintento de referencias residuales. No nueva lectura integral de cada fuente ni certificación externa.",
+    "referenceAccessSummary": {
+      "direct": 224,
+      "indexed": 26,
+      "legacy-unclassified": 0
+    },
+    "residualUniqueUrls": 15,
+    "editorialNoteCount": 41,
+    "publicationCorrections": []
+  }
+}

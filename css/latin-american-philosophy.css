@@ -3360,3 +3360,40 @@ html[data-theme="dark"] .author-source-list a:hover { color: #e68a70; }
 
 
 .author-dialog .author-intellectual-history-source { min-height:24px; }
+
+/* On-demand evidence for curated intellectual histories. */
+.author-intellectual-history .author-history-evidence {
+  min-width: 0; max-width: 100%; margin-top: 4px;
+  border-top: 1px solid var(--tl-line, color-mix(in srgb, currentColor 22%, transparent));
+  overflow-wrap: anywhere;
+}
+.author-intellectual-history .author-history-evidence-summary {
+  display: list-item; box-sizing: border-box; min-width: 0; min-height: 44px;
+  padding: 12px 2px; color: var(--tl-blue-label, inherit); font-size: 12px;
+  line-height: 1.5; font-weight: 650; cursor: pointer; touch-action: manipulation;
+}
+.author-intellectual-history .author-history-evidence-summary:focus-visible {
+  outline: 2px solid currentColor; outline-offset: 2px;
+}
+.author-intellectual-history .author-history-evidence-body {
+  display: grid; gap: 6px; min-width: 0; max-width: 100%; padding: 0 2px 9px;
+}
+.author-intellectual-history .author-history-evidence:not([open]) .author-history-evidence-body { display: none; }
+.author-intellectual-history .author-history-evidence-label {
+  font-size: 11px; line-height: 1.5; font-weight: 700;
+}
+.author-intellectual-history .author-history-evidence-text {
+  min-width: 0; margin: 0; font-size: 12px; line-height: 1.6;
+  overflow-wrap: anywhere; color: var(--tl-muted, inherit);
+}
+.author-intellectual-history .author-history-evidence-list {
+  display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; min-width: 0;
+}
+.author-intellectual-history .author-history-evidence-reference {
+  display: grid; gap: 3px; min-width: 0;
+  border-top: 1px solid var(--tl-line, color-mix(in srgb, currentColor 14%, transparent));
+  padding-top: 7px;
+}
+.author-intellectual-history .author-history-evidence-reference a {
+  max-width: 100%; overflow-wrap: anywhere; white-space: normal;
+}
