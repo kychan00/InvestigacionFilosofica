@@ -19,8 +19,8 @@ test("editorial evidence ledger covers every current milestone without stale or 
    for(const ev of row.evidence){assert.equal(new URL(ev.url).protocol,"https:");assert.ok(ev.locator.trim());}
   }else{assert.equal(row.evidence,undefined);assert.equal(row.reviewedOn,undefined);}
  }
- assert.equal(ledger.entries.filter(x=>x.status==="contrasted").length,59);
- for(const [qid,count] of [["Q43216",3],["Q4604",4],["Q171195",2],["Q8018",7],["Q8011",5],["Q39837",4],["Q127398",5],["Q9438",8]]){
+ assert.equal(ledger.entries.filter(x=>x.status==="contrasted").length,113);
+ for(const [qid,count] of [["Q43216",3],["Q4604",4],["Q171195",2],["Q8018",7],["Q8011",5],["Q39837",4],["Q127398",5],["Q9438",8],["Q9191",7],["Q9358",9],["Q7197",8],["Q60025",9],["Q60028",6],["Q33760",8],["Q235134",7]]){
   const rows=ledger.entries.filter(x=>x.qid===qid);
   assert.equal(rows.length,count);assert.ok(rows.every(x=>x.status==="contrasted"));
  }
@@ -30,4 +30,12 @@ test("disputed medieval date ranges retain contrasting sources",()=>{
  const map=new Map(ledger.entries.map(e=>[e.id,e]));
  for(const id of ["Q8018-4","Q8018-5","Q8011-0"])assert.ok(map.get(id).evidence.length>=2,id);
  assert.match(map.get("Q39837-2").evidence[0].locator,/reinado/);
+});
+
+test("modern chronology records distinct editions and source access limitations",()=>{
+ const map=new Map(ledger.entries.map(e=>[e.id,e]));
+ assert.equal(map.get("Q60025-8").type,"posthumous");
+ assert.match(map.get("Q60028-4").evidence[0].locator,/1893 y 1903/);
+ assert.match(map.get("Q33760-5").evidence[0].locator,/1910, 1912 y 1913/);
+ assert.ok(map.get("Q235134-3").evidence.some(e=>e.locator.includes("mantenimiento")));
 });
