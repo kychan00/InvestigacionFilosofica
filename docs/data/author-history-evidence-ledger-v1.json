@@ -371,7 +371,15 @@
       "date": "1648 o 1651 (discutido)",
       "type": "birth",
       "title": "Nacimiento de Sor Juana",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia/",
+          "locator": "Fila 1648: posibilidad de 1651; no fija un año inequívoco.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q183074-1",
@@ -381,7 +389,15 @@
       "date": "1689",
       "type": "publication",
       "title": "Publicación de Inundación castálida en España",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1689: edición madrileña de Inundación castálida.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q183074-2",
@@ -391,7 +407,15 @@
       "date": "1690",
       "type": "publication",
       "title": "Carta atenagórica",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1690: publicación de Carta atenagórica por el obispo de Puebla.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q183074-3",
@@ -401,7 +425,15 @@
       "date": "1691",
       "type": "composition",
       "title": "Redacción de Respuesta a Sor Filotea de la Cruz",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1691: composición de Respuesta a Sor Filotea; el hito no afirma una fecha de primera edición.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q183074-4",
@@ -411,7 +443,15 @@
       "date": "1695",
       "type": "death",
       "title": "Fallecimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia_2/",
+          "locator": "Fila 1695: muerte el 17 de abril.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q473518-0",
@@ -421,7 +461,15 @@
       "date": "1934",
       "type": "birth",
       "title": "Nacimiento en La Paz, Mendoza",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/",
+          "locator": "Semblanza: origen en La Paz, Mendoza, 24 de diciembre de 1934; apertura directa 502.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q473518-1",
@@ -431,7 +479,15 @@
       "date": "1957",
       "type": "career",
       "title": "Licenciatura en Filosofía en la Universidad Nacional de Cuyo",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: licenciatura por la Universidad Nacional de Cuyo en 1957; apertura directa 429.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q473518-2",
@@ -441,7 +497,20 @@
       "date": "1967",
       "type": "career",
       "title": "Doctorado en Historia en la Sorbona",
-      "status": "pending"
+      "status": "pending",
+      "reviewIssue": "PARES atribuye el doctorado a 1967, pero el resultado indexado de un CV del archivo Dussel consigna 1966. Requiere cotejo de documento original y fecha de obtención.",
+      "candidateSources": [
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Fecha de doctorado en Historia: 1967; acceso directo 429.",
+          "access": "indexed"
+        },
+        {
+          "url": "https://enriquedussel.com/DVD%20Obras%20Enrique%20Dussel/Textos/b09/b09.pdf",
+          "locator": "Fragmento indexado: fecha 1966; PDF no inspeccionado integralmente.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q473518-3",
@@ -451,7 +520,15 @@
       "date": "1975",
       "type": "career",
       "title": "Exilio en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: exilio en México en 1975; apertura directa 429.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q473518-4",
@@ -461,7 +538,15 @@
       "date": "1976",
       "type": "career",
       "title": "Docencia de Ética y Filosofía Política en la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/profesores-del-colegio-de-filosofia/dr-enrique-dussel/",
+          "locator": "Semblanza docente: ética y filosofía política; antigüedad desde 1976; apertura directa 502.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q473518-5",
@@ -471,7 +556,15 @@
       "date": "2023",
       "type": "death",
       "title": "Fallecimiento en Ciudad de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
+          "locator": "Ficha de autoridad: muerte en Ciudad de México en 2023; apertura directa 429.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q9191-0",
@@ -1042,7 +1135,15 @@
       "date": "1882",
       "type": "birth",
       "title": "Nacimiento en Oaxaca",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Semblanza: Oaxaca, 27 de febrero de 1882.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1091141-1",
@@ -1052,7 +1153,15 @@
       "date": "1920–1921",
       "type": "career",
       "title": "Rectoría de la Universidad Nacional de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Párrafo de cargos: rectoría de junio de 1920 a octubre de 1921.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1091141-2",
@@ -1062,7 +1171,15 @@
       "date": "1921–1924",
       "type": "career",
       "title": "Titular de la Secretaría de Educación Pública",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Párrafo de cargos: titular de Educación Pública entre 1921 y 1924.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1091141-3",
@@ -1072,7 +1189,15 @@
       "date": "1925",
       "type": "publication",
       "title": "La raza cósmica",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Bibliografía: La raza cósmica, 1925.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1091141-4",
@@ -1082,7 +1207,15 @@
       "date": "1929",
       "type": "publication",
       "title": "Tratado de metafísica",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Bibliografía: Tratado de metafísica, 1929.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1091141-5",
@@ -1092,7 +1225,15 @@
       "date": "1943",
       "type": "institution",
       "title": "Miembro fundador de El Colegio Nacional",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Ingreso fundador de 15 de mayo de 1943.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1091141-6",
@@ -1102,7 +1243,15 @@
       "date": "1959",
       "type": "death",
       "title": "Fallecimiento en Ciudad de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
+          "locator": "Cierre de semblanza: muerte en Ciudad de México el 30 de junio de 1959.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1879022-0",
@@ -1112,7 +1261,15 @@
       "date": "1912",
       "type": "birth",
       "title": "Nacimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Semblanza: nacimiento en Ciudad de México en 1912.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1879022-1",
@@ -1122,7 +1279,15 @@
       "date": "1943",
       "type": "career",
       "title": "Maestría en Filosofía por la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea",
+          "locator": "Archivo de la FFyL: maestría de 1943 con tesis sobre el positivismo.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1879022-2",
@@ -1132,7 +1297,15 @@
       "date": "1943",
       "type": "publication",
       "title": "El positivismo en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Bibliografía: El positivismo en México, 1943.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1879022-3",
@@ -1142,7 +1315,15 @@
       "date": "1944",
       "type": "publication",
       "title": "Apogeo y decadencia del positivismo en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Bibliografía: Apogeo y decadencia del positivismo en México, 1944.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1879022-4",
@@ -1152,7 +1333,15 @@
       "date": "1952",
       "type": "publication",
       "title": "La filosofía como compromiso",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Bibliografía: La filosofía como compromiso, 1952.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q1879022-5",
@@ -1162,7 +1351,15 @@
       "date": "1966–1970",
       "type": "career",
       "title": "Dirección de la Facultad de Filosofía y Letras de la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea",
+          "locator": "Archivo de la FFyL: dirección entre 1966 y 1970.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1879022-6",
@@ -1172,7 +1369,20 @@
       "date": "1994",
       "type": "career",
       "title": "Doctorado honoris causa de la Universidad de Guadalajara",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Reconocimientos: doctorado honorario de UdeG el 26 de mayo de 1994.",
+          "access": "indexed"
+        },
+        {
+          "url": "https://ww1.udg.mx/es/grados-honorificos/leopoldo-zea-aguilar",
+          "locator": "Acuerdo de otorgamiento del grado honorífico.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q1879022-7",
@@ -1182,7 +1392,15 @@
       "date": "2004",
       "type": "death",
       "title": "Fallecimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
+          "locator": "Cierre biográfico: fallecimiento el 9 de junio de 2004.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q43216-0",
@@ -1685,7 +1903,15 @@
       "date": "1894",
       "type": "birth",
       "title": "Nacimiento en Moquegua, Perú",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: nacimiento en Moquegua el 14 de junio de 1894.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q335544-1",
@@ -1695,7 +1921,15 @@
       "date": "1919",
       "type": "career",
       "title": "Viaje a Europa y acercamiento al marxismo",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: traslado forzado a Europa en 1919, contacto con el marxismo.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q335544-2",
@@ -1705,7 +1939,15 @@
       "date": "1923",
       "type": "career",
       "title": "Regreso al Perú y vinculación con la Universidad Popular Manuel González Prada",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: regreso en 1923 y actividad en la Universidad Popular Manuel González Prada.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q335544-3",
@@ -1715,7 +1957,15 @@
       "date": "1925",
       "type": "publication",
       "title": "La escena contemporánea",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: primer libro en 1925.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q335544-4",
@@ -1725,7 +1975,15 @@
       "date": "1926",
       "type": "institution",
       "title": "Fundación de la revista Amauta",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: aparición de Amauta en 1926.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q335544-5",
@@ -1735,7 +1993,15 @@
       "date": "1928",
       "type": "publication",
       "title": "Siete ensayos de interpretación de la realidad peruana",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: Siete ensayos, 1928.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q335544-6",
@@ -1745,7 +2011,15 @@
       "date": "1930",
       "type": "death",
       "title": "Fallecimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://mariategui.cultura.pe/index.php/biografia",
+          "locator": "Vida y obra: fallecimiento el 14 de abril de 1930.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q8018-0",
@@ -2301,7 +2575,15 @@
       "date": "1883",
       "type": "birth",
       "title": "Nacimiento en Ciudad de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Semblanza: nacimiento en Ciudad de México en 1883.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-1",
@@ -2311,7 +2593,15 @@
       "date": "1909",
       "type": "institution",
       "title": "Participación en la fundación del Ateneo de la Juventud",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Trayectoria: integrante del Ateneo de la Juventud en 1909.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-2",
@@ -2321,7 +2611,15 @@
       "date": "1912",
       "type": "institution",
       "title": "Cofundación de la Universidad Popular Mexicana",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Trayectoria: fundación de la Universidad Popular Mexicana en 1912 con otros ateneístas.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-3",
@@ -2331,7 +2629,15 @@
       "date": "1916",
       "type": "publication",
       "title": "Primera versión de su ensayo sobre la existencia",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Bibliografía: primera versión de La existencia, 1916.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-4",
@@ -2341,7 +2647,20 @@
       "date": "1919",
       "type": "revision",
       "title": "Edición ampliada de La existencia como economía, desinterés y caridad",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/mtro-antonio-caso/",
+          "locator": "Semblanza: elaboración de la obra capital entre 1916 y 1919.",
+          "access": "indexed"
+        },
+        {
+          "url": "https://tesiunamdocumentos.dgb.unam.mx/ptd2019/agosto/0794942/0794942.pdf",
+          "locator": "Fragmento indexado de tesis UNAM: segunda edición de 1919 y ampliación de contenido; PDF no inspeccionado integralmente.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q601364-5",
@@ -2351,7 +2670,15 @@
       "date": "1921–1923",
       "type": "career",
       "title": "Rectoría de la Universidad Nacional de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Cargos: rectoría 1921–1923, además de una etapa en 1920.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-6",
@@ -2361,7 +2688,15 @@
       "date": "1924",
       "type": "publication",
       "title": "El problema de México y la ideología nacional",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Bibliografía: El problema de México y la ideología nacional, 1924.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-7",
@@ -2371,7 +2706,15 @@
       "date": "1941",
       "type": "publication",
       "title": "La persona humana y el Estado totalitario",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Bibliografía: La persona humana y el Estado totalitario, 1941.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q601364-8",
@@ -2381,7 +2724,15 @@
       "date": "1943",
       "type": "institution",
       "title": "Miembro fundador de El Colegio Nacional",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/antonio-caso/",
+          "locator": "Ingreso fundador en 1943.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q601364-9",
@@ -2391,7 +2742,15 @@
       "date": "1946",
       "type": "death",
       "title": "Fallecimiento en Ciudad de México",
-      "status": "pending"
+      "status": "pending",
+      "reviewIssue": "El año 1946 está respaldado; falta contrastar explícitamente el lugar en la fuente consultada.",
+      "candidateSources": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/mtro-antonio-caso/",
+          "locator": "Encabezado 1883–1946; falta verificar explícitamente lugar de fallecimiento.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q7412445-0",
@@ -2401,7 +2760,15 @@
       "date": "1897",
       "type": "birth",
       "title": "Nacimiento en Zitácuaro, Michoacán",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Nacimiento en Zitácuaro en 1897.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-1",
@@ -2411,7 +2778,15 @@
       "date": "1919",
       "type": "career",
       "title": "Ingreso en la Escuela Nacional de Altos Estudios",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Formación: ingreso en la Escuela Nacional de Altos Estudios en 1919.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-2",
@@ -2421,7 +2796,15 @@
       "date": "1934",
       "type": "publication",
       "title": "El perfil del hombre y la cultura en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Bibliografía: El perfil del hombre y la cultura en México, 1934.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-3",
@@ -2431,7 +2814,15 @@
       "date": "1940",
       "type": "publication",
       "title": "Hacia un nuevo humanismo",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Bibliografía: Hacia un nuevo humanismo, 1940.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-4",
@@ -2441,7 +2832,15 @@
       "date": "1941",
       "type": "institution",
       "title": "Establecimiento de la cátedra de Historia de la Filosofía en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Trayectoria: establecimiento de la cátedra de Historia de la Filosofía en México en 1941.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-5",
@@ -2451,7 +2850,15 @@
       "date": "1943",
       "type": "publication",
       "title": "Historia de la filosofía en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Bibliografía: Historia de la filosofía en México, 1943.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-6",
@@ -2461,7 +2868,15 @@
       "date": "1945–1952",
       "type": "career",
       "title": "Dirección de la Facultad de Filosofía y Letras de la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Cargos: dirección de FFyL 1945–1952.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-7",
@@ -2471,7 +2886,15 @@
       "date": "1952",
       "type": "institution",
       "title": "Ingreso a El Colegio Nacional",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Ingreso a El Colegio Nacional el 17 de septiembre de 1952.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q7412445-8",
@@ -2481,7 +2904,15 @@
       "date": "1959",
       "type": "death",
       "title": "Fallecimiento en Ciudad de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colnal.mx/integrantes/samuel-ramos/",
+          "locator": "Fallecimiento en Ciudad de México el 20 de junio de 1959.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q2370396-0",
@@ -2491,7 +2922,20 @@
       "date": "1922",
       "type": "birth",
       "title": "Nacimiento en Barcelona, de padres mexicanos",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
+          "locator": "Semblanza: Barcelona, 1922, de padres mexicanos.",
+          "access": "indexed"
+        },
+        {
+          "url": "https://www.gob.mx/sep/acciones-y-programas/luis-villoro-toranzo",
+          "locator": "Semblanza SEP coincide en lugar, fecha y filiación.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q2370396-1",
@@ -2501,7 +2945,15 @@
       "date": "1950",
       "type": "publication",
       "title": "Los grandes momentos del indigenismo en México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
+          "locator": "Obras destacadas: Los grandes momentos del indigenismo en México, 1950.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q2370396-2",
@@ -2511,7 +2963,15 @@
       "date": "1971",
       "type": "career",
       "title": "Ingreso al Instituto de Investigaciones Filosóficas de la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.juntadegobierno.unam.mx/integrante/luis-villoro-toranzo",
+          "locator": "Trayectoria: investigador del Instituto desde 1971.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q2370396-3",
@@ -2521,7 +2981,15 @@
       "date": "1978",
       "type": "institution",
       "title": "Ingreso a El Colegio Nacional",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.juntadegobierno.unam.mx/integrante/luis-villoro-toranzo",
+          "locator": "Trayectoria: miembro de El Colegio Nacional desde 1978.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q2370396-4",
@@ -2531,7 +2999,15 @@
       "date": "1982",
       "type": "publication",
       "title": "Creer, saber, conocer",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
+          "locator": "Obras destacadas: Creer, saber, conocer, 1982.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q2370396-5",
@@ -2541,7 +3017,15 @@
       "date": "1983–1987",
       "type": "career",
       "title": "Representación de México ante la UNESCO en París",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.juntadegobierno.unam.mx/integrante/luis-villoro-toranzo",
+          "locator": "Cargos: embajador ante UNESCO en París, 1983–1987.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q2370396-6",
@@ -2551,7 +3035,15 @@
       "date": "1997",
       "type": "publication",
       "title": "El poder y el valor. Fundamentos de una ética política",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
+          "locator": "Bibliografía: El poder y el valor, 1997.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q2370396-7",
@@ -2561,7 +3053,15 @@
       "date": "1998",
       "type": "publication",
       "title": "Estado plural, pluralidad de culturas",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
+          "locator": "Bibliografía: Estado plural, pluralidad de culturas, 1998.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q2370396-8",
@@ -2571,7 +3071,15 @@
       "date": "2014",
       "type": "death",
       "title": "Fallecimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://filosoficas.unam.mx/sitio/sitio/sitio/luis-villoro-sexto-aniversario-luctuoso",
+          "locator": "Conmemoración del sexto aniversario luctuoso en 2020, consistente con 2014.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-0",
@@ -2581,7 +3089,15 @@
       "date": "1915",
       "type": "birth",
       "title": "Nacimiento en Algeciras, España",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: nacimiento en Algeciras en 1915.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-1",
@@ -2591,7 +3107,15 @@
       "date": "1939",
       "type": "career",
       "title": "Exilio en México; llegada a Veracruz a bordo del Sinaia",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.gob.mx/cultura/prensa/adolfo-sanchez-vazquez-filosofo-autocritico-y-antidogmatico",
+          "locator": "Semblanza: llegada a Veracruz en el Sinaia el 13 de junio de 1939; apertura 403.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-2",
@@ -2601,7 +3125,15 @@
       "date": "1942",
       "type": "publication",
       "title": "El pulso ardiendo, libro de poesía",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: El pulso ardiendo, poesía, 1942.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-3",
@@ -2611,7 +3143,15 @@
       "date": "1943",
       "type": "career",
       "title": "Retoma sus estudios filosóficos en la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: regreso a Ciudad de México en 1943 y continuación de estudios filosóficos.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-4",
@@ -2621,7 +3161,15 @@
       "date": "1965",
       "type": "publication",
       "title": "Las ideas estéticas de Marx",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Obra estética: Las ideas estéticas de Marx, 1965.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-5",
@@ -2631,7 +3179,15 @@
       "date": "1967",
       "type": "publication",
       "title": "Filosofía de la praxis",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Obra filosófica: Filosofía de la praxis, 1967.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-6",
@@ -2641,7 +3197,15 @@
       "date": "1970",
       "type": "publication",
       "title": "Estética y marxismo",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
+          "locator": "Obra estética: Estética y marxismo, 1970.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-7",
@@ -2651,7 +3215,15 @@
       "date": "1983",
       "type": "publication",
       "title": "Ensayos marxistas sobre filosofía e ideología",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía: Ensayos marxistas sobre filosofía e ideología, Océano, 1983.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q365193-8",
@@ -2661,7 +3233,15 @@
       "date": "2011",
       "type": "death",
       "title": "Fallecimiento en Ciudad de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/adolfo-sanchez-vazquez/",
+          "locator": "Semblanza: fallecimiento en Ciudad de México el 8 de julio de 2011; apertura 502.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q891708-0",
@@ -2671,7 +3251,15 @@
       "date": "1941",
       "type": "birth",
       "title": "Nacimiento en Riobamba, Ecuador",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: nacimiento en Riobamba, 1941.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-1",
@@ -2681,7 +3269,15 @@
       "date": "1962–1966",
       "type": "career",
       "title": "Estudios de filosofía en la Universidad Libre de Berlín",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: estudios en Freie Universität Berlin entre 1962 y 1966.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-2",
@@ -2691,7 +3287,15 @@
       "date": "1968",
       "type": "career",
       "title": "Traslado a México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: traslado a México en 1968.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-3",
@@ -2701,7 +3305,15 @@
       "date": "1974",
       "type": "career",
       "title": "Licenciatura en Filosofía por la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: licenciatura en filosofía en la UNAM en 1974.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-4",
@@ -2711,7 +3323,15 @@
       "date": "1986",
       "type": "publication",
       "title": "El discurso crítico de Marx",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/2/",
+          "locator": "Obras: El discurso crítico de Marx, Era, 1986.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-5",
@@ -2721,7 +3341,15 @@
       "date": "1995",
       "type": "publication",
       "title": "Las ilusiones de la modernidad",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/2/",
+          "locator": "Obras: Las ilusiones de la modernidad, UNAM/El Equilibrista, 1995.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-6",
@@ -2731,7 +3359,15 @@
       "date": "1998",
       "type": "publication",
       "title": "La modernidad de lo barroco",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/la-modernidad-de-lo-barroco",
+          "locator": "Ficha bibliográfica: Era, 1998.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q891708-7",
@@ -2741,7 +3377,15 @@
       "date": "1998",
       "type": "publication",
       "title": "Valor de uso y utopía",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/obras/2/",
+          "locator": "Obras: Valor de uso y utopía, Siglo XXI, 1998.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-8",
@@ -2751,7 +3395,15 @@
       "date": "2008",
       "type": "award",
       "title": "Reconocimiento como profesor emérito de la UNAM",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Reconocimientos: profesor emérito de la UNAM, 2008.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q891708-9",
@@ -2761,7 +3413,15 @@
       "date": "2010",
       "type": "death",
       "title": "Fallecimiento en Ciudad de México",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://bolivare.unam.mx/trayectoria",
+          "locator": "Trayectoria: fallecimiento en Ciudad de México en 2010.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q5711746-0",
@@ -2771,7 +3431,15 @@
       "date": "1925",
       "type": "birth",
       "title": "Nacimiento en Lima, Perú",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://biblioteca.clacso.edu.ar/Peru/idi-uch/20210618080927/El_Concepto_Alienacion_Augusto_Salazar_Bondy.pdf",
+          "locator": "Fragmento indexado, capítulo Formación: nacimiento en Lima el 8 de diciembre de 1925; PDF no inspeccionado integralmente.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q5711746-1",
@@ -2781,7 +3449,15 @@
       "date": "1950",
       "type": "career",
       "title": "Grado en Humanidades por la Universidad de San Marcos",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
+          "locator": "Semblanza: tesis de bachiller en Humanidades, 1950.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q5711746-2",
@@ -2791,7 +3467,15 @@
       "date": "1953",
       "type": "career",
       "title": "Doctorado en Filosofía en San Marcos",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/revsanmarcos/1.12.pdf",
+          "locator": "Fragmento indexado de revista San Marcos: doctorado en 1953; PDF no inspeccionado integralmente.",
+          "access": "indexed"
+        }
+      ]
     },
     {
       "id": "Q5711746-3",
@@ -2801,7 +3485,15 @@
       "date": "1954",
       "type": "career",
       "title": "Inicio de su docencia en la Universidad de San Marcos",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.fcede.es/site/es/fceespa/autoresdetalle.aspx?idAutor=2892",
+          "locator": "Semblanza: ingreso como catedrático en San Marcos, 1954.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q5711746-4",
@@ -2811,7 +3503,15 @@
       "date": "1968",
       "type": "publication",
       "title": "¿Existe una filosofía de nuestra América?",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://sigloxxieditores.com.mx/libro/existe-una-filosofia-de-nuestra-america-2/",
+          "locator": "Ficha del editor: año de edición 1968.",
+          "access": "direct"
+        }
+      ]
     },
     {
       "id": "Q5711746-5",
@@ -2821,7 +3521,15 @@
       "date": "1974",
       "type": "death",
       "title": "Fallecimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
+          "locator": "Encabezado biográfico: 1925–1974.",
+          "access": "indexed"
+        }
+      ]
     }
   ]
 }

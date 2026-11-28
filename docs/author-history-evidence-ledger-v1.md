@@ -1,6 +1,6 @@
-# Auditoría individual de historia intelectual · Lotes 01–04
+# Auditoría individual de historia intelectual · Lotes 01–05
 
-Se abre un registro editorial versionado de los 199 hitos existentes, con identificador estable, texto, fecha, tipo y estado. No modifica la experiencia pública ni la identidad de autores. El lote 01 contrasta 21 hitos de Platón (3), Aristóteles (5), Kant (6) y Hegel (7), consultados el 27 de noviembre de 2026. El lote 02 contrasta nueve hitos adicionales de Epicuro, Confucio y Nāgārjuna. El lote 03 contrasta 29 hitos adicionales de Agustín de Hipona, Avicena, Averroes, Maimónides y Tomás de Aquino. El lote 04 incorpora 54 hitos de Descartes, Nietzsche, Beauvoir, Arendt, Frege, Russell y Zambrano. Los otros 86 permanecen explícitamente pendientes en este registro, incluso si tuvieron contrastes puntuales anteriores. Se usan referencias de SEP, IEP y Cambridge UP. La prueba comprueba que el inventario no se desincronice de las fichas: cualquier cambio de texto, fecha o tipo requiere actualizar el registro; no acredita por sí misma la veracidad de las fuentes.
+Se abre un registro editorial versionado de los 199 hitos existentes, con identificador estable, texto, fecha, tipo y estado. No modifica la experiencia pública ni la identidad de autores. El lote 01 contrasta 21 hitos de Platón (3), Aristóteles (5), Kant (6) y Hegel (7), consultados el 27 de noviembre de 2026. El lote 02 contrasta nueve hitos adicionales de Epicuro, Confucio y Nāgārjuna. El lote 03 contrasta 29 hitos adicionales de Agustín de Hipona, Avicena, Averroes, Maimónides y Tomás de Aquino. El lote 04 incorpora 54 hitos de Descartes, Nietzsche, Beauvoir, Arendt, Frege, Russell y Zambrano. El lote 05 examina los 86 hitos latinoamericanos: 84 con referencias de respaldo y dos pendientes por discrepancia o evidencia parcial. Los otros 2 permanecen explícitamente pendientes en este registro, incluso si tuvieron contrastes puntuales anteriores. Se usan referencias de SEP, IEP y Cambridge UP. La prueba comprueba que el inventario no se desincronice de las fichas: cualquier cambio de texto, fecha o tipo requiere actualizar el registro; no acredita por sí misma la veracidad de las fuentes.
 
 Los estados son `contrasted` (fuente consultada y localizador de evidencia) y `pending` (sin contraste individual registrado en este ledger). No significa revisión por pares ni prueba de consenso absoluto. En el caso de Platón se conserva la cronología aproximada; en Hegel se conserva la diferencia entre fecha probable de publicación y portada. Las notas se redactan en español, sin transcribir pasajes de las fuentes.
 
@@ -29,9 +29,20 @@ Archivo: [ledger](data/author-history-evidence-ledger-v1.json).
 | Gottlob Frege | 6 |
 | Bertrand Russell | 8 |
 | María Zambrano | 7 |
-| Total | 113/199 |
+| Sor Juana Inés de la Cruz | 5 |
+| Enrique Dussel | 5/6 |
+| José Vasconcelos | 7 |
+| Leopoldo Zea | 8 |
+| José Carlos Mariátegui | 7 |
+| Antonio Caso | 9/10 |
+| Samuel Ramos | 9 |
+| Luis Villoro | 9 |
+| Adolfo Sánchez Vázquez | 9 |
+| Bolívar Echeverría | 10 |
+| Augusto Salazar Bondy | 6 |
+| Total | 197/199 |
 
-Siguientes lotes: archivo latinoamericano y consolidación. Mantener un único PR de auditoría hasta completar el alcance acordado.
+Siguiente lote: consolidación, revalidación de evidencia indexada y resolución de pendientes. Mantener un único PR de auditoría hasta completar el alcance acordado.
 
 ## Lote 02 · Tradiciones antiguas
 
@@ -44,3 +55,7 @@ Se consultaron directamente las entradas de SEP sobre [Agustín (2018)](https://
 ## Lote 04 · Filosofía moderna y contemporánea
 
 Se consultaron las seis entradas SEP de Descartes, Nietzsche, Beauvoir, Arendt, Frege y Russell. Se distinguieron las fechas de primera edición y publicación de volúmenes, las fechas alternativas de ingreso a La Flèche y la publicación póstuma de La vida del espíritu. Para Zambrano se consultaron directamente la cronología de Biblioteca Virtual Miguel de Cervantes y la bibliografía de la UCM; se emplearon además resultados indexados del CVC, CIDA, Ministerio de Cultura y el glosario de Zambrano. La apertura directa del CVC redirigió a mantenimiento y la del CIDA y Ministerio no se completó; estas limitaciones quedan anotadas en los localizadores y no equivalen a lectura integral. La cronología de etapas americanas 1940–1953 no contradice el inicio del exilio en 1939, registrado por separado. No se alteran fechas ni textos públicos. El estado contrasted incluye evidencia indexada explícitamente identificada; los hitos apoyados exclusivamente en ella deben revalidarse con acceso directo en la consolidación. La prueba sólo acredita sincronía estructural.
+
+## Lote 05 · Filosofía latinoamericana
+
+Se examinaron los 86 hitos restantes. 84 cuentan con respaldo localizado: 47 con al menos una fuente abierta y 37 exclusivamente mediante extractos indexados. El atributo `access` distingue `direct` de `indexed` para cada evidencia nueva; no se atribuye lectura completa a los extractos. Dos hitos continúan pendientes, con `reviewIssue` y `candidateSources`: el doctorado de Dussel (1966/1967) y el lugar de fallecimiento de Antonio Caso (año respaldado, lugar todavía sin contraste explícito). Las fuentes institucionales de UNAM y SEP coinciden en la filiación mexicana de Villoro; no se introduce una discrepancia sin evidencia. No se modifican los hitos públicos. El lote anterior utilizaba el término contrasted también para resultados indexados: por coherencia se mantiene ese estado, pero no se considera equivalente a contraste directo. En consolidación se deben revalidar todos los respaldos exclusivamente indexados, revisar los localizadores de los lotes 01–04 y confirmar las identidades QID independientemente de las cronologías. No implica certificación externa.
