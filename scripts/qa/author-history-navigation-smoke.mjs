@@ -12,7 +12,7 @@ const bucket=id=>String(authorBucket(id)).padStart(4,"0");
 const cases=[
  {name:"Simone de Beauvoir",id:"5033760928",titles:["Le sang des autres","Segundo Sexo, Simone De Beauvoir","The Ethics of Ambiguity"],years:[1947,1949,1950],date:"1908"},
  {name:"Antonio Caso",creator:"Antonio Caso Andrade",titles:["La existencia como economia como desinteres y como caridad","Positivismo, neopositivismo y fenomenología"],years:[1916,1944],date:"1883",archive:"#autor-0098"},
- {name:"Confucio",titles:["Analectas, Confucio","Los cuatro libros"],years:[1900,1961],negative:true},
+ {name:"Confucio",titles:["Analectas, Confucio","Los cuatro libros"],years:[1900,1961],date:"551 a. C.",context:true},
  {name:"Antonio Caso",creator:"Antonio Caso Andrade",titles:["La existencia como economia como desinteres y como caridad","La existencia como economía, desinterés y caridad"],years:[1916,1919],negative:true}
 ];
 const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
@@ -66,6 +66,7 @@ try{
      await toggle.click();
      assert.equal(await panel.locator(".author-intellectual-history-event").count(),3);
      assert.ok((await panel.locator(".author-intellectual-history-date").first().textContent()).includes(c.date));
+     if(c.context){assert.match(await toggle.textContent(),/Identificación contextual/);assert.match(await panel.locator(".author-intellectual-history-note").nth(1).textContent(),/no confirma la autoría/);assert.ok(await panel.locator('a[href*="subjectid=500355288"]').count());}
      if(c.archive)assert.equal(await panel.locator(".author-intellectual-history-archive").getAttribute("href"),"./filosofia-latinoamericana.html"+c.archive);
      const bounds=await panel.evaluate(el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,width:document.documentElement.scrollWidth};});
      assert.ok(bounds.left>=-2&&bounds.right<=width+2&&bounds.width<=width+2,JSON.stringify(bounds));

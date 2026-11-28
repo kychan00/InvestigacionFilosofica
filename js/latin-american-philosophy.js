@@ -4,7 +4,7 @@ import {
   createWorkSaveButton
 } from "./public-save-controls.js?v=20261122-author-project-picker-v1";
 import { liveResultBookmarkPayload } from "./latin-american-live-work.js";
-import { buildIntellectualHistoryPanel, buildHistoryPanel } from "../src/core/author-intellectual-history-ui.js?v=20261127-final-v1";
+import { buildIntellectualHistoryPanel, buildHistoryPanel } from "../src/core/author-intellectual-history-ui.js?v=20261127-confucius-v1";
 import { matrixIntellectualHistory } from "../src/core/latin-american-matrix-history.js?v=20261127-v8";
 import { latinAmericanHistoryIdentity } from "../src/core/latin-american-history-bridge.js?v=20261127-final-v1";
 

@@ -15,11 +15,11 @@ function button(label,cls,handler){
 }
 
 export function buildIntellectualHistoryPanel(author,state,{archiveHref=null}={}){
-  return buildHistoryPanel(intellectualHistory(author),state,{archiveHref});
+  return buildHistoryPanel(intellectualHistory(author),state,{archiveHref,identityContext:author?.historyIdentityContext});
 }
 
 const MATRIX_TYPES={"archive-publication":"Publicación consignada","archive-record":"Fecha bibliográfica consignada","archive-thesis":"Tesis","archive-edition":"Edición o versión de una obra previa","archive-contribution":"Contribución intelectual"};
-export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}={}){
+export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,identityContext=null}={}){
   if(!history?.events?.length)return null;
   if(state.bioKey!==history.id){
     state.bioKey=history.id;
@@ -37,7 +37,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}=
   });
   toggle.setAttribute("aria-controls",panel.id);
   const title=el("span","author-intellectual-history-toggle-copy");
-  title.append(el("strong","",matrix?"Cronología del expediente":"Vida e historia intelectual"),el("span","",history.events.length+(matrix?" registros fechados":" hitos documentados")+(history.region==="china"?" · Tradición china":"")));
+  title.append(el("strong","",matrix?"Cronología del expediente":"Vida e historia intelectual"),el("span","",history.events.length+(matrix?" registros fechados":" hitos documentados")+(history.region==="china"?" · Tradición china":"")+(identityContext==="confucius-reviewed-catalogue"?" · Identificación contextual":"")));
   const chevron=el("span","author-intellectual-history-chevron");
   chevron.setAttribute("aria-hidden","true");
   toggle.append(title,chevron);
@@ -54,6 +54,12 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false}=
     panel.replaceChildren();
     if(!state.bioOpen)return;
     panel.append(el("p","author-intellectual-history-note",matrix?"Proyección de las fechas ya consignadas en esta ficha, no una nueva curaduría biográfica. Las fuentes generales no acreditan por sí solas cada registro. Consulte la sección Fuentes para el expediente completo.":"Selección de acontecimientos y fechas originales, independiente de las ediciones recuperadas en la bibliografía. Las referencias pueden abarcar varios hitos; consulte cada fuente para valorar su alcance. Las fechas aproximadas, tradicionales y los testimonios textuales se señalan cuando corresponde."));
+    if(identityContext==="confucius-reviewed-catalogue"){
+      const note=el("p","author-intellectual-history-note","Identificación contextual: el catálogo atribuye las Analectas a un nombre histórico reconocido por autoridades bibliográficas. Esto no confirma la autoría de todas las obras ni convierte los Cuatro Libros en una obra independiente de Confucio. ");
+      const source=el("a","author-intellectual-history-source","Autoridad Getty ULAN ↗");
+      source.href="https://www.getty.edu/vow/ULANFullDisplay?subjectid=500355288&find=&role=&nation=";source.target="_blank";source.rel="noopener noreferrer";note.append(source);
+      panel.append(note);
+    }
     const entries=el("ol","author-intellectual-history-track");
     const limit=state.bioLimit||BIO_BATCH;
     for(const event of history.events.slice(0,limit)){

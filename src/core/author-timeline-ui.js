@@ -1,6 +1,6 @@
-import { timelineHistoryAuthor } from "./author-timeline-history-identity.js?v=20261127-final-v1";
+import { timelineHistoryAuthor } from "./author-timeline-history-identity.js?v=20261127-confucius-v1";
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-final-v1";
-import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-final-v1";
+import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-confucius-v1";
 import { latinAmericanDossierHref } from "./latin-american-history-bridge.js?v=20261127-final-v1";
 import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
 import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v4";
