@@ -19,5 +19,9 @@ test("editorial evidence ledger covers every current milestone without stale or 
    for(const ev of row.evidence){assert.equal(new URL(ev.url).protocol,"https:");assert.ok(ev.locator.trim());}
   }else{assert.equal(row.evidence,undefined);assert.equal(row.reviewedOn,undefined);}
  }
- assert.equal(ledger.entries.filter(x=>x.status==="contrasted").length,21);
+ assert.equal(ledger.entries.filter(x=>x.status==="contrasted").length,30);
+ for(const [qid,count] of [["Q43216",3],["Q4604",4],["Q171195",2]]){
+  const rows=ledger.entries.filter(x=>x.qid===qid);
+  assert.equal(rows.length,count);assert.ok(rows.every(x=>x.status==="contrasted"));
+ }
 });
