@@ -59,3 +59,43 @@ test("consolidation preserves evidence levels and 30 authority page title checks
  for(const id of ["Q473518-2","Q601364-9"]){assert.ok(map.get(id).previousReviewIssue);assert.ok(map.get(id).resolution);assert.equal(map.get(id).accessLevel,"direct-recorded");}
  assert.match(map.get("Q473518-2").evidence[0].url,/clacso/);
 });
+
+test("editorial consolidation reconciles reference access, notes and publication blockers",()=>{
+ const c=ledger.consolidation;
+ assert.match(c.reviewedOn,/^\d{4}-\d{2}-\d{2}$/);
+ assert.ok(c.scope.trim());
+ const counts={direct:0,indexed:0,"legacy-unclassified":0};
+ const residualUrls=new Set();
+ const corrections=[];
+ let noteCount=0;
+ for(const row of ledger.entries){
+  assert.ok(row.evidence.some(e=>e.access==="direct"),row.id);
+  if(row.editorialNote){assert.ok(row.editorialNote.trim());noteCount++;}
+  if(row.publicationReview?.status==="correction-required"){
+   corrections.push(row.id);
+   assert.ok(row.publicationReview.reason.trim());
+   assert.ok(Number.isInteger(row.publicationReview.proposed.year));
+   assert.ok(row.publicationReview.proposed.date.trim());
+   assert.ok(row.publicationReview.proposed.title.trim());
+  }
+  for(const e of row.evidence){
+   assert.ok(Object.hasOwn(counts,e.access),row.id);
+   counts[e.access]++;
+   if(e.access!=="direct"){
+    residualUrls.add(e.url);
+    assert.match(e.lastAccessAttempt.date,/^\d{4}-\d{2}-\d{2}$/);
+    assert.equal(e.lastAccessAttempt.outcome,"unavailable");
+    assert.ok(e.lastAccessAttempt.detail.trim());
+   }
+  }
+ }
+ assert.deepEqual(counts,c.referenceAccessSummary);
+ assert.equal(residualUrls.size,c.residualUniqueUrls);
+ assert.equal(noteCount,c.editorialNoteCount);
+ assert.deepEqual(corrections.sort(),[...c.publicationCorrections].sort());
+ const arendt=ledger.entries.find(r=>r.id==="Q60025-1");
+ assert.match(arendt.editorialNote,/1928/);
+ assert.match(arendt.editorialNote,/1929/);
+ assert.ok(arendt.evidence.some(e=>e.access==="direct"&&e.url.includes("hannaharendt.net")));
+ assert.ok(arendt.publicationReview?.status==="correction-required"||arendt.year===1928);
+});
