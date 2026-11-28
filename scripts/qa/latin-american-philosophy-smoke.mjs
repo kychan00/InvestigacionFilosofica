@@ -497,10 +497,16 @@ try {
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-event").count(),6);
     assert.equal(await life.locator(".author-intellectual-history-kind").nth(4).textContent(),"Edición revisada");
+    const evidence=life.locator(".author-intellectual-history-event").nth(4);
+    assert.equal(await evidence.locator("a").count(),0);
+    await evidence.locator("summary").click();
+    await evidence.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.equal(await evidence.locator("a").count(),3);
+    assert.match(await evidence.textContent(),/1916.*1919|1919.*1916/);
     assert.equal(await page.locator("#author-dossier-works").textContent(),originalCount);
     const fits=await life.evaluate(root=>{
       const r=root.getBoundingClientRect();
-      return [...root.querySelectorAll("button,li,strong,a")].every(e=>{
+      return [...root.querySelectorAll("button,li,strong,a,details,summary,ul,p")].every(e=>{
         const b=e.getBoundingClientRect();
         return !b.width||(b.left>=r.left-1&&b.right<=r.right+1&&(e.clientWidth===0||e.scrollWidth<=e.clientWidth+2));
       });
@@ -515,6 +521,7 @@ try {
     assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/c\. 1398/);
     assert.match(await life.locator(".author-intellectual-history-kind").allTextContents().then(a=>a.join(" ")),/Contribución intelectual/);
     assert.equal(await life.locator(".author-intellectual-history-source").count(),0,"Do not attach dossier-wide citations to an individual event");
+    assert.equal(await life.locator(".author-history-evidence").count(),0,"Uncurated matrix records must not receive editorial disclosures");
     await page.locator("#author-dialog-close").click();
     await page.goto(PAGE_URL+"#autor-0380",{waitUntil:"domcontentloaded"});
     await page.locator("#author-dossier-history-section").waitFor({state:"visible",timeout:18000});

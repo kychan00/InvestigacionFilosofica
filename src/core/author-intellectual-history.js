@@ -1,6 +1,6 @@
 // Reviewed intellectual-history pilot. Only original Spanish summaries,
 // not copied biographies. Identity keys are authority QIDs, not search names.
-import { PHASE2_SOURCES, PHASE2_AUTHORS } from './author-intellectual-history-phase2.js?v=20261127-v2';
+import { PHASE2_SOURCES, PHASE2_AUTHORS } from './author-intellectual-history-phase2.js?v=20261127-history-evidence-v1';
 import { PHASE3_SOURCES, PHASE3_AUTHORS } from './author-intellectual-history-phase3.js?v=20261127-v3';
 import { PHASE4_SOURCES, PHASE4_AUTHORS } from './author-intellectual-history-phase4.js?v=20261127-v4';
 import { PHASE5_SOURCES, PHASE5_AUTHORS } from './author-intellectual-history-phase5.js?v=20261127-v5';

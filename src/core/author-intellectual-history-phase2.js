@@ -16,6 +16,14 @@ export const PHASE2_SOURCES = {
     "Stanford Encyclopedia of Philosophy",
     "https://plato.stanford.edu/entries/arendt/"
   ],
+  "arendtVita": [
+    "HannahArendt.net · Vita",
+    "https://www.hannaharendt.net/index.php/han/en/vitaArendt/index"
+  ],
+  "arendtLeMO": [
+    "Deutsches Historisches Museum · LeMO",
+    "https://www.dhm.de/lemo/biografie/hannah-arendt"
+  ],
   "vasconcelos": [
     "El Colegio Nacional",
     "https://colnal.mx/integrantes/jose-vasconcelos/"
@@ -251,11 +259,12 @@ export const PHASE2_AUTHORS = {
         "arendt"
       ],
       [
-        1929,
-        "1929",
+        1928,
+        "1928 (tesis publicada en 1929)",
         "career",
         "Doctorado sobre el concepto de amor en Agustín",
-        "arendt"
+        "arendtVita",
+        "arendtLeMO"
       ],
       [
         1933,
