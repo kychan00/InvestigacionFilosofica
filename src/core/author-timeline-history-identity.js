@@ -46,6 +46,7 @@ export function timelineHistoryAuthor(author,works=[]){
  const linked=new Set([oa(author.openalexId||author.sourceId||author.id),...(Array.isArray(author.linkedAuthorIds)?author.linkedAuthorIds.map(oa):[])].filter(Boolean));
  const groups=titles.map(g=>new Set(g.map(norm))), matched=new Set(), observedIds=new Set();
  if(qid==="Q4604"&&(author.viafId||author.viaf)&&!confuciusViaf(author.viafId||author.viaf))return author;
+ let confuciusContext=false;
  let confuciusCorroborated=qid==="Q4604"&&(confuciusViaf(author.viafId||author.viaf)||confuciusLifeHeading(author.sourceDisplayName)||confuciusLifeHeading(author.displayName));
  for(const work of Array.isArray(works)?works:[]){
   const i=groups.findIndex(g=>g.has(norm(work?.title)));
@@ -57,11 +58,19 @@ export function timelineHistoryAuthor(author,works=[]){
   }).map(p=>{
    const id=oa(p?.openalexId||p?.sourceId||p?.id);if(id)observedIds.add(id);
    if(qid==="Q4604"&&(confuciusLifeHeading(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)||confuciusViaf(p?.viafId||p?.viaf)))confuciusCorroborated=true;
+   // Getty ULAN 500355288 and Open Library OL40315A independently
+   // identify these reviewed names with Confucius (VIAF 89664672).
+   // A federated Analects record with exact creator metadata supports
+   // a contextual panel only, not a canonical corpus identity or authorship.
+   if(qid==="Q4604"&&author.catalog==="federated"&&!linked.size&&!id&&
+      (work.authorIdentity?.exact===true||work.attributionEvidence==="exact-name")&&
+      Array.isArray(work.sourceRecords)&&work.sourceRecords.some(r=>r?.provider==="Internet Archive"&&typeof r.sourceId==="string"&&r.sourceId.trim())&&
+      names.has(norm(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)))confuciusContext=true;
    return p;
   }).length)matched.add(i);
  }
  if(!linked.size&&observedIds.size>1)return author;
- if(qid==="Q4604" ? !(matched.size===1&&confuciusCorroborated) : matched.size<2)return author;
- const scoped={...author,wikidataId:qid,...(qid==="Q4604"&&!names.has(visible)?{displayName:"Confucio"}:{})};
+ if(qid==="Q4604" ? !(matched.size===1&&(confuciusCorroborated||confuciusContext)) : matched.size<2)return author;
+ const scoped={...author,wikidataId:qid,...(qid==="Q4604"&&!names.has(visible)?{displayName:"Confucio"}:{}),...(qid==="Q4604"&&!confuciusCorroborated&&confuciusContext?{historyIdentityContext:"confucius-reviewed-catalogue"}:{})};
  return intellectualHistory(scoped)?scoped:author;
 }
