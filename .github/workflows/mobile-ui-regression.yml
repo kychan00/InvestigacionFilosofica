@@ -151,6 +151,8 @@ on:
       - "src/core/author-timeline.js"
       - "src/core/author-timeline-ui.js"
       - "tests/author-timeline.test.mjs"
+      - "src/core/author-temporal-review.js"
+      - "tests/author-temporal-review.test.mjs"
       - "tests/remote-author-resolution.test.mjs"
       - ".github/workflows/mobile-ui-regression.yml"
   workflow_dispatch:

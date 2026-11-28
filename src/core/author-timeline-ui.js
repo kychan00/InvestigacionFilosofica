@@ -2,8 +2,8 @@ import { timelineHistoryAuthor } from "./author-timeline-history-identity.js?v=2
 import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-history-evidence-v1";
 import { buildIntellectualHistoryPanel } from "./author-intellectual-history-ui.js?v=20261127-history-context-07ab-v1";
 import { latinAmericanDossierHref } from "./latin-american-history-bridge.js?v=20261127-final-v1";
-import { buildAuthorTimeline } from "./author-timeline.js?v=20261127-historical-v1";
-import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261127-historical-v4";
+import { buildAuthorTimeline } from "./author-timeline.js?v=20261128-history-temporal-07c-v1";
+import { authorHistoricalContext, historicalTimelineSlice, TIMELINE_BATCH } from "./author-historical-periods.js?v=20261128-history-temporal-07c-v1";
 import {
   authorOrcidUrl,
   normalizedAuthorOrcid,
@@ -48,7 +48,7 @@ function renderTimeline(root, works, state, options) {
   };
   const context=regionalContexts[verifiedHistory?.region]||(verifiedHistory?.region==="europe"?{region:"europe",label:"Contexto europeo",motif:"modern"}:authorHistoricalContext(author));
   const orcidUrl = authorOrcidUrl(authorOrcid);
-  const model = buildAuthorTimeline(works, state.unit);
+  const model = buildAuthorTimeline(works, state.unit,{history:verifiedHistory});
 
   root.replaceChildren();
   root.className = "author-timeline";
@@ -113,6 +113,16 @@ function renderTimeline(root, works, state, options) {
     ));
   }
   root.append(coverage);
+  if(model.dateReview){
+    const review=el("p","author-timeline-precision author-timeline-review-notice",
+      model.dateReview.toLocaleString("es-MX")+" registros con fecha por revisar. Se conservan al final de la cronología, con el año original informado por el catálogo. No se eliminan ni se reasignan a otro autor.");
+    root.append(review);
+    root.append(button("Ver fechas por revisar","author-timeline-more author-timeline-review-jump",()=>{
+      state.timelineLimit=model.total;
+      renderTimeline(root,works,state,options);
+      root.querySelector('[data-date-review="true"] .author-timeline-work')?.focus();
+    }));
+  }
 
   if (state.unit === "month" && model.monthsKnown === 0 && model.total) {
     root.append(el(
@@ -145,6 +155,7 @@ function renderTimeline(root, works, state, options) {
   for(const section of sections){
     const block=el("section","author-timeline-era");
     block.dataset.motif=section.motif;
+    if(section.key==="review")block.dataset.dateReview="true";
     const header=el("div","author-timeline-era-header");
     const label=el("div","author-timeline-era-copy");
     label.append(el("h3","",section.label));
@@ -166,7 +177,7 @@ function renderTimeline(root, works, state, options) {
 
     const copy = el("span", "author-timeline-work-copy");
     copy.append(
-      el("span", "author-timeline-entry-date", entry.dateLabel),
+      el("span", "author-timeline-entry-date", entry.dateAudit?.review?entry.dateLabel+" · "+(entry.dateAudit.reportedYear<0?Math.abs(entry.dateAudit.reportedYear)+" a. C.":entry.dateAudit.reportedYear):entry.dateLabel),
       el("span", "author-timeline-work-name", work.title || "Sin título"),
       el("span", "author-timeline-work-type", work.type || "Obra")
     );
@@ -196,6 +207,12 @@ function renderTimeline(root, works, state, options) {
       provenance.append(tag);
     }
     copy.append(provenance);
+    if(entry.dateAudit){
+      const note=el("span","author-timeline-date-audit");
+      note.dataset.dateAudit=entry.dateAudit.code;
+      note.append(el("strong","",entry.dateAudit.label),el("span","",entry.dateAudit.detail));
+      copy.append(note);
+    }
 
     const arrow = el("span", "author-timeline-arrow", "↗");
     arrow.setAttribute("aria-hidden", "true");
