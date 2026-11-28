@@ -28,7 +28,9 @@ body.author-view .siva-portrait-links { display:flex;flex-wrap:wrap;gap:3px 9px;
 body.author-view .siva-portrait a { color:inherit;text-decoration:underline;text-underline-offset:2px; }
 body.author-view .siva-portrait a:focus-visible { outline:2px solid currentColor;outline-offset:2px; }
 @media(max-width: 900px) {
-  body.author-view .siva-author-portrait-slot:not([data-siva-ready]) { display:none; }
+  body.author-view .siva-author-portrait-slot:not([data-siva-ready]):not([data-siva-preview]) { display:none; }
+  body.author-view .siva-author-portrait-slot[data-siva-preview]:not([data-siva-ready]) { width:100%; }
+  body.author-view .siva-author-portrait-slot[data-siva-preview]:not([data-siva-ready]) .author-page-seal { display:none; }
   body.author-view .siva-author-portrait-slot[data-siva-ready] { width:100%; }
   body.author-view .siva-portrait:not([hidden]) {
     display:grid;grid-template-columns:minmax(72px,104px) minmax(0,1fr);
@@ -38,3 +40,5 @@ body.author-view .siva-portrait a:focus-visible { outline:2px solid currentColor
   body.author-view .siva-portrait figcaption { margin:0; }
 }
 @media(forced-colors:active) { body.author-view .siva-portrait { background:Canvas;color:CanvasText;border-color:CanvasText; } }
+
+.siva-authority-preview { max-width:100%; min-width:0; margin:.45rem 0 0; font-size:.75rem; line-height:1.4; color:inherit; overflow-wrap:anywhere; }

@@ -5,6 +5,38 @@ on:
     paths:
       - "benchmark/author-authority/**"
       - "src/core/author-authority-benchmark.js"
+      - "src/core/author-authority-shadow-v2.js"
+      - "src/core/author-authority-bibliography-v2.js"
+      - "src/core/remote-author-resolution.js"
+      - "src/core/author-authority-resolution-v2.js"
+      - "src/core/author-authority-evidence-v2.js"
+      - "scripts/authority/run-shadow-v2.mjs"
+      - "scripts/authority/report-release-readiness-v2.mjs"
+      - "scripts/authority/report-preview-release-v2.mjs"
+      - "src/core/author-authority-profile-v2.js"
+      - "scripts/authority/build-holdout-v2.mjs"
+      - "scripts/authority/build-reference-holdout-v2.mjs"
+      - "scripts/authority/audit-jsonl-integrity-v2.mjs"
+      - "scripts/authority/read-snapshot-jsonl.mjs"
+      - "scripts/authority/build-documentary-review-v2.mjs"
+      - "scripts/authority/build-scoped-review-v2.mjs"
+      - "scripts/authority/build-review-workbench-v2.mjs"
+      - "scripts/authority/review-workbench-v2-browser.js"
+      - "src/core/author-authority-review-workbench-v2.js"
+      - "tests/author-authority-review-workbench-v2.test.mjs"
+      - "src/core/author-authority-scoped-review-v2.js"
+      - "tests/author-authority-scoped-review-v2.test.mjs"
+      - "tests/author-authority-human-audit-evidence.test.mjs"
+      - "src/core/author-authority-reference-holdout-v2.js"
+      - "tests/author-authority-reference-holdout-v2.test.mjs"
+      - "src/core/author-authority-holdout-v2.js"
+      - "tests/author-authority-holdout-v2.test.mjs"
+      - "src/core/author-authority-release-v2.js"
+      - "tests/author-authority-release-v2.test.mjs"
+      - "scripts/authority/audit-portrait-live-v2.mjs"
+      - "src/core/author-portrait-policy.js"
+      - "src/core/author-authority-portrait-v2.js"
+      - "scripts/authority/build-human-authority-audit-v1.mjs"
       - "src/core/author-authority-batch.js"
       - "src/core/author-curated-identities.js"
       - "scripts/authority/benchmark-author-authority-v1.mjs"
@@ -83,6 +115,119 @@ jobs:
       - name: Run mass Author Authority benchmark
         run: |
           npm run benchmark:authority --             --input artifacts/author-authority-benchmark-v1/input/author-index-v2             --output artifacts/author-authority-benchmark-v1/report.json
+
+      - name: Run V2 shadow on frozen 100-pair sample
+        run: |
+          node scripts/authority/run-shadow-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-benchmark-v1/report.json artifacts/author-authority-v2/snapshot
+
+      - name: SIVA real-profile comparative audit
+        run: |
+          node scripts/authority/audit-portrait-live-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/portrait-live/report.json
+
+      - name: Test scientific readiness contracts
+        run: node --test tests/author-authority-release-v2.test.mjs tests/author-authority-holdout-v2.test.mjs
+
+      - name: Build disjoint nominal holdout review packet
+        run: node scripts/authority/build-holdout-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-benchmark-v1/report.json artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/holdout
+
+      - name: Test documentary reference holdout
+        run: node --test tests/author-authority-reference-holdout-v2.test.mjs
+
+      - name: Build documentary reference holdout
+        run: node scripts/authority/build-reference-holdout-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/holdout artifacts/author-authority-v2/reference-holdout
+
+      - name: Test canonical evidence reader
+        run: node --test tests/author-authority-human-audit-evidence.test.mjs
+
+      - name: Build documentary review packet and diagnose empty queries
+        run: node scripts/authority/build-documentary-review-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/holdout artifacts/author-authority-v2/reference-holdout artifacts/author-authority-v2/documentary-review
+
+      - name: Test scoped documentary review contracts
+        run: node --test tests/author-authority-scoped-review-v2.test.mjs
+
+      - name: Build contribution and portrait review packets
+        run: node scripts/authority/build-scoped-review-v2.mjs artifacts/author-authority-v2/documentary-review artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/scoped-review
+
+      - name: Test offline review workbench contracts
+        run: node --test tests/author-authority-review-workbench-v2.test.mjs
+
+      - name: Build self-contained scientific review workbench
+        run: node scripts/authority/build-review-workbench-v2.mjs artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/documentary-review artifacts/author-authority-v2/scoped-review artifacts/author-authority-v2/review-workbench
+
+      - name: Upload offline scientific review workbench
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-review-workbench
+          path: artifacts/author-authority-v2/review-workbench/
+          if-no-files-found: warn
+
+      - name: Upload scoped documentary review packets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-scoped-review
+          path: artifacts/author-authority-v2/scoped-review/
+          if-no-files-found: warn
+
+      - name: Upload documentary review packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-documentary-review
+          path: artifacts/author-authority-v2/documentary-review/
+          if-no-files-found: warn
+
+      - name: Audit frozen work JSONL integrity (read only)
+        run: node scripts/authority/audit-jsonl-integrity-v2.mjs artifacts/author-authority-benchmark-v1/input/author-index-v2 artifacts/author-authority-v2/integrity/report.json
+
+      - name: Upload documentary reference and integrity reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-reference-and-integrity
+          path: |
+            artifacts/author-authority-v2/reference-holdout/
+            artifacts/author-authority-v2/integrity/
+          if-no-files-found: warn
+
+      - name: Upload nominal holdout packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-nominal-holdout
+          path: artifacts/author-authority-v2/holdout/
+          if-no-files-found: warn
+
+      - name: Report V2 scientific readiness (no activation)
+        run: node scripts/authority/report-release-readiness-v2.mjs artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/release/readiness.json
+
+      - name: Verify opt-in preview release and rollback contract
+        run: node scripts/authority/report-preview-release-v2.mjs artifacts/author-authority-v2/release/readiness.json artifacts/author-authority-v2/release/preview-contract.json
+
+      - name: Upload V2 scientific readiness report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-release-readiness
+          path: artifacts/author-authority-v2/release/
+          if-no-files-found: warn
+
+      - name: Upload SIVA real-profile audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: siva-real-profile-audit-v2
+          path: artifacts/author-authority-v2/portrait-live/
+          if-no-files-found: warn
+
+      - name: Upload V2 shadow evaluation and blind review packet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-shadow-snapshot
+          path: artifacts/author-authority-v2/snapshot/
+          if-no-files-found: warn
 
       - name: Upload Author Authority benchmark evidence
         if: always()

@@ -59,7 +59,10 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Install dependencies
+      - name: Install frozen CPU dependencies
+        env:
+          # CPU runners do not need the optional CUDA provider download.
+          ONNXRUNTIME_NODE_INSTALL: skip
         run: npm ci
 
       - name: Validate Python syntax

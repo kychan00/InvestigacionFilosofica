@@ -19,7 +19,7 @@ const alias={s:authorNameSignature(name),id:Number(id),
   n:name,o:"https://orcid.org/"+orcid,cw:4,w:4,c:4,k:"full"};
 
 try{
- for(const theme of ["light","dark"]){
+ for(const [theme,preview] of [["light",false],["dark",false],["light",true],["dark",true]]){
   const page=await browser.newPage({
     viewport:{width:390,height:850},isMobile:true,hasTouch:true,deviceScaleFactor:1
   });
@@ -50,6 +50,7 @@ try{
   });
   const url=new URL(BASE);
   url.searchParams.set("view","author");
+  if(preview)url.searchParams.set("authorityPreview","1");
   url.searchParams.set("author",name);
   url.searchParams.set("authorId",id);
   url.searchParams.set("authorOrcid","https://orcid.org/"+orcid);
@@ -62,6 +63,26 @@ try{
     document.querySelectorAll(".author-work-grid .result-card").length===4,
     null,{timeout:20000});
   assert.equal(urls.length,0,"Direct OpenAlex API must not be called");
+  if(preview){
+    const root=page.locator("#author-authority-preview");
+    await root.locator(".authority-preview-metrics").waitFor({timeout:30000});
+    // The local institutional corpus contributes additional prefilter candidates.
+    // Assert the exact probable subset rather than treating all candidates as authorship.
+    await root.locator("select").selectOption("probable");
+    assert.equal(await root.locator(".authority-preview-work").count(),4);
+    for (const row of rows) {
+      assert.equal(await root.locator(".authority-preview-work").filter({hasText:row.t}).count(),1);
+    }
+    assert.equal(await root.locator(".authority-preview-metric").nth(1).locator("strong").textContent(),"4");
+    const selected=root.locator(".authority-preview-work").filter({hasText:rows[2].t});
+    await selected.locator("summary").click();
+    await selected.getByRole("button",{name:"Abrir ficha bibliográfica"}).click();
+    await page.locator("#record-modal").waitFor({state:"visible"});
+    assert.equal(urls.length,0);
+    await page.keyboard.press("Escape");
+    await page.locator("#record-modal").waitFor({state:"hidden"});
+    assert.equal(await page.locator(".author-work-grid .authority-preview-card-label").count(),4);
+  }else assert.equal(await page.locator("#author-authority-preview").count(),0);
   const state=await page.evaluate(()=>{
     const cards=[...document.querySelectorAll(".author-work-grid .result-card")];
     const stats=document.querySelector("#stats");
@@ -101,9 +122,28 @@ try{
       ));
   }, null, {timeout: 10000});
   await page.screenshot({
-    path:"artifacts/author-deep-discovery/"+theme+"-profile-390.png",
+    path:"artifacts/author-deep-discovery/"+theme+(preview?"-v2":"")+"-profile-390.png",
     animations:"disabled"
   });
+  if(preview){
+    // Verify the actual application navigation, not a fixture-only mode toggle.
+    const exit=page.getByRole("link",{name:"Salir de la vista experimental"});
+    const destination=new URL(await exit.getAttribute("href"));
+    assert.equal(destination.searchParams.has("authorityPreview"),false);
+    assert.equal(destination.searchParams.get("authorId"),id);
+    assert.equal(destination.searchParams.get("author"),name);
+    assert.equal(destination.hash,"#results");
+    await Promise.all([page.waitForURL(u=>!u.searchParams.has("authorityPreview")),exit.click()]);
+    await page.waitForFunction(()=>document.querySelectorAll(".author-work-grid .result-card").length===4,null,{timeout:30000});
+    const reverted=await page.evaluate(()=>({
+      titles:[...document.querySelectorAll(".author-work-grid .result-card h2")].map(x=>x.textContent.trim()).sort(),
+      preview:document.querySelectorAll("#author-authority-preview,.authority-preview-card-label,.siva-authority-preview").length
+    }));
+    assert.equal(reverted.preview,0);
+    assert.deepEqual(reverted.titles,state.titles.slice().sort(),"Rollback must preserve canonical bibliography");
+    assert.equal(urls.length,0,"Rollback must not call direct OpenAlex API");
+    console.log("AUTHORITY_V2_ROLLBACK "+JSON.stringify({theme,canonicalWorks:reverted.titles.length,experimentalLabels:reverted.preview,directOpenAlexRequests:urls.length}));
+  }
   await page.close();
   process.stdout.write("Hugging Face author archive "+theme+" OK\n");
  }

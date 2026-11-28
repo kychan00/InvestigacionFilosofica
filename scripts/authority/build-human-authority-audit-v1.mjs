@@ -3,11 +3,10 @@ import {
   readFile,
   writeFile
 } from "node:fs/promises";
-import {createReadStream} from "node:fs";
 import {createHash} from "node:crypto";
 import {basename, join, resolve} from "node:path";
 import {fileURLToPath} from "node:url";
-import {createInterface} from "node:readline";
+import {readSnapshotJsonl as readJsonLines} from "./read-snapshot-jsonl.mjs";
 import {
   runAuthorAuthorityBenchmark
 } from "./benchmark-author-authority-v1.mjs";
@@ -38,50 +37,6 @@ function parseArgs(argv) {
 
 async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
-}
-
-async function* readJsonLines(
-  path,
-  {
-    tolerant = false,
-    diagnostics = null
-  } = {}
-) {
-  const input = createReadStream(path, {encoding: "utf8"});
-  const lines = createInterface({
-    input,
-    crlfDelay: Infinity
-  });
-  let lineNumber = 0;
-
-  for await (const line of lines) {
-    lineNumber++;
-    if (!line.trim()) continue;
-
-    try {
-      yield JSON.parse(line);
-    } catch (error) {
-      if (!tolerant) {
-        throw new Error(
-          path + ":" + lineNumber + ": " + error.message
-        );
-      }
-
-      if (diagnostics) {
-        diagnostics.invalidJsonRows =
-          Number(diagnostics.invalidJsonRows || 0) + 1;
-        diagnostics.samples ||= [];
-        if (diagnostics.samples.length < 20) {
-          diagnostics.samples.push({
-            path,
-            lineNumber,
-            error: error.message,
-            preview: line.slice(0, 240)
-          });
-        }
-      }
-    }
-  }
 }
 
 function sha256Text(text) {

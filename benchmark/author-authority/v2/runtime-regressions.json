@@ -1,0 +1,248 @@
+{
+  "schemaVersion": "authority-runtime-regressions-v2-phase1",
+  "base": "b85cf848389d5457281a90aebb65955c967135ff",
+  "note": "Editorial regression expectations, not independent human gold; all records are minimal reconstructed fixtures, synthetic IDs are not claims about real people.",
+  "cases": [
+    {
+      "id": "chalmers-philosophy",
+      "kind": "documented",
+      "task": "contribution",
+      "expected": "accept",
+      "name": "David Chalmers",
+      "work": {
+        "title": "Facing Up to the Problem of Consciousness",
+        "year": 1995,
+        "authors": [
+          {
+            "name": "David Chalmers"
+          }
+        ]
+      },
+      "sources": [
+        "https://consc.net/all-papers/"
+      ]
+    },
+    {
+      "id": "chalmers-1627",
+      "kind": "documented",
+      "task": "contribution",
+      "expected": "reject",
+      "name": "David Chalmers",
+      "work": {
+        "title": "De statu hominis",
+        "year": 1627,
+        "authors": [
+          {
+            "name": "David Chalmers"
+          }
+        ]
+      },
+      "sources": [
+        "https://books.google.com/books?id=g_-IJgRsQ9EC",
+        "https://consc.net/cv/"
+      ],
+      "note": "Reconstructed from reported catalogue collision, not raw provider payload."
+    },
+    {
+      "id": "chalmers-urologist",
+      "kind": "documented",
+      "task": "contribution",
+      "expected": "reject",
+      "name": "David Chalmers",
+      "work": {
+        "title": "Pediatric Urology for the General Surgeon",
+        "year": 2016,
+        "authors": [
+          {
+            "name": "David J. Chalmers"
+          },
+          {
+            "name": "Vijaya M. Vemulakonda"
+          }
+        ]
+      },
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/27261794/",
+        "https://consc.net/cv/"
+      ]
+    },
+    {
+      "id": "jaeggi-publisher",
+      "kind": "documented",
+      "task": "contribution",
+      "expected": "accept",
+      "name": "Rahel Jaeggi",
+      "orcid": "0000-0003-4713-7031",
+      "work": {
+        "title": "Sharing the universal resources: Remarks on Honneth’s understanding of work",
+        "doi": "10.1177/1468795X231182636",
+        "year": 2023,
+        "authors": [
+          {
+            "name": "Rahel Jaeggi",
+            "orcid": "0000-0003-4713-7031"
+          }
+        ]
+      },
+      "sources": [
+        "https://doi.org/10.1177/1468795X231182636"
+      ]
+    },
+    {
+      "id": "benjamin-inverted",
+      "kind": "documented",
+      "task": "orcid",
+      "expected": "reject",
+      "author": {
+        "displayName": "Walter Benjamin",
+        "orcid": "0000-0003-0282-8605"
+      },
+      "profile": {
+        "displayName": "Benjamin Walter",
+        "givenName": "Benjamin",
+        "familyName": "Walter"
+      },
+      "sources": [
+        "https://doi.org/10.5194/tc-14-1779-2020"
+      ]
+    },
+    {
+      "id": "benjamin-registrant",
+      "kind": "documented",
+      "task": "orcid",
+      "expected": "accept",
+      "author": {
+        "displayName": "Benjamin Walter",
+        "orcid": "0000-0003-0282-8605"
+      },
+      "profile": {
+        "displayName": "Benjamin Walter",
+        "givenName": "Benjamin",
+        "familyName": "Walter"
+      },
+      "sources": [
+        "https://doi.org/10.5194/tc-14-1779-2020"
+      ]
+    },
+    {
+      "id": "synthetic-name-only",
+      "kind": "synthetic",
+      "task": "identity",
+      "expected": "abstain",
+      "mention": {
+        "name": "Ana Pérez"
+      },
+      "candidates": [
+        {
+          "id": "fixture:a",
+          "name": "Ana Pérez"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-homonyms",
+      "kind": "synthetic",
+      "task": "identity",
+      "expected": "abstain",
+      "mention": {
+        "name": "Ana Pérez"
+      },
+      "candidates": [
+        {
+          "id": "fixture:a",
+          "name": "Ana Pérez"
+        },
+        {
+          "id": "fixture:b",
+          "name": "Ana Pérez"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-conflict",
+      "kind": "synthetic",
+      "task": "identity",
+      "expected": "reject",
+      "mention": {
+        "name": "Ana Pérez",
+        "orcid": "0000-0002-1825-0097"
+      },
+      "candidates": [
+        {
+          "id": "fixture:a",
+          "name": "Ana Pérez",
+          "orcid": "0000-0001-5109-3700"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-variant-id",
+      "kind": "synthetic",
+      "task": "identity",
+      "expected": "accept",
+      "mention": {
+        "name": "A. Pérez",
+        "orcid": "0000-0002-1825-0097"
+      },
+      "candidates": [
+        {
+          "id": "fixture:a",
+          "name": "Ana Pérez",
+          "orcid": "0000-0002-1825-0097"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-title-mention",
+      "kind": "synthetic",
+      "task": "contribution",
+      "expected": "reject",
+      "name": "Ana Pérez",
+      "work": {
+        "title": "A study of Ana Pérez",
+        "authors": [
+          {
+            "name": "Otra Persona"
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-interdisciplinary",
+      "kind": "synthetic",
+      "task": "contribution",
+      "expected": "accept",
+      "name": "Ana Pérez",
+      "orcid": "0000-0002-1825-0097",
+      "work": {
+        "title": "Interdisciplinary research in medicine and philosophy",
+        "authors": [
+          {
+            "name": "Ana Pérez",
+            "orcid": "0000-0002-1825-0097"
+          }
+        ]
+      }
+    },
+    {
+      "id": "synthetic-coauthor-id",
+      "kind": "synthetic",
+      "task": "contribution",
+      "expected": "reject",
+      "name": "Ana Pérez",
+      "orcid": "0000-0002-1825-0097",
+      "work": {
+        "title": "Unrelated work",
+        "authors": [
+          {
+            "name": "Ana Pérez",
+            "orcid": "0000-0001-5109-3700"
+          },
+          {
+            "name": "Other Author"
+          }
+        ]
+      }
+    }
+  ]
+}

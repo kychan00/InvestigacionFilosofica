@@ -53,7 +53,7 @@ import {
   summarizeAuthorCorpus
 } from "../src/core/author-page.js?v=20261029-author-reliability-v1";
 
-import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7";
+import { createAuthorPortraitSession } from "./author-portrait-session.js?v=20261127-siva-v7-authority-v2-7c";
 
 import { mountAuthorTimeline } from "../src/core/author-timeline-ui.js?v=20261127-history-evidence-v1";
 import {
@@ -61,7 +61,8 @@ import {
   workHasAuthorOrcidEvidence
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
-import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-classical-v1";
+import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-authority-v2-phase7b";
+import {authorityPreviewRevision,authorityPreviewExitUrl,mountAuthorAuthorityPreview,buildAuthorityArchiveView,authorityArchiveLabel} from "../src/core/author-authority-profile-v2.js?v=20261127-phase7c3";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -313,17 +314,20 @@ let currentFilteredResults = [];
 let authorSourceSearch = null;
 let authorTimelineState = {
   unit: "year",
-  timelineLimit: 4
+      timelineLimit: 4
 };
 let authorArchiveLoading = false;
 let authorArchiveNotice = "";
 let authorArchiveSources = [];
 let authorArchiveOrcidSummary = null;
 let authorArchiveOrcidProfile = null;
-const authorPortraitSession = createAuthorPortraitSession();
+const authorAuthorityPreviewRevision=authorityPreviewRevision(window.location.search);
+let authorAuthorityShadow=null;
+let authorAuthorityArchive=null;
+const authorPortraitSession = createAuthorPortraitSession({authorityRevision:authorAuthorityPreviewRevision});
 window.addEventListener("pagehide", () => authorPortraitSession.close());
 window.addEventListener("pageshow", event => {
-  if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view")) {
+  if (event.persisted && currentResponse?.authorOnly === true && document.body.classList.contains("author-view") && (!authorAuthorityPreviewRevision||!authorArchiveLoading)) {
     void authorPortraitSession.open(currentResponse.authorResolution?.author, document.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
   }
 });
@@ -3449,6 +3453,7 @@ function renderResult(
 
         <div class="provider-row">
 
+          ${item.authorityPreviewLabel?`<span class="provider authority-preview-card-label">${escapeHtml(item.authorityPreviewLabel)}</span>`:""}
           ${workSources.length > 1
             ? `<span class="provider author-multiple-sources">Varias fuentes · ${workSources.length}</span>`
             : ""}
@@ -5159,13 +5164,15 @@ function showExclusiveAuthorWorks(
   const safeAuthor=localizeClassicalAuthor(sanitizeAuthorOrcid(resolution.author));
   resolution={...resolution,author:safeAuthor,works:(resolution.works||[]).map(work=>removeRejectedWorkOrcid(work,safeAuthor))};
   if (options.resetTimeline) {
+    authorAuthorityShadow=null;
+    authorAuthorityArchive=null;
     authorArchiveNotice = "";
     authorArchiveSources = [];
     authorArchiveOrcidSummary = null;
     authorArchiveOrcidProfile = null;
     authorTimelineState = {
       unit: "year",
-  timelineLimit: 4
+      timelineLimit: 4
     };
     authorWorkBrowserState = {
       query: "",
@@ -5274,6 +5281,8 @@ function restoreAuthorSourceSearch() {
   authorArchiveSources = [];
   authorArchiveOrcidSummary = null;
   authorArchiveOrcidProfile = null;
+  authorAuthorityShadow=null;
+  authorAuthorityArchive=null;
   authorTimelineState.timelineLimit = 4;
   document.title =
     "Investigación Filosófica";
@@ -5663,6 +5672,7 @@ async function openExclusiveAuthorByName(
             orcid: resolution.author.orcid || null
           },
           initialWorks: resolution.works,
+          ...(authorAuthorityPreviewRevision?{authorityShadowRevision:authorAuthorityPreviewRevision}:{}),
           signal: authorController.signal,
           onProgress: ({
             works,source,phase,sources,errors,orcidSummary,orcidProfile,verifiedOrcid,orcidVerification
@@ -5708,6 +5718,7 @@ async function openExclusiveAuthorByName(
           currentController !== authorController
         ) return;
 
+        authorAuthorityShadow=deep.authorityShadow||null;
         authorArchiveSources = deep.sources;
         authorArchiveOrcidSummary = deep.orcidSummary;
         authorArchiveOrcidProfile =
@@ -5734,9 +5745,10 @@ async function openExclusiveAuthorByName(
           }, authorArchiveOrcidProfile)
         }, { loading: false, preserveVisibleLimit: true });
       } catch(error) {
-        if (authorController.signal.aborted) return;
+        if (authorController.signal.aborted || currentController !== authorController) return;
         console.error("No se pudo completar el catálogo del autor:",error);
         authorArchiveLoading = false;
+        authorAuthorityShadow={error:"La consulta bibliográfica no pudo completarse."};
         authorArchiveNotice = "Búsqueda parcial: no fue posible consultar todas las fuentes";
         showExclusiveAuthorWorks(
           {...resolution,author:{...resolution.author,orcid:null,orcidId:null,orcidProfile:null}},
@@ -6978,6 +6990,7 @@ function renderAuthorWorkCollection(
 
         return renderResult({
           ...item,
+          ...(authorAuthorityArchive?{authorityPreviewLabel:authorityArchiveLabel(authorAuthorityArchive.byWork.get(item))}:{}),
           collaborationKind:
             collab.kind,
           collaborationCount:
@@ -7352,7 +7365,7 @@ function renderAuthorPage(
                   ? "El registro ORCID público de este autor no incluye una biografía o afiliaciones. Esta ficha reúne su bibliografía y las fuentes académicas disponibles."
                   : federatedCatalog
                     ? "Publicaciones atribuidas por campos de creador, variantes del nombre y ORCID cuando está disponible. Las autorías colectivas pueden requerir verificación adicional."
-                    : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
+                    : authorAuthorityPreviewRevision ? "Perfil recuperado del corpus OpenAlex Philosophy; su identidad humana requiere corroboración independiente." : "Identidad bibliográfica confirmada en el corpus OpenAlex Philosophy."
               )
             )}
           </p>
@@ -7398,6 +7411,7 @@ function renderAuthorPage(
       </header>
 
       ${renderAuthorOrcidProfile(orcidProfile, orcidUrl)}
+      ${authorAuthorityPreviewRevision?`<section id="author-authority-preview" class="author-authority-preview" aria-label="Evaluación bibliográfica experimental"></section>`:""}
 
       <section class="author-page-metrics" aria-label="Resumen del corpus del autor">
         <div>
@@ -7568,14 +7582,25 @@ function renderFilteredResults() {
   if (authorOnlyResults) {
     clearAuthorIdentity();
 
+    authorAuthorityArchive=null;
+    if(authorAuthorityPreviewRevision&&!authorArchiveLoading&&authorAuthorityShadow&&!authorAuthorityShadow.error){
+      try { authorAuthorityArchive=buildAuthorityArchiveView(authorAuthorityShadow,currentResponse.results||[]); }
+      catch(error){console.warn("Authority archive projection unavailable",error);}
+    }
     resultsEl.innerHTML =
       errorHtml +
       renderAuthorPage(
         currentResponse
       );
 
-    void authorPortraitSession.open(currentResponse.authorResolution?.author,
-      resultsEl.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
+    if(authorAuthorityPreviewRevision){
+      try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading,archive:authorAuthorityArchive,onOpenWork:work=>openRecord(work),previewExitHref:authorityPreviewExitUrl(window.location.href)}); }
+      catch(error){ console.warn("Author Authority preview unavailable",error); }
+    }
+    if(!authorAuthorityPreviewRevision||!authorArchiveLoading){
+      void authorPortraitSession.open(currentResponse.authorResolution?.author,
+        resultsEl.querySelector(".siva-author-portrait-slot"), currentResponse.results || []);
+    }else authorPortraitSession.close();
 
     mountAuthorTimeline(
       resultsEl.querySelector("#author-timeline-root"),

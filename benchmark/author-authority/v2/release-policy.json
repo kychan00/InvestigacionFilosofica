@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "author-authority-v2-release-policy-v1",
+  "mode": "preview-only",
+  "identityPilot": {
+    "pairs": 100,
+    "minimumResolved": 80,
+    "minimumCoverage": 0.8,
+    "minimumPrecision": 0.98,
+    "minimumRecall": 0.85,
+    "maxFalseMerges": 0
+  },
+  "independentFinal": {
+    "minimumCases": 300,
+    "strata": {
+      "contemporary": 60,
+      "historical": 50,
+      "latin-american": 60,
+      "homonyms": 60,
+      "name-variants": 40,
+      "initials": 30
+    },
+    "note": "300 purposive case slots collected and bound to documentary review packets; independent adjudication is not complete. Keep identity-pair, name-retrieval, reference-person-retrieval, contribution and portrait metrics separate."
+  },
+  "contribution": {
+    "minimumReviewed": 100,
+    "minimumPrecision": 0.98,
+    "minimumRecall": 0.85
+  },
+  "portrait": {
+    "minimumReviewed": 20,
+    "minimumComparableCoverage": 0.8,
+    "maxWrongPortraits": 0,
+    "minimumDownloaded": 1
+  },
+  "notes": [
+    "Proposed thresholds for review before activation; not empirical claims.",
+    "The 100-pair snapshot is a development pilot, not independent final gold.",
+    "Passing technical CI does not approve a production release. Explicit human approval and a separate reviewed activation change are required.",
+    "Only opt-in or disabled runtime modes are supported. A preview deploy does not imply default activation."
+  ]
+}

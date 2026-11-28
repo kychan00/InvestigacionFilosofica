@@ -72,6 +72,7 @@ async function collectArchiveSurnameBatch(name,options,limit,evidenceWorks=[]) {
       {query:surname,weight:1,type:"author"},
       {rows:Math.min(limit,120),signal:options.signal,retries:1}
     );
+    try { options.onSourceBatch?.({provider:"Internet Archive",works:works||[]}); } catch {}
     return (works||[]).map(work=>
       matchFederatedWork(work,name,{
         aliases:options.aliases||[],expectedOrcid:options.orcid
@@ -154,8 +155,9 @@ async function collectFederatedBatch(queries,options,limit) {
     });
   }
   return Promise.all(jobs.map(async job=>{
-    try{return {ok:true,provider:job.provider,mode:job.mode,
-      works:await job.call()};}
+    try{const works=await job.call();
+      try { options.onSourceBatch?.({provider:job.provider,works:works||[]}); } catch {}
+      return {ok:true,provider:job.provider,mode:job.mode,works};}
     catch(error){
       if(options.signal?.aborted||error?.name==="AbortError")throw error;
       return {ok:false,provider:job.provider,error:String(error?.message||error)};
@@ -232,6 +234,7 @@ export async function resolveFederatedAuthor(name,options={}) {
           {query,weight:1,type:"author"},
           {rows:Math.min(limit,50),signal:options.signal,retries:1,language:"es"}
         );
+        try { options.onSourceBatch?.({provider:"Internet Archive",works:works||[]}); } catch {}
         return {ok:true,provider:"Internet Archive",mode:"author-internet-archive",works};
       } catch(error) {
         if(options.signal?.aborted||error?.name==="AbortError")throw error;
