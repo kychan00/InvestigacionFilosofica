@@ -93,6 +93,8 @@ on:
       - "scripts/qa/author-timeline-smoke.mjs"
       - "scripts/qa/author-history-navigation-smoke.mjs"
       - "src/core/author-timeline-history-identity.js"
+      - "src/core/reviewed-history-title-families.js"
+      - "tests/author-history-production-07ab.test.mjs"
       - "src/core/world-history-anchors.js"
       - "tests/world-history-anchors.test.mjs"
       - "src/core/author-intellectual-history*.js"
