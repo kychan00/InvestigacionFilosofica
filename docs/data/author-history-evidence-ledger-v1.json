@@ -655,9 +655,15 @@
           "url": "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/autoridad/255594",
           "locator": "Ficha de autoridad: muerte en Ciudad de México en 2023; apertura directa 429.",
           "access": "indexed"
+        },
+        {
+          "url": "https://unamglobal.unam.mx/global_revista/fallece-el-filosofo-enrique-dussel/",
+          "locator": "Nota institucional del 6 de noviembre de 2023, primer párrafo: muerte el 5 de noviembre en Ciudad de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q9191-0",
@@ -3077,11 +3083,13 @@
         },
         {
           "url": "https://colnal.mx/integrantes/antonio-caso/",
-          "locator": "Ingreso fundador en 1943.",
-          "access": "indexed"
+          "locator": "Semblanza, después de la introducción: miembro fundador el 15 de mayo de 1943.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q601364-9",
@@ -3276,11 +3284,13 @@
       "evidence": [
         {
           "url": "https://colnal.mx/integrantes/samuel-ramos/",
-          "locator": "Fallecimiento en Ciudad de México el 20 de junio de 1959.",
-          "access": "indexed"
+          "locator": "Semblanza, último párrafo antes del discurso de ingreso: fallecimiento en Ciudad de México el 20 de junio de 1959.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q2370396-0",
@@ -3295,8 +3305,10 @@
       "evidence": [
         {
           "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
-          "locator": "Semblanza: Barcelona, 1922, de padres mexicanos.",
-          "access": "indexed"
+          "locator": "Semblanza, primer párrafo: Barcelona, 3 de noviembre de 1922, de padres mexicanos.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         },
         {
           "url": "https://www.gob.mx/sep/acciones-y-programas/luis-villoro-toranzo",
@@ -3304,7 +3316,7 @@
           "access": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q2370396-1",
@@ -3321,9 +3333,15 @@
           "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
           "locator": "Obras destacadas: Los grandes momentos del indigenismo en México, 1950.",
           "access": "indexed"
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Hurtado, Diánoia 69(93), 2024, Citas: edición de El Colegio de México, 1950, con el título indicado.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q2370396-2",
@@ -3378,9 +3396,15 @@
           "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/luis-villoro/?nocache=1775482961",
           "locator": "Obras destacadas: Creer, saber, conocer, 1982.",
           "access": "indexed"
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Citas: entrada Villoro 1982a, libro de Siglo XXI; 1982b es un artículo distinto.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q2370396-5",
@@ -3416,9 +3440,21 @@
           "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
           "locator": "Bibliografía: El poder y el valor, 1997.",
           "access": "indexed"
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Citas: entrada Villoro 1997, El poder y el valor, Fondo de Cultura Económica.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
+          "locator": "Publicaciones, lista de libros: título y subtítulo Fundamentos de una ética política.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q2370396-7",
@@ -3435,9 +3471,15 @@
           "url": "https://revistas.unal.edu.co/index.php/idval/article/view/67154",
           "locator": "Bibliografía: Estado plural, pluralidad de culturas, 1998.",
           "access": "indexed"
+        },
+        {
+          "url": "https://dianoia.filosoficas.unam.mx/index.php/dianoia/article/view/2064",
+          "locator": "Citas: entrada Villoro 1998, Estado plural, pluralidad de culturas, UNAM y Paidós.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q2370396-8",
@@ -3454,9 +3496,15 @@
           "url": "https://filosoficas.unam.mx/sitio/sitio/sitio/luis-villoro-sexto-aniversario-luctuoso",
           "locator": "Conmemoración del sexto aniversario luctuoso en 2020, consistente con 2014.",
           "access": "indexed"
+        },
+        {
+          "url": "https://filosoficas.unam.mx/sitio/luis-villoro",
+          "locator": "Semblanza, último párrafo antes de Publicaciones: muerte el 5 de marzo de 2014.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-0",
@@ -3473,9 +3521,15 @@
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: nacimiento en Algeciras en 1915.",
           "access": "indexed"
+        },
+        {
+          "url": "https://www.elem.mx/autor/datos/109104",
+          "locator": "Semblanza biográfica, párrafo que empieza con el nacimiento: Algeciras, España, 1915. Se conserva solamente el año en la matriz.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-1",
@@ -3492,9 +3546,15 @@
           "url": "https://www.gob.mx/cultura/prensa/adolfo-sanchez-vazquez-filosofo-autocritico-y-antidogmatico",
           "locator": "Semblanza: llegada a Veracruz en el Sinaia el 13 de junio de 1939; apertura 403.",
           "access": "indexed"
+        },
+        {
+          "url": "https://marxismocritico.com/2013/05/03/entrevita-a-adolfo-sanchez-vazquez/",
+          "locator": "Entrevista de Teresa Rodríguez de Lecea, primera respuesta: testimonio del propio filósofo sobre llegada a Veracruz el 13 de junio de 1939 a bordo del Sinaia; se consultó una reproducción de la entrevista.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-2",
@@ -3511,9 +3571,15 @@
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: El pulso ardiendo, poesía, 1942.",
           "access": "indexed"
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, sección Poesía: primera publicación en Morelia, Voces, 1942; distingue ediciones posteriores.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-3",
@@ -3530,9 +3596,15 @@
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: regreso a Ciudad de México en 1943 y continuación de estudios filosóficos.",
           "access": "indexed"
+        },
+        {
+          "url": "https://ve.scielo.org/scielo.php?lang=es&pid=S1315-52162006000300009&script=sci_arttext",
+          "locator": "Artículo El humanismo teórico-práctico de Adolfo Sánchez Vásquez, sección Evolución filosófica: regreso a Ciudad de México en 1943 y continuación de estudios en FFyL UNAM.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-4",
@@ -3549,9 +3621,15 @@
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Obra estética: Las ideas estéticas de Marx, 1965.",
           "access": "indexed"
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: México, Era, 1965.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-5",
@@ -3568,9 +3646,15 @@
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Obra filosófica: Filosofía de la praxis, 1967.",
           "access": "indexed"
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: México, Grijalbo, 1967.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-6",
@@ -3587,9 +3671,15 @@
           "url": "https://colegiodefilosofia.filos.unam.mx/inicio/profesores/adolfo-sanchez-vazquez/",
           "locator": "Obra estética: Estética y marxismo, 1970.",
           "access": "indexed"
+        },
+        {
+          "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: México, Era, 1970.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-7",
@@ -3604,11 +3694,13 @@
       "evidence": [
         {
           "url": "https://www.cervantesvirtual.com/portales/adolfo_sanchez_vazquez/bibliografia/",
-          "locator": "Bibliografía: Ensayos marxistas sobre filosofía e ideología, Océano, 1983.",
-          "access": "indexed"
+          "locator": "Bibliografía del autor, Filosofía, memorialismo, crítica: Barcelona, Océano, 1983.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q365193-8",
@@ -3625,9 +3717,15 @@
           "url": "https://arboldelademocracia.cuaieed.unam.mx/autor/adolfo-sanchez-vazquez/",
           "locator": "Semblanza: fallecimiento en Ciudad de México el 8 de julio de 2011; apertura 502.",
           "access": "indexed"
+        },
+        {
+          "url": "https://www.elem.mx/autor/datos/109104",
+          "locator": "Semblanza, párrafo biográfico que comienza con el nacimiento: muerte el 8 de julio de 2011 en Ciudad de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q891708-0",
@@ -3756,11 +3854,13 @@
       "evidence": [
         {
           "url": "https://bolivare.unam.mx/obras/la-modernidad-de-lo-barroco",
-          "locator": "Ficha bibliográfica: Era, 1998.",
-          "access": "indexed"
+          "locator": "Ficha de la obra, referencia inmediatamente anterior al índice: México, Ediciones Era, 1998.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q891708-7",
@@ -3851,11 +3951,19 @@
       "evidence": [
         {
           "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
-          "locator": "Semblanza: tesis de bachiller en Humanidades, 1950.",
-          "access": "indexed"
+          "locator": "Sección de bibliografía básica: identifica la tesis de bachiller en Humanidades de 1950.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://ulibros.com/aproximacion-a-unanue-y-la-ilustracion-peruana-crxn2.html",
+          "locator": "Ficha editorial de la UNMSM en el catálogo EULAC, descripción: tesis de bachiller sustentada en San Marcos en 1950.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q5711746-2",
@@ -3872,9 +3980,21 @@
           "url": "https://cedoc.sisbib.unmsm.edu.pe/public/pdf/revistas/revsanmarcos/1.12.pdf",
           "locator": "Fragmento indexado de revista San Marcos: doctorado en 1953; PDF no inspeccionado integralmente.",
           "access": "indexed"
+        },
+        {
+          "url": "https://repositorioletrascorpus.unmsm.edu.pe/items/17f8f1b9-a21f-4609-9c75-d3bbe11bca49",
+          "locator": "Ficha institucional de tesis de filosofía: fecha 1953, autor Augusto Salazar Bondy, editor UNMSM, colección de doctorado. Consulta de metadatos, no del facsímil.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
+        },
+        {
+          "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
+          "locator": "Párrafo sobre formación y premios: tesis de 1953 titulada Ensayo sobre la distinción entre el ser irreal y el ser ideal.",
+          "access": "direct",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q5711746-3",
@@ -3927,11 +4047,13 @@
       "evidence": [
         {
           "url": "https://www.elperuano.pe/noticia/235205-augusto-salazar-bondy-1925-1974-el-educador-y-la-tarea-historica",
-          "locator": "Encabezado biográfico: 1925–1974.",
-          "access": "indexed"
+          "locator": "Encabezado y entradilla de 6 de febrero de 2024: conmemoración de cincuenta años de su fallecimiento; años biográficos 1925–1974.",
+          "access": "direct",
+          "previousAccess": "indexed",
+          "checkedOn": "2026-11-27"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     }
   ],
   "authorityChecks": [
@@ -4177,8 +4299,8 @@
     }
   ],
   "accessSummary": {
-    "direct-recorded": 66,
+    "direct-recorded": 88,
     "legacy-unclassified": 109,
-    "indexed-only": 24
+    "indexed-only": 2
   }
 }
