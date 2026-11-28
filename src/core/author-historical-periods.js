@@ -52,7 +52,7 @@ export function historicalTimelineSlice(model,context,limit=TIMELINE_BATCH){
   let remaining=Math.max(0,Number.isFinite(limit)?Math.floor(limit):TIMELINE_BATCH);
   for(const group of model.groups){
     if(!remaining)break;
-    const period=historicalPeriod(group.year,context.region);
+    const period=group.needsReview?band("review","Fechas por revisar","archive"):historicalPeriod(group.year,context.region);
     let section=sections.at(-1);
     if(!section||section.key!==period.key){section={...period,entries:[]};sections.push(section);}
     const nodes=group.nodes.slice(0,remaining);

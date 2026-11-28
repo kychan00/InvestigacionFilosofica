@@ -1156,3 +1156,13 @@ html[data-theme="dark"] .author-page #author-timeline-root {
 .author-intellectual-history .author-history-evidence-reference a {
   max-width: 100%; overflow-wrap: anywhere; white-space: normal;
 }
+/* Temporal review uses the current timeline palette in every shell. */
+#author-timeline-root .author-timeline-date-audit {
+ display:grid;gap:3px;min-width:0;max-width:100%;
+ padding:6px 0 0;margin-top:3px;border-top:1px solid var(--tl-line);
+ color:var(--tl-muted);font-size:11px;line-height:1.5;
+ white-space:normal;overflow-wrap:anywhere;text-align:left;
+}
+#author-timeline-root .author-timeline-date-audit strong {color:var(--tl-ink);font-size:11px;line-height:1.5;}
+#author-timeline-root .author-timeline-review-notice {margin-top:8px;}
+#author-timeline-root .author-timeline-review-jump {margin:0 0 12px;}

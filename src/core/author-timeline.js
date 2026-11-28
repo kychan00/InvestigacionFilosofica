@@ -3,6 +3,8 @@
  * A year-only index record is never assigned an invented publication month.
  */
 
+import { assessAuthorWorkDate } from "./author-temporal-review.js?v=20261128-history-temporal-07c-v1";
+
 const MONTHS_ES = [
   "enero", "febrero", "marzo", "abril", "mayo", "junio",
   "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
@@ -57,20 +59,26 @@ export function authorWorkDate(work = {}) {
 
 export function buildAuthorTimeline(
   works = [],
-  granularity = "year"
+  granularity = "year",
+  {history=null} = {}
 ) {
   const mode = granularity === "month" ? "month" : "year";
   const rows = Array.isArray(works) ? works : [];
   const map = new Map();
   let dated = 0;
   let monthsKnown = 0;
+  let dateReview = 0;
 
   rows.forEach((work, index) => {
-    const { year, month } = authorWorkDate(work);
+    const reportedDate = authorWorkDate(work);
+    const audit = assessAuthorWorkDate(work,reportedDate,history);
+    const needsReview = audit?.review===true;
+    const {year,month} = needsReview?{year:null,month:null}:reportedDate;
+    if(needsReview)dateReview++;
     if (year !== null) dated++;
     if (year !== null && month !== null) monthsKnown++;
 
-    const key = mode === "year"
+    const key = needsReview ? "review" : mode === "year"
       ? year === null ? "y:unknown" : "y:" + year
       : year === null
         ? "m:unknown"
@@ -80,7 +88,7 @@ export function buildAuthorTimeline(
 
     if (!map.has(key)) {
       const formattedYear = year < 0 ? Math.abs(year) + " a. C." : String(year);
-      const label = year === null
+      const label = needsReview ? "Fecha por revisar" : year === null
         ? "Sin fecha"
         : mode === "year"
           ? formattedYear
@@ -93,6 +101,7 @@ export function buildAuthorTimeline(
         label,
         year,
         month,
+        ...(needsReview?{needsReview:true}:{}),
         count: 0,
         nodes: []
       });
@@ -100,11 +109,11 @@ export function buildAuthorTimeline(
 
     const group = map.get(key);
     group.count++;
-    group.nodes.push({ index, work });
+    group.nodes.push({ index, work, ...(audit?{dateAudit:audit}:{}) });
   });
 
   const groups = [...map.values()].sort((left, right) =>
-    (left.year ?? 9999) - (right.year ?? 9999) ||
+    (left.needsReview?10000:left.year ?? 9999) - (right.needsReview?10000:right.year ?? 9999) ||
     (left.month ?? 13) - (right.month ?? 13) ||
     left.key.localeCompare(right.key, "es")
   );
@@ -121,7 +130,8 @@ export function buildAuthorTimeline(
     granularity: mode,
     total: rows.length,
     dated,
-    undated: rows.length - dated,
+    undated: rows.length - dated - dateReview,
+    ...(dateReview?{dateReview}:{}),
     monthsKnown,
     groups
   };

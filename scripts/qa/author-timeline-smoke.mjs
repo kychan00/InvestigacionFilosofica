@@ -309,6 +309,30 @@ try {
       await life.getByText("Referencias consultadas",{exact:true}).first().waitFor({state:"visible"});
       await geometry();
     }
+    // Actual production-shaped dates: preserve raw records and original detail indexes.
+    await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q60025",displayName:"Hannah Arendt"},[
+      {title:"Hannah Arendt, The Origins Of Totalitarianism",year:1900},
+      {title:"The Human Condition",year:1958},
+      {title:"The Life of the Mind",year:1978},
+      {title:"The Origins of Totalitarianism",year:2025},
+      {title:"Unknown"}
+    ]));
+    assert.equal(await page.locator(".author-timeline-review-notice").count(),1);
+    assert.equal(await page.locator("[data-date-review=true]").count(),0);
+    await page.getByRole("button",{name:"Ver fechas por revisar"}).click();
+    const reviewed=page.locator("[data-date-review=true] .author-timeline-work");
+    assert.match(await reviewed.textContent(),/1900/);
+    assert.equal(await reviewed.locator('[data-date-audit="before-birth"]').count(),1);
+    assert.equal(await page.locator('[data-date-audit="documented-posthumous"]').count(),1);
+    assert.equal(await page.locator('[data-date-audit="later-version-possible"]').count(),1);
+    for(const shell of ["default","territory","marginalia","observatory"]){
+      await page.evaluate(shell=>{document.documentElement.dataset.corpusShell=shell;},shell);
+      await geometry();
+      const overflow=await page.locator(".author-timeline-date-audit").evaluateAll(items=>items.some(e=>e.scrollWidth>e.clientWidth+2));
+      assert.equal(overflow,false);
+    }
+    await reviewed.click();
+    assert.equal(await page.evaluate(()=>window.__timelineOpened),0);
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }
