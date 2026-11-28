@@ -39,3 +39,22 @@ test("independent titles from incompatible corpus IDs do not establish a federat
  const works=[{title:"El problema de México y la ideología nacional",authors:[{name:"Antonio Caso",id:"A123"}]},{title:"La persona humana y el Estado totalitario",authors:[{name:"Antonio Caso",id:"A456"}]}];
  assert.equal(timelineHistoryAuthor(a,works),a);
 });
+
+
+test("Confucius contextual panel from documented federated Analects record, not a second authored work",()=>{
+ const a={id:null,catalog:"federated",displayName:"Confucio",sourceDisplayName:"Confucio"};
+ const w={title:"Analectas, Confucio",authors:[{name:"Confucio",id:null}],authorIdentity:{exact:true,evidence:"exact-name"},sourceRecords:[{provider:"Internet Archive",sourceId:"analects-fixture"}]};
+ const h=timelineHistoryAuthor(a,[w]);
+ assert.equal(h.wikidataId,"Q4604");assert.equal(h.historyIdentityContext,"confucius-reviewed-catalogue");
+ assert.equal(a.wikidataId,undefined);
+ assert.equal(timelineHistoryAuthor(a,[{...w,title:"Los cuatro libros"}]),a);
+ assert.equal(timelineHistoryAuthor(a,[{...w,authors:[{name:"Otro autor"}]}]),a);
+ assert.equal(timelineHistoryAuthor(a,[{...w,authors:[{name:"Confucio",role:"translator"}]}]),a);
+ assert.equal(timelineHistoryAuthor(a,[{...w,authors:[{name:"Confucio",id:"A9999"}]}]),a);
+ assert.equal(timelineHistoryAuthor(a,[{...w,sourceRecords:[]}]),a);
+ assert.equal(timelineHistoryAuthor(a,[{...w,authorIdentity:{exact:false}}]),a);
+ const modern={...a,id:"1234"};assert.equal(timelineHistoryAuthor(modern,[w]),modern);
+ const conflict={...a,viafId:"123"};assert.equal(timelineHistoryAuthor(conflict,[w]),conflict);
+ const orcid={...a,orcid:"0000-0001-0000-0001"};assert.equal(timelineHistoryAuthor(orcid,[w]),orcid);
+ assert.equal(timelineHistoryAuthor(a,[{...w,authors:[{name:"Confucio",wikidataId:"Q1"}]}]),a);
+});
