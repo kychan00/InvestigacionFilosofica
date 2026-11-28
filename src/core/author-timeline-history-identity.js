@@ -1,6 +1,7 @@
 import { WORLD_HISTORY_ANCHORS } from "./world-history-anchors.js?v=20261127-world-v1";
 import { LATAM_HISTORY_ANCHORS } from "./latin-american-history-anchors.js?v=20261127-latam-v1";
-import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-final-v1";
+import { intellectualHistory } from "./author-intellectual-history.js?v=20261127-history-evidence-v1";
+import { REVIEWED_HISTORY_TITLE_FAMILIES } from "./reviewed-history-title-families.js?v=20261127-history-context-07ab-v1";
 // Documentary corroboration for this view only. Translations and editions
 // of one work count as one anchor; no external requests or identity mutation.
 const anchors=[
@@ -45,6 +46,16 @@ export function timelineHistoryAuthor(author,works=[]){
  const [qid,aliases,titles]=candidates[0], names=new Set(aliases.map(norm));
  const linked=new Set([oa(author.openalexId||author.sourceId||author.id),...(Array.isArray(author.linkedAuthorIds)?author.linkedAuthorIds.map(oa):[])].filter(Boolean));
  const groups=titles.map(g=>new Set(g.map(norm))), matched=new Set(), observedIds=new Set();
+ const reviewed=REVIEWED_HISTORY_TITLE_FAMILIES[qid];
+ const originalGroups=groups.map(g=>new Set(g));
+ if(reviewed){
+  for(const extension of reviewed.extend){
+   const group=groups.find(g=>g.has(norm(extension.base)));
+   if(group)for(const title of extension.titles)group.add(norm(title));
+  }
+  for(const family of reviewed.families)groups.push(new Set(family.map(norm)));
+ }
+ let reviewedMatch=false;
  if(qid==="Q4604"&&(author.viafId||author.viaf)&&!confuciusViaf(author.viafId||author.viaf))return author;
  let confuciusContext=false;
  let confuciusCorroborated=qid==="Q4604"&&(confuciusViaf(author.viafId||author.viaf)||confuciusLifeHeading(author.sourceDisplayName)||confuciusLifeHeading(author.displayName));
@@ -67,10 +78,12 @@ export function timelineHistoryAuthor(author,works=[]){
       Array.isArray(work.sourceRecords)&&work.sourceRecords.some(r=>r?.provider==="Internet Archive"&&typeof r.sourceId==="string"&&r.sourceId.trim())&&
       names.has(norm(typeof p==="string"?p:p?.name||p?.displayName||p?.sourceDisplayName)))confuciusContext=true;
    return p;
-  }).length)matched.add(i);
+  }).length){matched.add(i);if(reviewed&&!originalGroups[i]?.has(norm(work.title)))reviewedMatch=true;}
  }
  if(!linked.size&&observedIds.size>1)return author;
+ // No unreviewed external authority ID can unlock the newly reviewed variants.
+ if(reviewedMatch&&(author.viafId||author.viaf))return author;
  if(qid==="Q4604" ? !(matched.size===1&&(confuciusCorroborated||confuciusContext)) : matched.size<2)return author;
- const scoped={...author,wikidataId:qid,...(qid==="Q4604"&&!names.has(visible)?{displayName:"Confucio"}:{}),...(qid==="Q4604"&&!confuciusCorroborated&&confuciusContext?{historyIdentityContext:"confucius-reviewed-catalogue"}:{})};
+ const scoped={...author,wikidataId:qid,...(qid==="Q4604"&&!names.has(visible)?{displayName:"Confucio"}:{}),...(qid==="Q4604"&&!confuciusCorroborated&&confuciusContext?{historyIdentityContext:"confucius-reviewed-catalogue"}:reviewedMatch?{historyIdentityContext:"reviewed-title-families"}:{})};
  return intellectualHistory(scoped)?scoped:author;
 }

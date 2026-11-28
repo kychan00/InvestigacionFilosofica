@@ -1,6 +1,8 @@
 import { intellectualHistory, BIO_BATCH, BIO_TYPES } from "./author-intellectual-history.js?v=20261127-history-evidence-v1";
 import { historicalPeriod } from "./author-historical-periods.js?v=20261127-historical-v4";
 
+import { REVIEWED_HISTORY_TITLE_FAMILIES } from "./reviewed-history-title-families.js?v=20261127-history-context-07ab-v1";
+
 function el(tag,cls,text){
   const node=document.createElement(tag);
   if(cls)node.className=cls;
@@ -132,7 +134,7 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,i
   });
   toggle.setAttribute("aria-controls",panel.id);
   const title=el("span","author-intellectual-history-toggle-copy");
-  title.append(el("strong","",matrix?"Cronología del expediente":"Vida e historia intelectual"),el("span","",history.events.length+(matrix?" registros fechados":" hitos documentados")+(history.region==="china"?" · Tradición china":"")+(identityContext==="confucius-reviewed-catalogue"?" · Identificación contextual":"")));
+  title.append(el("strong","",matrix?"Cronología del expediente":"Vida e historia intelectual"),el("span","",history.events.length+(matrix?" registros fechados":" hitos documentados")+(history.region==="china"?" · Tradición china":"")+(["confucius-reviewed-catalogue","reviewed-title-families"].includes(identityContext)?" · Identificación contextual":"")));
   const chevron=el("span","author-intellectual-history-chevron");
   chevron.setAttribute("aria-hidden","true");
   toggle.append(title,chevron);
@@ -153,6 +155,11 @@ export function buildHistoryPanel(history,state,{archiveHref=null,matrix=false,i
       const note=el("p","author-intellectual-history-note","Identificación contextual: el catálogo atribuye las Analectas a un nombre histórico reconocido por autoridades bibliográficas. Esto no confirma la autoría de todas las obras ni convierte los Cuatro Libros en una obra independiente de Confucio. ");
       const source=el("a","author-intellectual-history-source","Autoridad Getty ULAN ↗");
       source.href="https://www.getty.edu/vow/ULANFullDisplay?subjectid=500355288&find=&role=&nation=";source.target="_blank";source.rel="noopener noreferrer";note.append(source);
+      panel.append(note);
+    }
+    if(identityContext==="reviewed-title-families"&&REVIEWED_HISTORY_TITLE_FAMILIES[history.id]){
+      const note=el("p","author-intellectual-history-note","Identificación contextual: al menos dos familias textuales documentadas permiten mostrar la historia del filósofo. No confirman que todas las obras del archivo pertenezcan a esa persona ni que los participantes sean coautores originales. ");
+      for(const [label,url] of REVIEWED_HISTORY_TITLE_FAMILIES[history.id].sources)note.append(sourceLink(url,label,"Identificación histórica"));
       panel.append(note);
     }
     const entries=el("ol","author-intellectual-history-track");

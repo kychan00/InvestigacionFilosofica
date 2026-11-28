@@ -297,6 +297,18 @@ try {
     }
     await page.evaluate(()=>window.__timelineFixture({displayName:"Confucio"},[{title:"Analectas",year:1900,authors:[{name:"Confucio"}]},{title:"Los cuatro libros",year:1961,authors:[{name:"Confucio"}]}]));
     assert.equal(await life.count(),0,"Anthology and included text do not establish independent evidence");
+    // Reconstructed catalogue title families from production PDFs.
+    for(const c of [{"qid":"Q8011","name":"Avicena","catalog":"federated","count":5,"positive":["De anima latine","Prima primi canonis Avicenne sectio","Principis Auicennae... De corde, eiusque facultatibus libells"],"noise":["PENGARUH ATRIBUT PRODUK DAN GAYA HIDUP TERHADAP KEPUTUSAN PEMBELIAN SAMMRTPHONE REDMI DI ROYAL CELL BIMA","Comparative Investigation on Tool Wear during End Milling of AISI H13 Steel with Different Tool Path Strategies"]},{"qid":"Q183074","name":"Sor Juana Inés de la Cruz","catalog":"federated","count":5,"positive":["Loa Al Auto Sacramental Del Divino Narciso Sor Juana Ines De La Cruz","Loa To The Divine Narcissus","Obras escogidas y Los empeños de una casa","From “La Respuesta” (1691)"],"noise":["Sor Juana Inés De La Cruz, Francisco Ramírez Santacruz","The Tenth Muse"]},{"qid":"Q171195","name":"Nāgārjuna","catalog":"openalex","count":2,"positive":["[ Nagarjuna] Middle Way","SUHṚLLEKHA","Suh-ki-li-lih-kiu: The Suhṛillekha Or 'friendly Letter' Addressed to King Sadvaha"],"noise":["Khichdi Viplava Dekha Mamne","Kumbhipak","Nai Paudh","AKAAL AUR USKE BAAD - HINDI NAGARJUNA","Nāgārjuna Philosophy Middle Path"]}]){
+      await page.evaluate(c=>window.__timelineFixture({displayName:c.name,catalog:c.catalog},[...c.positive,...c.noise].map(title=>({title,authors:[{name:c.name}],year:2020}))),c);
+      assert.equal(await life.count(),1,c.name+" contextual history missing");
+      await life.locator(".author-intellectual-history-toggle").click();
+      assert.match(await life.locator(".author-intellectual-history-toggle").textContent(),/Identificación contextual/);
+      assert.match(await life.textContent(),/No confirman que todas las obras/);
+      assert.equal(await life.locator(".author-intellectual-history-event").count(),Math.min(3,c.count));
+      await life.locator(".author-history-evidence summary").first().click();
+      await life.getByText("Referencias consultadas",{exact:true}).first().waitFor({state:"visible"});
+      await geometry();
+    }
     await page.close();
     process.stdout.write("author timeline OK: "+width+"px "+mode+"\n");
   }
