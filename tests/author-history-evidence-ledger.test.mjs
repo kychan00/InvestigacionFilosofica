@@ -19,7 +19,7 @@ test("editorial evidence ledger covers every current milestone without stale or 
    for(const ev of row.evidence){assert.equal(new URL(ev.url).protocol,"https:");assert.ok(ev.locator.trim());}
   }else{assert.equal(row.evidence,undefined);assert.equal(row.reviewedOn,undefined);}
  }
- assert.equal(ledger.entries.filter(x=>x.status==="contrasted").length,197);
+ assert.equal(ledger.entries.filter(x=>x.status==="contrasted").length,199);
  for(const [qid,count] of [["Q43216",3],["Q4604",4],["Q171195",2],["Q8018",7],["Q8011",5],["Q39837",4],["Q127398",5],["Q9438",8],["Q9191",7],["Q9358",9],["Q7197",8],["Q60025",9],["Q60028",6],["Q33760",8],["Q235134",7]]){
   const rows=ledger.entries.filter(x=>x.qid===qid);
   assert.equal(rows.length,count);assert.ok(rows.every(x=>x.status==="contrasted"));
@@ -40,12 +40,22 @@ test("modern chronology records distinct editions and source access limitations"
  assert.ok(map.get("Q235134-3").evidence.some(e=>e.locator.includes("mantenimiento")));
 });
 
-test("Latin American audit distinguishes indexed evidence from opened sources and retains unresolved issues",()=>{
- const rows=ledger.entries.filter(e=>["Q183074","Q473518","Q1091141","Q1879022","Q335544","Q601364","Q7412445","Q2370396","Q365193","Q891708","Q5711746"].includes(e.qid));
- assert.equal(rows.length,86);
- assert.equal(rows.filter(e=>e.status==="contrasted").length,84);
- assert.equal(rows.filter(e=>e.status==="contrasted"&&e.evidence.every(s=>s.access==="indexed")).length,37);
- for(const e of rows.filter(e=>e.status==="contrasted"))for(const s of e.evidence)assert.ok(["direct","indexed"].includes(s.access),e.id);
- assert.deepEqual(rows.filter(e=>e.status==="pending").map(e=>e.id).sort(),["Q473518-2","Q601364-9"]);
- for(const e of rows.filter(e=>e.status==="pending")){assert.ok(e.reviewIssue);assert.ok(e.candidateSources.length);}
+test("consolidation preserves evidence levels and 30 authority page title checks",()=>{
+ assert.equal(ledger.authorityChecks.length,30);
+ const names=new Map(intellectualHistoryAuthorities().map(a=>[a.id,a.name]));
+ assert.equal(new Set(ledger.authorityChecks.map(a=>a.qid)).size,30);
+ for(const a of ledger.authorityChecks){
+  assert.equal(a.author,names.get(a.qid));assert.equal(a.url,"https://www.wikidata.org/wiki/"+a.qid);assert.ok(a.observedPageTitle.trim());assert.equal(a.scope,"page-title-match");
+ }
+ const counts={"direct-recorded":0,"legacy-unclassified":0,"indexed-only":0};
+ for(const row of ledger.entries){
+  assert.equal(row.status,"contrasted");assert.ok(row.evidence.length);
+  for(const s of row.evidence)assert.ok(["direct","indexed","legacy-unclassified"].includes(s.access),row.id);
+  const expected=row.evidence.some(s=>s.access==="direct")?"direct-recorded":row.evidence.some(s=>s.access==="legacy-unclassified")?"legacy-unclassified":"indexed-only";
+  assert.equal(row.accessLevel,expected);counts[expected]++;
+ }
+ assert.deepEqual(counts,ledger.accessSummary);
+ const map=new Map(ledger.entries.map(e=>[e.id,e]));
+ for(const id of ["Q473518-2","Q601364-9"]){assert.ok(map.get(id).previousReviewIssue);assert.ok(map.get(id).resolution);assert.equal(map.get(id).accessLevel,"direct-recorded");}
+ assert.match(map.get("Q473518-2").evidence[0].url,/clacso/);
 });
