@@ -1012,7 +1012,14 @@
       "date": "c. 1225",
       "type": "birth",
       "title": "Nacimiento cerca de Aquino",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1, Life: nacimiento cerca de Aquino hacia 1225."
+        }
+      ]
     },
     {
       "id": "Q9438-1",
@@ -1022,7 +1029,14 @@
       "date": "1248",
       "type": "career",
       "title": "Estudios en Colonia bajo la dirección de Alberto Magno",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1: traslado a Colonia en 1248 bajo Alberto Magno."
+        }
+      ]
     },
     {
       "id": "Q9438-2",
@@ -1032,7 +1046,14 @@
       "date": "1252–1256",
       "type": "composition",
       "title": "Redacción de De ente et essentia",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "Bibliography A3, Brief Works: De ente et essentia, 1252–1256."
+        }
+      ]
     },
     {
       "id": "Q9438-3",
@@ -1042,7 +1063,14 @@
       "date": "1256–1259",
       "type": "career",
       "title": "Primera etapa como maestro de teología en París",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1: cátedra dominica de teología en París, 1256–1259."
+        }
+      ]
     },
     {
       "id": "Q9438-4",
@@ -1052,7 +1080,14 @@
       "date": "1259–1265",
       "type": "composition",
       "title": "Redacción de Summa contra gentiles",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "Bibliography A1: Summa contra gentiles, 1259–1265."
+        }
+      ]
     },
     {
       "id": "Q9438-5",
@@ -1062,7 +1097,14 @@
       "date": "1267–1273 (inconclusa)",
       "type": "composition",
       "title": "Redacción de Summa theologiae",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "Bibliography A1: Summa theologiae, 1267–1273, inconclusa; §1.2 distingue el suplemento de los discípulos."
+        }
+      ]
     },
     {
       "id": "Q9438-6",
@@ -1072,7 +1114,14 @@
       "date": "1268–1272",
       "type": "career",
       "title": "Segunda etapa de enseñanza en París",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1: retorno a París en 1268 y salida en 1272."
+        }
+      ]
     },
     {
       "id": "Q9438-7",
@@ -1082,7 +1131,14 @@
       "date": "1274",
       "type": "death",
       "title": "Fallecimiento en la abadía de Fossanova",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/aquinas/",
+          "locator": "§1.1: fallecimiento en la abadía de Fossanova en marzo de 1274."
+        }
+      ]
     },
     {
       "id": "Q4604-0",
@@ -1370,7 +1426,14 @@
       "date": "354",
       "type": "birth",
       "title": "Nacimiento en Tagaste, en el norte de África romano",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§1, Life: nacimiento en Tagaste en África romana, 354."
+        }
+      ]
     },
     {
       "id": "Q8018-1",
@@ -1380,7 +1443,18 @@
       "date": "383",
       "type": "career",
       "title": "Traslado a Roma para enseñar retórica",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2018/entries/augustine/",
+          "locator": "§1, Context: viaje a Roma en 383 después de enseñar retórica en África."
+        },
+        {
+          "url": "https://plato.stanford.edu/archives/spr2019/entries/augustine/",
+          "locator": "§1, Context: viaje a Roma motivado por la búsqueda de mejores estudiantes."
+        }
+      ]
     },
     {
       "id": "Q8018-2",
@@ -1390,7 +1464,14 @@
       "date": "386–387 (aprox.)",
       "type": "composition",
       "title": "Redacción de Contra los académicos y otros diálogos de Casiciaco",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§2, Work: diálogos de Casiciaco, 386/387, entre ellos Contra Academicos."
+        }
+      ]
     },
     {
       "id": "Q8018-3",
@@ -1400,7 +1481,14 @@
       "date": "387",
       "type": "career",
       "title": "Bautismo en Milán por Ambrosio",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§1, Life: bautismo por Ambrosio en Pascua de 387."
+        }
+      ]
     },
     {
       "id": "Q8018-4",
@@ -1410,7 +1498,18 @@
       "date": "397–401 (aprox.)",
       "type": "composition",
       "title": "Redacción de Confesiones",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2018/entries/augustine/",
+          "locator": "Bibliography, Selected Latin Texts and Critical Editions: Confessiones, aproximadamente 397–401."
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§2, Work: datación alternativa aproximada 396–400; conservar carácter aproximado del intervalo anterior."
+        }
+      ]
     },
     {
       "id": "Q8018-5",
@@ -1420,7 +1519,18 @@
       "date": "413–427 (aprox.)",
       "type": "composition",
       "title": "Redacción de La ciudad de Dios",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/sum2018/entries/augustine/",
+          "locator": "Bibliography, Selected Latin Texts and Critical Editions: De Civitate Dei, aproximadamente 413–427."
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§2, Work: datación alternativa de inicio en 412 y conclusión en 426. El intervalo existente no es una certeza única."
+        }
+      ]
     },
     {
       "id": "Q8018-6",
@@ -1430,7 +1540,14 @@
       "date": "430",
       "type": "death",
       "title": "Fallecimiento en Hipona",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/augustine/",
+          "locator": "§1, Life: fallecimiento en 430 durante el asedio de Hipona."
+        }
+      ]
     },
     {
       "id": "Q8011-0",
@@ -1440,7 +1557,18 @@
       "date": "c. 970 o 980 (según la fuente)",
       "type": "birth",
       "title": "Nacimiento de Ibn Sina; las dataciones académicas difieren",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1, Life: nacimiento en los años 970, quizá antes; año exacto indeterminado."
+        },
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina-natural/",
+          "locator": "Introducción: emplea la datación 980–1037; confirma la divergencia bibliográfica."
+        }
+      ]
     },
     {
       "id": "Q8011-1",
@@ -1450,7 +1578,14 @@
       "date": "c. 999–1012",
       "type": "career",
       "title": "Salida de Bujará y estancia en Gurganj",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1: salida de Bujará tras la caída samaní y estancia en Gurganj, 999?–1012."
+        }
+      ]
     },
     {
       "id": "Q8011-2",
@@ -1460,7 +1595,14 @@
       "date": "1015–c. 1024",
       "type": "career",
       "title": "Etapa en Hamadán",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1: cronología de estancias en Hamadán, 1015–1024?."
+        }
+      ]
     },
     {
       "id": "Q8011-3",
@@ -1470,7 +1612,14 @@
       "date": "c. 1024–1037",
       "type": "career",
       "title": "Etapa en Isfahán, bajo el patrocinio de ʿAlāʾ al-Dawla",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1: etapa de Isfahán, 1024?–1037, bajo ʿAlāʾ al-Dawla."
+        }
+      ]
     },
     {
       "id": "Q8011-4",
@@ -1480,7 +1629,14 @@
       "date": "1037",
       "type": "death",
       "title": "Fallecimiento de Avicena",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/ibn-sina/",
+          "locator": "§1.1: muerte en Hamadán en 1037."
+        }
+      ]
     },
     {
       "id": "Q39837-0",
@@ -1490,7 +1646,14 @@
       "date": "1126",
       "type": "birth",
       "title": "Nacimiento de Ibn Rushd en Córdoba",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "§1.1, Life: nacimiento en Córdoba en 1126."
+        }
+      ]
     },
     {
       "id": "Q39837-1",
@@ -1500,7 +1663,14 @@
       "date": "c. 1161; revisiones posteriores",
       "type": "composition",
       "title": "Primera redacción del compendio de la Metafísica de Aristóteles",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "Bibliography, A. Works of Ibn Rushd, Metaphysics, Epitome: composición hacia 1161; revisiones hacia 1180 y comienzos de los años 1190."
+        }
+      ]
     },
     {
       "id": "Q39837-2",
@@ -1510,7 +1680,14 @@
       "date": "1163–1184 (reinado)",
       "type": "career",
       "title": "Durante el reinado de Abū Yaʿqūb Yūsuf recibe el encargo de comentar a Aristóteles",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "§1.1: encargo de comentar a Aristóteles por Abū Yaʿqūb Yūsuf; 1163–1184 corresponde al reinado, no al intervalo comprobado del encargo."
+        }
+      ]
     },
     {
       "id": "Q39837-3",
@@ -1520,7 +1697,14 @@
       "date": "1198",
       "type": "death",
       "title": "Fallecimiento en Marrakech",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/archives/spr2023/entries/ibn-rushd/",
+          "locator": "§1.1: fallecimiento en Marrakech en 1198 según uno de los relatos biográficos; la fuente presenta la circunstancia como un testimonio."
+        }
+      ]
     },
     {
       "id": "Q127398-0",
@@ -1530,7 +1714,14 @@
       "date": "1138 (según SEP)",
       "type": "birth",
       "title": "Nacimiento en Córdoba",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1, Life and Works: nacimiento en Córdoba, 1138 según la datación empleada por el artículo."
+        }
+      ]
     },
     {
       "id": "Q127398-1",
@@ -1540,7 +1731,14 @@
       "date": "1160",
       "type": "career",
       "title": "Llegada de su familia a Fez",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1: llegada a Fez en 1160 tras la salida de Córdoba."
+        }
+      ]
     },
     {
       "id": "Q127398-2",
@@ -1550,7 +1748,14 @@
       "date": "1168",
       "type": "composition",
       "title": "Conclusión del Comentario a la Mishná",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1: conclusión del Commentary on the Mishnah en 1168."
+        }
+      ]
     },
     {
       "id": "Q127398-3",
@@ -1560,7 +1765,14 @@
       "date": "1190",
       "type": "composition",
       "title": "Conclusión de Guía de perplejos",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "§1: conclusión de Guide of the Perplexed en 1190."
+        }
+      ]
     },
     {
       "id": "Q127398-4",
@@ -1570,7 +1782,14 @@
       "date": "1204",
       "type": "death",
       "title": "Fallecimiento",
-      "status": "pending"
+      "status": "contrasted",
+      "reviewedOn": "2026-11-27",
+      "evidence": [
+        {
+          "url": "https://plato.stanford.edu/entries/maimonides/",
+          "locator": "Introducción: intervalo vital 1138–1204."
+        }
+      ]
     },
     {
       "id": "Q171195-0",
