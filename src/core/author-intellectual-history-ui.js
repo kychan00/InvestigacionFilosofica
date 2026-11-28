@@ -15,9 +15,13 @@ function button(label,cls,handler){
 }
 
 let publicEvidencePromise;
+let publicEvidenceAttempt=0;
 function loadPublicEvidence(){
   if(!publicEvidencePromise){
-    publicEvidencePromise=import("./author-history-public-v1.js?v=20261127-history-evidence-v1")
+    // A rejected module URL may remain cached by the browser. Retry with a fresh local URL.
+    const attempt=publicEvidenceAttempt++;
+    const moduleUrl="./author-history-public-v1.js?v=20261127-history-evidence-v1"+(attempt?"&retry="+attempt:"");
+    publicEvidencePromise=import(moduleUrl)
       .then(module=>module.publicHistoryEvidence)
       .catch(error=>{publicEvidencePromise=undefined;throw error;});
   }

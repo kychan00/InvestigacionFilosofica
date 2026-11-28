@@ -68,6 +68,10 @@ try{
      assert.ok((await panel.locator(".author-intellectual-history-date").first().textContent()).includes(c.date));
      if(c.context){assert.match(await toggle.textContent(),/Identificación contextual/);assert.match(await panel.locator(".author-intellectual-history-note").nth(1).textContent(),/no confirma la autoría/);assert.ok(await panel.locator('a[href*="subjectid=500355288"]').count());}
      if(c.archive)assert.equal(await panel.locator(".author-intellectual-history-archive").getAttribute("href"),"./filosofia-latinoamericana.html"+c.archive);
+     const evidence=panel.locator(".author-history-evidence").first();
+     await evidence.locator("summary").click();
+     await evidence.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+     assert.ok(await evidence.locator("a").count()>0);
      const bounds=await panel.evaluate(el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,width:document.documentElement.scrollWidth};});
      assert.ok(bounds.left>=-2&&bounds.right<=width+2&&bounds.width<=width+2,JSON.stringify(bounds));
      await panel.screenshot({path:ARTIFACTS+"/"+index+"-"+width+"-"+theme+".png",animations:"disabled"});

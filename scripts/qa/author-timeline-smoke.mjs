@@ -7,6 +7,8 @@ await mkdir("artifacts/author-timeline",{recursive:true});
 try {
   for(const width of [320,375,390,768,1280]) for(const mode of ["light","dark"]) {
     const page=await browser.newPage({viewport:{width,height:820},hasTouch:width<=768,isMobile:width<=768,deviceScaleFactor:1});
+    const evidenceRequests=[];
+    page.on("request",request=>{if(new URL(request.url()).pathname.endsWith("/author-history-public-v1.js"))evidenceRequests.push(request.url());});
     await page.route("**/*",route=>route.request().url().startsWith(BASE)?route.continue():route.abort());
     await page.goto(BASE,{waitUntil:"domcontentloaded"});
     await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes("author-timeline.css")&&s.cssRules.length>0));
@@ -165,18 +167,44 @@ try {
     assert.equal(await toggle.getAttribute("aria-expanded"),"true");
     assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
     assert.equal(await nodes.count(),1);
+    assert.equal(evidenceRequests.length,0,"Editorial data must not load until a disclosure is opened");
+    const firstEvidence=life.locator(".author-history-evidence").nth(1);
+    const evidenceSummary=firstEvidence.locator("summary");
+    assert.equal(await firstEvidence.locator("a").count(),0);
+    const simulateFailure=width===320&&mode==="light";
+    if(simulateFailure){
+      await page.route(url=>url.pathname.endsWith("/author-history-public-v1.js"),route=>route.abort(),{times:1});
+    }
+    await evidenceSummary.focus();
+    await evidenceSummary.press("Enter");
+    if(simulateFailure){
+      await firstEvidence.getByText(/No se pudieron cargar las notas/).waitFor({state:"visible"});
+      assert.ok(await firstEvidence.locator("a").count()>0,"Fallback links remain usable");
+      await evidenceSummary.click();
+      await evidenceSummary.click();
+    }
+    await firstEvidence.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.match(await firstEvidence.textContent(),/1806.*1807/);
+    assert.equal(await firstEvidence.locator("a").count(),1);
+    assert.match(await firstEvidence.locator("a").first().getAttribute("href"),/^https:/);
+    assert.equal(await firstEvidence.locator("a").first().getAttribute("rel"),"noopener noreferrer");
+    assert.equal(evidenceRequests.length,simulateFailure?2:1,"Load once, with one explicit retry after failure");
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-event").count(),6);
+    await firstEvidence.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.equal(await firstEvidence.getAttribute("open"),"");
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-event").count(),7);
     await life.getByRole("button",{name:"Mostrar menos hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-event").count(),3);
+    await firstEvidence.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.equal(evidenceRequests.length,simulateFailure?2:1,"No extra module requests after pagination");
     for(const shell of ["default","territory","marginalia","observatory"]){
       await page.evaluate(shell=>{document.documentElement.dataset.corpusShell=shell;},shell);
       await geometry();
       const issues=await life.evaluate(section=>{
         const r=section.getBoundingClientRect();
-        return [...section.querySelectorAll("button,li,strong,a,span")].filter(e=>{
+        return [...section.querySelectorAll("button,li,strong,a,span,details,summary,ul,p")].filter(e=>{
           const b=e.getBoundingClientRect();
           return b.width>0&&(b.left<r.left-1||b.right>r.right+1||e.scrollWidth>e.clientWidth+2&&e.clientWidth>0&&getComputedStyle(e).display!=="inline");
         }).map(e=>e.className||e.tagName);
@@ -186,6 +214,9 @@ try {
     }
     await toggle.click();
     assert.equal(await toggle.getAttribute("aria-expanded"),"false");
+    await toggle.click();
+    assert.equal(await life.locator(".author-history-evidence[open]").count(),0,"Closing the biography clears disclosures");
+    await toggle.click();
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q9235",displayName:"Otro autor"},[{title:"Otra obra",year:2020}]));
     assert.equal(await life.count(),0);
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q859",displayName:"Platón"},[]));
@@ -203,6 +234,12 @@ try {
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-kind").last().textContent(),"Publicación póstuma");
+    assert.match(await life.locator(".author-intellectual-history-date").nth(1).textContent(),/1928.*1929/);
+    const arendt=life.locator(".author-history-evidence").nth(1);
+    await arendt.locator("summary").click();
+    await arendt.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.equal(await arendt.locator("a").count(),3);
+    assert.ok(await arendt.locator('a[href*="hannaharendt.net"]').count());
     await geometry();
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q4604",displayName:"孔子"},[{title:"Registro antiguo",year:-500},{title:"Edición moderna",year:2020}]));
     await life.locator(".author-intellectual-history-toggle").click();
@@ -216,7 +253,11 @@ try {
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q8011",displayName:"ابن سينا"},[{title:"Edición crítica",year:1020}]));
     await life.locator(".author-intellectual-history-toggle").click();
     assert.match(await life.locator(".author-intellectual-history-date").first().textContent(),/970 o 980/);
-    assert.equal(await life.locator(".author-intellectual-history-event").first().locator("a").count(),2);
+    const avicenna=life.locator(".author-intellectual-history-event").first();
+    assert.equal(await avicenna.locator("a").count(),0);
+    await avicenna.locator("summary").click();
+    await avicenna.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.equal(await avicenna.locator("a").count(),2);
     assert.equal(await eras.first().textContent(),"Siglo 11 d. C.");
     await geometry();
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q171195",displayName:"Nāgārjuna"},[{title:"Edición moderna",year:2020}]));
@@ -237,7 +278,12 @@ try {
     await life.locator(".author-intellectual-history-toggle").click();
     await life.getByRole("button",{name:"Mostrar más hitos"}).click();
     assert.equal(await life.locator(".author-intellectual-history-kind").nth(4).textContent(),"Edición revisada");
-    assert.equal(await life.locator(".author-intellectual-history-event").nth(4).locator("a").count(),2);
+    const caso=life.locator(".author-intellectual-history-event").nth(4);
+    assert.equal(await caso.locator("a").count(),0);
+    await caso.locator("summary").click();
+    await caso.getByText("Referencias consultadas",{exact:true}).waitFor({state:"visible"});
+    assert.equal(await caso.locator("a").count(),3);
+    assert.ok(await caso.locator('a[href*="tesiunamdocumentos.dgb.unam.mx"]').count());
     await geometry();
     await page.evaluate(()=>window.__timelineFixture({wikidataId:"Q5711746",displayName:"Sebastián Salazar Bondy"},[{title:"Obra",year:2020}]));
     assert.equal(await life.count(),0);
