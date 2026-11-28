@@ -15,11 +15,13 @@
       "evidence": [
         {
           "url": "https://plato.stanford.edu/archives/sum2024/entries/plato/",
-          "locator": "Introducción: 429?–347 a. C.; se conserva el nacimiento aproximado.",
-          "access": "indexed"
+          "locator": "Introducción de la edición de verano de 2024: año de nacimiento 429 a. C. con signo de incertidumbre; no se afirma una fecha exacta.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q859-1",
@@ -420,11 +422,13 @@
       "evidence": [
         {
           "url": "https://www.cervantesvirtual.com/portales/sor_juana_ines_de_la_cruz/autora_cronologia/",
-          "locator": "Fila 1648: posibilidad de 1651; no fija un año inequívoco.",
-          "access": "indexed"
+          "locator": "Cronología, fila 1648, columna Vida y obra: presenta 1648 como posible y conserva 1651 como alternativa.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q183074-1",
@@ -1295,11 +1299,13 @@
       "evidence": [
         {
           "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
-          "locator": "Semblanza: Oaxaca, 27 de febrero de 1882.",
-          "access": "indexed"
+          "locator": "Semblanza institucional, párrafo biográfico inicial: nacimiento el 27 de febrero de 1882 en la ciudad de Oaxaca.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1091141-1",
@@ -1352,11 +1358,13 @@
       "evidence": [
         {
           "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
-          "locator": "Bibliografía: La raza cósmica, 1925.",
-          "access": "indexed"
+          "locator": "Semblanza inicial y párrafo de obras destacadas: La raza cósmica, 1925.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1091141-4",
@@ -1371,11 +1379,13 @@
       "evidence": [
         {
           "url": "https://colnal.mx/integrantes/jose-vasconcelos/",
-          "locator": "Bibliografía: Tratado de metafísica, 1929.",
-          "access": "indexed"
+          "locator": "Párrafo de obras destacadas: Tratado de metafísica, 1929.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1091141-5",
@@ -1428,11 +1438,13 @@
       "evidence": [
         {
           "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
-          "locator": "Semblanza: nacimiento en Ciudad de México en 1912.",
-          "access": "indexed"
+          "locator": "Biografía, primer párrafo: nacimiento el 30 de junio de 1912 en México, Distrito Federal.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1879022-1",
@@ -1447,11 +1459,13 @@
       "evidence": [
         {
           "url": "https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea",
-          "locator": "Archivo de la FFyL: maestría de 1943 con tesis sobre el positivismo.",
-          "access": "indexed"
+          "locator": "Semblanza del Archivo y Taller de Historia Oral de la FFyL: párrafo sobre el grado de maestro en Filosofía de 1943 y tesis sobre el positivismo en México; formación en la UNAM.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1879022-2",
@@ -1523,11 +1537,13 @@
       "evidence": [
         {
           "url": "https://sites.google.com/filos.unam.mx/athoffyl/el-archivo/colecciones/memoria-institucional/leopoldo-zea",
-          "locator": "Archivo de la FFyL: dirección entre 1966 y 1970.",
-          "access": "indexed"
+          "locator": "Semblanza del Archivo y Taller de Historia Oral: párrafo de cargos universitarios; dirección de la Facultad entre 1966 y 1970.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1879022-6",
@@ -1542,8 +1558,10 @@
       "evidence": [
         {
           "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
-          "locator": "Reconocimientos: doctorado honorario de UdeG el 26 de mayo de 1994.",
-          "access": "indexed"
+          "locator": "Biografía UdeG, párrafo de reconocimientos inmediatamente anterior al fallecimiento: doctorado honoris causa otorgado el 26 de mayo de 1994.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         },
         {
           "url": "https://ww1.udg.mx/es/grados-honorificos/leopoldo-zea-aguilar",
@@ -1551,7 +1569,7 @@
           "access": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q1879022-7",
@@ -1566,11 +1584,13 @@
       "evidence": [
         {
           "url": "https://enciclopedia.udg.mx/biografias/zea-aguilar-leopoldo",
-          "locator": "Cierre biográfico: fallecimiento el 9 de junio de 2004.",
-          "access": "indexed"
+          "locator": "Biografía UdeG, último párrafo antes de Juicios y testimonios: fallecimiento el 9 de junio de 2004 en Ciudad de México.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q43216-0",
@@ -2817,8 +2837,10 @@
       "evidence": [
         {
           "url": "https://mariazambrano.org/biografia.html",
-          "locator": "Resultado indexado de biografía: regreso definitivo a España en 1984 tras el exilio.",
-          "access": "indexed"
+          "locator": "Biografía GloMa, sección 1939–1984 El largo exilio, primer párrafo: regreso a España en 1984.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         },
         {
           "url": "https://www.cultura.gob.es/cultura/areas/archivos/mc/centros/cida/4-difusion-cooperacion/4-1-guias-de-lectura/escritoras/zambrano-maria.html",
@@ -2826,7 +2848,7 @@
           "access": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q235134-5",
@@ -2846,11 +2868,13 @@
         },
         {
           "url": "https://mariazambrano.org/biografia.html",
-          "locator": "Resultado indexado de biografía: Premio Cervantes en 1988.",
-          "access": "indexed"
+          "locator": "Biografía GloMa, sección 1984–1991 El regreso: párrafo sobre la fundación de 1987 y el Premio Cervantes al año siguiente, 1988.",
+          "access": "direct",
+          "checkedOn": "2026-11-27",
+          "previousAccess": "indexed"
         }
       ],
-      "accessLevel": "indexed-only"
+      "accessLevel": "direct-recorded"
     },
     {
       "id": "Q235134-6",
@@ -4153,8 +4177,8 @@
     }
   ],
   "accessSummary": {
-    "direct-recorded": 54,
+    "direct-recorded": 66,
     "legacy-unclassified": 109,
-    "indexed-only": 36
+    "indexed-only": 24
   }
 }
