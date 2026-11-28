@@ -1,11 +1,31 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {authorityPreviewRevision,projectAuthorityProfile,PROFILE_PREVIEW_REVISION,buildAuthorityArchiveView,summarizeAuthorityAuthorship,authorityArchiveLabel,projectIdentityState} from "../src/core/author-authority-profile-v2.js";
+import {authorityPreviewRevision,authorityPreviewExitUrl,AUTHORITY_PREVIEW_MODE,projectAuthorityProfile,PROFILE_PREVIEW_REVISION,buildAuthorityArchiveView,summarizeAuthorityAuthorship,authorityArchiveLabel,projectIdentityState} from "../src/core/author-authority-profile-v2.js";
 const row=(id,status,extra={})=>({record:{provider:"Crossref",sourceId:id,title:"Title "+id,year:2020,...extra},contributions:[{decision:{scope:"contribution",status},role:"author"}]});
 test("preview is explicit and disabled by default",()=>{
  assert.equal(authorityPreviewRevision(""),null);
  assert.equal(authorityPreviewRevision("?authorityPreview=true"),null);
- assert.equal(authorityPreviewRevision("?authorityPreview=1"),PROFILE_PREVIEW_REVISION);
+ assert.ok(["opt-in","disabled"].includes(AUTHORITY_PREVIEW_MODE));
+ assert.equal(authorityPreviewRevision("?authorityPreview=1","opt-in"),PROFILE_PREVIEW_REVISION);
+ for(const value of ["?authorityPreview=1&authorityPreview=0","?authorityPreview=1&authorityPreview=1","?authorityPreview=0&authorityPreview=1","?authorityPreview=01"]){
+  assert.equal(authorityPreviewRevision(value,"opt-in"),null);
+ }
+ for(const mode of ["disabled","default-on","production",null]){
+  assert.equal(authorityPreviewRevision("?authorityPreview=1",mode),null);
+ }
+});
+test("preview exit preserves author identity, unrelated parameters, and location anchor",()=>{
+ const input="https://example.org/InvestigacionFilosofica/?view=author&author=Kant&authorId=123&authorityPreview=1&theme=dark#results";
+ const exit=new URL(authorityPreviewExitUrl(input));
+ assert.equal(exit.origin,"https://example.org");
+ assert.equal(exit.pathname,"/InvestigacionFilosofica/");
+ assert.equal(exit.searchParams.get("view"),"author");
+ assert.equal(exit.searchParams.get("author"),"Kant");
+ assert.equal(exit.searchParams.get("authorId"),"123");
+ assert.equal(exit.searchParams.get("theme"),"dark");
+ assert.equal(exit.hash,"#results");
+ assert.equal(exit.searchParams.has("authorityPreview"),false);
+ assert.equal(authorityPreviewRevision(exit.search,"opt-in"),null);
 });
 test("work grouping uses identifiers not titles, and preserves conflicting source decisions",()=>{
  const a=row("1","probable",{doi:"10.1234/test",title:"Same"});

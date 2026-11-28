@@ -19,7 +19,7 @@
       "name-variants": 40,
       "initials": 30
     },
-    "note": "Proposed pre-registered design; not yet collected or adjudicated. Separate tasks for identity, contribution and portrait."
+    "note": "300 purposive case slots collected and bound to documentary review packets; independent adjudication is not complete. Keep identity-pair, name-retrieval, reference-person-retrieval, contribution and portrait metrics separate."
   },
   "contribution": {
     "minimumReviewed": 100,
@@ -35,6 +35,7 @@
   "notes": [
     "Proposed thresholds for review before activation; not empirical claims.",
     "The 100-pair snapshot is a development pilot, not independent final gold.",
-    "Passing technical CI does not approve a production release. Explicit human approval and a separate reviewed activation change are required."
+    "Passing technical CI does not approve a production release. Explicit human approval and a separate reviewed activation change are required.",
+    "Only opt-in or disabled runtime modes are supported. A preview deploy does not imply default activation."
   ]
 }

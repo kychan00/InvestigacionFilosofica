@@ -62,7 +62,7 @@ import {
 } from "../src/core/author-provenance.js?v=20261112-author-orcid-v1";
 
 import { discoverAuthorArchive } from "../src/core/author-deep-discovery.js?v=20261127-authority-v2-phase7b";
-import {authorityPreviewRevision,mountAuthorAuthorityPreview,buildAuthorityArchiveView,authorityArchiveLabel} from "../src/core/author-authority-profile-v2.js?v=20261127-phase7c";
+import {authorityPreviewRevision,authorityPreviewExitUrl,mountAuthorAuthorityPreview,buildAuthorityArchiveView,authorityArchiveLabel} from "../src/core/author-authority-profile-v2.js?v=20261127-phase7c3";
 import { findSnapshotAuthorIdentity } from "../src/core/author-identity-lookup.js?v=20261127-classical-v1";
 import { findCuratedAuthorIdentity } from "../src/core/author-curated-identities.js?v=20261101-curated-author-v1";
 import {workCollaboration,summarizeAuthorCollaborations} from "../src/core/author-collaborations.js?v=20261101-accurate-attribution-v1";
@@ -7594,7 +7594,7 @@ function renderFilteredResults() {
       );
 
     if(authorAuthorityPreviewRevision){
-      try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading,archive:authorAuthorityArchive,onOpenWork:work=>openRecord(work)}); }
+      try { mountAuthorAuthorityPreview(resultsEl.querySelector("#author-authority-preview"),{shadow:authorAuthorityShadow,loading:authorArchiveLoading,archive:authorAuthorityArchive,onOpenWork:work=>openRecord(work),previewExitHref:authorityPreviewExitUrl(window.location.href)}); }
       catch(error){ console.warn("Author Authority preview unavailable",error); }
     }
     if(!authorAuthorityPreviewRevision||!authorArchiveLoading){

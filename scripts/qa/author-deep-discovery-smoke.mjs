@@ -125,6 +125,25 @@ try{
     path:"artifacts/author-deep-discovery/"+theme+(preview?"-v2":"")+"-profile-390.png",
     animations:"disabled"
   });
+  if(preview){
+    // Verify the actual application navigation, not a fixture-only mode toggle.
+    const exit=page.getByRole("link",{name:"Salir de la vista experimental"});
+    const destination=new URL(await exit.getAttribute("href"));
+    assert.equal(destination.searchParams.has("authorityPreview"),false);
+    assert.equal(destination.searchParams.get("authorId"),id);
+    assert.equal(destination.searchParams.get("author"),name);
+    assert.equal(destination.hash,"#results");
+    await Promise.all([page.waitForURL(u=>!u.searchParams.has("authorityPreview")),exit.click()]);
+    await page.waitForFunction(()=>document.querySelectorAll(".author-work-grid .result-card").length===4,null,{timeout:30000});
+    const reverted=await page.evaluate(()=>({
+      titles:[...document.querySelectorAll(".author-work-grid .result-card h2")].map(x=>x.textContent.trim()).sort(),
+      preview:document.querySelectorAll("#author-authority-preview,.authority-preview-card-label,.siva-authority-preview").length
+    }));
+    assert.equal(reverted.preview,0);
+    assert.deepEqual(reverted.titles,state.titles.slice().sort(),"Rollback must preserve canonical bibliography");
+    assert.equal(urls.length,0,"Rollback must not call direct OpenAlex API");
+    console.log("AUTHORITY_V2_ROLLBACK "+JSON.stringify({theme,canonicalWorks:reverted.titles.length,experimentalLabels:reverted.preview,directOpenAlexRequests:urls.length}));
+  }
   await page.close();
   process.stdout.write("Hugging Face author archive "+theme+" OK\n");
  }

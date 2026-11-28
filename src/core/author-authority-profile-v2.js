@@ -1,7 +1,18 @@
 // Read-only preview: never controls the canonical archive, identity, or saved data.
 export const PROFILE_PREVIEW_REVISION="5a4a195085de54bf607a6c4397092ffb32716dcc";
-export function authorityPreviewRevision(search=""){
- return new URLSearchParams(search).get("authorityPreview")==="1"?PROFILE_PREVIEW_REVISION:null;
+// This is a static deployment switch, not a user preference or scientific gate.
+// Roll back all new preview sessions by setting "disabled" and redeploying.
+// No supported runtime mode enables V2 by default.
+export const AUTHORITY_PREVIEW_MODE="opt-in";
+export function authorityPreviewRevision(search="",mode=AUTHORITY_PREVIEW_MODE){
+ if(mode!=="opt-in")return null;
+ const values=new URLSearchParams(search).getAll("authorityPreview");
+ return values.length===1&&values[0]==="1"?PROFILE_PREVIEW_REVISION:null;
+}
+export function authorityPreviewExitUrl(href){
+ const url=new URL(href);
+ url.searchParams.delete("authorityPreview");
+ return url.href;
 }
 export const PROFILE_STATES=["confirmed","probable","ambiguous","unresolved","rejected"];
 const labels={confirmed:"Confirmadas",probable:"Probables",ambiguous:"Ambiguas",unresolved:"No resueltas",rejected:"Rechazadas"};
@@ -93,11 +104,16 @@ function el(doc,tag,txt,cls){
  if(cls)node.className=cls;
  return node;
 }
-export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=null,onOpenWork,identityDecision=null}={}){
+export function mountAuthorAuthorityPreview(root,{shadow,loading=false,archive=null,onOpenWork,identityDecision=null,previewExitHref=null}={}){
  if(!root)return;
  const d=root.ownerDocument;
  root.replaceChildren();
  root.append(el(d,"p","Author Profile V2 · evaluación experimental","authority-preview-kicker"),el(d,"h2","Evidencia bibliográfica"),el(d,"p","Se evalúan atribuciones al perfil seleccionado, no se certifica la identidad de la persona. El archivo habitual, la cronología y sus estadísticas siguen siendo los originales."));
+ if(previewExitHref){
+  const exit=el(d,"a","Salir de la vista experimental","authority-preview-open");
+  exit.href=previewExitHref;
+  root.append(exit);
+ }
  const identityState=projectIdentityState(identityDecision);
  root.append(el(d,"p","Identidad humana V2: "+singular[identityState]+". La evaluación bibliográfica es independiente.","authority-preview-identity"));
  if(loading||!shadow||shadow.error){

@@ -12,6 +12,8 @@ on:
       - "src/core/author-authority-evidence-v2.js"
       - "scripts/authority/run-shadow-v2.mjs"
       - "scripts/authority/report-release-readiness-v2.mjs"
+      - "scripts/authority/report-preview-release-v2.mjs"
+      - "src/core/author-authority-profile-v2.js"
       - "scripts/authority/build-holdout-v2.mjs"
       - "scripts/authority/build-reference-holdout-v2.mjs"
       - "scripts/authority/audit-jsonl-integrity-v2.mjs"
@@ -164,6 +166,9 @@ jobs:
 
       - name: Report V2 scientific readiness (no activation)
         run: node scripts/authority/report-release-readiness-v2.mjs artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/release/readiness.json
+
+      - name: Verify opt-in preview release and rollback contract
+        run: node scripts/authority/report-preview-release-v2.mjs artifacts/author-authority-v2/release/readiness.json artifacts/author-authority-v2/release/preview-contract.json
 
       - name: Upload V2 scientific readiness report
         if: always()
