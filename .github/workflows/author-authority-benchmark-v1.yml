@@ -20,6 +20,10 @@ on:
       - "scripts/authority/read-snapshot-jsonl.mjs"
       - "scripts/authority/build-documentary-review-v2.mjs"
       - "scripts/authority/build-scoped-review-v2.mjs"
+      - "scripts/authority/build-review-workbench-v2.mjs"
+      - "scripts/authority/review-workbench-v2-browser.js"
+      - "src/core/author-authority-review-workbench-v2.js"
+      - "tests/author-authority-review-workbench-v2.test.mjs"
       - "src/core/author-authority-scoped-review-v2.js"
       - "tests/author-authority-scoped-review-v2.test.mjs"
       - "tests/author-authority-human-audit-evidence.test.mjs"
@@ -143,6 +147,20 @@ jobs:
 
       - name: Build contribution and portrait review packets
         run: node scripts/authority/build-scoped-review-v2.mjs artifacts/author-authority-v2/documentary-review artifacts/author-authority-v2/portrait-live/report.json artifacts/author-authority-v2/scoped-review
+
+      - name: Test offline review workbench contracts
+        run: node --test tests/author-authority-review-workbench-v2.test.mjs
+
+      - name: Build self-contained scientific review workbench
+        run: node scripts/authority/build-review-workbench-v2.mjs artifacts/author-authority-v2/snapshot artifacts/author-authority-v2/documentary-review artifacts/author-authority-v2/scoped-review artifacts/author-authority-v2/review-workbench
+
+      - name: Upload offline scientific review workbench
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: author-authority-v2-review-workbench
+          path: artifacts/author-authority-v2/review-workbench/
+          if-no-files-found: warn
 
       - name: Upload scoped documentary review packets
         if: always()
